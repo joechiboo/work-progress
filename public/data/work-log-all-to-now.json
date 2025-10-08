@@ -1,0 +1,4400 @@
+{
+  "period": {
+    "start": "(all)",
+    "end": "2025-10-08",
+    "weeks": null
+  },
+  "author": "UCL\\\\joechiboo",
+  "summary": {
+    "totalCommits": 536,
+    "projectCount": 16,
+    "dailyAverage": null
+  },
+  "projects": [
+    {
+      "name": "WebApiService",
+      "totalCommits": 1,
+      "commits": [
+        {
+          "hash": "d6c09a6305468ed02063553ca22a2e9fb263ef8b",
+          "date": "2025-06-05",
+          "message": "這麼一大包，但只用到小小的部分 斟酌",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "SyncLisData",
+      "totalCommits": 21,
+      "commits": [
+        {
+          "hash": "4ddb3a99fb3055a1868f53bbf46374225782d9ea",
+          "date": "2025-10-08",
+          "message": "加入 CreateBLG TNO 追蹤 log，註解超過兩年封存資料查詢",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6eaf2fa9aa83e4a1cb2cd3d76e5317592e3c4a4f",
+          "date": "2025-10-07",
+          "message": "修正 CHKINDATE 欄位 NULL 處理，調整富盈模式為僅保留 Ord > Blg",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cc323e7a0fea81c4fc4927bc1fdd30f6f06aa70b",
+          "date": "2025-05-06",
+          "message": "1. 醫令轉入條件調整，應該不管有無簽收都要轉入 2. 更新狀態 method 擴充，並調整流程，醫令轉入完 要更新為 \"P\"",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "20fff9d4de1e26adbd0cdf6332d80da05b17017c",
+          "date": "2025-05-05",
+          "message": "調整成一致條件，避免意外",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0cf666d1ddef83be5c1200960d6aa7b4c1d19d7f",
+          "date": "2025-05-05",
+          "message": "加入 config 控制是否需顯示 sql 幫助排查問題, 調整轉入醫令簽收條件",
+          "body": "",
+          "category": "配置",
+          "tags": []
+        },
+        {
+          "hash": "1831dafa59d99f1a6e57aa2f05073f1e275c59ba",
+          "date": "2025-04-30",
+          "message": "新增參數控制轉入醫令邏輯",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "22586a981233a80bdae2e44a9e8ebd435db1507c",
+          "date": "2025-04-17",
+          "message": "UpdateLISDATAStatus include RECEDATE",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3cd459b3c6a3e816433a157f3f2c29eee27219dd",
+          "date": "2025-04-16",
+          "message": "fix 重複寫入 TNO",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a50f4694d4709c49c8d9f05919a707e54e7f8607",
+          "date": "2025-04-16",
+          "message": "HCLITF.P_ORDH 有放 SEQNO",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b03091b39d013932eab1307421edda9ed821922c",
+          "date": "2025-04-11",
+          "message": "解決套餐問題",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6d0ca9233b6b568fd615d7333d7694cec76e380e",
+          "date": "2025-04-11",
+          "message": "修正回傳值 L_RCODE",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f741b2eaf317119a36e817ce3ac69472eb6a3b0b",
+          "date": "2025-04-09",
+          "message": "ORD 轉 BLG 過程中, ID_INVNO 檢體標示，使用 HIS 提供的 SEQNO 若找不到 則使用病歷號對當日最早的一筆 SEQNO",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2e5a1fa50ca04a7332268203d2b4fe37b6b891d3",
+          "date": "2025-04-09",
+          "message": "1. 加入參數可以控制同步時間長度 2. ※ 重大改動 ※ 假設：同一人同一天只會有一個相同的檢驗項目 > 用於 從 Prd 環境 更新檢驗值至 Test 環境",
+          "body": "",
+          "category": "測試",
+          "tags": []
+        },
+        {
+          "hash": "3d1eca0cfeba8739312a9e2aa3f0ddbb0e7fc8ff",
+          "date": "2025-04-03",
+          "message": "1. 整合 method GetMapping() 2. 排除非送聯合的Mapping",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c1520fd4c1610f0d34a32b6b5de6c04a2b7707b6",
+          "date": "2025-03-14",
+          "message": "都寫審核",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f26949e4e2ba7ac0baba8f1209fc2f783f23e992",
+          "date": "2025-03-14",
+          "message": "新增 StepIV. 將正式庫的ORD_DLT 同步至 測試環境的 ORD_DTL",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "82c1ad619501c5a2ebff5088b6250894521b5099",
+          "date": "2025-03-14",
+          "message": "已簽收才轉",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f3006724b7b1378628412afd6fb9ad56a2726183",
+          "date": "2025-02-12",
+          "message": "相同名稱變數使用兩次 error",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "80c91443ff86a26333af1edf10ae162d8d3c6e49",
+          "date": "2025-02-12",
+          "message": "支援封存資料寫回 BLG 功能",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "535cd356e5cad60e0b46d3996306fd891fd8c153",
+          "date": "2025-02-12",
+          "message": "GetOrderNotBLG() 應使用 base.GetOrderNotBLG() 避免呼叫自己",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "214d32d64f41700eaa2414576808ac7b0335b601",
+          "date": "2025-02-11",
+          "message": "Initial commit",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "LocalPrintHttpService",
+      "totalCommits": 4,
+      "commits": [
+        {
+          "hash": "cd77e182629fc15aa1fda3c51f330b8deccc9387",
+          "date": "2025-07-11",
+          "message": "拔掉 time sleep 讓他更順暢",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "177af3e5cbb667cc30bf736a85aa02bead49d103",
+          "date": "2025-06-26",
+          "message": "拆分 QRCode & tno",
+          "body": "QRCode 邏輯 tno_itemCode_Year",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "010a85968c7492520e3a25b00752b16bb5668c24",
+          "date": "2025-06-26",
+          "message": "1. 新增 QRCode 列印模式 2. 切一個 function 讓以後中文字可以輸出異體字 3. 增加uri註解幫助以後測試",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "80333b9f3ebd916d2ac10d2689cf96eee76bcbbe",
+          "date": "2025-05-15",
+          "message": "預設不啟動富盈模式 PID支援中文傳入 嘗試解決異體字 a. TSCLIB_DLL.windowsfontU b. 若遇到 bug (text[0] == 0) 的情況 call 舊的  TSCLIB_DLL.windowsfont",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "lisweb",
+      "totalCommits": 368,
+      "commits": [
+        {
+          "hash": "ad725b8fe7019816867c51da3acd86eabcef1639",
+          "date": "2025-10-08",
+          "message": "feat: 實作 Progressive Web App (PWA) 支援",
+          "body": "## 新增功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3b801b512ade54fb392134d7043ae8b605dd386e",
+          "date": "2025-10-08",
+          "message": "refactor: 訂閱按鈕永久顯示，並優化 iOS 18 設定指引",
+          "body": "## 重要改動",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "e646dd913fc0a702e16d2f753ddd833f4dcbfdf1",
+          "date": "2025-10-07",
+          "message": "feat: 優化 iOS 18 的 Push Notification 設定指引",
+          "body": "## 問題診斷",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2d386284e96d022f230c969d8aa78c476e7fa345",
+          "date": "2025-10-07",
+          "message": "feat: 增強 Push 通知診斷功能，添加詳細狀態檢查",
+          "body": "## 新增診斷項目",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "13aaf467134e80138cc2e375760265c53c513ac7",
+          "date": "2025-10-07",
+          "message": "fix: 修正瀏覽器類型偵測邏輯",
+          "body": "## 問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "7195803d7d2e3c23a7dc13d530741d84bf5e8e37",
+          "date": "2025-10-07",
+          "message": "refactor: 將 Push 通知訂閱和診斷區塊移至頁面底部",
+          "body": "## 改動內容",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "bff124159b3461bc142c5a966fa4f15708ba0a40",
+          "date": "2025-10-07",
+          "message": "refactor: 將 Push 通知診斷區塊改為可收合",
+          "body": "## 改進內容",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "9de18c0f95b330488302c0b48543a59fe032919d",
+          "date": "2025-10-07",
+          "message": "feat: 增強 Push 通知診斷工具",
+          "body": "## 改進內容",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b92e3bdc883cb23e93d08533dee498787fe54970",
+          "date": "2025-10-07",
+          "message": "fix: 修正代班按鈕點擊無反應的問題",
+          "body": "## 問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "5a8762cb39b3b351573b4da3b3e0a761e849ac94",
+          "date": "2025-10-07",
+          "message": "debug: 添加可視化 Push 通知診斷資訊",
+          "body": "## 新增功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f937f69ec436eddb7982471cd85cc5ec52f94472",
+          "date": "2025-10-07",
+          "message": "fix: 修正 iPhone 看不到訂閱按鈕的問題",
+          "body": "## 問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2c128001135318b4374bc6eec1acbc2bd3695ea1",
+          "date": "2025-10-07",
+          "message": "feat: 行政人員取消收檢時發送 Web Push 通知",
+          "body": "## 功能說明",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2ea2a0177f7a44fb27d0b2851a52f7fb47fc9277",
+          "date": "2025-10-03",
+          "message": "feat: 優化手機版收檢查詢互動體驗",
+          "body": "## 手機版改進",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0266da269323a4bf15e8c272f5f42184bb76223c",
+          "date": "2025-10-03",
+          "message": "feat: 優化編譯速度、改進通知功能、設計新圖示",
+          "body": "## 編譯與效能優化",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "eaecb62e2f1f768a41e4127e3998682f0a9bbfae",
+          "date": "2025-10-03",
+          "message": "config: Enable cross-domain notification to docs.ucl.com.tw",
+          "body": "- Set ExternalNotificationBaseUrl to https://docs.ucl.com.tw",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "423db50a7ef39ae4cf4132b93d03a29ce90b6088",
+          "date": "2025-10-03",
+          "message": "docs: Update VAPID key generation to use internal API",
+          "body": "- Change primary method to internal API (/api/VapidKey/Generate)",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8b692b7034c4b00c05155690f7effd83753e6161",
+          "date": "2025-10-03",
+          "message": "docs: Add VAPID key generation guide",
+          "body": "- Explain what VAPID keys are and their purpose",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "92cc2ab9e1fc9d58cc2e8a51cb939c6f5f866fe7",
+          "date": "2025-10-03",
+          "message": "docs: Refactor notification guide to focus on Web Push only",
+          "body": "- Remove all Email/SMTP related content",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "c3e2970f22473d0118e2c6851192bb4690806c57",
+          "date": "2025-10-03",
+          "message": "feat: Add cross-domain notification support",
+          "body": "- Add ExternalNotificationBaseUrl config in Web.config",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d8b9ae6744128385c22f568908f1ccc72edd47bb",
+          "date": "2025-10-03",
+          "message": "docs: Add detailed comments explaining why sw.js must be in root directory",
+          "body": "- Add comprehensive documentation about Service Worker scope",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7a6d1bb7d43f9ec5cff45c04fdbdfa76d0a90a7b",
+          "date": "2025-10-03",
+          "message": "feat: Add email notification testing and improve logging",
+          "body": "- Add TestEmail API endpoint to verify email settings and test sending",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "45ed578cdf591b72e75a137e2c3b98683403230b",
+          "date": "2025-10-02",
+          "message": "refactor: Remove NLog debug statements",
+          "body": "- Remove all NLog logging statements used for debugging",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a582e90fcb37ee2ac1ed2d65d72afd8cc01654d5",
+          "date": "2025-10-02",
+          "message": "fix: Improve push notification message formatting",
+          "body": "- Only show contact info parentheses when there is contact person or phone",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3d3a704bbc354058ad37aec7d4a5e0566eb8267a",
+          "date": "2025-10-02",
+          "message": "refactor: Standardize route name mapping to zero-padded format",
+          "body": "- Change route name mapping logic: normalize \"路線3\" to \"03\" instead of vice versa",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "4f766e90d6978cdbe606a9f98500a7be36014c91",
+          "date": "2025-10-02",
+          "message": "fix: Add logging and fix route name mapping for push notifications",
+          "body": "- Add NLog logging to CollectionController and PushNotificationService for debugging",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "bf544e4e836e859f3fd6506b026816bb0ee3f3b0",
+          "date": "2025-10-02",
+          "message": "feat: Integrate WebPush-NetCore library for push notifications",
+          "body": "- Install WebPush NuGet package (v1.0.12)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "db5f040698a219c8d2a47969ee9a39f6a923890d",
+          "date": "2025-10-02",
+          "message": "feat: Implement real Web Push notification using WebPush library",
+          "body": "- Replace stub implementation with WebPush-NetCore library",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9ae4e055ea153df73d53b9a221963836c1b32265",
+          "date": "2025-10-02",
+          "message": "fix: Reactivate disabled subscriptions when re-subscribing",
+          "body": "- Check for existing subscriptions including disabled ones",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2108c7211847810e25b7653d0beb9562aaccb618",
+          "date": "2025-10-02",
+          "message": "fix: Use BBS connection string for PushSubscriptionRepository",
+          "body": "- Change from non-existent LISConnectionString to BBS",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8f300b54ddf8bd68c4ae0d6c3386bcd39d3b97ec",
+          "date": "2025-10-02",
+          "message": "fix: Add PushSubscription model and repository to project file",
+          "body": "- Add Models\\PushSubscription.cs to LISWeb.csproj",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "12e8fb811358fa232a18bb7901ac3124a8fa6ade",
+          "date": "2025-10-02",
+          "message": "fix: Fix remaining PushSubscription type reference",
+          "body": "- Change List<PushSubscription> to List<Models.PushSubscription>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "24b04ee340466acbd4546ce7e9005e12c4b63e68",
+          "date": "2025-10-02",
+          "message": "fix: Resolve PushSubscription class naming conflicts",
+          "body": "- Rename service layer PushSubscription to PushSubscriptionDto",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "7c239f12b01a572bca00dcbeb0c2fdfd89a939d9",
+          "date": "2025-10-02",
+          "message": "feat: Implement database persistence for push notification subscriptions",
+          "body": "- Create PushSubscription table with SQL schema",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a24587cfda1a05c46ee31d5bd45e2d98eb210a19",
+          "date": "2025-10-02",
+          "message": "fix: Change TestPush endpoint from POST to GET",
+          "body": "- Allow testing via browser URL",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f27fe60ee7ba17286c72861b8af599719026a236",
+          "date": "2025-10-02",
+          "message": "feat: Add test push notification endpoint",
+          "body": "- Add /api/PushNotification/TestPush endpoint for testing",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a1108d8d2a8d4085cd5f8c30388dcf7214039ba4",
+          "date": "2025-10-02",
+          "message": "debug: Add diagnostic info to GetVapidPublicKey API",
+          "body": "- Show both config and service VAPID public keys",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "da3aa2e0cd9dac5c519b5c82d0996846ab4e0e06",
+          "date": "2025-10-02",
+          "message": "chore: Remove sw.js from Scripts folder",
+          "body": "- Service Worker now only exists in root directory /sw.js",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2143b0c1eb5798cedb275404fb2984270b533f17",
+          "date": "2025-10-02",
+          "message": "fix: Move sw.js to root directory for Service Worker registration",
+          "body": "- Copy sw.js from Scripts folder to project root (LISWeb/)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "53856ecdc8619deb2bb4fa7fa17d79fa6c032a4c",
+          "date": "2025-10-02",
+          "message": "fix: Convert collection view files to UTF-8 with BOM to fix Chinese character encoding",
+          "body": "- Convert CollectionQuery.cshtml to UTF-8 with BOM",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "ae52d27f6a96541cb99a1c0351bb7bafaba3cf34",
+          "date": "2025-10-02",
+          "message": "chore: Reorganize HomeController and add httpErrors PassThrough",
+          "body": "- Move collection system methods to dedicated region in HomeController",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c963420c21e1a5a251feb99951c2f117be3b4467",
+          "date": "2025-10-02",
+          "message": "fix: Handle missing VAPID keys gracefully in production",
+          "body": "- Remove automatic key generation in PushNotificationService constructor",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "656159d81c6795b82b2668972c4e9f6dc9881e64",
+          "date": "2025-10-02",
+          "message": "feat: Add VAPID keys configuration and restrict VapidKey API to internal network",
+          "body": "- Add VAPID keys (public/private) to Web.config for push notifications",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7a734c77c8547d7c87e2079fa4ae8bb03986b393",
+          "date": "2025-10-02",
+          "message": "feat: Add VAPID key generation API",
+          "body": "Add VapidKeyController with two endpoints:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "689aa253ff573eda274938939530d3232e1f9b0f",
+          "date": "2025-10-02",
+          "message": "fix: Simplify WebPushService for .NET Framework 4.6.1 compatibility",
+          "body": "Issue: ECCurve and AesGcm not available in .NET Framework 4.6.1",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "91e1f302cfb850d24d16a08b03fd80c38cd94f45",
+          "date": "2025-10-02",
+          "message": "fix: Use CNG API for VAPID implementation and fix sw.js reference",
+          "body": "Changes:",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0c1d426c8940f87c191c7e63118e4c70029e1491",
+          "date": "2025-10-02",
+          "message": "fix: Add missing System.Linq using to CollectionController",
+          "body": "Error: 'List<TodayRouteCollector>' does not contain a definition for 'FirstOrDefault'",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "287425ad5f534b7c82d998c1ac25cbcd16f5dac5",
+          "date": "2025-10-02",
+          "message": "fix: Replace BouncyCastle with .NET built-in ECDsa in VapidHelper",
+          "body": "Issue: Type conflicts between BouncyCastle.Crypto (1.8.9) and BouncyCastle.Cryptography (2.4.0)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3d855e4e88929cfaa9e401aa9b33068957681013",
+          "date": "2025-10-02",
+          "message": "fix: Remove duplicate sw.js file",
+          "body": "- Remove Scripts\\sw.js (duplicate)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "98cd762f13996a8a0452e0ed5af24ea62657fb45",
+          "date": "2025-10-02",
+          "message": "fix: Add missing files to LISWeb.csproj",
+          "body": "Missing C# files:",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0f84badb4b9d7dc83a9b38bda5dbd370bfb1b106",
+          "date": "2025-10-02",
+          "message": "feat: Add push notification subscribe button to CollectionQuery page",
+          "body": "- Add subscribe/unsubscribe toggle button in page header",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "322ffacf3d71d249fbb5d0d1729b1ce04a54be9d",
+          "date": "2025-10-02",
+          "message": "feat: Implement complete Web Push notification",
+          "body": "Backend Implementation:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "10b53082096930f4265c48e5405b642ce7c754b7",
+          "date": "2025-10-02",
+          "message": "refactor: Use internal SMTP settings as default",
+          "body": "- Change default SMTP to internal server (192.168.168.3:25)",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "01c288345a5a3715522618e1d62203e901643c9d",
+          "date": "2025-10-02",
+          "message": "fix: Update notification to route-based collector with substitute handling",
+          "body": "- Change from AssignedCollector to route-based lookup",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cd0614f2540ba002eec1ed653cb86cce3dda4959",
+          "date": "2025-10-02",
+          "message": "refactor: Reorganize Service files into Services folder",
+          "body": "- Move EmailService.cs from Models/ViewModel to Services",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "274df930ad03e4156be80e21c723c1fd992ebf0b",
+          "date": "2025-10-02",
+          "message": "feat: 新增收檢登記 Email 和 Push 通知功能",
+          "body": "功能說明：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "13edb9e99a626f9b1f89c72f61ea1f7a6de8b09b",
+          "date": "2025-10-01",
+          "message": "perf: [LT257] 優化 GetPhoneList 查詢效能 - 12秒降至1秒",
+          "body": "問題：",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "c6019cc67e6cfd732b40682eeb8a4e78da90f9a7",
+          "date": "2025-10-01",
+          "message": "fix: [BT201] 修正套餐項目重複檢查邏輯 - 精確比對 + 收集所有重複項",
+          "body": "問題：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a5e81118868013c70c9d40b1b3fca1e06f7083e7",
+          "date": "2025-09-26",
+          "message": "feat: 更新 SigninRepository 登入相關功能",
+          "body": "更新登入處理邏輯和相關功能。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d6f47e2716dd37ce5e92d4436e3dfc59eebba97c",
+          "date": "2025-09-26",
+          "message": "feat: [LT257] 進入頁面時自動 focus 在實驗室編號欄位",
+          "body": "在頁面載入完成後，自動將游標 focus 到實驗室編號欄位，",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "27a55fb82f4c4a23e4ead8149f9154e7d0a32d0e",
+          "date": "2025-09-26",
+          "message": "feat: [LT257] 調整來源(單位)和實驗室編號欄位順序",
+          "body": "將 LT257 頁面中的欄位順序調整：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0fd4eec0775bc856b279b75a747dee723ef7739e",
+          "date": "2025-09-26",
+          "message": "fix: 修正 SQL 查詢中缺少 TIVD_VALUE 轉換 TEXTVALUE 的 JOIN 邏輯",
+          "body": "新增 TIVD_VALUE 到 TEXTVALUE 的 JOIN 以正確處理線性轉換值的文字描述轉換。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "cb345054106ad862a72177a8f30809d39544f6c1",
+          "date": "2025-09-26",
+          "message": "refactor: 重新整理 SchemaModify 資料夾架構",
+          "body": "- 將相關檔案按功能分類整理到對應子資料夾中",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "264b963fff3925b45b96c7be95f738a41bcf4641",
+          "date": "2025-09-25",
+          "message": "feat: 優化 LT257 電話通知查詢 HAVING 條件",
+          "body": "- 修改 HAVING MIN(OD_ACTION_FLAG) 僅考慮相關項目的 ACTION_FLAG",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "62310d0400f3e4d8c94e7175c5e9a44145d18c15",
+          "date": "2025-09-25",
+          "message": "fix: 移除意外追蹤的 Claude Code 本地設定檔",
+          "body": "- 從版控中移除 .claude/settings.local.json",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9cd62345bf5e899ae1f90d75531ec6e2594a3e75",
+          "date": "2025-09-25",
+          "message": "fix: 修正「待確認」篩選邏輯，包含 SCL_CONFIRMED_STATUS='PENDING' 的記錄",
+          "body": "業務邏輯修正：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "c230e970448bab7ebd4714d974f6e7dac99a5a80",
+          "date": "2025-09-25",
+          "message": "fix: 待確認篩選邏輯正常運作，問題在於測試資料狀態",
+          "body": "診斷結果：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "219a7c7694c6b5cd1632848f969e14fdfbd7e97c",
+          "date": "2025-09-25",
+          "message": "debug: 添加待確認篩選的詳細分析日志",
+          "body": "目的：診斷為什麼「待確認」篩選無法顯示記錄",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1da06ebe9ea29df909eee3e3cc106de87077aef5",
+          "date": "2025-09-25",
+          "message": "fix: 修復前端篩選邏輯作用域問題",
+          "body": "問題分析：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1b639628b2f4ac40ea1224a558196e5e65af54c6",
+          "date": "2025-09-25",
+          "message": "fix: 修正篩選參數傳送邏輯，避免後端無法識別確認狀態",
+          "body": "問題分析：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2fce626513933793001b78a8ee9c1a021315b5a4",
+          "date": "2025-09-25",
+          "message": "fix: 修復篩選條件「待確認/已確認」功能",
+          "body": "修正問題：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "60d26db346173f1896ccca10ed9b772d8240fa68",
+          "date": "2025-09-25",
+          "message": "fix: 完善 AdminConfirm 確認狀態顯示和按鈕控制邏輯",
+          "body": "修正問題：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0eedfb287b160abfad110d50fb72de276042cace",
+          "date": "2025-09-25",
+          "message": "fix: 修復 AdminConfirm API 確認狀態無法正確顯示的問題",
+          "body": "- 在 GetCollectionLogs SQL 查詢中加入 SCL_CONFIRMED_STATUS 欄位",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "21d8fd99fd0bbd0c0516292358043ca83d36db69",
+          "date": "2025-09-25",
+          "message": "fix: 統一用詞為「待確認」",
+          "body": "- 將狀態篩選中的「未確認」改為「待確認」",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "48b1d18892992a46cf22f4ea4d4af51fce039b94",
+          "date": "2025-09-25",
+          "message": "debug: 增強 AdminConfirm 調試功能",
+          "body": "1. **後端調試**：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "725731c0c61ce69f176dde5dea03f4220877ca9c",
+          "date": "2025-09-25",
+          "message": "fix: 修正確認狀態更新問題及收檢員名稱格式",
+          "body": "1. **修正確認狀態更新問題**：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "5c606048b00a9ecd5b87706a6fc41eb7c3d14042",
+          "date": "2025-09-25",
+          "message": "feat: 移除收檢員欄位的電話號碼顯示",
+          "body": "- 新增 formatCollectorName() 函數移除收檢員欄位中的電話號碼",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "991297819893c2577442e54b91a0707e6b2acc5e",
+          "date": "2025-09-25",
+          "message": "feat: 行政確認功能改進與 UI 美化",
+          "body": "1. **修正已取消項目的行政確認**：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "4f5a5b68da7853dfe82b8c3d844ac6ee361a7a0a",
+          "date": "2025-09-25",
+          "message": "feat: 新增行政確認狀態篩選功能",
+          "body": "- 在狀態篩選中新增「已確認」和「未確認」選項",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "62334e53d44829767759442d29e089cc5d2f665e",
+          "date": "2025-09-25",
+          "message": "fix: 修正行政確認按鈕顯示問題",
+          "body": "- 修正使用者角色初始化的時序問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b20dc0c3dcb149a59287b310ae6430d715bae6f2",
+          "date": "2025-09-25",
+          "message": "fix: 修正重複變數定義錯誤",
+          "body": "- 修正 currentUserIdentity 變數在同一作用域重複定義的問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "111f45dc0c04cd4f644fb9ef3e55647dba205b09",
+          "date": "2025-09-25",
+          "message": "fix: 使用 Json.Encode 修正字串編碼問題",
+          "body": "- 改用 Json.Encode() 取代不支援的 JavaScriptStringEncode 方法",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "c5c52a8f7ef2f6cac2dea7cc935f0a0e3dac30c1",
+          "date": "2025-09-25",
+          "message": "fix: 修正 JavaScript 字串編碼問題",
+          "body": "- 使用 Html.JavaScriptStringEncode 確保使用者名稱正確輸出到 JavaScript",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a10ed33e7218faf96266acbda34d179aa991f274",
+          "date": "2025-09-25",
+          "message": "fix: 修正 CollectionQuery.cshtml Razor 語法錯誤",
+          "body": "- 修正 Razor 語法中 JavaScript 變數輸出問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8ff146b03f22809d379a3a919fbd09cd6222d3e3",
+          "date": "2025-09-25",
+          "message": "fix: 優化代班人員功能與清理 debug console.log",
+          "body": "- 修復代班人員路線自動選擇：優先使用今日代班指派路線",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "aed711c94160efd49475ea1865277964f136544e",
+          "date": "2025-09-25",
+          "message": "fix: 修復代班確認 Modal 顯示與代班功能完善",
+          "body": "- 更新代班確認 Modal 為 Bootstrap 5.3 語法，修復顯示問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "efa74ccd53db5d03d94be8578974d530b2d1cff5",
+          "date": "2025-09-25",
+          "message": "fix: 修復代班功能查詢與指派邏輯",
+          "body": "- 修正代班記錄查詢中路線顯示格式為「路線號-原收檢員」",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "196fc6883dde2fdde52c677527a338a90fd4fdee",
+          "date": "2025-09-25",
+          "message": "feat: 優化收檢系統顯示和交互功能",
+          "body": "1. 修正 Bootstrap 5.3 navbar 連結參數問題",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d5a61190dc5be54a88c29bc8a1ef04be116899db",
+          "date": "2025-09-24",
+          "message": "fix: 修正 BT201 navbar 連結的 ActionLink 參數問題",
+          "body": "同樣修正 BT201 連結中 @class 被誤認為路由參數的問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "eed6cb9af1a1282764acabb150dd0ad16186165a",
+          "date": "2025-09-24",
+          "message": "fix: 修正 Bootstrap 5.3 navbar 功能選單連結參數問題",
+          "body": "修正 _LayoutBoot53.cshtml 中 ActionLink 語法錯誤，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d3dd57d2c476b2221555b8b222e6fe809b12b21c",
+          "date": "2025-09-24",
+          "message": "feat: 排除 Claude Code 設定檔案從版控",
+          "body": "新增 .claude/ 目錄到 .gitignore，避免 Claude Code 的設定檔案被版控追蹤",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b72f4fe279e60fd6ff18406b9ac9d20ed3b5f0de",
+          "date": "2025-09-22",
+          "message": "fix: 桃園分部病歷號觸發個資功能改進與安全性修正",
+          "body": "## 主要變更",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "37ed2e546be0468aaf998957f85d340113997fdd",
+          "date": "2025-09-19",
+          "message": "feat: 收檢系統 v2.0 完整重構與UI優化",
+          "body": "## 主要功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f385db8247ebce7bbb1736baa3ee58957a173bc5",
+          "date": "2025-09-19",
+          "message": "feat: 優化 PrintLT277 效能 - 將片語轉換和 FLAG 判斷邏輯移至 SQL 層",
+          "body": "## 主要改進",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f324338113ddc49b135d1459f08fe438d51ff558",
+          "date": "2025-09-18",
+          "message": "feat: 縮短 LT255 前次結果日期格式，節省欄位空間",
+          "body": "- 將前次結果日期從 YYYY-MM-DD 格式縮短為 YY-MM-DD",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d55d3864b483ebba9bab75f083e3fcaa50aa1da2",
+          "date": "2025-09-18",
+          "message": "Merge branch 'main' into feature/bt201-id-apid-autofill",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f46b3af2d1a59ff1b94ad625a97d9ceed93cefce",
+          "date": "2025-09-18",
+          "message": "feat: 限制身分證 00 自動組合功能僅適用於桃園分部 (TY)",
+          "body": "- 在身分證檢查條件中加入 UCL_SITE === \"TY\" 限制",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7dfddd06968fe33a71abf740fc9caacac1e560da",
+          "date": "2025-09-18",
+          "message": "chore: 清理多餘的 console.log 調試訊息",
+          "body": "- 移除 API 回傳資料的 console.log 調試訊息",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "11f1e55d6ac6e4f248dc9daf8ea932cdb5c9b87d",
+          "date": "2025-09-18",
+          "message": "feat: 實作身分證為 \"00\" 時存檔自動組合單位代號_病歷號",
+          "body": "- 在 Save() 函數中加入身分證檢查邏輯",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "db1065ce66c305cee29b9fba30a1961956a130f6",
+          "date": "2025-09-18",
+          "message": "fix: 修正生日欄位空值處理，確保顯示預設值 1900-01-01",
+          "body": "- 在 Controller 加強空字串和 Trim 檢查",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "82a71421f848e36f9c90210d3541e903a07dd1eb",
+          "date": "2025-09-18",
+          "message": "debug: 加入前端 console.log 調試個資載入流程",
+          "body": "- 在 Controller 加入空值生日的預設值設定",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4a1d1770ba1315b00ede4670f1fb238d381c4908",
+          "date": "2025-09-18",
+          "message": "debug: 加強生日欄位的調試資訊和錯誤處理",
+          "body": "- 加入詳細的 BIRTH_DATE 資料庫回傳值調試訊息",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2179f6e48d1c54dfa0f10dbf97fe8c539a95b1da",
+          "date": "2025-09-18",
+          "message": "fix: 修正身分證載入個資功能的錯誤處理",
+          "body": "- 修正 BIRTH_DATE 為空值時的 Convert.ToDateTime 異常",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4647ffddc317f13639bfcad4a7d16100e65eea18",
+          "date": "2025-09-18",
+          "message": "chore: 移除 todo.txt 檔案並清理多餘的 console.log",
+          "body": "- 從專案檔案中移除 todo.txt 的 Content Include",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "16e3809f14c33cb4b2ae2b0ff8c6948cd94bc4dd",
+          "date": "2025-09-18",
+          "message": "fix: 修正病歷號載入個資功能，使用 setTimeout 確保事件正確觸發",
+          "body": "- 使用 setTimeout 延遲觸發 ID_PID change 事件，確保值已設定",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1cf74a0782306f37964191f31b069a3ae734a7c8",
+          "date": "2025-09-18",
+          "message": "fix: 防止病歷號自動帶出個資功能產生無窮迴圈",
+          "body": "- 新增 isUpdatingFromAPID 旗標避免迴圈觸發",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6acb66ab8f9f64844a0ec64f74a32d34245355a1",
+          "date": "2025-09-18",
+          "message": "fix: 修正病歷號自動帶出個資功能，使用 .change() 替代 .trigger('change')",
+          "body": "- 改用 .change() 方法觸發身分證號變更事件",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "24b84d6fc6a2799ed72e082e3b3c04aea8a5756b",
+          "date": "2025-09-18",
+          "message": "feat: 新增 BT201 病歷號自動帶出個資功能",
+          "body": "- 新增 GetDBCodeByAPID API 端點，可透過病歷號和單位查詢對應身分證",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8f9f93556907bbc5d5159deab2522f5500be05c5",
+          "date": "2025-09-18",
+          "message": "feat: BT201 醫師欄位自動帶入上一單同診所醫師功能",
+          "body": "- 存檔成功後記錄醫師代碼，供下一單使用",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "64525b45dfc322254b573934e0b370384c3bceb8",
+          "date": "2025-09-18",
+          "message": "feat: BT201 申報畫面預防保健代號自動填入功能",
+          "body": "- 新增 API 從 ItemCodeForProject 資料表取得預防保健代號清單",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "877cef9831a2129edd25db5a7784530a984721f8",
+          "date": "2025-09-17",
+          "message": "feat: BT101 報表個資隱藏功能優化與全部隱藏選項",
+          "body": "- 將 BT101 報表個資隱藏從 radio button 改為下拉選單",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b0623071ecd4c0512a90ef55cbde5904ff697caf",
+          "date": "2025-09-17",
+          "message": "feat: 新增 F10 清除快捷鍵並優化快捷鍵說明表格",
+          "body": "- 新增 F10 快捷鍵用於執行清除功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d03dfe150c5a25e194c1dffe2e3b76daa373f67f",
+          "date": "2025-09-17",
+          "message": "fix: BT201 AutoTodayVisitDT 修正就醫日期清空問題",
+          "body": "- 修正清除按鈕會清空就醫日期的問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9c4d24a5f81c14318d6acf51c28e796e3c9d71fa",
+          "date": "2025-09-17",
+          "message": "fix: clean up gitignore format for todo.txt",
+          "body": "- Fix line ending issue in gitignore",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b8a3d293438f0165fc247850d364966fbeac533d",
+          "date": "2025-09-16",
+          "message": "fix: auto-load data after route selection in CollectionQuery",
+          "body": "- Fix user route auto-selection using correct API properties (CM_NAME, RouteNames)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b98e31ef49918a74a5232fd3d9b19fe90b99fa24",
+          "date": "2025-09-16",
+          "message": "fix: remove GetRoutes API call in CollectorManagement",
+          "body": "- Replace GetRoutes API call with predefined route options",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a128d948bb5193b3416e0920e82732fa5476aa88",
+          "date": "2025-09-16",
+          "message": "砍掉 todo",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "754c5f8c12ab92bc0f5c30834080821903a116b6",
+          "date": "2025-09-16",
+          "message": "Merge branch 'main' into feature/fix-collector-routes-fk",
+          "body": "# Conflicts:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8cb851a4adda5837f0d3e689bfce5597026e5212",
+          "date": "2025-09-16",
+          "message": "resolve merge conflict: keep simplified schema version",
+          "body": "- Keep HEAD version which uses simplified CM_NOTE field approach",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ed93881b7a18a57c99c54f9231ef8d0cb74027d9",
+          "date": "2025-09-16",
+          "message": "remove todo.txt from version control and add to gitignore",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a24bdcb593b427694aeda2f00ef43ca5d203dd84",
+          "date": "2025-09-16",
+          "message": "remove debug console.log statements",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "44e9b1ab36b547676898c168341c55d0dbee0511",
+          "date": "2025-09-16",
+          "message": "feat: improve CollectionRegister UI layout and collector assignment logic",
+          "body": "- Swap order: unit selection first, then route selection",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ba8fc74437880a6dd1a9e10effa647eebcf17302",
+          "date": "2025-09-16",
+          "message": "fix: update collection system to use simplified schema with route names",
+          "body": "- Change RouteId parameters to RouteName in API endpoints",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "dd243c661c3fccf90d6e83486f8cd3c120ce83ff",
+          "date": "2025-09-16",
+          "message": "feat: Add WS76 workstation items to LT257 GetPhoneList filter",
+          "body": "- Include WS76 items in filter97Items condition for GetPhoneList",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "eab2ff5d2479bf08edd94e68fb22de5303ebc2c7",
+          "date": "2025-09-16",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f3438198fa731253ac88e77b98720520156028bf",
+          "date": "2025-09-16",
+          "message": "refactor: 簡化收檢系統架構，移除複雜關聯表",
+          "body": "- 重構資料庫架構：簡化為 COLLECTORS 和 SPECIMEN_COLLECTION_LOG 兩個主要表",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "9f0dcefebc8e78d8d106c7c4fd715ec7eb2e82e8",
+          "date": "2025-09-16",
+          "message": "fix: 修正 CollectionQuery 路線過濾問題",
+          "body": "- 修正路線過濾時傳遞路線代碼改為路線 ID",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "189faf2104c8a30d497e29afc5fabc852f0a07dc",
+          "date": "2025-09-16",
+          "message": "fix: 修正收檢登記路線 ID 傳遞問題",
+          "body": "- 修正前端傳遞路線代碼改為路線 ID",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4b93d76ee834fc57b920acab898eb11d49c61590",
+          "date": "2025-09-16",
+          "message": "revert: 暫時將 COLLECTOR_ROUTES 欄位改回 CR_ 前綴",
+          "body": "- 資料庫尚未更新結構，先恢復使用 CR_ 前綴",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "773aff19890aa2496818e33c3473828bb75446fc",
+          "date": "2025-09-16",
+          "message": "docs: 新增 COLLECTOR_ROUTES 表結構修正 SQL 腳本",
+          "body": "- 提供 SQL Server 和 Oracle 版本的更新腳本",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "196e78c6e268140b577fde13e32ad13f228f34c1",
+          "date": "2025-09-16",
+          "message": "fix: 修正 COLLECTOR_ROUTES 表的 foreign key 命名衝突",
+          "body": "- 將所有 COLLECTOR_ROUTES 相關欄位從 CR_ 改為 CRR_ 前綴",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "61fd5d07fe4249cf36cb3daeca53a53d0c089afa",
+          "date": "2025-09-16",
+          "message": "fix: 修正 COLLECTOR_ROUTES 表的 foreign key 命名衝突",
+          "body": "- 將 COLLECTOR_ROUTES 表的欄位前綴從 CR_ 改為 CRR_",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "43d1898e8f8fe7fe5769c322a84ef0bc761fddba",
+          "date": "2025-09-15",
+          "message": "hotfix",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "abdf030732bf149aef9750dc391d0bae35bc5d82",
+          "date": "2025-09-15",
+          "message": "不放 todo 好了",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "db0f87445845d5abebfbf8f95b320e26cfba8b0d",
+          "date": "2025-09-15",
+          "message": "resolve: 解決 .claude/settings.local.json 衝突",
+          "body": "- 合併兩邊的 git 權限設定",
+          "category": "配置",
+          "tags": []
+        },
+        {
+          "hash": "11ea250e0b68fb3d10d72091eff52fe6710a21b3",
+          "date": "2025-09-15",
+          "message": "fix: 修正 WS76 工作站項目 readonly 問題",
+          "body": "- 修改 canAuditItem 函數支援 HTML 生成階段和互動階段",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0663a003316ca9d8c8799f49c97d9be8a904e37f",
+          "date": "2025-09-15",
+          "message": "feat: 新增 WS76 工作站項目審核支援",
+          "body": "- 更新 canAuditItem 函數支援兩種審核項目：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "587b085751f4358772c5e4bbb8eaf17b2a07cb8e",
+          "date": "2025-09-15",
+          "message": "feat: 實作 LT257 列出種類後端過濾功能",
+          "body": "- 新增 GetPhoneList API 支援 type 參數 (IMP/CMP) 過濾",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8429fd240b23ea6bdcb6f96caea664f888fe0712",
+          "date": "2025-09-15",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ec4c97fd88a3434826360988352810908fbe7b4d",
+          "date": "2025-09-15",
+          "message": "feat: 收檢系統功能優化與修正",
+          "body": "## 主要更新",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "049167971206c576c7fe2ad12999a40034cbe6fb",
+          "date": "2025-09-12",
+          "message": "feat: 完成收檢系統和收檢員管理功能",
+          "body": "主要新增功能：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7fc6e39f68f31e04c936dd42ca4c50e37368c7d9",
+          "date": "2025-09-12",
+          "message": "feat: 新增 FunctionMenuEdit 父層下拉選單階層縮排顯示",
+          "body": "- 修改 Repository 查詢增加 FD_PARENT 欄位",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0aded85ec000c1a0fbd63d73cf0884b6e5fd9041",
+          "date": "2025-09-12",
+          "message": "fix: functionMenuEdit 修正父層下拉選單 FD_LEVEL 資料傳遞",
+          "body": "- GetDateForModel 方法中加入 FD_LEVEL 欄位推送",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "ebeddb5c50bc928d3ffd6d7be429c0bb949a06d8",
+          "date": "2025-09-12",
+          "message": "feat: functionMenuEdit 父層下拉選單加入層級縮排顯示",
+          "body": "- Repository 查詢加入 FD_LEVEL 欄位並按層級排序",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ff068b52933d2a6d4d8f1b07773fa94ef5531d1c",
+          "date": "2025-09-12",
+          "message": "feat: LT257 聯絡人資訊新增電話號碼顯示",
+          "body": "- 從 HFCLINIC 表新增 CD_TELNO 欄位查詢",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "19ac622dbdc2ef3d493c2f62ba53ba22f1d9babe",
+          "date": "2025-09-12",
+          "message": "feat: LT257 GetPhoneList 新增 9771 檢體退回項目過濾",
+          "body": "- 原條件：97__ 且電話通知",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1b5da3660b5764ccb2abda6575bcc56861e14749",
+          "date": "2025-09-12",
+          "message": "Merge branch 'feature/update-examineviewmodel-contact' into feature/specimen-collection-system",
+          "body": "# Conflicts:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0f5c4db3c6ebfc004275f8cdd10a3d17d5cd0fc9",
+          "date": "2025-09-12",
+          "message": "feat: 修正 ExamineViewModel 恢復 CD_CONTACT 欄位",
+          "body": "- 恢復 ExamineHead 類別中的 CD_CONTACT 屬性",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "21590bb32867eaa60ec42e8fa580a681a3bfd688",
+          "date": "2025-09-12",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ed4b8cfbaa7cb5b3b0d238edda3a2e215e82ddb4",
+          "date": "2025-09-11",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1e1a9303e0055b625274a19fcddf9a6ff3359184",
+          "date": "2025-09-11",
+          "message": "feat: 實作收檢登記表電子化系統",
+          "body": "## 新增功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "570f3253b540835384bdf056534a6465dfe81a49",
+          "date": "2025-09-11",
+          "message": "fix: 移除 PT 外部能力試驗證書區塊",
+          "body": "- 完全移除 PT 外部能力試驗證書的整個 div 區塊",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "113a1788f6a82705a80a69e50c13b1628cdc5835",
+          "date": "2025-09-11",
+          "message": "feat: LT257 頁面新增聯絡人資訊顯示",
+          "body": "- 在單位備註下方新增聯絡人資訊欄位",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9fd276ea7356c7de9e1c75a9cf78ad5f7eae133d",
+          "date": "2025-09-11",
+          "message": "fix: LT257 GetPhoneList 條件調整 - 有提供單號時不過濾 97__ 項目",
+          "body": "- 當有提供具體單號（TNO 或 tnoStart/tnoEnd）時，不套用 97__ 項目過濾",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "53349fc7235c27752fe88c80a6b38daef84b80f9",
+          "date": "2025-09-11",
+          "message": "修復帳別filter問題",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1a6901e837ff11fefd92bcca3b3f84995dd4847e",
+          "date": "2025-09-10",
+          "message": "feat: 實作 LT257 檢驗項目權限控制 - 僅允許 97__ 項目編輯和審核",
+          "body": "- 新增檢驗項目權限控制，非 97__ 項目設為 readonly",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "74612ff98494c5e433693c76d8effcc4730e0586",
+          "date": "2025-09-10",
+          "message": "feat: 新增 LT257 單位備註功能與介面調整",
+          "body": "- 調整右側 ExamineInfo 區塊高度從 70vh 改為 60vh",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5a355f1340f225aed4386445458e6fa4bd22a5be",
+          "date": "2025-09-10",
+          "message": "Merge branch 'main' into LT257電話通報",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "32fde4ac44e8d190847c1a49d309b6e25b6dcd9a",
+          "date": "2025-09-09",
+          "message": "增加了一個「列出」按紐 做了重複觸發的防呆 並調整 layout 讓按鈕維持在一行",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2c5c886de4a33fe875e10b113a9b816e016bcc06",
+          "date": "2025-09-03",
+          "message": "單位顯示改優先讀 ORIGINAL_UNIT_TNO",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f8828906f167a88a12ae7117d5c2718cbe534d48",
+          "date": "2025-09-03",
+          "message": "新增 LT257 電話通報功能",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "31450e8fa6b1ae061cf764234c60b0eb9ca2b192",
+          "date": "2025-08-26",
+          "message": "1.  CASE HORD_DTL.OD_TR_RANGE WHEN 'MRR' THEN OD_MRR_DESC ELSE OD_TR_RANGE END OD_TR_RANGE 2. 順便處理 sql injection",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4411ad0c95ef73de7b90a895b0ea60e0a44b32e8",
+          "date": "2025-08-20",
+          "message": "本來想廢除，因為文管系統已動態包含 在幹部會議提出後，好像沒什麼結論 所以再修正",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e4b8a2fc798a69fdc5b9b2bffd65cc5509e0b8b8",
+          "date": "2025-08-20",
+          "message": "LT276 未通知時，可點選「待檢中」會跳出 Modal視窗，並預設文字「DD-HH24:MI 聯絡人, 客戶已複述確認」 整合過去的 dangerList 流程， 系統將會先新增 FTR ，再 UPDATE OD_TR_VAL 同時將後端支援 97__ ，不再只限制 9751",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "102539a7f220b0c9d01181ee809cbb697506fc61",
+          "date": "2025-08-19",
+          "message": "新增 table",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a31c1f9037edb289acc96d32e38ac952a44af6f1",
+          "date": "2025-08-19",
+          "message": "調整後端query 新增前端 Modal (之後點選 FTEXT 可新增",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ffa0d72502de7c28947e57780d2f320ed27bc7cb",
+          "date": "2025-08-19",
+          "message": "調整金色換成灰色，說金色太明顯 調整F2 說明 按鈕點姓名容易誤按，調整成 checkbox",
+          "body": "",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "305cd419351a3803594848d0417aa29293742afc",
+          "date": "2025-08-19",
+          "message": "新增語法，方便日後維護",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6116a5f7595e6366936b6a06344022c2121f12be",
+          "date": "2025-08-14",
+          "message": "危險數據清單 DangerList 加入 1. F2 功能說明 2. 點擊病患姓名表示 > 不聯繫 (會變黃色) 3. 新增 table (NAME_EXCLUSIONS) 表示非人排除 4. 洗腎室常會有 病床、機台檢驗，無須通報",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a85f7fc65daa87542f965b6db89663bcb0a175d6",
+          "date": "2025-08-14",
+          "message": "台北規則，只要有 97__ 通知時間項目就列出",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "66ce7a76fe1151f56dad079d158dc9bccd93a062",
+          "date": "2025-08-11",
+          "message": "高雄 4515, 4516 同時自行操作又外送，被列了兩次",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "180a6decff6b0824c56484ad3c6f2fc5c24a0c46",
+          "date": "2025-08-08",
+          "message": "小電話整合危急通報",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "84fd1e174286f5b24cd8c9b4fef2957f5843304e",
+          "date": "2025-08-08",
+          "message": "存檔的時候，判斷TI_CODE 是否為 9764 如果是的話，將FTEXT寫入 註解",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d18ca2ee6cc933a900ffb85f9ea0d4d98b3343db",
+          "date": "2025-08-07",
+          "message": "批量修改加入就醫日期欄位",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b5b11cdadb21da96f27e8822acb223ce75234454",
+          "date": "2025-08-06",
+          "message": "好像沒問題，預設多拉一天好了",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "893812352a8123e5fb30bd6980cc47d8acad8258",
+          "date": "2025-08-06",
+          "message": "台中說顏色太深了，要改淺一點",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e65f8ff44c16f6e8e41ab5bbfa82d93a487ad4be",
+          "date": "2025-08-06",
+          "message": "好像差不多了，接下來就是觀察 HORD 2023/8 之前大概還要封存 3 天 然後看一下 ONLINE_LOG 有沒有正常砍",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4b876c71ad11e93435ec7f953d447212e4ef4c76",
+          "date": "2025-08-05",
+          "message": "目前是按單位開，似乎不是長久之計",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f638e7a96dc92b770ee6441c4badf77dadbcb01d",
+          "date": "2025-08-05",
+          "message": "週邊 table 砍一砍，加上文檔說明",
+          "body": "",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b7ac9db056c25741211fa1883725f69d09373e03",
+          "date": "2025-08-05",
+          "message": "存檔時，檢查 RESOURCE CODE, 如果有重複就不進後端了",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "95c4457696f83757629c95ca5dee185cf7a3edb9",
+          "date": "2025-08-04",
+          "message": "遇到FOBT 要改單位 0208 > 0357",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "947666d9b6aaff70ca514c79bdec53c6d8faff58",
+          "date": "2025-08-04",
+          "message": "ORD 參數化，預設保留三個月",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "531c3c76a0decae70688368025c0242424b514ae",
+          "date": "2025-08-01",
+          "message": "新增維護程序",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "23ca52aa2da42263158d0ae92ebe0a721322d690",
+          "date": "2025-07-31",
+          "message": "T909 > P909 講錯了",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7e518b02e80e2682e8ac13f21e279e26831f6e66",
+          "date": "2025-07-31",
+          "message": "+T909",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "83f4cd46f9a59318ef4b7a341ff42c34d2670077",
+          "date": "2025-07-31",
+          "message": "更新 SP",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ddcbda11e08ee296195a6d3c7ec1017020f381c5",
+          "date": "2025-07-29",
+          "message": "持續的調整每日清除 ORD 的 SP，因為大批量一直跑不了 新增一個 job, for 有 HDR 但沒 DTL 的髒資料",
+          "body": "總結一下",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b0165305edcae84bf4ea9c63a386081008fa05c5",
+          "date": "2025-07-18",
+          "message": "新增一系列 002C Oracle 排程 主要目的有： 1. 刪除非今年的 ORD (TNO not like '5%') 2. 封存 HORD > AORD (開了 oracle HCLAB 的新表 非 HCLABA)",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3b6600487bef82abf3309f04a5c6a979cd26a6e1",
+          "date": "2025-07-17",
+          "message": "台北是用 WS43 規則，但高雄工作站不同 include pkgCode P208/P210/P833",
+          "body": "但又發現 P209 排除 ??",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b62e5423eb143439431f0ea12776c89cc0d6d926",
+          "date": "2025-07-17",
+          "message": "先打開這個規則",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ec94b7b3e902e1875b185701d0191eae73f0f83e",
+          "date": "2025-07-16",
+          "message": "參數錯誤修正",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d630bfe4d00f91d03bb9d3aa0c2c9129c9c11044",
+          "date": "2025-07-16",
+          "message": "調整版面, 收斂 是否印帳單/統編/收據 折成一行",
+          "body": "新增欄位 「查員工報告」",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e70364650f8d7144d1959a529ec986b0d9e39017",
+          "date": "2025-07-15",
+          "message": "重構一下",
+          "body": "",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "54ffc4e140cc6db8f58eae4a01ffe423cc4acd89",
+          "date": "2025-07-15",
+          "message": "增加 Modal F9 彈出 Modal 供選擇",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dcb524f5c1d0a5c708200034e626f50eef5b3331",
+          "date": "2025-07-15",
+          "message": "進入頁面時，先讀取 TEXTVALUE 表放在全域變數 當 focus 時，顯示 tooltips blur 時，隱藏",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d8ae8caacbdb3c964f65efc5871fc91aa905a44f",
+          "date": "2025-07-14",
+          "message": "選單太醜了，調整一下",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2e6961f1edd8b762ff01a4bfb138722495c10571",
+          "date": "2025-07-14",
+          "message": "新增刪除功能",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "52fec72af758fc5c9bc8d785d981df317ce69e01",
+          "date": "2025-07-14",
+          "message": "調整預設值起訖時間 起 -15 days 訖 ~23:59",
+          "body": "調整版面 (縮減字數)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9a11b5f06e53aba6a489bffe4c210307468e3c7e",
+          "date": "2025-07-11",
+          "message": "調整一下 query",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cd59eba1df9d4a4b6a2851c613089b4e58949ac8",
+          "date": "2025-07-10",
+          "message": "改用全域變數控制 防止連續列印誤印",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "580550307a2535a6a1d846d3ea88d3fb14866db7",
+          "date": "2025-07-09",
+          "message": "錯誤時，把參數也打出來",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e4fd904733e9c280e20ed3dca5aacb7a8615428a",
+          "date": "2025-07-09",
+          "message": "待檢中顯示黃色 > 發現如果有報告還沒發，會無法通報",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5f17d0f8657fa016de82a6e51f208e8f9235e2fb",
+          "date": "2025-07-09",
+          "message": "修復query",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0dfd1bc5fe94b549d7b2ef4a6911da68ce7f376a",
+          "date": "2025-07-04",
+          "message": "## 📦 PR：新增《自行操作檢驗數量報表》匯出功能",
+          "body": "### ✨ 功能說明",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f28f6dc107bab00b12ce44a9ea40417cce830812",
+          "date": "2025-07-03",
+          "message": "危險數據清單原本有一個特殊規則 特別單位，在特定項目符合規則時列出 但剛打來說不要了",
+          "body": "說是因為二次委外的單位，所以不要通知",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "160eaee264351b1c39654b1aa68ec98e4971efdb",
+          "date": "2025-07-03",
+          "message": "由於資料庫中，TR_AGETO 都是存 DAYS 前人很值覺得就把 DAYS / 365 當作 YEARS 了",
+          "body": "但其實 TR_AGECODE 有分 D/M/Y",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b88a938b4c809d2c4296630652bbe777b4b0b99a",
+          "date": "2025-07-03",
+          "message": "統計欄位",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c609c7f1c010bf37df2e9aa15e445ddc35dc8a39",
+          "date": "2025-07-03",
+          "message": "query 兜好了",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6220886d82235fbdc32f6797fe9602430b9af668",
+          "date": "2025-07-03",
+          "message": "Merge branch 'main' into TAT時效未合格率報表",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f2ba0b7d3a526cd336afcc174b08dcaea20d0018",
+          "date": "2025-07-03",
+          "message": "參數改了BT300B 一拆二 ，後端抓不到",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "772362da20e9e125b5b70b9157b667703d652cfc",
+          "date": "2025-07-03",
+          "message": "config 怎麼設定有問題",
+          "body": "",
+          "category": "配置",
+          "tags": []
+        },
+        {
+          "hash": "595f04b67dd36e986586ec1756e1a957dfc8ba9c",
+          "date": "2025-07-03",
+          "message": "之前好像有處理過 ?",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "18b7314d3d1daf9df7e9a73de056be07c2b3d3aa",
+          "date": "2025-07-02",
+          "message": "串前後端 已可以產生mock xlsx",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "73cbfe82834c285fc25caa8e9fd822ffabebb405",
+          "date": "2025-07-02",
+          "message": "整合單位",
+          "body": "keyin 代號/名稱",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c16ef7046975195fdd7ce4708c9ea3b44776cd20",
+          "date": "2025-07-02",
+          "message": "Layout",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9fd8e8fcba16a87d29998991e8f7f66d38b774df",
+          "date": "2025-07-02",
+          "message": "補檔案 (大寫",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0645b30501fef817f7f28f76441794dc6d4f1aa5",
+          "date": "2025-07-02",
+          "message": "William說很好",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "be3190460f74e5a6e2b469ac0cea8cc30addcdf2",
+          "date": "2025-07-02",
+          "message": "## 📌 調整說明：事件紀錄查詢支援時間區間 + 多筆來源統一處理",
+          "body": "### ✅ 調整內容",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a90046a3faabf03e14b237711646d5cdea89743c",
+          "date": "2025-07-02",
+          "message": "臺中市北屯區文心路四段619號1樓、夾層、2樓、3樓、4樓",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1ac2c57a5252ff7ca35cf938c543f222d8e49ce6",
+          "date": "2025-07-02",
+          "message": "匯出報告可以支援 1. 全部單位 2. 依照選擇單位拆分 sheet",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2b184fdbf40db8e0f416f0ee7b96a13c3f92178c",
+          "date": "2025-07-02",
+          "message": "查詢可以了，報告還要檢查",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "64e1a78ecf9352ec7ea945ecd0e2d723baee8e76",
+          "date": "2025-07-02",
+          "message": "Merge branch 'main' into BT300B-新增繪出功能-項目人次報表",
+          "body": "# Conflicts:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "108bd2ff02c86a2e43ddaa94ff4cae5d2320e783",
+          "date": "2025-07-02",
+          "message": "增加單位改到一半",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "21a1101c8c27b05a0bdff161363fdfea772c91b5",
+          "date": "2025-07-02",
+          "message": "滑鼠點擊可以觸發 單位選定",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e95667ab7d6b67b03cdeb1253dfa37d32a6d0c78",
+          "date": "2025-07-02",
+          "message": "加入代號輸入 但，要enter 才會觸發",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7a6ba9dcb89b1b1ec987f6aa359561dfbfc86358",
+          "date": "2025-07-02",
+          "message": "單位 filter",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6c7957a48f4b93417fd0a78a78088cbdf233d9b8",
+          "date": "2025-07-01",
+          "message": "新增匯出功能",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "98d5735ae8e58e9165d624eedd287c3518c05f69",
+          "date": "2025-06-30",
+          "message": "前端調整： 1. 由於使用者和QC狀態不要自動補10碼，所以將Layout 位置調整了一下 先決定要搜尋什麼，再 keyin TNO",
+          "body": "2. 把查詢種類 change 拔掉了, 不然會跳 TNO 為空",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e86f2f2e22af4e713ae38c3fa40d7087e53db81b",
+          "date": "2025-06-28",
+          "message": "FYI",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "de816ebba0734e90c44b01bfb837055cc4b3adb5",
+          "date": "2025-06-27",
+          "message": "更新醫令閘門",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e080792168fd15fdbb33fcee25f17b2839baaafd",
+          "date": "2025-06-27",
+          "message": "新增 0578 聯準診所 Title 帶大安印章",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ed28bc0f67420cc555e4a50a91e0a5db3dafad8e",
+          "date": "2025-06-27",
+          "message": "新增一個按鈕 Layout",
+          "body": "後續還要",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "795806588bab054ad0e8ddaa0688310dee300539",
+          "date": "2025-06-26",
+          "message": "漏了參數",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "01fa7b723ac9bfce53663e0f6ef0d64157d13704",
+          "date": "2025-06-26",
+          "message": "調整標籤 QRCode format tno _ itemCode _ year",
+          "body": "itemCode 有點怕抓不到，萬一沒有 ATT 就抓第一筆",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ff8e96b54c7b27bb62968482cd298d3e8f460eff",
+          "date": "2025-06-26",
+          "message": "夢雲不想要了，先取消 怕說之後還要用，先遮罩",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "87ebbc61629fb0061b1093e7c6290960a7874a5e",
+          "date": "2025-06-26",
+          "message": "1. 新增一個按鈕控制「顯示套餐頭」 2. 查詢頁(LT225W) 收斂了複雜的參數宣告 3. 顯示頁(PrintWorkList) 新增了一個 helper 收斂重複顯示的 TI_NAME",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "973bc520ea8611e0e4a66fd2e13e36ebacf98452",
+          "date": "2025-06-25",
+          "message": "原本就有縮字 > ... 的功能 但 8 個字不夠，調整為 7 個字",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "145635b07f6e5eb0538419376574cc1c7a22984b",
+          "date": "2025-06-25",
+          "message": "24 > 4",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2bd9b09a3348fc4bd7100c0b131597017653ac87",
+          "date": "2025-06-24",
+          "message": "BT201原本有檔LDTs部份單位無法存檔 但要開個特例 0439",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "fa11e7feffe39e22425cf578740776daacaf1ad1",
+          "date": "2025-06-24",
+          "message": "靜平啟用, 其他單位預設關閉",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "81d3b387bbf5343920646e29fee7c8ca7df91e2d",
+          "date": "2025-06-24",
+          "message": "信件內容調整",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e615f8ad5a9f376fd34c203fc3410366fa795d37",
+          "date": "2025-06-24",
+          "message": "多寫一個單位名稱",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0bcfd7d8f360d79d95d50936280eb08da205f44d",
+          "date": "2025-06-24",
+          "message": "拔掉 Authorise, 後端 HttpClient 不知道怎麼拿授權",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "707b151c94f2e33d6cf9de1ee54865990a78a058",
+          "date": "2025-06-24",
+          "message": "整合 EmailService api",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2eb9c38706bb5d6a6718868800fdf2266aa92830",
+          "date": "2025-06-24",
+          "message": "Merge branch 'main' into 醫令更新通知",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f90dd10a6233f496e67ab559eb02335c52f2a8b6",
+          "date": "2025-06-24",
+          "message": "GetEmail 優先抓醫師 Email 若找不到，再抓單位 Email",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c3d67f768319c8d2a476b8fa42e2c95385326385",
+          "date": "2025-06-23",
+          "message": "1. 新增 config 參數控制開關 2. 比較目前的 DTL 和修改後的 DTL 3. 呼叫通知 api",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e490c87bdcf92313737c741b768556aa1642d121",
+          "date": "2025-06-20",
+          "message": "外送在審核附加報告時，加貼一張標籤在紙本上",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e267ee87f251032620bcb911d1e184c47a4813c0",
+          "date": "2025-06-20",
+          "message": "Auto Verification Control Default Value 9 Block All 檢查了台北的工作站設定，全部都是 9",
+          "body": "",
+          "category": "配置",
+          "tags": []
+        },
+        {
+          "hash": "c90e99cd88639c5c5e04ce4cae4ac4980b719990",
+          "date": "2025-06-20",
+          "message": "印章同名衝突",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "73ee85001c9ce3f973a5b0ba27924aaf92bb7a83",
+          "date": "2025-06-20",
+          "message": "單筆報告查詢增家就醫日期，並客製化桃園版面 (傳真電話 > 就醫日期)",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f08f6bf10531b4a1815277c7308c87439cf992af",
+          "date": "2025-06-20",
+          "message": "點健保申報可以快速切換全申報或全自費",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1ea9a6a40301cf9218e51f813325c2e297c4567f",
+          "date": "2025-06-20",
+          "message": "TaxModal 整合到 BT201 這樣比較好芬站台客製化",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7154198f6c1a7a8e952f7b185507e15982e5b399",
+          "date": "2025-06-20",
+          "message": "更新印章 - 用小畫家做一個 (仿新竹",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "06da7ca14ccc14ef42e766127310d033a04995b0",
+          "date": "2025-06-19",
+          "message": "## 🚀 功能說明：BT201 限制 LDTs 項目輸入",
+          "body": "- 加入 `appConfig.enableBT201LDTsCheck` 設定開關，控制前端是否啟用檢查邏輯。",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "bb10e5a1fb48d4d998ccc7675b4ff696ea2d694c",
+          "date": "2025-06-18",
+          "message": "connection String 連不上直接爆掉",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1b15ed0be16dbcd70e41c9acc4e2c17002c64764",
+          "date": "2025-06-16",
+          "message": "add 9456",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1d1a1004181d52a7c65a5f58f2b59a6c0651a85c",
+          "date": "2025-06-15",
+          "message": "hohoho",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "082a1685708ce286404f780fecee334f4050020a",
+          "date": "2025-06-15",
+          "message": "調整地址、英文地址、印章 (聯明 > 聯合)",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "82ea0906d5fc3ed28ca803946f3a26e90bbfce16",
+          "date": "2025-06-13",
+          "message": "Merge branch 'main' into 增加參數判斷要不要DefaultQueue",
+          "body": "# Conflicts:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "68f22cb4c0fa5419c0804efdc454684b532bd714",
+          "date": "2025-06-13",
+          "message": "Default true 台中 false",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1d08c9a5ac9235941913429e764052d922e12b52",
+          "date": "2025-06-12",
+          "message": "做個 Null Exception 防呆",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2638c750325fe2907ea444a3a2819a3f48dc6cae",
+          "date": "2025-06-12",
+          "message": "先 filter 項目全部完成的報告 若沒有完成，就不更改通報flag",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1f721ccfc15ec7d37e74baabb4951a54047c78a3",
+          "date": "2025-06-10",
+          "message": "LT275 篩選欄位 加入「員工」 filter 病歷號欄位 (ID_APID)",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e8c86247e7fbcdda8d27ff2f05c310e6519b3109",
+          "date": "2025-06-10",
+          "message": "同仁反映 alert 會反灰，眼睛不舒服 改成 toast 提示在右邊",
+          "body": "如果之後不想用，可以直接在 function showToast",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "34e0e5b59e7ce1280651e0fa4fe8739230c6ea98",
+          "date": "2025-06-10",
+          "message": "## 💡 調整說明 / Description",
+          "body": "本次調整針對 BT301 頁面客戶單位搜尋功能，改善使用者體驗與資料過濾準確性。",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e90f88116737163587c7ef354eca4a0bfe7b2392",
+          "date": "2025-06-10",
+          "message": "主要是對 gernate table 做改動， 把資料存進 memory",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d6ba0de0d83172a386a7ed1568ac11ca42d90cb3",
+          "date": "2025-06-10",
+          "message": "Merge branch 'main' into BT410維護功能",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6208cbdc96c8151ac990e89137e2897711b904dc",
+          "date": "2025-06-10",
+          "message": "先解決問題，再想想取得價格那邊是不是有問題",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6a1f534f94935cf720efef2fc47707c2690acfe4",
+          "date": "2025-06-09",
+          "message": "新增維護功能，輸入收據號碼可以調出過去的紀錄",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8fe78a9c45f3124b1b858a971ea93046f2ac0a0e",
+          "date": "2025-06-09",
+          "message": "發現原本就有QC選項，將選項兜入Modal 並增加鍵盤/滑鼠事件",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "378c03c3427accf8fa9f765868e94359d6462c81",
+          "date": "2025-06-09",
+          "message": "新增參數控制 LT255 報告排序方式",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5af27de5ebef22a09dfa53ccdd97ea5697d32f7f",
+          "date": "2025-06-09",
+          "message": "增加攔截條件， 若身份證為 00 就不執行 若inputs 若有空白或 null 就不執行",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "87b57227b6a4fa992246d73a20fd1cf9fece94c4",
+          "date": "2025-06-06",
+          "message": "擴充病歷號和單位的綁定關係",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "10bf8199a5628fe4ab20cd88d53e4578e4182f69",
+          "date": "2025-06-06",
+          "message": "存檔時寫入 mapping 表",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "24d715cec9087b7b97ec51912457c5a83e53cdef",
+          "date": "2025-06-06",
+          "message": "開一張表 mapping ID, ID_SOURCE_CODE, APID",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "53afc6d2d0acba376b05785ed6fc91abf43e58cd",
+          "date": "2025-06-06",
+          "message": "將 modal 內控制移除，移到 BT201 (應該沒有其他頁面會用吧) 判斷站台客製化",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "be88b1c2b3432de28bbc0c8e25652eca76d6c914",
+          "date": "2025-06-06",
+          "message": "加個選項控制身分證隱藏",
+          "body": "還是會按照單位設定的方式隱藏 (如果單位設定不隱藏那還是會顯示)",
+          "category": "配置",
+          "tags": []
+        },
+        {
+          "hash": "83aa93aea6fe517a4fa54f9efebeb688c0bde63c",
+          "date": "2025-06-06",
+          "message": "預設不隱藏 (若Debtor_detail 沒設定)",
+          "body": "",
+          "category": "配置",
+          "tags": []
+        },
+        {
+          "hash": "5fd218208f3ae6d0aeba187b07e1f14cb6f386a7",
+          "date": "2025-06-05",
+          "message": "前端頁面呈現病歷號 由於加了一個欄位，增加一個縮減長度的機制",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b21322b054cad74c81a2137e49210b8d31d41c9b",
+          "date": "2025-06-05",
+          "message": "老天請保佑我效率不要太慢",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "77515f3ca5048758a8fa134cba4ae5ab8ff4035f",
+          "date": "2025-06-05",
+          "message": "調整INDEX 避免重複列印時跳錯 > RECEIPTS 變成 log 表",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f0cdaab5f8df5ffc5dcee5a2ca5a2d1ecb92f81d",
+          "date": "2025-06-04",
+          "message": "加個change trigger GET_DC_CODE()",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4e6125c4d1c7c93fe74612c17060d9520cb5acf3",
+          "date": "2025-06-04",
+          "message": "Merge remote-tracking branch 'origin/main' into LT276電話通報",
+          "body": "# Conflicts:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "04a5ad2733c284d9c128544284eacb1652a7f78b",
+          "date": "2025-06-04",
+          "message": "好像也不用分了，都隱藏",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e67e78ccec3e4555a49af91b9b42bfba2d28bf82",
+          "date": "2025-06-04",
+          "message": "新增功能",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "54d9922de6ae229069b1b0bb0cd186589baf8c85",
+          "date": "2025-05-29",
+          "message": "調整一下寬度比例",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "01ee125757acdafa38402822febb1bf2c11afb7b",
+          "date": "2025-05-29",
+          "message": "新增 LT276 電話通報 一些基礎的 Layout",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "14afa7730b43fe5d391eaf24ba85e8045862f980",
+          "date": "2025-05-29",
+          "message": "BT410 收據自動編號與列印儲存功能",
+          "body": "新增 Oracle ADO Repository：GetNextReceiptNo, SaveReceipt",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "24e8cfb1e5f457ae9fec2fbddb2c4d84d58b38b2",
+          "date": "2025-05-28",
+          "message": "LT252 F9 選擇片語時，目前只有↑↓, 新增 pagedown/pageup",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3b879ec489d4ebbf1060a0d92422029799974cbf",
+          "date": "2025-05-28",
+          "message": "不知道會不會有很多可怕的影響 乍看之下只有 TestGroupRepository/WorkStationRepository 會用",
+          "body": "",
+          "category": "測試",
+          "tags": []
+        },
+        {
+          "hash": "90d936c3126f211ff54c29e0441ea4f24c47f110",
+          "date": "2025-05-27",
+          "message": "台中帶入當天預設值",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "337cf46c33b92d54fa3b0a58c39492f06460250f",
+          "date": "2025-05-27",
+          "message": "api更換, 增加單位縮寫",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "748aea75e6eb4cb4b163047f67b6bd618f69dece",
+          "date": "2025-05-26",
+          "message": "台中統編",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "82cad4575bb1babc863ca1d2b13e29729ae28a13",
+          "date": "2025-05-23",
+          "message": "如果是空白就不加密了，不然會跳一個錯",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ea4a743c04e15f9aa94d5c6c643d92fce9341342",
+          "date": "2025-05-23",
+          "message": "晚了就不要了",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9e3395f0133a05293826d824c6e82febb5d38670",
+          "date": "2025-05-22",
+          "message": "增加鍵盤事件 keyboard.js",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ae747908b4b18bc9a4ba0f86ca206645ed0f2def",
+          "date": "2025-05-21",
+          "message": "條件爆炸",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "990ad32b8425186b519a4da9882587caf68b3035",
+          "date": "2025-05-21",
+          "message": "桃園/嘉義不知道為何 BT101 單位有時出不來",
+          "body": "加一道防線，若modal開啟時沒有資料就再撈一次",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4357e312d817b888f6c2de54a3f55b30ee34081c",
+          "date": "2025-05-20",
+          "message": "新增參數開關連動 會將病歷號存回去 CUST_MASTER.IC_NO 輸入身分證時，也會將 IC_NO 帶入進 ID_APID",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6ae70f5efeb6a899a8cb726baaac6a8f1486cc52",
+          "date": "2025-05-20",
+          "message": "理想中，希望醫檢師們可以透過 LIS 自行維護處理 相關的雙向連線",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ab87178b1ee906eb8bad76ab9fae2712e074ae47",
+          "date": "2025-05-15",
+          "message": "新增列印按鈕 for 列印標籤 調整中文姓名 (異體字邏輯)",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "742baa9aa2193308cbe57f72fce73d6c8759f3d2",
+          "date": "2025-05-15",
+          "message": "LT274允許不選擇收檢路線",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ce3af53aafb0acd27864b3a94f7a8c9e6ee93988",
+          "date": "2025-05-15",
+          "message": "台中 oracle retrun nextval 有點問題",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b292a3a45c2a36882b383afe7d1754dfa37c0296",
+          "date": "2025-05-15",
+          "message": "資料遮罩取消，中文姓名 1O3 > 123",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6f741f0a7d5192fea3bb01e5f4692c737d115ad9",
+          "date": "2025-05-14",
+          "message": "加入 optional 參數控制是否 跳出提示, 預設為跳出",
+          "body": "suppressAlert // 壓制",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bb9270edfe01418eed3d91a1859cb57bf98a791f",
+          "date": "2025-05-13",
+          "message": "新增申報跳轉邏輯",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "90cb839a92b3621ec1f878c8ff1fbca561b27c03",
+          "date": "2025-05-13",
+          "message": "Merge branch 'main' into BT201醫師欄位僅顯示該單位醫師",
+          "body": "# Conflicts:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dc1dd3f3e22c2cd029e3f9b441cd34afde211e03",
+          "date": "2025-05-13",
+          "message": "新增桃園客製化順序",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "de86ce6870c6bba2be82d090eef883d61514321a",
+          "date": "2025-05-13",
+          "message": "新增參數控制是否連動醫師 (怕其他分部爆炸",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "020aaa96dc95d12b3d66fa5d60e499461697a140",
+          "date": "2025-05-13",
+          "message": "感覺邏輯需要整合，不然容易漏掉一些細節",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "93a469934b1f0db3a74dffefa9563e302fc39cb9",
+          "date": "2025-05-13",
+          "message": "強化標題與表頭的辨識度 改善列印品質（避免灰色字）",
+          "body": "可以考慮改變字型, 編號(數字)會變大",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "14ccb5adb386addae8fe026f8e126a40b489353a",
+          "date": "2025-05-13",
+          "message": "原本用項目代號 05001 判斷，改成用檢體類別判斷 並加上 UNINE 也不簽收的邏輯",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a9c7b6b6d0f74116ab0bb68a6861539100dd2afa",
+          "date": "2025-05-12",
+          "message": "Merge remote-tracking branch 'origin/main' into 老人模式",
+          "body": "# Conflicts:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8100e32245e28eb98a8dbffcfecd6882f2ef7d12",
+          "date": "2025-05-09",
+          "message": "找到為什麼會存檔兩次了 真的是因為寫了兩次",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "acb675b469665712a18b82eb9da5a9e32b380e96",
+          "date": "2025-05-09",
+          "message": "又跑出來存檔兩次的問題，感覺還是得用 input, select, button 限制",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0744b2d97cc191b14191ac1009787bf509de3cbe",
+          "date": "2025-05-09",
+          "message": "沒 focus 或著 button 沒法熱鍵存檔",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "146a5627638ed2f06e85cd8a357ce88d7adb27c7",
+          "date": "2025-05-09",
+          "message": "Merge branch 'main' into BT201醫師欄位僅顯示該單位醫師",
+          "body": "# Conflicts:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b3a709c4d57e8d51cc3ffa51b6c2a91bae726db0",
+          "date": "2025-05-09",
+          "message": "新增一個擴充 Modal 關聯事件(鍵盤/滑鼠) 新增一個 api",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c61b678f9ec4e2ca95fb667eef103af85af37a7d",
+          "date": "2025-05-09",
+          "message": "猶豫到底是放在 script 中還是外呢 ?",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cb0ec55ac648ba5465014eae877aa41497a93ec7",
+          "date": "2025-05-09",
+          "message": "先把大問題減小 把註解/沒用到的 function 砍掉",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4515fa43453c5553829866dae94083c74900019c",
+          "date": "2025-05-09",
+          "message": "新增全域字型修改 14 > 16 (可設) 18容易跑版, 預設為不調整",
+          "body": "有概略性的跑過 BT201, LT253, LT302, 列印紙本報告 > 看起來沒問題",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b1e52885bdaad3cec41d008f14fd9f4669299439",
+          "date": "2025-05-08",
+          "message": "不知道為何發佈到正式機上會跳兩格， 1. 增加了 data-row 欄位控制跳格",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "099c1b5857f3e0bdf799c851699f03b640f653fc",
+          "date": "2025-05-08",
+          "message": "整合 NextStep 進 step 邏輯，不然客製化順序會卡住",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d27c6bd1c16a008e489d7cca6e22a446471a530a",
+          "date": "2025-05-08",
+          "message": "發現還存在 NextStep bug",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3fb059c16a234bf82e2c766c5e85a12ba5fd04f0",
+          "date": "2025-05-07",
+          "message": "按照站台顯示熱建提示",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "02ef794a07edb21eded2d280da03cc8a1ea17fe0",
+          "date": "2025-05-07",
+          "message": "檢體管名稱從 LIS 抓",
+          "body": "接下來把球交給 William",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7bc7698beea13c373c236e8db82f9d177ea527fb",
+          "date": "2025-05-07",
+          "message": "1. list query 建好了 2. 勾選「醫令清單」連動影響「檢驗項目」",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "333612b704474530247758239d69ddc7155566af",
+          "date": "2025-05-07",
+          "message": "query 更新",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c373531440f42ea75485ddc1493a35adeb12ddfb",
+          "date": "2025-05-07",
+          "message": "1. 畫面清空 (layout mock data clean) 2. 宣告三支 api (list, 簽收, 退件)",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a207ff4616185faac1d99073d018263af2adae20",
+          "date": "2025-05-06",
+          "message": "單筆模式 layout",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3d2ce284912a91f09122a6e8143d6c740ed47e8e",
+          "date": "2025-04-30",
+          "message": "不知道為什麼存檔會觸發兩次",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "048688f9030145362efb0faf0011b06ad227b21b",
+          "date": "2025-04-30",
+          "message": "先還原好了，東壞西壞改不完",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2a33d0e3702972c31ee4014059019b0247461226",
+          "date": "2025-04-30",
+          "message": "存檔的行為改到 BT201 好了, 各頁面應該有自行寫 trigger (LT253, LT270 ...)",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "185b3c80b96d0a81087cedac621ad0fb605d9433",
+          "date": "2025-04-30",
+          "message": "漏了 替換條件",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9293e486e9e09e385c08f17826f195db29fd0db7",
+          "date": "2025-04-30",
+          "message": "直接加入 BT201 限定邏輯",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2fddbdedd97e9e23520f2f7c9b6e9e0086931e56",
+          "date": "2025-04-29",
+          "message": "存檔 取消 Ctrl + Alt 增加 F8",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cbb4386dcfc1b4be8d94c3227cc1210fb2011334",
+          "date": "2025-04-29",
+          "message": "新增參數控制就醫日直接帶入今天",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b251e559b6ec73911d52428a6128973482e03115",
+          "date": "2025-04-29",
+          "message": "增加 config 參數可控制 BT201 的表單順序",
+          "body": "",
+          "category": "配置",
+          "tags": []
+        },
+        {
+          "hash": "e6cbc16ae9f8d5c6461003d174e2c426ae732ded",
+          "date": "2025-04-29",
+          "message": "單價的位置上按F4 不要刪除項目了，改去申報",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "70eee656412f3882d368a8d76d8777454a41d41c",
+          "date": "2025-04-21",
+          "message": "[查詢頁面] 新增「僅顯示過期」按鈕功能 1. 點選按鈕會自動觸發查詢功能 2. 若沒填入日期，將會帶入預設值",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "18f7c3cbd3474a4a3ac70489dd0610e90595dd16",
+          "date": "2025-04-18",
+          "message": "新增USER_ACCOUNT欄位 EMAIL",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "4755848287cc2390aef00a5a486a0e5f18842b7c",
+          "date": "2025-04-17",
+          "message": "前端可直接修改合約狀態 (停用/正常)",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f00b9697e5077c0ca4720f17727645fbf45cdfad",
+          "date": "2025-04-17",
+          "message": "前後端調整 1. .cshtml 要調整版面 (新增欄位) ajax 打 api 的部分要檢查一下，新增的欄位有沒有順利傳出",
+          "body": "2. 後端 api 要檢查新增欄位有沒有順利更新",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "df21ddc19d698aae88ba440807030eb16b045e8a",
+          "date": "2025-04-17",
+          "message": "1. fix 自訂III 沒有 組 string 傳給 print service > 重構這段 2. 錯誤跳太多次 > 重構",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2a82bbdc345e6ee0759989bf2b0c0fbb8edec997",
+          "date": "2025-04-17",
+          "message": "ALTER DEBTOR_Detail ADD COLUMN",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "736e7f334877729357d328f17c3ee991882f6862",
+          "date": "2025-04-16",
+          "message": "增加 table INDEX",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8d66038f7806fcfc4ee2780603789fda8bc01dc2",
+          "date": "2025-04-16",
+          "message": "重構前端，考量到未來擴充 Modal4 的可能性",
+          "body": "",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "211a0f85884864c8ab777180e30f825742311dcb",
+          "date": "2025-04-15",
+          "message": "用最呆的方式新增",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1ece8434fec53873b1353cd20f191b706308865f",
+          "date": "2025-04-14",
+          "message": "調整 json",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "445262f5d3673302dd9a91e5d02c71e51b2d34f8",
+          "date": "2025-04-14",
+          "message": "Merge branch 'main' into 百瑞精鼎",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cb5208e1884a83257cca634595ade1c5fdab7722",
+          "date": "2025-04-14",
+          "message": "百瑞精鼎 稽核調整",
+          "body": "1. 介面新增user帳號 PAREXEL / PAREXELucl",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "488072075b097ecd935c28e9be9af6fed5ca12f8",
+          "date": "2025-03-28",
+          "message": "原本 config 中有一個 OutsideDaan 的設定， 但這個參數僅影響是否新增 * 星號在參考區間後 和是不是要顯示「委外代檢」拆成兩段邏輯",
+          "body": "1. 把判斷調整更嚴格一點",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "58f5d9e823561d7e72860e64a205d333422e956b",
+          "date": "2025-03-27",
+          "message": "1. 原本 tr 幾條就打幾次, 修正為 focus 才打, 避免短時間攻擊多次 2. 增加 check box 預設直 3. 增加只看三個月內的未對應功能",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "448cc3084a6bcd2ccdcdc2673071f53e39e13bb0",
+          "date": "2025-03-21",
+          "message": "單號顛倒/ 號碼大的在上面",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6bc5aa8cc3d24f4fd1a65137a7927e674af5bfb7",
+          "date": "2025-03-21",
+          "message": "加入 filter query",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "09c3d357719cbfe8cbe74a16af637f926b0b69c1",
+          "date": "2025-03-21",
+          "message": "1. 增加一個 api 列出今日單號列表 2. 增加一個 Modal 供顯示 3. 增加按鈕F9觸發",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ac026d71ca7f525629c4de4b0e42a42cade5e583",
+          "date": "2025-03-18",
+          "message": "新增頁面功能, 查詢RawData",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e3cbb4c9e47ad2167a573968b90fe14d65e844d7",
+          "date": "2025-03-14",
+          "message": ":TNO 參數傳入錯誤的 TNO2 > 應修正為 TNO",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "ce166520da621af0c1534a75c6c483f908718220",
+          "date": "2025-03-04",
+          "message": "1. 新增沒單號的時候的處理 2. 新增 label 和 input 的關聯 3. 增加提示協助使用",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3a6af86e00e346c78489ad9953d6c2db33807bb8",
+          "date": "2025-02-27",
+          "message": "1. 調整列印模式的 CSS, 不必要的元素隱藏起來 2. 增加參數傳入機制，可以直接顯示, 不需輸入 3. 增加是否顯示單號功能 4. 可選擇字型大小",
+          "body": "",
+          "category": "樣式",
+          "tags": []
+        },
+        {
+          "hash": "8ae1374bbac31d9a4045e65902e1655053186348",
+          "date": "2025-02-27",
+          "message": "接收參數並轉交給 Views",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f864def9fba602d05b03215c4dded28714e88857",
+          "date": "2025-02-27",
+          "message": "LT302新增鏈結參數至 SU201",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "83329ed2f0ce4b7fc365d5256d8283140b5b7457",
+          "date": "2025-02-27",
+          "message": "相同參數用到 between > between start and end",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c8ac3a4fbe315e9992478e75b9dffd014d0a627b",
+          "date": "2025-02-27",
+          "message": "TNO1 > TNO2",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "973079afb47fc373e29ff968a40a823b6b65a9cf",
+          "date": "2025-02-26",
+          "message": "增加法定傳染病 (文字型結果)",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "30739f95fb57ecea4849b91f3e010c13f730d999",
+          "date": "2025-02-25",
+          "message": "阿怎麼是 true, 應該是 Y",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "552bff0e9f385fe0583ac1c528beec640c45c21a",
+          "date": "2025-02-14",
+          "message": "使用者可選擇是否整合帳別 (分開列印、合併列印) 連帶會影響收據要開同一張還是分別開",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "794b8540cf7cdeb0f677f46bc0bc874885c6474b",
+          "date": "2025-02-04",
+          "message": "LSIM scanFiles 權限需求可以work了，不過有點繞 1. 新增兩個角色 (CAP, LSIM) table LAYER 2. 角色說明 LAYER_INF 3. 權限說明 SYSTEM_FUNC 4. 權限綁定 LAYER_AUTH 5. 帳號加入角色 USER_LAYER 6. 後端新增權限 7. 前端加入權限判斷",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "NotificationPlatform",
+      "totalCommits": 3,
+      "commits": [
+        {
+          "hash": "14b1f07c27f63ac3cb49467c305b7f9fe3cecd8d",
+          "date": "2025-06-06",
+          "message": "不要再寄給我了",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e2ec0eb045866f63e770b8e4b403ebd934467b3d",
+          "date": "2025-04-21",
+          "message": "加入 Trigger 專案, 可以將例行性Query 整合在這裡",
+          "body": "將Email的需求寫在 EmailQueue中",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "54c56a7e6db6d509447d74f9431e784061d9cd02",
+          "date": "2025-04-18",
+          "message": "第一階段：主體 EmailService 根據 EmailQueue table 中的任務寄信",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "Data2Cloud",
+      "totalCommits": 19,
+      "commits": [
+        {
+          "hash": "1ff190428a82fff51636a57260f29ab6c824fdfc",
+          "date": "2025-09-06",
+          "message": "feat: 增強過濾階段的日誌記錄機制",
+          "body": "- 補傳模式過濾記錄：明確標示已檢查7天內登入用戶",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "316c15060fa78747b3a3d6451a1ba7535f961804",
+          "date": "2025-09-05",
+          "message": "docs: 完成剩餘文檔的更新以反映最新系統架構",
+          "body": "更新內容：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "875d7652e8b29d717bc77fdb4b3ee411236de94a",
+          "date": "2025-09-05",
+          "message": "docs: 更新文檔以反映雙模式執行架構和最新系統狀況",
+          "body": "主要更新：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5f0961545654db0ae9af8ee2a468fd145570d855",
+          "date": "2025-09-05",
+          "message": "fix: 改善補傳模式和正常模式的 log 訊息，避免重複執行驗證機制",
+          "body": "- 補傳模式 log 更明確標示為「補傳模式」",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "48dd750bffe47940d07b799446c55d1d7b38fd2d",
+          "date": "2025-09-04",
+          "message": "fix: resolve merge conflict in settings",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3c155d2d29c884d5bba41fa1b9f71f7197d48e57",
+          "date": "2025-09-04",
+          "message": "chore: update settings on main branch",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c7a7e4d9a23baf79789caf3c4b59827d8cc2749a",
+          "date": "2025-09-04",
+          "message": "chore: update todo and settings before branch merge",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bb0e2327ef2cbee9e107dbd8c8388cb92178e8b3",
+          "date": "2025-09-04",
+          "message": "feat: 重構資料處理架構 - 移除臨時表機制並修正memberid欄位映射",
+          "body": "主要改進:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5976457db81961a88c6fcaa134f18c34a105c2d6",
+          "date": "2025-09-04",
+          "message": "fix: 修正補傳模式的資料欄位對應，確保與正常模式一致",
+          "body": "## 問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "34933016eaf7c8e8eaf6cca4b636aa85e91b53c4",
+          "date": "2025-09-04",
+          "message": "fix: 修正 goodsProvider 使用原始 testcode 而不是對應的 GoodsID",
+          "body": "## 問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a61d3bc0e8f4475c3e686172fc1ac5f21fd2278c",
+          "date": "2025-09-03",
+          "message": "feat: 優化正常模式資料查詢流程並修正UserLevel篩選條件",
+          "body": "## 主要改進",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0d5be43a74dcaac34d8483b3a384f0e3ee2846e9",
+          "date": "2025-09-02",
+          "message": "fix: 修正 AllGoods 對應邏輯，使用正確的 GoodsID 取代原始 testcode",
+          "body": "- 修正 backfill 模式中的 AllGoods 對應邏輯（DatabaseService.cs:456）",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "14338c37f70e176b66546c74208aeea14be77d9c",
+          "date": "2025-09-02",
+          "message": "feat: 實作最近登入用戶批次處理優化和資料驗證機制",
+          "body": "• 優化整合處理模式：改用批次最近登入用戶處理取代逐一用戶模式，效能提升99.8%+",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e4ec164d96555fc07765a70bcf6828f346a9b4bb",
+          "date": "2025-08-30",
+          "message": "fix: 修復測試並新增 DatabaseService 單元測試和連接字串加密",
+          "body": "- 新增 DatabaseServiceWorkingTests.cs 包含 28 個完整單元測試",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2810a2aa9bad860939f8e9c5fdd050d3aac4445a",
+          "date": "2025-08-27",
+          "message": "feat: 實作整合處理模式 - 自動偵測新用戶並處理昨日審核報告",
+          "body": "• 新增 IntegratedProcessCommand 整合處理命令",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "4efa9b53b10ef029f637c98b87f6cc1c9b225b09",
+          "date": "2025-08-27",
+          "message": "fix: 實作批次處理解決 Oracle IN 子句 1000 項目限制",
+          "body": "- 新增 ProcessTnoBatchAsync 方法處理大型檢驗單列表",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "14712617533f1a267e6c52fbdddd0939dc3c505e",
+          "date": "2025-08-26",
+          "message": "fix: 修復身分證驗證限制和新增診斷工具",
+          "body": "主要修復:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c55727c2aecc054baa200cdeb029283735cd9d1f",
+          "date": "2025-08-26",
+          "message": "feat: 新增最近登入用戶處理功能和部署支援",
+          "body": "- 實現最近登入用戶報告重轉功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3eecb057a1fe167b7942a9c9618e67ddbca2c16e",
+          "date": "2025-08-24",
+          "message": "feat: 實現完整的 Data2Cloud Console 應用程式和測試框架",
+          "body": "## 主要功能",
+          "category": "功能開發",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "ucbio",
+      "totalCommits": 18,
+      "commits": [
+        {
+          "hash": "3ea12513ccd5adb775da00466e4083ba2d600f3b",
+          "date": "2025-04-16",
+          "message": "增加 ISO 27001 證書",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5c719a5b5b8f25e3796b579b21f5905f11a6602b",
+          "date": "2025-03-31",
+          "message": "文字調整 from 文軒",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "641c4475d55857781c6b25419f6c003ddd1b4dbf",
+          "date": "2025-03-27",
+          "message": "文字調整",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c313eb8fd2148474d74738bc88fca06cc7597075",
+          "date": "2025-03-27",
+          "message": "名稱調整",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dee1dbf87b825eb4eea6ef426e2fd8cdeebc4f74",
+          "date": "2025-03-27",
+          "message": "中文描述調整",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4c2f92fcc17fff6e1bc9691dd25535a71d31fafb",
+          "date": "2025-03-27",
+          "message": "名稱更新",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4f65b075693c40cd582ced0d736d8d216af8f6a8",
+          "date": "2025-03-27",
+          "message": "血片圖片更新",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4b576a404698150059fc923995cd8cf04fadcc4d",
+          "date": "2025-03-26",
+          "message": "Merge branch 'main' into 前端架構",
+          "body": "# Conflicts:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "22290435710f7f003d1f5dba4c50979bd22004f3",
+          "date": "2025-03-25",
+          "message": "更新 favicon",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "07257eccf5b7cb3c6f740836111d97063e62f52c",
+          "date": "2025-03-25",
+          "message": "增加一張縮圖",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0fab4c00816df9742e2f7f6fac9ad31399a58d2c",
+          "date": "2025-03-25",
+          "message": "1. SEO meta 更新 2. 圖片更新(解析度提升) 3. 新增放大圖片功能 4. 新增說明書下載功能",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9fd096799c19aa1be518ad1a3bafd93db472aee0",
+          "date": "2025-03-22",
+          "message": "優化預覽縮圖 1. 關閉按鈕顯示，可點 2. 鍵盤 ESC 事件",
+          "body": "",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "eac6b791baea2607f1e3f527b8fbf32fbf8ee999",
+          "date": "2025-03-22",
+          "message": "首頁、排版更新",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "538984d7417d80349d33b89caa2c6e3125739c1c",
+          "date": "2025-03-21",
+          "message": "忽然世界和平了，真奇怪",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "92b20e6052ddb274d36d6e1faf1db7262e0d6b21",
+          "date": "2025-03-21",
+          "message": "email @ 都會掛掉",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8801eeeae402c3bf833272411213e8c0f81f9ca4",
+          "date": "2025-03-21",
+          "message": "聯絡我們、選單更新",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "665b31c7a9f9b288b0dc85fffc1b5f3ad94dede8",
+          "date": "2025-03-17",
+          "message": "增加四張許可證，整合Footer進",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5494c02e7c73ef824bc7408c3e83d635190590e1",
+          "date": "2025-03-14",
+          "message": "聯合生技官方網站",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "ucl",
+      "totalCommits": 1,
+      "commits": [
+        {
+          "hash": "f62e531b428d681dbb286bb3a1ec7720d4c26669",
+          "date": "2025-03-22",
+          "message": "初始化專案",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "FalconCopy",
+      "totalCommits": 17,
+      "commits": [
+        {
+          "hash": "be5c4d02b4fa4b1c6fef2ffaa5fe58d99336a9f5",
+          "date": "2025-10-08",
+          "message": "清理根目錄的重複文件",
+          "body": "",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "efc4b275ec911bdc0036e16c0c2f95fb13a0c349",
+          "date": "2025-10-08",
+          "message": "整理文件目錄結構",
+          "body": "調整：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b3ee1ebdcfa4550c5ac8d32fdd1b4045b6e9bf03",
+          "date": "2025-10-08",
+          "message": "重組 SQL 腳本目錄結構並新增說明文件",
+          "body": "調整：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "79687a1b7b29f72944205cc56056df91d065ed7b",
+          "date": "2025-10-07",
+          "message": "新增同步診斷工具和重置腳本",
+          "body": "新增診斷工具：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3e84d8d75dc3abd9f7da0257cc58ed8e7775223f",
+          "date": "2025-10-07",
+          "message": "精簡日誌輸出並修正欄位長度限制",
+          "body": "- 移除冗餘的單筆處理日誌，只保留批次總結",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1098bfa47cd3c6f0e8fd545b4ef51f2871f146fb",
+          "date": "2025-10-07",
+          "message": "更新桃園遷徙專案：完成全量遷移並更新文檔",
+          "body": "## 修正問題",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "56b3dffceb5bb8e94aa69d9418ee359daf6eb228",
+          "date": "2025-10-07",
+          "message": "新增桃園遷徙專案文檔和 SQL 腳本",
+          "body": "## 新增檔案",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3c4a6028c232d5b0df43266a80f3109441aae387",
+          "date": "2025-10-07",
+          "message": "修正欄位截斷問題並精簡 log 輸出",
+          "body": "- 修正 PRH_DR_CODE 欄位截斷：在 Oracle 查詢階段使用 SUBSTR(TRIM(...), 1, 6)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cc08c9fb69721543663153de0082b9cdb572295d",
+          "date": "2025-10-02",
+          "message": "新增同步診斷工具和輔助腳本",
+          "body": "- 新增 CheckSyncStatus.cs - 訂單同步狀態診斷工具",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "10641f08ce19e0d90ed6536586667136ea993a89",
+          "date": "2025-10-01",
+          "message": "新增 Claude Code 語音提示設定說明文件",
+          "body": "新增內容：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "21919706023097dd79c3dffc69961e9c4fdb4627",
+          "date": "2025-10-01",
+          "message": "新增髒資料檢查方法到手動重新同步指南",
+          "body": "新增內容：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0fd3551422b553d5d065d535cfe9d2beb2d94933",
+          "date": "2025-10-01",
+          "message": "修正 PAT_RESULTD 同步邏輯 - 只保留最新 TRX_NUM",
+          "body": "問題：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f5dc3708604be02a515497dc8ab69db9c8af7a1f",
+          "date": "2025-10-01",
+          "message": "新增 PAT_RESULTD 的 reported_dt 欄位支援",
+          "body": "- 新增 Models/PatientModels.cs: PRD_REPORTED_DT 屬性",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d590936b6473b11169bc2846769e2da5e4a97fc3",
+          "date": "2025-09-30",
+          "message": "修正 PAT_RESULTD 同步邏輯 - 新增關聯欄位支援",
+          "body": "## 變更內容",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2109de9e851df8da33813db9225867a939fc05d6",
+          "date": "2025-09-11",
+          "message": "完成 FalconCopy 資料同步系統修正與優化",
+          "body": "## 主要修正",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "cb69b2f6222813c40c48be6f5e4ce6051ef692a6",
+          "date": "2025-09-10",
+          "message": "更新 Claude Code 權限設定",
+          "body": "",
+          "category": "配置",
+          "tags": []
+        },
+        {
+          "hash": "da69e068fc066e78390afa28fc8fcbb77131e8f4",
+          "date": "2025-09-10",
+          "message": "完成 FalconCopy 重構專案 - 高效能資料同步系統",
+          "body": "## 主要功能",
+          "category": "功能開發",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "ReportHtmlSync",
+      "totalCommits": 32,
+      "commits": [
+        {
+          "hash": "af5f223315a0591c297c54f0542a1d0ce4c8ce1f",
+          "date": "2025-10-08",
+          "message": "feat: 新增桃園站台支援 - 使用舊網路報告系統轉換 HTML",
+          "body": "## 新功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "017a99957cb91320721eb4a7b88143515b0c7e39",
+          "date": "2025-09-25",
+          "message": "Fix URL configuration and add error logging for deployment",
+          "body": "- Fix TokenService to use configurable ReportBaseUrl from appsettings.json",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "61ed23a0857510bfacb9e691aff84ea055d2969d",
+          "date": "2025-09-10",
+          "message": "Add .gitignore and remove build artifacts from repository",
+          "body": "- Add comprehensive .gitignore for .NET projects",
+          "category": "樣式",
+          "tags": []
+        },
+        {
+          "hash": "f023f5ebb26d613a57265d0787378401b714a9d4",
+          "date": "2025-09-10",
+          "message": "Fix connection string decryption issues and improve error handling",
+          "body": "- Add connection string validation in RunManualMode",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2df4c619a02c5b47ae8082cb5a67adb1cd237519",
+          "date": "2025-09-09",
+          "message": "Merge feature/deployment-complete into master",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "66ae58ed9a6fdeb5943fda732907ae087a8aeaa9",
+          "date": "2025-09-09",
+          "message": "Add Claude settings",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b0595ab9d0f9fcf32068b7b6c42b94afc7dbf92f",
+          "date": "2025-09-09",
+          "message": "Update project documentation and maintenance queries",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "08dbfd96bca3860c0be55aa05b66a8fa56067e7d",
+          "date": "2025-09-09",
+          "message": "Implement optimal priority-based record processing with deduplication",
+          "body": "Enhanced query strategy:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2bc1a3275266d36b886ef0ff4f4e04bf491c3c7f",
+          "date": "2025-09-09",
+          "message": "Fix compilation errors after database architecture optimization",
+          "body": "- Add TrxNum property to OrderRecord model for query compatibility",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b2bf3650e4514287394f37cacfef22c5642e0b5b",
+          "date": "2025-09-09",
+          "message": "Optimize database query architecture for complete record processing",
+          "body": "Major improvements:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ef68862de903e4ae6f0cf5de0da6364a667d8d91",
+          "date": "2025-09-06",
+          "message": "Add comprehensive SQL analysis tools for processing time monitoring",
+          "body": "- Add analyze_processing_time.sql: Peak vs off-peak time analysis",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a0ab15ebfb23f68b6be215fdffdd8ea1065fe19c",
+          "date": "2025-09-06",
+          "message": "Correct 2-year report processing timeline based on actual system capacity",
+          "body": "🔢 Corrected processing time calculations:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dd8916ff542d4d61aa4bac955ef47dd401dfd24d",
+          "date": "2025-09-06",
+          "message": "Reorganize performance report with clear processing capacity analysis",
+          "body": "📋 Restructured report sections:",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "d28e540655905e8e5c4453b4bffda3d2493dd1e6",
+          "date": "2025-09-06",
+          "message": "Update batch sizes for enhanced processing capacity",
+          "body": "📊 Increased batch processing capacity:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "435776a067c5440d98c5bd0c9225b16d70cd8cf2",
+          "date": "2025-09-06",
+          "message": "Optimize database query performance and add Sunday full-day off-peak",
+          "body": "🚀 Database Query Optimization:",
+          "category": "效能優化",
+          "tags": []
+        },
+        {
+          "hash": "9e5f2dbfa466a0fa4d10954a3164ca22ec4e97bc",
+          "date": "2025-09-06",
+          "message": "Fix corrupted connection string in appsettings.json",
+          "body": "- Restored correct encrypted connection string format",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "74660546f6542136f844d7ad10d56eef7247c32d",
+          "date": "2025-09-06",
+          "message": "Add comprehensive daily processing capacity analysis",
+          "body": "📊 Daily Processing Capacity:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2aca8bc7b0535f1e602250f556d2c4840b4822de",
+          "date": "2025-09-06",
+          "message": "Add detailed hourly processing capacity analysis",
+          "body": "- Add comprehensive table showing hourly processing rates",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "65477f8556144eff5d330514bd46f8e6fffeaa08",
+          "date": "2025-09-06",
+          "message": "Achieve 88% performance improvement with critical WHERE clause optimization",
+          "body": "🚀 Major breakthrough: Fixed database query bottleneck",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "ed31a3b2a2fca29f89dceb40e64c6032c9a8dff0",
+          "date": "2025-09-06",
+          "message": "Optimize report HTML conversion performance to meet 5-minute execution target",
+          "body": "Key improvements:",
+          "category": "效能優化",
+          "tags": []
+        },
+        {
+          "hash": "b180bcd2bae71cf981f4d99796e738f7a6c9d15e",
+          "date": "2025-09-06",
+          "message": "Implement major performance optimization to catch up with report review speed",
+          "body": "## Core Improvements",
+          "category": "效能優化",
+          "tags": []
+        },
+        {
+          "hash": "f48227f1890e740bb79e22d79698c5ab12196f13",
+          "date": "2025-09-05",
+          "message": "Restructure documentation with Chinese filenames and sequence numbers",
+          "body": "- Renamed all documentation files to Chinese with sequence numbering (1. xxxx)",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "5cc7f3db9c7f05495bfd74cb71909470c0bdb277",
+          "date": "2025-09-05",
+          "message": "Add logging guide to documentation index",
+          "body": "",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9236ab3680660d29034c30f4731b629697296e26",
+          "date": "2025-09-05",
+          "message": "Add comprehensive logging and monitoring guide",
+          "body": "Create detailed logging documentation covering:",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b7e0c7372c3ca885beba6f1c716c2dc2b87db457",
+          "date": "2025-09-05",
+          "message": "Replace real connection strings with example placeholders for security",
+          "body": "Security improvements in documentation:",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c35cc5c5b575a1fd759750fb4e46b962ba6d73c5",
+          "date": "2025-09-05",
+          "message": "Restructure documentation with organized directory layout",
+          "body": "Major documentation reorganization:",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "4abee505f2cb6f888f54b6c5f05b410f05f5f114",
+          "date": "2025-09-05",
+          "message": "Update README.md with comprehensive project documentation",
+          "body": "Replace default GitLab template with detailed project documentation:",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e72075ff4354d2d09f84551f4cdb21a22c17feac",
+          "date": "2025-09-05",
+          "message": "Add comprehensive API error handling documentation",
+          "body": "Add detailed section covering:",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ce83918bb38d40db98b450979adb53cc0a6e035f",
+          "date": "2025-09-05",
+          "message": "Optimize database query with CTE for better performance",
+          "body": "Replace the original query with Common Table Expression (CTE) approach:",
+          "category": "效能優化",
+          "tags": []
+        },
+        {
+          "hash": "369b9714736758bc3c7d47efad1bc9b059061187",
+          "date": "2025-09-05",
+          "message": "Add deployment guide and publish build",
+          "body": "- Add comprehensive DEPLOYMENT_GUIDE.md with step-by-step instructions",
+          "category": "樣式",
+          "tags": []
+        },
+        {
+          "hash": "c09f01163b229eaa2b27a9e560d32c088d5d5d82",
+          "date": "2025-09-05",
+          "message": "Implement ReportHtmlConverter with encrypted connection string support",
+          "body": "- Add complete .NET 8 console application for HTML report conversion",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9cb8d2a042fba07626b4d4c3deafe9df1a7b67f9",
+          "date": "2025-09-03",
+          "message": "Add comprehensive project documentation",
+          "body": "- 新增專案概述和系統架構文檔",
+          "category": "功能開發",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "FOBT",
+      "totalCommits": 2,
+      "commits": [
+        {
+          "hash": "1a095f490bbc89beef146df32b267bffe1a83f29",
+          "date": "2025-05-23",
+          "message": "這個 query  原本是 ORD_DTL & ORD_HDR 調整成 ORD_DTL & HORD_HDR 只有差 一個 column 是 OD_UPDATE_BY 改成 抓 EVENTLOG",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "01f06fd8b47f9f874bc8294ac1089913a3f998ad",
+          "date": "2025-05-23",
+          "message": "clone project",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "FoodAllergyTestReport",
+      "totalCommits": 1,
+      "commits": [
+        {
+          "hash": "097031067aab867b2cce6428272442f0106657fc",
+          "date": "2025-06-05",
+          "message": "這個版本印出去完成日期是正確的",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "WebOrderArchive",
+      "totalCommits": 4,
+      "commits": [
+        {
+          "hash": "d90263f61955f9fe030dbbf091494ef59b35383a",
+          "date": "2025-04-03",
+          "message": "亂砍一通，完蛋啦",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c2be7c64a62b55655a1c44dc08967b63092264e3",
+          "date": "2025-04-01",
+          "message": "整合了測試專案，但好像 failed 了",
+          "body": "",
+          "category": "測試",
+          "tags": []
+        },
+        {
+          "hash": "c17737af0d49332e13eede0ba07f6839ee81ee1a",
+          "date": "2025-04-01",
+          "message": "主體架構實作",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c5ba76cb5d3fe5094e8827e7c786c48e9832313d",
+          "date": "2025-04-01",
+          "message": "專案建置",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "分單系統",
+      "totalCommits": 1,
+      "commits": [
+        {
+          "hash": "01a292c22d852ed0370e0a26a566b0cab7b107a5",
+          "date": "2025-03-26",
+          "message": "加入 dll, 不然專案跑不起來",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "Back",
+      "totalCommits": 22,
+      "commits": [
+        {
+          "hash": "83d2ed883a38f972fe60ea105a2187863beea6db",
+          "date": "2025-08-21",
+          "message": "Merge branch 'main' into 修復門診表功能",
+          "body": "# Conflicts:",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8ecf532a34deedf39c402d416b06959da950017c",
+          "date": "2025-08-21",
+          "message": "1. 門診列表，上午排在上面、下午排下面，比較直覺 2. Weekday 0-4 不太直覺, 改成 1-7 3. 增加 預設門診 model 狀態 Status 直接把假日 預設，這樣邏輯比較簡單 4. 因應可寫入未安排的診次，調整前端 json",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f3389aaaf7656a6c2e36d92d3bf31f24bad08d64",
+          "date": "2025-05-28",
+          "message": "fix 儲存失敗",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cc254a8fb66ee07f1ef62287009dd00fda6c1280",
+          "date": "2025-05-28",
+          "message": "新增門診表維護功能",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c742814e7fc40cac32d060d0b3d0da4dc300579a",
+          "date": "2025-03-24",
+          "message": "wwwroot",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "06ff0ee1081d80167a4a6043bdfbc6cb7dca5664",
+          "date": "2025-03-22",
+          "message": "專案重整",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b8d8db7ce66dead8a4c7f9f1f323f7ac2feb4a7d",
+          "date": "2025-03-20",
+          "message": "整合測試專案",
+          "body": "",
+          "category": "測試",
+          "tags": []
+        },
+        {
+          "hash": "7101b08628fa51dacef47dced61e383989e10d56",
+          "date": "2025-03-20",
+          "message": "後台維護介面",
+          "body": "",
+          "category": "樣式",
+          "tags": []
+        },
+        {
+          "hash": "4dcb4218c920ce55b9fdafab254bb3b7b33c36d5",
+          "date": "2025-03-18",
+          "message": "1. 預約新增看診類別(一般/通訊) 2. 截圖新增 SMTP 至 user email",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "38b79a80060be7825ac59cdd0c114563e70c358f",
+          "date": "2025-03-13",
+          "message": "新增Controller 供同意書圖片上傳",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f8aabb0dc14b29b260d2ce2b60a38e1ae316fb00",
+          "date": "2025-02-11",
+          "message": "Install-Package NLog.Database",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6dfc77e8089b5d62b788f7f2fca3de855441298e",
+          "date": "2025-02-11",
+          "message": "增加db類型的寫入",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9af431c63c70fc162a21c5e3e5fea9b3d088e53f",
+          "date": "2025-02-11",
+          "message": "OS 遠端登入太慢了，再寫一個 SQL Server",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f0bb2e4aeb4fcae96f8592d024debc162879c661",
+          "date": "2025-02-07",
+          "message": "調整為正確的路徑",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3063badce9c2e9b808ec0417c94806985f7f925d",
+          "date": "2025-02-07",
+          "message": "安全機制 - token",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c66d06b5792bfa695fef03fbefb05d7233e536a2",
+          "date": "2025-02-07",
+          "message": "錯誤次數凍結機制",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b34f86ba147f7cfbae062db4e85386269471f7ff",
+          "date": "2025-02-07",
+          "message": "整合 NLog",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a5626f4bbbbe4fe5207e33bc88b8d1fb616157d6",
+          "date": "2025-02-07",
+          "message": "增加圖片顯示 api",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "00f3c787798cb7a647e8f0a18b58af388c30d23f",
+          "date": "2025-02-06",
+          "message": "不要用 string 排序，擴充使用 int 排序",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e4e900023124a872caa0db3a4f3ff6d8f6f51756",
+          "date": "2025-02-06",
+          "message": "先用日期排序，再用名稱排序",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5ea05995e3c85c5abbb0ddc14a5f3730fa6d3772",
+          "date": "2025-02-06",
+          "message": "新增影像api",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9d36e3d4ffef87278f949a6e21ed99bec2557980",
+          "date": "2025-02-05",
+          "message": "補package.json",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "Front",
+      "totalCommits": 22,
+      "commits": [
+        {
+          "hash": "04ec2a957d1a48a2ba6d77691bafcaba9b1bef39",
+          "date": "2025-03-27",
+          "message": "新增頁面，以及調整相關元件",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6926c207551af2ac05e034e054e1cc7833073aca",
+          "date": "2025-03-21",
+          "message": "學歷、門診時間更新",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "fccac50c148ad00e23d06d31a4d21b858e308d11",
+          "date": "2025-03-20",
+          "message": "調整日期格式驗證",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ee56ed9d07cefe73dd09dd165e95915a57213e5d",
+          "date": "2025-03-18",
+          "message": "Merge branch 'feat/newebpaylink' of https://gitlab.ucl.com.tw/ucl/his/upc-website-frontend into 視訊看診同意書",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "02161dac7898736910ed4ed877428ec5aac436d6",
+          "date": "2025-03-18",
+          "message": "同意書更新 傳送Email至後端 預約新增欄位看診類別",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c90aabbf91103bcecb051e342e93866bdda1b81a",
+          "date": "2025-03-17",
+          "message": "增加驗證機制 validateForm",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "05cb7f2606f275849c3707451770b04cba2d4237",
+          "date": "2025-03-13",
+          "message": "按鈕們擋到簽名了",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9a67808d1d378be9a6e1125c02ca7faaaa9f3983",
+          "date": "2025-03-13",
+          "message": "修復api路徑",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2543b6a1ab4d71d4f23663877e944bb8e87980cb",
+          "date": "2025-03-13",
+          "message": "將照片上傳至伺服器",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "54ae21a27423a0babf7de0dafe9d6b428a56df88",
+          "date": "2025-03-13",
+          "message": "同意書簽署，含本地截圖",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "23981c6930839be8b5169a0200588a320c7990e9",
+          "date": "2025-03-13",
+          "message": "前端",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "482c0825077a96763fbf9c07500d03c64efb01ac",
+          "date": "2025-02-25",
+          "message": "營業時間由 13:30 更改至 14:00",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ad976c51f994385e3dabffacd7ca421c0f5a2ac5",
+          "date": "2025-02-07",
+          "message": "html5 pattern 一直錯誤，改成 vue script",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f3ad0538daf6244354898ab5648f7f92b39fe42f",
+          "date": "2025-02-07",
+          "message": "inputs 格式驗證",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9c3c9b7e06beacffbc8c63334f4e39e196d3f373",
+          "date": "2025-02-07",
+          "message": "圖片縮放，鍵盤事件",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c68b14b1d9dba789938a52b024d94c4dcf9b4c9f",
+          "date": "2025-02-07",
+          "message": "照片呈現",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "897b29085b85d7fb23848cf1d3c9360d0595a3c0",
+          "date": "2025-02-07",
+          "message": "圖片呈現ok",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bbf46c5249f2d80447faefdf5017bbcfa7f40524",
+          "date": "2025-02-05",
+          "message": "加入生日欄位 (超音波table只有姓名、生日、病歷號)",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d704524aaf48acc93a51194ee84fff1e9806184d",
+          "date": "2025-02-05",
+          "message": "banner 只顯示在首頁",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ce4545bfb4a69605112d1d34bd5e6b9ff5f21c62",
+          "date": "2025-02-05",
+          "message": "只是取消手機版本沒有 Line 鏈結",
+          "body": "@media (max-width: 760px) {",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3297a6057758179021c3874030dc951ff1b18b33",
+          "date": "2025-02-05",
+          "message": "新增超音波影像查詢功能",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8065ae7a8a7c278b1bb4a765498975d4fc278909",
+          "date": "2025-02-05",
+          "message": "更新門診表",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        }
+      ]
+    }
+  ],
+  "generatedAt": "2025-10-08T04:17:55.106Z"
+}

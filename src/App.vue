@@ -10,35 +10,25 @@
       <!-- 時間篩選 -->
       <div v-if="rawData" class="bg-white rounded-lg shadow p-6 mb-6">
         <h2 class="text-xl font-semibold mb-4">🔍 時間區間篩選</h2>
-        <div class="flex gap-4 items-end">
-          <div class="flex-1">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">開始日期</label>
             <input
               type="date"
               v-model="filterStart"
+              @change="applyFilter"
               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div class="flex-1">
+          <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">結束日期</label>
             <input
               type="date"
               v-model="filterEnd"
+              @change="applyFilter"
               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <button
-            @click="applyFilter"
-            class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-          >
-            套用篩選
-          </button>
-          <button
-            @click="resetFilter"
-            class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-          >
-            重置
-          </button>
         </div>
       </div>
 
@@ -71,52 +61,34 @@
           </div>
         </div>
 
-        <!-- 專案列表 -->
-        <div class="bg-white rounded-lg shadow p-6">
-          <h3 class="text-xl font-bold mb-4">🎯 專案成果</h3>
-          <div class="space-y-4">
-            <div
-              v-for="project in displayProjects"
-              :key="project.name"
-              class="border-l-4 border-blue-500 pl-4 py-2"
-            >
-              <div class="flex justify-between items-start">
-                <div>
-                  <h4 class="font-bold text-lg">{{ project.name }}</h4>
-                  <p class="text-gray-600">{{ project.totalCommits }} 次提交</p>
-                </div>
-                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
-                  {{ project.percentage }}%
-                </span>
-              </div>
+        <!-- 智能彙總報告 -->
+        <div v-for="project in analyzedProjects" :key="project.name" class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-2xl font-bold mb-4">
+            🎯 {{ project.name}} 專案成果（{{ project.totalCommits }} commits）
+          </h3>
 
-              <!-- Commits 列表 -->
-              <div v-if="project.commits && project.commits.length" class="mt-4">
-                <details class="cursor-pointer">
-                  <summary class="text-sm font-medium text-gray-700 hover:text-blue-600">
-                    查看 {{ project.commits.length }} 個 commits
-                  </summary>
-                  <div class="mt-3 space-y-2 max-h-96 overflow-y-auto">
-                    <div
-                      v-for="(commit, idx) in project.commits"
-                      :key="commit.hash"
-                      class="p-3 bg-gray-50 rounded text-sm border-l-2"
-                      :class="getCategoryColor(commit.category)"
-                    >
-                      <div class="flex justify-between items-start mb-1">
-                        <span class="font-mono text-xs text-gray-500">{{ commit.hash.substring(0, 7) }}</span>
-                        <span class="text-xs text-gray-600">{{ commit.date }}</span>
-                      </div>
-                      <div class="font-medium text-gray-800">{{ commit.message }}</div>
-                      <div v-if="commit.category" class="mt-1">
-                        <span class="text-xs px-2 py-1 rounded-full bg-gray-200 text-gray-700">
-                          {{ commit.category }}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </details>
-              </div>
+          <!-- 功能分組 -->
+          <div v-for="(feature, idx) in project.features" :key="idx" class="mb-6">
+            <h4 class="text-lg font-bold mb-3">
+              {{ idx + 1 }}. {{ feature.name }} {{ feature.icon }}
+              <span class="text-sm text-gray-500 font-normal">({{ feature.dateRange }})</span>
+            </h4>
+            <p class="text-sm text-gray-600 mb-3">{{ feature.totalCommits }} 次提交</p>
+
+            <!-- 子分組 -->
+            <div v-for="(subgroup, subIdx) in feature.subgroups" :key="subIdx" class="ml-4 mb-4">
+              <h5 class="font-semibold text-gray-800 mb-2">
+                {{ subgroup.name }}
+                <span class="text-xs text-gray-500">({{ subgroup.dateRange }})</span>
+              </h5>
+              <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                <li v-for="(item, itemIdx) in subgroup.items" :key="itemIdx">
+                  {{ item }}
+                </li>
+                <li v-if="subgroup.moreCount > 0" class="text-gray-500">
+                  ... 以及其他 {{ subgroup.moreCount }} 項改進
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -149,6 +121,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
+import { groupCommitsByFeature, cleanCommitMessage } from './utils/analyzer.js'
 
 const rawData = ref(null)
 const workData = ref(null)
@@ -158,16 +131,20 @@ const filterEnd = ref('')
 // 載入資料
 onMounted(async () => {
   try {
-    const response = await fetch('/data/work-log-2024-09-17-to-10-08.json')
+    const response = await fetch(import.meta.env.BASE_URL + 'data/work-log-2025-09-17-to-10-08.json')
     const data = await response.json()
     rawData.value = data
     workData.value = data
 
-    // 設定預設篩選範圍
-    if (data.period.start && data.period.end) {
-      filterStart.value = data.period.start
-      filterEnd.value = data.period.end
-    }
+    // 設定預設篩選範圍為最近兩週
+    const today = dayjs()
+    const twoWeeksAgo = today.subtract(2, 'week')
+
+    filterStart.value = twoWeeksAgo.format('YYYY-MM-DD')
+    filterEnd.value = today.format('YYYY-MM-DD')
+
+    // 自動套用兩週篩選
+    applyFilter()
   } catch (error) {
     console.error('載入資料失敗：', error)
   }
@@ -200,15 +177,6 @@ const applyFilter = () => {
   workData.value = {
     ...rawData.value,
     projects: filteredProjects
-  }
-}
-
-// 重置篩選
-const resetFilter = () => {
-  workData.value = rawData.value
-  if (rawData.value.period.start && rawData.value.period.end) {
-    filterStart.value = rawData.value.period.start
-    filterEnd.value = rawData.value.period.end
   }
 }
 
@@ -284,4 +252,65 @@ const getCategoryColor = (category) => {
   }
   return colors[category] || colors['未分類']
 }
+
+// 智能分析專案
+const analyzedProjects = computed(() => {
+  if (!workData.value) return []
+
+  return workData.value.projects.map(project => {
+    if (!project.commits || project.commits.length === 0) return null
+
+    const { grouped, ungrouped } = groupCommitsByFeature(project.commits)
+
+    const features = Object.values(grouped).map(feature => {
+      const allCommits = [
+        ...feature.commits,
+        ...Object.values(feature.subgroups).flat()
+      ]
+
+      if (allCommits.length === 0) return null
+
+      // 計算日期範圍
+      const dates = allCommits.map(c => c.date).sort()
+      const dateRange = dates.length > 1
+        ? `${dates[0]} 至 ${dates[dates.length - 1]}`
+        : dates[0]
+
+      // 處理子分組
+      const subgroups = Object.entries(feature.subgroups)
+        .filter(([_, commits]) => commits.length > 0)
+        .map(([name, commits]) => {
+          const subDates = commits.map(c => c.date).sort()
+          const subDateRange = subDates.length > 1
+            ? `${subDates[0]} 至 ${subDates[subDates.length - 1]}`
+            : subDates[0]
+
+          const MAX_ITEMS = 5
+          const items = commits.slice(0, MAX_ITEMS).map(c => cleanCommitMessage(c.message))
+          const moreCount = Math.max(0, commits.length - MAX_ITEMS)
+
+          return {
+            name,
+            dateRange: subDateRange,
+            items,
+            moreCount
+          }
+        })
+
+      return {
+        name: feature.name,
+        icon: feature.icon,
+        totalCommits: allCommits.length,
+        dateRange,
+        subgroups
+      }
+    }).filter(Boolean)
+
+    return {
+      name: project.name,
+      totalCommits: project.totalCommits,
+      features
+    }
+  }).filter(Boolean)
+})
 </script>

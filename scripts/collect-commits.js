@@ -6,22 +6,32 @@ import { join, basename } from 'path';
 
 const CONFIG = {
   gitlabPath: 'D:\\Gitlab',
-  author: 'UCL\\joechiboo',
-  outputDir: './data',
+  author: 'UCL\\\\joechiboo',
+  outputDir: './public/data',
   dateFormat: '%Y-%m-%d',
   encoding: 'utf-8'
 };
 
 /**
- * 取得所有 Git repositories
+ * 遞迴取得所有 Git repositories
  */
-function getGitRepos(basePath) {
+function getGitRepos(basePath, maxDepth = 3, currentDepth = 0) {
   const repos = [];
+
+  // 防止掃描太深
+  if (currentDepth >= maxDepth) {
+    return repos;
+  }
 
   try {
     const items = readdirSync(basePath);
 
     for (const item of items) {
+      // 跳過常見的非專案目錄
+      if (item === 'node_modules' || item === '.git' || item === 'dist' || item === 'build') {
+        continue;
+      }
+
       const fullPath = join(basePath, item);
 
       try {
@@ -30,16 +40,20 @@ function getGitRepos(basePath) {
           const gitPath = join(fullPath, '.git');
           try {
             statSync(gitPath);
+            // 找到 Git repo，使用相對路徑作為名稱
+            const relativePath = fullPath.replace(basePath + '\\', '').replace(/\\/g, '/');
             repos.push({
-              name: item,
+              name: relativePath,
               path: fullPath
             });
           } catch {
-            // 不是 git repo，忽略
+            // 不是 git repo，繼續遞迴掃描子目錄
+            const subRepos = getGitRepos(fullPath, maxDepth, currentDepth + 1);
+            repos.push(...subRepos);
           }
         }
       } catch (err) {
-        console.warn(`無法存取 ${fullPath}:`, err.message);
+        // 忽略無法存取的目錄
       }
     }
   } catch (err) {
