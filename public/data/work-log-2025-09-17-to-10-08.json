@@ -6,7 +6,7 @@
   },
   "author": "UCL\\\\joechiboo",
   "summary": {
-    "totalCommits": 536,
+    "totalCommits": 562,
     "projectCount": 16,
     "dailyAverage": null
   },
@@ -239,8 +239,56 @@
     },
     {
       "name": "lisweb",
-      "totalCommits": 368,
+      "totalCommits": 374,
       "commits": [
+        {
+          "hash": "60ff3fecf0e27ac8f65e4f793709aca96ca42379",
+          "date": "2025-10-08",
+          "message": "fix: 優化 PWA 診斷資訊的顏色和文字",
+          "body": "## 修正內容",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b47a6e3698db01215809cc19f127b6e274c3bedb",
+          "date": "2025-10-08",
+          "message": "feat: 完成 PWA 診斷頁籤並移除上方卡片",
+          "body": "## 重要改動",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "dc777cf31fbb23b1d2fd73de2fead14fcf8ea020",
+          "date": "2025-10-08",
+          "message": "feat: 診斷區塊改用頁籤切換 Push 通知和 PWA 安裝",
+          "body": "## 重大改進",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "fe89c50388d8d95b52709b39346bd5a97bc1f3be",
+          "date": "2025-10-08",
+          "message": "debug: 更新 Service Worker 快取版本並加入 PWA 卡片診斷日誌",
+          "body": "## 修正內容",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9a2d2fdfc648817b16169587d81ac79dfdfb8c98",
+          "date": "2025-10-08",
+          "message": "feat: 新增精美的 PWA 安裝提示卡片",
+          "body": "## 新增功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7cbb0cc45f7cc6dcf4e9fa0a16c615be334407ad",
+          "date": "2025-10-08",
+          "message": "feat: 在診斷區塊中加入 PWA 安裝教學",
+          "body": "## 新增內容",
+          "category": "功能開發",
+          "tags": []
+        },
         {
           "hash": "ad725b8fe7019816867c51da3acd86eabcef1639",
           "date": "2025-10-08",
@@ -3541,8 +3589,168 @@
     },
     {
       "name": "FalconCopy",
-      "totalCommits": 17,
+      "totalCommits": 37,
       "commits": [
+        {
+          "hash": "0531f9cff706f7d9df3e0d25649eeb180b416abe",
+          "date": "2025-10-09",
+          "message": "新增完整的機制說明文件和重開機檢查清單",
+          "body": "- PAT_RESULTH_整單同步機制說明.md：詳細說明整單 MERGE 機制",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "63b58c2345abce9c5c30b5df6def26d3d0aa0de0",
+          "date": "2025-10-08",
+          "message": "新增 Oracle 重置腳本，用於重新同步被誤刪的單號",
+          "body": "- reset_56_orders.sql: 重置 56 個受影響的單號",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "34612f899202bf88a4c8bb6e1673903683848fe0",
+          "date": "2025-10-08",
+          "message": "新增清理重複 pat_resulth 記錄的 SQL 文件",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2452add78b2687ad8bfdb7f5ff2026a35cb8f0a7",
+          "date": "2025-10-08",
+          "message": "pat_resulth 每個 order_no 只保留最大 trx_num 的記錄",
+          "body": "**問題**",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "87338e34a529cc0107a4f548408c49388da229d8",
+          "date": "2025-10-08",
+          "message": "繞過 pat_resulthx 的有問題觸發器，直接寫入 pat_resulth",
+          "body": "**問題根因**",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "009398653c39fe4f999e010bf42e9a6b4bedb4b2",
+          "date": "2025-10-08",
+          "message": "修正 pat_resulth 複合主鍵為 (order_no, test_code)",
+          "body": "**問題**",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b0461f2216cc918851c986b0b965bb2c85539e0d",
+          "date": "2025-10-08",
+          "message": "加強整單同步流程的日誌追蹤",
+          "body": "- 在每個步驟前後加入日誌記錄",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "286d3cb4337dd9c2625da447fef2940da0acda58",
+          "date": "2025-10-08",
+          "message": "加強刪除操作的日誌追蹤",
+          "body": "- 記錄刪除開始/完成的詳細訊息",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "351dbe74054383742ba2971c0712762d4785e059",
+          "date": "2025-10-08",
+          "message": "修正 MSSQL 表的欄位名稱錯誤",
+          "body": "- pat_resulth 使用 order_no (無前綴)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1a23ad93e6d561a266d8e49a005018c43dca9696",
+          "date": "2025-10-08",
+          "message": "新增 .gitignore 並移除已追蹤的 bin/obj 檔案",
+          "body": "- 新增標準 .NET .gitignore",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "fb11d2c4f93e50d0eb03dc0b228abfbd2ed7e5f9",
+          "date": "2025-10-08",
+          "message": "簡化日誌輸出，只顯示重要訊息",
+          "body": "- 只在有未處理記錄時才顯示「找到 X 筆」",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "49d226c56c7446babd6cd278c155270a8cbc721e",
+          "date": "2025-10-08",
+          "message": "整合 PAT_RESULTD 同步到 SyncResultHeaderAsync",
+          "body": "- 在整單 MERGE 時一併處理 RESULTD 明細",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4c3aed14c447605fac8b97b631f732db23cd8c87",
+          "date": "2025-10-08",
+          "message": "改為串行執行 PAT_RESULTH 和 PAT_RESULTD 同步",
+          "body": "- RESULTD 依賴 RESULTH 的未處理記錄",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ccdcf59f8bc34c0cc7c5e453f6a4852cee2fc238",
+          "date": "2025-10-08",
+          "message": "優化日誌輸出並減少重複查詢",
+          "body": "- 將資料庫連線成功訊息改為 Debug 等級",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "bc6488b62735be5b6c06541e82d23d7cf64ed27d",
+          "date": "2025-10-08",
+          "message": "移除正常執行時的 SQL 日誌，只在錯誤時顯示",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a15f506b5855208980b72014298d7b94615a4e7d",
+          "date": "2025-10-08",
+          "message": "在 SQL 錯誤訊息中顯示完整 SQL 語句",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1aa511f87eb790ec84f20e2d866f1bac74da2bc5",
+          "date": "2025-10-08",
+          "message": "簡化 SQL 語法以相容 Oracle 11g",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3ebd44c05d46cbc1b4fd28aa85354f7ec7abe4c9",
+          "date": "2025-10-08",
+          "message": "加上表別名前綴以修正 Oracle SQL 語法",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cac084cbb567a2636be353f0395aab1f8d1ca7e2",
+          "date": "2025-10-08",
+          "message": "修正 Oracle 子查詢語法錯誤（缺少別名）",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "bf9c8c366c6799e1f2b4cc3d84189e9299bec6f6",
+          "date": "2025-10-08",
+          "message": "優化 PAT_RESULTH 同步機制為整單 MERGE",
+          "body": "## 變更內容",
+          "category": "重構",
+          "tags": []
+        },
         {
           "hash": "be5c4d02b4fa4b1c6fef2ffaa5fe58d99336a9f5",
           "date": "2025-10-08",
@@ -4396,5 +4604,5 @@
       ]
     }
   ],
-  "generatedAt": "2025-10-08T04:17:55.106Z"
+  "generatedAt": "2025-10-08T23:44:40.805Z"
 }
