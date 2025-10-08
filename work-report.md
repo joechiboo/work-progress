@@ -2,9 +2,10 @@
 
 ## 📈 總覽統計
 
-* **lisweb**: 367 次提交 (99%)
+* **lisweb**: 367 次提交 (94%)
+* **FalconCopy**: 23 次提交 (6%)
 * **NotificationPlatform**: 3 次提交 (1%)
-* **總計**: 370 次有效提交
+* **總計**: 393 次有效提交
 
 ## 🎯 lisweb 專案成果（367 commits）
 
@@ -14,12 +15,22 @@
 
 #### 核心實作 (2025-10-02 至 2025-10-08)
 
-* 訂閱按鈕永久顯示，並優化 iOS 18 設定指引
+* 訂閱按鈕永久顯示，並優化 iOS 18 設定指引 (10/08)
 * 修正 iPhone 看不到訂閱按鈕的問題
 * Update VAPID key generation to use internal API
 * Add VAPID key generation guide
 * Add detailed comments explaining why sw.js must be in root directory
 * ... 以及其他 11 項改進
+
+#### PWA 功能開發 (2025-10-08)
+
+* 實作 Progressive Web App (PWA) 支援
+* 新增精美的 PWA 安裝提示卡片
+* 完成 PWA 診斷頁籤並移除上方卡片
+* 診斷區塊改用頁籤切換 Push 通知和 PWA 安裝
+* 在診斷區塊中加入 PWA 安裝教學
+* 優化 PWA 診斷資訊的顏色和文字
+* 更新 Service Worker 快取版本並加入 PWA 卡片診斷日誌
 
 #### iOS 支援 (2025-10-07)
 
@@ -158,6 +169,54 @@
 #### 樣式 (1)
 
 * 1. 調整列印模式的 CSS, 不必要的元素隱藏起來 2. 增加參數傳入機制，可以直接顯示, 不需輸入 3. 增加是否顯示單號功能 4. 可選擇字型大小
+
+
+## 🎯 FalconCopy 專案成果（23 commits）
+
+### 1. Oracle 資料同步系統 🔄 (2025-10-08)
+
+**23 次提交**
+
+#### 同步機制優化 (2025-10-08 15:18-21:40)
+
+* 優化 PAT_RESULTH 同步機制為整單 MERGE
+* 繞過 pat_resulthx 的有問題觸發器，直接寫入 pat_resulth
+* 整合 PAT_RESULTD 同步到 SyncResultHeaderAsync
+* 改為串行執行 PAT_RESULTH 和 PAT_RESULTD 同步
+* pat_resulth 每個 order_no 只保留最大 trx_num 的記錄
+
+#### 錯誤修正 (2025-10-08 15:22-21:15)
+
+* 修正 pat_resulth 複合主鍵為 (order_no, test_code)
+* 修正 MSSQL 表的欄位名稱錯誤
+* 修正 Oracle 子查詢語法錯誤（缺少別名）
+* 加上表別名前綴以修正 Oracle SQL 語法
+* 簡化 SQL 語法以相容 Oracle 11g
+
+#### 日誌與除錯 (2025-10-08 15:32-21:09)
+
+* 加強整單同步流程的日誌追蹤
+* 加強刪除操作的日誌追蹤
+* 在 SQL 錯誤訊息中顯示完整 SQL 語句
+* 簡化日誌輸出，只顯示重要訊息
+* 優化日誌輸出並減少重複查詢
+* 移除正常執行時的 SQL 日誌，只在錯誤時顯示
+
+#### 工具與文檔 (2025-10-08 09:53-21:32)
+
+* 新增 Oracle 重置腳本，用於重新同步被誤刪的單號
+* 新增清理重複 pat_resulth 記錄的 SQL 文件
+* 重組 SQL 腳本目錄結構並新增說明文件
+* 整理文件目錄結構
+* 清理根目錄的重複文件
+
+#### 版控優化 (2025-10-08 15:57)
+
+* 新增 .gitignore 並移除已追蹤的 bin/obj 檔案
+
+#### 分支合併 (2025-10-08 02:03)
+
+* Merge branch 'sync-diagnostic-tools' into 'main'
 
 
 ## 🎯 NotificationPlatform 專案成果（3 commits）
