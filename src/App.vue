@@ -136,11 +136,11 @@ onMounted(async () => {
     rawData.value = data
     workData.value = data
 
-    // 設定預設篩選範圍為最近兩週
+    // 設定預設篩選範圍：10/9 開始到今天
     const today = dayjs()
-    const twoWeeksAgo = today.subtract(2, 'week')
+    const startDate = dayjs('2025-10-09')
 
-    filterStart.value = twoWeeksAgo.format('YYYY-MM-DD')
+    filterStart.value = startDate.format('YYYY-MM-DD')
     filterEnd.value = today.format('YYYY-MM-DD')
 
     // 自動套用兩週篩選
