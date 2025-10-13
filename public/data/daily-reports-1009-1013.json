@@ -1,0 +1,288 @@
+[
+  {
+    "date": "2025-10-09",
+    "weekday": "四",
+    "work_projects": [
+      {
+        "name": "lisweb",
+        "commits": [
+          {
+            "hash": "6c2089c3",
+            "time": "11:20",
+            "message": "chore: 移除 SQL debug log",
+            "body": ""
+          },
+          {
+            "hash": "f3a0a4c4",
+            "time": "11:20",
+            "message": "fix: 處理路線編號格式轉換",
+            "body": "查詢「03」時，會比對："
+          },
+          {
+            "hash": "fb82b87c",
+            "time": "11:18",
+            "message": "fix: 分離 IN 和 LIKE 查詢邏輯",
+            "body": "分成三個條件："
+          },
+          {
+            "hash": "83065cf6",
+            "time": "11:17",
+            "message": "fix: 修正資料表名稱為 COLLECTORS",
+            "body": ""
+          },
+          {
+            "hash": "736999c6",
+            "time": "11:14",
+            "message": "fix: 使用 yyyy-MM-dd 字串格式避免「上午/下午」本地化問題",
+            "body": ""
+          },
+          {
+            "hash": "34f21b4f",
+            "time": "11:12",
+            "message": "fix: 改用 DateTime 並在 SQL 端 CAST 為 DATE",
+            "body": ""
+          },
+          {
+            "hash": "e9730a18",
+            "time": "11:12",
+            "message": "fix: 簡化收檢員查詢邏輯，使用 EXISTS 和 LIKE",
+            "body": ""
+          },
+          {
+            "hash": "10478fb3",
+            "time": "11:10",
+            "message": "fix: 加入 System.Data using",
+            "body": ""
+          },
+          {
+            "hash": "0af4831d",
+            "time": "11:09",
+            "message": "fix: 修正日期參數轉換錯誤",
+            "body": "使用 SqlDbType.Date 避免日期格式本地化導致的轉換失敗"
+          },
+          {
+            "hash": "3dc1fb48",
+            "time": "11:04",
+            "message": "debug: 加入 SQL 查詢語句 log 輸出",
+            "body": ""
+          },
+          {
+            "hash": "84a167d4",
+            "time": "11:00",
+            "message": "fix: 修正收檢員姓名包含電話時的查詢問題",
+            "body": "SCL_ASSIGNED_COLLECTOR 可能是："
+          },
+          {
+            "hash": "e6548be1",
+            "time": "10:57",
+            "message": "fix: 修正收檢清單查詢邏輯",
+            "body": "當查詢路線時，同時查詢："
+          },
+          {
+            "hash": "583b89f3",
+            "time": "09:07",
+            "message": "style: 路線/日期 表頭置中",
+            "body": ""
+          },
+          {
+            "hash": "5d52065b",
+            "time": "09:06",
+            "message": "style: 日期補零顯示（01-31）",
+            "body": ""
+          },
+          {
+            "hash": "d3a5bebd",
+            "time": "09:00",
+            "message": "fix: 週六有營業，只標記週日為淡色",
+            "body": ""
+          },
+          {
+            "hash": "d6e108b9",
+            "time": "08:57",
+            "message": "feat: 收檢員下拉選單優化",
+            "body": "- 代班人員也顯示 (代班) 標記"
+          },
+          {
+            "hash": "d1bcaaa9",
+            "time": "08:55",
+            "message": "fix: 修正排班管理的資料欄位和收檢員顯示",
+            "body": "- 收檢員下拉選單加入 CM_NOTE (路線說明) 和電話"
+          },
+          {
+            "hash": "41ee30f5",
+            "time": "08:51",
+            "message": "feat: 排班 badge 顯示收檢員姓名和備註",
+            "body": ""
+          },
+          {
+            "hash": "4ec19baf",
+            "time": "08:49",
+            "message": "fix: 修正收檢員 API 路徑為 /api/Collector/GetAll",
+            "body": ""
+          },
+          {
+            "hash": "8562d247",
+            "time": "08:47",
+            "message": "fix: 在 _Layout 加入 styles section 支援",
+            "body": ""
+          },
+          {
+            "hash": "0895031c",
+            "time": "08:31",
+            "message": "feat: 新增收檢員排班管理功能",
+            "body": "1. 新增排班管理頁面 (CollectorSchedule.cshtml)"
+          },
+          {
+            "hash": "439b5a6b",
+            "time": "08:20",
+            "message": "feat: 多天登記推播通知與單位名稱解析改善",
+            "body": "1. RegisterMultiDay API 加入推播通知功能"
+          },
+          {
+            "hash": "9fdd2300",
+            "time": "08:03",
+            "message": "fix: 移除 maskable purpose (48x48 太小)",
+            "body": ""
+          },
+          {
+            "hash": "5eef7664",
+            "time": "08:01",
+            "message": "refactor: code review 修正",
+            "body": "- 將 manifest.json 加入專案檔 (.csproj)"
+          }
+        ],
+        "count": 24
+      },
+      {
+        "name": "OnlineReport\\FalconCopy",
+        "commits": [
+          {
+            "hash": "0531f9cf",
+            "time": "06:33",
+            "message": "新增完整的機制說明文件和重開機檢查清單",
+            "body": "- PAT_RESULTH_整單同步機制說明.md：詳細說明整單 MERGE 機制"
+          }
+        ],
+        "count": 1
+      }
+    ],
+    "side_projects": [
+      {
+        "name": "work-progress",
+        "commits": [
+          {
+            "hash": "f5beaa7c",
+            "time": "17:12",
+            "message": "feat: 修改預設日期範圍為 10/9 至今天",
+            "body": "為 demo 會議準備，將預設起始日期改為 2025-10-09"
+          },
+          {
+            "hash": "37f69ed9",
+            "time": "12:54",
+            "message": "docs: 重新整理效率分析報告，使用正確分類數據",
+            "body": "修正內容："
+          },
+          {
+            "hash": "82711b29",
+            "time": "12:49",
+            "message": "data: 新增完整的 Claude 效率分析數據和報告",
+            "body": "新增檔案："
+          },
+          {
+            "hash": "b24b387b",
+            "time": "07:45",
+            "message": "data: 更新 9/24-10/8 工作紀錄資料",
+            "body": "更新統計："
+          },
+          {
+            "hash": "9c06d2eb",
+            "time": "07:38",
+            "message": "docs: 更新 10/8 工作報告 - 新增 FalconCopy 和 PWA 功能",
+            "body": "新增內容："
+          }
+        ],
+        "count": 5
+      },
+      {
+        "name": "RiskPrediction-3H",
+        "commits": [
+          {
+            "hash": "759b1ac4",
+            "time": "06:32",
+            "message": "Update todo.md with Q1-2 completion and today's progress",
+            "body": "- Mark Q1-2 completed: Analyzed two papers from same dataset"
+          }
+        ],
+        "count": 1
+      }
+    ],
+    "summary": {
+      "workCommits": 25,
+      "sideCommits": 6,
+      "totalCommits": 31
+    }
+  },
+  {
+    "date": "2025-10-10",
+    "weekday": "五",
+    "work_projects": [],
+    "side_projects": [],
+    "summary": {
+      "workCommits": 0,
+      "sideCommits": 0,
+      "totalCommits": 0
+    }
+  },
+  {
+    "date": "2025-10-11",
+    "weekday": "六",
+    "work_projects": [],
+    "side_projects": [],
+    "summary": {
+      "workCommits": 0,
+      "sideCommits": 0,
+      "totalCommits": 0
+    }
+  },
+  {
+    "date": "2025-10-12",
+    "weekday": "日",
+    "work_projects": [],
+    "side_projects": [
+      {
+        "name": "RiskPrediction-3H",
+        "commits": [
+          {
+            "hash": "0f361361",
+            "time": "11:04",
+            "message": "Add comprehensive analysis: Why multifactor prediction matters",
+            "body": "- Explain why Lin & Guo still research uric acid despite known associations"
+          },
+          {
+            "hash": "ba643781",
+            "time": "10:58",
+            "message": "Add analysis: Why we cannot extend Lin & Guo studies",
+            "body": "- Document explains why Lin & Guo papers are association studies, not prediction models"
+          }
+        ],
+        "count": 2
+      }
+    ],
+    "summary": {
+      "workCommits": 0,
+      "sideCommits": 2,
+      "totalCommits": 2
+    }
+  },
+  {
+    "date": "2025-10-13",
+    "weekday": "一",
+    "work_projects": [],
+    "side_projects": [],
+    "summary": {
+      "workCommits": 0,
+      "sideCommits": 0,
+      "totalCommits": 0
+    }
+  }
+]
