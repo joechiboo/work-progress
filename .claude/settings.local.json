@@ -16,7 +16,11 @@
       "Read(//d/Gitlab/lisweb/**)",
       "Bash(git log:*)",
       "Read(//d/Gitlab/**)",
-      "Read(//d/**)"
+      "Read(//d/**)",
+      "Bash(while read dir)",
+      "Bash(done)",
+      "Bash(python:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

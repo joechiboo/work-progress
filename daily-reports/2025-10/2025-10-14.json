@@ -1,0 +1,175 @@
+{
+  "date": "2025-10-14",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3f235f04",
+          "time": "11:53",
+          "message": "Merge branch 'fix/substitute-management-bugs' into 'main'",
+          "body": "fix: 修正代班人員管理的三個問題"
+        },
+        {
+          "hash": "2ce220bb",
+          "time": "19:53",
+          "message": "fix: 修正代班人員管理的三個問題",
+          "body": "修正內容："
+        },
+        {
+          "hash": "82924069",
+          "time": "10:51",
+          "message": "feat: 新增收檢明細列印功能",
+          "body": "- 在收檢查詢頁面新增「列印明細」按鈕"
+        },
+        {
+          "hash": "822cab35",
+          "time": "10:08",
+          "message": "fix: 修正收檢查詢自動帶入路線功能並新增操作手冊",
+          "body": "- 修正 GetAllCollectors SQL 的 merge conflict 標記"
+        },
+        {
+          "hash": "3e3745b0",
+          "time": "08:50",
+          "message": "fix: 修正收檢員管理列表排序邏輯，改用 CM_NOTE 排序",
+          "body": "- 修改排序欄位從 CM_ROUTE_NAME 改為 CM_NOTE"
+        },
+        {
+          "hash": "7f86fbb5",
+          "time": "08:41",
+          "message": "feat: 新增收檢員路線資料遷移腳本",
+          "body": "問題發現："
+        },
+        {
+          "hash": "bc619bfb",
+          "time": "08:37",
+          "message": "fix: 修正收檢員排序邏輯 - 正確判斷代班人員",
+          "body": "根本問題："
+        },
+        {
+          "hash": "bf28f35c",
+          "time": "08:34",
+          "message": "fix: 改進收檢員列表排序邏輯",
+          "body": "問題：路線4排在路線3前面"
+        },
+        {
+          "hash": "b982b15c",
+          "time": "08:25",
+          "message": "fix: 修正收檢員管理列表的時間和排序問題",
+          "body": "1. 時間欄位改善"
+        },
+        {
+          "hash": "62ff7eb4",
+          "time": "08:21",
+          "message": "refactor: 將路線選擇從多選 checkbox 改為單選下拉選單",
+          "body": "改動原因："
+        },
+        {
+          "hash": "fd5cc6ed",
+          "time": "08:18",
+          "message": "feat: 調整收檢員管理列表排序",
+          "body": "排序邏輯："
+        },
+        {
+          "hash": "c9610ef7",
+          "time": "08:16",
+          "message": "fix: 修正 CollectorController 參數型別",
+          "body": "- GetCollectorsByRoute 參數從 int routeId 改為 string routeName"
+        },
+        {
+          "hash": "6d8faf60",
+          "time": "08:15",
+          "message": "fix: 修正 GetCollectorsByRoute 方法編譯錯誤",
+          "body": "- 參數從 int routeId 改為 string routeName"
+        },
+        {
+          "hash": "df1a4191",
+          "time": "08:13",
+          "message": "fix: 移除多路線功能，改用單一 CM_ROUTE_NAME 欄位",
+          "body": "問題：程式碼使用不存在的 COLLECTOR_ROUTES 多對多關聯表"
+        },
+        {
+          "hash": "9c9a75b1",
+          "time": "08:09",
+          "message": "feat: 收檢員管理使用 SweetAlert2 美化提示對話框",
+          "body": "- 引入 SweetAlert2 函式庫"
+        },
+        {
+          "hash": "5e4480e0",
+          "time": "08:06",
+          "message": "fix: 修正收檢員管理路線儲存問題",
+          "body": "問題：無法正確設定路線四（或任何路線）"
+        },
+        {
+          "hash": "a19f72f6",
+          "time": "07:56",
+          "message": "feat: 使用 SweetAlert2 美化刪除提示對話框",
+          "body": "- 引入 SweetAlert2 函式庫"
+        },
+        {
+          "hash": "c6a68442",
+          "time": "07:51",
+          "message": "fix: 修正收檢員排班管理的兩個問題",
+          "body": "1. 預設月份改為當月（原本預設下個月）"
+        }
+      ],
+      "count": 18
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "96121743",
+          "time": "15:07",
+          "message": "Add systematic literature review and SCI journal verification guide",
+          "body": "新增檔案："
+        },
+        {
+          "hash": "9778a457",
+          "time": "14:56",
+          "message": "Update todo.md: Add Taiwan MTL (2025) paper review task for Meeting 16",
+          "body": ""
+        },
+        {
+          "hash": "210eafeb",
+          "time": "14:50",
+          "message": "Add six comprehensive research concept documents and meeting materials",
+          "body": "新增六份研究方法與實驗設計文件："
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "CyclePulse",
+      "commits": [
+        {
+          "hash": "4059e7aa",
+          "time": "18:26",
+          "message": "Move failed Bluetooth solutions to docs/bad and add Gadgetbridge guide",
+          "body": "- Move bluetooth-todo.md and MIBAND-TEST-README.md to docs/bad/"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "2924ca46",
+          "time": "17:16",
+          "message": "新增混淆矩陣評估指標備忘錄與更新簡報講稿",
+          "body": "- 新增confusion_matrix_metrics.md：整理Accuracy、Sensitivity、Specificity、Precision、FPR等指標定義與ROC/AUC說明"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 18,
+    "sideCommits": 5,
+    "totalCommits": 23
+  }
+}
