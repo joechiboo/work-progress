@@ -6,12 +6,6 @@
       "name": "lisweb",
       "commits": [
         {
-          "hash": "3f235f04",
-          "time": "11:53",
-          "message": "Merge branch 'fix/substitute-management-bugs' into 'main'",
-          "body": "fix: 修正代班人員管理的三個問題"
-        },
-        {
           "hash": "2ce220bb",
           "time": "19:53",
           "message": "fix: 修正代班人員管理的三個問題",
@@ -114,7 +108,7 @@
           "body": "1. 預設月份改為當月（原本預設下個月）"
         }
       ],
-      "count": 18
+      "count": 17
     }
   ],
   "side_projects": [
@@ -168,8 +162,8 @@
     }
   ],
   "summary": {
-    "workCommits": 18,
+    "workCommits": 17,
     "sideCommits": 5,
-    "totalCommits": 23
+    "totalCommits": 22
   }
 }

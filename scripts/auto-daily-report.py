@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 GITLAB_PATH = "D:\\Gitlab"
 PERSONAL_PATH = "D:\\Personal\\Project"
 WORK_PROGRESS_PATH = "D:\\Personal\\Project\\work-progress"
-AUTHOR = "joechiboo"
+AUTHOR = "UCL\\joechiboo"
 
 def get_git_repos(base_path, max_depth=3):
     """遞迴尋找所有 Git repositories"""
@@ -28,12 +28,12 @@ def get_git_repos(base_path, max_depth=3):
 def get_commits_for_date(repo_path, author, date_str):
     """取得特定日期的 commits"""
     try:
+        # 先抓全部 commits，包含 author name
         cmd = [
             'git', '-C', repo_path, 'log',
-            f'--author={author}',
             f'--since={date_str} 00:00',
             f'--until={date_str} 23:59',
-            '--format=%H|||%ai|||%s|||%b',
+            '--format=%an|||%H|||%ai|||%s|||%b',
         ]
         result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8')
 
@@ -42,13 +42,16 @@ def get_commits_for_date(repo_path, author, date_str):
             if not line:
                 continue
             parts = line.split('|||')
-            if len(parts) >= 3:
-                commits.append({
-                    "hash": parts[0].strip()[:8],
-                    "time": parts[1].strip()[11:16],
-                    "message": parts[2].strip(),
-                    "body": parts[3].strip() if len(parts) > 3 else ""
-                })
+            if len(parts) >= 4:
+                author_name = parts[0].strip()
+                # 只保留 UCL\joechiboo 的 commits，排除 merge commits (紀伯喬)
+                if author in author_name:
+                    commits.append({
+                        "hash": parts[1].strip()[:8],
+                        "time": parts[2].strip()[11:16],
+                        "message": parts[3].strip(),
+                        "body": parts[4].strip() if len(parts) > 4 else ""
+                    })
         return commits
     except Exception as e:
         return []

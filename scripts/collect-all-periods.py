@@ -5,7 +5,7 @@ from datetime import datetime
 
 GITLAB_PATH = "D:\\Gitlab"
 PERSONAL_PATH = "D:\\Personal\\Project"
-AUTHOR = "joechiboo"
+AUTHOR = "UCL\\joechiboo"
 
 periods = [
     {
@@ -50,12 +50,12 @@ def get_git_repos(base_path, max_depth=3):
 def get_commits_detail(repo_path, author, since, until):
     """取得詳細的 commit 資訊"""
     try:
+        # 先抓全部 commits，包含 author name
         cmd = [
             'git', '-C', repo_path, 'log',
-            f'--author={author}',
             f'--since={since}',
             f'--until={until}',
-            '--format=%H|||%ad|||%s|||%b',
+            '--format=%an|||%H|||%ad|||%s|||%b',
             '--date=short'
         ]
         result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8')
@@ -65,13 +65,16 @@ def get_commits_detail(repo_path, author, since, until):
             if not line:
                 continue
             parts = line.split('|||')
-            if len(parts) >= 3:
-                commits.append({
-                    "hash": parts[0].strip(),
-                    "date": parts[1].strip(),
-                    "message": parts[2].strip(),
-                    "body": parts[3].strip() if len(parts) > 3 else ""
-                })
+            if len(parts) >= 4:
+                author_name = parts[0].strip()
+                # 只保留 UCL\joechiboo 的 commits，排除 merge commits (紀伯喬)
+                if author in author_name:
+                    commits.append({
+                        "hash": parts[1].strip(),
+                        "date": parts[2].strip(),
+                        "message": parts[3].strip(),
+                        "body": parts[4].strip() if len(parts) > 4 else ""
+                    })
         return commits
     except Exception as e:
         print(f"Error in {repo_path}: {e}")
