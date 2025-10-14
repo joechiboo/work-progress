@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .canvas-container {
+            margin: 20px 0;
+        }
+        canvas {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        select, input, button {
+            margin: 10px 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        .preview {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .preview-item {
+            text-align: center;
+        }
+        .preview-item img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .preview-item p {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Work Progress Favicon Generator</h1>
+
+        <div class="options">
+            <label>選擇圖示：</label>
+            <select id="iconSelect">
+                <option value="📊">📊 圖表</option>
+                <option value="📈">📈 趨勢圖</option>
+                <option value="✅">✅ 完成</option>
+                <option value="🚀">🚀 火箭</option>
+                <option value="💼">💼 工作</option>
+                <option value="📅">📅 日曆</option>
+                <option value="⚡">⚡ 閃電</option>
+                <option value="🎯">🎯 目標</option>
+            </select>
+
+            <label>背景顏色：</label>
+            <input type="color" id="bgColor" value="#667eea">
+
+            <label>文字顏色：</label>
+            <input type="color" id="textColor" value="#ffffff">
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="canvas" width="512" height="512"></canvas>
+        </div>
+
+        <button onclick="generateFavicon()">生成 Favicon</button>
+        <button onclick="downloadAllSizes()">下載所有尺寸</button>
+
+        <div class="preview" id="preview"></div>
+
+        <div class="info">
+            <strong>使用說明：</strong><br>
+            1. 選擇你喜歡的圖示和顏色<br>
+            2. 點擊「生成 Favicon」預覽<br>
+            3. 點擊「下載所有尺寸」下載 favicon.ico<br>
+            4. 將檔案放到 public 資料夾
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const iconSelect = document.getElementById('iconSelect');
+        const bgColor = document.getElementById('bgColor');
+        const textColor = document.getElementById('textColor');
+        const preview = document.getElementById('preview');
+
+        function drawIcon() {
+            const icon = iconSelect.value;
+            const bg = bgColor.value;
+            const text = textColor.value;
+
+            // 清空畫布
+            ctx.clearRect(0, 0, 512, 512);
+
+            // 畫背景（圓角矩形）
+            ctx.fillStyle = bg;
+            roundRect(ctx, 0, 0, 512, 512, 80);
+            ctx.fill();
+
+            // 畫圖示
+            ctx.font = '380px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(icon, 256, 280);
+        }
+
+        function roundRect(ctx, x, y, width, height, radius) {
+            ctx.beginPath();
+            ctx.moveTo(x + radius, y);
+            ctx.lineTo(x + width - radius, y);
+            ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+            ctx.lineTo(x + width, y + height - radius);
+            ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+            ctx.lineTo(x + radius, y + height);
+            ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+            ctx.lineTo(x, y + radius);
+            ctx.quadraticCurveTo(x, y, x + radius, y);
+            ctx.closePath();
+        }
+
+        function generateFavicon() {
+            drawIcon();
+
+            // 生成預覽
+            const sizes = [16, 32, 48, 180, 512];
+            preview.innerHTML = '';
+
+            sizes.forEach(size => {
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = size;
+                tempCanvas.height = size;
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCtx.drawImage(canvas, 0, 0, size, size);
+
+                const img = document.createElement('img');
+                img.src = tempCanvas.toDataURL();
+                img.width = size;
+                img.height = size;
+
+                const div = document.createElement('div');
+                div.className = 'preview-item';
+                div.appendChild(img);
+
+                const p = document.createElement('p');
+                p.textContent = `${size}x${size}`;
+                div.appendChild(p);
+
+                preview.appendChild(div);
+            });
+        }
+
+        function downloadAllSizes() {
+            drawIcon();
+
+            // 下載 PNG (推薦用於現代瀏覽器)
+            const sizes = [16, 32, 48, 180, 192, 512];
+
+            sizes.forEach(size => {
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = size;
+                tempCanvas.height = size;
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCtx.drawImage(canvas, 0, 0, size, size);
+
+                tempCanvas.toBlob(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `favicon-${size}x${size}.png`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                });
+            });
+        }
+
+        // 初始繪製
+        iconSelect.addEventListener('change', drawIcon);
+        bgColor.addEventListener('input', drawIcon);
+        textColor.addEventListener('input', drawIcon);
+
+        drawIcon();
+    </script>
+</body>
+</html>
