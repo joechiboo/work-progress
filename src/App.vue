@@ -131,7 +131,7 @@ const filterEnd = ref('')
 // 載入資料
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.BASE_URL + 'data/work-log-latest.json')
+    const response = await fetch(import.meta.env.BASE_URL + 'data/work-log-2025-09-17-to-10-14.json')
     const data = await response.json()
     rawData.value = data
     workData.value = data
