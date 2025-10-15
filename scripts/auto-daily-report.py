@@ -252,7 +252,7 @@ def main():
     print(f"\n完成!")
 
 def merge_to_public():
-    """彙整所有每日紀錄到 public/data"""
+    """彙整所有每日紀錄到 public/data（輸出網頁需要的彙整格式）"""
     import glob
 
     print("\n" + "=" * 80)
@@ -285,28 +285,93 @@ def merge_to_public():
     print(f"找到 {len(all_reports)} 天的紀錄")
     print(f"日期範圍: {start_date} ~ {end_date}")
 
+    # 計算總天數和週數
+    from datetime import datetime
+    start_dt = datetime.strptime(start_date, '%Y-%m-%d')
+    end_dt = datetime.strptime(end_date, '%Y-%m-%d')
+    days = (end_dt - start_dt).days + 1
+    weeks = round(days / 7, 1)
+
+    # 彙整成專案視角的格式（網頁需要的格式）
+    projects_map = {}
+
+    for daily in all_reports:
+        # 處理工作專案
+        for proj in daily.get('work_projects', []):
+            proj_name = proj['name']
+            if proj_name not in projects_map:
+                projects_map[proj_name] = {
+                    'name': proj_name,
+                    'totalCommits': 0,
+                    'commits': []
+                }
+
+            for commit in proj['commits']:
+                projects_map[proj_name]['commits'].append({
+                    'hash': commit['hash'],
+                    'date': daily['date'],
+                    'message': commit['message'],
+                    'body': commit.get('body', ''),
+                    'category': categorize_commit(commit['message']),
+                    'tags': []
+                })
+                projects_map[proj_name]['totalCommits'] += 1
+
+        # 處理 Side Projects
+        for proj in daily.get('side_projects', []):
+            proj_name = proj['name']
+            if proj_name not in projects_map:
+                projects_map[proj_name] = {
+                    'name': proj_name,
+                    'totalCommits': 0,
+                    'commits': []
+                }
+
+            for commit in proj['commits']:
+                projects_map[proj_name]['commits'].append({
+                    'hash': commit['hash'],
+                    'date': daily['date'],
+                    'message': commit['message'],
+                    'body': commit.get('body', ''),
+                    'category': categorize_commit(commit['message']),
+                    'tags': []
+                })
+                projects_map[proj_name]['totalCommits'] += 1
+
+    # 轉成列表並排序
+    projects_list = list(projects_map.values())
+    projects_list.sort(key=lambda x: x['totalCommits'], reverse=True)
+
+    # 組合最終格式
+    total_commits = sum(p['totalCommits'] for p in projects_list)
+    output = {
+        'period': {
+            'start': start_date,
+            'end': end_date,
+            'days': days,
+            'weeks': weeks
+        },
+        'author': AUTHOR,
+        'summary': {
+            'totalCommits': total_commits,
+            'projectCount': len(projects_list),
+            'dailyAverage': round(total_commits / days, 1) if days > 0 else 0
+        },
+        'projects': projects_list
+    }
+
     # 儲存到 public/data
     public_data_path = os.path.join(WORK_PROGRESS_PATH, "public", "data")
 
-    # 儲存帶日期的檔案（備份用）
-    dated_file = os.path.join(public_data_path, f"work-log-{start_date}-to-{end_date}.json")
-    with open(dated_file, 'w', encoding='utf-8') as f:
-        json.dump(all_reports, f, ensure_ascii=False, indent=2)
-
     # 儲存固定檔名（供網頁使用）
-    latest_file = os.path.join(public_data_path, "work-log-latest.json")
-    with open(latest_file, 'w', encoding='utf-8') as f:
-        json.dump(all_reports, f, ensure_ascii=False, indent=2)
+    output_file = os.path.join(public_data_path, f"work-log-{start_date}-to-{end_date}.json")
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
 
-    total_work = sum(r['summary']['workCommits'] for r in all_reports)
-    total_side = sum(r['summary']['sideCommits'] for r in all_reports)
+    print(f"\n已儲存: {output_file}")
+    print(f"統計: {total_commits} commits / {len(projects_list)} 專案 / 日均 {output['summary']['dailyAverage']}")
 
-    print(f"\n已儲存:")
-    print(f"  - {dated_file}")
-    print(f"  - {latest_file}")
-    print(f"統計: 工作 {total_work} + Side {total_side} = 總計 {total_work + total_side} commits")
-
-    return latest_file
+    return output_file
 
 if __name__ == "__main__":
     main()
