@@ -343,15 +343,22 @@ def merge_to_public():
     # 儲存到 public/data
     public_data_path = os.path.join(WORK_PROGRESS_PATH, "public", "data")
 
-    # 儲存固定檔名（供網頁使用）
-    output_file = os.path.join(public_data_path, f"work-log-{start_date}-to-{end_date}.json")
-    with open(output_file, 'w', encoding='utf-8') as f:
+    # 儲存帶日期的檔案（備份用）
+    dated_file = os.path.join(public_data_path, f"work-log-{start_date}-to-{end_date}.json")
+    with open(dated_file, 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"\n已儲存: {output_file}")
+    # 儲存固定檔名（供網頁使用）
+    latest_file = os.path.join(public_data_path, "work-log-latest.json")
+    with open(latest_file, 'w', encoding='utf-8') as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+
+    print(f"\n已儲存:")
+    print(f"  - {dated_file} (備份)")
+    print(f"  - {latest_file} (網頁使用)")
     print(f"統計: {total_commits} commits / {len(projects_list)} 專案 / 日均 {output['summary']['dailyAverage']}")
 
-    return output_file
+    return latest_file
 
 if __name__ == "__main__":
     main()
