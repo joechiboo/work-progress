@@ -21,7 +21,9 @@
       "Bash(done)",
       "Bash(python:*)",
       "Bash(cat:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(awk:*)",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []

@@ -251,5 +251,65 @@ def main():
 
     print(f"\n完成!")
 
+def merge_to_public():
+    """彙整所有每日紀錄到 public/data"""
+    import glob
+
+    print("\n" + "=" * 80)
+    print("彙整每日紀錄到 public/data")
+    print("=" * 80)
+
+    # 讀取所有每日紀錄
+    daily_reports_path = os.path.join(WORK_PROGRESS_PATH, "daily-reports")
+    all_reports = []
+
+    for year_month_dir in sorted(glob.glob(os.path.join(daily_reports_path, "*"))):
+        if not os.path.isdir(year_month_dir):
+            continue
+
+        for json_file in sorted(glob.glob(os.path.join(year_month_dir, "*.json"))):
+            with open(json_file, 'r', encoding='utf-8') as f:
+                report = json.load(f)
+                all_reports.append(report)
+
+    if not all_reports:
+        print("沒有找到任何紀錄")
+        return
+
+    # 按日期排序
+    all_reports.sort(key=lambda x: x['date'])
+
+    start_date = all_reports[0]['date']
+    end_date = all_reports[-1]['date']
+
+    print(f"找到 {len(all_reports)} 天的紀錄")
+    print(f"日期範圍: {start_date} ~ {end_date}")
+
+    # 儲存到 public/data
+    public_data_path = os.path.join(WORK_PROGRESS_PATH, "public", "data")
+
+    # 儲存帶日期的檔案（備份用）
+    dated_file = os.path.join(public_data_path, f"work-log-{start_date}-to-{end_date}.json")
+    with open(dated_file, 'w', encoding='utf-8') as f:
+        json.dump(all_reports, f, ensure_ascii=False, indent=2)
+
+    # 儲存固定檔名（供網頁使用）
+    latest_file = os.path.join(public_data_path, "work-log-latest.json")
+    with open(latest_file, 'w', encoding='utf-8') as f:
+        json.dump(all_reports, f, ensure_ascii=False, indent=2)
+
+    total_work = sum(r['summary']['workCommits'] for r in all_reports)
+    total_side = sum(r['summary']['sideCommits'] for r in all_reports)
+
+    print(f"\n已儲存:")
+    print(f"  - {dated_file}")
+    print(f"  - {latest_file}")
+    print(f"統計: 工作 {total_work} + Side {total_side} = 總計 {total_work + total_side} commits")
+
+    return latest_file
+
 if __name__ == "__main__":
     main()
+
+    # 彙整到 public/data 供網頁使用
+    merge_to_public()
