@@ -1,0 +1,36 @@
+{
+  "date": "2025-08-09",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "f8b2813f",
+          "time": "22:45",
+          "message": "fix: 修復檢驗項目類別API，改用G_GoodsKind表獲取真實檢驗項目",
+          "body": "- 替換SubhealthChks表為G_GoodsKind表查詢檢驗項目類別"
+        },
+        {
+          "hash": "57a874ef",
+          "time": "22:43",
+          "message": "feat: 修復首頁檢驗項目類別下拉選單，從API動態載入資料",
+          "body": "- 首頁下拉選單改為從後端API獲取真實的檢驗項目類別和城市資料"
+        },
+        {
+          "hash": "85c1cf9a",
+          "time": "22:41",
+          "message": "fix: 移除檢驗項目數量限制，顯示完整檢驗項目列表",
+          "body": "- 移除後端 GetLabServicesAsync 方法中的 .Take(4) 限制"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 0,
+    "totalCommits": 3
+  }
+}

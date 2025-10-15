@@ -1,0 +1,319 @@
+{
+  "date": "2025-10-02",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "45ed578c",
+          "time": "14:38",
+          "message": "refactor: Remove NLog debug statements",
+          "body": "- Remove all NLog logging statements used for debugging"
+        },
+        {
+          "hash": "a582e90f",
+          "time": "14:34",
+          "message": "fix: Improve push notification message formatting",
+          "body": "- Only show contact info parentheses when there is contact person or phone"
+        },
+        {
+          "hash": "3d3a704b",
+          "time": "12:55",
+          "message": "refactor: Standardize route name mapping to zero-padded format",
+          "body": "- Change route name mapping logic: normalize \"路線3\" to \"03\" instead of vice versa"
+        },
+        {
+          "hash": "4f766e90",
+          "time": "12:46",
+          "message": "fix: Add logging and fix route name mapping for push notifications",
+          "body": "- Add NLog logging to CollectionController and PushNotificationService for debugging"
+        },
+        {
+          "hash": "bf544e4e",
+          "time": "12:17",
+          "message": "feat: Integrate WebPush-NetCore library for push notifications",
+          "body": "- Install WebPush NuGet package (v1.0.12)"
+        },
+        {
+          "hash": "db5f0406",
+          "time": "12:06",
+          "message": "feat: Implement real Web Push notification using WebPush library",
+          "body": "- Replace stub implementation with WebPush-NetCore library"
+        },
+        {
+          "hash": "9ae4e055",
+          "time": "11:59",
+          "message": "fix: Reactivate disabled subscriptions when re-subscribing",
+          "body": "- Check for existing subscriptions including disabled ones"
+        },
+        {
+          "hash": "2108c721",
+          "time": "11:51",
+          "message": "fix: Use BBS connection string for PushSubscriptionRepository",
+          "body": "- Change from non-existent LISConnectionString to BBS"
+        },
+        {
+          "hash": "8f300b54",
+          "time": "11:47",
+          "message": "fix: Add PushSubscription model and repository to project file",
+          "body": "- Add Models\\PushSubscription.cs to LISWeb.csproj"
+        },
+        {
+          "hash": "12e8fb81",
+          "time": "11:45",
+          "message": "fix: Fix remaining PushSubscription type reference",
+          "body": "- Change List<PushSubscription> to List<Models.PushSubscription>"
+        },
+        {
+          "hash": "24b04ee3",
+          "time": "11:44",
+          "message": "fix: Resolve PushSubscription class naming conflicts",
+          "body": "- Rename service layer PushSubscription to PushSubscriptionDto"
+        },
+        {
+          "hash": "7c239f12",
+          "time": "11:38",
+          "message": "feat: Implement database persistence for push notification subscriptions",
+          "body": "- Create PushSubscription table with SQL schema"
+        },
+        {
+          "hash": "a24587cf",
+          "time": "11:32",
+          "message": "fix: Change TestPush endpoint from POST to GET",
+          "body": "- Allow testing via browser URL"
+        },
+        {
+          "hash": "f27fe60e",
+          "time": "11:21",
+          "message": "feat: Add test push notification endpoint",
+          "body": "- Add /api/PushNotification/TestPush endpoint for testing"
+        },
+        {
+          "hash": "a1108d8d",
+          "time": "11:10",
+          "message": "debug: Add diagnostic info to GetVapidPublicKey API",
+          "body": "- Show both config and service VAPID public keys"
+        },
+        {
+          "hash": "da3aa2e0",
+          "time": "11:02",
+          "message": "chore: Remove sw.js from Scripts folder",
+          "body": "- Service Worker now only exists in root directory /sw.js"
+        },
+        {
+          "hash": "2143b0c1",
+          "time": "11:00",
+          "message": "fix: Move sw.js to root directory for Service Worker registration",
+          "body": "- Copy sw.js from Scripts folder to project root (LISWeb/)"
+        },
+        {
+          "hash": "53856ecd",
+          "time": "10:58",
+          "message": "fix: Convert collection view files to UTF-8 with BOM to fix Chinese character encoding",
+          "body": "- Convert CollectionQuery.cshtml to UTF-8 with BOM"
+        },
+        {
+          "hash": "ae52d27f",
+          "time": "10:49",
+          "message": "chore: Reorganize HomeController and add httpErrors PassThrough",
+          "body": "- Move collection system methods to dedicated region in HomeController"
+        },
+        {
+          "hash": "c963420c",
+          "time": "10:33",
+          "message": "fix: Handle missing VAPID keys gracefully in production",
+          "body": "- Remove automatic key generation in PushNotificationService constructor"
+        },
+        {
+          "hash": "656159d8",
+          "time": "10:05",
+          "message": "feat: Add VAPID keys configuration and restrict VapidKey API to internal network",
+          "body": "- Add VAPID keys (public/private) to Web.config for push notifications"
+        },
+        {
+          "hash": "7a734c77",
+          "time": "09:27",
+          "message": "feat: Add VAPID key generation API",
+          "body": "Add VapidKeyController with two endpoints:"
+        },
+        {
+          "hash": "689aa253",
+          "time": "09:25",
+          "message": "fix: Simplify WebPushService for .NET Framework 4.6.1 compatibility",
+          "body": "Issue: ECCurve and AesGcm not available in .NET Framework 4.6.1"
+        },
+        {
+          "hash": "91e1f302",
+          "time": "09:23",
+          "message": "fix: Use CNG API for VAPID implementation and fix sw.js reference",
+          "body": "Changes:"
+        },
+        {
+          "hash": "0c1d426c",
+          "time": "09:18",
+          "message": "fix: Add missing System.Linq using to CollectionController",
+          "body": "Error: 'List<TodayRouteCollector>' does not contain a definition for 'FirstOrDefault'"
+        },
+        {
+          "hash": "287425ad",
+          "time": "09:17",
+          "message": "fix: Replace BouncyCastle with .NET built-in ECDsa in VapidHelper",
+          "body": "Issue: Type conflicts between BouncyCastle.Crypto (1.8.9) and BouncyCastle.Cryptography (2.4.0)"
+        },
+        {
+          "hash": "3d855e4e",
+          "time": "09:10",
+          "message": "fix: Remove duplicate sw.js file",
+          "body": "- Remove Scripts\\sw.js (duplicate)"
+        },
+        {
+          "hash": "98cd762f",
+          "time": "08:59",
+          "message": "fix: Add missing files to LISWeb.csproj",
+          "body": "Missing C# files:"
+        },
+        {
+          "hash": "0f84badb",
+          "time": "08:54",
+          "message": "feat: Add push notification subscribe button to CollectionQuery page",
+          "body": "- Add subscribe/unsubscribe toggle button in page header"
+        },
+        {
+          "hash": "322ffacf",
+          "time": "08:51",
+          "message": "feat: Implement complete Web Push notification",
+          "body": "Backend Implementation:"
+        },
+        {
+          "hash": "10b53082",
+          "time": "08:25",
+          "message": "refactor: Use internal SMTP settings as default",
+          "body": "- Change default SMTP to internal server (192.168.168.3:25)"
+        },
+        {
+          "hash": "01c28834",
+          "time": "08:22",
+          "message": "fix: Update notification to route-based collector with substitute handling",
+          "body": "- Change from AssignedCollector to route-based lookup"
+        },
+        {
+          "hash": "cd0614f2",
+          "time": "08:13",
+          "message": "refactor: Reorganize Service files into Services folder",
+          "body": "- Move EmailService.cs from Models/ViewModel to Services"
+        },
+        {
+          "hash": "274df930",
+          "time": "08:05",
+          "message": "feat: 新增收檢登記 Email 和 Push 通知功能",
+          "body": "功能說明："
+        }
+      ],
+      "count": 34
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "cc08c9fb",
+          "time": "09:37",
+          "message": "新增同步診斷工具和輔助腳本",
+          "body": "- 新增 CheckSyncStatus.cs - 訂單同步狀態診斷工具"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "FridgeMaster",
+      "commits": [
+        {
+          "hash": "411cf011",
+          "time": "17:56",
+          "message": "fix: use PNG as primary favicon format instead of ICO",
+          "body": "- Change primary favicon from .ico to .png for better browser compatibility"
+        },
+        {
+          "hash": "2808526d",
+          "time": "17:55",
+          "message": "fix: add basePath to favicon URLs for GitHub Pages deployment",
+          "body": "- Favicon paths now include basePath in production"
+        },
+        {
+          "hash": "7437630c",
+          "time": "17:35",
+          "message": "feat: add custom fridge-themed favicon",
+          "body": "- Generate fridge icon favicons in multiple sizes (16x16 to 512x512)"
+        },
+        {
+          "hash": "fc3d0445",
+          "time": "17:30",
+          "message": "feat: add fridge/database tabs and purchase/use functionality",
+          "body": "- Add tab navigation to switch between fridge page and ingredient database"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "0672f18b",
+          "time": "17:18",
+          "message": "Simplify Q1-Q3 descriptions and add next steps",
+          "body": ""
+        },
+        {
+          "hash": "ef346fee",
+          "time": "17:14",
+          "message": "Update Q1-Q3 order and prepare Meeting 15 presentation",
+          "body": "- Reorder todo.md: Q1=文獻回顧, Q2=預測定義, Q3=資料集"
+        },
+        {
+          "hash": "e8676115",
+          "time": "16:17",
+          "message": "Add Taiwan 3H literature review and reference papers",
+          "body": "- Add comprehensive Q2 Taiwan literature review covering hypertension, diabetes, and dyslipidemia prediction studies"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Pomodoro",
+      "commits": [
+        {
+          "hash": "42e5a252",
+          "time": "18:24",
+          "message": "修正 Google OAuth 登入的 redirect URL 問題",
+          "body": "- 明確指定 redirectTo 為 /Pomodoro/ 路徑"
+        },
+        {
+          "hash": "3647db06",
+          "time": "18:17",
+          "message": "優化自定義任務列表功能與下拉選單 UI",
+          "body": "- 新增從報表快速加入常用工作清單功能"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "5d00f823",
+          "time": "15:47",
+          "message": "新增15分鐘簡報講稿（完成前3頁內容）",
+          "body": "- 撰寫完整的15頁簡報講稿架構"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 35,
+    "sideCommits": 10,
+    "totalCommits": 45
+  }
+}

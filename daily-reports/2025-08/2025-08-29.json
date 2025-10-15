@@ -1,0 +1,174 @@
+{
+  "date": "2025-08-29",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "10e78362",
+          "time": "23:54",
+          "message": "debug: 新增連接字串狀態檢查端點",
+          "body": "- 檢查 server 環境變數狀態"
+        },
+        {
+          "hash": "9550db47",
+          "time": "23:42",
+          "message": "feat: 實作 connectionString 加密功能",
+          "body": "- 新增 Cipher 類別，使用 DES+MD5 加密標準"
+        },
+        {
+          "hash": "65d6f8bc",
+          "time": "17:20",
+          "message": "refactor: 簡化前端測試，保留核心功能測試",
+          "body": "- 保留 member.test.ts 和 LoginView.test.ts 的完整測試覆蓋"
+        },
+        {
+          "hash": "b7a1271f",
+          "time": "16:54",
+          "message": "test: 補充檢驗報告完整流程測試",
+          "body": "新增檢驗報告相關的前端測試："
+        },
+        {
+          "hash": "1fbbb2d9",
+          "time": "16:38",
+          "message": "remove: 移除舊站台鏈結",
+          "body": "- 移除導航欄中的「回到舊版」鏈結"
+        },
+        {
+          "hash": "1cc5ba10",
+          "time": "16:05",
+          "message": "fix: 修復 CI/CD 部署時清空圖片檔案的問題",
+          "body": "- 在部署前備份 Uploadinginfo 目錄"
+        },
+        {
+          "hash": "1475d8bd",
+          "time": "15:54",
+          "message": "fix: 修復 CI/CD 部署連接問題",
+          "body": "- 移除 ping 檢查，改用 nc 檢查 SSH 端口"
+        },
+        {
+          "hash": "fb921ae2",
+          "time": "15:40",
+          "message": "add Google Search Console verification file for uclcloud.com.tw",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "1d76b337",
+          "time": "15:33",
+          "message": "feat: 實作完整 SEO 優化系統",
+          "body": "- 新增 SitemapController：生成 XML sitemap、robots.txt 和 SEO 統計"
+        },
+        {
+          "hash": "84867c74",
+          "time": "11:25",
+          "message": "feat: 加入防火牆預檢和部署容錯機制",
+          "body": "- 恢復 allow_failure: true 避免 Runner 清理問題阻止 pipeline"
+        },
+        {
+          "hash": "911b0125",
+          "time": "11:13",
+          "message": "fix: 修復 TestCategoryController 測試的期待值問題",
+          "body": "- 將硬編碼的期待 ID '0302' 改為彈性驗證"
+        },
+        {
+          "hash": "4f50bf7f",
+          "time": "10:59",
+          "message": "feat: 加入 Runner 網路連線診斷",
+          "body": "- 檢查 Runner 主機名和 IP 地址"
+        },
+        {
+          "hash": "e91ea41e",
+          "time": "10:55",
+          "message": "fix: 簡化部署清理，確保實際執行部署",
+          "body": "- 移除 allow_failure 避免部署跳過"
+        },
+        {
+          "hash": "5ae6c9c5",
+          "time": "10:48",
+          "message": "fix: 將清理步驟移到 script 階段確保執行",
+          "body": "- 在 script 結束前先清理 build 產物和修復權限"
+        },
+        {
+          "hash": "f826dd93",
+          "time": "10:46",
+          "message": "fix: 允許部署 job 清理階段失敗但不阻止部署",
+          "body": "- 添加 allow_failure: true 到生產部署 job"
+        },
+        {
+          "hash": "c95965ee",
+          "time": "10:37",
+          "message": "fix: 解決 GitLab Runner 自動清理失敗問題",
+          "body": "- 禁用 GitLab 的自動 git clean 和 job cleanup 功能"
+        },
+        {
+          "hash": "2ddcda07",
+          "time": "10:30",
+          "message": "feat: 添加 GitLab Runner 環境診斷",
+          "body": "- 在 before_script 中加入詳細的 Runner 環境檢查"
+        },
+        {
+          "hash": "27b711bb",
+          "time": "10:28",
+          "message": "fix: 加強 GitLab CI/CD 部署容錯處理",
+          "body": "- 為健康檢查、版本標記等步驟添加容錯處理，避免非致命錯誤導致部署失敗"
+        },
+        {
+          "hash": "b7e467ba",
+          "time": "10:14",
+          "message": "fix: 修復 GitLab CI/CD SSH 金鑰清理問題",
+          "body": "- 將 SSH 金鑰檔名從 id_rsa 改為 deploy_key，避免與 GitLab Runner 清理機制衝突"
+        },
+        {
+          "hash": "1f702d65",
+          "time": "08:43",
+          "message": "fix(ci): 把 deploy-production 的 after_script 也改掉，跟 staging 一樣",
+          "body": ""
+        },
+        {
+          "hash": "df049d21",
+          "time": "08:35",
+          "message": "fix(ci): Runner 自己會清掉暫存的 CI/CD 變數檔案，不需要你手動刪。",
+          "body": ""
+        },
+        {
+          "hash": "72c9d197",
+          "time": "08:17",
+          "message": "fix(ci): 把 after_script 改成同時刪兩個",
+          "body": ""
+        },
+        {
+          "hash": "b62263b7",
+          "time": "08:10",
+          "message": "fix(ci): 統一 SSH 金鑰檔名為 id_rsa",
+          "body": ""
+        },
+        {
+          "hash": "989b98b1",
+          "time": "08:00",
+          "message": "fix: 修復所有 ReportController 測試以達到 100% 通過率",
+          "body": "完全修復了所有 ReportController 測試問題："
+        },
+        {
+          "hash": "1606a54b",
+          "time": "06:02",
+          "message": "fix: 部分修復 ReportController 測試以符合新的 API 行為",
+          "body": "- 修復了 GetReportList_ShouldCorrectlyMapLabNames 測試"
+        },
+        {
+          "hash": "4fcc4b34",
+          "time": "05:50",
+          "message": "fix: 移除有問題的前端測試文件並開始修復後端測試",
+          "body": "- 移除導致 CI 失敗的 reportService.test.ts 和 ReportFlow.test.ts"
+        }
+      ],
+      "count": 26
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 26,
+    "sideCommits": 0,
+    "totalCommits": 26
+  }
+}

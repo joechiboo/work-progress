@@ -1,0 +1,66 @@
+{
+  "date": "2025-09-11",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ed4b8cfb",
+          "time": "17:06",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb",
+          "body": ""
+        },
+        {
+          "hash": "1e1a9303",
+          "time": "16:33",
+          "message": "feat: 實作收檢登記表電子化系統",
+          "body": "## 新增功能"
+        },
+        {
+          "hash": "570f3253",
+          "time": "16:09",
+          "message": "fix: 移除 PT 外部能力試驗證書區塊",
+          "body": "- 完全移除 PT 外部能力試驗證書的整個 div 區塊"
+        },
+        {
+          "hash": "113a1788",
+          "time": "15:50",
+          "message": "feat: LT257 頁面新增聯絡人資訊顯示",
+          "body": "- 在單位備註下方新增聯絡人資訊欄位"
+        },
+        {
+          "hash": "9fd276ea",
+          "time": "15:44",
+          "message": "fix: LT257 GetPhoneList 條件調整 - 有提供單號時不過濾 97__ 項目",
+          "body": "- 當有提供具體單號（TNO 或 tnoStart/tnoEnd）時，不套用 97__ 項目過濾"
+        },
+        {
+          "hash": "53349fc7",
+          "time": "09:55",
+          "message": "修復帳別filter問題",
+          "body": ""
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "2109de9e",
+          "time": "09:45",
+          "message": "完成 FalconCopy 資料同步系統修正與優化",
+          "body": "## 主要修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 0,
+    "totalCommits": 7
+  }
+}

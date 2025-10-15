@@ -1,0 +1,109 @@
+{
+  "date": "2025-10-03",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2ea2a017",
+          "time": "12:35",
+          "message": "feat: 優化手機版收檢查詢互動體驗",
+          "body": "## 手機版改進"
+        },
+        {
+          "hash": "0266da26",
+          "time": "12:13",
+          "message": "feat: 優化編譯速度、改進通知功能、設計新圖示",
+          "body": "## 編譯與效能優化"
+        },
+        {
+          "hash": "eaecb62e",
+          "time": "09:37",
+          "message": "config: Enable cross-domain notification to docs.ucl.com.tw",
+          "body": "- Set ExternalNotificationBaseUrl to https://docs.ucl.com.tw"
+        },
+        {
+          "hash": "423db50a",
+          "time": "09:28",
+          "message": "docs: Update VAPID key generation to use internal API",
+          "body": "- Change primary method to internal API (/api/VapidKey/Generate)"
+        },
+        {
+          "hash": "8b692b70",
+          "time": "08:55",
+          "message": "docs: Add VAPID key generation guide",
+          "body": "- Explain what VAPID keys are and their purpose"
+        },
+        {
+          "hash": "92cc2ab9",
+          "time": "08:50",
+          "message": "docs: Refactor notification guide to focus on Web Push only",
+          "body": "- Remove all Email/SMTP related content"
+        },
+        {
+          "hash": "c3e2970f",
+          "time": "08:46",
+          "message": "feat: Add cross-domain notification support",
+          "body": "- Add ExternalNotificationBaseUrl config in Web.config"
+        },
+        {
+          "hash": "d8b9ae67",
+          "time": "08:40",
+          "message": "docs: Add detailed comments explaining why sw.js must be in root directory",
+          "body": "- Add comprehensive documentation about Service Worker scope"
+        },
+        {
+          "hash": "7a6d1bb7",
+          "time": "08:38",
+          "message": "feat: Add email notification testing and improve logging",
+          "body": "- Add TestEmail API endpoint to verify email settings and test sending"
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "FridgeMaster",
+      "commits": [
+        {
+          "hash": "885d46f9",
+          "time": "07:59",
+          "message": "fix: return default theme in useTheme for SSR compatibility",
+          "body": "Instead of throwing error during SSR, return default light theme"
+        },
+        {
+          "hash": "28c4cec3",
+          "time": "07:50",
+          "message": "fix: prevent ThemeToggle SSR hydration error",
+          "body": "Add mounted state check to avoid rendering ThemeToggle during SSR,"
+        },
+        {
+          "hash": "6c1d9b1f",
+          "time": "07:47",
+          "message": "feat: add dark mode support with toggle button",
+          "body": "- Implement ThemeContext with localStorage persistence"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "CharMon",
+      "commits": [
+        {
+          "hash": "753d14f7",
+          "time": "15:44",
+          "message": "docs: 新增課程企劃案文件",
+          "body": "新增跨領域科技融入教學設計企劃案，包含："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 4,
+    "totalCommits": 13
+  }
+}

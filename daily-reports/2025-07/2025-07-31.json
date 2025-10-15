@@ -1,0 +1,97 @@
+{
+  "date": "2025-07-31",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "23ca52aa",
+          "time": "16:18",
+          "message": "T909 > P909 講錯了",
+          "body": ""
+        },
+        {
+          "hash": "7e518b02",
+          "time": "16:14",
+          "message": "+T909",
+          "body": ""
+        },
+        {
+          "hash": "83f4cd46",
+          "time": "16:08",
+          "message": "更新 SP",
+          "body": ""
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "e78a3ec4",
+          "time": "19:48",
+          "message": "Configure EmailJS with real credentials - Enable contact form",
+          "body": "## EmailJS Configuration Complete"
+        },
+        {
+          "hash": "b24cd8ca",
+          "time": "19:33",
+          "message": "Update contact availability: remove Saturday hours",
+          "body": "- Remove Saturday contact time (10:00-16:00)"
+        },
+        {
+          "hash": "47a251f2",
+          "time": "19:32",
+          "message": "Remove redundant blue-ground workflow",
+          "body": "Keep only the main lemon-wave deployment workflow:"
+        },
+        {
+          "hash": "89e9cff0",
+          "time": "19:30",
+          "message": "Clean up workflows and finalize CI/CD setup",
+          "body": "## Workflow Updates"
+        },
+        {
+          "hash": "546718bb",
+          "time": "19:29",
+          "message": "Merge branch 'main' of https://github.com/joechiboo/joechiboo-resume",
+          "body": ""
+        },
+        {
+          "hash": "26ee0d71",
+          "time": "19:29",
+          "message": "Update CI/CD workflow and add API token setup guide",
+          "body": "## Workflow Improvements"
+        },
+        {
+          "hash": "08eb737f",
+          "time": "18:49",
+          "message": "Complete portfolio website optimization and Azure deployment setup",
+          "body": "## Phase 1: Content Migration & Layout Enhancement"
+        },
+        {
+          "hash": "c66d2e3e",
+          "time": "12:50",
+          "message": "Resolve merge conflict and update README",
+          "body": "- Merge with remote repository"
+        },
+        {
+          "hash": "b26b115a",
+          "time": "12:45",
+          "message": "Initial commit: Complete Vue.js portfolio website",
+          "body": "- Set up Vue 3 project with Vue Router"
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 9,
+    "totalCommits": 12
+  }
+}

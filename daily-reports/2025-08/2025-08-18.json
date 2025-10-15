@@ -1,0 +1,55 @@
+{
+  "date": "2025-08-18",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "b20f2abf",
+          "time": "16:53",
+          "message": "fix: 修復檢驗所註冊400錯誤 - 改善驗證機制與錯誤處理",
+          "body": "後端改進："
+        },
+        {
+          "hash": "4517734d",
+          "time": "16:48",
+          "message": "feat: 新增註冊表單錯誤欄位自動滾動功能",
+          "body": "主要改進："
+        },
+        {
+          "hash": "6fd87176",
+          "time": "16:42",
+          "message": "fix: 修復前端建置錯誤 - 新增MemberCenterView缺失的Idcard欄位",
+          "body": "- 修復MemberCenterView.vue中registerForm缺少Idcard欄位的問題"
+        },
+        {
+          "hash": "f1680bec",
+          "time": "16:33",
+          "message": "feat: 完善檢驗所圖片路徑管理與資料庫欄位映射修復",
+          "body": "- 新增檢驗所會員圖片路徑標準化功能"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "8142658d",
+          "time": "15:44",
+          "message": "新增會議記錄、及社區規約修訂",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 1,
+    "totalCommits": 5
+  }
+}

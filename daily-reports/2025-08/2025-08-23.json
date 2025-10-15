@@ -1,0 +1,30 @@
+{
+  "date": "2025-08-23",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "be6256b0",
+          "time": "07:15",
+          "message": "fix: 簡化後端版本檔案生成 - 直接在 publish 階段處理",
+          "body": "- 移除複雜的 artifacts 傳遞機制"
+        },
+        {
+          "hash": "4ee73592",
+          "time": "06:48",
+          "message": "fix: 添加 wwwroot 目錄到 build artifacts 確保版本檔案傳遞",
+          "body": "- 將 backend/wwwroot/ 添加到 build-backend artifacts"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "date": "2025-09-03",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2c5c886d",
+          "time": "19:20",
+          "message": "單位顯示改優先讀 ORIGINAL_UNIT_TNO",
+          "body": ""
+        },
+        {
+          "hash": "f8828906",
+          "time": "18:01",
+          "message": "新增 LT257 電話通報功能",
+          "body": ""
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "a61d3bc0",
+          "time": "15:17",
+          "message": "feat: 優化正常模式資料查詢流程並修正UserLevel篩選條件",
+          "body": "## 主要改進"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "9cb8d2a0",
+          "time": "09:52",
+          "message": "Add comprehensive project documentation",
+          "body": "- 新增專案概述和系統架構文檔"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "702339ab",
+          "time": "05:36",
+          "message": "fix: 修復 SitemapController 測試失敗問題並新增 SEO 系統完整支援",
+          "body": "## 修復內容"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 0,
+    "totalCommits": 5
+  }
+}

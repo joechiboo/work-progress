@@ -1,0 +1,103 @@
+{
+  "date": "2025-09-30",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "d590936b",
+          "time": "15:43",
+          "message": "修正 PAT_RESULTD 同步邏輯 - 新增關聯欄位支援",
+          "body": "## 變更內容"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "Pomodoro",
+      "commits": [
+        {
+          "hash": "362c4b98",
+          "time": "10:20",
+          "message": "修正 OAuth 登入重定向 URL 問題",
+          "body": "- 根據環境自動選擇正確的 redirectTo URL"
+        },
+        {
+          "hash": "0d03ae7e",
+          "time": "10:08",
+          "message": "修正首次登入時自動建立預設設定",
+          "body": "- 首次登入時自動將預設設定寫入 user_settings 資料表"
+        },
+        {
+          "hash": "b53387da",
+          "time": "10:04",
+          "message": "移除 Facebook 登入並更新設定文檔",
+          "body": "- 暫時隱藏 Facebook OAuth 登入按鈕"
+        },
+        {
+          "hash": "25961403",
+          "time": "09:32",
+          "message": "整合 Supabase 會員系統與第三方登入",
+          "body": "- 新增 Supabase 客戶端配置和認證系統"
+        },
+        {
+          "hash": "fbae8ab5",
+          "time": "08:13",
+          "message": "新增報表匯出功能與休息強制結束功能",
+          "body": "- 修正週報表日期時區問題（使用本地時區而非 UTC）"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "fa4d2ea0",
+          "time": "19:47",
+          "message": "Add comprehensive Synthea dataset summary document",
+          "body": "Detailed analysis of the 1K Synthea synthetic patient dataset:"
+        },
+        {
+          "hash": "51343360",
+          "time": "19:44",
+          "message": "Add Synthea synthetic data as primary dataset",
+          "body": "- Update .gitignore to exclude Synthea data folders"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "a075d266",
+          "time": "07:59",
+          "message": "新增周佑霖先生為第二屆管委會 E 棟管理委員 (E7-15F)",
+          "body": "- 新增委員資料至 committeeData.js"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "7dc771b0",
+          "time": "17:49",
+          "message": "更換期中報告論文為AI心血管疾病診斷研究",
+          "body": "- 替換原有血清尿酸論文為機器學習心血管疾病診斷模型"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 9,
+    "totalCommits": 10
+  }
+}

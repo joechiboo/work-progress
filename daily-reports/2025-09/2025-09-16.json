@@ -1,0 +1,145 @@
+{
+  "date": "2025-09-16",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b8a3d293",
+          "time": "17:43",
+          "message": "fix: auto-load data after route selection in CollectionQuery",
+          "body": "- Fix user route auto-selection using correct API properties (CM_NAME, RouteNames)"
+        },
+        {
+          "hash": "b98e31ef",
+          "time": "17:38",
+          "message": "fix: remove GetRoutes API call in CollectorManagement",
+          "body": "- Replace GetRoutes API call with predefined route options"
+        },
+        {
+          "hash": "a128d948",
+          "time": "17:20",
+          "message": "砍掉 todo",
+          "body": ""
+        },
+        {
+          "hash": "754c5f8c",
+          "time": "17:02",
+          "message": "Merge branch 'main' into feature/fix-collector-routes-fk",
+          "body": "# Conflicts:"
+        },
+        {
+          "hash": "8cb851a4",
+          "time": "17:01",
+          "message": "resolve merge conflict: keep simplified schema version",
+          "body": "- Keep HEAD version which uses simplified CM_NOTE field approach"
+        },
+        {
+          "hash": "ed93881b",
+          "time": "16:56",
+          "message": "remove todo.txt from version control and add to gitignore",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "a24bdcb5",
+          "time": "16:53",
+          "message": "remove debug console.log statements",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "44e9b1ab",
+          "time": "16:53",
+          "message": "feat: improve CollectionRegister UI layout and collector assignment logic",
+          "body": "- Swap order: unit selection first, then route selection"
+        },
+        {
+          "hash": "ba8fc744",
+          "time": "16:34",
+          "message": "fix: update collection system to use simplified schema with route names",
+          "body": "- Change RouteId parameters to RouteName in API endpoints"
+        },
+        {
+          "hash": "dd243c66",
+          "time": "12:08",
+          "message": "feat: Add WS76 workstation items to LT257 GetPhoneList filter",
+          "body": "- Include WS76 items in filter97Items condition for GetPhoneList"
+        },
+        {
+          "hash": "eab2ff5d",
+          "time": "11:53",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb",
+          "body": ""
+        },
+        {
+          "hash": "f3438198",
+          "time": "11:50",
+          "message": "refactor: 簡化收檢系統架構，移除複雜關聯表",
+          "body": "- 重構資料庫架構：簡化為 COLLECTORS 和 SPECIMEN_COLLECTION_LOG 兩個主要表"
+        },
+        {
+          "hash": "9f0dcefe",
+          "time": "10:16",
+          "message": "fix: 修正 CollectionQuery 路線過濾問題",
+          "body": "- 修正路線過濾時傳遞路線代碼改為路線 ID"
+        },
+        {
+          "hash": "189faf21",
+          "time": "10:10",
+          "message": "fix: 修正收檢登記路線 ID 傳遞問題",
+          "body": "- 修正前端傳遞路線代碼改為路線 ID"
+        },
+        {
+          "hash": "4b93d76e",
+          "time": "09:59",
+          "message": "revert: 暫時將 COLLECTOR_ROUTES 欄位改回 CR_ 前綴",
+          "body": "- 資料庫尚未更新結構，先恢復使用 CR_ 前綴"
+        },
+        {
+          "hash": "773aff19",
+          "time": "09:58",
+          "message": "docs: 新增 COLLECTOR_ROUTES 表結構修正 SQL 腳本",
+          "body": "- 提供 SQL Server 和 Oracle 版本的更新腳本"
+        },
+        {
+          "hash": "196e78c6",
+          "time": "09:46",
+          "message": "fix: 修正 COLLECTOR_ROUTES 表的 foreign key 命名衝突",
+          "body": "- 將所有 COLLECTOR_ROUTES 相關欄位從 CR_ 改為 CRR_ 前綴"
+        },
+        {
+          "hash": "61fd5d07",
+          "time": "09:45",
+          "message": "fix: 修正 COLLECTOR_ROUTES 表的 foreign key 命名衝突",
+          "body": "- 將 COLLECTOR_ROUTES 表的欄位前綴從 CR_ 改為 CRR_"
+        }
+      ],
+      "count": 18
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "e05f90b1",
+          "time": "19:55",
+          "message": "Add four main content description files for thesis submission",
+          "body": ""
+        },
+        {
+          "hash": "c02dcbe5",
+          "time": "19:47",
+          "message": "Add course materials and documentation folders",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 18,
+    "sideCommits": 2,
+    "totalCommits": 20
+  }
+}

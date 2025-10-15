@@ -1,0 +1,72 @@
+{
+  "date": "2025-08-25",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "e296e7bb",
+          "time": "16:49",
+          "message": "docs: 完善 Swagger API 文檔註解與接口說明文檔 v3.0",
+          "body": "- 新增完整的 Swagger 註解到所有控制器"
+        },
+        {
+          "hash": "2d5b5074",
+          "time": "16:29",
+          "message": "fix: 修復 TestCategoryController 測試中 ID 生成邏輯驗證",
+          "body": "- 修正 CreateTestCategory_ShouldGenerateNewMiddleItemId 測試預期值"
+        },
+        {
+          "hash": "b1806223",
+          "time": "16:15",
+          "message": "fix: 修復 TestCategoryController 測試中的重複 MiddleItemId 問題",
+          "body": "- 修正測試資料中重複的 MiddleItemId \"0101\""
+        },
+        {
+          "hash": "65514918",
+          "time": "16:01",
+          "message": "docs: 整合前端自動化測試到系統測試計畫",
+          "body": "- 新增前端測試執行策略和框架說明"
+        },
+        {
+          "hash": "abb2454b",
+          "time": "12:27",
+          "message": "fix: 修復 TypeScript 配置和 CI/CD 測試流程",
+          "body": "- 新增 tsconfig.vitest.json 專用於測試的 TypeScript 配置"
+        },
+        {
+          "hash": "87c7a30b",
+          "time": "12:16",
+          "message": "fix: 修復 CI/CD 中 package-lock.json 不同步問題",
+          "body": "- CI 環境中先刪除 package-lock.json 再重新生成"
+        },
+        {
+          "hash": "a6a5ca64",
+          "time": "12:10",
+          "message": "fix: 修復 CI/CD 中 Vitest 找不到的問題",
+          "body": "- 在測試階段重新安裝依賴確保測試工具可用"
+        },
+        {
+          "hash": "59d212d3",
+          "time": "12:02",
+          "message": "ci: 整合前端測試到 CI/CD 流程",
+          "body": "- 啟用自動執行前端測試 (移除 manual 觸發)"
+        },
+        {
+          "hash": "3e148c7d",
+          "time": "11:53",
+          "message": "feat: 新增前端測試框架與登入功能測試",
+          "body": "- 安裝 Vitest + Vue Test Utils 測試框架"
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 0,
+    "totalCommits": 9
+  }
+}

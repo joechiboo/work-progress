@@ -1,0 +1,193 @@
+{
+  "date": "2025-08-06",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "b6fcc279",
+          "time": "17:58",
+          "message": "feat: 更新檢驗所詳細故事內容",
+          "body": "- 大安聯合：加入1973年成立歷史、100位員工團隊、西門子全自動化軌道系統等詳細資訊"
+        },
+        {
+          "hash": "49eb1472",
+          "time": "17:57",
+          "message": "fix: 移除設施說明區塊",
+          "body": "- 移除設施說明整個區塊"
+        },
+        {
+          "hash": "ce18a3e8",
+          "time": "17:56",
+          "message": "feat: 美化檢驗所詳細頁面",
+          "body": "新增功能："
+        },
+        {
+          "hash": "049e8025",
+          "time": "17:41",
+          "message": "fix: 更新 GitHub Pages 部署流程",
+          "body": "- 使用新版 GitHub Actions Pages 部署方式"
+        },
+        {
+          "hash": "c8a07dba",
+          "time": "17:39",
+          "message": "feat: 設定 GitHub Pages 自動化部署",
+          "body": "- 設定 Vite base path 為 /uclcloud/"
+        },
+        {
+          "hash": "49a3d708",
+          "time": "17:36",
+          "message": "feat: 完成聯合檢驗雲前端原型系統",
+          "body": "主要功能："
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b5b11cda",
+          "time": "09:44",
+          "message": "好像沒問題，預設多拉一天好了",
+          "body": ""
+        },
+        {
+          "hash": "89381235",
+          "time": "09:31",
+          "message": "台中說顏色太深了，要改淺一點",
+          "body": ""
+        },
+        {
+          "hash": "e65f8ff4",
+          "time": "09:06",
+          "message": "好像差不多了，接下來就是觀察 HORD 2023/8 之前大概還要封存 3 天 然後看一下 ONLINE_LOG 有沒有正常砍",
+          "body": ""
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "jiayi.github.io",
+      "commits": [
+        {
+          "hash": "07f2f4bf",
+          "time": "07:48",
+          "message": "Update developer credits with proper role attribution",
+          "body": "- Jiayi: Game ideas and creativity"
+        },
+        {
+          "hash": "88b8b18b",
+          "time": "07:47",
+          "message": "Simplify README contributors section",
+          "body": "- Replace complex all-contributors table with simple developer credit"
+        },
+        {
+          "hash": "a0dd1422",
+          "time": "07:46",
+          "message": "Update README.md with comprehensive game documentation",
+          "body": "- Add website link and proper navigation"
+        },
+        {
+          "hash": "3a9b3078",
+          "time": "07:26",
+          "message": "Remove high score display from Snake game",
+          "body": "- Remove high score display from game UI"
+        },
+        {
+          "hash": "a8e23966",
+          "time": "07:24",
+          "message": "Optimize Snake game for mobile and add navigation buttons",
+          "body": "- Reduce canvas size from 400x400 to 300x300 for better mobile fit"
+        },
+        {
+          "hash": "0224af10",
+          "time": "07:18",
+          "message": "Enhance Snake game with advanced features and better controls",
+          "body": "- Speed increase: Game accelerates every 10 foods eaten (150ms → 50ms minimum)"
+        },
+        {
+          "hash": "c223de59",
+          "time": "07:11",
+          "message": "Add classic Snake game with modern features",
+          "body": "- Create complete Snake game in /snake/ directory"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "2cbb943c",
+          "time": "13:14",
+          "message": "Clean up legacy files (backup, vite config, build worktree)",
+          "body": ""
+        },
+        {
+          "hash": "ef217d5d",
+          "time": "13:11",
+          "message": "Remove Azure Static Web Apps workflow, switch to GitHub Pages",
+          "body": ""
+        },
+        {
+          "hash": "ca78015c",
+          "time": "12:55",
+          "message": "Remove accidentally added build files",
+          "body": ""
+        },
+        {
+          "hash": "6603d1a7",
+          "time": "12:54",
+          "message": "Fix router base path for GitHub Pages",
+          "body": ""
+        },
+        {
+          "hash": "fea4ea64",
+          "time": "12:48",
+          "message": "Fix GitHub Pages publicPath configuration",
+          "body": ""
+        },
+        {
+          "hash": "6e557366",
+          "time": "12:36",
+          "message": "Add 7/22 meeting attendance records and improve login UX",
+          "body": "- Add 7/22 meeting with 7 absent members (59% attendance rate)"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "fdf066ba",
+          "time": "17:52",
+          "message": "新增聯合檢驗雲重構專案到作品集",
+          "body": "- 添加專案7的中英文語言條目"
+        },
+        {
+          "hash": "e4b2df82",
+          "time": "13:10",
+          "message": "更新專案路徑從Azure Static Web Apps到GitHub Pages",
+          "body": "- 將bordeaux-ii專案的demo URL從Azure Static Web Apps更新為GitHub Pages"
+        },
+        {
+          "hash": "85ed9936",
+          "time": "07:34",
+          "message": "實現技術作品卡片整體點擊功能，提升用戶體驗",
+          "body": "- 整個專案卡片現在可點擊直接開啟線上展示"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 16,
+    "totalCommits": 25
+  }
+}

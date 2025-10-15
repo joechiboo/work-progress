@@ -1,0 +1,85 @@
+{
+  "date": "2025-09-10",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1a6901e8",
+          "time": "11:53",
+          "message": "feat: 實作 LT257 檢驗項目權限控制 - 僅允許 97__ 項目編輯和審核",
+          "body": "- 新增檢驗項目權限控制，非 97__ 項目設為 readonly"
+        },
+        {
+          "hash": "74612ff9",
+          "time": "11:12",
+          "message": "feat: 新增 LT257 單位備註功能與介面調整",
+          "body": "- 調整右側 ExamineInfo 區塊高度從 70vh 改為 60vh"
+        },
+        {
+          "hash": "5a355f13",
+          "time": "07:46",
+          "message": "Merge branch 'main' into LT257電話通報",
+          "body": ""
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "cb69b2f6",
+          "time": "13:09",
+          "message": "更新 Claude Code 權限設定",
+          "body": ""
+        },
+        {
+          "hash": "da69e068",
+          "time": "13:06",
+          "message": "完成 FalconCopy 重構專案 - 高效能資料同步系統",
+          "body": "## 主要功能"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "61ed23a0",
+          "time": "08:19",
+          "message": "Add .gitignore and remove build artifacts from repository",
+          "body": "- Add comprehensive .gitignore for .NET projects"
+        },
+        {
+          "hash": "f023f5eb",
+          "time": "08:18",
+          "message": "Fix connection string decryption issues and improve error handling",
+          "body": "- Add connection string validation in RunManualMode"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "2813bb02",
+          "time": "07:32",
+          "message": "Add literature review report and reference materials",
+          "body": "- Complete literature review report focusing on serum uric acid control and hypertension risk"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 1,
+    "totalCommits": 8
+  }
+}

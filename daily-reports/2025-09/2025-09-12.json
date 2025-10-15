@@ -1,0 +1,187 @@
+{
+  "date": "2025-09-12",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "04916797",
+          "time": "14:40",
+          "message": "feat: 完成收檢系統和收檢員管理功能",
+          "body": "主要新增功能："
+        },
+        {
+          "hash": "7fc6e39f",
+          "time": "09:10",
+          "message": "feat: 新增 FunctionMenuEdit 父層下拉選單階層縮排顯示",
+          "body": "- 修改 Repository 查詢增加 FD_PARENT 欄位"
+        },
+        {
+          "hash": "0aded85e",
+          "time": "08:47",
+          "message": "fix: functionMenuEdit 修正父層下拉選單 FD_LEVEL 資料傳遞",
+          "body": "- GetDateForModel 方法中加入 FD_LEVEL 欄位推送"
+        },
+        {
+          "hash": "ebeddb5c",
+          "time": "08:44",
+          "message": "feat: functionMenuEdit 父層下拉選單加入層級縮排顯示",
+          "body": "- Repository 查詢加入 FD_LEVEL 欄位並按層級排序"
+        },
+        {
+          "hash": "ff068b52",
+          "time": "07:46",
+          "message": "feat: LT257 聯絡人資訊新增電話號碼顯示",
+          "body": "- 從 HFCLINIC 表新增 CD_TELNO 欄位查詢"
+        },
+        {
+          "hash": "19ac622d",
+          "time": "07:44",
+          "message": "feat: LT257 GetPhoneList 新增 9771 檢體退回項目過濾",
+          "body": "- 原條件：97__ 且電話通知"
+        },
+        {
+          "hash": "1b5da366",
+          "time": "07:26",
+          "message": "Merge branch 'feature/update-examineviewmodel-contact' into feature/specimen-collection-system",
+          "body": "# Conflicts:"
+        },
+        {
+          "hash": "0f5c4db3",
+          "time": "07:23",
+          "message": "feat: 修正 ExamineViewModel 恢復 CD_CONTACT 欄位",
+          "body": "- 恢復 ExamineHead 類別中的 CD_CONTACT 屬性"
+        },
+        {
+          "hash": "21590bb3",
+          "time": "07:22",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb",
+          "body": ""
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "26eb3d09",
+          "time": "16:09",
+          "message": "Add comprehensive voting results visualization with interactive charts",
+          "body": "- 📊 Bar chart: Vote count comparison"
+        },
+        {
+          "hash": "3f05113f",
+          "time": "15:20",
+          "message": "Fix UI improvements: voting tabs layout, login page spacing, content wrapper height, back button styling",
+          "body": ""
+        },
+        {
+          "hash": "c928fc27",
+          "time": "15:10",
+          "message": "徹底修復縱向滾動條問題",
+          "body": "- 改進背景圖片定位，使用fixed避免佈局問題"
+        },
+        {
+          "hash": "1a7b11f6",
+          "time": "14:38",
+          "message": "修復投票頁面滾動條問題",
+          "body": "- 移除固定max-width，改為100%響應式寬度"
+        },
+        {
+          "hash": "c7ad7fd8",
+          "time": "14:23",
+          "message": "修復投票查詢問題：暫時移除residents表關聯",
+          "body": "- 回復投票議題查詢到原始狀態"
+        },
+        {
+          "hash": "0dc52376",
+          "time": "14:19",
+          "message": "修復ESLint錯誤：移除未使用的變數",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "c7a1a246",
+          "time": "14:14",
+          "message": "增強登入系統支援投票身份驗證與住戶管理",
+          "body": "- 新增投票驗證欄位：姓名、房號、聯絡電話（可選填）"
+        },
+        {
+          "hash": "7cfbdc18",
+          "time": "11:52",
+          "message": "Fix bypass login to handle returnTo parameter",
+          "body": "- Add returnTo parameter handling to bypassLogin method"
+        },
+        {
+          "hash": "26b40fe8",
+          "time": "11:47",
+          "message": "Add authentication requirement to voting pages",
+          "body": "- Require login for voting list and detail pages"
+        },
+        {
+          "hash": "340ecdfe",
+          "time": "11:43",
+          "message": "Fix notification logic to only show for unvoted ongoing polls",
+          "body": "- Only display notification for ongoing polls user hasn't voted on"
+        },
+        {
+          "hash": "184252ae",
+          "time": "08:46",
+          "message": "Fix meeting record - correct management fee from 85 to 60 yuan",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "ba103400",
+          "time": "08:44",
+          "message": "Fix login redirect to preserve returnTo parameter",
+          "body": "- Update router guard to pass original destination as returnTo"
+        },
+        {
+          "hash": "5101d0d3",
+          "time": "07:58",
+          "message": "Update deployment documentation with GitHub Actions setup",
+          "body": "- Add automated deployment workflow guide"
+        },
+        {
+          "hash": "61f588c2",
+          "time": "07:48",
+          "message": "Grant contents:write permission to GitHub Actions",
+          "body": ""
+        },
+        {
+          "hash": "11fc2c8c",
+          "time": "07:46",
+          "message": "Fix GitHub Actions permissions for gh-pages deployment",
+          "body": ""
+        },
+        {
+          "hash": "ade15c95",
+          "time": "07:43",
+          "message": "Configure GitHub Actions deployment with Supabase environment variables",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "d4072a86",
+          "time": "07:23",
+          "message": "Resolve merge conflict in Claude settings",
+          "body": ""
+        },
+        {
+          "hash": "0c1e8434",
+          "time": "07:22",
+          "message": "Update Claude settings",
+          "body": ""
+        }
+      ],
+      "count": 18
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 18,
+    "totalCommits": 27
+  }
+}

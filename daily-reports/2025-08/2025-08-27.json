@@ -1,0 +1,91 @@
+{
+  "date": "2025-08-27",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "fb11f95a",
+          "time": "07:14",
+          "message": "fix: 修復戰情中心權限檢查和用戶查詢邏輯",
+          "body": "主要修改："
+        },
+        {
+          "hash": "4b3c9e1b",
+          "time": "07:05",
+          "message": "fix: 修復戰情中心趨勢查詢 500 錯誤",
+          "body": "- 將複雜的 null coalescing 查詢分解為兩個簡單查詢"
+        },
+        {
+          "hash": "abc22b3e",
+          "time": "06:51",
+          "message": "fix: 修正戰情中心 JWT token 取值問題",
+          "body": "- 將 localStorage token key 從 'token' 修正為 'authToken'"
+        },
+        {
+          "hash": "9d9a2005",
+          "time": "06:46",
+          "message": "fix: 新增前端 API proxy 設定",
+          "body": "- 在 vite.config.ts 中新增 /api 路徑的 proxy 設定"
+        },
+        {
+          "hash": "52f3098c",
+          "time": "06:43",
+          "message": "fix: 修復戰情中心數據顯示問題",
+          "body": "- 修改資料庫查詢邏輯，同時支援 FirstEntryDate 和 Regdate 欄位"
+        },
+        {
+          "hash": "2695d1e9",
+          "time": "05:46",
+          "message": "feat: 新增戰情中心管理頁面功能",
+          "body": "- 新增 DashboardController 提供統計數據 API"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "2810a2aa",
+          "time": "17:38",
+          "message": "feat: 實作整合處理模式 - 自動偵測新用戶並處理昨日審核報告",
+          "body": "• 新增 IntegratedProcessCommand 整合處理命令"
+        },
+        {
+          "hash": "4efa9b53",
+          "time": "06:40",
+          "message": "fix: 實作批次處理解決 Oracle IN 子句 1000 項目限制",
+          "body": "- 新增 ProcessTnoBatchAsync 方法處理大型檢驗單列表"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "18e9efbe",
+          "time": "09:16",
+          "message": "Deploy updated site",
+          "body": ""
+        },
+        {
+          "hash": "c80d373e",
+          "time": "08:43",
+          "message": "新增八月第二次例會紀錄",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 2,
+    "totalCommits": 10
+  }
+}

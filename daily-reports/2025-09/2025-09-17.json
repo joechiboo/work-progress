@@ -1,0 +1,42 @@
+{
+  "date": "2025-09-17",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "877cef98",
+          "time": "17:17",
+          "message": "feat: BT101 報表個資隱藏功能優化與全部隱藏選項",
+          "body": "- 將 BT101 報表個資隱藏從 radio button 改為下拉選單"
+        },
+        {
+          "hash": "b0623071",
+          "time": "17:05",
+          "message": "feat: 新增 F10 清除快捷鍵並優化快捷鍵說明表格",
+          "body": "- 新增 F10 快捷鍵用於執行清除功能"
+        },
+        {
+          "hash": "d03dfe15",
+          "time": "16:55",
+          "message": "fix: BT201 AutoTodayVisitDT 修正就醫日期清空問題",
+          "body": "- 修正清除按鈕會清空就醫日期的問題"
+        },
+        {
+          "hash": "9c4d24a5",
+          "time": "16:45",
+          "message": "fix: clean up gitignore format for todo.txt",
+          "body": "- Fix line ending issue in gitignore"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}

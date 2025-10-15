@@ -1,0 +1,103 @@
+{
+  "date": "2025-08-30",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "f43556d8",
+          "time": "17:11",
+          "message": "feat: 實作異體字支援 - UserName 欄位 Unicode 配置",
+          "body": "## 主要修改"
+        },
+        {
+          "hash": "fbab359f",
+          "time": "16:19",
+          "message": "fix: 修復手機號碼登入測試的平台兼容性問題",
+          "body": "## 問題修復"
+        },
+        {
+          "hash": "dede64cf",
+          "time": "16:10",
+          "message": "feat: 完善密碼系統 - 三層驗證機制與批次重建支援",
+          "body": "## 主要修改"
+        },
+        {
+          "hash": "708442bc",
+          "time": "00:30",
+          "message": "fix: 修正 PasswordMigrationController 命名空間",
+          "body": "- 使用正確的 UclCloudApi.Models 命名空間"
+        },
+        {
+          "hash": "71db79e1",
+          "time": "00:24",
+          "message": "fix: 修正 SQL Server 備份腳本語法",
+          "body": "- 使用 SQL Server 動態 SQL 語法"
+        },
+        {
+          "hash": "73bd105a",
+          "time": "00:21",
+          "message": "feat: 實作零風險密碼加密遷移方案",
+          "body": "- 新增 PasswordHash 欄位到 UserList 模型"
+        },
+        {
+          "hash": "02fb499a",
+          "time": "00:14",
+          "message": "fix: 完善部署腳本保護所有上傳目錄",
+          "body": "- 保護 Uploadinginfo/ 和 Uploading/ 目錄"
+        },
+        {
+          "hash": "7cf8376a",
+          "time": "00:06",
+          "message": "security: 限制除錯端點僅開發環境可用",
+          "body": "- DebugController 僅在 Development 環境提供服務"
+        },
+        {
+          "hash": "37613c7e",
+          "time": "00:03",
+          "message": "fix: 加入 TrustServerCertificate=true 修復 SSL 連接問題",
+          "body": "- 更新加密的 connectionString 包含 TrustServerCertificate=true"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "e4ec164d",
+          "time": "20:28",
+          "message": "fix: 修復測試並新增 DatabaseService 單元測試和連接字串加密",
+          "body": "- 新增 DatabaseServiceWorkingTests.cs 包含 28 個完整單元測試"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "b73fea87",
+          "time": "20:17",
+          "message": "切換到 Hash Mode 路由解決 Google Search Console sitemap 解析問題",
+          "body": "- 修改 router/index.js 使用 createWebHashHistory"
+        },
+        {
+          "hash": "5b1724b5",
+          "time": "20:10",
+          "message": "更新 sitemap.xml 時間戳記修正 Google Search Console 解析問題",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 2,
+    "totalCommits": 12
+  }
+}

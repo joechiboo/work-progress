@@ -1,0 +1,109 @@
+{
+  "date": "2025-09-04",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "48dd750b",
+          "time": "20:00",
+          "message": "fix: resolve merge conflict in settings",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "3c155d2d",
+          "time": "15:47",
+          "message": "chore: update settings on main branch",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "c7a7e4d9",
+          "time": "15:35",
+          "message": "chore: update todo and settings before branch merge",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "bb0e2327",
+          "time": "15:30",
+          "message": "feat: 重構資料處理架構 - 移除臨時表機制並修正memberid欄位映射",
+          "body": "主要改進:"
+        },
+        {
+          "hash": "5976457d",
+          "time": "07:36",
+          "message": "fix: 修正補傳模式的資料欄位對應，確保與正常模式一致",
+          "body": "## 問題"
+        },
+        {
+          "hash": "34933016",
+          "time": "07:32",
+          "message": "fix: 修正 goodsProvider 使用原始 testcode 而不是對應的 GoodsID",
+          "body": "## 問題"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "d76aac83",
+          "time": "15:35",
+          "message": "fix: 增強測試錯誤處理以診斷 CI 環境 HTTP 500 問題",
+          "body": "- 在 Register_WithValidData_ShouldReturnSuccess 測試中添加詳細錯誤信息輸出"
+        },
+        {
+          "hash": "a7fa9385",
+          "time": "15:30",
+          "message": "fix: 修復 CI/CD 環境下 Register_WithValidData_ShouldReturnSuccess 測試失敗問題",
+          "body": "- 改用動態生成唯一用戶名，避免測試間數據衝突"
+        },
+        {
+          "hash": "a7109f0d",
+          "time": "15:21",
+          "message": "fix: 修復部署時刪除用戶上傳檔案的問題並優化 favicon 設定",
+          "body": "- 在部署腳本中新增對 Uploadinfo 目錄的保護"
+        },
+        {
+          "hash": "fece0309",
+          "time": "15:07",
+          "message": "feat: 整合 SonarQube 代碼品質檢查到 CI/CD 流程",
+          "body": "- 新增 sonarqube-check 階段到 GitLab CI/CD 流程"
+        },
+        {
+          "hash": "6be4f565",
+          "time": "14:51",
+          "message": "fix: 修復會員註冊測試 HTTP 500 錯誤",
+          "body": "- 在測試設定中新增缺少的 JwtSettings:ExpiryMinutes 配置"
+        },
+        {
+          "hash": "033882a4",
+          "time": "14:34",
+          "message": "feat: 新增雲豹主題 favicon 和舊頁面重導向功能",
+          "body": "- 設計白綠配色的雲豹 favicon (32x32) 和 Apple Touch Icon (180x180)"
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "596bd7da",
+          "time": "10:01",
+          "message": "更新社區網站內容",
+          "body": "- 更新會議記錄"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 12,
+    "sideCommits": 1,
+    "totalCommits": 13
+  }
+}

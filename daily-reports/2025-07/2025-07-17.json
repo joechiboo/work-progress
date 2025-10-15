@@ -1,0 +1,43 @@
+{
+  "date": "2025-07-17",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3b660048",
+          "time": "15:51",
+          "message": "台北是用 WS43 規則，但高雄工作站不同 include pkgCode P208/P210/P833",
+          "body": "但又發現 P209 排除 ??"
+        },
+        {
+          "hash": "b62e5423",
+          "time": "08:45",
+          "message": "先打開這個規則",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "5e2831d3",
+          "time": "18:26",
+          "message": "0618 update",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 1,
+    "totalCommits": 3
+  }
+}

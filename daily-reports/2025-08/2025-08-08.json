@@ -1,0 +1,48 @@
+{
+  "date": "2025-08-08",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "180a6dec",
+          "time": "15:58",
+          "message": "小電話整合危急通報",
+          "body": ""
+        },
+        {
+          "hash": "84fd1e17",
+          "time": "09:11",
+          "message": "存檔的時候，判斷TI_CODE 是否為 9764 如果是的話，將FTEXT寫入 註解",
+          "body": ""
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "ba4b3be5",
+          "time": "17:22",
+          "message": "feat: 完善檢驗所詳細頁面功能與安全性",
+          "body": "- 調整頁面布局：簡介移至頂部，標語左右排列，增加檢驗項目區塊"
+        },
+        {
+          "hash": "2d60a750",
+          "time": "16:28",
+          "message": "feat: 實現檢驗所列表與詳細頁面功能",
+          "body": "- 新增檢驗所 API 控制器與 DTO 資料結構"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}

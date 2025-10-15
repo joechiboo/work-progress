@@ -1,0 +1,24 @@
+{
+  "date": "2025-07-29",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ddcbda11",
+          "time": "10:33",
+          "message": "持續的調整每日清除 ORD 的 SP，因為大批量一直跑不了 新增一個 job, for 有 HDR 但沒 DTL 的髒資料",
+          "body": "總結一下"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 0,
+    "totalCommits": 1
+  }
+}

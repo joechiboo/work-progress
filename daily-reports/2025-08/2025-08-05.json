@@ -1,0 +1,181 @@
+{
+  "date": "2025-08-05",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "4b876c71",
+          "time": "17:38",
+          "message": "目前是按單位開，似乎不是長久之計",
+          "body": ""
+        },
+        {
+          "hash": "f638e7a9",
+          "time": "12:15",
+          "message": "週邊 table 砍一砍，加上文檔說明",
+          "body": ""
+        },
+        {
+          "hash": "b7ac9db0",
+          "time": "10:28",
+          "message": "存檔時，檢查 RESOURCE CODE, 如果有重複就不進後端了",
+          "body": ""
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "jiayi.github.io",
+      "commits": [
+        {
+          "hash": "a9a9fea3",
+          "time": "18:00",
+          "message": "Fix mobile layout and move Claude logo to top-right",
+          "body": "- Move \"Enhanced by Claude\" logo to top-right corner"
+        },
+        {
+          "hash": "f26e149d",
+          "time": "17:55",
+          "message": "Add mobile touch support and distance-based cancel mechanism",
+          "body": "- Add touchstart, touchmove, touchend event handling"
+        },
+        {
+          "hash": "c1b7e8c1",
+          "time": "13:09",
+          "message": "Fix drag merge functionality and add debug logging",
+          "body": "- Fix event listener duplication by moving global events to init"
+        },
+        {
+          "hash": "60aa0559",
+          "time": "13:07",
+          "message": "Remove new game button - cleaner interface",
+          "body": "- Remove unnecessary new game button for streamlined UI"
+        },
+        {
+          "hash": "1a0d2c8f",
+          "time": "13:03",
+          "message": "Implement drag-to-connect gameplay with visual connections",
+          "body": "- Replace click selection with mouse drag interaction"
+        },
+        {
+          "hash": "43b52e06",
+          "time": "12:52",
+          "message": "Add color-coded tiles for each number value",
+          "body": "- Each number (2, 4, 8, 16, etc.) has unique color scheme"
+        },
+        {
+          "hash": "1ce4d965",
+          "time": "12:49",
+          "message": "Enforce strict sequential power-of-2 connection rules",
+          "body": "- Only allow same numbers or consecutive 2x multipliers"
+        },
+        {
+          "hash": "1476df23",
+          "time": "12:46",
+          "message": "Implement power-of-2 merge calculation with ceiling",
+          "body": "- All merge results are powers of 2"
+        },
+        {
+          "hash": "eb56dc08",
+          "time": "12:44",
+          "message": "Fix merge target position - merged number appears in last selected cell",
+          "body": "- Change merge target from first to last selected cell"
+        },
+        {
+          "hash": "035bc282",
+          "time": "12:42",
+          "message": "Fix connection rules - only allow same numbers or sequential multiples",
+          "body": "- Allow: 2+2+2, 2+2+4 (sequential increase)"
+        },
+        {
+          "hash": "c8085577",
+          "time": "12:40",
+          "message": "Implement merge-based gameplay with enhanced rules",
+          "body": "- Numbers now merge instead of disappearing"
+        },
+        {
+          "hash": "27f6cc35",
+          "time": "12:36",
+          "message": "Update 2248 game rules - enhanced connection logic and game end detection",
+          "body": "- Support 8-directional linking (including diagonals) for same numbers or multiples"
+        },
+        {
+          "hash": "eb7973b9",
+          "time": "09:43",
+          "message": "Add Claude logo to 2248 game page and setup GitHub Contributors",
+          "body": "- Add Enhanced by Claude logo to 2248 game page"
+        },
+        {
+          "hash": "f43f09a1",
+          "time": "09:40",
+          "message": "Add Enhanced by Claude logo to bottom right corner",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "7997d839",
+          "time": "09:24",
+          "message": "Reorganize files for cleaner URLs",
+          "body": "- Move 2248-game.html to 2248/index.html for clean URL structure"
+        },
+        {
+          "hash": "20d7092f",
+          "time": "09:15",
+          "message": "Add homepage for GitHub Pages",
+          "body": "- Created index.html as landing page"
+        },
+        {
+          "hash": "b2858a65",
+          "time": "09:13",
+          "message": "Add 2248 HTML5 game",
+          "body": "- Implemented 5x7 grid puzzle game"
+        }
+      ],
+      "count": 17
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "1b42d778",
+          "time": "10:09",
+          "message": "修正四手聯彈曲目3的描述內容",
+          "body": "- 移除錯誤的宮崎駿動畫配樂描述"
+        },
+        {
+          "hash": "44acd3ba",
+          "time": "10:01",
+          "message": "修復主題切換功能 - 移除衝突的媒體查詢規則",
+          "body": "- 移除 responsive.css 中的 @media (prefers-color-scheme: dark) 規則"
+        },
+        {
+          "hash": "4924ddff",
+          "time": "09:56",
+          "message": "恢復手機版主題切換功能，允許用戶在手機上切換日間/夜間模式",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "6c55f9e7",
+          "time": "09:48",
+          "message": "修正專案名稱並加入路由自動滾動功能",
+          "body": "- 修正 project6Title 從 \"Jiayi 創意專案\" 為 \"家一 創意專案\""
+        },
+        {
+          "hash": "9c42ab26",
+          "time": "09:43",
+          "message": "新增 Jiayi 創意專案到作品集",
+          "body": "- 在 Portfolio.vue 中新增 Jiayi 專案條目"
+        }
+      ],
+      "count": 5
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 22,
+    "totalCommits": 25
+  }
+}

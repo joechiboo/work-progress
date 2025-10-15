@@ -1,0 +1,67 @@
+{
+  "date": "2025-08-11",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "2eb3324f",
+          "time": "19:31",
+          "message": "feat: 實作檢驗報告查詢功能",
+          "body": "- 轉換 ASP 頁面 MemberService_033.asp 為現代化 Vue.js 架構"
+        },
+        {
+          "hash": "d3f9580f",
+          "time": "16:19",
+          "message": "feat: 完成會員系統登入、註冊與密碼重設功能",
+          "body": "主要新增與修正："
+        },
+        {
+          "hash": "107476f3",
+          "time": "15:26",
+          "message": "fix: 修正會員系統多項問題與優化",
+          "body": "主要修改："
+        },
+        {
+          "hash": "5cb3e07a",
+          "time": "11:49",
+          "message": "feat: 完整實作一般會員註冊與登入系統",
+          "body": "## 後端功能"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "66ce7a76",
+          "time": "11:15",
+          "message": "高雄 4515, 4516 同時自行操作又外送，被列了兩次",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "9d309ee5",
+          "time": "14:35",
+          "message": "更新音樂作品「搖滾的蘿莉塔」- 新增YouTube連結並調整標題描述",
+          "body": "- 將「搖滾的蘿蔔」更名為「4手聯彈-曲目4-搖滾的蘿莉塔」"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 1,
+    "totalCommits": 6
+  }
+}

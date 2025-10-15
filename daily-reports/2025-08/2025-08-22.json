@@ -1,0 +1,270 @@
+{
+  "date": "2025-08-22",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "309b476f",
+          "time": "22:55",
+          "message": "fix: 採用前端成功方式修改後端版本檔案生成",
+          "body": "- 將版本檔案生成到 backend/wwwroot/version.json"
+        },
+        {
+          "hash": "3b6e1627",
+          "time": "22:49",
+          "message": "fix: 修復後端版本檔案未正確複製到發佈目錄的問題",
+          "body": "- 在 publish-backend 階段添加版本檔案複製步驟"
+        },
+        {
+          "hash": "79f9c975",
+          "time": "22:42",
+          "message": "Merge branch 'master' of https://gitlab.ucl.com.tw/ucl/officialwebsites/cloudedleopard",
+          "body": ""
+        },
+        {
+          "hash": "1594ee0c",
+          "time": "22:41",
+          "message": "feat: 增強部署腳本和完善發佈流程文檔",
+          "body": "- 改進 deploy.sh 腳本的權限處理邏輯"
+        },
+        {
+          "hash": "9a18a96d",
+          "time": "22:22",
+          "message": "test: 驗證版本檔案生成和顯示機制",
+          "body": ""
+        },
+        {
+          "hash": "770735fd",
+          "time": "16:17",
+          "message": "debug: 添加版本檔案生成的詳細除錯資訊",
+          "body": ""
+        },
+        {
+          "hash": "babb5266",
+          "time": "16:11",
+          "message": "fix: 移除本地版本檔並讓 CI 動態生成",
+          "body": "- 移除 frontend/public/version.json 從 git 追蹤"
+        },
+        {
+          "hash": "218c954e",
+          "time": "16:05",
+          "message": "release: 更新發佈版本 - 2025-08-22 08:05",
+          "body": ""
+        },
+        {
+          "hash": "29be48dd",
+          "time": "15:59",
+          "message": "fix: 添加 sudo 失敗時的降級處理機制",
+          "body": ""
+        },
+        {
+          "hash": "815bca65",
+          "time": "15:53",
+          "message": "fix: 添加 sudo 診斷並使用 -n 選項避免密碼提示",
+          "body": ""
+        },
+        {
+          "hash": "7ef2ccfe",
+          "time": "15:46",
+          "message": "test: 測試修復路徑後的完整部署流程",
+          "body": ""
+        },
+        {
+          "hash": "65d77d78",
+          "time": "15:44",
+          "message": "fix: 修正部署腳本前端目標路徑為 /var/www/uclcloud",
+          "body": ""
+        },
+        {
+          "hash": "a71888ba",
+          "time": "15:38",
+          "message": "test: 測試 sudo 免密碼配置後的完整部署",
+          "body": ""
+        },
+        {
+          "hash": "4e4842c3",
+          "time": "15:33",
+          "message": "fix: 修正部署路徑以匹配 deploy.sh 腳本預期",
+          "body": ""
+        },
+        {
+          "hash": "e2c5a983",
+          "time": "15:28",
+          "message": "fix: 修復部署時臨時目錄不存在的問題",
+          "body": ""
+        },
+        {
+          "hash": "fb62fdee",
+          "time": "15:22",
+          "message": "test: 再次測試 SSH 連線狀況",
+          "body": ""
+        },
+        {
+          "hash": "6f8f6fe3",
+          "time": "15:14",
+          "message": "fix: 修改 SSH 測試目標為部署伺服器而非 GitLab",
+          "body": ""
+        },
+        {
+          "hash": "0de61dbc",
+          "time": "15:13",
+          "message": "feat: 新增 SSH 連線測試階段，加速 CI 問題診斷",
+          "body": ""
+        },
+        {
+          "hash": "412fcf41",
+          "time": "14:59",
+          "message": "test: 測試更新後的 PEM 格式 SSH 金鑰",
+          "body": ""
+        },
+        {
+          "hash": "ebdee088",
+          "time": "13:23",
+          "message": "test: 觸發 CI 測試更新後的 SSH 金鑰",
+          "body": ""
+        },
+        {
+          "hash": "c8548f7c",
+          "time": "12:40",
+          "message": "fix: 加強 SSH 金鑰診斷和多重修復機制",
+          "body": "- 新增詳細的金鑰格式診斷"
+        },
+        {
+          "hash": "6b0e425e",
+          "time": "12:08",
+          "message": "fix: 修復 GitLab CI SSH 金鑰格式相容性問題",
+          "body": "- 新增 OpenSSH 私鑰格式自動檢測"
+        },
+        {
+          "hash": "a783f49a",
+          "time": "11:52",
+          "message": "docs: 全面更新部署指南為 v3.0 版本",
+          "body": "📚 文件更新:"
+        },
+        {
+          "hash": "47c18b5c",
+          "time": "11:44",
+          "message": "fix: 修復 GitLab CI SSH 金鑰載入問題",
+          "body": "🔐 SSH 連線改進:"
+        },
+        {
+          "hash": "5f5f93b2",
+          "time": "11:42",
+          "message": "feat: 版本資訊改用台灣時間和即時建置時間",
+          "body": "✨ 改進功能:"
+        },
+        {
+          "hash": "e5a1c406",
+          "time": "11:40",
+          "message": "feat: 新增後端版本資訊 API 和完整測試套件",
+          "body": "✨ 新增功能:"
+        },
+        {
+          "hash": "75dc7085",
+          "time": "11:34",
+          "message": "fix: 完善版本標記系統和部署流程",
+          "body": "🔧 修復:"
+        },
+        {
+          "hash": "1eca5b7d",
+          "time": "11:24",
+          "message": "feat: 新增前端版本資訊顯示系統",
+          "body": "✨ 新增功能:"
+        },
+        {
+          "hash": "05139eb8",
+          "time": "10:05",
+          "message": "feat: 配置自動部署和版本標記系統",
+          "body": "✨ 新增功能:"
+        },
+        {
+          "hash": "ed828a0c",
+          "time": "08:31",
+          "message": "feat: 新增 SkipOnCI 屬性，實現環境智能測試跳過",
+          "body": "創建自定義測試屬性 SkipOnCIAttribute："
+        },
+        {
+          "hash": "f25faa13",
+          "time": "08:26",
+          "message": "fix: 暫時跳過 CI 環境中的 10 個失敗測試",
+          "body": "標記失敗測試使用 Skip 屬性，確保 CI 流水線能夠通過："
+        },
+        {
+          "hash": "5d025aaf",
+          "time": "08:11",
+          "message": "fix: 修正 GitLab CI 測試環境配置",
+          "body": "- 設定 ASPNETCORE_ENVIRONMENT=Development 確保使用正確的檔案路徑"
+        },
+        {
+          "hash": "47e29bb0",
+          "time": "08:06",
+          "message": "feat: 添加 JUnit 測試報告生成",
+          "body": "- 添加 junit logger 生成 XML 測試報告"
+        },
+        {
+          "hash": "a8aafc12",
+          "time": "08:02",
+          "message": "fix: 優化 GitLab CI 測試日誌輸出",
+          "body": "- 使用 --verbosity minimal 減少冗餘輸出"
+        },
+        {
+          "hash": "1ceca34a",
+          "time": "07:49",
+          "message": "fix: 修正 ImageUploadControllerTests 中的 Claim 名稱不匹配問題",
+          "body": "- 將測試中的 Claim 名稱從 'UserId' 改為 'userId' 與控制器一致"
+        },
+        {
+          "hash": "6ae97797",
+          "time": "07:42",
+          "message": "fix: 修正 GitLab CI 測試階段的配置問題",
+          "body": "- 移除剩餘的 emoji 字符確保兼容性"
+        },
+        {
+          "hash": "ff5de1e2",
+          "time": "07:31",
+          "message": "fix: 修正 MemberController 使用 IEmailService 介面",
+          "body": "- 將 MemberController 建構子參數從 EmailService 改為 IEmailService"
+        },
+        {
+          "hash": "3afc245b",
+          "time": "07:23",
+          "message": "fix: 移除有問題的 API 網址輸出行",
+          "body": "- 直接移除導致 GitLab CI 語法錯誤的 echo 行"
+        },
+        {
+          "hash": "2aa7c0ce",
+          "time": "07:22",
+          "message": "fix: 移除 GitLab CI 中的 emoji 字符以確保兼容性",
+          "body": "- 移除所有 echo 語句中的 emoji 字符"
+        },
+        {
+          "hash": "c409c7bd",
+          "time": "07:20",
+          "message": "fix: 修正 GitLab CI 變量插值語法",
+          "body": "- 使用 ${DEPLOY_HOST} 替代 $DEPLOY_HOST 確保正確的變量插值"
+        },
+        {
+          "hash": "4b7bc5a4",
+          "time": "07:17",
+          "message": "fix: 修正 GitLab CI YAML 語法縮排問題",
+          "body": "- 移除多餘的空白行和縮排錯誤"
+        },
+        {
+          "hash": "93d1137d",
+          "time": "06:59",
+          "message": "feat: 全面優化 GitLab CI/CD 流水線 - 修復 npm 權限問題並完善部署流程",
+          "body": "- 使用 nvm 管理 Node.js 版本，避免全域安裝權限問題"
+        }
+      ],
+      "count": 42
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 42,
+    "sideCommits": 0,
+    "totalCommits": 42
+  }
+}

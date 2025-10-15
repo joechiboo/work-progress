@@ -1,0 +1,133 @@
+{
+  "date": "2025-09-18",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f3243381",
+          "time": "12:58",
+          "message": "feat: 縮短 LT255 前次結果日期格式，節省欄位空間",
+          "body": "- 將前次結果日期從 YYYY-MM-DD 格式縮短為 YY-MM-DD"
+        },
+        {
+          "hash": "d55d3864",
+          "time": "11:21",
+          "message": "Merge branch 'main' into feature/bt201-id-apid-autofill",
+          "body": ""
+        },
+        {
+          "hash": "f46b3af2",
+          "time": "11:18",
+          "message": "feat: 限制身分證 00 自動組合功能僅適用於桃園分部 (TY)",
+          "body": "- 在身分證檢查條件中加入 UCL_SITE === \"TY\" 限制"
+        },
+        {
+          "hash": "7dfddd06",
+          "time": "11:15",
+          "message": "chore: 清理多餘的 console.log 調試訊息",
+          "body": "- 移除 API 回傳資料的 console.log 調試訊息"
+        },
+        {
+          "hash": "11f1e55d",
+          "time": "10:54",
+          "message": "feat: 實作身分證為 \"00\" 時存檔自動組合單位代號_病歷號",
+          "body": "- 在 Save() 函數中加入身分證檢查邏輯"
+        },
+        {
+          "hash": "db1065ce",
+          "time": "10:48",
+          "message": "fix: 修正生日欄位空值處理，確保顯示預設值 1900-01-01",
+          "body": "- 在 Controller 加強空字串和 Trim 檢查"
+        },
+        {
+          "hash": "82a71421",
+          "time": "10:46",
+          "message": "debug: 加入前端 console.log 調試個資載入流程",
+          "body": "- 在 Controller 加入空值生日的預設值設定"
+        },
+        {
+          "hash": "4a1d1770",
+          "time": "10:43",
+          "message": "debug: 加強生日欄位的調試資訊和錯誤處理",
+          "body": "- 加入詳細的 BIRTH_DATE 資料庫回傳值調試訊息"
+        },
+        {
+          "hash": "2179f6e4",
+          "time": "10:30",
+          "message": "fix: 修正身分證載入個資功能的錯誤處理",
+          "body": "- 修正 BIRTH_DATE 為空值時的 Convert.ToDateTime 異常"
+        },
+        {
+          "hash": "4647ffdd",
+          "time": "10:24",
+          "message": "chore: 移除 todo.txt 檔案並清理多餘的 console.log",
+          "body": "- 從專案檔案中移除 todo.txt 的 Content Include"
+        },
+        {
+          "hash": "16e3809f",
+          "time": "09:25",
+          "message": "fix: 修正病歷號載入個資功能，使用 setTimeout 確保事件正確觸發",
+          "body": "- 使用 setTimeout 延遲觸發 ID_PID change 事件，確保值已設定"
+        },
+        {
+          "hash": "1cf74a07",
+          "time": "09:24",
+          "message": "fix: 防止病歷號自動帶出個資功能產生無窮迴圈",
+          "body": "- 新增 isUpdatingFromAPID 旗標避免迴圈觸發"
+        },
+        {
+          "hash": "6acb66ab",
+          "time": "09:22",
+          "message": "fix: 修正病歷號自動帶出個資功能，使用 .change() 替代 .trigger('change')",
+          "body": "- 改用 .change() 方法觸發身分證號變更事件"
+        },
+        {
+          "hash": "24b84d6f",
+          "time": "09:19",
+          "message": "feat: 新增 BT201 病歷號自動帶出個資功能",
+          "body": "- 新增 GetDBCodeByAPID API 端點，可透過病歷號和單位查詢對應身分證"
+        },
+        {
+          "hash": "8f9f9355",
+          "time": "08:43",
+          "message": "feat: BT201 醫師欄位自動帶入上一單同診所醫師功能",
+          "body": "- 存檔成功後記錄醫師代碼，供下一單使用"
+        },
+        {
+          "hash": "64525b45",
+          "time": "08:17",
+          "message": "feat: BT201 申報畫面預防保健代號自動填入功能",
+          "body": "- 新增 API 從 ItemCodeForProject 資料表取得預防保健代號清單"
+        }
+      ],
+      "count": 16
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "1ba37d95",
+          "time": "17:02",
+          "message": "Add HRS variable reference guide and analysis scripts",
+          "body": "- Add comprehensive HRS variables reference manual with detailed definitions"
+        },
+        {
+          "hash": "a4f35d44",
+          "time": "15:39",
+          "message": "Add HRS data management infrastructure",
+          "body": "- Create comprehensive HRS data download guide"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 16,
+    "sideCommits": 2,
+    "totalCommits": 18
+  }
+}

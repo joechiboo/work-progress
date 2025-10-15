@@ -1,0 +1,85 @@
+{
+  "date": "2025-08-28",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "eda7e2a2",
+          "time": "22:37",
+          "message": "fix: 修復測試中對已移除欄位 LastChkValue 和 LastChkDate 的引用",
+          "body": "- 從 MemhealthMainTests.cs 中移除對 LastChkValue 和 LastChkDate 的所有測試引用"
+        },
+        {
+          "hash": "9c9131ae",
+          "time": "22:26",
+          "message": "fix: 修復資料庫欄位對應和實時計算重複問題",
+          "body": "- 修復 LastChkDate 和 LastChkValue 欄位映射錯誤"
+        },
+        {
+          "hash": "c93c10a2",
+          "time": "22:04",
+          "message": "perf: 大幅優化檢驗報告查詢性能和修復SQL語法錯誤",
+          "body": "主要改進:"
+        },
+        {
+          "hash": "4ff00b32",
+          "time": "21:44",
+          "message": "perf: 大幅優化報告系統性能",
+          "body": "問題分析："
+        },
+        {
+          "hash": "ae587138",
+          "time": "15:49",
+          "message": "fix: 修復地區篩選功能和檢驗所 AreaID 映射",
+          "body": "主要修改："
+        },
+        {
+          "hash": "697a05a7",
+          "time": "10:22",
+          "message": "feat: 新增 Line QR Code 內聯顯示和點擊放大功能",
+          "body": "- 在檢驗所詳細頁面直接顯示 Line QR Code (150x150px)"
+        },
+        {
+          "hash": "3fb186c7",
+          "time": "07:56",
+          "message": "fix: 修正檢驗所會員審核管理連結路徑",
+          "body": "- 修正郵件通知中的審核管理連結從 /admin/pending-reviews 改為 /admin/review"
+        },
+        {
+          "hash": "2580d15f",
+          "time": "07:53",
+          "message": "feat: 新增檢驗所地址 Google Map 整合功能",
+          "body": "- 新增內嵌 Google Maps 顯示檢驗所位置"
+        },
+        {
+          "hash": "536b1d5a",
+          "time": "07:08",
+          "message": "fix: 修改管理員通知郵件地址為 SUPPORT@ucl.com.tw",
+          "body": "- 將檢驗所會員註冊審核信發送地址從 uclit@ucl.com.tw 改為 SUPPORT@ucl.com.tw"
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "91999e8c",
+          "time": "12:17",
+          "message": "更新兩次會議紀錄",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 1,
+    "totalCommits": 10
+  }
+}

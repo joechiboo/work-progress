@@ -1,0 +1,265 @@
+{
+  "date": "2025-10-08",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "63b58c23",
+          "time": "21:40",
+          "message": "新增 Oracle 重置腳本，用於重新同步被誤刪的單號",
+          "body": "- reset_56_orders.sql: 重置 56 個受影響的單號"
+        },
+        {
+          "hash": "34612f89",
+          "time": "21:32",
+          "message": "新增清理重複 pat_resulth 記錄的 SQL 文件",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "2452add7",
+          "time": "21:31",
+          "message": "pat_resulth 每個 order_no 只保留最大 trx_num 的記錄",
+          "body": "**問題**"
+        },
+        {
+          "hash": "87338e34",
+          "time": "21:22",
+          "message": "繞過 pat_resulthx 的有問題觸發器，直接寫入 pat_resulth",
+          "body": "**問題根因**"
+        },
+        {
+          "hash": "00939865",
+          "time": "21:15",
+          "message": "修正 pat_resulth 複合主鍵為 (order_no, test_code)",
+          "body": "**問題**"
+        },
+        {
+          "hash": "b0461f22",
+          "time": "21:09",
+          "message": "加強整單同步流程的日誌追蹤",
+          "body": "- 在每個步驟前後加入日誌記錄"
+        },
+        {
+          "hash": "286d3cb4",
+          "time": "21:05",
+          "message": "加強刪除操作的日誌追蹤",
+          "body": "- 記錄刪除開始/完成的詳細訊息"
+        },
+        {
+          "hash": "351dbe74",
+          "time": "21:00",
+          "message": "修正 MSSQL 表的欄位名稱錯誤",
+          "body": "- pat_resulth 使用 order_no (無前綴)"
+        },
+        {
+          "hash": "1a23ad93",
+          "time": "15:57",
+          "message": "新增 .gitignore 並移除已追蹤的 bin/obj 檔案",
+          "body": "- 新增標準 .NET .gitignore"
+        },
+        {
+          "hash": "fb11d2c4",
+          "time": "15:46",
+          "message": "簡化日誌輸出，只顯示重要訊息",
+          "body": "- 只在有未處理記錄時才顯示「找到 X 筆」"
+        },
+        {
+          "hash": "49d226c5",
+          "time": "15:43",
+          "message": "整合 PAT_RESULTD 同步到 SyncResultHeaderAsync",
+          "body": "- 在整單 MERGE 時一併處理 RESULTD 明細"
+        },
+        {
+          "hash": "4c3aed14",
+          "time": "15:40",
+          "message": "改為串行執行 PAT_RESULTH 和 PAT_RESULTD 同步",
+          "body": "- RESULTD 依賴 RESULTH 的未處理記錄"
+        },
+        {
+          "hash": "ccdcf59f",
+          "time": "15:38",
+          "message": "優化日誌輸出並減少重複查詢",
+          "body": "- 將資料庫連線成功訊息改為 Debug 等級"
+        },
+        {
+          "hash": "bc6488b6",
+          "time": "15:34",
+          "message": "移除正常執行時的 SQL 日誌，只在錯誤時顯示",
+          "body": ""
+        },
+        {
+          "hash": "a15f506b",
+          "time": "15:32",
+          "message": "在 SQL 錯誤訊息中顯示完整 SQL 語句",
+          "body": ""
+        },
+        {
+          "hash": "1aa511f8",
+          "time": "15:31",
+          "message": "簡化 SQL 語法以相容 Oracle 11g",
+          "body": ""
+        },
+        {
+          "hash": "3ebd44c0",
+          "time": "15:25",
+          "message": "加上表別名前綴以修正 Oracle SQL 語法",
+          "body": ""
+        },
+        {
+          "hash": "cac084cb",
+          "time": "15:22",
+          "message": "修正 Oracle 子查詢語法錯誤（缺少別名）",
+          "body": ""
+        },
+        {
+          "hash": "bf9c8c36",
+          "time": "15:18",
+          "message": "優化 PAT_RESULTH 同步機制為整單 MERGE",
+          "body": "## 變更內容"
+        },
+        {
+          "hash": "be5c4d02",
+          "time": "10:00",
+          "message": "清理根目錄的重複文件",
+          "body": ""
+        },
+        {
+          "hash": "efc4b275",
+          "time": "09:58",
+          "message": "整理文件目錄結構",
+          "body": "調整："
+        },
+        {
+          "hash": "b3ee1ebd",
+          "time": "09:53",
+          "message": "重組 SQL 腳本目錄結構並新增說明文件",
+          "body": "調整："
+        }
+      ],
+      "count": 22
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "60ff3fec",
+          "time": "12:55",
+          "message": "fix: 優化 PWA 診斷資訊的顏色和文字",
+          "body": "## 修正內容"
+        },
+        {
+          "hash": "b47a6e36",
+          "time": "12:48",
+          "message": "feat: 完成 PWA 診斷頁籤並移除上方卡片",
+          "body": "## 重要改動"
+        },
+        {
+          "hash": "dc777cf3",
+          "time": "12:35",
+          "message": "feat: 診斷區塊改用頁籤切換 Push 通知和 PWA 安裝",
+          "body": "## 重大改進"
+        },
+        {
+          "hash": "fe89c503",
+          "time": "12:30",
+          "message": "debug: 更新 Service Worker 快取版本並加入 PWA 卡片診斷日誌",
+          "body": "## 修正內容"
+        },
+        {
+          "hash": "9a2d2fdf",
+          "time": "12:25",
+          "message": "feat: 新增精美的 PWA 安裝提示卡片",
+          "body": "## 新增功能"
+        },
+        {
+          "hash": "7cbb0cc4",
+          "time": "12:18",
+          "message": "feat: 在診斷區塊中加入 PWA 安裝教學",
+          "body": "## 新增內容"
+        },
+        {
+          "hash": "ad725b8f",
+          "time": "12:11",
+          "message": "feat: 實作 Progressive Web App (PWA) 支援",
+          "body": "## 新增功能"
+        },
+        {
+          "hash": "3b801b51",
+          "time": "11:02",
+          "message": "refactor: 訂閱按鈕永久顯示，並優化 iOS 18 設定指引",
+          "body": "## 重要改動"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "HIS\\SyncLisData",
+      "commits": [
+        {
+          "hash": "4ddb3a99",
+          "time": "09:46",
+          "message": "加入 CreateBLG TNO 追蹤 log，註解超過兩年封存資料查詢",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "af5f2233",
+          "time": "12:16",
+          "message": "feat: 新增桃園站台支援 - 使用舊網路報告系統轉換 HTML",
+          "body": "## 新功能"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "b7da3d3e",
+          "time": "11:42",
+          "message": "新增工作進度專案至作品集",
+          "body": "新增企業工作進度管理系統專案，提供團隊工作進度追蹤與視覺化功能。"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "719cdf2d",
+          "time": "17:00",
+          "message": "Add Chinese southeast community dataset papers (2010-2018)",
+          "body": "- Add Lin et al. (2024): Serum uric acid control and hypertension risk"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ZebraSite",
+      "commits": [
+        {
+          "hash": "226d3c0b",
+          "time": "07:15",
+          "message": "新增四葉草 favicon 圖標",
+          "body": "- 新增 SVG 和 PNG 格式的四葉草 favicon"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 32,
+    "sideCommits": 3,
+    "totalCommits": 35
+  }
+}

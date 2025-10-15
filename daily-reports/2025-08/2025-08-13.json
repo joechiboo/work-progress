@@ -1,0 +1,42 @@
+{
+  "date": "2025-08-13",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "309f4c2b",
+          "time": "22:00",
+          "message": "fix: 修復檢驗所會員修改密碼功能",
+          "body": "- 修改 ChangePassword 方法支援檢驗所會員 (UserLevel = \"2\")"
+        },
+        {
+          "hash": "2302f3e6",
+          "time": "17:30",
+          "message": "feat: 實現檢驗所會員登入系統與專屬會員中心",
+          "body": "- 統一會員系統使用 UserList 資料表，替代 Allshopmember"
+        },
+        {
+          "hash": "5b3fd8c2",
+          "time": "14:27",
+          "message": "feat: 優化檢驗項目詳細頁面 API 效能與 HTML 格式渲染",
+          "body": "## 後端優化"
+        },
+        {
+          "hash": "c0343a55",
+          "time": "08:14",
+          "message": "feat: 實現檢驗項目詳細頁面綜合 API 與 XSS 防護",
+          "body": "- 新增 TestItemDetailDto 綜合資料結構"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}

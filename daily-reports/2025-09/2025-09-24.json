@@ -1,0 +1,97 @@
+{
+  "date": "2025-09-24",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d5a61190",
+          "time": "07:44",
+          "message": "fix: 修正 BT201 navbar 連結的 ActionLink 參數問題",
+          "body": "同樣修正 BT201 連結中 @class 被誤認為路由參數的問題"
+        },
+        {
+          "hash": "eed6cb9a",
+          "time": "07:43",
+          "message": "fix: 修正 Bootstrap 5.3 navbar 功能選單連結參數問題",
+          "body": "修正 _LayoutBoot53.cshtml 中 ActionLink 語法錯誤，"
+        },
+        {
+          "hash": "d3dd57d2",
+          "time": "07:33",
+          "message": "feat: 排除 Claude Code 設定檔案從版控",
+          "body": "新增 .claude/ 目錄到 .gitignore，避免 Claude Code 的設定檔案被版控追蹤"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "CyclePulse",
+      "commits": [
+        {
+          "hash": "f44e5286",
+          "time": "08:59",
+          "message": "Add validation error display to StageIndicator",
+          "body": "- Modified StageIndicator to show red error message \"請先選擇訓練模式\" when no mode is selected"
+        },
+        {
+          "hash": "9ccc48d3",
+          "time": "08:43",
+          "message": "Improve training modes layout and LinePay functionality",
+          "body": "Changes:"
+        },
+        {
+          "hash": "71fed5f1",
+          "time": "08:33",
+          "message": "Fix LinePay donation modal UI and functionality",
+          "body": "Changes:"
+        },
+        {
+          "hash": "7d164ecf",
+          "time": "08:16",
+          "message": "Initial commit: CyclePulse spinning bike training app",
+          "body": "Features:"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "4af09245",
+          "time": "08:31",
+          "message": "更新 CyclePulse 技術標籤",
+          "body": "- 將 'Web Application' 改為 'Vue.js'"
+        },
+        {
+          "hash": "e1ee4140",
+          "time": "08:30",
+          "message": "調整 CyclePulse 項目標題顯示方式",
+          "body": "- 中文版顯示：飛輪訓練計時器"
+        },
+        {
+          "hash": "665cb64f",
+          "time": "08:28",
+          "message": "解決合併衝突並新增 CyclePulse 項目",
+          "body": "- 將 CyclePulse 設為 project11，避免與現有項目編號衝突"
+        },
+        {
+          "hash": "23036a1b",
+          "time": "08:24",
+          "message": "新增 CyclePulse 飛輪訓練計時器到作品集",
+          "body": "- 添加專為飛輪訓練設計的智能Web應用"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 8,
+    "totalCommits": 11
+  }
+}

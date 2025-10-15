@@ -1,0 +1,192 @@
+{
+  "date": "2025-09-21",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "CharMon",
+      "commits": [
+        {
+          "hash": "ef660d98",
+          "time": "17:10",
+          "message": "chore: 更新開發工具和依賴",
+          "body": "- 新增圖像處理套件 (sharp, png-to-ico)"
+        },
+        {
+          "hash": "65d674e6",
+          "time": "16:42",
+          "message": "feat: 使用 SVG logo 生成新的 favicon.ico",
+          "body": "- 從 logo.svg 轉換生成包含多尺寸的 favicon.ico"
+        },
+        {
+          "hash": "3d1c3db9",
+          "time": "16:36",
+          "message": "fix: 新增版本參數解決圖示快取問題",
+          "body": "- 在所有 logo.svg 引用添加 ?v=2 參數"
+        },
+        {
+          "hash": "ad5d7569",
+          "time": "16:33",
+          "message": "fix: 修正 manifest.json 語法錯誤和路徑設定",
+          "body": "- 簡化 manifest.json 格式"
+        },
+        {
+          "hash": "df88f852",
+          "time": "16:16",
+          "message": "fix: 修正靜態資源路徑包含 base URL",
+          "body": "- 所有靜態資源路徑加上 /CharMon/ 前綴"
+        },
+        {
+          "hash": "aa0bc376",
+          "time": "16:12",
+          "message": "feat: 新增自定義 logo 和改善 SEO 設定",
+          "body": "- 創建 SVG logo 使用「字」作為主要圖標"
+        },
+        {
+          "hash": "1162e45c",
+          "time": "16:10",
+          "message": "feat: 新增3個字符到字典",
+          "body": "- 傑: 人部，12劃"
+        },
+        {
+          "hash": "3c1929c5",
+          "time": "16:07",
+          "message": "feat: 改進同步功能產生 JSON 格式",
+          "body": "- 同步數據現在產生與 dictionary.json 相同的橫向 JSON 格式"
+        },
+        {
+          "hash": "b63b228d",
+          "time": "16:06",
+          "message": "style: 改善字典 JSON 格式為橫向排列",
+          "body": "- 將每個字符資料改為單行顯示"
+        },
+        {
+          "hash": "7161d3a4",
+          "time": "16:04",
+          "message": "refactor: 重構字典系統為靜態 JSON 檔案",
+          "body": "- 創建獨立的 dictionary.json 檔案存放字典資料"
+        },
+        {
+          "hash": "88a3c3e9",
+          "time": "15:56",
+          "message": "fix: 修復 TypeScript 編譯錯誤",
+          "body": "- 修復 localCache 未定義的問題"
+        },
+        {
+          "hash": "0b069c9a",
+          "time": "15:42",
+          "message": "feat: 大幅擴充本地字典內容",
+          "body": "- 新增大量字符到 fallbackDictionary"
+        },
+        {
+          "hash": "d8018d16",
+          "time": "15:41",
+          "message": "clean: 移除調試信息",
+          "body": "- 清理按鈕已成功顯示，移除 debug 信息"
+        },
+        {
+          "hash": "b256e329",
+          "time": "15:39",
+          "message": "fix: 修復 TypeScript 錯誤",
+          "body": "- 使用 window.location.hostname 並存儲到 ref 變數"
+        },
+        {
+          "hash": "d0969c05",
+          "time": "15:36",
+          "message": "debug: 添加按鈕顯示調試信息",
+          "body": "- 在頁面上顯示 hostname 和 isLocalhost 狀態"
+        },
+        {
+          "hash": "0a4ea05a",
+          "time": "15:34",
+          "message": "fix: 統一按鈕顯示邏輯",
+          "body": "- localhost 顯示同步數據按鈕"
+        },
+        {
+          "hash": "dee5800a",
+          "time": "15:28",
+          "message": "fix: 改為使用 Supabase 配置檢查顯示清理按鈕",
+          "body": "- 將清理按鈕的顯示條件從 isLocalhost 改為 isSupabaseEnabled()"
+        },
+        {
+          "hash": "98b52f8f",
+          "time": "15:26",
+          "message": "feat: 改進字典管理系統的清理功能和調試能力",
+          "body": "- 將清理已有字符按鈕限制在 server 環境顯示"
+        },
+        {
+          "hash": "9a93b5a0",
+          "time": "14:34",
+          "message": "fix: 修復 TypeScript 類型錯誤",
+          "body": "- 為 filter 回調函數的 item 參數添加 any 類型"
+        },
+        {
+          "hash": "32bcc04e",
+          "time": "14:31",
+          "message": "debug: 添加詳細的 Supabase 錯誤診斷和客戶端創建測試",
+          "body": "- 在 supabase 客戶端創建時添加 try-catch"
+        },
+        {
+          "hash": "ac310eaa",
+          "time": "14:21",
+          "message": "debug: 添加 Supabase 配置詳細日誌以診斷線上錯誤",
+          "body": "- 顯示 key 前綴和長度"
+        },
+        {
+          "hash": "da9abc7f",
+          "time": "14:14",
+          "message": "fix: 修復 TypeScript 錯誤，isSupabaseEnabled 需要調用",
+          "body": "- 添加括號調用 isSupabaseEnabled() 函數"
+        },
+        {
+          "hash": "cd001545",
+          "time": "14:11",
+          "message": "feat: 未知字符直接寫入 Supabase，移除本地緩存依賴",
+          "body": "- getCharacterInfo 現在直接將未知字符寫入 Supabase"
+        },
+        {
+          "hash": "2e744853",
+          "time": "14:10",
+          "message": "fix: 修復未知字符列表從 Supabase 獲取邏輯",
+          "body": "- getUnknownCharacters 現在正確從 Supabase 獲取未知字符"
+        },
+        {
+          "hash": "5d4ed7a6",
+          "time": "14:05",
+          "message": "refactor: 簡化字典架構，Supabase 只負責未知字符追蹤",
+          "body": "- 字典統計改為完全使用本地字典數據（12個字符）"
+        },
+        {
+          "hash": "a00934e3",
+          "time": "13:58",
+          "message": "fix: 修復字典後台統計顯示不一致問題",
+          "body": "- 添加「含部首注音」統計項目"
+        },
+        {
+          "hash": "3bdca76d",
+          "time": "13:47",
+          "message": "fix: 修復 Supabase 配置問題，防止線上環境錯誤",
+          "body": "- 改善 supabase 客戶端初始化，當環境變數無效時返回 null"
+        },
+        {
+          "hash": "608acf78",
+          "time": "13:40",
+          "message": "fix: 在 GitHub Actions 中添加 Supabase 環境變數",
+          "body": "- 修復線上部署時缺少環境變數的問題"
+        },
+        {
+          "hash": "cc80cb92",
+          "time": "13:26",
+          "message": "feat: 為首頁添加小朋友友善元素",
+          "body": "- 新增浮動背景裝飾動畫 (彩虹、星星、畫筆等)"
+        }
+      ],
+      "count": 29
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 29,
+    "totalCommits": 29
+  }
+}

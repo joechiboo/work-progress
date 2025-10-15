@@ -1,0 +1,24 @@
+{
+  "date": "2025-07-18",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b0165305",
+          "time": "09:36",
+          "message": "新增一系列 002C Oracle 排程 主要目的有： 1. 刪除非今年的 ORD (TNO not like '5%') 2. 封存 HORD > AORD (開了 oracle HCLAB 的新表 非 HCLABA)",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 0,
+    "totalCommits": 1
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "date": "2025-10-01",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "10641f08",
+          "time": "12:06",
+          "message": "新增 Claude Code 語音提示設定說明文件",
+          "body": "新增內容："
+        },
+        {
+          "hash": "21919706",
+          "time": "10:06",
+          "message": "新增髒資料檢查方法到手動重新同步指南",
+          "body": "新增內容："
+        },
+        {
+          "hash": "0fd35514",
+          "time": "09:52",
+          "message": "修正 PAT_RESULTD 同步邏輯 - 只保留最新 TRX_NUM",
+          "body": "問題："
+        },
+        {
+          "hash": "f5dc3708",
+          "time": "08:44",
+          "message": "新增 PAT_RESULTD 的 reported_dt 欄位支援",
+          "body": "- 新增 Models/PatientModels.cs: PRD_REPORTED_DT 屬性"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "13edb9e9",
+          "time": "10:49",
+          "message": "perf: [LT257] 優化 GetPhoneList 查詢效能 - 12秒降至1秒",
+          "body": "問題："
+        },
+        {
+          "hash": "c6019cc6",
+          "time": "10:18",
+          "message": "fix: [BT201] 修正套餐項目重複檢查邏輯 - 精確比對 + 收集所有重複項",
+          "body": "問題："
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "FridgeMaster",
+      "commits": [
+        {
+          "hash": "b0361dbf",
+          "time": "07:58",
+          "message": "feat: replace alert with beautiful confirm dialog",
+          "body": "- Create reusable ConfirmDialog component"
+        },
+        {
+          "hash": "84ed4087",
+          "time": "07:54",
+          "message": "chore: remove duplicate nextjs.yml workflow",
+          "body": "- Keep only custom deploy.yml that works with frontend/ directory"
+        },
+        {
+          "hash": "f65dd904",
+          "time": "07:52",
+          "message": "fix: add package-lock.json for GitHub Actions cache",
+          "body": "- Resolves npm cache error in deployment workflow"
+        },
+        {
+          "hash": "be9846d2",
+          "time": "07:48",
+          "message": "docs: add comprehensive deployment guide",
+          "body": "- Add detailed DEPLOY.md with step-by-step instructions"
+        },
+        {
+          "hash": "41ba248e",
+          "time": "07:46",
+          "message": "feat: FridgeMaster frontend demo with GitHub Pages deployment",
+          "body": "- Pure frontend demo using localStorage"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "Pomodoro",
+      "commits": [
+        {
+          "hash": "f0cbe169",
+          "time": "12:18",
+          "message": "移除 Facebook 登入功能 [skip ci]",
+          "body": "由於 Facebook 要求商家驗證才能上線給一般用戶使用，"
+        },
+        {
+          "hash": "e75ef3e6",
+          "time": "07:39",
+          "message": "修正 PWA manifest 圖標路徑",
+          "body": "- 所有圖標路徑加上 /Pomodoro/ 前綴"
+        },
+        {
+          "hash": "263249f8",
+          "time": "07:35",
+          "message": "修正設定儲存時的資料類型問題",
+          "body": "- 將時間設定從分鐘轉換為秒數儲存到 Supabase（INTEGER）"
+        },
+        {
+          "hash": "8bd62505",
+          "time": "07:28",
+          "message": "修正首次登入時設定與記錄遷移功能",
+          "body": "- 首次登入時檢查 localStorage 是否有訪客模式的設定"
+        },
+        {
+          "hash": "942bb8a3",
+          "time": "07:23",
+          "message": "修正計時器自動切換與浮點數精度問題",
+          "body": "- 修正工作時間結束後自動切換到休息時間並開始倒數"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "a207262a",
+          "time": "16:24",
+          "message": "Update todo.md with Q1 simple explanation",
+          "body": ""
+        },
+        {
+          "hash": "3ed798fa",
+          "time": "15:23",
+          "message": "Add comprehensive Q1 response: Prediction problem definition",
+          "body": "Detailed specification for 3H risk prediction research:"
+        },
+        {
+          "hash": "91d527e6",
+          "time": "15:10",
+          "message": "Add Synthea to SUA format conversion script and documentation",
+          "body": "Created comprehensive data conversion pipeline:"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "b8f910b9",
+          "time": "07:40",
+          "message": "更新冰箱管理大師專案技術棧與分類",
+          "body": "- 技術棧更新為：Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, Prisma, Node.js, Express"
+        },
+        {
+          "hash": "9a9c7c83",
+          "time": "07:36",
+          "message": "新增冰箱管理大師作品集項目",
+          "body": "新增 FridgeMaster 專案到作品集頁面，包含中英文說明。這是一款食材管理平台，幫助使用者管理冰箱食材、減少浪費並規劃餐點。"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "25dc82f5",
+          "time": "16:15",
+          "message": "新增15分鐘簡報內容文件",
+          "body": "- 建立完整的簡報架構（17張投影片）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 16,
+    "totalCommits": 22
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "date": "2025-09-05",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "f48227f1",
+          "time": "21:39",
+          "message": "Restructure documentation with Chinese filenames and sequence numbers",
+          "body": "- Renamed all documentation files to Chinese with sequence numbering (1. xxxx)"
+        },
+        {
+          "hash": "5cc7f3db",
+          "time": "17:12",
+          "message": "Add logging guide to documentation index",
+          "body": ""
+        },
+        {
+          "hash": "9236ab36",
+          "time": "17:12",
+          "message": "Add comprehensive logging and monitoring guide",
+          "body": "Create detailed logging documentation covering:"
+        },
+        {
+          "hash": "b7e0c737",
+          "time": "17:06",
+          "message": "Replace real connection strings with example placeholders for security",
+          "body": "Security improvements in documentation:"
+        },
+        {
+          "hash": "c35cc5c5",
+          "time": "17:00",
+          "message": "Restructure documentation with organized directory layout",
+          "body": "Major documentation reorganization:"
+        },
+        {
+          "hash": "4abee505",
+          "time": "16:54",
+          "message": "Update README.md with comprehensive project documentation",
+          "body": "Replace default GitLab template with detailed project documentation:"
+        },
+        {
+          "hash": "e72075ff",
+          "time": "16:50",
+          "message": "Add comprehensive API error handling documentation",
+          "body": "Add detailed section covering:"
+        },
+        {
+          "hash": "ce83918b",
+          "time": "16:43",
+          "message": "Optimize database query with CTE for better performance",
+          "body": "Replace the original query with Common Table Expression (CTE) approach:"
+        },
+        {
+          "hash": "369b9714",
+          "time": "16:20",
+          "message": "Add deployment guide and publish build",
+          "body": "- Add comprehensive DEPLOYMENT_GUIDE.md with step-by-step instructions"
+        },
+        {
+          "hash": "c09f0116",
+          "time": "11:00",
+          "message": "Implement ReportHtmlConverter with encrypted connection string support",
+          "body": "- Add complete .NET 8 console application for HTML report conversion"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "316c1506",
+          "time": "16:40",
+          "message": "docs: 完成剩餘文檔的更新以反映最新系統架構",
+          "body": "更新內容："
+        },
+        {
+          "hash": "875d7652",
+          "time": "16:25",
+          "message": "docs: 更新文檔以反映雙模式執行架構和最新系統狀況",
+          "body": "主要更新："
+        },
+        {
+          "hash": "5f096154",
+          "time": "09:16",
+          "message": "fix: 改善補傳模式和正常模式的 log 訊息，避免重複執行驗證機制",
+          "body": "- 補傳模式 log 更明確標示為「補傳模式」"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "8324fe1e",
+          "time": "05:57",
+          "message": "fix: 修復 SonarQube 安全問題 - 移除硬編碼憑證和不安全HTTP URLs",
+          "body": "- 移除未使用的 PasswordService 類別和硬編碼 PASSWORD_KEY"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 14,
+    "sideCommits": 0,
+    "totalCommits": 14
+  }
+}

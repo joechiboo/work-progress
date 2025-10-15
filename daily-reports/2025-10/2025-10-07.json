@@ -1,0 +1,139 @@
+{
+  "date": "2025-10-07",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "e646dd91",
+          "time": "19:52",
+          "message": "feat: 優化 iOS 18 的 Push Notification 設定指引",
+          "body": "## 問題診斷"
+        },
+        {
+          "hash": "2d386284",
+          "time": "19:49",
+          "message": "feat: 增強 Push 通知診斷功能，添加詳細狀態檢查",
+          "body": "## 新增診斷項目"
+        },
+        {
+          "hash": "13aaf467",
+          "time": "12:46",
+          "message": "fix: 修正瀏覽器類型偵測邏輯",
+          "body": "## 問題"
+        },
+        {
+          "hash": "7195803d",
+          "time": "12:40",
+          "message": "refactor: 將 Push 通知訂閱和診斷區塊移至頁面底部",
+          "body": "## 改動內容"
+        },
+        {
+          "hash": "bff12415",
+          "time": "12:28",
+          "message": "refactor: 將 Push 通知診斷區塊改為可收合",
+          "body": "## 改進內容"
+        },
+        {
+          "hash": "9de18c0f",
+          "time": "12:25",
+          "message": "feat: 增強 Push 通知診斷工具",
+          "body": "## 改進內容"
+        },
+        {
+          "hash": "b92e3bdc",
+          "time": "12:09",
+          "message": "fix: 修正代班按鈕點擊無反應的問題",
+          "body": "## 問題"
+        },
+        {
+          "hash": "5a8762cb",
+          "time": "12:07",
+          "message": "debug: 添加可視化 Push 通知診斷資訊",
+          "body": "## 新增功能"
+        },
+        {
+          "hash": "f937f69e",
+          "time": "11:29",
+          "message": "fix: 修正 iPhone 看不到訂閱按鈕的問題",
+          "body": "## 問題"
+        },
+        {
+          "hash": "2c128001",
+          "time": "11:25",
+          "message": "feat: 行政人員取消收檢時發送 Web Push 通知",
+          "body": "## 功能說明"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "79687a1b",
+          "time": "15:35",
+          "message": "新增同步診斷工具和重置腳本",
+          "body": "新增診斷工具："
+        },
+        {
+          "hash": "3e84d8d7",
+          "time": "14:30",
+          "message": "精簡日誌輸出並修正欄位長度限制",
+          "body": "- 移除冗餘的單筆處理日誌，只保留批次總結"
+        },
+        {
+          "hash": "1098bfa4",
+          "time": "10:00",
+          "message": "更新桃園遷徙專案：完成全量遷移並更新文檔",
+          "body": "## 修正問題"
+        },
+        {
+          "hash": "56b3dffc",
+          "time": "09:35",
+          "message": "新增桃園遷徙專案文檔和 SQL 腳本",
+          "body": "## 新增檔案"
+        },
+        {
+          "hash": "3c4a6028",
+          "time": "07:37",
+          "message": "修正欄位截斷問題並精簡 log 輸出",
+          "body": "- 修正 PRH_DR_CODE 欄位截斷：在 Oracle 查詢階段使用 SUBSTR(TRIM(...), 1, 6)"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "HIS\\SyncLisData",
+      "commits": [
+        {
+          "hash": "6eaf2fa9",
+          "time": "11:55",
+          "message": "修正 CHKINDATE 欄位 NULL 處理，調整富盈模式為僅保留 Ord > Blg",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "2003ea3d",
+          "time": "17:40",
+          "message": "Add Liu et al. (2024) literature analysis and AUC-ROC documentation",
+          "body": "新增台中榮總糖尿病預測研究文獻分析："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 16,
+    "sideCommits": 1,
+    "totalCommits": 17
+  }
+}

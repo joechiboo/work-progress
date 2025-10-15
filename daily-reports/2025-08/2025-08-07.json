@@ -1,0 +1,193 @@
+{
+  "date": "2025-08-07",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "65281f1b",
+          "time": "17:53",
+          "message": "feat: 完成前端註冊與登入頁面設計",
+          "body": "- 創建用戶註冊頁面 (UserRegisterView.vue)"
+        },
+        {
+          "hash": "ce4f0add",
+          "time": "17:34",
+          "message": "feat: 重構後端為 .NET 8 Web API 並實現會員註冊與登入",
+          "body": "- 從 Node.js/TypeScript 遷移到 .NET 8 Web API"
+        },
+        {
+          "hash": "4bfcc8de",
+          "time": "17:07",
+          "message": "🔀 合併: 將完整專案內容合併到 main 分支",
+          "body": "- 解決 README.md 衝突，保留專案完整說明"
+        },
+        {
+          "hash": "61b91094",
+          "time": "17:03",
+          "message": "🙈 忽略: 排除 Claude Code 個人設定檔",
+          "body": "- 新增 .claude/settings.local.json 到 .gitignore"
+        },
+        {
+          "hash": "23a63a15",
+          "time": "17:02",
+          "message": "🔧 設定: 簡化遠端設置，專注於 GitLab 開發",
+          "body": "- 移除 GitHub 遠端連結"
+        },
+        {
+          "hash": "206fa420",
+          "time": "16:56",
+          "message": "🔒 安全: 更新 .gitignore 以保護後端敏感資訊",
+          "body": "- 新增環境變數文件排除 (.env*)"
+        },
+        {
+          "hash": "a1398c4f",
+          "time": "16:39",
+          "message": "🏗️ 重構: 遷移到 Monorepo 架構並初始化後端",
+          "body": "重大變更:"
+        },
+        {
+          "hash": "922c5b74",
+          "time": "07:41",
+          "message": "Unify color theme to green across all pages",
+          "body": "🎨 Color Theme Updates:"
+        },
+        {
+          "hash": "137f2534",
+          "time": "07:38",
+          "message": "Fix GitHub Pages SPA routing issues",
+          "body": "- Add 404.html redirect handler for GitHub Pages"
+        },
+        {
+          "hash": "34362b3c",
+          "time": "07:35",
+          "message": "Enhance Health Assistant with comprehensive health analysis",
+          "body": "✨ Major Features Added:"
+        },
+        {
+          "hash": "6a17f226",
+          "time": "07:20",
+          "message": "Fix member type selection buttons positioning by removing forms container padding",
+          "body": "- Comment out .forms-container padding: 3rem in @media (min-width: 1200px)"
+        },
+        {
+          "hash": "de78d064",
+          "time": "07:14",
+          "message": "fix: 修復垂直置中導致的表單寬度問題",
+          "body": "問題原因："
+        },
+        {
+          "hash": "53994d8e",
+          "time": "07:12",
+          "message": "fix: 確保表單使用完整的最大寬度",
+          "body": "- 在 .member-form 和 .member-form.lab-form 添加 width: 100%"
+        },
+        {
+          "hash": "08ce56f1",
+          "time": "07:11",
+          "message": "fix: 恢復會員中心表單原始寬度",
+          "body": "- 移除 min() 函數，使用原本的固定寬度"
+        },
+        {
+          "hash": "c4f8975b",
+          "time": "07:10",
+          "message": "feat: 實現 footer 置底和會員中心表單垂直置中",
+          "body": "主要改進："
+        },
+        {
+          "hash": "293a8c64",
+          "time": "07:05",
+          "message": "fix: 改善會員中心響應式設計",
+          "body": "- 使用 min() 函數確保容器在大螢幕上不會過寬"
+        },
+        {
+          "hash": "da3e25d4",
+          "time": "07:03",
+          "message": "resolve: 解決合併衝突並保留所有權限設定",
+          "body": ""
+        },
+        {
+          "hash": "7d337b9a",
+          "time": "07:03",
+          "message": "chore: 更新 Claude 設定權限",
+          "body": ""
+        }
+      ],
+      "count": 18
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d18ca2ee",
+          "time": "10:14",
+          "message": "批量修改加入就醫日期欄位",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "00023615",
+          "time": "13:12",
+          "message": "Add public facilities opening event to community events",
+          "body": "- Add 2025-07-11 public facilities opening to major events timeline"
+        },
+        {
+          "hash": "8972029c",
+          "time": "13:00",
+          "message": "Fix background image paths for GitHub Pages deployment",
+          "body": ""
+        },
+        {
+          "hash": "11c9d952",
+          "time": "12:51",
+          "message": "Add CLAUDE.md documentation file",
+          "body": "- Include detailed deployment workflow for gh-pages branch"
+        },
+        {
+          "hash": "d175b7a0",
+          "time": "08:19",
+          "message": "Redesign community facilities page with modern card layout",
+          "body": "- Implement beautiful card-based design for facility display"
+        },
+        {
+          "hash": "45bcba51",
+          "time": "08:11",
+          "message": "Fix Vite development server setup",
+          "body": "Add root index.html and vite.config.js to properly configure Vite dev server."
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "jiayi.github.io",
+      "commits": [
+        {
+          "hash": "081a0534",
+          "time": "14:50",
+          "message": "Update 2248 game rules and add comprehensive testing system",
+          "body": "- Enhanced connection rules with proper power-of-2 logic"
+        },
+        {
+          "hash": "9215fd02",
+          "time": "14:25",
+          "message": "Add card game placeholder with disabled state and visual effects",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 19,
+    "sideCommits": 7,
+    "totalCommits": 26
+  }
+}

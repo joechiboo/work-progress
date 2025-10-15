@@ -1,0 +1,48 @@
+{
+  "date": "2025-08-21",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "UPC\\Back",
+      "commits": [
+        {
+          "hash": "83d2ed88",
+          "time": "10:01",
+          "message": "Merge branch 'main' into 修復門診表功能",
+          "body": "# Conflicts:"
+        },
+        {
+          "hash": "8ecf532a",
+          "time": "09:56",
+          "message": "1. 門診列表，上午排在上面、下午排下面，比較直覺 2. Weekday 0-4 不太直覺, 改成 1-7 3. 增加 預設門診 model 狀態 Status 直接把假日 預設，這樣邏輯比較簡單 4. 因應可寫入未安排的診次，調整前端 json",
+          "body": ""
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "83d8e17f",
+          "time": "21:11",
+          "message": "fix: 修復 ReportControllerTests 中 10 個失敗測試",
+          "body": "- 修正 GetTestItemDetail 方法調用參數順序"
+        },
+        {
+          "hash": "232d151c",
+          "time": "07:36",
+          "message": "feat: 全面優化測試套件 - 修復所有失敗測試並提升執行效能",
+          "body": "## 主要成就"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}

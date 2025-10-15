@@ -1,0 +1,48 @@
+{
+  "date": "2025-08-24",
+  "weekday": "日",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "975d0dc7",
+          "time": "22:24",
+          "message": "fix: 修復 ReportController GetReportDetail 參數驗證問題",
+          "body": "- 添加對 uclChkPriId 和 memId 參數的空值驗證"
+        },
+        {
+          "hash": "89f7f713",
+          "time": "22:16",
+          "message": "test: 添加 Controller 依賴注入測試防止類似問題",
+          "body": "- 啟用原本被跳過的 EmailService 依賴注入測試"
+        },
+        {
+          "hash": "ac152c1e",
+          "time": "18:00",
+          "message": "fix: 修復 EmailService 依賴注入問題導致登入 API 500 錯誤",
+          "body": "- 將 EmailService 註冊修改為介面形式 IEmailService, EmailService"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "3eecb057",
+          "time": "17:32",
+          "message": "feat: 實現完整的 Data2Cloud Console 應用程式和測試框架",
+          "body": "## 主要功能"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}

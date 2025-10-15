@@ -1,0 +1,162 @@
+{
+  "date": "2025-08-14",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "a98edb7a",
+          "time": "22:30",
+          "message": "fix: 簡化前端建置流程避開並行建置問題",
+          "body": "- 使用 npm run build-only 跳過 type-check"
+        },
+        {
+          "hash": "1c9ce501",
+          "time": "22:29",
+          "message": "fix: 暫時停用後端測試階段",
+          "body": "- 註解掉 test-backend 任務以避免測試失敗阻擋部署"
+        },
+        {
+          "hash": "6084647a",
+          "time": "22:27",
+          "message": "fix: 修復前端建置問題",
+          "body": "- 升級 Node.js 版本從 18 到 20 以符合專案要求"
+        },
+        {
+          "hash": "2e309298",
+          "time": "22:10",
+          "message": "feat: 新增完整部署文檔和工具",
+          "body": "- 新增部署後檢驗清單 (deployment-checklist.md)"
+        },
+        {
+          "hash": "ae510ee1",
+          "time": "22:07",
+          "message": "fix: 為 GitLab Runner 添加環境依賴安裝",
+          "body": "- 在前端建置前自動安裝 Node.js 18"
+        },
+        {
+          "hash": "71467049",
+          "time": "22:05",
+          "message": "fix: 調整 CI/CD 配置以使用 shell runner",
+          "body": "- 將所有 tags 從 docker 改為 shell"
+        },
+        {
+          "hash": "813fc626",
+          "time": "22:03",
+          "message": "fix: 添加 docker tags 到所有 CI/CD jobs",
+          "body": "- 為所有 GitLab CI/CD 任務添加 docker tags"
+        },
+        {
+          "hash": "7d7baaa3",
+          "time": "21:46",
+          "message": "feat: 準備部署環境與 CI/CD 設定",
+          "body": "- 更新 GitLab CI/CD 配置以支援 Ubuntu 伺服器部署"
+        },
+        {
+          "hash": "57b9db9d",
+          "time": "21:34",
+          "message": "docs: 完成 UCL Cloud 系統測試計畫",
+          "body": "新增完整的測試計畫文檔，包含："
+        },
+        {
+          "hash": "20c35860",
+          "time": "17:21",
+          "message": "fix: 修復會員系統查詢條件並優化檢驗所註冊表單",
+          "body": "主要修改："
+        },
+        {
+          "hash": "8e8f25cc",
+          "time": "17:08",
+          "message": "fix: 修復檢驗所忘記密碼功能的會員查詢條件",
+          "body": "主要修改："
+        },
+        {
+          "hash": "2f49e5fc",
+          "time": "17:02",
+          "message": "fix: 修復重複 LabController 類別錯誤並增強關鍵字搜尋功能",
+          "body": "主要修改："
+        },
+        {
+          "hash": "504a7ff4",
+          "time": "16:13",
+          "message": "fix: 修復檢驗所列表 LINQ 查詢的 SQL 轉換錯誤",
+          "body": "- 將 Contains() 方法改為使用 Join 操作避免 SQL 語法錯誤"
+        },
+        {
+          "hash": "173d4e57",
+          "time": "16:11",
+          "message": "fix: 修復檢驗所列表篩選功能的 SQL 語法錯誤",
+          "body": "- 實作檢驗所類別篩選功能（根據檢驗項目篩選檢驗所）"
+        },
+        {
+          "hash": "ea8119bf",
+          "time": "16:07",
+          "message": "fix: 統一檢驗類別 API 資料來源，修復顯示數字問題",
+          "body": "- 修改 LabController.GetCategoriesAsync() 方法使用 GGoodsKind 表"
+        },
+        {
+          "hash": "7304f4f9",
+          "time": "15:55",
+          "message": "fix: 修復檢驗類別 API 路徑重複問題",
+          "body": "問題修復："
+        },
+        {
+          "hash": "d5e30832",
+          "time": "15:51",
+          "message": "fix: 修復 LabController 編譯錯誤",
+          "body": "問題修復："
+        },
+        {
+          "hash": "edd34adb",
+          "time": "15:47",
+          "message": "fix: 統一檢驗項目 API 並建立系統文檔",
+          "body": "修復重複 API 問題："
+        },
+        {
+          "hash": "264d29d6",
+          "time": "15:41",
+          "message": "feat: 新增服務條款與隱私政策頁面，並統一檢驗所會員色系設計",
+          "body": "- 新增詳細的服務條款頁面 (TermsOfServiceView.vue)"
+        },
+        {
+          "hash": "2b6672a3",
+          "time": "08:25",
+          "message": "feat: 實現檢驗所會員審核機制與檢驗項目搜尋功能優化",
+          "body": "### 新增功能"
+        },
+        {
+          "hash": "d9ed5724",
+          "time": "07:30",
+          "message": "feat: 實現檢驗所服務項目管理系統與檢驗項目詳細顯示",
+          "body": "- 新增檢驗類別 CRUD 管理功能"
+        }
+      ],
+      "count": 21
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "6116a5f7",
+          "time": "19:51",
+          "message": "危險數據清單 DangerList 加入 1. F2 功能說明 2. 點擊病患姓名表示 > 不聯繫 (會變黃色) 3. 新增 table (NAME_EXCLUSIONS) 表示非人排除 4. 洗腎室常會有 病床、機台檢驗，無須通報",
+          "body": ""
+        },
+        {
+          "hash": "a85f7fc6",
+          "time": "09:31",
+          "message": "台北規則，只要有 97__ 通知時間項目就列出",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 23,
+    "sideCommits": 0,
+    "totalCommits": 23
+  }
+}

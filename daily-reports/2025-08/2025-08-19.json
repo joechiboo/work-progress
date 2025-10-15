@@ -1,0 +1,97 @@
+{
+  "date": "2025-08-19",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "b082462a",
+          "time": "15:03",
+          "message": "fix: 修正測試中移除欄位的相關問題",
+          "body": "- 修正 UserRegistrationDtoTests.cs 移除 RealName 和 ContactAddress 欄位"
+        },
+        {
+          "hash": "cd22984b",
+          "time": "12:21",
+          "message": "fix: 修正正式環境圖片上傳路徑",
+          "body": "- 正式環境使用: /var/www/uclcloud/Uploadinfo/g_myworld/store"
+        },
+        {
+          "hash": "e7c79ed7",
+          "time": "12:14",
+          "message": "debug: 增加EmailService和ImageUpload詳細診斷記錄",
+          "body": "- EmailService: 增加SMTP連線、發送過程、錯誤處理記錄"
+        },
+        {
+          "hash": "b7797e15",
+          "time": "12:02",
+          "message": "fix: 修復正式環境圖片上傳路徑問題",
+          "body": "- 根據環境變數決定上傳路徑"
+        },
+        {
+          "hash": "a0c040e9",
+          "time": "11:59",
+          "message": "feat: 完善檢驗所會員管理系統與圖片上傳功能",
+          "body": "- 移除註冊表單不必要欄位(真實姓名、聯絡人地址、郵遞區號、營業時間)"
+        },
+        {
+          "hash": "83d9682c",
+          "time": "05:44",
+          "message": "feat: 完善駁回狀態管理功能並更新完整專案文檔",
+          "body": "主要更新:"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "102539a7",
+          "time": "19:55",
+          "message": "新增 table",
+          "body": ""
+        },
+        {
+          "hash": "a31c1f90",
+          "time": "19:53",
+          "message": "調整後端query 新增前端 Modal (之後點選 FTEXT 可新增",
+          "body": ""
+        },
+        {
+          "hash": "ffa0d725",
+          "time": "19:04",
+          "message": "調整金色換成灰色，說金色太明顯 調整F2 說明 按鈕點姓名容易誤按，調整成 checkbox",
+          "body": ""
+        },
+        {
+          "hash": "305cd419",
+          "time": "18:55",
+          "message": "新增語法，方便日後維護",
+          "body": ""
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "0fa8f9ce",
+          "time": "15:40",
+          "message": "增加辭職備註",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 1,
+    "totalCommits": 11
+  }
+}

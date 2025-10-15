@@ -1,0 +1,42 @@
+{
+  "date": "2025-08-20",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "4411ad0c",
+          "time": "15:27",
+          "message": "本來想廢除，因為文管系統已動態包含 在幹部會議提出後，好像沒什麼結論 所以再修正",
+          "body": ""
+        },
+        {
+          "hash": "e4b8a2fc",
+          "time": "12:37",
+          "message": "LT276 未通知時，可點選「待檢中」會跳出 Modal視窗，並預設文字「DD-HH24:MI 聯絡人, 客戶已複述確認」 整合過去的 dangerList 流程， 系統將會先新增 FTR ，再 UPDATE OD_TR_VAL 同時將後端支援 97__ ，不再只限制 9751",
+          "body": ""
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "b5b63c3d",
+          "time": "17:52",
+          "message": "feat: 大幅提升測試覆蓋率 - 從67.3%到68.3%",
+          "body": "主要改進："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 0,
+    "totalCommits": 3
+  }
+}

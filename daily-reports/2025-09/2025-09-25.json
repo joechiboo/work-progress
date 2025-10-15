@@ -1,0 +1,180 @@
+{
+  "date": "2025-09-25",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "264b963f",
+          "time": "17:18",
+          "message": "feat: 優化 LT257 電話通知查詢 HAVING 條件",
+          "body": "- 修改 HAVING MIN(OD_ACTION_FLAG) 僅考慮相關項目的 ACTION_FLAG"
+        },
+        {
+          "hash": "62310d04",
+          "time": "17:01",
+          "message": "fix: 移除意外追蹤的 Claude Code 本地設定檔",
+          "body": "- 從版控中移除 .claude/settings.local.json"
+        },
+        {
+          "hash": "9cd62345",
+          "time": "16:53",
+          "message": "fix: 修正「待確認」篩選邏輯，包含 SCL_CONFIRMED_STATUS='PENDING' 的記錄",
+          "body": "業務邏輯修正："
+        },
+        {
+          "hash": "c230e970",
+          "time": "16:50",
+          "message": "fix: 待確認篩選邏輯正常運作，問題在於測試資料狀態",
+          "body": "診斷結果："
+        },
+        {
+          "hash": "219a7c76",
+          "time": "16:49",
+          "message": "debug: 添加待確認篩選的詳細分析日志",
+          "body": "目的：診斷為什麼「待確認」篩選無法顯示記錄"
+        },
+        {
+          "hash": "1da06ebe",
+          "time": "16:46",
+          "message": "fix: 修復前端篩選邏輯作用域問題",
+          "body": "問題分析："
+        },
+        {
+          "hash": "1b639628",
+          "time": "16:35",
+          "message": "fix: 修正篩選參數傳送邏輯，避免後端無法識別確認狀態",
+          "body": "問題分析："
+        },
+        {
+          "hash": "2fce6265",
+          "time": "16:29",
+          "message": "fix: 修復篩選條件「待確認/已確認」功能",
+          "body": "修正問題："
+        },
+        {
+          "hash": "60d26db3",
+          "time": "16:25",
+          "message": "fix: 完善 AdminConfirm 確認狀態顯示和按鈕控制邏輯",
+          "body": "修正問題："
+        },
+        {
+          "hash": "0eedfb28",
+          "time": "16:19",
+          "message": "fix: 修復 AdminConfirm API 確認狀態無法正確顯示的問題",
+          "body": "- 在 GetCollectionLogs SQL 查詢中加入 SCL_CONFIRMED_STATUS 欄位"
+        },
+        {
+          "hash": "21d8fd99",
+          "time": "16:13",
+          "message": "fix: 統一用詞為「待確認」",
+          "body": "- 將狀態篩選中的「未確認」改為「待確認」"
+        },
+        {
+          "hash": "48b1d188",
+          "time": "16:12",
+          "message": "debug: 增強 AdminConfirm 調試功能",
+          "body": "1. **後端調試**："
+        },
+        {
+          "hash": "725731c0",
+          "time": "16:08",
+          "message": "fix: 修正確認狀態更新問題及收檢員名稱格式",
+          "body": "1. **修正確認狀態更新問題**："
+        },
+        {
+          "hash": "5c606048",
+          "time": "16:05",
+          "message": "feat: 移除收檢員欄位的電話號碼顯示",
+          "body": "- 新增 formatCollectorName() 函數移除收檢員欄位中的電話號碼"
+        },
+        {
+          "hash": "99129781",
+          "time": "16:03",
+          "message": "feat: 行政確認功能改進與 UI 美化",
+          "body": "1. **修正已取消項目的行政確認**："
+        },
+        {
+          "hash": "4f5a5b68",
+          "time": "15:56",
+          "message": "feat: 新增行政確認狀態篩選功能",
+          "body": "- 在狀態篩選中新增「已確認」和「未確認」選項"
+        },
+        {
+          "hash": "62334e53",
+          "time": "15:53",
+          "message": "fix: 修正行政確認按鈕顯示問題",
+          "body": "- 修正使用者角色初始化的時序問題"
+        },
+        {
+          "hash": "b20dc0c3",
+          "time": "15:49",
+          "message": "fix: 修正重複變數定義錯誤",
+          "body": "- 修正 currentUserIdentity 變數在同一作用域重複定義的問題"
+        },
+        {
+          "hash": "111f45dc",
+          "time": "15:47",
+          "message": "fix: 使用 Json.Encode 修正字串編碼問題",
+          "body": "- 改用 Json.Encode() 取代不支援的 JavaScriptStringEncode 方法"
+        },
+        {
+          "hash": "c5c52a8f",
+          "time": "15:42",
+          "message": "fix: 修正 JavaScript 字串編碼問題",
+          "body": "- 使用 Html.JavaScriptStringEncode 確保使用者名稱正確輸出到 JavaScript"
+        },
+        {
+          "hash": "a10ed33e",
+          "time": "14:05",
+          "message": "fix: 修正 CollectionQuery.cshtml Razor 語法錯誤",
+          "body": "- 修正 Razor 語法中 JavaScript 變數輸出問題"
+        },
+        {
+          "hash": "8ff146b0",
+          "time": "13:17",
+          "message": "fix: 優化代班人員功能與清理 debug console.log",
+          "body": "- 修復代班人員路線自動選擇：優先使用今日代班指派路線"
+        },
+        {
+          "hash": "aed711c9",
+          "time": "12:44",
+          "message": "fix: 修復代班確認 Modal 顯示與代班功能完善",
+          "body": "- 更新代班確認 Modal 為 Bootstrap 5.3 語法，修復顯示問題"
+        },
+        {
+          "hash": "efa74ccd",
+          "time": "12:17",
+          "message": "fix: 修復代班功能查詢與指派邏輯",
+          "body": "- 修正代班記錄查詢中路線顯示格式為「路線號-原收檢員」"
+        },
+        {
+          "hash": "196fc688",
+          "time": "11:34",
+          "message": "feat: 優化收檢系統顯示和交互功能",
+          "body": "1. 修正 Bootstrap 5.3 navbar 連結參數問題"
+        }
+      ],
+      "count": 25
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "017a9995",
+          "time": "08:54",
+          "message": "Fix URL configuration and add error logging for deployment",
+          "body": "- Fix TokenService to use configurable ReportBaseUrl from appsettings.json"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 26,
+    "sideCommits": 0,
+    "totalCommits": 26
+  }
+}

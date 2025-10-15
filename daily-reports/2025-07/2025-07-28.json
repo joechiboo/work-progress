@@ -1,0 +1,30 @@
+{
+  "date": "2025-07-28",
+  "weekday": "一",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "243433e5",
+          "time": "14:05",
+          "message": "1秒點三下常常點不到",
+          "body": ""
+        },
+        {
+          "hash": "b9286958",
+          "time": "14:04",
+          "message": "更新四次例行性會議紀錄 to 7/3",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 2,
+    "totalCommits": 2
+  }
+}

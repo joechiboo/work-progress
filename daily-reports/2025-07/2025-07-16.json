@@ -1,0 +1,30 @@
+{
+  "date": "2025-07-16",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ec94b7b3",
+          "time": "09:43",
+          "message": "參數錯誤修正",
+          "body": ""
+        },
+        {
+          "hash": "d630bfe4",
+          "time": "09:25",
+          "message": "調整版面, 收斂 是否印帳單/統編/收據 折成一行",
+          "body": "新增欄位 「查員工報告」"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}
