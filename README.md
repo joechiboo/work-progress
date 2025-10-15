@@ -146,6 +146,25 @@ npm run preview
 - 📊 團隊貢獻度分析
 - 🔍 個人工作回顧
 
+## 📚 維護文檔
+
+**重要**: 系統已升級為全自動模式！
+
+詳細的維護說明請參考 **[MAINTENANCE.md](MAINTENANCE.md)**，包含:
+
+- 🔄 自動化流程完整說明
+- ⚙️ 設定與配置指南
+- 🔧 常見維護任務
+- 🔍 故障排查指南
+- 📊 資料格式與腳本說明
+
+### 快速重點
+
+- **自動執行**: 每天早上 07:00 自動生成工作紀錄
+- **網頁資料**: `public/data/work-log-latest.json` (固定檔名)
+- **完整紀錄**: `daily-reports/YYYY-MM/` (含 Markdown 和 JSON)
+- **隱私保護**: 網頁只顯示工作專案，排除 Side Projects
+
 ## License
 
 MIT
