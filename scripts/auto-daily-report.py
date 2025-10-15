@@ -293,32 +293,12 @@ def merge_to_public():
     weeks = round(days / 7, 1)
 
     # 彙整成專案視角的格式（網頁需要的格式）
+    # 只包含工作專案，排除 Side Projects
     projects_map = {}
 
     for daily in all_reports:
-        # 處理工作專案
+        # 只處理工作專案（排除 Side Projects）
         for proj in daily.get('work_projects', []):
-            proj_name = proj['name']
-            if proj_name not in projects_map:
-                projects_map[proj_name] = {
-                    'name': proj_name,
-                    'totalCommits': 0,
-                    'commits': []
-                }
-
-            for commit in proj['commits']:
-                projects_map[proj_name]['commits'].append({
-                    'hash': commit['hash'],
-                    'date': daily['date'],
-                    'message': commit['message'],
-                    'body': commit.get('body', ''),
-                    'category': categorize_commit(commit['message']),
-                    'tags': []
-                })
-                projects_map[proj_name]['totalCommits'] += 1
-
-        # 處理 Side Projects
-        for proj in daily.get('side_projects', []):
             proj_name = proj['name']
             if proj_name not in projects_map:
                 projects_map[proj_name] = {
