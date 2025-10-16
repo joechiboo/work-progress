@@ -9,7 +9,10 @@ import sys
 import logging
 from datetime import datetime, timedelta
 
-# 設定 logging
+# 設定 logging（Windows console 需要設定 UTF-8）
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',

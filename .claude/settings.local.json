@@ -23,7 +23,10 @@
       "Bash(cat:*)",
       "Bash(git config:*)",
       "Bash(awk:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(cd:*)",
+      "Bash(tee:*)"
     ],
     "deny": [],
     "ask": []
