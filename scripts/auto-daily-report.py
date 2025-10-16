@@ -5,7 +5,19 @@
 import subprocess
 import os
 import json
+import sys
+import logging
 from datetime import datetime, timedelta
+
+# 設定 logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+    handlers=[
+        logging.StreamHandler(sys.stdout)
+    ]
+)
 
 GITLAB_PATH = "D:\\Gitlab"
 PERSONAL_PATH = "D:\\Personal\\Project"
@@ -14,7 +26,13 @@ AUTHOR = "UCL\\joechiboo"
 
 def get_git_repos(base_path, max_depth=3):
     """遞迴尋找所有 Git repositories"""
+    logging.info(f"掃描 Git repositories: {base_path} (max_depth={max_depth})")
     repos = []
+
+    if not os.path.exists(base_path):
+        logging.error(f"路徑不存在: {base_path}")
+        return repos
+
     for root, dirs, files in os.walk(base_path):
         depth = root.replace(base_path, '').count(os.sep)
         if depth >= max_depth:
@@ -22,7 +40,10 @@ def get_git_repos(base_path, max_depth=3):
             continue
         if '.git' in dirs:
             repos.append(root)
+            logging.debug(f"找到 repo: {root}")
             dirs[:] = []
+
+    logging.info(f"找到 {len(repos)} 個 repositories")
     return repos
 
 def get_commits_for_date(repo_path, author, date_str):
@@ -36,6 +57,10 @@ def get_commits_for_date(repo_path, author, date_str):
             '--format=%an|||%H|||%ai|||%s|||%b',
         ]
         result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8')
+
+        if result.returncode != 0:
+            logging.warning(f"Git command failed for {repo_path}: {result.stderr}")
+            return []
 
         commits = []
         for line in result.stdout.strip().split('\n'):
@@ -52,8 +77,13 @@ def get_commits_for_date(repo_path, author, date_str):
                         "message": parts[3].strip(),
                         "body": parts[4].strip() if len(parts) > 4 else ""
                     })
+
+        if commits:
+            logging.info(f"  ✓ {os.path.basename(repo_path)}: {len(commits)} commits")
+
         return commits
     except Exception as e:
+        logging.error(f"Error getting commits from {repo_path}: {str(e)}")
         return []
 
 def categorize_commit(message):
@@ -72,6 +102,8 @@ def categorize_commit(message):
 
 def generate_daily_report(date_str):
     """生成單日報告"""
+    logging.info(f"開始生成 {date_str} 的報告")
+
     gitlab_repos = get_git_repos(GITLAB_PATH)
     personal_repos = get_git_repos(PERSONAL_PATH)
 
@@ -203,17 +235,21 @@ def main():
     yesterday = datetime.now() - timedelta(days=1)
     date_str = yesterday.strftime('%Y-%m-%d')
 
-    print(f"========================================")
-    print(f"自動生成每日工作紀錄: {date_str}")
-    print(f"執行時間: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"========================================\n")
+    logging.info("=" * 60)
+    logging.info(f"自動生成每日工作紀錄: {date_str}")
+    logging.info(f"執行時間: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    logging.info("=" * 60)
 
     # 生成報告
-    report = generate_daily_report(date_str)
+    try:
+        report = generate_daily_report(date_str)
+    except Exception as e:
+        logging.error(f"生成報告失敗: {str(e)}", exc_info=True)
+        return
 
-    print(f"工作專案: {report['summary']['workCommits']} commits")
-    print(f"Side Projects: {report['summary']['sideCommits']} commits")
-    print(f"總計: {report['summary']['totalCommits']} commits\n")
+    logging.info(f"工作專案: {report['summary']['workCommits']} commits")
+    logging.info(f"Side Projects: {report['summary']['sideCommits']} commits")
+    logging.info(f"總計: {report['summary']['totalCommits']} commits")
 
     # 生成 Markdown
     markdown = generate_markdown(report)
@@ -236,28 +272,28 @@ def main():
     with open(json_file, 'w', encoding='utf-8') as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
 
-    print(f"Markdown: {md_file}")
-    print(f"JSON: {json_file}\n")
+    logging.info(f"已儲存 Markdown: {md_file}")
+    logging.info(f"已儲存 JSON: {json_file}")
 
     # 自動 commit 和 push
     if report['summary']['totalCommits'] > 0:
-        print("正在 commit 並 push 到 GitHub...")
+        logging.info("正在 commit 並 push 到 GitHub...")
         if git_commit_and_push(date_str, report['summary']['totalCommits']):
-            print("成功推送到 GitHub!")
+            logging.info("✓ 成功推送到 GitHub!")
         else:
-            print("推送失敗，請手動處理")
+            logging.error("✗ 推送失敗，請手動處理")
     else:
-        print("無提交紀錄，跳過 git push")
+        logging.info("無提交紀錄，跳過 git push")
 
-    print(f"\n完成!")
+    logging.info("完成!")
 
 def merge_to_public():
     """彙整所有每日紀錄到 public/data（輸出網頁需要的彙整格式）"""
     import glob
 
-    print("\n" + "=" * 80)
-    print("彙整每日紀錄到 public/data")
-    print("=" * 80)
+    logging.info("\n" + "=" * 60)
+    logging.info("彙整每日紀錄到 public/data")
+    logging.info("=" * 60)
 
     # 讀取所有每日紀錄
     daily_reports_path = os.path.join(WORK_PROGRESS_PATH, "daily-reports")
@@ -273,7 +309,7 @@ def merge_to_public():
                 all_reports.append(report)
 
     if not all_reports:
-        print("沒有找到任何紀錄")
+        logging.warning("沒有找到任何紀錄")
         return
 
     # 按日期排序
@@ -282,8 +318,8 @@ def merge_to_public():
     start_date = all_reports[0]['date']
     end_date = all_reports[-1]['date']
 
-    print(f"找到 {len(all_reports)} 天的紀錄")
-    print(f"日期範圍: {start_date} ~ {end_date}")
+    logging.info(f"找到 {len(all_reports)} 天的紀錄")
+    logging.info(f"日期範圍: {start_date} ~ {end_date}")
 
     # 計算總天數和週數
     from datetime import datetime
@@ -353,10 +389,10 @@ def merge_to_public():
     with open(latest_file, 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"\n已儲存:")
-    print(f"  - {dated_file} (備份)")
-    print(f"  - {latest_file} (網頁使用)")
-    print(f"統計: {total_commits} commits / {len(projects_list)} 專案 / 日均 {output['summary']['dailyAverage']}")
+    logging.info(f"已儲存:")
+    logging.info(f"  - {dated_file} (備份)")
+    logging.info(f"  - {latest_file} (網頁使用)")
+    logging.info(f"統計: {total_commits} commits / {len(projects_list)} 專案 / 日均 {output['summary']['dailyAverage']}")
 
     return latest_file
 
