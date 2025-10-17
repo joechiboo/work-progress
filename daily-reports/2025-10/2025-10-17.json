@@ -1,0 +1,42 @@
+{
+  "date": "2025-10-17",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "bf6b2665",
+          "time": "09:55",
+          "message": "更新路由設定和門診時間",
+          "body": "- 修正訂單相關路由的 import 路徑"
+        },
+        {
+          "hash": "d80b4055",
+          "time": "09:52",
+          "message": "新增部署文檔和 ECS 更新流程說明",
+          "body": "- 新增 docs/DEPLOYMENT.md：包含完整的部署流程、伺服器連線資訊和快取處理方法"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "9356aa69",
+          "time": "15:33",
+          "message": "feat: 收檢明細列印功能加入確認人資訊並優化通知權限設定",
+          "body": "## 主要更新"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 0,
+    "totalCommits": 3
+  }
+}
