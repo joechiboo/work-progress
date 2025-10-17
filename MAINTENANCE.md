@@ -6,9 +6,14 @@
 
 ## 🔄 自動化流程
 
-### 每日自動執行（07:00）
+### 每日自動執行（07:05）
 
-**觸發方式**: Windows 工作排程器 → `run-daily-report.bat`
+**觸發方式**: Windows 工作排程器 → 直接執行 Python 腳本
+
+**工作排程器設定**:
+- **程式或指令碼**: `python`
+- **新增引數**: `scripts\auto-daily-report.py`
+- **開始於**: `D:\Personal\Project\work-progress`
 
 **流程**:
 1. 執行 `scripts/auto-daily-report.py`
@@ -16,6 +21,11 @@
 3. 彙整所有紀錄到 `public/data/work-log-latest.json`
 4. 自動 commit 並 push 到 GitHub
 5. GitHub Pages 自動部署更新網頁
+
+**注意**:
+- 直接執行 Python 腳本，不透過批次檔
+- 輸出直接顯示在 console，不產生本地 log 檔案
+- 可透過 GitHub commit 歷史確認執行狀態
 
 ## 📁 檔案結構
 
@@ -137,12 +147,26 @@ python -c "from scripts.auto_daily_report import merge_to_public; merge_to_publi
 ### 問題 2: 自動排程沒執行
 
 **檢查項目**:
-1. 工作排程器中任務狀態
-2. `run-daily-report.bat` 路徑是否正確
-3. Python 環境是否正常
+1. 工作排程器中任務狀態是否為「就緒」
+2. 上次執行結果是否有錯誤碼（如 `0xFFF` 代表找不到檔案）
+3. Python 是否在系統 PATH 中（執行 `python --version` 測試）
+4. 「開始於」路徑是否正確設定為 `D:\Personal\Project\work-progress`
 
-**查看日誌**:
+**確認方式**:
+1. 檢查 GitHub 是否有每日自動 commit（格式：`docs: 每日工作紀錄 YYYY-MM-DD`）
+2. 檢查 `daily-reports/YYYY-MM/` 是否有最新的報告檔案
+3. 手動執行測試：`python scripts\auto-daily-report.py`
+
+**查看排程歷史**:
 工作排程器 → 右鍵任務 → 內容 → 歷程記錄
+
+**常見錯誤排除**:
+
+| 錯誤碼 | 原因 | 解決方法 |
+|--------|------|----------|
+| `0xFFF` | 找不到檔案或路徑錯誤 | 確認「開始於」欄位設定完整路徑 |
+| `0x1` | Python 腳本執行失敗 | 手動執行查看錯誤訊息 |
+| 無輸出 | 排程未執行 | 確認電腦在排程時間有開機 |
 
 ### 問題 3: 某些 commits 沒被記錄
 
@@ -304,8 +328,42 @@ with open(file, 'w', encoding='utf-8') as f:
 2. GitHub Issues
 3. Git commit history（查看歷史修改）
 
+## 🔧 2025-10-17 排程設定變更
+
+### 變更內容
+- **從批次檔改為直接執行 Python**
+  - 舊設定：執行 `run-daily-report.bat`
+  - 新設定：直接執行 `python scripts\auto-daily-report.py`
+
+### 變更原因
+- 批次檔在 Git Bash 環境中執行異常
+- 簡化執行流程，減少中間層
+- 避免路徑和環境變數問題
+
+### 優缺點
+
+**優點**:
+- ✅ 設定簡單直接
+- ✅ 減少故障點
+- ✅ 執行穩定
+
+**缺點**:
+- ❌ 不產生本地 log 檔案（`logs/daily-report.log`）
+- ❌ 需要透過 GitHub commit 歷史確認執行狀態
+
+### 如需本地 log
+
+如果需要本地 log 檔案記錄，可改回使用批次檔：
+
+**排程設定**:
+- **程式或指令碼**: `cmd.exe`
+- **新增引數**: `/c "D:\Personal\Project\work-progress\scripts\run-daily-report.bat"`
+- **開始於**: `D:\Personal\Project\work-progress`
+
+批次檔會將所有輸出導向到 `logs/daily-report.log`。
+
 ---
 
-**最後更新**: 2025-10-15
-**版本**: v1.0
+**最後更新**: 2025-10-17
+**版本**: v1.1
 **維護者**: joechiboo
