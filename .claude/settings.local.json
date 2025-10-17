@@ -27,7 +27,8 @@
       "Bash(cmd.exe:*)",
       "Bash(cd:*)",
       "Bash(tee:*)",
-      "Bash(schtasks:*)"
+      "Bash(schtasks:*)",
+      "Bash(powershell.exe:*)"
     ],
     "deny": [],
     "ask": []
