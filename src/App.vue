@@ -12,38 +12,62 @@
         <h2 class="text-xl font-semibold mb-4">🔍 篩選設定</h2>
 
         <!-- 專案類型篩選 -->
-        <div class="mb-4 flex items-center gap-4">
-          <label class="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              v-model="showSideProjects"
-              @change="applyFilter"
-              class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-            />
-            <span class="text-sm font-medium text-gray-700">顯示 Side Projects</span>
-          </label>
-          <span class="text-xs text-gray-500">(預設僅顯示工作專案)</span>
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-3">專案類型</label>
+          <div class="flex gap-3">
+            <button
+              @click="showSideProjects = false; applyFilter()"
+              :class="[
+                'flex-1 px-4 py-3 rounded-lg font-medium transition-all',
+                !showSideProjects
+                  ? 'bg-blue-600 text-white shadow-md'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ]"
+            >
+              <div class="flex items-center justify-center gap-2">
+                <span>💼</span>
+                <span>僅工作專案</span>
+              </div>
+            </button>
+            <button
+              @click="showSideProjects = true; applyFilter()"
+              :class="[
+                'flex-1 px-4 py-3 rounded-lg font-medium transition-all',
+                showSideProjects
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ]"
+            >
+              <div class="flex items-center justify-center gap-2">
+                <span>🎨</span>
+                <span>包含 Side Projects</span>
+              </div>
+            </button>
+          </div>
         </div>
 
         <!-- 時間區間篩選 -->
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">開始日期</label>
-            <input
-              type="date"
-              v-model="filterStart"
-              @change="applyFilter"
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">結束日期</label>
-            <input
-              type="date"
-              v-model="filterEnd"
-              @change="applyFilter"
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-3">時間區間</label>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs text-gray-600 mb-1">開始日期</label>
+              <input
+                type="date"
+                v-model="filterStart"
+                @change="applyFilter"
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label class="block text-xs text-gray-600 mb-1">結束日期</label>
+              <input
+                type="date"
+                v-model="filterEnd"
+                @change="applyFilter"
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -187,8 +211,8 @@ const applyFilter = () => {
 
       const filteredCommits = project.commits.filter(commit => {
         const commitDate = dayjs(commit.date)
-        if (start && commitDate.isBefore(start)) return false
-        if (end && commitDate.isAfter(end)) return false
+        if (start && commitDate.isBefore(start, 'day')) return false
+        if (end && commitDate.isAfter(end, 'day')) return false
         return true
       })
 
