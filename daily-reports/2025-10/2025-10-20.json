@@ -1,0 +1,103 @@
+{
+  "date": "2025-10-20",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "6387acc7",
+          "time": "14:30",
+          "message": "fix: 收檢員管理頁面支援顯示多路線",
+          "body": "- CM_NOTE 包含多路線時（用逗號分隔），正確拆分並顯示"
+        },
+        {
+          "hash": "55bf1ddd",
+          "time": "14:28",
+          "message": "fix: 緊急修復支援收檢員多路線功能",
+          "body": "## 問題"
+        },
+        {
+          "hash": "96898f17",
+          "time": "14:19",
+          "message": "fix: 修正推播測試 API 使用正確的方法名稱",
+          "body": "- 使用 SendCollectionNotificationAsync 取代不存在的 SendNotification"
+        },
+        {
+          "hash": "b1c2a5e9",
+          "time": "12:55",
+          "message": "feat: 新增推播測試功能並記錄發送/接收時間",
+          "body": "## 主要更新"
+        },
+        {
+          "hash": "d065d7e5",
+          "time": "12:46",
+          "message": "feat: 今日收檢人員按路線排序",
+          "body": "## 主要更新"
+        },
+        {
+          "hash": "96c27b5b",
+          "time": "12:44",
+          "message": "feat: 擴充收檢登記單位選擇範圍並移除不需要的自動設定功能",
+          "body": "## 主要更新"
+        },
+        {
+          "hash": "239b781e",
+          "time": "12:26",
+          "message": "feat: 新增行政人員取消待收檢功能並優化欄位標籤",
+          "body": "## 主要更新"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "5d90863e",
+          "time": "15:12",
+          "message": "將 DR_CODE 長度警告降為 DEBUG 級別並更新診斷文件",
+          "body": "1. 日誌級別調整"
+        },
+        {
+          "hash": "0d61e4ca",
+          "time": "10:49",
+          "message": "修正刪除操作逾時問題並移除棄用的 pat_resulthx 處理",
+          "body": "1. 修正問題"
+        },
+        {
+          "hash": "1a8ae851",
+          "time": "08:19",
+          "message": "簡化日誌輸出並修正 OL_ADDR3 欄位長度限制",
+          "body": "1. 簡化正常執行時的日誌輸出"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "Fast-Trivia\\Fast-Trivia",
+      "commits": [
+        {
+          "hash": "d847fee3",
+          "time": "10:12",
+          "message": "style: 更新 favicon 為趣味靶心圖示",
+          "body": "- 替換預設的 vite.svg 為自訂的 favicon.png"
+        },
+        {
+          "hash": "417770c1",
+          "time": "10:00",
+          "message": "fix: 修正正確率計算錯誤與題庫難度篩選問題",
+          "body": "## 修正項目"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 2,
+    "totalCommits": 12
+  }
+}
