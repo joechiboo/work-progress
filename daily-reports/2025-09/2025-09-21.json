@@ -7,6 +7,60 @@
       "name": "CharMon",
       "commits": [
         {
+          "hash": "e1c984b5",
+          "time": "21:56",
+          "message": "fix: 修復 Vitest 與 Playwright 測試配置衝突",
+          "body": "- 在 vitest.config.ts 中排除 tests/e2e/** 目錄"
+        },
+        {
+          "hash": "e9db244b",
+          "time": "21:54",
+          "message": "fix: 修復後端測試腳本",
+          "body": "- 將失敗的測試腳本改為跳過狀態，返回成功退出碼"
+        },
+        {
+          "hash": "eb3cf1da",
+          "time": "21:53",
+          "message": "fix: 修復 NameLearningView 中的 TypeScript 類型錯誤",
+          "body": "- 將 zhuyinPartsCache 的類型從 object[] 改為 ZhuyinPart[]"
+        },
+        {
+          "hash": "d4f71a6f",
+          "time": "21:51",
+          "message": "fix: 修復所有 ESLint 錯誤",
+          "body": "- 移除未使用的變數和導入"
+        },
+        {
+          "hash": "27e17cb3",
+          "time": "21:39",
+          "message": "feat: 整合 GitHub Actions 工作流程",
+          "body": "- 合併 test.yml 和 deploy.yml 為統一的 ci-cd.yml"
+        },
+        {
+          "hash": "960c5ec8",
+          "time": "21:33",
+          "message": "fix: 修復部署工作流程中的 rollup 依賴問題",
+          "body": ""
+        },
+        {
+          "hash": "4c411fbe",
+          "time": "21:28",
+          "message": "fix: 修復所有 ESLint 錯誤並改善代碼品質",
+          "body": "• 移除所有未使用的變數和導入"
+        },
+        {
+          "hash": "7364c7e1",
+          "time": "20:27",
+          "message": "fix: 修復 GitHub Actions 中 rollup Linux 依賴問題",
+          "body": "• 將 npm ci 改為 npm install 以解決 rollup 平台依賴問題"
+        },
+        {
+          "hash": "d90ce6ff",
+          "time": "20:20",
+          "message": "feat: 完善寶可夢主題系統和前後端整合",
+          "body": "• 實現中文寶可夢名稱支援"
+        },
+        {
           "hash": "ef660d98",
           "time": "17:10",
           "message": "chore: 更新開發工具和依賴",
@@ -179,14 +233,92 @@
           "time": "13:26",
           "message": "feat: 為首頁添加小朋友友善元素",
           "body": "- 新增浮動背景裝飾動畫 (彩虹、星星、畫筆等)"
+        },
+        {
+          "hash": "9119f625",
+          "time": "12:01",
+          "message": "feat: implement AI Pokemon theme generator backend API",
+          "body": "- Add complete Express.js TypeScript backend service"
+        },
+        {
+          "hash": "eca885af",
+          "time": "10:56",
+          "message": "fix: 修復所有 TypeScript 編譯錯誤",
+          "body": "- 修復 Supabase 類型推斷問題，添加適當的 any 類型斷言"
+        },
+        {
+          "hash": "6f289e1d",
+          "time": "10:48",
+          "message": "feat: 完成字典系統重構與同步功能",
+          "body": "- 重構字典架構，優先使用本地 fallbackDictionary"
+        },
+        {
+          "hash": "3ef24c62",
+          "time": "07:54",
+          "message": "feat: 改進練習表格 UI 和字型選擇功能",
+          "body": "- 將格式樣式改為下拉選單，介面更整齊"
+        },
+        {
+          "hash": "67aebccf",
+          "time": "07:48",
+          "message": "feat: 改進練習表格格子樣式",
+          "body": "- 幼稚園和低年級用戶使用宣紙紅色格子線條"
+        },
+        {
+          "hash": "5b9cac1e",
+          "time": "07:23",
+          "message": "fix: 修復所有 TypeScript 編譯錯誤",
+          "body": "- 為 GamesView.vue 添加 Pokemon 和 PokemonVariation 介面定義"
+        },
+        {
+          "hash": "467bcf28",
+          "time": "07:16",
+          "message": "Update documentation and localization improvements",
+          "body": "- Create comprehensive project README with detailed features and architecture"
+        },
+        {
+          "hash": "7f94ee95",
+          "time": "07:01",
+          "message": "Add comprehensive development summary documentation",
+          "body": "- Document complete night development session"
+        },
+        {
+          "hash": "e71a0cd1",
+          "time": "06:59",
+          "message": "Add comprehensive Zhuyin (注音符號) learning system",
+          "body": "Features:"
+        },
+        {
+          "hash": "f77fb321",
+          "time": "06:56",
+          "message": "Add stroke order functionality with HanziWriter integration",
+          "body": "Features:"
+        },
+        {
+          "hash": "1c971ff0",
+          "time": "00:46",
+          "message": "Hide zhuyin and preview options in game mode",
+          "body": "- Hide \"顯示注音\" checkbox when in game mode"
+        },
+        {
+          "hash": "79b33be1",
+          "time": "00:40",
+          "message": "Optimize worksheet preview layout and sizing",
+          "body": "- Reduce canvas height from 700px to 650px for better proportions"
+        },
+        {
+          "hash": "fb421c34",
+          "time": "00:28",
+          "message": "Implement Pokemon-themed literary worksheet system",
+          "body": "- Add Pokemon selection system with 4 characters (Pikachu, Charmander, Squirtle, Bulbasaur)"
         }
       ],
-      "count": 29
+      "count": 51
     }
   ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 29,
-    "totalCommits": 29
+    "sideCommits": 51,
+    "totalCommits": 51
   }
 }

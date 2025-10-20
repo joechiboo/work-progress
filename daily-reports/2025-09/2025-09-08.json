@@ -15,10 +15,65 @@
       "count": 1
     }
   ],
-  "side_projects": [],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "dfeeade8",
+          "time": "21:11",
+          "message": "Add comprehensive research methodology guide",
+          "body": "- Document complete research workflow from literature review to paper writing"
+        },
+        {
+          "hash": "9b440fec",
+          "time": "11:35",
+          "message": "Add comprehensive domain knowledge research plan",
+          "body": "- Create detailed 2-week research framework based on supervisor guidance"
+        },
+        {
+          "hash": "0662c85d",
+          "time": "11:33",
+          "message": "Add work journal and domain knowledge preparation notes",
+          "body": "- Create work_journal.md for tracking project progress"
+        },
+        {
+          "hash": "b7a1e942",
+          "time": "11:25",
+          "message": "Update Claude Code settings and data source link",
+          "body": "- Update permissions for SSH and Git operations"
+        },
+        {
+          "hash": "88c50576",
+          "time": "11:17",
+          "message": "Remove SSH test file",
+          "body": ""
+        },
+        {
+          "hash": "ec4723aa",
+          "time": "11:17",
+          "message": "Test SSH authentication",
+          "body": ""
+        },
+        {
+          "hash": "b7e90217",
+          "time": "11:14",
+          "message": "Add SUA cardiovascular disease risk factors dataset",
+          "body": "- Add SUA_CVDs_risk_factors.csv (25,744 records)"
+        },
+        {
+          "hash": "91f6ea92",
+          "time": "11:14",
+          "message": "Initial project setup for RiskPrediction-3H",
+          "body": "- Set up complete project structure for 3H disease risk prediction research"
+        }
+      ],
+      "count": 8
+    }
+  ],
   "summary": {
     "workCommits": 1,
-    "sideCommits": 0,
-    "totalCommits": 1
+    "sideCommits": 8,
+    "totalCommits": 9
   }
 }

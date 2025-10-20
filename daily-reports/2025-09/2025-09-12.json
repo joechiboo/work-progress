@@ -174,14 +174,26 @@
           "time": "07:22",
           "message": "Update Claude settings",
           "body": ""
+        },
+        {
+          "hash": "5035074a",
+          "time": "06:02",
+          "message": "🔧 修復投票登入流程和SSH配置",
+          "body": "登入流程改進："
+        },
+        {
+          "hash": "0bf651e7",
+          "time": "05:56",
+          "message": "🗳️ 完成電子投票系統開發",
+          "body": "新增功能："
         }
       ],
-      "count": 18
+      "count": 20
     }
   ],
   "summary": {
     "workCommits": 9,
-    "sideCommits": 18,
-    "totalCommits": 27
+    "sideCommits": 20,
+    "totalCommits": 29
   }
 }

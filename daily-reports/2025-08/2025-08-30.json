@@ -93,11 +93,23 @@
         }
       ],
       "count": 2
+    },
+    {
+      "name": "ZebraSite",
+      "commits": [
+        {
+          "hash": "36458974",
+          "time": "23:47",
+          "message": "Initial Vue.js homepage implementation for UCL medical laboratory",
+          "body": "- Created multi-site architecture documentation"
+        }
+      ],
+      "count": 1
     }
   ],
   "summary": {
     "workCommits": 10,
-    "sideCommits": 2,
-    "totalCommits": 12
+    "sideCommits": 3,
+    "totalCommits": 13
   }
 }

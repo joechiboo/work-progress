@@ -1,0 +1,36 @@
+{
+  "date": "2025-09-14",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "13d0c1f4",
+          "time": "21:15",
+          "message": "更新委員會資料與大事記",
+          "body": "- 更新財務委員：游O順(辭)、吳O華"
+        },
+        {
+          "hash": "a3945720",
+          "time": "21:09",
+          "message": "移除電子投票住戶個資驗證",
+          "body": "- 簡化登入頁面，只需要通關密語"
+        },
+        {
+          "hash": "5e488fef",
+          "time": "21:04",
+          "message": "暫時禁用電子投票功能",
+          "body": "- 在 AppNavbar.vue 中添加 isVotingDisabled 狀態"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 3,
+    "totalCommits": 3
+  }
+}

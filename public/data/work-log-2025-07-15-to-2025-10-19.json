@@ -7,9 +7,9 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 822,
-    "projectCount": 20,
-    "dailyAverage": 8.5
+    "totalCommits": 1008,
+    "projectCount": 21,
+    "dailyAverage": 10.4
   },
   "projects": [
     {
@@ -2029,8 +2029,16 @@
     },
     {
       "name": "uclcloud",
-      "totalCommits": 220,
+      "totalCommits": 221,
       "commits": [
+        {
+          "hash": "f63e1c6e",
+          "date": "2025-08-06",
+          "message": "feat: 實現健康小幫手和會員中心功能",
+          "body": "- 新增健康小幫手頁面，支援血壓、血糖、三酸甘油脂、生理測量記錄",
+          "category": "功能開發",
+          "tags": []
+        },
         {
           "hash": "b6fcc279",
           "date": "2025-08-06",
@@ -4589,8 +4597,951 @@
       "type": "work"
     },
     {
+      "name": "CharMon",
+      "totalCommits": 117,
+      "commits": [
+        {
+          "hash": "41f95a61",
+          "date": "2025-09-20",
+          "message": "Add grade-based default settings and improve worksheet options",
+          "body": "- Restore grade selection in login (kindergarten and elementary-low)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "93c93017",
+          "date": "2025-09-20",
+          "message": "Fix login to kindergarten version only",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b3bb167d",
+          "date": "2025-09-20",
+          "message": "Fix zhuyin display issues and improve layout",
+          "body": "- Fix zhuyin alignment in name learning view by separating tone marks",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a5caa63d",
+          "date": "2025-09-20",
+          "message": "Add zhuyin cells to worksheet and fix practice counter",
+          "body": "- Added dedicated zhuyin cells to the right of each character cell",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "c0cc099e",
+          "date": "2025-09-20",
+          "message": "Enlarge grid sizes by 70% and disable elementary-high grade option",
+          "body": "- Increased preview grid size from 40px to 68px for better visibility",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "15be462c",
+          "date": "2025-09-20",
+          "message": "Enhance worksheet functionality with proper grid layout and print optimization",
+          "body": "- Added \"每行字數\" option (3, 6, 12 characters per line) for flexible layout",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "292b544d",
+          "date": "2025-09-20",
+          "message": "Fix worksheet layout to display characters in correct row format",
+          "body": "- Modified worksheet generation logic to display complete character sequences per row (e.g., 紀家禾) instead of repeating individual characters",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0d57525b",
+          "date": "2025-09-20",
+          "message": "修正重複次數邏輯",
+          "body": "- 改為每個字符各自重複指定次數（例如：3次就是每個字3行）",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9fe05217",
+          "date": "2025-09-20",
+          "message": "完善練習表格生成器功能",
+          "body": "- 重新設計為幼稚園適用：左3格浮水印 + 右3格空白",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "85449446",
+          "date": "2025-09-20",
+          "message": "調整每行字數選項為 3、6、12 字",
+          "body": "- 移除 5 字和 8、10 字選項",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f8d88fa6",
+          "date": "2025-09-20",
+          "message": "修復注音對照表中的重複 key 錯誤",
+          "body": "- 移除 NameLearningView 中重複的字符定義：文、武、夏、華、康、高、萬",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "58f53d88",
+          "date": "2025-09-20",
+          "message": "修正下載功能的文字和實作一致性",
+          "body": "- 將「下載 PDF」改為「下載圖片」",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "783b72d1",
+          "date": "2025-09-20",
+          "message": "修復預覽功能的 canvas ref 問題",
+          "body": "- 重新組織預覽區域的條件渲染邏輯",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f89154e7",
+          "date": "2025-09-20",
+          "message": "添加預覽功能調試信息",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c0a7e87d",
+          "date": "2025-09-20",
+          "message": "清理無用的 CSS 樣式",
+          "body": "移除 repeat-row 和 zhuyin-display 等無用的樣式",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "db9396b5",
+          "date": "2025-09-20",
+          "message": "實作練習表格預覽功能",
+          "body": "- 在右邊 div 添加預覽區域",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7afa6eab",
+          "date": "2025-09-20",
+          "message": "在練習生成器重複次數旁添加注音顯示",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0acf42f8",
+          "date": "2025-09-20",
+          "message": "完善學習介面和功能體驗",
+          "body": "- 全面重構學習我的名字頁面佈局",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7ca83211",
+          "date": "2025-09-20",
+          "message": "改善使用者介面和筆劃練習功能",
+          "body": "- 統一綠色主題配色 (#27ae60)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "25bd07b5",
+          "date": "2025-09-20",
+          "message": "修正按鈕配色並調整字體大小",
+          "body": "- 按鈕改為白底黑字配紅邊框，更符合中式書法美學",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a38336b6",
+          "date": "2025-09-20",
+          "message": "改用中式書法風格配色",
+          "body": "- 背景改為宣紙色系（土黃漸變）",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d00a7d6b",
+          "date": "2025-09-20",
+          "message": "大幅放大首頁內容",
+          "body": "- 主標題從 4rem 增加到 5rem",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "34d312ae",
+          "date": "2025-09-20",
+          "message": "移除 #app margin 實現水平置中",
+          "body": "- 完全移除 margin: 0",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "21d67c61",
+          "date": "2025-09-20",
+          "message": "恢復 flexbox 佈局",
+          "body": "- 重新使用 display: flex 和 flex-direction: column",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "79907f0d",
+          "date": "2025-09-20",
+          "message": "調整 #app 寬度設定",
+          "body": "- 使用 margin: 0 auto 實現水平置中",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "468ff94e",
+          "date": "2025-09-20",
+          "message": "移除 #app 的 flexbox 設定",
+          "body": "- 移除可能造成寬度問題的 display: flex",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ade2a864",
+          "date": "2025-09-20",
+          "message": "確保 body 也是 100vw",
+          "body": "- 設定 body width: 100vw",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "87e7ff57",
+          "date": "2025-09-20",
+          "message": "移除 #app margin 並確保水平置中",
+          "body": "- 移除 #app 的預設 margin",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "49d3a62e",
+          "date": "2025-09-20",
+          "message": "優化頁面間距",
+          "body": "- 減少各區塊的 margin 和 padding",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "693a5396",
+          "date": "2025-09-20",
+          "message": "實現智能筆畫練習系統",
+          "body": "- 根據學習階段提供不同練習模式",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1486c666",
+          "date": "2025-09-20",
+          "message": "改用 100vw 全螢幕寬度設計",
+          "body": "- 移除所有 max-width 限制，充分利用螢幕空間",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5767e610",
+          "date": "2025-09-20",
+          "message": "增加整體系統寬度",
+          "body": "- 側邊欄從 250px 增加到 280px",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "114ec7f1",
+          "date": "2025-09-20",
+          "message": "大幅擴充注音符號對照表",
+          "body": "- 新增超過200個常見中文字的注音符號",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1b1c2bc5",
+          "date": "2025-09-20",
+          "message": "優化學習階段按鈕文字顯示",
+          "body": "- 改善按鈕文字斷行，讓「小學低年級」和「小學高年級」顯示更美觀",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "4be563dc",
+          "date": "2025-09-20",
+          "message": "將拼音改為注音符號",
+          "body": "- 姓名學習頁面改用注音符號顯示",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b5cf5904",
+          "date": "2025-09-20",
+          "message": "增加登入卡片寬度",
+          "body": "- 最大寬度從 500px 增加到 600px",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5dd84190",
+          "date": "2025-09-20",
+          "message": "簡化登入表單設計",
+          "body": "- 移除年齡選擇欄位，只保留學習階段",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d178db72",
+          "date": "2025-09-20",
+          "message": "修正首頁水平置中問題",
+          "body": "- 為 .features 添加 margin: 0 auto 確保水平置中",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "47694488",
+          "date": "2025-09-20",
+          "message": "修正 SPA 路由問題",
+          "body": "- 添加 404.html 重定向機制",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "aad1e9b9",
+          "date": "2025-09-20",
+          "message": "優化首頁垂直置中效果",
+          "body": "- 加強 flexbox 置中設定",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "90765298",
+          "date": "2025-09-20",
+          "message": "修正 GitHub Pages 路徑設定",
+          "body": "- 更新 Vite base 路徑從 /charmon-app/ 到 /CharMon/",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "394ceb51",
+          "date": "2025-09-20",
+          "message": "優化首頁佈局設計",
+          "body": "- 一行顯示四個功能卡片",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "e4cd64f9",
+          "date": "2025-09-20",
+          "message": "修正 TypeScript 構建錯誤",
+          "body": "- 修正 Element Plus 語言包引入路徑",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "92fd93e3",
+          "date": "2025-09-20",
+          "message": "修正 GitHub Actions Node.js 版本",
+          "body": "- 更新為 Node.js 20 以符合 Vite 要求",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "fdf7b663",
+          "date": "2025-09-20",
+          "message": "移動 GitHub Actions 到根目錄",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "21a5f99a",
+          "date": "2025-09-20",
+          "message": "更新應用程式名稱和設計",
+          "body": "- 更名為「字樂園」",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5adcb213",
+          "date": "2025-09-20",
+          "message": "Initial commit: CharMon 中文學習應用程式",
+          "body": "- Vue 3 + TypeScript + Pinia 架構",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e1c984b5",
+          "date": "2025-09-21",
+          "message": "fix: 修復 Vitest 與 Playwright 測試配置衝突",
+          "body": "- 在 vitest.config.ts 中排除 tests/e2e/** 目錄",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e9db244b",
+          "date": "2025-09-21",
+          "message": "fix: 修復後端測試腳本",
+          "body": "- 將失敗的測試腳本改為跳過狀態，返回成功退出碼",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "eb3cf1da",
+          "date": "2025-09-21",
+          "message": "fix: 修復 NameLearningView 中的 TypeScript 類型錯誤",
+          "body": "- 將 zhuyinPartsCache 的類型從 object[] 改為 ZhuyinPart[]",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d4f71a6f",
+          "date": "2025-09-21",
+          "message": "fix: 修復所有 ESLint 錯誤",
+          "body": "- 移除未使用的變數和導入",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "27e17cb3",
+          "date": "2025-09-21",
+          "message": "feat: 整合 GitHub Actions 工作流程",
+          "body": "- 合併 test.yml 和 deploy.yml 為統一的 ci-cd.yml",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "960c5ec8",
+          "date": "2025-09-21",
+          "message": "fix: 修復部署工作流程中的 rollup 依賴問題",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4c411fbe",
+          "date": "2025-09-21",
+          "message": "fix: 修復所有 ESLint 錯誤並改善代碼品質",
+          "body": "• 移除所有未使用的變數和導入",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "7364c7e1",
+          "date": "2025-09-21",
+          "message": "fix: 修復 GitHub Actions 中 rollup Linux 依賴問題",
+          "body": "• 將 npm ci 改為 npm install 以解決 rollup 平台依賴問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d90ce6ff",
+          "date": "2025-09-21",
+          "message": "feat: 完善寶可夢主題系統和前後端整合",
+          "body": "• 實現中文寶可夢名稱支援",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ef660d98",
+          "date": "2025-09-21",
+          "message": "chore: 更新開發工具和依賴",
+          "body": "- 新增圖像處理套件 (sharp, png-to-ico)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "65d674e6",
+          "date": "2025-09-21",
+          "message": "feat: 使用 SVG logo 生成新的 favicon.ico",
+          "body": "- 從 logo.svg 轉換生成包含多尺寸的 favicon.ico",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3d1c3db9",
+          "date": "2025-09-21",
+          "message": "fix: 新增版本參數解決圖示快取問題",
+          "body": "- 在所有 logo.svg 引用添加 ?v=2 參數",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ad5d7569",
+          "date": "2025-09-21",
+          "message": "fix: 修正 manifest.json 語法錯誤和路徑設定",
+          "body": "- 簡化 manifest.json 格式",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "df88f852",
+          "date": "2025-09-21",
+          "message": "fix: 修正靜態資源路徑包含 base URL",
+          "body": "- 所有靜態資源路徑加上 /CharMon/ 前綴",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "aa0bc376",
+          "date": "2025-09-21",
+          "message": "feat: 新增自定義 logo 和改善 SEO 設定",
+          "body": "- 創建 SVG logo 使用「字」作為主要圖標",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1162e45c",
+          "date": "2025-09-21",
+          "message": "feat: 新增3個字符到字典",
+          "body": "- 傑: 人部，12劃",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3c1929c5",
+          "date": "2025-09-21",
+          "message": "feat: 改進同步功能產生 JSON 格式",
+          "body": "- 同步數據現在產生與 dictionary.json 相同的橫向 JSON 格式",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b63b228d",
+          "date": "2025-09-21",
+          "message": "style: 改善字典 JSON 格式為橫向排列",
+          "body": "- 將每個字符資料改為單行顯示",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7161d3a4",
+          "date": "2025-09-21",
+          "message": "refactor: 重構字典系統為靜態 JSON 檔案",
+          "body": "- 創建獨立的 dictionary.json 檔案存放字典資料",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "88a3c3e9",
+          "date": "2025-09-21",
+          "message": "fix: 修復 TypeScript 編譯錯誤",
+          "body": "- 修復 localCache 未定義的問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0b069c9a",
+          "date": "2025-09-21",
+          "message": "feat: 大幅擴充本地字典內容",
+          "body": "- 新增大量字符到 fallbackDictionary",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d8018d16",
+          "date": "2025-09-21",
+          "message": "clean: 移除調試信息",
+          "body": "- 清理按鈕已成功顯示，移除 debug 信息",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b256e329",
+          "date": "2025-09-21",
+          "message": "fix: 修復 TypeScript 錯誤",
+          "body": "- 使用 window.location.hostname 並存儲到 ref 變數",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d0969c05",
+          "date": "2025-09-21",
+          "message": "debug: 添加按鈕顯示調試信息",
+          "body": "- 在頁面上顯示 hostname 和 isLocalhost 狀態",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0a4ea05a",
+          "date": "2025-09-21",
+          "message": "fix: 統一按鈕顯示邏輯",
+          "body": "- localhost 顯示同步數據按鈕",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "dee5800a",
+          "date": "2025-09-21",
+          "message": "fix: 改為使用 Supabase 配置檢查顯示清理按鈕",
+          "body": "- 將清理按鈕的顯示條件從 isLocalhost 改為 isSupabaseEnabled()",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "98b52f8f",
+          "date": "2025-09-21",
+          "message": "feat: 改進字典管理系統的清理功能和調試能力",
+          "body": "- 將清理已有字符按鈕限制在 server 環境顯示",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9a93b5a0",
+          "date": "2025-09-21",
+          "message": "fix: 修復 TypeScript 類型錯誤",
+          "body": "- 為 filter 回調函數的 item 參數添加 any 類型",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "32bcc04e",
+          "date": "2025-09-21",
+          "message": "debug: 添加詳細的 Supabase 錯誤診斷和客戶端創建測試",
+          "body": "- 在 supabase 客戶端創建時添加 try-catch",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "ac310eaa",
+          "date": "2025-09-21",
+          "message": "debug: 添加 Supabase 配置詳細日誌以診斷線上錯誤",
+          "body": "- 顯示 key 前綴和長度",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "da9abc7f",
+          "date": "2025-09-21",
+          "message": "fix: 修復 TypeScript 錯誤，isSupabaseEnabled 需要調用",
+          "body": "- 添加括號調用 isSupabaseEnabled() 函數",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cd001545",
+          "date": "2025-09-21",
+          "message": "feat: 未知字符直接寫入 Supabase，移除本地緩存依賴",
+          "body": "- getCharacterInfo 現在直接將未知字符寫入 Supabase",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2e744853",
+          "date": "2025-09-21",
+          "message": "fix: 修復未知字符列表從 Supabase 獲取邏輯",
+          "body": "- getUnknownCharacters 現在正確從 Supabase 獲取未知字符",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "5d4ed7a6",
+          "date": "2025-09-21",
+          "message": "refactor: 簡化字典架構，Supabase 只負責未知字符追蹤",
+          "body": "- 字典統計改為完全使用本地字典數據（12個字符）",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "a00934e3",
+          "date": "2025-09-21",
+          "message": "fix: 修復字典後台統計顯示不一致問題",
+          "body": "- 添加「含部首注音」統計項目",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3bdca76d",
+          "date": "2025-09-21",
+          "message": "fix: 修復 Supabase 配置問題，防止線上環境錯誤",
+          "body": "- 改善 supabase 客戶端初始化，當環境變數無效時返回 null",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "608acf78",
+          "date": "2025-09-21",
+          "message": "fix: 在 GitHub Actions 中添加 Supabase 環境變數",
+          "body": "- 修復線上部署時缺少環境變數的問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cc80cb92",
+          "date": "2025-09-21",
+          "message": "feat: 為首頁添加小朋友友善元素",
+          "body": "- 新增浮動背景裝飾動畫 (彩虹、星星、畫筆等)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9119f625",
+          "date": "2025-09-21",
+          "message": "feat: implement AI Pokemon theme generator backend API",
+          "body": "- Add complete Express.js TypeScript backend service",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "eca885af",
+          "date": "2025-09-21",
+          "message": "fix: 修復所有 TypeScript 編譯錯誤",
+          "body": "- 修復 Supabase 類型推斷問題，添加適當的 any 類型斷言",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6f289e1d",
+          "date": "2025-09-21",
+          "message": "feat: 完成字典系統重構與同步功能",
+          "body": "- 重構字典架構，優先使用本地 fallbackDictionary",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3ef24c62",
+          "date": "2025-09-21",
+          "message": "feat: 改進練習表格 UI 和字型選擇功能",
+          "body": "- 將格式樣式改為下拉選單，介面更整齊",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "67aebccf",
+          "date": "2025-09-21",
+          "message": "feat: 改進練習表格格子樣式",
+          "body": "- 幼稚園和低年級用戶使用宣紙紅色格子線條",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5b9cac1e",
+          "date": "2025-09-21",
+          "message": "fix: 修復所有 TypeScript 編譯錯誤",
+          "body": "- 為 GamesView.vue 添加 Pokemon 和 PokemonVariation 介面定義",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "467bcf28",
+          "date": "2025-09-21",
+          "message": "Update documentation and localization improvements",
+          "body": "- Create comprehensive project README with detailed features and architecture",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7f94ee95",
+          "date": "2025-09-21",
+          "message": "Add comprehensive development summary documentation",
+          "body": "- Document complete night development session",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e71a0cd1",
+          "date": "2025-09-21",
+          "message": "Add comprehensive Zhuyin (注音符號) learning system",
+          "body": "Features:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f77fb321",
+          "date": "2025-09-21",
+          "message": "Add stroke order functionality with HanziWriter integration",
+          "body": "Features:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1c971ff0",
+          "date": "2025-09-21",
+          "message": "Hide zhuyin and preview options in game mode",
+          "body": "- Hide \"顯示注音\" checkbox when in game mode",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "79b33be1",
+          "date": "2025-09-21",
+          "message": "Optimize worksheet preview layout and sizing",
+          "body": "- Reduce canvas height from 700px to 650px for better proportions",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "fb421c34",
+          "date": "2025-09-21",
+          "message": "Implement Pokemon-themed literary worksheet system",
+          "body": "- Add Pokemon selection system with 4 characters (Pikachu, Charmander, Squirtle, Bulbasaur)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ff69614a",
+          "date": "2025-09-22",
+          "message": "docs: 新增 LINE Pay 贊助組件通用 prompt",
+          "body": "- 創建可重複使用的組件 prompt 模板",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "43e7ff89",
+          "date": "2025-09-22",
+          "message": "fix: 修復 LINE Pay 圖片建構錯誤",
+          "body": "- 使用正確的 Vite 資源 import 方式引用 linePay.png",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "dba7437d",
+          "date": "2025-09-22",
+          "message": "fix: 修復 ESLint 未使用變數錯誤",
+          "body": "移除 AboutAuthorView.vue 中未使用的 ElTag import",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "abb020d4",
+          "date": "2025-09-22",
+          "message": "feat: 新增關於作者頁面及 LINE Pay 贊助功能",
+          "body": "- 創建 AboutAuthorView.vue 關於作者頁面",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "763fb339",
+          "date": "2025-09-22",
+          "message": "chore: 暫時關閉 Playwright 測試和 CI/CD E2E 測試",
+          "body": "- 修改 package.json 中的測試腳本，暫時停用 Playwright 測試",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bdbff5be",
+          "date": "2025-09-22",
+          "message": "fix: 修復 ESLint 未使用變數錯誤",
+          "body": "移除 catch block 中未使用的 error 參數",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6d8e7e5f",
+          "date": "2025-09-22",
+          "message": "fix: 修復 Playwright 測試框架配置與認證問題",
+          "body": "主要修復：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "7a23720a",
+          "date": "2025-09-29",
+          "message": "feat: 實現中文理解遊戲全螢幕答案反饋，修復 TypeScript 錯誤",
+          "body": "- 新增全螢幕答案反饋，顯示超大「正確」或「錯誤」文字",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b8c42648",
+          "date": "2025-09-29",
+          "message": "feat: 進一步強化男女語音差異，極低音調模擬男聲",
+          "body": "- 男聲使用極低音調 (0.1) 和較慢語速 (0.85)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2cbdb273",
+          "date": "2025-09-29",
+          "message": "feat: 改善中文理解遊戲語音體驗，強化男女聲音差異",
+          "body": "- 嘗試自動選擇系統中的男女語音引擎",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5aa05cf1",
+          "date": "2025-09-29",
+          "message": "feat: 優化中文理解遊戲體驗，隱藏對話文字並改善語音和版面",
+          "body": "- 隱藏對話文字內容，純語音播放模式提升聽力挑戰",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "530aebfc",
+          "date": "2025-09-29",
+          "message": "fix: 修復中文理解遊戲選擇卡片背景，統一使用 Matrix 風格",
+          "body": "- 將中文理解遊戲卡片從藍色波浪背景改為黑色 Matrix 背景",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "12f0e1c1",
+          "date": "2025-09-29",
+          "message": "feat: 新增中文怪物-中文理解遊戲模式，優化手機聲調選擇體驗",
+          "body": "- 優化中文怪物聲調測驗手機體驗：簡化按鈕標籤為「一、二、三、四、輕」，調整按鈕大小適合觸控操作",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "294c517d",
+          "date": "2025-09-29",
+          "message": "feat: 優化手機瀏覽體驗，增大聲調按鈕觸控區域",
+          "body": "- 增加按鈕最小寬度和高度，提升手機觸控體驗",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "52d295fc",
+          "date": "2025-09-29",
+          "message": "feat: 移除中文怪物遊戲的登入要求，允許訪客直接遊玩",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e41b0808",
+          "date": "2025-09-29",
+          "message": "fix: 修正「寶寶」第二個「寶」為輕聲",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "dc89c966",
+          "date": "2025-09-29",
+          "message": "fix: 修復 ChineseMonsterView.vue 的 ESLint 未使用變數錯誤",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a352975f",
+          "date": "2025-09-29",
+          "message": "feat: 新增遊戲選擇頁面與中文怪物聲調測驗",
+          "body": "- 新增 GameSelectView.vue 作為遊戲模式選擇介面",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "753d14f7",
+          "date": "2025-10-03",
+          "message": "docs: 新增課程企劃案文件",
+          "body": "新增跨領域科技融入教學設計企劃案，包含：",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
       "name": "joechiboo.github.io",
-      "totalCommits": 60,
+      "totalCommits": 104,
       "commits": [
         {
           "hash": "e78a3ec4",
@@ -4641,6 +5592,22 @@
           "tags": []
         },
         {
+          "hash": "1f0f85ca",
+          "date": "2025-07-31",
+          "message": "ci: add Azure Static Web Apps workflow file on-behalf-of: @Azure opensource@microsoft.com",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "91745375",
+          "date": "2025-07-31",
+          "message": "ci: add Azure Static Web Apps workflow file on-behalf-of: @Azure opensource@microsoft.com",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
           "hash": "08eb737f",
           "date": "2025-07-31",
           "message": "Complete portfolio website optimization and Azure deployment setup",
@@ -4653,6 +5620,14 @@
           "date": "2025-07-31",
           "message": "Resolve merge conflict and update README",
           "body": "- Merge with remote repository",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0c81e5bc",
+          "date": "2025-07-31",
+          "message": "Initial commit",
+          "body": "",
           "category": "其他",
           "tags": []
         },
@@ -4705,11 +5680,235 @@
           "tags": []
         },
         {
+          "hash": "f9013c8c",
+          "date": "2025-08-02",
+          "message": "調整創作展示手機版佈局為一行一個",
+          "body": "- 修改手機版創作展示網格為單列佈局",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7b9e67cb",
+          "date": "2025-08-02",
+          "message": "優化響應式佈局和內容命名",
+          "body": "- 修正教育背景手機版換行問題，電腦版保持單行顯示",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "0c6e3a15",
+          "date": "2025-08-02",
+          "message": "修正首頁專業技能區塊文字顏色問題",
+          "body": "- 為 .highlight-card p 添加 #555 顏色樣式",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a2019d25",
+          "date": "2025-08-02",
+          "message": "重構 CSS 架構為模組化設計系統",
+          "body": "- 建立 CSS 變數系統 (variables.css) 統一顏色、間距、字體",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "dcb1193b",
+          "date": "2025-08-02",
+          "message": "修復 GitHub Pages SPA 路由問題",
+          "body": "- 新增 404.html 處理客戶端路由重導向",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "03b0c996",
+          "date": "2025-08-02",
+          "message": "簡化休閒生活頁面標題描述",
+          "body": "- 移除具體的興趣列舉「繪畫、創作、運動、音樂」",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7ff65dee",
+          "date": "2025-08-02",
+          "message": "移除多餘的「工作經驗」子標題",
+          "body": "- 刪除工作經驗區塊的 h2 標題",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f364e5ff",
+          "date": "2025-08-02",
+          "message": "新增 Google Search Console 驗證標籤",
+          "body": "- 加入 google-site-verification meta 標籤",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9b4bc126",
+          "date": "2025-08-02",
+          "message": "改用 GitHub 官方 Pages Actions",
+          "body": "- 替換 peaceiris/actions-gh-pages 為官方 actions",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a45fd369",
+          "date": "2025-08-02",
+          "message": "修正 GitHub Actions 權限問題",
+          "body": "- 將 contents 權限從 read 改為 write",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4570025b",
+          "date": "2025-08-02",
+          "message": "修正 ESLint 錯誤：移除未使用的 itemId 參數",
+          "body": "- 在 handleAudioPlay 函數中移除未使用的 itemId 參數",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "06c2dca4",
+          "date": "2025-08-02",
+          "message": "更新為簡化的 GitHub Pages 部署工作流程",
+          "body": "- 使用 peaceiris/actions-gh-pages@v4 簡化部署",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ec858327",
+          "date": "2025-08-02",
+          "message": "移除舊的 Azure 工作流程，優化 GitHub Pages 部署",
+          "body": "",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "9095b50e",
+          "date": "2025-08-02",
+          "message": "設定 GitHub Pages 部署與 SEO 優化",
+          "body": "✨ 新功能:",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "4f2bf380",
+          "date": "2025-08-02",
+          "message": "修正教育背景年份資訊",
+          "body": "- 大學：2005-2009年（原2018-2022年）",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8e3462de",
+          "date": "2025-08-02",
+          "message": "優化下載履歷功能：將alert改為美觀的Toast通知",
+          "body": "- 移除醜陋的alert彈窗",
+          "category": "重構",
+          "tags": []
+        },
+        {
           "hash": "7e73621f",
           "date": "2025-08-02",
           "message": "完成作品集頁面重構與真實專案整合",
           "body": "- 整合四個真實專案：波爾多社區網站、測驗服務專區、搶救杰倫大作戰、台北高爾夫協會官網",
           "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "d33cd138",
+          "date": "2025-08-03",
+          "message": "觸發重新部署 - 修復CSS文件部署問題",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "5169f289",
+          "date": "2025-08-03",
+          "message": "手機版僅保留語音字幕功能",
+          "body": "- 隱藏手機版導覽指示器",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e325c11e",
+          "date": "2025-08-03",
+          "message": "優化手機版語音介紹體驗",
+          "body": "- 隱藏手機版的播放控制和進度條",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "e74c71fa",
+          "date": "2025-08-03",
+          "message": "調整語音導覽時間軸 - 優化導覽時機",
+          "body": "⏰ 時間軸調整：",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "bd32e444",
+          "date": "2025-08-03",
+          "message": "優化語音導覽 - 支援同時執行多動作和精確錨點定位",
+          "body": "✨ 新功能特色：",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "f596d0f6",
+          "date": "2025-08-03",
+          "message": "新增錨點滾動功能 - 精確定位到頁面內特定區塊",
+          "body": "🔗 錨點功能：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "337bf505",
+          "date": "2025-08-03",
+          "message": "新增語音導覽功能 - 一分鐘自我介紹配合網站自動導覽",
+          "body": "🎙️ 語音導覽特色：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2711bf56",
+          "date": "2025-08-03",
+          "message": "調整語音介紹按鈕與 Claude 標識並排顯示",
+          "body": "🎨 布局調整：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8d0ec3dd",
+          "date": "2025-08-03",
+          "message": "拆分 Claude 標識和語音自我介紹為兩個獨立組件",
+          "body": "🔄 重構內容：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d5e46ee7",
+          "date": "2025-08-03",
+          "message": "新增語音自我介紹功能",
+          "body": "✨ 功能特色：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0e497cc1",
+          "date": "2025-08-03",
+          "message": "新增興趣卡片點擊功能",
+          "body": "- 讓「繪畫」和「音樂」卡片變成可點擊狀態",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2521be7b",
+          "date": "2025-08-03",
+          "message": "整合 YouTube 音樂作品到創作展示",
+          "body": "- 新增3首鋼琴四手聯彈 YouTube 影片：好棒、噢！蘇珊娜、321嘿嘿",
+          "category": "其他",
           "tags": []
         },
         {
@@ -4921,6 +6120,30 @@
           "tags": []
         },
         {
+          "hash": "f4177efa",
+          "date": "2025-08-08",
+          "message": "修正 robots.txt 設定確保 sitemap.xml 可被正確存取",
+          "body": "- 移除過於廣泛的 *.json 禁止規則",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "c8d4d61f",
+          "date": "2025-08-08",
+          "message": "優化 robots.txt 設定",
+          "body": "- 明確禁止爬取開發相關檔案和目錄",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "235b3b18",
+          "date": "2025-08-08",
+          "message": "實現 SPA SEO 優化方案",
+          "body": "- 新增 useSEO composable 提供動態 meta 管理",
+          "category": "重構",
+          "tags": []
+        },
+        {
           "hash": "9d309ee5",
           "date": "2025-08-11",
           "message": "更新音樂作品「搖滾的蘿莉塔」- 新增YouTube連結並調整標題描述",
@@ -4942,6 +6165,86 @@
           "message": "更新 sitemap.xml 時間戳記修正 Google Search Console 解析問題",
           "body": "",
           "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e42b76e4",
+          "date": "2025-09-02",
+          "message": "新增聯合官方網站重構專案到作品集",
+          "body": "新增第8個專案項目，包含中英文雙語支援：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "69d8f43b",
+          "date": "2025-09-11",
+          "message": "新增 sitemap_index.xml 並更新 sitemap.xml 解決 Google Search Console 擷取問題",
+          "body": "- 新增 sitemap_index.xml 作為替代方案",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ee083633",
+          "date": "2025-09-11",
+          "message": "修正 sitemap.xml 格式並更新技術標籤",
+          "body": "- 簡化 sitemap.xml 格式以解決 Google Search Console 無法讀取問題",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6c50ab99",
+          "date": "2025-09-11",
+          "message": "修正 sitemap.xml - 移除 hash 路徑以解決 Google Search Console 無法擷取問題",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "14c6cdbc",
+          "date": "2025-09-20",
+          "message": "更新字樂園專案名稱和連結",
+          "body": "- 專案名稱改為「字樂園」(中文) / \"CharMon (字樂園)\" (英文)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "554e5cd5",
+          "date": "2025-09-20",
+          "message": "新增 CharMon 中文學習應用到作品集",
+          "body": "針對4-12歲兒童的互動式中文學習應用，結合寶可夢主題教學、筆畫練習和注音符號學習。可生成A4列印練習單，附家長管理功能。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "74cb35d4",
+          "date": "2025-09-22",
+          "message": "調整 Water Tracker 專案標題",
+          "body": "- 中文版改為「飲水追蹤應用」",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "55f9b836",
+          "date": "2025-09-22",
+          "message": "新增 Water Tracker 飲水追蹤應用到作品集",
+          "body": "- 加入專為不愛喝水族群設計的零壓力飲水追蹤應用",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ee132e27",
+          "date": "2025-09-22",
+          "message": "新增 LINE Pay 贊助支持功能到聯絡頁面",
+          "body": "- 在聯絡頁面底部新增 LINE Pay 支持區塊",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "25dd9cd9",
+          "date": "2025-09-24",
+          "message": "將飛輪訓練計時器專案分類從網站開發改為創意專案",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "其他",
           "tags": []
         },
         {
@@ -5077,7 +6380,7 @@
     },
     {
       "name": "bordeaux-ii",
-      "totalCommits": 50,
+      "totalCommits": 55,
       "commits": [
         {
           "hash": "5e2831d3",
@@ -5384,6 +6687,46 @@
           "tags": []
         },
         {
+          "hash": "5035074a",
+          "date": "2025-09-12",
+          "message": "🔧 修復投票登入流程和SSH配置",
+          "body": "登入流程改進：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0bf651e7",
+          "date": "2025-09-12",
+          "message": "🗳️ 完成電子投票系統開發",
+          "body": "新增功能：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "13d0c1f4",
+          "date": "2025-09-14",
+          "message": "更新委員會資料與大事記",
+          "body": "- 更新財務委員：游O順(辭)、吳O華",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a3945720",
+          "date": "2025-09-14",
+          "message": "移除電子投票住戶個資驗證",
+          "body": "- 簡化登入頁面，只需要通關密語",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5e488fef",
+          "date": "2025-09-14",
+          "message": "暫時禁用電子投票功能",
+          "body": "- 在 AppNavbar.vue 中添加 isVotingDisabled 狀態",
+          "category": "其他",
+          "tags": []
+        },
+        {
           "hash": "f45c89aa",
           "date": "2025-09-15",
           "message": "修正導航欄收合功能 (v25.09.15.11.41)",
@@ -5483,247 +6826,287 @@
       "type": "side"
     },
     {
-      "name": "CharMon",
-      "totalCommits": 30,
+      "name": "RiskPrediction-3H",
+      "totalCommits": 35,
       "commits": [
         {
-          "hash": "ef660d98",
-          "date": "2025-09-21",
-          "message": "chore: 更新開發工具和依賴",
-          "body": "- 新增圖像處理套件 (sharp, png-to-ico)",
+          "hash": "dfeeade8",
+          "date": "2025-09-08",
+          "message": "Add comprehensive research methodology guide",
+          "body": "- Document complete research workflow from literature review to paper writing",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "65d674e6",
-          "date": "2025-09-21",
-          "message": "feat: 使用 SVG logo 生成新的 favicon.ico",
-          "body": "- 從 logo.svg 轉換生成包含多尺寸的 favicon.ico",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "3d1c3db9",
-          "date": "2025-09-21",
-          "message": "fix: 新增版本參數解決圖示快取問題",
-          "body": "- 在所有 logo.svg 引用添加 ?v=2 參數",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "ad5d7569",
-          "date": "2025-09-21",
-          "message": "fix: 修正 manifest.json 語法錯誤和路徑設定",
-          "body": "- 簡化 manifest.json 格式",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "df88f852",
-          "date": "2025-09-21",
-          "message": "fix: 修正靜態資源路徑包含 base URL",
-          "body": "- 所有靜態資源路徑加上 /CharMon/ 前綴",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "aa0bc376",
-          "date": "2025-09-21",
-          "message": "feat: 新增自定義 logo 和改善 SEO 設定",
-          "body": "- 創建 SVG logo 使用「字」作為主要圖標",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "1162e45c",
-          "date": "2025-09-21",
-          "message": "feat: 新增3個字符到字典",
-          "body": "- 傑: 人部，12劃",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "3c1929c5",
-          "date": "2025-09-21",
-          "message": "feat: 改進同步功能產生 JSON 格式",
-          "body": "- 同步數據現在產生與 dictionary.json 相同的橫向 JSON 格式",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b63b228d",
-          "date": "2025-09-21",
-          "message": "style: 改善字典 JSON 格式為橫向排列",
-          "body": "- 將每個字符資料改為單行顯示",
+          "hash": "9b440fec",
+          "date": "2025-09-08",
+          "message": "Add comprehensive domain knowledge research plan",
+          "body": "- Create detailed 2-week research framework based on supervisor guidance",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "7161d3a4",
-          "date": "2025-09-21",
-          "message": "refactor: 重構字典系統為靜態 JSON 檔案",
-          "body": "- 創建獨立的 dictionary.json 檔案存放字典資料",
-          "category": "重構",
-          "tags": []
-        },
-        {
-          "hash": "88a3c3e9",
-          "date": "2025-09-21",
-          "message": "fix: 修復 TypeScript 編譯錯誤",
-          "body": "- 修復 localCache 未定義的問題",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "0b069c9a",
-          "date": "2025-09-21",
-          "message": "feat: 大幅擴充本地字典內容",
-          "body": "- 新增大量字符到 fallbackDictionary",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "d8018d16",
-          "date": "2025-09-21",
-          "message": "clean: 移除調試信息",
-          "body": "- 清理按鈕已成功顯示，移除 debug 信息",
+          "hash": "0662c85d",
+          "date": "2025-09-08",
+          "message": "Add work journal and domain knowledge preparation notes",
+          "body": "- Create work_journal.md for tracking project progress",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "b256e329",
-          "date": "2025-09-21",
-          "message": "fix: 修復 TypeScript 錯誤",
-          "body": "- 使用 window.location.hostname 並存儲到 ref 變數",
-          "category": "錯誤修正",
+          "hash": "b7a1e942",
+          "date": "2025-09-08",
+          "message": "Update Claude Code settings and data source link",
+          "body": "- Update permissions for SSH and Git operations",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "d0969c05",
-          "date": "2025-09-21",
-          "message": "debug: 添加按鈕顯示調試信息",
-          "body": "- 在頁面上顯示 hostname 和 isLocalhost 狀態",
-          "category": "錯誤修正",
+          "hash": "88c50576",
+          "date": "2025-09-08",
+          "message": "Remove SSH test file",
+          "body": "",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "0a4ea05a",
-          "date": "2025-09-21",
-          "message": "fix: 統一按鈕顯示邏輯",
-          "body": "- localhost 顯示同步數據按鈕",
-          "category": "錯誤修正",
+          "hash": "ec4723aa",
+          "date": "2025-09-08",
+          "message": "Test SSH authentication",
+          "body": "",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "dee5800a",
-          "date": "2025-09-21",
-          "message": "fix: 改為使用 Supabase 配置檢查顯示清理按鈕",
-          "body": "- 將清理按鈕的顯示條件從 isLocalhost 改為 isSupabaseEnabled()",
-          "category": "錯誤修正",
+          "hash": "b7e90217",
+          "date": "2025-09-08",
+          "message": "Add SUA cardiovascular disease risk factors dataset",
+          "body": "- Add SUA_CVDs_risk_factors.csv (25,744 records)",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "98b52f8f",
-          "date": "2025-09-21",
-          "message": "feat: 改進字典管理系統的清理功能和調試能力",
-          "body": "- 將清理已有字符按鈕限制在 server 環境顯示",
-          "category": "功能開發",
+          "hash": "91f6ea92",
+          "date": "2025-09-08",
+          "message": "Initial project setup for RiskPrediction-3H",
+          "body": "- Set up complete project structure for 3H disease risk prediction research",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "9a93b5a0",
-          "date": "2025-09-21",
-          "message": "fix: 修復 TypeScript 類型錯誤",
-          "body": "- 為 filter 回調函數的 item 參數添加 any 類型",
-          "category": "錯誤修正",
+          "hash": "5d267176",
+          "date": "2025-09-09",
+          "message": "Add meeting presentations and thesis formatting guidelines",
+          "body": "- Add meeting presentations from meeting01 to meeting13",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "32bcc04e",
-          "date": "2025-09-21",
-          "message": "debug: 添加詳細的 Supabase 錯誤診斷和客戶端創建測試",
-          "body": "- 在 supabase 客戶端創建時添加 try-catch",
-          "category": "錯誤修正",
+          "hash": "1ba37d95",
+          "date": "2025-09-18",
+          "message": "Add HRS variable reference guide and analysis scripts",
+          "body": "- Add comprehensive HRS variables reference manual with detailed definitions",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "ac310eaa",
-          "date": "2025-09-21",
-          "message": "debug: 添加 Supabase 配置詳細日誌以診斷線上錯誤",
-          "body": "- 顯示 key 前綴和長度",
-          "category": "錯誤修正",
+          "hash": "a4f35d44",
+          "date": "2025-09-18",
+          "message": "Add HRS data management infrastructure",
+          "body": "- Create comprehensive HRS data download guide",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "da9abc7f",
-          "date": "2025-09-21",
-          "message": "fix: 修復 TypeScript 錯誤，isSupabaseEnabled 需要調用",
-          "body": "- 添加括號調用 isSupabaseEnabled() 函數",
-          "category": "錯誤修正",
+          "hash": "c52984ec",
+          "date": "2025-09-19",
+          "message": "Complete HRS dataset analysis and document limitations",
+          "body": "- Add comprehensive HRS-SUA variable mapping analysis",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "cd001545",
-          "date": "2025-09-21",
-          "message": "feat: 未知字符直接寫入 Supabase，移除本地緩存依賴",
-          "body": "- getCharacterInfo 現在直接將未知字符寫入 Supabase",
-          "category": "功能開發",
+          "hash": "3320cd5f",
+          "date": "2025-09-20",
+          "message": "Add dataset analysis documentation and key insights memo",
+          "body": "- Create longitudinal datasets comparison for 3H research",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "2e744853",
-          "date": "2025-09-21",
-          "message": "fix: 修復未知字符列表從 Supabase 獲取邏輯",
-          "body": "- getUnknownCharacters 現在正確從 Supabase 獲取未知字符",
-          "category": "錯誤修正",
+          "hash": "66c6e366",
+          "date": "2025-09-20",
+          "message": "Add NHANES dataset evaluation and comparison",
+          "body": "- Comprehensive analysis of NHANES for 3H research",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "5d4ed7a6",
-          "date": "2025-09-21",
-          "message": "refactor: 簡化字典架構，Supabase 只負責未知字符追蹤",
-          "body": "- 字典統計改為完全使用本地字典數據（12個字符）",
-          "category": "重構",
+          "hash": "62a55960",
+          "date": "2025-09-20",
+          "message": "Resolve merge conflicts in Claude settings",
+          "body": "",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "a00934e3",
-          "date": "2025-09-21",
-          "message": "fix: 修復字典後台統計顯示不一致問題",
-          "body": "- 添加「含部首注音」統計項目",
-          "category": "錯誤修正",
+          "hash": "42af9160",
+          "date": "2025-09-20",
+          "message": "Update Claude Code permissions for git pull",
+          "body": "",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "3bdca76d",
-          "date": "2025-09-21",
-          "message": "fix: 修復 Supabase 配置問題，防止線上環境錯誤",
-          "body": "- 改善 supabase 客戶端初始化，當環境變數無效時返回 null",
-          "category": "錯誤修正",
+          "hash": "dd27c167",
+          "date": "2025-09-22",
+          "message": "Merge branch 'main' of https://github.com/joechiboo/RiskPrediction-3H",
+          "body": "",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "608acf78",
-          "date": "2025-09-21",
-          "message": "fix: 在 GitHub Actions 中添加 Supabase 環境變數",
-          "body": "- 修復線上部署時缺少環境變數的問題",
-          "category": "錯誤修正",
+          "hash": "81ac82a1",
+          "date": "2025-09-22",
+          "message": "Remove outdated HRS analysis files",
+          "body": "- Remove HRS_Data_Limitation_Memo.md (superseded by updated analysis)",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "cc80cb92",
-          "date": "2025-09-21",
-          "message": "feat: 為首頁添加小朋友友善元素",
-          "body": "- 新增浮動背景裝飾動畫 (彩虹、星星、畫筆等)",
-          "category": "功能開發",
+          "hash": "ef9f8547",
+          "date": "2025-09-22",
+          "message": "Add comprehensive HRS vs NHANES comparison analysis",
+          "body": "- Add detailed dataset comparison for 3H risk prediction research",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "753d14f7",
-          "date": "2025-10-03",
-          "message": "docs: 新增課程企劃案文件",
-          "body": "新增跨領域科技融入教學設計企劃案，包含：",
-          "category": "功能開發",
+          "hash": "fa4d2ea0",
+          "date": "2025-09-30",
+          "message": "Add comprehensive Synthea dataset summary document",
+          "body": "Detailed analysis of the 1K Synthea synthetic patient dataset:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "51343360",
+          "date": "2025-09-30",
+          "message": "Add Synthea synthetic data as primary dataset",
+          "body": "- Update .gitignore to exclude Synthea data folders",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a207262a",
+          "date": "2025-10-01",
+          "message": "Update todo.md with Q1 simple explanation",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3ed798fa",
+          "date": "2025-10-01",
+          "message": "Add comprehensive Q1 response: Prediction problem definition",
+          "body": "Detailed specification for 3H risk prediction research:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "91d527e6",
+          "date": "2025-10-01",
+          "message": "Add Synthea to SUA format conversion script and documentation",
+          "body": "Created comprehensive data conversion pipeline:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0672f18b",
+          "date": "2025-10-02",
+          "message": "Simplify Q1-Q3 descriptions and add next steps",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ef346fee",
+          "date": "2025-10-02",
+          "message": "Update Q1-Q3 order and prepare Meeting 15 presentation",
+          "body": "- Reorder todo.md: Q1=文獻回顧, Q2=預測定義, Q3=資料集",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e8676115",
+          "date": "2025-10-02",
+          "message": "Add Taiwan 3H literature review and reference papers",
+          "body": "- Add comprehensive Q2 Taiwan literature review covering hypertension, diabetes, and dyslipidemia prediction studies",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2003ea3d",
+          "date": "2025-10-07",
+          "message": "Add Liu et al. (2024) literature analysis and AUC-ROC documentation",
+          "body": "新增台中榮總糖尿病預測研究文獻分析：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "719cdf2d",
+          "date": "2025-10-08",
+          "message": "Add Chinese southeast community dataset papers (2010-2018)",
+          "body": "- Add Lin et al. (2024): Serum uric acid control and hypertension risk",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "759b1ac4",
+          "date": "2025-10-09",
+          "message": "Update todo.md with Q1-2 completion and today's progress",
+          "body": "- Mark Q1-2 completed: Analyzed two papers from same dataset",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0f361361",
+          "date": "2025-10-12",
+          "message": "Add comprehensive analysis: Why multifactor prediction matters",
+          "body": "- Explain why Lin & Guo still research uric acid despite known associations",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ba643781",
+          "date": "2025-10-12",
+          "message": "Add analysis: Why we cannot extend Lin & Guo studies",
+          "body": "- Document explains why Lin & Guo papers are association studies, not prediction models",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "96121743",
+          "date": "2025-10-14",
+          "message": "Add systematic literature review and SCI journal verification guide",
+          "body": "新增檔案：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9778a457",
+          "date": "2025-10-14",
+          "message": "Update todo.md: Add Taiwan MTL (2025) paper review task for Meeting 16",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "210eafeb",
+          "date": "2025-10-14",
+          "message": "Add six comprehensive research concept documents and meeting materials",
+          "body": "新增六份研究方法與實驗設計文件：",
+          "category": "其他",
           "tags": []
         }
       ],
@@ -6168,175 +7551,175 @@
       "type": "side"
     },
     {
-      "name": "RiskPrediction-3H",
+      "name": "water-tracker",
       "totalCommits": 21,
       "commits": [
         {
-          "hash": "5d267176",
-          "date": "2025-09-09",
-          "message": "Add meeting presentations and thesis formatting guidelines",
-          "body": "- Add meeting presentations from meeting01 to meeting13",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "1ba37d95",
-          "date": "2025-09-18",
-          "message": "Add HRS variable reference guide and analysis scripts",
-          "body": "- Add comprehensive HRS variables reference manual with detailed definitions",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "a4f35d44",
-          "date": "2025-09-18",
-          "message": "Add HRS data management infrastructure",
-          "body": "- Create comprehensive HRS data download guide",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c52984ec",
-          "date": "2025-09-19",
-          "message": "Complete HRS dataset analysis and document limitations",
-          "body": "- Add comprehensive HRS-SUA variable mapping analysis",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "dd27c167",
+          "hash": "cf5617b3",
           "date": "2025-09-22",
-          "message": "Merge branch 'main' of https://github.com/joechiboo/RiskPrediction-3H",
-          "body": "",
+          "message": "Add warrior-themed goal setting system with user types",
+          "body": "- Create UserSettings.vue with 3 warrior types (新手冒險者/水分探索家/水分大師)",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "81ac82a1",
+          "hash": "3f6abe2d",
           "date": "2025-09-22",
-          "message": "Remove outdated HRS analysis files",
-          "body": "- Remove HRS_Data_Limitation_Memo.md (superseded by updated analysis)",
-          "category": "其他",
+          "message": "feat: Add LINE Pay QR code modal popup for better user experience",
+          "body": "- Click on LINE Pay QR code to open enlarged modal view",
+          "category": "功能開發",
           "tags": []
         },
         {
-          "hash": "ef9f8547",
+          "hash": "16e74c4f",
           "date": "2025-09-22",
-          "message": "Add comprehensive HRS vs NHANES comparison analysis",
-          "body": "- Add detailed dataset comparison for 3H risk prediction research",
+          "message": "feat: Transform app to be ultra-friendly for non-drinkers",
+          "body": "Major UX improvements for people who don't like drinking water:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6343501e",
+          "date": "2025-09-22",
+          "message": "ci: Add GitHub Actions workflow for automatic deployment to Pages",
+          "body": "- Set up automated build and deployment pipeline",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "fa4d2ea0",
-          "date": "2025-09-30",
-          "message": "Add comprehensive Synthea dataset summary document",
-          "body": "Detailed analysis of the 1K Synthea synthetic patient dataset:",
-          "category": "其他",
+          "hash": "f7390b38",
+          "date": "2025-09-22",
+          "message": "feat: Add beautiful blue footer with author information and support",
+          "body": "- Add comprehensive footer with author info and portfolio link",
+          "category": "功能開發",
           "tags": []
         },
         {
-          "hash": "51343360",
-          "date": "2025-09-30",
-          "message": "Add Synthea synthetic data as primary dataset",
-          "body": "- Update .gitignore to exclude Synthea data folders",
-          "category": "其他",
+          "hash": "44d129d8",
+          "date": "2025-09-22",
+          "message": "refactor: Focus product strategy on non-drinkers and light drinkers",
+          "body": "- Redefine target user segments with specific pain points and strategies",
+          "category": "重構",
           "tags": []
         },
         {
-          "hash": "a207262a",
-          "date": "2025-10-01",
-          "message": "Update todo.md with Q1 simple explanation",
+          "hash": "a0e06871",
+          "date": "2025-09-22",
+          "message": "feat: Implement Vue.js water tracker application with complete functionality",
+          "body": "- Add Vue 3 project structure with Vite build system",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "050a0966",
+          "date": "2025-09-22",
+          "message": "Add product concept document with user types and feature planning",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "af683564",
+          "date": "2025-09-22",
+          "message": "Initial commit: Add README for water tracker project",
           "body": "",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "3ed798fa",
-          "date": "2025-10-01",
-          "message": "Add comprehensive Q1 response: Prediction problem definition",
-          "body": "Detailed specification for 3H risk prediction research:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "91d527e6",
-          "date": "2025-10-01",
-          "message": "Add Synthea to SUA format conversion script and documentation",
-          "body": "Created comprehensive data conversion pipeline:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0672f18b",
-          "date": "2025-10-02",
-          "message": "Simplify Q1-Q3 descriptions and add next steps",
+          "hash": "4c6c742b",
+          "date": "2025-09-23",
+          "message": "Adjust auto-scroll position to show more core functionality",
           "body": "",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "ef346fee",
-          "date": "2025-10-02",
-          "message": "Update Q1-Q3 order and prepare Meeting 15 presentation",
-          "body": "- Reorder todo.md: Q1=文獻回顧, Q2=預測定義, Q3=資料集",
+          "hash": "f19d7296",
+          "date": "2025-09-23",
+          "message": "Add auto-scroll to focus on core functionality on page load",
+          "body": "- Automatically scroll to 60% of header height on page mount",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "e8676115",
-          "date": "2025-10-02",
-          "message": "Add Taiwan 3H literature review and reference papers",
-          "body": "- Add comprehensive Q2 Taiwan literature review covering hypertension, diabetes, and dyslipidemia prediction studies",
+          "hash": "0eb8ccab",
+          "date": "2025-09-23",
+          "message": "Remove confirmation dialog for reset today button",
+          "body": "- Change reset button to directly execute without confirmation",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "2003ea3d",
-          "date": "2025-10-07",
-          "message": "Add Liu et al. (2024) literature analysis and AUC-ROC documentation",
-          "body": "新增台中榮總糖尿病預測研究文獻分析：",
+          "hash": "8b52095d",
+          "date": "2025-09-23",
+          "message": "Fix reset today button functionality",
+          "body": "- Remove duplicate @click events on reset button that was preventing it from working",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "72ac849b",
+          "date": "2025-09-23",
+          "message": "Reduce header height to emphasize core tracking functionality",
+          "body": "- Decrease header padding from 2rem to 1rem",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "719cdf2d",
-          "date": "2025-10-08",
-          "message": "Add Chinese southeast community dataset papers (2010-2018)",
-          "body": "- Add Lin et al. (2024): Serum uric acid control and hypertension risk",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "759b1ac4",
-          "date": "2025-10-09",
-          "message": "Update todo.md with Q1-2 completion and today's progress",
-          "body": "- Mark Q1-2 completed: Analyzed two papers from same dataset",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "96121743",
-          "date": "2025-10-14",
-          "message": "Add systematic literature review and SCI journal verification guide",
-          "body": "新增檔案：",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "9778a457",
-          "date": "2025-10-14",
-          "message": "Update todo.md: Add Taiwan MTL (2025) paper review task for Meeting 16",
+          "hash": "8e623888",
+          "date": "2025-09-23",
+          "message": "Change warrior selection cards to blue gradient with white text",
           "body": "",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "210eafeb",
-          "date": "2025-10-14",
-          "message": "Add six comprehensive research concept documents and meeting materials",
-          "body": "新增六份研究方法與實驗設計文件：",
+          "hash": "2fa8a00f",
+          "date": "2025-09-23",
+          "message": "Update UserSettings color scheme for better contrast",
+          "body": "- Change modal background from blue gradient to white",
           "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8eec7310",
+          "date": "2025-09-23",
+          "message": "Change UserSettings background from purple to blue gradient",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9cc36bbf",
+          "date": "2025-09-23",
+          "message": "Implement Help Center modal and improve UI interactions",
+          "body": "- Create HelpCenter component as modal replacing inline knowledge/container sections",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7da097db",
+          "date": "2025-09-23",
+          "message": "Implement collapsible sections and fix UI layout issues",
+          "body": "- Add water drop favicon.svg for browser tab icon",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "92552618",
+          "date": "2025-09-23",
+          "message": "Optimize warrior selection UX with compact display after selection",
+          "body": "- Add mini warrior display when selected (sticky at top)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a928cde1",
+          "date": "2025-09-23",
+          "message": "Update warrior selection to fixed 3-column layout",
+          "body": "- Change from auto-fit to fixed 3-column grid layout for consistent display",
+          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -6470,8 +7853,119 @@
       "type": "side"
     },
     {
+      "name": "CyclePulse",
+      "totalCommits": 13,
+      "commits": [
+        {
+          "hash": "f325ee5d",
+          "date": "2025-09-24",
+          "message": "Add comprehensive audio feedback and UI improvements",
+          "body": "- Implement full audio system with Web Audio API",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a116566f",
+          "date": "2025-09-24",
+          "message": "Add screen wake lock to prevent phone sleep during training",
+          "body": "- Implement Screen Wake Lock API for modern browsers",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "be549786",
+          "date": "2025-09-24",
+          "message": "Fix mobile responsive layout for knowledge modal",
+          "body": "- Optimize modal layout for narrow screens (330px width)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "54378684",
+          "date": "2025-09-24",
+          "message": "Add knowledge guide and improve user experience",
+          "body": "- Add comprehensive knowledge guide modal with training tips",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f44e5286",
+          "date": "2025-09-24",
+          "message": "Add validation error display to StageIndicator",
+          "body": "- Modified StageIndicator to show red error message \"請先選擇訓練模式\" when no mode is selected",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9ccc48d3",
+          "date": "2025-09-24",
+          "message": "Improve training modes layout and LinePay functionality",
+          "body": "Changes:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "71fed5f1",
+          "date": "2025-09-24",
+          "message": "Fix LinePay donation modal UI and functionality",
+          "body": "Changes:",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "7d164ecf",
+          "date": "2025-09-24",
+          "message": "Initial commit: CyclePulse spinning bike training app",
+          "body": "Features:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5a432d7d",
+          "date": "2025-10-04",
+          "message": "Add Health Connect integration analysis and update TODO",
+          "body": "- Created comprehensive Health Connect solution document",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "30f4e0c6",
+          "date": "2025-10-04",
+          "message": "Complete Xiaomi Smart Band 9 Pro Bluetooth testing",
+          "body": "Test Results:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "16887033",
+          "date": "2025-10-04",
+          "message": "Add Bluetooth heart rate monitoring test page",
+          "body": "- Add standalone miband-test.html for testing Mi Band connection",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4059e7aa",
+          "date": "2025-10-14",
+          "message": "Move failed Bluetooth solutions to docs/bad and add Gadgetbridge guide",
+          "body": "- Move bluetooth-todo.md and MIBAND-TEST-README.md to docs/bad/",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "65df5f2e",
+          "date": "2025-10-16",
+          "message": "Add comprehensive Garmin HRM-Dual integration guide",
+          "body": "Added detailed documentation for integrating Garmin HRM-Dual heart rate monitor:",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
       "name": "FridgeMaster",
-      "totalCommits": 12,
+      "totalCommits": 13,
       "commits": [
         {
           "hash": "b0361dbf",
@@ -6495,6 +7989,14 @@
           "message": "fix: add package-lock.json for GitHub Actions cache",
           "body": "- Resolves npm cache error in deployment workflow",
           "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "97de1d50",
+          "date": "2025-10-01",
+          "message": "Create nextjs.yml",
+          "body": "",
+          "category": "其他",
           "tags": []
         },
         {
@@ -6644,55 +8146,63 @@
       "type": "side"
     },
     {
-      "name": "CyclePulse",
-      "totalCommits": 6,
+      "name": "ZebraSite",
+      "totalCommits": 7,
       "commits": [
         {
-          "hash": "f44e5286",
-          "date": "2025-09-24",
-          "message": "Add validation error display to StageIndicator",
-          "body": "- Modified StageIndicator to show red error message \"請先選擇訓練模式\" when no mode is selected",
+          "hash": "36458974",
+          "date": "2025-08-30",
+          "message": "Initial Vue.js homepage implementation for UCL medical laboratory",
+          "body": "- Created multi-site architecture documentation",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "9ccc48d3",
-          "date": "2025-09-24",
-          "message": "Improve training modes layout and LinePay functionality",
-          "body": "Changes:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "71fed5f1",
-          "date": "2025-09-24",
-          "message": "Fix LinePay donation modal UI and functionality",
-          "body": "Changes:",
+          "hash": "58595e8d",
+          "date": "2025-08-31",
+          "message": "修復內部連結使用 router-link",
+          "body": "- 將 Sidebar.vue 中所有內部連結改為 router-link",
           "category": "錯誤修正",
           "tags": []
         },
         {
-          "hash": "7d164ecf",
-          "date": "2025-09-24",
-          "message": "Initial commit: CyclePulse spinning bike training app",
-          "body": "Features:",
+          "hash": "5bfef880",
+          "date": "2025-08-31",
+          "message": "Fix GitHub Pages routing for Vue SPA",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "811c6e33",
+          "date": "2025-08-31",
+          "message": "Trigger GitHub Actions after Pages setup",
+          "body": "",
           "category": "其他",
           "tags": []
         },
         {
-          "hash": "4059e7aa",
-          "date": "2025-10-14",
-          "message": "Move failed Bluetooth solutions to docs/bad and add Gadgetbridge guide",
-          "body": "- Move bluetooth-todo.md and MIBAND-TEST-README.md to docs/bad/",
-          "category": "文檔",
+          "hash": "1f166148",
+          "date": "2025-08-31",
+          "message": "Add GitHub Pages deployment setup",
+          "body": "- Configure GitHub Actions workflow for automatic deployment",
+          "category": "其他",
           "tags": []
         },
         {
-          "hash": "65df5f2e",
-          "date": "2025-10-16",
-          "message": "Add comprehensive Garmin HRM-Dual integration guide",
-          "body": "Added detailed documentation for integrating Garmin HRM-Dual heart rate monitor:",
-          "category": "其他",
+          "hash": "cd551d99",
+          "date": "2025-09-01",
+          "message": "新增知識庫和認識聯合頁面",
+          "body": "- 創建 Knowledge.vue 知識庫頁面，包含月度教育訓練、專業資源、醫學新知三大分類",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "226d3c0b",
+          "date": "2025-10-08",
+          "message": "新增四葉草 favicon 圖標",
+          "body": "- 新增 SVG 和 PNG 格式的四葉草 favicon",
+          "category": "功能開發",
           "tags": []
         }
       ],
@@ -6708,21 +8218,6 @@
           "message": "Add company lunch ordering system with admin functionality",
           "body": "- Complete HTML layout with responsive design",
           "category": "其他",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
-      "name": "ZebraSite",
-      "totalCommits": 1,
-      "commits": [
-        {
-          "hash": "226d3c0b",
-          "date": "2025-10-08",
-          "message": "新增四葉草 favicon 圖標",
-          "body": "- 新增 SVG 和 PNG 格式的四葉草 favicon",
-          "category": "功能開發",
           "tags": []
         }
       ],

@@ -33,10 +33,23 @@
       "count": 4
     }
   ],
-  "side_projects": [],
+  "side_projects": [
+    {
+      "name": "ZebraSite",
+      "commits": [
+        {
+          "hash": "cd551d99",
+          "time": "06:33",
+          "message": "新增知識庫和認識聯合頁面",
+          "body": "- 創建 Knowledge.vue 知識庫頁面，包含月度教育訓練、專業資源、醫學新知三大分類"
+        }
+      ],
+      "count": 1
+    }
+  ],
   "summary": {
     "workCommits": 4,
-    "sideCommits": 0,
-    "totalCommits": 4
+    "sideCommits": 1,
+    "totalCommits": 5
   }
 }

@@ -39,10 +39,35 @@
       "count": 2
     }
   ],
-  "side_projects": [],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "f4177efa",
+          "time": "21:23",
+          "message": "修正 robots.txt 設定確保 sitemap.xml 可被正確存取",
+          "body": "- 移除過於廣泛的 *.json 禁止規則"
+        },
+        {
+          "hash": "c8d4d61f",
+          "time": "21:15",
+          "message": "優化 robots.txt 設定",
+          "body": "- 明確禁止爬取開發相關檔案和目錄"
+        },
+        {
+          "hash": "235b3b18",
+          "time": "21:15",
+          "message": "實現 SPA SEO 優化方案",
+          "body": "- 新增 useSEO composable 提供動態 meta 管理"
+        }
+      ],
+      "count": 3
+    }
+  ],
   "summary": {
     "workCommits": 4,
-    "sideCommits": 0,
-    "totalCommits": 4
+    "sideCommits": 3,
+    "totalCommits": 7
   }
 }

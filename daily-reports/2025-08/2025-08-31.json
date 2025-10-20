@@ -1,0 +1,42 @@
+{
+  "date": "2025-08-31",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "ZebraSite",
+      "commits": [
+        {
+          "hash": "58595e8d",
+          "time": "08:20",
+          "message": "修復內部連結使用 router-link",
+          "body": "- 將 Sidebar.vue 中所有內部連結改為 router-link"
+        },
+        {
+          "hash": "5bfef880",
+          "time": "08:14",
+          "message": "Fix GitHub Pages routing for Vue SPA",
+          "body": ""
+        },
+        {
+          "hash": "811c6e33",
+          "time": "08:04",
+          "message": "Trigger GitHub Actions after Pages setup",
+          "body": ""
+        },
+        {
+          "hash": "1f166148",
+          "time": "08:03",
+          "message": "Add GitHub Pages deployment setup",
+          "body": "- Configure GitHub Actions workflow for automatic deployment"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 4,
+    "totalCommits": 4
+  }
+}

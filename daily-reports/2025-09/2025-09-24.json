@@ -32,6 +32,30 @@
       "name": "CyclePulse",
       "commits": [
         {
+          "hash": "f325ee5d",
+          "time": "20:25",
+          "message": "Add comprehensive audio feedback and UI improvements",
+          "body": "- Implement full audio system with Web Audio API"
+        },
+        {
+          "hash": "a116566f",
+          "time": "20:00",
+          "message": "Add screen wake lock to prevent phone sleep during training",
+          "body": "- Implement Screen Wake Lock API for modern browsers"
+        },
+        {
+          "hash": "be549786",
+          "time": "18:07",
+          "message": "Fix mobile responsive layout for knowledge modal",
+          "body": "- Optimize modal layout for narrow screens (330px width)"
+        },
+        {
+          "hash": "54378684",
+          "time": "17:57",
+          "message": "Add knowledge guide and improve user experience",
+          "body": "- Add comprehensive knowledge guide modal with training tips"
+        },
+        {
           "hash": "f44e5286",
           "time": "08:59",
           "message": "Add validation error display to StageIndicator",
@@ -56,11 +80,17 @@
           "body": "Features:"
         }
       ],
-      "count": 4
+      "count": 8
     },
     {
       "name": "joechiboo.github.io",
       "commits": [
+        {
+          "hash": "25dd9cd9",
+          "time": "17:37",
+          "message": "將飛輪訓練計時器專案分類從網站開發改為創意專案",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
         {
           "hash": "4af09245",
           "time": "08:31",
@@ -86,12 +116,12 @@
           "body": "- 添加專為飛輪訓練設計的智能Web應用"
         }
       ],
-      "count": 4
+      "count": 5
     }
   ],
   "summary": {
     "workCommits": 3,
-    "sideCommits": 8,
-    "totalCommits": 11
+    "sideCommits": 13,
+    "totalCommits": 16
   }
 }

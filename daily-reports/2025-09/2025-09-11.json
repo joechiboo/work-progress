@@ -57,10 +57,35 @@
       "count": 1
     }
   ],
-  "side_projects": [],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "69d8f43b",
+          "time": "21:19",
+          "message": "新增 sitemap_index.xml 並更新 sitemap.xml 解決 Google Search Console 擷取問題",
+          "body": "- 新增 sitemap_index.xml 作為替代方案"
+        },
+        {
+          "hash": "ee083633",
+          "time": "21:05",
+          "message": "修正 sitemap.xml 格式並更新技術標籤",
+          "body": "- 簡化 sitemap.xml 格式以解決 Google Search Console 無法讀取問題"
+        },
+        {
+          "hash": "6c50ab99",
+          "time": "21:01",
+          "message": "修正 sitemap.xml - 移除 hash 路徑以解決 Google Search Console 無法擷取問題",
+          "body": ""
+        }
+      ],
+      "count": 3
+    }
+  ],
   "summary": {
     "workCommits": 7,
-    "sideCommits": 0,
-    "totalCommits": 7
+    "sideCommits": 3,
+    "totalCommits": 10
   }
 }

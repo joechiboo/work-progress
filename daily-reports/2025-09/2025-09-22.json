@@ -17,6 +17,138 @@
   ],
   "side_projects": [
     {
+      "name": "water-tracker",
+      "commits": [
+        {
+          "hash": "cf5617b3",
+          "time": "23:00",
+          "message": "Add warrior-themed goal setting system with user types",
+          "body": "- Create UserSettings.vue with 3 warrior types (新手冒險者/水分探索家/水分大師)"
+        },
+        {
+          "hash": "3f6abe2d",
+          "time": "22:29",
+          "message": "feat: Add LINE Pay QR code modal popup for better user experience",
+          "body": "- Click on LINE Pay QR code to open enlarged modal view"
+        },
+        {
+          "hash": "16e74c4f",
+          "time": "22:27",
+          "message": "feat: Transform app to be ultra-friendly for non-drinkers",
+          "body": "Major UX improvements for people who don't like drinking water:"
+        },
+        {
+          "hash": "6343501e",
+          "time": "22:23",
+          "message": "ci: Add GitHub Actions workflow for automatic deployment to Pages",
+          "body": "- Set up automated build and deployment pipeline"
+        },
+        {
+          "hash": "f7390b38",
+          "time": "21:58",
+          "message": "feat: Add beautiful blue footer with author information and support",
+          "body": "- Add comprehensive footer with author info and portfolio link"
+        },
+        {
+          "hash": "44d129d8",
+          "time": "21:51",
+          "message": "refactor: Focus product strategy on non-drinkers and light drinkers",
+          "body": "- Redefine target user segments with specific pain points and strategies"
+        },
+        {
+          "hash": "a0e06871",
+          "time": "21:48",
+          "message": "feat: Implement Vue.js water tracker application with complete functionality",
+          "body": "- Add Vue 3 project structure with Vite build system"
+        },
+        {
+          "hash": "050a0966",
+          "time": "20:48",
+          "message": "Add product concept document with user types and feature planning",
+          "body": ""
+        },
+        {
+          "hash": "af683564",
+          "time": "20:43",
+          "message": "Initial commit: Add README for water tracker project",
+          "body": ""
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "CharMon",
+      "commits": [
+        {
+          "hash": "ff69614a",
+          "time": "21:47",
+          "message": "docs: 新增 LINE Pay 贊助組件通用 prompt",
+          "body": "- 創建可重複使用的組件 prompt 模板"
+        },
+        {
+          "hash": "43e7ff89",
+          "time": "20:46",
+          "message": "fix: 修復 LINE Pay 圖片建構錯誤",
+          "body": "- 使用正確的 Vite 資源 import 方式引用 linePay.png"
+        },
+        {
+          "hash": "dba7437d",
+          "time": "20:33",
+          "message": "fix: 修復 ESLint 未使用變數錯誤",
+          "body": "移除 AboutAuthorView.vue 中未使用的 ElTag import"
+        },
+        {
+          "hash": "abb020d4",
+          "time": "20:25",
+          "message": "feat: 新增關於作者頁面及 LINE Pay 贊助功能",
+          "body": "- 創建 AboutAuthorView.vue 關於作者頁面"
+        },
+        {
+          "hash": "763fb339",
+          "time": "19:51",
+          "message": "chore: 暫時關閉 Playwright 測試和 CI/CD E2E 測試",
+          "body": "- 修改 package.json 中的測試腳本，暫時停用 Playwright 測試"
+        },
+        {
+          "hash": "bdbff5be",
+          "time": "07:52",
+          "message": "fix: 修復 ESLint 未使用變數錯誤",
+          "body": "移除 catch block 中未使用的 error 參數"
+        },
+        {
+          "hash": "6d8e7e5f",
+          "time": "07:48",
+          "message": "fix: 修復 Playwright 測試框架配置與認證問題",
+          "body": "主要修復："
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "74cb35d4",
+          "time": "22:52",
+          "message": "調整 Water Tracker 專案標題",
+          "body": "- 中文版改為「飲水追蹤應用」"
+        },
+        {
+          "hash": "55f9b836",
+          "time": "22:49",
+          "message": "新增 Water Tracker 飲水追蹤應用到作品集",
+          "body": "- 加入專為不愛喝水族群設計的零壓力飲水追蹤應用"
+        },
+        {
+          "hash": "ee132e27",
+          "time": "20:26",
+          "message": "新增 LINE Pay 贊助支持功能到聯絡頁面",
+          "body": "- 在聯絡頁面底部新增 LINE Pay 支持區塊"
+        }
+      ],
+      "count": 3
+    },
+    {
       "name": "RiskPrediction-3H",
       "commits": [
         {
@@ -43,7 +175,7 @@
   ],
   "summary": {
     "workCommits": 1,
-    "sideCommits": 3,
-    "totalCommits": 4
+    "sideCommits": 22,
+    "totalCommits": 23
   }
 }

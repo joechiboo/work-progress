@@ -7,18 +7,114 @@
       "name": "joechiboo.github.io",
       "commits": [
         {
+          "hash": "f9013c8c",
+          "time": "21:31",
+          "message": "調整創作展示手機版佈局為一行一個",
+          "body": "- 修改手機版創作展示網格為單列佈局"
+        },
+        {
+          "hash": "7b9e67cb",
+          "time": "21:28",
+          "message": "優化響應式佈局和內容命名",
+          "body": "- 修正教育背景手機版換行問題，電腦版保持單行顯示"
+        },
+        {
+          "hash": "0c6e3a15",
+          "time": "09:02",
+          "message": "修正首頁專業技能區塊文字顏色問題",
+          "body": "- 為 .highlight-card p 添加 #555 顏色樣式"
+        },
+        {
+          "hash": "a2019d25",
+          "time": "08:58",
+          "message": "重構 CSS 架構為模組化設計系統",
+          "body": "- 建立 CSS 變數系統 (variables.css) 統一顏色、間距、字體"
+        },
+        {
+          "hash": "dcb1193b",
+          "time": "08:48",
+          "message": "修復 GitHub Pages SPA 路由問題",
+          "body": "- 新增 404.html 處理客戶端路由重導向"
+        },
+        {
+          "hash": "03b0c996",
+          "time": "08:37",
+          "message": "簡化休閒生活頁面標題描述",
+          "body": "- 移除具體的興趣列舉「繪畫、創作、運動、音樂」"
+        },
+        {
+          "hash": "7ff65dee",
+          "time": "08:34",
+          "message": "移除多餘的「工作經驗」子標題",
+          "body": "- 刪除工作經驗區塊的 h2 標題"
+        },
+        {
+          "hash": "f364e5ff",
+          "time": "08:12",
+          "message": "新增 Google Search Console 驗證標籤",
+          "body": "- 加入 google-site-verification meta 標籤"
+        },
+        {
+          "hash": "9b4bc126",
+          "time": "08:03",
+          "message": "改用 GitHub 官方 Pages Actions",
+          "body": "- 替換 peaceiris/actions-gh-pages 為官方 actions"
+        },
+        {
+          "hash": "a45fd369",
+          "time": "08:03",
+          "message": "修正 GitHub Actions 權限問題",
+          "body": "- 將 contents 權限從 read 改為 write"
+        },
+        {
+          "hash": "4570025b",
+          "time": "08:01",
+          "message": "修正 ESLint 錯誤：移除未使用的 itemId 參數",
+          "body": "- 在 handleAudioPlay 函數中移除未使用的 itemId 參數"
+        },
+        {
+          "hash": "06c2dca4",
+          "time": "07:57",
+          "message": "更新為簡化的 GitHub Pages 部署工作流程",
+          "body": "- 使用 peaceiris/actions-gh-pages@v4 簡化部署"
+        },
+        {
+          "hash": "ec858327",
+          "time": "07:50",
+          "message": "移除舊的 Azure 工作流程，優化 GitHub Pages 部署",
+          "body": ""
+        },
+        {
+          "hash": "9095b50e",
+          "time": "07:34",
+          "message": "設定 GitHub Pages 部署與 SEO 優化",
+          "body": "✨ 新功能:"
+        },
+        {
+          "hash": "4f2bf380",
+          "time": "07:27",
+          "message": "修正教育背景年份資訊",
+          "body": "- 大學：2005-2009年（原2018-2022年）"
+        },
+        {
+          "hash": "8e3462de",
+          "time": "07:21",
+          "message": "優化下載履歷功能：將alert改為美觀的Toast通知",
+          "body": "- 移除醜陋的alert彈窗"
+        },
+        {
           "hash": "7e73621f",
           "time": "06:28",
           "message": "完成作品集頁面重構與真實專案整合",
           "body": "- 整合四個真實專案：波爾多社區網站、測驗服務專區、搶救杰倫大作戰、台北高爾夫協會官網"
         }
       ],
-      "count": 1
+      "count": 17
     }
   ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 1,
-    "totalCommits": 1
+    "sideCommits": 17,
+    "totalCommits": 17
   }
 }

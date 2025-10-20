@@ -1,0 +1,348 @@
+{
+  "date": "2025-09-20",
+  "weekday": "六",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "CharMon",
+      "commits": [
+        {
+          "hash": "41f95a61",
+          "time": "22:25",
+          "message": "Add grade-based default settings and improve worksheet options",
+          "body": "- Restore grade selection in login (kindergarten and elementary-low)"
+        },
+        {
+          "hash": "93c93017",
+          "time": "22:18",
+          "message": "Fix login to kindergarten version only",
+          "body": ""
+        },
+        {
+          "hash": "b3bb167d",
+          "time": "22:13",
+          "message": "Fix zhuyin display issues and improve layout",
+          "body": "- Fix zhuyin alignment in name learning view by separating tone marks"
+        },
+        {
+          "hash": "a5caa63d",
+          "time": "21:56",
+          "message": "Add zhuyin cells to worksheet and fix practice counter",
+          "body": "- Added dedicated zhuyin cells to the right of each character cell"
+        },
+        {
+          "hash": "c0cc099e",
+          "time": "21:49",
+          "message": "Enlarge grid sizes by 70% and disable elementary-high grade option",
+          "body": "- Increased preview grid size from 40px to 68px for better visibility"
+        },
+        {
+          "hash": "15be462c",
+          "time": "19:56",
+          "message": "Enhance worksheet functionality with proper grid layout and print optimization",
+          "body": "- Added \"每行字數\" option (3, 6, 12 characters per line) for flexible layout"
+        },
+        {
+          "hash": "292b544d",
+          "time": "19:42",
+          "message": "Fix worksheet layout to display characters in correct row format",
+          "body": "- Modified worksheet generation logic to display complete character sequences per row (e.g., 紀家禾) instead of repeating individual characters"
+        },
+        {
+          "hash": "0d57525b",
+          "time": "19:34",
+          "message": "修正重複次數邏輯",
+          "body": "- 改為每個字符各自重複指定次數（例如：3次就是每個字3行）"
+        },
+        {
+          "hash": "9fe05217",
+          "time": "19:33",
+          "message": "完善練習表格生成器功能",
+          "body": "- 重新設計為幼稚園適用：左3格浮水印 + 右3格空白"
+        },
+        {
+          "hash": "85449446",
+          "time": "19:28",
+          "message": "調整每行字數選項為 3、6、12 字",
+          "body": "- 移除 5 字和 8、10 字選項"
+        },
+        {
+          "hash": "f8d88fa6",
+          "time": "19:10",
+          "message": "修復注音對照表中的重複 key 錯誤",
+          "body": "- 移除 NameLearningView 中重複的字符定義：文、武、夏、華、康、高、萬"
+        },
+        {
+          "hash": "58f53d88",
+          "time": "18:58",
+          "message": "修正下載功能的文字和實作一致性",
+          "body": "- 將「下載 PDF」改為「下載圖片」"
+        },
+        {
+          "hash": "783b72d1",
+          "time": "18:22",
+          "message": "修復預覽功能的 canvas ref 問題",
+          "body": "- 重新組織預覽區域的條件渲染邏輯"
+        },
+        {
+          "hash": "f89154e7",
+          "time": "18:21",
+          "message": "添加預覽功能調試信息",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "c0a7e87d",
+          "time": "18:17",
+          "message": "清理無用的 CSS 樣式",
+          "body": "移除 repeat-row 和 zhuyin-display 等無用的樣式"
+        },
+        {
+          "hash": "db9396b5",
+          "time": "18:14",
+          "message": "實作練習表格預覽功能",
+          "body": "- 在右邊 div 添加預覽區域"
+        },
+        {
+          "hash": "7afa6eab",
+          "time": "18:01",
+          "message": "在練習生成器重複次數旁添加注音顯示",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "0acf42f8",
+          "time": "17:52",
+          "message": "完善學習介面和功能體驗",
+          "body": "- 全面重構學習我的名字頁面佈局"
+        },
+        {
+          "hash": "7ca83211",
+          "time": "17:19",
+          "message": "改善使用者介面和筆劃練習功能",
+          "body": "- 統一綠色主題配色 (#27ae60)"
+        },
+        {
+          "hash": "25bd07b5",
+          "time": "17:07",
+          "message": "修正按鈕配色並調整字體大小",
+          "body": "- 按鈕改為白底黑字配紅邊框，更符合中式書法美學"
+        },
+        {
+          "hash": "a38336b6",
+          "time": "17:05",
+          "message": "改用中式書法風格配色",
+          "body": "- 背景改為宣紙色系（土黃漸變）"
+        },
+        {
+          "hash": "d00a7d6b",
+          "time": "17:04",
+          "message": "大幅放大首頁內容",
+          "body": "- 主標題從 4rem 增加到 5rem"
+        },
+        {
+          "hash": "34d312ae",
+          "time": "17:03",
+          "message": "移除 #app margin 實現水平置中",
+          "body": "- 完全移除 margin: 0"
+        },
+        {
+          "hash": "21d67c61",
+          "time": "17:02",
+          "message": "恢復 flexbox 佈局",
+          "body": "- 重新使用 display: flex 和 flex-direction: column"
+        },
+        {
+          "hash": "79907f0d",
+          "time": "17:00",
+          "message": "調整 #app 寬度設定",
+          "body": "- 使用 margin: 0 auto 實現水平置中"
+        },
+        {
+          "hash": "468ff94e",
+          "time": "16:59",
+          "message": "移除 #app 的 flexbox 設定",
+          "body": "- 移除可能造成寬度問題的 display: flex"
+        },
+        {
+          "hash": "ade2a864",
+          "time": "16:58",
+          "message": "確保 body 也是 100vw",
+          "body": "- 設定 body width: 100vw"
+        },
+        {
+          "hash": "87e7ff57",
+          "time": "16:57",
+          "message": "移除 #app margin 並確保水平置中",
+          "body": "- 移除 #app 的預設 margin"
+        },
+        {
+          "hash": "49d3a62e",
+          "time": "16:57",
+          "message": "優化頁面間距",
+          "body": "- 減少各區塊的 margin 和 padding"
+        },
+        {
+          "hash": "693a5396",
+          "time": "16:55",
+          "message": "實現智能筆畫練習系統",
+          "body": "- 根據學習階段提供不同練習模式"
+        },
+        {
+          "hash": "1486c666",
+          "time": "16:51",
+          "message": "改用 100vw 全螢幕寬度設計",
+          "body": "- 移除所有 max-width 限制，充分利用螢幕空間"
+        },
+        {
+          "hash": "5767e610",
+          "time": "16:50",
+          "message": "增加整體系統寬度",
+          "body": "- 側邊欄從 250px 增加到 280px"
+        },
+        {
+          "hash": "114ec7f1",
+          "time": "16:41",
+          "message": "大幅擴充注音符號對照表",
+          "body": "- 新增超過200個常見中文字的注音符號"
+        },
+        {
+          "hash": "1b1c2bc5",
+          "time": "16:39",
+          "message": "優化學習階段按鈕文字顯示",
+          "body": "- 改善按鈕文字斷行，讓「小學低年級」和「小學高年級」顯示更美觀"
+        },
+        {
+          "hash": "4be563dc",
+          "time": "16:39",
+          "message": "將拼音改為注音符號",
+          "body": "- 姓名學習頁面改用注音符號顯示"
+        },
+        {
+          "hash": "b5cf5904",
+          "time": "16:38",
+          "message": "增加登入卡片寬度",
+          "body": "- 最大寬度從 500px 增加到 600px"
+        },
+        {
+          "hash": "5dd84190",
+          "time": "16:37",
+          "message": "簡化登入表單設計",
+          "body": "- 移除年齡選擇欄位，只保留學習階段"
+        },
+        {
+          "hash": "d178db72",
+          "time": "16:36",
+          "message": "修正首頁水平置中問題",
+          "body": "- 為 .features 添加 margin: 0 auto 確保水平置中"
+        },
+        {
+          "hash": "47694488",
+          "time": "16:36",
+          "message": "修正 SPA 路由問題",
+          "body": "- 添加 404.html 重定向機制"
+        },
+        {
+          "hash": "aad1e9b9",
+          "time": "16:34",
+          "message": "優化首頁垂直置中效果",
+          "body": "- 加強 flexbox 置中設定"
+        },
+        {
+          "hash": "90765298",
+          "time": "16:33",
+          "message": "修正 GitHub Pages 路徑設定",
+          "body": "- 更新 Vite base 路徑從 /charmon-app/ 到 /CharMon/"
+        },
+        {
+          "hash": "394ceb51",
+          "time": "16:32",
+          "message": "優化首頁佈局設計",
+          "body": "- 一行顯示四個功能卡片"
+        },
+        {
+          "hash": "e4cd64f9",
+          "time": "16:31",
+          "message": "修正 TypeScript 構建錯誤",
+          "body": "- 修正 Element Plus 語言包引入路徑"
+        },
+        {
+          "hash": "92fd93e3",
+          "time": "16:29",
+          "message": "修正 GitHub Actions Node.js 版本",
+          "body": "- 更新為 Node.js 20 以符合 Vite 要求"
+        },
+        {
+          "hash": "fdf7b663",
+          "time": "16:28",
+          "message": "移動 GitHub Actions 到根目錄",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)"
+        },
+        {
+          "hash": "21a5f99a",
+          "time": "16:22",
+          "message": "更新應用程式名稱和設計",
+          "body": "- 更名為「字樂園」"
+        },
+        {
+          "hash": "5adcb213",
+          "time": "16:18",
+          "message": "Initial commit: CharMon 中文學習應用程式",
+          "body": "- Vue 3 + TypeScript + Pinia 架構"
+        }
+      ],
+      "count": 47
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "3320cd5f",
+          "time": "15:42",
+          "message": "Add dataset analysis documentation and key insights memo",
+          "body": "- Create longitudinal datasets comparison for 3H research"
+        },
+        {
+          "hash": "66c6e366",
+          "time": "08:40",
+          "message": "Add NHANES dataset evaluation and comparison",
+          "body": "- Comprehensive analysis of NHANES for 3H research"
+        },
+        {
+          "hash": "62a55960",
+          "time": "08:38",
+          "message": "Resolve merge conflicts in Claude settings",
+          "body": ""
+        },
+        {
+          "hash": "42af9160",
+          "time": "08:37",
+          "message": "Update Claude Code permissions for git pull",
+          "body": ""
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "14c6cdbc",
+          "time": "16:27",
+          "message": "更新字樂園專案名稱和連結",
+          "body": "- 專案名稱改為「字樂園」(中文) / \"CharMon (字樂園)\" (英文)"
+        },
+        {
+          "hash": "554e5cd5",
+          "time": "16:22",
+          "message": "新增 CharMon 中文學習應用到作品集",
+          "body": "針對4-12歲兒童的互動式中文學習應用，結合寶可夢主題教學、筆畫練習和注音符號學習。可生成A4列印練習單，附家長管理功能。"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 53,
+    "totalCommits": 53
+  }
+}
