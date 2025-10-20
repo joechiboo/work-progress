@@ -28,7 +28,8 @@
       "Bash(cd:*)",
       "Bash(tee:*)",
       "Bash(schtasks:*)",
-      "Bash(powershell.exe:*)"
+      "Bash(powershell.exe:*)",
+      "Bash(del temp-regenerate.py)"
     ],
     "deny": [],
     "ask": []

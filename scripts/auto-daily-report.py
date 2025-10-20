@@ -332,22 +332,23 @@ def merge_to_public():
     weeks = round(days / 7, 1)
 
     # 彙整成專案視角的格式（網頁需要的格式）
-    # 只包含工作專案，排除 Side Projects
-    projects_map = {}
+    work_projects_map = {}
+    side_projects_map = {}
 
     for daily in all_reports:
-        # 只處理工作專案（排除 Side Projects）
+        # 處理工作專案
         for proj in daily.get('work_projects', []):
             proj_name = proj['name']
-            if proj_name not in projects_map:
-                projects_map[proj_name] = {
+            if proj_name not in work_projects_map:
+                work_projects_map[proj_name] = {
                     'name': proj_name,
                     'totalCommits': 0,
-                    'commits': []
+                    'commits': [],
+                    'type': 'work'
                 }
 
             for commit in proj['commits']:
-                projects_map[proj_name]['commits'].append({
+                work_projects_map[proj_name]['commits'].append({
                     'hash': commit['hash'],
                     'date': daily['date'],
                     'message': commit['message'],
@@ -355,11 +356,39 @@ def merge_to_public():
                     'category': categorize_commit(commit['message']),
                     'tags': []
                 })
-                projects_map[proj_name]['totalCommits'] += 1
+                work_projects_map[proj_name]['totalCommits'] += 1
+
+        # 處理 Side Projects
+        for proj in daily.get('side_projects', []):
+            proj_name = proj['name']
+            if proj_name not in side_projects_map:
+                side_projects_map[proj_name] = {
+                    'name': proj_name,
+                    'totalCommits': 0,
+                    'commits': [],
+                    'type': 'side'
+                }
+
+            for commit in proj['commits']:
+                side_projects_map[proj_name]['commits'].append({
+                    'hash': commit['hash'],
+                    'date': daily['date'],
+                    'message': commit['message'],
+                    'body': commit.get('body', ''),
+                    'category': categorize_commit(commit['message']),
+                    'tags': []
+                })
+                side_projects_map[proj_name]['totalCommits'] += 1
 
     # 轉成列表並排序
-    projects_list = list(projects_map.values())
-    projects_list.sort(key=lambda x: x['totalCommits'], reverse=True)
+    work_projects_list = list(work_projects_map.values())
+    work_projects_list.sort(key=lambda x: x['totalCommits'], reverse=True)
+
+    side_projects_list = list(side_projects_map.values())
+    side_projects_list.sort(key=lambda x: x['totalCommits'], reverse=True)
+
+    # 合併所有專案（用於網頁篩選）
+    projects_list = work_projects_list + side_projects_list
 
     # 組合最終格式
     total_commits = sum(p['totalCommits'] for p in projects_list)

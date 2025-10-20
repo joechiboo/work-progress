@@ -7,9 +7,25 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-8">
-      <!-- 時間篩選 -->
+      <!-- 篩選區 -->
       <div v-if="rawData" class="bg-white rounded-lg shadow p-6 mb-6">
-        <h2 class="text-xl font-semibold mb-4">🔍 時間區間篩選</h2>
+        <h2 class="text-xl font-semibold mb-4">🔍 篩選設定</h2>
+
+        <!-- 專案類型篩選 -->
+        <div class="mb-4 flex items-center gap-4">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              v-model="showSideProjects"
+              @change="applyFilter"
+              class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <span class="text-sm font-medium text-gray-700">顯示 Side Projects</span>
+          </label>
+          <span class="text-xs text-gray-500">(預設僅顯示工作專案)</span>
+        </div>
+
+        <!-- 時間區間篩選 -->
         <div class="grid grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">開始日期</label>
@@ -127,6 +143,7 @@ const rawData = ref(null)
 const workData = ref(null)
 const filterStart = ref('')
 const filterEnd = ref('')
+const showSideProjects = ref(false)
 
 // 載入資料
 onMounted(async () => {
@@ -157,22 +174,31 @@ const applyFilter = () => {
   const start = filterStart.value ? dayjs(filterStart.value) : null
   const end = filterEnd.value ? dayjs(filterEnd.value) : null
 
-  const filteredProjects = rawData.value.projects.map(project => {
-    if (!project.commits) return project
-
-    const filteredCommits = project.commits.filter(commit => {
-      const commitDate = dayjs(commit.date)
-      if (start && commitDate.isBefore(start)) return false
-      if (end && commitDate.isAfter(end)) return false
+  const filteredProjects = rawData.value.projects
+    .filter(project => {
+      // 篩選專案類型
+      if (!showSideProjects.value && project.type === 'side') {
+        return false
+      }
       return true
     })
+    .map(project => {
+      if (!project.commits) return project
 
-    return {
-      ...project,
-      commits: filteredCommits,
-      totalCommits: filteredCommits.length
-    }
-  }).filter(p => p.totalCommits > 0)
+      const filteredCommits = project.commits.filter(commit => {
+        const commitDate = dayjs(commit.date)
+        if (start && commitDate.isBefore(start)) return false
+        if (end && commitDate.isAfter(end)) return false
+        return true
+      })
+
+      return {
+        ...project,
+        commits: filteredCommits,
+        totalCommits: filteredCommits.length
+      }
+    })
+    .filter(p => p.totalCommits > 0)
 
   workData.value = {
     ...rawData.value,
