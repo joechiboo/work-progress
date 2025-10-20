@@ -356,6 +356,34 @@ const analyzedProjects = computed(() => {
       }
     }).filter(Boolean)
 
+    // 如果沒有匹配到任何功能分組，顯示所有 commits
+    if (features.length === 0 && ungrouped.length > 0) {
+      const dates = ungrouped.map(c => c.date).sort()
+      const dateRange = dates.length > 1
+        ? `${dates[0]} 至 ${dates[dates.length - 1]}`
+        : dates[0]
+
+      const MAX_ITEMS = 10
+      const items = ungrouped.slice(0, MAX_ITEMS).map(c => ({
+        date: c.date,
+        message: cleanCommitMessage(c.message)
+      }))
+      const moreCount = Math.max(0, ungrouped.length - MAX_ITEMS)
+
+      features.push({
+        name: '所有變更',
+        icon: '📝',
+        totalCommits: ungrouped.length,
+        dateRange,
+        subgroups: [{
+          name: '近期提交',
+          dateRange,
+          items: items.map(i => `[${i.date}] ${i.message}`),
+          moreCount
+        }]
+      })
+    }
+
     return {
       name: project.name,
       totalCommits: project.totalCommits,
