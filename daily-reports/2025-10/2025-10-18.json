@@ -2,10 +2,101 @@
   "date": "2025-10-18",
   "weekday": "六",
   "work_projects": [],
-  "side_projects": [],
+  "side_projects": [
+    {
+      "name": "Fast-Trivia\\Fast-Trivia",
+      "commits": [
+        {
+          "hash": "6895b840",
+          "time": "23:23",
+          "message": "docs: update TODO with timer bug and mobile testing plan",
+          "body": ""
+        },
+        {
+          "hash": "4c072c61",
+          "time": "23:18",
+          "message": "feat: add grade 4 difficulty and expand question bank",
+          "body": "- Add grade4 age group to type definitions (server & client)"
+        },
+        {
+          "hash": "8e2856b7",
+          "time": "23:12",
+          "message": "fix: TypeScript type error in CORS allowedOrigins",
+          "body": ""
+        },
+        {
+          "hash": "2c86a6aa",
+          "time": "23:09",
+          "message": "fix: configure production environment and CORS for GitHub Pages",
+          "body": ""
+        },
+        {
+          "hash": "89a1bdd0",
+          "time": "23:08",
+          "message": "docs: update deployment information and mark frontend as live",
+          "body": ""
+        },
+        {
+          "hash": "129cf7df",
+          "time": "22:57",
+          "message": "fix: update Node.js version to 20 for Vite 7 compatibility",
+          "body": ""
+        },
+        {
+          "hash": "50892aa9",
+          "time": "22:53",
+          "message": "feat: setup GitHub Pages deployment with Actions",
+          "body": "- Add Vite base path for GitHub Pages"
+        },
+        {
+          "hash": "6a7363f8",
+          "time": "22:44",
+          "message": "feat: allow single player mode and fix build dependencies",
+          "body": "- Move TypeScript and @types to dependencies for Render deployment"
+        },
+        {
+          "hash": "38c7553b",
+          "time": "21:41",
+          "message": "fix: Update CORS to accept any localhost port in development",
+          "body": "- Change CORS origin from fixed port to regex pattern"
+        },
+        {
+          "hash": "89e8cae3",
+          "time": "10:52",
+          "message": "docs: Add comprehensive TODO and quick start guide",
+          "body": "- Document current issue with room creation"
+        },
+        {
+          "hash": "040b6e65",
+          "time": "10:49",
+          "message": "feat: Complete Fast Trivia MVP implementation",
+          "body": "- Add Vue 3 + TypeScript + Tailwind CSS frontend"
+        },
+        {
+          "hash": "305f8e8c",
+          "time": "10:19",
+          "message": "docs: Initialize Fast Trivia project with Spec Kit",
+          "body": "- Add constitution.md (development principles)"
+        }
+      ],
+      "count": 12
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "cfd09eb6",
+          "time": "23:18",
+          "message": "新增 Fast-Trivia 快問快答到作品集",
+          "body": "新增互動式益智問答遊戲應用到創意專案分類"
+        }
+      ],
+      "count": 1
+    }
+  ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 0,
-    "totalCommits": 0
+    "sideCommits": 13,
+    "totalCommits": 13
   }
 }

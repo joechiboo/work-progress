@@ -7,9 +7,9 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 805,
-    "projectCount": 19,
-    "dailyAverage": 8.3
+    "totalCommits": 822,
+    "projectCount": 20,
+    "dailyAverage": 8.5
   },
   "projects": [
     {
@@ -4590,7 +4590,7 @@
     },
     {
       "name": "joechiboo.github.io",
-      "totalCommits": 58,
+      "totalCommits": 60,
       "commits": [
         {
           "hash": "e78a3ec4",
@@ -5053,6 +5053,22 @@
           "date": "2025-10-08",
           "message": "新增工作進度專案至作品集",
           "body": "新增企業工作進度管理系統專案，提供團隊工作進度追蹤與視覺化功能。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "cfd09eb6",
+          "date": "2025-10-18",
+          "message": "新增 Fast-Trivia 快問快答到作品集",
+          "body": "新增互動式益智問答遊戲應用到創意專案分類",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8f79cbf8",
+          "date": "2025-10-19",
+          "message": "為 Fast-Trivia 專案新增 createdAt 日期標籤",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
           "category": "功能開發",
           "tags": []
         }
@@ -6321,6 +6337,133 @@
           "message": "Add six comprehensive research concept documents and meeting materials",
           "body": "新增六份研究方法與實驗設計文件：",
           "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "Fast-Trivia\\Fast-Trivia",
+      "totalCommits": 15,
+      "commits": [
+        {
+          "hash": "6895b840",
+          "date": "2025-10-18",
+          "message": "docs: update TODO with timer bug and mobile testing plan",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4c072c61",
+          "date": "2025-10-18",
+          "message": "feat: add grade 4 difficulty and expand question bank",
+          "body": "- Add grade4 age group to type definitions (server & client)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8e2856b7",
+          "date": "2025-10-18",
+          "message": "fix: TypeScript type error in CORS allowedOrigins",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2c86a6aa",
+          "date": "2025-10-18",
+          "message": "fix: configure production environment and CORS for GitHub Pages",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "89a1bdd0",
+          "date": "2025-10-18",
+          "message": "docs: update deployment information and mark frontend as live",
+          "body": "",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "129cf7df",
+          "date": "2025-10-18",
+          "message": "fix: update Node.js version to 20 for Vite 7 compatibility",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "50892aa9",
+          "date": "2025-10-18",
+          "message": "feat: setup GitHub Pages deployment with Actions",
+          "body": "- Add Vite base path for GitHub Pages",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6a7363f8",
+          "date": "2025-10-18",
+          "message": "feat: allow single player mode and fix build dependencies",
+          "body": "- Move TypeScript and @types to dependencies for Render deployment",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "38c7553b",
+          "date": "2025-10-18",
+          "message": "fix: Update CORS to accept any localhost port in development",
+          "body": "- Change CORS origin from fixed port to regex pattern",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "89e8cae3",
+          "date": "2025-10-18",
+          "message": "docs: Add comprehensive TODO and quick start guide",
+          "body": "- Document current issue with room creation",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "040b6e65",
+          "date": "2025-10-18",
+          "message": "feat: Complete Fast Trivia MVP implementation",
+          "body": "- Add Vue 3 + TypeScript + Tailwind CSS frontend",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "305f8e8c",
+          "date": "2025-10-18",
+          "message": "docs: Initialize Fast Trivia project with Spec Kit",
+          "body": "- Add constitution.md (development principles)",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "069c5fe5",
+          "date": "2025-10-19",
+          "message": "feat: Add grade 5 and grade 6 difficulty levels",
+          "body": "- Add grade5 and grade6 to type definitions (server & client)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "907594c4",
+          "date": "2025-10-19",
+          "message": "fix: Critical bug fixes and scoring improvements",
+          "body": "- Fix answer randomization: save shuffled questions to prevent inconsistent answer keys across clients",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a43b0bb7",
+          "date": "2025-10-19",
+          "message": "feat: major game improvements",
+          "body": "- Fix scoring bug: prevent duplicate score calculation with resultsCalculated flag",
+          "category": "功能開發",
           "tags": []
         }
       ],
