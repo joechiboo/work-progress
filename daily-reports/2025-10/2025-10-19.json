@@ -2,10 +2,47 @@
   "date": "2025-10-19",
   "weekday": "日",
   "work_projects": [],
-  "side_projects": [],
+  "side_projects": [
+    {
+      "name": "Fast-Trivia\\Fast-Trivia",
+      "commits": [
+        {
+          "hash": "069c5fe5",
+          "time": "22:36",
+          "message": "feat: Add grade 5 and grade 6 difficulty levels",
+          "body": "- Add grade5 and grade6 to type definitions (server & client)"
+        },
+        {
+          "hash": "907594c4",
+          "time": "22:32",
+          "message": "fix: Critical bug fixes and scoring improvements",
+          "body": "- Fix answer randomization: save shuffled questions to prevent inconsistent answer keys across clients"
+        },
+        {
+          "hash": "a43b0bb7",
+          "time": "22:22",
+          "message": "feat: major game improvements",
+          "body": "- Fix scoring bug: prevent duplicate score calculation with resultsCalculated flag"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "8f79cbf8",
+          "time": "09:03",
+          "message": "為 Fast-Trivia 專案新增 createdAt 日期標籤",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 1
+    }
+  ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 0,
-    "totalCommits": 0
+    "sideCommits": 4,
+    "totalCommits": 4
   }
 }
