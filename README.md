@@ -160,10 +160,19 @@ npm run preview
 
 ### 快速重點
 
-- **自動執行**: 每天早上 07:00 自動生成工作紀錄
+- **自動執行**: 每天早上 07:05 自動生成工作紀錄
 - **網頁資料**: `public/data/work-log-latest.json` (固定檔名)
 - **完整紀錄**: `daily-reports/YYYY-MM/` (含 Markdown 和 JSON)
 - **隱私保護**: 網頁只顯示工作專案，排除 Side Projects
+
+### Windows 工作排程器設定
+
+每天早上 07:05 自動執行報告生成：
+
+- **程式或指令碼**: `C:\Python310\python.exe`
+- **新增引數**: `scripts\auto-daily-report.py`
+- **開始於**: `D:\Personal\Project\work-progress`
+- **觸發程序**: 每天上午 07:05
 
 ## License
 
