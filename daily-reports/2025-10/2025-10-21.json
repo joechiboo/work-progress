@@ -1,0 +1,24 @@
+{
+  "date": "2025-10-21",
+  "weekday": "二",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "Fast-Trivia",
+      "commits": [
+        {
+          "hash": "01e6400e",
+          "time": "11:38",
+          "message": "chore: merge settings.local.json permissions",
+          "body": "合併本地和遠端的權限設定"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 1,
+    "totalCommits": 1
+  }
+}
