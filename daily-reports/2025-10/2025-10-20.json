@@ -77,8 +77,56 @@
   ],
   "side_projects": [
     {
-      "name": "Fast-Trivia\\Fast-Trivia",
+      "name": "Fast-Trivia",
       "commits": [
+        {
+          "hash": "fd1c83a9",
+          "time": "22:14",
+          "message": "fix: Use correct environment variable for API URL",
+          "body": "- Change VITE_API_URL to VITE_SERVER_URL to match env files"
+        },
+        {
+          "hash": "38a52fe0",
+          "time": "22:10",
+          "message": "feat: Always show room selector and refresh button",
+          "body": "- Move refresh button to label area for better UX"
+        },
+        {
+          "hash": "3b35c1cd",
+          "time": "22:07",
+          "message": "fix: Room list API shows rooms before game starts",
+          "body": "- Show rooms where game is null (not started yet)"
+        },
+        {
+          "hash": "93f75d46",
+          "time": "22:05",
+          "message": "fix: TypeScript errors in room list API",
+          "body": "- Fix room.id instead of room.roomId"
+        },
+        {
+          "hash": "8385214a",
+          "time": "22:01",
+          "message": "feat: Add room list selector and fix Halloween decorations 🎃",
+          "body": "Room List Feature:"
+        },
+        {
+          "hash": "39305854",
+          "time": "21:56",
+          "message": "feat: Add Halloween decorations and UX improvements 🎃✨",
+          "body": "Halloween Theme Enhancements:"
+        },
+        {
+          "hash": "f990daa1",
+          "time": "21:46",
+          "message": "feat: Add Halloween theme background 🎃✨",
+          "body": "- Add dynamic background switching based on difficulty level"
+        },
+        {
+          "hash": "a143686b",
+          "time": "21:43",
+          "message": "feat: Add Halloween theme difficulty level 🎃",
+          "body": "- Add 'halloween' to type definitions (server & client)"
+        },
         {
           "hash": "d847fee3",
           "time": "10:12",
@@ -92,12 +140,12 @@
           "body": "## 修正項目"
         }
       ],
-      "count": 2
+      "count": 10
     }
   ],
   "summary": {
     "workCommits": 10,
-    "sideCommits": 2,
-    "totalCommits": 12
+    "sideCommits": 10,
+    "totalCommits": 20
   }
 }
