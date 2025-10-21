@@ -7,9 +7,9 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1020,
-    "projectCount": 21,
-    "dailyAverage": 10.4
+    "totalCommits": 1028,
+    "projectCount": 22,
+    "dailyAverage": 10.5
   },
   "projects": [
     {
@@ -7807,7 +7807,7 @@
     },
     {
       "name": "Fast-Trivia\\Fast-Trivia",
-      "totalCommits": 17,
+      "totalCommits": 15,
       "commits": [
         {
           "hash": "6895b840",
@@ -7927,22 +7927,6 @@
           "message": "feat: major game improvements",
           "body": "- Fix scoring bug: prevent duplicate score calculation with resultsCalculated flag",
           "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "d847fee3",
-          "date": "2025-10-20",
-          "message": "style: 更新 favicon 為趣味靶心圖示",
-          "body": "- 替換預設的 vite.svg 為自訂的 favicon.png",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "417770c1",
-          "date": "2025-10-20",
-          "message": "fix: 修正正確率計算錯誤與題庫難度篩選問題",
-          "body": "## 修正項目",
-          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -8165,6 +8149,93 @@
           "message": "feat: add dark mode support with toggle button",
           "body": "- Implement ThemeContext with localStorage persistence",
           "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "Fast-Trivia",
+      "totalCommits": 10,
+      "commits": [
+        {
+          "hash": "fd1c83a9",
+          "date": "2025-10-20",
+          "message": "fix: Use correct environment variable for API URL",
+          "body": "- Change VITE_API_URL to VITE_SERVER_URL to match env files",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "38a52fe0",
+          "date": "2025-10-20",
+          "message": "feat: Always show room selector and refresh button",
+          "body": "- Move refresh button to label area for better UX",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3b35c1cd",
+          "date": "2025-10-20",
+          "message": "fix: Room list API shows rooms before game starts",
+          "body": "- Show rooms where game is null (not started yet)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "93f75d46",
+          "date": "2025-10-20",
+          "message": "fix: TypeScript errors in room list API",
+          "body": "- Fix room.id instead of room.roomId",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8385214a",
+          "date": "2025-10-20",
+          "message": "feat: Add room list selector and fix Halloween decorations 🎃",
+          "body": "Room List Feature:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "39305854",
+          "date": "2025-10-20",
+          "message": "feat: Add Halloween decorations and UX improvements 🎃✨",
+          "body": "Halloween Theme Enhancements:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f990daa1",
+          "date": "2025-10-20",
+          "message": "feat: Add Halloween theme background 🎃✨",
+          "body": "- Add dynamic background switching based on difficulty level",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a143686b",
+          "date": "2025-10-20",
+          "message": "feat: Add Halloween theme difficulty level 🎃",
+          "body": "- Add 'halloween' to type definitions (server & client)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d847fee3",
+          "date": "2025-10-20",
+          "message": "style: 更新 favicon 為趣味靶心圖示",
+          "body": "- 替換預設的 vite.svg 為自訂的 favicon.png",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "417770c1",
+          "date": "2025-10-20",
+          "message": "fix: 修正正確率計算錯誤與題庫難度篩選問題",
+          "body": "## 修正項目",
+          "category": "錯誤修正",
           "tags": []
         }
       ],

@@ -29,7 +29,9 @@
       "Bash(tee:*)",
       "Bash(schtasks:*)",
       "Bash(powershell.exe:*)",
-      "Bash(del temp-regenerate.py)"
+      "Bash(del temp-regenerate.py)",
+      "Bash(if not exist logs mkdir logs)",
+      "Bash(dir logs)"
     ],
     "deny": [],
     "ask": []
