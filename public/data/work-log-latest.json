@@ -7,14 +7,14 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1013,
+    "totalCommits": 1019,
     "projectCount": 22,
-    "dailyAverage": 10.1
+    "dailyAverage": 10.2
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 258,
+      "totalCommits": 264,
       "commits": [
         {
           "hash": "e7036465",
@@ -2078,6 +2078,54 @@
           "message": "feat: 新增行政人員取消待收檢功能並優化欄位標籤",
           "body": "## 主要更新",
           "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8883b751",
+          "date": "2025-10-22",
+          "message": "fix: 修正品管曲線圖 tooltip 在捲動後的位置錯誤",
+          "body": "當使用者捲動 Canvas 容器後 hover 圖表點位，tooltip 會出現在錯誤位置造成跑版。",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3449c72e",
+          "date": "2025-10-22",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/collection-print-add-confirmer",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1dc35ccc",
+          "date": "2025-10-22",
+          "message": "feat: 支援多路線收檢員代班顯示",
+          "body": "- 修改 SQL 查詢保留原收檢員路線資訊",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ee4dd934",
+          "date": "2025-10-22",
+          "message": "feat: 支援收檢員多路線合併顯示",
+          "body": "- 後端拆分多路線收檢員為獨立記錄",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f9086be9",
+          "date": "2025-10-22",
+          "message": "feat: 收檢員排班支援多路線合併顯示",
+          "body": "- 多路線收檢員合併顯示在同一行（如：路線16, 路線19）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c731063b",
+          "date": "2025-10-22",
+          "message": "refactor: 改用 CM_NOTE 統一管理收檢員路線資訊",
+          "body": "- 移除 CM_ROUTE_NAME 欄位，統一使用 CM_NOTE 儲存路線",
+          "category": "重構",
           "tags": []
         }
       ],
