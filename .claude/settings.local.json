@@ -31,7 +31,11 @@
       "Bash(powershell.exe:*)",
       "Bash(del temp-regenerate.py)",
       "Bash(if not exist logs mkdir logs)",
-      "Bash(dir logs)"
+      "Bash(dir logs)",
+      "Read(//d//**)",
+      "Bash(git -C \"D:/Gitlab/Management/OverTimePrompt\" log --author=\"joechiboo\" --since=\"2025-10-01\" --oneline)",
+      "Bash(git -C \"D:/Gitlab/Management/OverTimePrompt/OverTimePrompt\" log --author=\"joechiboo\" --since=\"2025-10-08\" --format=\"%ai|||%s\" --no-merges)",
+      "Bash(git -C \"D:/Gitlab/Management/OverTimePrompt/OverTimePrompt\" log --all --format=\"%an\")"
     ],
     "deny": [],
     "ask": []

@@ -3,6 +3,48 @@
   "weekday": "三",
   "work_projects": [
     {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "8883b751",
+          "time": "15:28",
+          "message": "fix: 修正品管曲線圖 tooltip 在捲動後的位置錯誤",
+          "body": "當使用者捲動 Canvas 容器後 hover 圖表點位，tooltip 會出現在錯誤位置造成跑版。"
+        },
+        {
+          "hash": "3449c72e",
+          "time": "15:02",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/collection-print-add-confirmer",
+          "body": ""
+        },
+        {
+          "hash": "1dc35ccc",
+          "time": "14:57",
+          "message": "feat: 支援多路線收檢員代班顯示",
+          "body": "- 修改 SQL 查詢保留原收檢員路線資訊"
+        },
+        {
+          "hash": "ee4dd934",
+          "time": "14:25",
+          "message": "feat: 支援收檢員多路線合併顯示",
+          "body": "- 後端拆分多路線收檢員為獨立記錄"
+        },
+        {
+          "hash": "f9086be9",
+          "time": "14:16",
+          "message": "feat: 收檢員排班支援多路線合併顯示",
+          "body": "- 多路線收檢員合併顯示在同一行（如：路線16, 路線19）"
+        },
+        {
+          "hash": "c731063b",
+          "time": "14:05",
+          "message": "refactor: 改用 CM_NOTE 統一管理收檢員路線資訊",
+          "body": "- 移除 CM_ROUTE_NAME 欄位，統一使用 CM_NOTE 儲存路線"
+        }
+      ],
+      "count": 6
+    },
+    {
       "name": "Management\\OverTimePrompt",
       "commits": [
         {
@@ -23,8 +65,8 @@
   ],
   "side_projects": [],
   "summary": {
-    "workCommits": 2,
+    "workCommits": 8,
     "sideCommits": 0,
-    "totalCommits": 2
+    "totalCommits": 8
   }
 }
