@@ -433,3 +433,26 @@ if __name__ == "__main__":
 
     # 彙整到 public/data 供網頁使用
     merge_to_public()
+
+    # 確保 merge_to_public 的變更也被 commit 和 push
+    logging.info("\n正在 commit 並 push merge_to_public 的變更...")
+    try:
+        os.chdir(WORK_PROGRESS_PATH)
+
+        # 檢查是否有變更
+        status_result = subprocess.run(['git', 'status', '--porcelain'],
+                                      capture_output=True, text=True, encoding='utf-8')
+
+        if status_result.stdout.strip():
+            # 有變更才 commit
+            subprocess.run(['git', 'add', '.'], check=True)
+
+            commit_msg = f"docs: 更新彙整資料 {datetime.now().strftime('%Y-%m-%d')}\n\n🤖 自動生成於 {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+            subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
+            subprocess.run(['git', 'push'], check=True)
+
+            logging.info("✓ 成功推送彙整資料到 GitHub!")
+        else:
+            logging.info("無需推送（沒有變更）")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"✗ 推送彙整資料失敗: {e}")
