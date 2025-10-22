@@ -44,7 +44,7 @@ def get_git_repos(base_path, max_depth=3):
         if '.git' in dirs:
             repos.append(root)
             logging.debug(f"找到 repo: {root}")
-            dirs[:] = []
+            # 不要立即清空 dirs，繼續掃描子目錄（支援巢狀 repo）
 
     logging.info(f"找到 {len(repos)} 個 repositories")
     return repos

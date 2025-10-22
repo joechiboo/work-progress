@@ -17,7 +17,7 @@ def get_git_repos(base_path, max_depth=3):
             continue
         if '.git' in dirs:
             repos.append(root)
-            dirs[:] = []
+            # 不要立即清空 dirs，繼續掃描子目錄（支援巢狀 repo）
     return repos
 
 def get_commits_for_date(repo_path, author, date_str):

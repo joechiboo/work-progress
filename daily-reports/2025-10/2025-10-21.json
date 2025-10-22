@@ -1,7 +1,20 @@
 {
   "date": "2025-10-21",
   "weekday": "二",
-  "work_projects": [],
+  "work_projects": [
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "5e907705",
+          "time": "16:17",
+          "message": "refactor: 重構加班時數管理工具與勞基法合規查詢",
+          "body": "## 新增檔案"
+        }
+      ],
+      "count": 1
+    }
+  ],
   "side_projects": [
     {
       "name": "Fast-Trivia",
@@ -17,8 +30,8 @@
     }
   ],
   "summary": {
-    "workCommits": 0,
+    "workCommits": 1,
     "sideCommits": 1,
-    "totalCommits": 1
+    "totalCommits": 2
   }
 }

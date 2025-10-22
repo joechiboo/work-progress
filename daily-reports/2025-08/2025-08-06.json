@@ -6,12 +6,6 @@
       "name": "uclcloud",
       "commits": [
         {
-          "hash": "f63e1c6e",
-          "time": "22:19",
-          "message": "feat: 實現健康小幫手和會員中心功能",
-          "body": "- 新增健康小幫手頁面，支援血壓、血糖、三酸甘油脂、生理測量記錄"
-        },
-        {
           "hash": "b6fcc279",
           "time": "17:58",
           "message": "feat: 更新檢驗所詳細故事內容",
@@ -48,7 +42,7 @@
           "body": "主要功能："
         }
       ],
-      "count": 7
+      "count": 6
     },
     {
       "name": "lisweb",
@@ -192,8 +186,8 @@
     }
   ],
   "summary": {
-    "workCommits": 10,
+    "workCommits": 9,
     "sideCommits": 16,
-    "totalCommits": 26
+    "totalCommits": 25
   }
 }

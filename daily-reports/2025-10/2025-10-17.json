@@ -3,6 +3,36 @@
   "weekday": "五",
   "work_projects": [
     {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "f69e43ff",
+          "time": "14:42",
+          "message": "feat: 加班時數調整工具 - 2025年8月至9月超標員工批次處理",
+          "body": "## 新增 SQL 工具"
+        },
+        {
+          "hash": "2ad8fa76",
+          "time": "12:53",
+          "message": "docs: 新增 Markdown 轉 HTML/PDF 轉換說明與範例檔案",
+          "body": "## 更新內容"
+        },
+        {
+          "hash": "a5fed523",
+          "time": "12:33",
+          "message": "docs: 新增專案說明文件 README.md",
+          "body": "## 文件內容"
+        },
+        {
+          "hash": "acf29958",
+          "time": "12:16",
+          "message": "feat: 加班時數分析與管理系統",
+          "body": "## 新增功能"
+        }
+      ],
+      "count": 4
+    },
+    {
       "name": "UPC\\Front",
       "commits": [
         {
@@ -35,8 +65,8 @@
   ],
   "side_projects": [],
   "summary": {
-    "workCommits": 3,
+    "workCommits": 7,
     "sideCommits": 0,
-    "totalCommits": 3
+    "totalCommits": 7
   }
 }

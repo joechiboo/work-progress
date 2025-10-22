@@ -1,0 +1,30 @@
+{
+  "date": "2025-10-22",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "6d3a241a",
+          "time": "12:19",
+          "message": "refactor: 調整 Git repository 結構至正確位置",
+          "body": "## 變更內容"
+        },
+        {
+          "hash": "169411ec",
+          "time": "12:09",
+          "message": "fix: 優化備份機制與調整流程",
+          "body": "## 1. 建立備份表.sql"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}
