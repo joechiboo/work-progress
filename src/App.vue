@@ -177,12 +177,12 @@ onMounted(async () => {
     rawData.value = data
     workData.value = data
 
-    // 設定預設篩選範圍：10/9 開始到今天
-    const today = dayjs()
+    // 設定預設篩選範圍：10/9 開始到昨天
+    const yesterday = dayjs().subtract(1, 'day')
     const startDate = dayjs('2025-10-09')
 
     filterStart.value = startDate.format('YYYY-MM-DD')
-    filterEnd.value = today.format('YYYY-MM-DD')
+    filterEnd.value = yesterday.format('YYYY-MM-DD')
 
     // 自動套用兩週篩選
     applyFilter()
@@ -356,8 +356,8 @@ const analyzedProjects = computed(() => {
       }
     }).filter(Boolean)
 
-    // 如果沒有匹配到任何功能分組，顯示所有 commits
-    if (features.length === 0 && ungrouped.length > 0) {
+    // 如果有未分組的 commits，一併顯示
+    if (ungrouped.length > 0) {
       const dates = ungrouped.map(c => c.date).sort()
       const dateRange = dates.length > 1
         ? `${dates[0]} 至 ${dates[dates.length - 1]}`
@@ -371,7 +371,7 @@ const analyzedProjects = computed(() => {
       const moreCount = Math.max(0, ungrouped.length - MAX_ITEMS)
 
       features.push({
-        name: '所有變更',
+        name: features.length > 0 ? '其他變更' : '所有變更',
         icon: '📝',
         totalCommits: ungrouped.length,
         dateRange,
