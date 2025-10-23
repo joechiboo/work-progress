@@ -140,9 +140,6 @@ def generate_daily_report(date_str):
     for repo in personal_repos:
         proj_name = repo.replace(PERSONAL_PATH + "\\", "")
 
-        # 跳過 work-progress 本身
-        if 'work-progress' in proj_name.lower():
-            continue
 
         commits = get_commits_for_date(repo, AUTHOR, date_str)
         if commits:
