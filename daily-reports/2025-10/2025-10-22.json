@@ -63,10 +63,53 @@
       "count": 2
     }
   ],
-  "side_projects": [],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "da5bad9e",
+          "time": "12:32",
+          "message": "fix: 使用正確的 merge_to_public 函數重新生成專案彙整資料",
+          "body": "- 修正 work-log-latest.json 格式（改用專案彙整格式而非每日陣列格式）"
+        },
+        {
+          "hash": "29638ad7",
+          "time": "12:31",
+          "message": "fix: 更新 work-log-latest.json 以包含 OverTimePrompt 專案紀錄",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "f4c63d7c",
+          "time": "12:28",
+          "message": "fix: 修正 Git repo 掃描以支援巢狀結構並重新整合 OverTimePrompt 專案紀錄",
+          "body": "- 修改 get_git_repos 函數，移除 dirs[:] = [] 以支援巢狀 Git repo"
+        },
+        {
+          "hash": "26eb0e74",
+          "time": "11:43",
+          "message": "docs: 更新彙整資料 2025-10-22",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "e879a7a0",
+          "time": "11:40",
+          "message": "fix: 修正 auto-daily-report.py 確保 merge_to_public 的變更也會被 push",
+          "body": "- 新增在 merge_to_public() 之後的 git commit & push 邏輯"
+        },
+        {
+          "hash": "b6fe5636",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-10-21 (1 commits)",
+          "body": "🤖 自動生成於 2025-10-22 07:05"
+        }
+      ],
+      "count": 6
+    }
+  ],
   "summary": {
     "workCommits": 8,
-    "sideCommits": 0,
-    "totalCommits": 8
+    "sideCommits": 6,
+    "totalCommits": 14
   }
 }

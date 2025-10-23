@@ -7,8 +7,8 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1019,
-    "projectCount": 22,
+    "totalCommits": 1025,
+    "projectCount": 23,
     "dailyAverage": 10.2
   },
   "projects": [
@@ -8298,6 +8298,61 @@
           "message": "新增四葉草 favicon 圖標",
           "body": "- 新增 SVG 和 PNG 格式的四葉草 favicon",
           "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "work-progress",
+      "totalCommits": 6,
+      "commits": [
+        {
+          "hash": "da5bad9e",
+          "date": "2025-10-22",
+          "message": "fix: 使用正確的 merge_to_public 函數重新生成專案彙整資料",
+          "body": "- 修正 work-log-latest.json 格式（改用專案彙整格式而非每日陣列格式）",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "29638ad7",
+          "date": "2025-10-22",
+          "message": "fix: 更新 work-log-latest.json 以包含 OverTimePrompt 專案紀錄",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f4c63d7c",
+          "date": "2025-10-22",
+          "message": "fix: 修正 Git repo 掃描以支援巢狀結構並重新整合 OverTimePrompt 專案紀錄",
+          "body": "- 修改 get_git_repos 函數，移除 dirs[:] = [] 以支援巢狀 Git repo",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "26eb0e74",
+          "date": "2025-10-22",
+          "message": "docs: 更新彙整資料 2025-10-22",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e879a7a0",
+          "date": "2025-10-22",
+          "message": "fix: 修正 auto-daily-report.py 確保 merge_to_public 的變更也會被 push",
+          "body": "- 新增在 merge_to_public() 之後的 git commit & push 邏輯",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b6fe5636",
+          "date": "2025-10-22",
+          "message": "docs: 每日工作紀錄 2025-10-21 (1 commits)",
+          "body": "🤖 自動生成於 2025-10-22 07:05",
+          "category": "文檔",
           "tags": []
         }
       ],
