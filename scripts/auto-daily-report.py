@@ -216,7 +216,7 @@ def git_commit_and_push(date_str, total_commits):
         os.chdir(WORK_PROGRESS_PATH)
 
         # git add
-        subprocess.run(['git', 'add', '.'], check=True)
+        subprocess.run(['git', 'add', 'daily-reports/', 'public/data/'], check=True)
 
         # git commit
         commit_msg = f"docs: 每日工作紀錄 {date_str} ({total_commits} commits)\n\n🤖 自動生成於 {datetime.now().strftime('%Y-%m-%d %H:%M')}"
@@ -442,7 +442,7 @@ if __name__ == "__main__":
 
         if status_result.stdout.strip():
             # 有變更才 commit
-            subprocess.run(['git', 'add', '.'], check=True)
+            subprocess.run(['git', 'add', 'public/data/'], check=True)
 
             commit_msg = f"docs: 更新彙整資料 {datetime.now().strftime('%Y-%m-%d')}\n\n🤖 自動生成於 {datetime.now().strftime('%Y-%m-%d %H:%M')}"
             subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
