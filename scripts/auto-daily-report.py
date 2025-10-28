@@ -216,18 +216,47 @@ def git_commit_and_push(date_str, total_commits):
         os.chdir(WORK_PROGRESS_PATH)
 
         # git add
-        subprocess.run(['git', 'add', 'daily-reports/', 'public/data/'], check=True)
+        result = subprocess.run(['git', 'add', 'daily-reports/', 'public/data/'],
+                               capture_output=True, text=True, encoding='utf-8')
+        if result.returncode != 0:
+            logging.error(f"git add failed: {result.stderr}")
+            return False
+        logging.info(f"git add 成功")
 
         # git commit
         commit_msg = f"docs: 每日工作紀錄 {date_str} ({total_commits} commits)\n\n🤖 自動生成於 {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-        subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
+        result = subprocess.run(['git', 'commit', '-m', commit_msg],
+                               capture_output=True, text=True, encoding='utf-8')
+        if result.returncode != 0:
+            # 可能沒有變更，這不算錯誤
+            if 'nothing to commit' in result.stdout or 'nothing to commit' in result.stderr:
+                logging.info("沒有變更需要 commit")
+            else:
+                logging.error(f"git commit failed: {result.stderr}")
+                return False
+        else:
+            logging.info(f"git commit 成功: {commit_msg.split(chr(10))[0]}")
 
         # git push
-        subprocess.run(['git', 'push'], check=True)
+        result = subprocess.run(['git', 'push'],
+                               capture_output=True, text=True, encoding='utf-8',
+                               timeout=30)
+        if result.returncode != 0:
+            logging.error(f"git push failed: {result.stderr}")
+            logging.error(f"stdout: {result.stdout}")
+            return False
 
+        logging.info(f"git push 成功: {result.stdout}")
         return True
+    except subprocess.TimeoutExpired:
+        logging.error("git push timeout (30秒)")
+        return False
     except subprocess.CalledProcessError as e:
-        print(f"Git operation failed: {e}")
+        logging.error(f"Git operation failed: {e}")
+        logging.error(f"stderr: {e.stderr if hasattr(e, 'stderr') else 'N/A'}")
+        return False
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}", exc_info=True)
         return False
 
 def main():
@@ -442,14 +471,36 @@ if __name__ == "__main__":
 
         if status_result.stdout.strip():
             # 有變更才 commit
-            subprocess.run(['git', 'add', 'public/data/'], check=True)
+            result = subprocess.run(['git', 'add', 'public/data/'],
+                                   capture_output=True, text=True, encoding='utf-8')
+            if result.returncode != 0:
+                logging.error(f"git add failed: {result.stderr}")
+            else:
+                logging.info("git add 成功")
 
-            commit_msg = f"docs: 更新彙整資料 {datetime.now().strftime('%Y-%m-%d')}\n\n🤖 自動生成於 {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-            subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
-            subprocess.run(['git', 'push'], check=True)
+                commit_msg = f"docs: 更新彙整資料 {datetime.now().strftime('%Y-%m-%d')}\n\n🤖 自動生成於 {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+                result = subprocess.run(['git', 'commit', '-m', commit_msg],
+                                       capture_output=True, text=True, encoding='utf-8')
+                if result.returncode != 0:
+                    logging.error(f"git commit failed: {result.stderr}")
+                else:
+                    logging.info(f"git commit 成功: {commit_msg.split(chr(10))[0]}")
 
-            logging.info("✓ 成功推送彙整資料到 GitHub!")
+                    result = subprocess.run(['git', 'push'],
+                                           capture_output=True, text=True, encoding='utf-8',
+                                           timeout=30)
+                    if result.returncode != 0:
+                        logging.error(f"git push failed: {result.stderr}")
+                        logging.error(f"stdout: {result.stdout}")
+                    else:
+                        logging.info(f"✓ 成功推送彙整資料到 GitHub!")
+                        logging.info(f"push output: {result.stdout}")
         else:
             logging.info("無需推送（沒有變更）")
+    except subprocess.TimeoutExpired:
+        logging.error("git push timeout (30秒)")
     except subprocess.CalledProcessError as e:
         logging.error(f"✗ 推送彙整資料失敗: {e}")
+        logging.error(f"stderr: {e.stderr if hasattr(e, 'stderr') else 'N/A'}")
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}", exc_info=True)
