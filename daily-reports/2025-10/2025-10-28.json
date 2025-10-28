@@ -1,0 +1,145 @@
+{
+  "date": "2025-10-28",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "label-printing",
+      "commits": [
+        {
+          "hash": "293ee8d8",
+          "time": "10:35",
+          "message": "修正版本號顯示格式",
+          "body": "- 將版本號從 2025.10.28.01 改為 2025.10.28.1（符合 AssemblyVersion 格式）"
+        },
+        {
+          "hash": "af69527d",
+          "time": "10:20",
+          "message": "更新版本號至 2025.10.28.01",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "c1169463",
+          "time": "09:58",
+          "message": "新增 UpdateCustomerDataSafe 的單元測試",
+          "body": "- 驗證 SQL 包含正確的欄位名稱（BIRTH_DATE）"
+        },
+        {
+          "hash": "c8c8b17c",
+          "time": "09:56",
+          "message": "修正資料庫欄位名稱錯誤",
+          "body": "問題：更新客戶資料時，使用錯誤的欄位名稱 DBBIRTH 導致 ORA-00904 錯誤"
+        },
+        {
+          "hash": "8eb24e72",
+          "time": "09:52",
+          "message": "更新 RUN.md：補充發佈指令說明",
+          "body": "- 簡化發佈指令：dotnet publish -c Release -p:Platform=x86"
+        },
+        {
+          "hash": "76e9d8e4",
+          "time": "09:10",
+          "message": "加入版本資訊 (使用日期格式 2025.10.28)",
+          "body": "- 在專案檔加入版本資訊"
+        },
+        {
+          "hash": "bb7cc747",
+          "time": "08:54",
+          "message": "修復單元測試並改進驗證邏輯",
+          "body": "改進內容："
+        },
+        {
+          "hash": "e3a3c3d0",
+          "time": "08:43",
+          "message": "完成標籤列印系統優化",
+          "body": "功能改進："
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "bb4bafbb",
+          "time": "13:10",
+          "message": "feat: 完成危險數據清單 V2 效能優化（0.1秒）",
+          "body": "## 主要改進"
+        },
+        {
+          "hash": "af554edb",
+          "time": "10:43",
+          "message": "Merge branch 'main' into feature/danger-list-v2",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "water-tracker",
+      "commits": [
+        {
+          "hash": "1dfdb5a3",
+          "time": "13:00",
+          "message": "Add manual trigger for idle reminder testing",
+          "body": "Users can now click the logo to cycle through reminder states:"
+        },
+        {
+          "hash": "aae28a8c",
+          "time": "10:34",
+          "message": "Add idle reminder feature with two-stage alerts",
+          "body": "Implemented a smart idle reminder system that encourages users to drink water:"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "bf56754a",
+          "time": "08:17",
+          "message": "fix: 修正自動 push 失敗問題",
+          "body": "- 修改 git add 指令，只加入必要的檔案（daily-reports/, public/data/）"
+        },
+        {
+          "hash": "d13ec521",
+          "time": "08:12",
+          "message": "docs: 每日工作紀錄 2025-10-23 至 2025-10-27",
+          "body": "- 10-23: 3 commits (lisweb 1 + work-progress 2)"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "kids-time-control",
+      "commits": [
+        {
+          "hash": "af5687ac",
+          "time": "19:56",
+          "message": "完成手機應用核心功能修正與優化",
+          "body": "主要更新："
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "91c5994e",
+          "time": "16:44",
+          "message": "更新簡報主題為三高風險預測研究並提交最終報告",
+          "body": "- 更新簡報內容：改為可解釋模型vs黑箱模型比較研究"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 6,
+    "totalCommits": 16
+  }
+}
