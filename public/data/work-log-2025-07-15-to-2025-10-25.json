@@ -1,15 +1,15 @@
 {
   "period": {
     "start": "2025-07-15",
-    "end": "2025-10-27",
-    "days": 105,
-    "weeks": 15.0
+    "end": "2025-10-25",
+    "days": 103,
+    "weeks": 14.7
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1041,
-    "projectCount": 25,
-    "dailyAverage": 9.9
+    "totalCommits": 1034,
+    "projectCount": 24,
+    "dailyAverage": 10.0
   },
   "projects": [
     {
@@ -3900,7 +3900,7 @@
     },
     {
       "name": "OnlineReport\\FalconCopy",
-      "totalCommits": 42,
+      "totalCommits": 40,
       "commits": [
         {
           "hash": "cb69b2f6",
@@ -4219,22 +4219,6 @@
           "date": "2025-10-20",
           "message": "簡化日誌輸出並修正 OL_ADDR3 欄位長度限制",
           "body": "1. 簡化正常執行時的日誌輸出",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "abf2b0a2",
-          "date": "2025-10-27",
-          "message": "優化日誌輸出並加入 PAT_RESULTD 統計",
-          "body": "1. 日誌優化",
-          "category": "重構",
-          "tags": []
-        },
-        {
-          "hash": "91454f7c",
-          "date": "2025-10-27",
-          "message": "修正 pat_resultd 同步缺少 MLT_NAME 欄位的問題",
-          "body": "1. 問題發現",
           "category": "錯誤修正",
           "tags": []
         }
@@ -4790,29 +4774,6 @@
           "message": "新增部署文檔和 ECS 更新流程說明",
           "body": "- 新增 docs/DEPLOYMENT.md：包含完整的部署流程、伺服器連線資訊和快取處理方法",
           "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "label-printing",
-      "totalCommits": 2,
-      "commits": [
-        {
-          "hash": "2251d1ea",
-          "date": "2025-10-27",
-          "message": "Add .NET 8 migration with SQL Injection protection",
-          "body": "- Migrate BasicBarcode from .NET Framework to .NET 8",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "349e9368",
-          "date": "2025-10-27",
-          "message": "Initial commit: BasicBarcode .NET 8 migration project",
-          "body": "- Migrated from .NET Framework to .NET 8",
-          "category": "其他",
           "tags": []
         }
       ],
@@ -8209,101 +8170,6 @@
       "type": "side"
     },
     {
-      "name": "ResearchSeminar-3H",
-      "totalCommits": 11,
-      "commits": [
-        {
-          "hash": "2813bb02",
-          "date": "2025-09-10",
-          "message": "Add literature review report and reference materials",
-          "body": "- Complete literature review report focusing on serum uric acid control and hypertension risk",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e05f90b1",
-          "date": "2025-09-16",
-          "message": "Add four main content description files for thesis submission",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c02dcbe5",
-          "date": "2025-09-16",
-          "message": "Add course materials and documentation folders",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "97795068",
-          "date": "2025-09-23",
-          "message": "更新文獻閱讀心得報告內容",
-          "body": "- 完成兩篇論文的文獻來源整理",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7dc771b0",
-          "date": "2025-09-30",
-          "message": "更換期中報告論文為AI心血管疾病診斷研究",
-          "body": "- 替換原有血清尿酸論文為機器學習心血管疾病診斷模型",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "25dc82f5",
-          "date": "2025-10-01",
-          "message": "新增15分鐘簡報內容文件",
-          "body": "- 建立完整的簡報架構（17張投影片）",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "5d00f823",
-          "date": "2025-10-02",
-          "message": "新增15分鐘簡報講稿（完成前3頁內容）",
-          "body": "- 撰寫完整的15頁簡報講稿架構",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "2924ca46",
-          "date": "2025-10-14",
-          "message": "新增混淆矩陣評估指標備忘錄與更新簡報講稿",
-          "body": "- 新增confusion_matrix_metrics.md：整理Accuracy、Sensitivity、Specificity、Precision、FPR等指標定義與ROC/AUC說明",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "f83dd25a",
-          "date": "2025-10-27",
-          "message": "新增文獻閱讀報告內容與格式檢查清單",
-          "body": "- 新增二_文獻來源.md：主要研究論文3篇",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "94c94d4b",
-          "date": "2025-10-27",
-          "message": "清理參考文獻過程檔案，僅保留最終整合版",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "dcfeb0f5",
-          "date": "2025-10-27",
-          "message": "新增參考文獻整合（12篇核心論文）",
-          "body": "- 完成12篇核心參考文獻整理（IEEE格式）",
-          "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
       "name": "work-progress",
       "totalCommits": 11,
       "commits": [
@@ -8393,6 +8259,77 @@
           "message": "docs: 每日工作紀錄 2025-10-22 (8 commits)",
           "body": "🤖 自動生成於 2025-10-23 07:05",
           "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "totalCommits": 8,
+      "commits": [
+        {
+          "hash": "2813bb02",
+          "date": "2025-09-10",
+          "message": "Add literature review report and reference materials",
+          "body": "- Complete literature review report focusing on serum uric acid control and hypertension risk",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e05f90b1",
+          "date": "2025-09-16",
+          "message": "Add four main content description files for thesis submission",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c02dcbe5",
+          "date": "2025-09-16",
+          "message": "Add course materials and documentation folders",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "97795068",
+          "date": "2025-09-23",
+          "message": "更新文獻閱讀心得報告內容",
+          "body": "- 完成兩篇論文的文獻來源整理",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7dc771b0",
+          "date": "2025-09-30",
+          "message": "更換期中報告論文為AI心血管疾病診斷研究",
+          "body": "- 替換原有血清尿酸論文為機器學習心血管疾病診斷模型",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "25dc82f5",
+          "date": "2025-10-01",
+          "message": "新增15分鐘簡報內容文件",
+          "body": "- 建立完整的簡報架構（17張投影片）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5d00f823",
+          "date": "2025-10-02",
+          "message": "新增15分鐘簡報講稿（完成前3頁內容）",
+          "body": "- 撰寫完整的15頁簡報講稿架構",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2924ca46",
+          "date": "2025-10-14",
+          "message": "新增混淆矩陣評估指標備忘錄與更新簡報講稿",
+          "body": "- 新增confusion_matrix_metrics.md：整理Accuracy、Sensitivity、Specificity、Precision、FPR等指標定義與ROC/AUC說明",
+          "category": "功能開發",
           "tags": []
         }
       ],

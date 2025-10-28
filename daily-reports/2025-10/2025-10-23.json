@@ -1,0 +1,78 @@
+{
+  "date": "2025-10-23",
+  "weekday": "四",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "095e4a4a",
+          "time": "09:01",
+          "message": "docs: 更新彙整資料並整合 work-progress 專案（2025-10-22）",
+          "body": "- 新增 work-progress 專案紀錄（6 commits）"
+        },
+        {
+          "hash": "c0bfc40d",
+          "time": "08:47",
+          "message": "feat: 整合 work-progress 專案紀錄（歸類為 side project）",
+          "body": "- 移除 work-progress 專案的排除邏輯，將其納入 side project 統計"
+        },
+        {
+          "hash": "27064bc4",
+          "time": "08:42",
+          "message": "fix: 修正工作進度介面顯示問題並調整預設日期範圍",
+          "body": "- 修改預設結束日期為昨天（避免顯示今天未完成的資料）"
+        },
+        {
+          "hash": "cdb6ceaa",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-10-23",
+          "body": "🤖 自動生成於 2025-10-23 07:05"
+        },
+        {
+          "hash": "98073d63",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-10-22 (8 commits)",
+          "body": "🤖 自動生成於 2025-10-23 07:05"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "kids-time-control",
+      "commits": [
+        {
+          "hash": "7d2f51fe",
+          "time": "11:13",
+          "message": "更新 Flutter 程式碼和待辦事項",
+          "body": "- 修正 Flutter 程式碼的 linter 警告"
+        },
+        {
+          "hash": "e6cd20c2",
+          "time": "10:35",
+          "message": "新增測試流程文件和核心 Flutter 檔案",
+          "body": "完成項目："
+        },
+        {
+          "hash": "c6e3421f",
+          "time": "09:34",
+          "message": "實作核心時間控制功能",
+          "body": "- 建立後端 Express + Socket.io 服務架構"
+        },
+        {
+          "hash": "e4391f1b",
+          "time": "09:24",
+          "message": "Initial commit: Kids Time Control project setup",
+          "body": "- Add project specification document"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 9,
+    "totalCommits": 9
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "date": "2025-10-27",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "label-printing",
+      "commits": [
+        {
+          "hash": "2251d1ea",
+          "time": "12:39",
+          "message": "Add .NET 8 migration with SQL Injection protection",
+          "body": "- Migrate BasicBarcode from .NET Framework to .NET 8"
+        },
+        {
+          "hash": "349e9368",
+          "time": "12:26",
+          "message": "Initial commit: BasicBarcode .NET 8 migration project",
+          "body": "- Migrated from .NET Framework to .NET 8"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "abf2b0a2",
+          "time": "10:58",
+          "message": "優化日誌輸出並加入 PAT_RESULTD 統計",
+          "body": "1. 日誌優化"
+        },
+        {
+          "hash": "91454f7c",
+          "time": "10:44",
+          "message": "修正 pat_resultd 同步缺少 MLT_NAME 欄位的問題",
+          "body": "1. 問題發現"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "f83dd25a",
+          "time": "17:57",
+          "message": "新增文獻閱讀報告內容與格式檢查清單",
+          "body": "- 新增二_文獻來源.md：主要研究論文3篇"
+        },
+        {
+          "hash": "94c94d4b",
+          "time": "16:06",
+          "message": "清理參考文獻過程檔案，僅保留最終整合版",
+          "body": ""
+        },
+        {
+          "hash": "dcfeb0f5",
+          "time": "16:02",
+          "message": "新增參考文獻整合（12篇核心論文）",
+          "body": "- 完成12篇核心參考文獻整理（IEEE格式）"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 3,
+    "totalCommits": 7
+  }
+}
