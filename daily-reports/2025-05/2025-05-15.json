@@ -1,0 +1,54 @@
+{
+  "date": "2025-05-15",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ab87178b",
+          "time": "14:36",
+          "message": "新增列印按鈕 for 列印標籤 調整中文姓名 (異體字邏輯)",
+          "body": ""
+        },
+        {
+          "hash": "742baa9a",
+          "time": "08:51",
+          "message": "LT274允許不選擇收檢路線",
+          "body": ""
+        },
+        {
+          "hash": "ce3af53a",
+          "time": "08:50",
+          "message": "台中 oracle retrun nextval 有點問題",
+          "body": ""
+        },
+        {
+          "hash": "b292a3a4",
+          "time": "07:42",
+          "message": "資料遮罩取消，中文姓名 1O3 > 123",
+          "body": ""
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "80333b9f",
+          "time": "14:33",
+          "message": "預設不啟動富盈模式 PID支援中文傳入 嘗試解決異體字 a. TSCLIB_DLL.windowsfontU b. 若遇到 bug (text[0] == 0) 的情況 call 舊的  TSCLIB_DLL.windowsfont",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 0,
+    "totalCommits": 5
+  }
+}

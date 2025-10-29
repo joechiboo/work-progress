@@ -1,0 +1,30 @@
+{
+  "date": "2025-05-27",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "90d936c3",
+          "time": "18:46",
+          "message": "台中帶入當天預設值",
+          "body": ""
+        },
+        {
+          "hash": "337cf46c",
+          "time": "18:21",
+          "message": "api更換, 增加單位縮寫",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}

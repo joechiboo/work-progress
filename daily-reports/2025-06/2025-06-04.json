@@ -1,0 +1,42 @@
+{
+  "date": "2025-06-04",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f0cdaab5",
+          "time": "19:46",
+          "message": "加個change trigger GET_DC_CODE()",
+          "body": ""
+        },
+        {
+          "hash": "4e6125c4",
+          "time": "12:13",
+          "message": "Merge remote-tracking branch 'origin/main' into LT276電話通報",
+          "body": "# Conflicts:"
+        },
+        {
+          "hash": "04a5ad27",
+          "time": "12:06",
+          "message": "好像也不用分了，都隱藏",
+          "body": ""
+        },
+        {
+          "hash": "e67e78cc",
+          "time": "12:04",
+          "message": "新增功能",
+          "body": ""
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}

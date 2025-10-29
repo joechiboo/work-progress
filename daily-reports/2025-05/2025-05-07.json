@@ -1,0 +1,61 @@
+{
+  "date": "2025-05-07",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3fb059c1",
+          "time": "19:07",
+          "message": "按照站台顯示熱建提示",
+          "body": ""
+        },
+        {
+          "hash": "02ef794a",
+          "time": "12:28",
+          "message": "檢體管名稱從 LIS 抓",
+          "body": "接下來把球交給 William"
+        },
+        {
+          "hash": "7bc7698b",
+          "time": "11:56",
+          "message": "1. list query 建好了 2. 勾選「醫令清單」連動影響「檢驗項目」",
+          "body": ""
+        },
+        {
+          "hash": "333612b7",
+          "time": "08:52",
+          "message": "query 更新",
+          "body": ""
+        },
+        {
+          "hash": "c3735314",
+          "time": "08:29",
+          "message": "1. 畫面清空 (layout mock data clean) 2. 宣告三支 api (list, 簽收, 退件)",
+          "body": ""
+        }
+      ],
+      "count": 5
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "68961bcd",
+          "time": "07:52",
+          "message": "1. 第二屆管理委員名單更新 2. 登入後門",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 1,
+    "totalCommits": 6
+  }
+}

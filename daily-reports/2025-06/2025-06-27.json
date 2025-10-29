@@ -1,0 +1,36 @@
+{
+  "date": "2025-06-27",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "de816ebb",
+          "time": "11:57",
+          "message": "更新醫令閘門",
+          "body": ""
+        },
+        {
+          "hash": "e0807921",
+          "time": "11:35",
+          "message": "新增 0578 聯準診所 Title 帶大安印章",
+          "body": ""
+        },
+        {
+          "hash": "ed28bc0f",
+          "time": "09:11",
+          "message": "新增一個按鈕 Layout",
+          "body": "後續還要"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 0,
+    "totalCommits": 3
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "date": "2025-06-20",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "e490c87b",
+          "time": "12:45",
+          "message": "外送在審核附加報告時，加貼一張標籤在紙本上",
+          "body": ""
+        },
+        {
+          "hash": "e267ee87",
+          "time": "12:23",
+          "message": "Auto Verification Control Default Value 9 Block All 檢查了台北的工作站設定，全部都是 9",
+          "body": ""
+        },
+        {
+          "hash": "c90e99cd",
+          "time": "11:48",
+          "message": "印章同名衝突",
+          "body": ""
+        },
+        {
+          "hash": "73ee8500",
+          "time": "11:45",
+          "message": "單筆報告查詢增家就醫日期，並客製化桃園版面 (傳真電話 > 就醫日期)",
+          "body": ""
+        },
+        {
+          "hash": "f08f6bf1",
+          "time": "10:40",
+          "message": "點健保申報可以快速切換全申報或全自費",
+          "body": ""
+        },
+        {
+          "hash": "1ea9a6a4",
+          "time": "10:19",
+          "message": "TaxModal 整合到 BT201 這樣比較好芬站台客製化",
+          "body": ""
+        },
+        {
+          "hash": "7154198f",
+          "time": "09:59",
+          "message": "更新印章 - 用小畫家做一個 (仿新竹",
+          "body": ""
+        }
+      ],
+      "count": 7
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 0,
+    "totalCommits": 7
+  }
+}

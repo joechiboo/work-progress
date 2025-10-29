@@ -1,0 +1,49 @@
+{
+  "date": "2025-05-06",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "HIS\\SyncLisData",
+      "commits": [
+        {
+          "hash": "cc323e7a",
+          "time": "10:15",
+          "message": "1. 醫令轉入條件調整，應該不管有無簽收都要轉入 2. 更新狀態 method 擴充，並調整流程，醫令轉入完 要更新為 \"P\"",
+          "body": ""
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a207ff46",
+          "time": "12:52",
+          "message": "單筆模式 layout",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "5eba1383",
+          "time": "12:17",
+          "message": "第二屆管理委員會",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 1,
+    "totalCommits": 3
+  }
+}

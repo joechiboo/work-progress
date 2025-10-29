@@ -1,0 +1,43 @@
+{
+  "date": "2025-06-12",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1d08c9a5",
+          "time": "08:51",
+          "message": "做個 Null Exception 防呆",
+          "body": ""
+        },
+        {
+          "hash": "2638c750",
+          "time": "08:47",
+          "message": "先 filter 項目全部完成的報告 若沒有完成，就不更改通報flag",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "1b788150",
+          "time": "10:22",
+          "message": "第三次例行會議",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 1,
+    "totalCommits": 3
+  }
+}

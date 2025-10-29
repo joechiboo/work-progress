@@ -1,0 +1,48 @@
+{
+  "date": "2025-05-23",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "82cad457",
+          "time": "08:11",
+          "message": "如果是空白就不加密了，不然會跳一個錯",
+          "body": ""
+        },
+        {
+          "hash": "ea4a743c",
+          "time": "08:10",
+          "message": "晚了就不要了",
+          "body": ""
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Report\\FOBT",
+      "commits": [
+        {
+          "hash": "1a095f49",
+          "time": "17:44",
+          "message": "這個 query  原本是 ORD_DTL & ORD_HDR 調整成 ORD_DTL & HORD_HDR 只有差 一個 column 是 OD_UPDATE_BY 改成 抓 EVENTLOG",
+          "body": ""
+        },
+        {
+          "hash": "01f06fd8",
+          "time": "08:39",
+          "message": "clone project",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}

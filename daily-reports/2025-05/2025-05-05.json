@@ -1,0 +1,30 @@
+{
+  "date": "2025-05-05",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "HIS\\SyncLisData",
+      "commits": [
+        {
+          "hash": "20fff9d4",
+          "time": "11:29",
+          "message": "調整成一致條件，避免意外",
+          "body": ""
+        },
+        {
+          "hash": "0cf666d1",
+          "time": "11:28",
+          "message": "加入 config 控制是否需顯示 sql 幫助排查問題, 調整轉入醫令簽收條件",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}

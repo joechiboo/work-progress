@@ -1,0 +1,43 @@
+{
+  "date": "2025-05-21",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ae747908",
+          "time": "13:02",
+          "message": "條件爆炸",
+          "body": ""
+        },
+        {
+          "hash": "990ad32b",
+          "time": "08:29",
+          "message": "桃園/嘉義不知道為何 BT101 單位有時出不來",
+          "body": "加一道防線，若modal開啟時沒有資料就再撈一次"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "1e14d265",
+          "time": "10:08",
+          "message": "第二屆管理委員會第一次例會會議紀錄",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 1,
+    "totalCommits": 3
+  }
+}

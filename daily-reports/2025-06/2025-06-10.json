@@ -1,0 +1,54 @@
+{
+  "date": "2025-06-10",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1f721ccf",
+          "time": "19:18",
+          "message": "LT275 篩選欄位 加入「員工」 filter 病歷號欄位 (ID_APID)",
+          "body": ""
+        },
+        {
+          "hash": "e8c86247",
+          "time": "11:51",
+          "message": "同仁反映 alert 會反灰，眼睛不舒服 改成 toast 提示在右邊",
+          "body": "如果之後不想用，可以直接在 function showToast"
+        },
+        {
+          "hash": "34e0e5b5",
+          "time": "11:16",
+          "message": "## 💡 調整說明 / Description",
+          "body": "本次調整針對 BT301 頁面客戶單位搜尋功能，改善使用者體驗與資料過濾準確性。"
+        },
+        {
+          "hash": "e90f8811",
+          "time": "10:32",
+          "message": "主要是對 gernate table 做改動， 把資料存進 memory",
+          "body": ""
+        },
+        {
+          "hash": "d6ba0de0",
+          "time": "09:59",
+          "message": "Merge branch 'main' into BT410維護功能",
+          "body": ""
+        },
+        {
+          "hash": "6208cbdc",
+          "time": "09:52",
+          "message": "先解決問題，再想想取得價格那邊是不是有問題",
+          "body": ""
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 0,
+    "totalCommits": 6
+  }
+}

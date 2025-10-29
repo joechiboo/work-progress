@@ -1,0 +1,66 @@
+{
+  "date": "2025-05-09",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "8100e322",
+          "time": "17:52",
+          "message": "找到為什麼會存檔兩次了 真的是因為寫了兩次",
+          "body": ""
+        },
+        {
+          "hash": "acb675b4",
+          "time": "15:54",
+          "message": "又跑出來存檔兩次的問題，感覺還是得用 input, select, button 限制",
+          "body": ""
+        },
+        {
+          "hash": "0744b2d9",
+          "time": "14:42",
+          "message": "沒 focus 或著 button 沒法熱鍵存檔",
+          "body": ""
+        },
+        {
+          "hash": "146a5627",
+          "time": "13:07",
+          "message": "Merge branch 'main' into BT201醫師欄位僅顯示該單位醫師",
+          "body": "# Conflicts:"
+        },
+        {
+          "hash": "b3a709c4",
+          "time": "11:43",
+          "message": "新增一個擴充 Modal 關聯事件(鍵盤/滑鼠) 新增一個 api",
+          "body": ""
+        },
+        {
+          "hash": "c61b678f",
+          "time": "09:37",
+          "message": "猶豫到底是放在 script 中還是外呢 ?",
+          "body": ""
+        },
+        {
+          "hash": "cb0ec55a",
+          "time": "09:29",
+          "message": "先把大問題減小 把註解/沒用到的 function 砍掉",
+          "body": ""
+        },
+        {
+          "hash": "4515fa43",
+          "time": "07:53",
+          "message": "新增全域字型修改 14 > 16 (可設) 18容易跑版, 預設為不調整",
+          "body": "有概略性的跑過 BT201, LT253, LT302, 列印紙本報告 > 看起來沒問題"
+        }
+      ],
+      "count": 8
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 0,
+    "totalCommits": 8
+  }
+}

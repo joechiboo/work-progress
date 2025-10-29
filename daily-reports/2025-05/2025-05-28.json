@@ -1,0 +1,48 @@
+{
+  "date": "2025-05-28",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "24e8cfb1",
+          "time": "11:44",
+          "message": "LT252 F9 選擇片語時，目前只有↑↓, 新增 pagedown/pageup",
+          "body": ""
+        },
+        {
+          "hash": "3b879ec4",
+          "time": "11:03",
+          "message": "不知道會不會有很多可怕的影響 乍看之下只有 TestGroupRepository/WorkStationRepository 會用",
+          "body": ""
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "UPC\\Back",
+      "commits": [
+        {
+          "hash": "f3389aaa",
+          "time": "10:12",
+          "message": "fix 儲存失敗",
+          "body": ""
+        },
+        {
+          "hash": "cc254a8f",
+          "time": "08:25",
+          "message": "新增門診表維護功能",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}

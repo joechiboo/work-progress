@@ -1,0 +1,36 @@
+{
+  "date": "2025-07-11",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "cd77e182",
+          "time": "19:13",
+          "message": "拔掉 time sleep 讓他更順暢",
+          "body": ""
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "9a11b5f0",
+          "time": "10:44",
+          "message": "調整一下 query",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}

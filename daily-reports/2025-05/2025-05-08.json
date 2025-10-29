@@ -1,0 +1,36 @@
+{
+  "date": "2025-05-08",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b1e52885",
+          "time": "11:47",
+          "message": "不知道為何發佈到正式機上會跳兩格， 1. 增加了 data-row 欄位控制跳格",
+          "body": ""
+        },
+        {
+          "hash": "099c1b58",
+          "time": "10:23",
+          "message": "整合 NextStep 進 step 邏輯，不然客製化順序會卡住",
+          "body": ""
+        },
+        {
+          "hash": "d27c6bd1",
+          "time": "09:14",
+          "message": "發現還存在 NextStep bug",
+          "body": ""
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 0,
+    "totalCommits": 3
+  }
+}

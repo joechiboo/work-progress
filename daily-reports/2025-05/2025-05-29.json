@@ -1,0 +1,36 @@
+{
+  "date": "2025-05-29",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "54d9922d",
+          "time": "17:56",
+          "message": "調整一下寬度比例",
+          "body": ""
+        },
+        {
+          "hash": "01ee1257",
+          "time": "16:13",
+          "message": "新增 LT276 電話通報 一些基礎的 Layout",
+          "body": ""
+        },
+        {
+          "hash": "14afa773",
+          "time": "07:36",
+          "message": "BT410 收據自動編號與列印儲存功能",
+          "body": "新增 Oracle ADO Repository：GetNextReceiptNo, SaveReceipt"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 0,
+    "totalCommits": 3
+  }
+}

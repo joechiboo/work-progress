@@ -1,0 +1,66 @@
+{
+  "date": "2025-06-06",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "87b57227",
+          "time": "14:24",
+          "message": "擴充病歷號和單位的綁定關係",
+          "body": ""
+        },
+        {
+          "hash": "10bf8199",
+          "time": "12:39",
+          "message": "存檔時寫入 mapping 表",
+          "body": ""
+        },
+        {
+          "hash": "24d715ce",
+          "time": "12:25",
+          "message": "開一張表 mapping ID, ID_SOURCE_CODE, APID",
+          "body": ""
+        },
+        {
+          "hash": "53afc6d2",
+          "time": "11:19",
+          "message": "將 modal 內控制移除，移到 BT201 (應該沒有其他頁面會用吧) 判斷站台客製化",
+          "body": ""
+        },
+        {
+          "hash": "be88b1c2",
+          "time": "08:25",
+          "message": "加個選項控制身分證隱藏",
+          "body": "還是會按照單位設定的方式隱藏 (如果單位設定不隱藏那還是會顯示)"
+        },
+        {
+          "hash": "83aa93ae",
+          "time": "07:39",
+          "message": "預設不隱藏 (若Debtor_detail 沒設定)",
+          "body": ""
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "NotificationPlatform",
+      "commits": [
+        {
+          "hash": "14b1f07c",
+          "time": "08:43",
+          "message": "不要再寄給我了",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 0,
+    "totalCommits": 7
+  }
+}

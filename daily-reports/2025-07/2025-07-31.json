@@ -68,6 +68,18 @@
           "body": "## Workflow Improvements"
         },
         {
+          "hash": "1f0f85ca",
+          "time": "19:14",
+          "message": "ci: add Azure Static Web Apps workflow file on-behalf-of: @Azure opensource@microsoft.com",
+          "body": ""
+        },
+        {
+          "hash": "91745375",
+          "time": "18:52",
+          "message": "ci: add Azure Static Web Apps workflow file on-behalf-of: @Azure opensource@microsoft.com",
+          "body": ""
+        },
+        {
           "hash": "08eb737f",
           "time": "18:49",
           "message": "Complete portfolio website optimization and Azure deployment setup",
@@ -80,18 +92,24 @@
           "body": "- Merge with remote repository"
         },
         {
+          "hash": "0c81e5bc",
+          "time": "12:49",
+          "message": "Initial commit",
+          "body": ""
+        },
+        {
           "hash": "b26b115a",
           "time": "12:45",
           "message": "Initial commit: Complete Vue.js portfolio website",
           "body": "- Set up Vue 3 project with Vue Router"
         }
       ],
-      "count": 9
+      "count": 12
     }
   ],
   "summary": {
     "workCommits": 3,
-    "sideCommits": 9,
-    "totalCommits": 12
+    "sideCommits": 12,
+    "totalCommits": 15
   }
 }

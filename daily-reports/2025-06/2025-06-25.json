@@ -1,0 +1,30 @@
+{
+  "date": "2025-06-25",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "973bc520",
+          "time": "09:52",
+          "message": "原本就有縮字 > ... 的功能 但 8 個字不夠，調整為 7 個字",
+          "body": ""
+        },
+        {
+          "hash": "145635b0",
+          "time": "08:05",
+          "message": "24 > 4",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}

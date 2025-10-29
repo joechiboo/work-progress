@@ -1,0 +1,60 @@
+{
+  "date": "2025-05-13",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "bb9270ed",
+          "time": "14:54",
+          "message": "新增申報跳轉邏輯",
+          "body": ""
+        },
+        {
+          "hash": "90cb839a",
+          "time": "12:58",
+          "message": "Merge branch 'main' into BT201醫師欄位僅顯示該單位醫師",
+          "body": "# Conflicts:"
+        },
+        {
+          "hash": "dc1dd3f3",
+          "time": "12:56",
+          "message": "新增桃園客製化順序",
+          "body": ""
+        },
+        {
+          "hash": "de86ce68",
+          "time": "12:43",
+          "message": "新增參數控制是否連動醫師 (怕其他分部爆炸",
+          "body": ""
+        },
+        {
+          "hash": "020aaa96",
+          "time": "10:55",
+          "message": "感覺邏輯需要整合，不然容易漏掉一些細節",
+          "body": ""
+        },
+        {
+          "hash": "93a46993",
+          "time": "10:13",
+          "message": "強化標題與表頭的辨識度 改善列印品質（避免灰色字）",
+          "body": "可以考慮改變字型, 編號(數字)會變大"
+        },
+        {
+          "hash": "14ccb5ad",
+          "time": "09:48",
+          "message": "原本用項目代號 05001 判斷，改成用檢體類別判斷 並加上 UNINE 也不簽收的邏輯",
+          "body": ""
+        }
+      ],
+      "count": 7
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 0,
+    "totalCommits": 7
+  }
+}

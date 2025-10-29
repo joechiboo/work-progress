@@ -1,0 +1,30 @@
+{
+  "date": "2025-05-20",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "4357e312",
+          "time": "12:01",
+          "message": "新增參數開關連動 會將病歷號存回去 CUST_MASTER.IC_NO 輸入身分證時，也會將 IC_NO 帶入進 ID_APID",
+          "body": ""
+        },
+        {
+          "hash": "6ae70f5e",
+          "time": "09:52",
+          "message": "理想中，希望醫檢師們可以透過 LIS 自行維護處理 相關的雙向連線",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}

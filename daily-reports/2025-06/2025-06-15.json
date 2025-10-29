@@ -1,0 +1,30 @@
+{
+  "date": "2025-06-15",
+  "weekday": "日",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1d1a1004",
+          "time": "20:58",
+          "message": "hohoho",
+          "body": ""
+        },
+        {
+          "hash": "082a1685",
+          "time": "16:09",
+          "message": "調整地址、英文地址、印章 (聯明 > 聯合)",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}

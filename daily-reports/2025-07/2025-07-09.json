@@ -1,0 +1,36 @@
+{
+  "date": "2025-07-09",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "58055030",
+          "time": "13:52",
+          "message": "錯誤時，把參數也打出來",
+          "body": ""
+        },
+        {
+          "hash": "e4fd9047",
+          "time": "13:50",
+          "message": "待檢中顯示黃色 > 發現如果有報告還沒發，會無法通報",
+          "body": ""
+        },
+        {
+          "hash": "5f17d0f8",
+          "time": "13:49",
+          "message": "修復query",
+          "body": ""
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 0,
+    "totalCommits": 3
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "date": "2025-07-03",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f28f6dc1",
+          "time": "16:56",
+          "message": "危險數據清單原本有一個特殊規則 特別單位，在特定項目符合規則時列出 但剛打來說不要了",
+          "body": "說是因為二次委外的單位，所以不要通知"
+        },
+        {
+          "hash": "160eaee2",
+          "time": "12:19",
+          "message": "由於資料庫中，TR_AGETO 都是存 DAYS 前人很值覺得就把 DAYS / 365 當作 YEARS 了",
+          "body": "但其實 TR_AGECODE 有分 D/M/Y"
+        },
+        {
+          "hash": "b88a938b",
+          "time": "11:43",
+          "message": "統計欄位",
+          "body": ""
+        },
+        {
+          "hash": "c609c7f1",
+          "time": "11:17",
+          "message": "query 兜好了",
+          "body": ""
+        },
+        {
+          "hash": "6220886d",
+          "time": "08:30",
+          "message": "Merge branch 'main' into TAT時效未合格率報表",
+          "body": ""
+        },
+        {
+          "hash": "f2ba0b7d",
+          "time": "08:17",
+          "message": "參數改了BT300B 一拆二 ，後端抓不到",
+          "body": ""
+        },
+        {
+          "hash": "772362da",
+          "time": "08:00",
+          "message": "config 怎麼設定有問題",
+          "body": ""
+        },
+        {
+          "hash": "595f04b6",
+          "time": "06:41",
+          "message": "之前好像有處理過 ?",
+          "body": ""
+        }
+      ],
+      "count": 8
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 0,
+    "totalCommits": 8
+  }
+}

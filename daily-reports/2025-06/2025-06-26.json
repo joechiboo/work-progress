@@ -1,0 +1,60 @@
+{
+  "date": "2025-06-26",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "79580658",
+          "time": "15:28",
+          "message": "漏了參數",
+          "body": ""
+        },
+        {
+          "hash": "01fa7b72",
+          "time": "14:31",
+          "message": "調整標籤 QRCode format tno _ itemCode _ year",
+          "body": "itemCode 有點怕抓不到，萬一沒有 ATT 就抓第一筆"
+        },
+        {
+          "hash": "ff8e96b5",
+          "time": "10:51",
+          "message": "夢雲不想要了，先取消 怕說之後還要用，先遮罩",
+          "body": ""
+        },
+        {
+          "hash": "87ebbc61",
+          "time": "08:29",
+          "message": "1. 新增一個按鈕控制「顯示套餐頭」 2. 查詢頁(LT225W) 收斂了複雜的參數宣告 3. 顯示頁(PrintWorkList) 新增了一個 helper 收斂重複顯示的 TI_NAME",
+          "body": ""
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "177af3e5",
+          "time": "14:14",
+          "message": "拆分 QRCode & tno",
+          "body": "QRCode 邏輯 tno_itemCode_Year"
+        },
+        {
+          "hash": "010a8596",
+          "time": "12:38",
+          "message": "1. 新增 QRCode 列印模式 2. 切一個 function 讓以後中文字可以輸出異體字 3. 增加uri註解幫助以後測試",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 0,
+    "totalCommits": 6
+  }
+}

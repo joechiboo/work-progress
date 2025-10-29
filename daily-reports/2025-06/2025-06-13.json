@@ -1,0 +1,30 @@
+{
+  "date": "2025-06-13",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "82ea0906",
+          "time": "17:01",
+          "message": "Merge branch 'main' into 增加參數判斷要不要DefaultQueue",
+          "body": "# Conflicts:"
+        },
+        {
+          "hash": "68f22cb4",
+          "time": "15:00",
+          "message": "Default true 台中 false",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 0,
+    "totalCommits": 2
+  }
+}

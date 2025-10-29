@@ -1,0 +1,73 @@
+{
+  "date": "2025-06-05",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "5fd21820",
+          "time": "12:10",
+          "message": "前端頁面呈現病歷號 由於加了一個欄位，增加一個縮減長度的機制",
+          "body": ""
+        },
+        {
+          "hash": "b21322b0",
+          "time": "12:05",
+          "message": "老天請保佑我效率不要太慢",
+          "body": ""
+        },
+        {
+          "hash": "77515f3c",
+          "time": "10:08",
+          "message": "調整INDEX 避免重複列印時跳錯 > RECEIPTS 變成 log 表",
+          "body": ""
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Common\\WebApiService",
+      "commits": [
+        {
+          "hash": "d6c09a63",
+          "time": "07:59",
+          "message": "這麼一大包，但只用到小小的部分 斟酌",
+          "body": ""
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "Report\\FoodAllergyTestReport",
+      "commits": [
+        {
+          "hash": "09703106",
+          "time": "08:47",
+          "message": "這個版本印出去完成日期是正確的",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "206ca597",
+          "time": "12:55",
+          "message": "第二次例行會議",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 1,
+    "totalCommits": 6
+  }
+}

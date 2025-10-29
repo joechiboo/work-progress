@@ -1,0 +1,66 @@
+{
+  "date": "2025-06-24",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2bd9b09a",
+          "time": "16:42",
+          "message": "BT201原本有檔LDTs部份單位無法存檔 但要開個特例 0439",
+          "body": ""
+        },
+        {
+          "hash": "fa11e7fe",
+          "time": "12:31",
+          "message": "靜平啟用, 其他單位預設關閉",
+          "body": ""
+        },
+        {
+          "hash": "81d3b387",
+          "time": "12:26",
+          "message": "信件內容調整",
+          "body": ""
+        },
+        {
+          "hash": "e615f8ad",
+          "time": "12:26",
+          "message": "多寫一個單位名稱",
+          "body": ""
+        },
+        {
+          "hash": "0bcfd7d8",
+          "time": "12:25",
+          "message": "拔掉 Authorise, 後端 HttpClient 不知道怎麼拿授權",
+          "body": ""
+        },
+        {
+          "hash": "707b151c",
+          "time": "11:23",
+          "message": "整合 EmailService api",
+          "body": ""
+        },
+        {
+          "hash": "2eb9c387",
+          "time": "10:32",
+          "message": "Merge branch 'main' into 醫令更新通知",
+          "body": ""
+        },
+        {
+          "hash": "f90dd10a",
+          "time": "10:20",
+          "message": "GetEmail 優先抓醫師 Email 若找不到，再抓單位 Email",
+          "body": ""
+        }
+      ],
+      "count": 8
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 0,
+    "totalCommits": 8
+  }
+}

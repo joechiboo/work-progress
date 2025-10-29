@@ -1,0 +1,24 @@
+{
+  "date": "2025-06-28",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "e86f2f2e",
+          "time": "15:53",
+          "message": "FYI",
+          "body": ""
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 0,
+    "totalCommits": 1
+  }
+}

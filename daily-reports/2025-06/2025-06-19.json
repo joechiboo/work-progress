@@ -1,0 +1,24 @@
+{
+  "date": "2025-06-19",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "06da7ca1",
+          "time": "12:39",
+          "message": "## 🚀 功能說明：BT201 限制 LDTs 項目輸入",
+          "body": "- 加入 `appConfig.enableBT201LDTsCheck` 設定開關，控制前端是否啟用檢查邏輯。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 0,
+    "totalCommits": 1
+  }
+}

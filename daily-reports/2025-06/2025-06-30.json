@@ -1,0 +1,24 @@
+{
+  "date": "2025-06-30",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "98d5735a",
+          "time": "17:45",
+          "message": "前端調整： 1. 由於使用者和QC狀態不要自動補10碼，所以將Layout 位置調整了一下 先決定要搜尋什麼，再 keyin TNO",
+          "body": "2. 把查詢種類 change 拔掉了, 不然會跳 TNO 為空"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 0,
+    "totalCommits": 1
+  }
+}

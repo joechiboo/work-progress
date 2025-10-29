@@ -1,0 +1,42 @@
+{
+  "date": "2025-06-09",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "6a1f534f",
+          "time": "11:55",
+          "message": "新增維護功能，輸入收據號碼可以調出過去的紀錄",
+          "body": ""
+        },
+        {
+          "hash": "8fe78a9c",
+          "time": "10:53",
+          "message": "發現原本就有QC選項，將選項兜入Modal 並增加鍵盤/滑鼠事件",
+          "body": ""
+        },
+        {
+          "hash": "378c03c3",
+          "time": "10:18",
+          "message": "新增參數控制 LT255 報告排序方式",
+          "body": ""
+        },
+        {
+          "hash": "5af27de5",
+          "time": "09:28",
+          "message": "增加攔截條件， 若身份證為 00 就不執行 若inputs 若有空白或 null 就不執行",
+          "body": ""
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 0,
+    "totalCommits": 4
+  }
+}
