@@ -1,0 +1,163 @@
+{
+  "date": "2025-10-29",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "label-printing",
+      "commits": [
+        {
+          "hash": "8c550da6",
+          "time": "19:39",
+          "message": "新增重構文檔 REFACTORING.md",
+          "body": "記錄完整的重構過程與成果："
+        },
+        {
+          "hash": "ee08e8d3",
+          "time": "19:32",
+          "message": "移除 publish.bat 批次檔",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "6d12da03",
+          "time": "19:20",
+          "message": "新增功能與修正問題",
+          "body": "功能改善："
+        },
+        {
+          "hash": "98eaa432",
+          "time": "18:49",
+          "message": "修正 email 儲存邏輯與清除所有編譯警告",
+          "body": "- Email 處理優化：只儲存第一個 email 到 DBEMAIL 欄位，避免與外部系統不相容"
+        },
+        {
+          "hash": "636839c8",
+          "time": "14:06",
+          "message": "調整標籤尺寸為 50mm x 35mm 並支援多個 email 顯示",
+          "body": "- 新增 appsettings.json 標籤尺寸設定（可彈性調整）"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d4a7ae89",
+          "time": "17:42",
+          "message": "fix: 修正 Modal 關閉按鈕無法運作的問題",
+          "body": "- 更新為 Bootstrap 5 的語法 (data-bs-dismiss 取代 data-dismiss)"
+        },
+        {
+          "hash": "e2fc9cc1",
+          "time": "17:37",
+          "message": "perf: 優化收檢員管理編輯功能，減少 API 呼叫",
+          "body": "- 新增 collectorsCache 全域變數儲存收檢員資料"
+        },
+        {
+          "hash": "229a998c",
+          "time": "17:29",
+          "message": "feat: 新增修復 COLLECTORS 表 IDENTITY 問題的 SQL 腳本",
+          "body": "- 檢查並修復 CM_ID 欄位為 IDENTITY 自增長"
+        },
+        {
+          "hash": "3a8aebe2",
+          "time": "17:25",
+          "message": "fix: 修復收檢員管理編輯功能錯誤",
+          "body": "- 修改 GetActiveRoutes 方法從 COLLECTORS 表取得路線資料"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "4bf4c5ce",
+          "time": "08:23",
+          "message": "docs: 新增加班超標因應策略文件",
+          "body": "- 分析現況：7人違反三個月加班上限、8人次違反單日加班上限"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "8fe97a2a",
+          "time": "09:30",
+          "message": "docs: 更新彙整資料 2025-10-29",
+          "body": "🤖 自動生成於 2025-10-29 09:30"
+        },
+        {
+          "hash": "563b2f15",
+          "time": "09:30",
+          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
+          "body": "🤖 自動生成於 2025-10-29 09:30"
+        },
+        {
+          "hash": "821a9c8e",
+          "time": "09:17",
+          "message": "docs: 補充 5-7 月每日工作紀錄",
+          "body": "- 新增 2025-05 月紀錄（17 天）"
+        },
+        {
+          "hash": "c697d19e",
+          "time": "07:48",
+          "message": "fix: 修正 auto-daily-report.py 語法錯誤並新增推送保險機制",
+          "body": "- 修正 git push 錯誤處理（移除非函數中的 return）"
+        },
+        {
+          "hash": "7db040c0",
+          "time": "07:44",
+          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
+          "body": "🤖 自動生成於 2025-10-29 07:44"
+        },
+        {
+          "hash": "4bf91b6b",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-10-29",
+          "body": "🤖 自動生成於 2025-10-29 07:05"
+        },
+        {
+          "hash": "281dedac",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
+          "body": "🤖 自動生成於 2025-10-29 07:05"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "kids-time-control",
+      "commits": [
+        {
+          "hash": "ef6ff2b7",
+          "time": "14:13",
+          "message": "修正 MainActivity 重複定義問題並更新待辦事項",
+          "body": "- 刪除重複的 Kotlin MainActivity 檔案"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "d8798104",
+          "time": "14:14",
+          "message": "Update todo.md: Change presentation from 10 to 16 pages, remove completed items",
+          "body": "- Updated presentation requirement to 16 pages for Taiwan MTL paper"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 9,
+    "totalCommits": 19
+  }
+}
