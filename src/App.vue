@@ -9,7 +9,24 @@
     <main class="max-w-7xl mx-auto px-4 py-8">
       <!-- 篩選區 -->
       <div v-if="rawData" class="bg-white rounded-lg shadow p-6 mb-6">
-        <h2 class="text-xl font-semibold mb-4">🔍 篩選設定</h2>
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-semibold">🔍 篩選設定</h2>
+          <!-- 快速篩選按鈕 -->
+          <div class="flex gap-3">
+            <button
+              @click="setYesterdayFilter"
+              class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+            >
+              📅 昨日紀錄
+            </button>
+            <button
+              @click="resetToDefault"
+              class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
+            >
+              🔄 還原
+            </button>
+          </div>
+        </div>
 
         <!-- 專案類型篩選 -->
         <div class="mb-6">
@@ -169,6 +186,10 @@ const filterStart = ref('')
 const filterEnd = ref('')
 const showSideProjects = ref(false)
 
+// 設定預設日期範圍
+const DEFAULT_START_DATE = '2025-10-09'
+const getDefaultEndDate = () => dayjs().subtract(1, 'day').format('YYYY-MM-DD')
+
 // 載入資料
 onMounted(async () => {
   try {
@@ -177,19 +198,31 @@ onMounted(async () => {
     rawData.value = data
     workData.value = data
 
-    // 設定預設篩選範圍：10/9 開始到昨天
-    const yesterday = dayjs().subtract(1, 'day')
-    const startDate = dayjs('2025-10-09')
+    // 設定預設篩選範圍
+    filterStart.value = DEFAULT_START_DATE
+    filterEnd.value = getDefaultEndDate()
 
-    filterStart.value = startDate.format('YYYY-MM-DD')
-    filterEnd.value = yesterday.format('YYYY-MM-DD')
-
-    // 自動套用兩週篩選
+    // 自動套用篩選
     applyFilter()
   } catch (error) {
     console.error('載入資料失敗：', error)
   }
 })
+
+// 設定昨日篩選
+const setYesterdayFilter = () => {
+  const yesterday = getDefaultEndDate()
+  filterStart.value = yesterday
+  filterEnd.value = yesterday
+  applyFilter()
+}
+
+// 還原到預設日期
+const resetToDefault = () => {
+  filterStart.value = DEFAULT_START_DATE
+  filterEnd.value = getDefaultEndDate()
+  applyFilter()
+}
 
 // 套用篩選
 const applyFilter = () => {
