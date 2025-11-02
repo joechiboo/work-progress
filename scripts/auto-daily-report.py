@@ -22,9 +22,9 @@ logging.basicConfig(
     ]
 )
 
-GITLAB_PATH = "D:\\Gitlab"
-PERSONAL_PATH = "D:\\Personal\\Project"
-WORK_PROGRESS_PATH = "D:\\Personal\\Project\\work-progress"
+GITLAB_PATH = "C:\\Gitlab"
+PERSONAL_PATH = "C:\\Personal\\Project"
+WORK_PROGRESS_PATH = "C:\\Personal\\Project\\work-progress\\work-progress-ssh"
 AUTHOR = "UCL\\joechiboo"
 
 def get_git_repos(base_path, max_depth=3):
@@ -260,9 +260,16 @@ def git_commit_and_push(date_str, total_commits):
         return False
 
 def main():
-    # 取得昨天的日期
-    yesterday = datetime.now() - timedelta(days=1)
-    date_str = yesterday.strftime('%Y-%m-%d')
+    # 解析參數：如果有 --today 就用今天，否則用昨天
+    import sys
+    use_today = '--today' in sys.argv
+
+    if use_today:
+        target_date = datetime.now()
+    else:
+        target_date = datetime.now() - timedelta(days=1)
+
+    date_str = target_date.strftime('%Y-%m-%d')
 
     logging.info("=" * 60)
     logging.info(f"自動生成每日工作紀錄: {date_str}")
@@ -288,7 +295,7 @@ def main():
     os.makedirs(daily_folder, exist_ok=True)
 
     # 依年月分類
-    year_month = yesterday.strftime('%Y-%m')
+    year_month = target_date.strftime('%Y-%m')
     monthly_folder = os.path.join(daily_folder, year_month)
     os.makedirs(monthly_folder, exist_ok=True)
 
