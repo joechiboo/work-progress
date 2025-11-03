@@ -260,6 +260,19 @@ def git_commit_and_push(date_str, total_commits):
         return False
 
 def main():
+    # 先同步最新的變更
+    logging.info("正在同步遠端變更...")
+    try:
+        os.chdir(WORK_PROGRESS_PATH)
+        result = subprocess.run(['git', 'pull', 'origin', 'main'],
+                               capture_output=True, text=True, encoding='utf-8')
+        if result.returncode == 0:
+            logging.info(f"Git pull 成功: {result.stdout}")
+        else:
+            logging.warning(f"Git pull 失敗，繼續執行: {result.stderr}")
+    except Exception as e:
+        logging.warning(f"Git pull 發生錯誤，繼續執行: {e}")
+
     # 取得昨天的日期
     yesterday = datetime.now() - timedelta(days=1)
     date_str = yesterday.strftime('%Y-%m-%d')

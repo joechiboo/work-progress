@@ -8,6 +8,14 @@ echo %date% %time%
 echo ======================================
 echo.
 
+REM 先同步最新的變更
+echo Pulling latest changes from remote...
+git pull origin main >> logs\daily-report.log 2>&1
+if %errorlevel% neq 0 (
+    echo WARNING: Git pull failed, continuing anyway...
+)
+echo.
+
 REM 執行 Python 腳本
 python scripts\auto-daily-report.py >> logs\daily-report.log 2>&1
 
