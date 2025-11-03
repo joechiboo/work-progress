@@ -187,7 +187,7 @@ const filterEnd = ref('')
 const showSideProjects = ref(false)
 
 // 設定預設日期範圍
-const DEFAULT_START_DATE = '2025-10-09'
+const DEFAULT_START_DATE = '2025-10-30'
 const getDefaultEndDate = () => dayjs().subtract(1, 'day').format('YYYY-MM-DD')
 
 // 載入資料
