@@ -7,8 +7,8 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1248,
-    "projectCount": 30,
+    "totalCommits": 1256,
+    "projectCount": 32,
     "dailyAverage": 6.9
   },
   "projects": [
@@ -10138,7 +10138,7 @@
     },
     {
       "name": "kids-time-control",
-      "totalCommits": 6,
+      "totalCommits": 7,
       "commits": [
         {
           "hash": "7d2f51fe",
@@ -10186,6 +10186,84 @@
           "message": "修正 MainActivity 重複定義問題並更新待辦事項",
           "body": "- 刪除重複的 Kotlin MainActivity 檔案",
           "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d1b4a001",
+          "date": "2025-11-02",
+          "message": "重大調整：從獎勵機制轉向教育導向",
+          "body": "核心理念改變：",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "work-progress\\work-progress-ssh",
+      "totalCommits": 4,
+      "commits": [
+        {
+          "hash": "68421f27",
+          "date": "2025-11-01",
+          "message": "docs: 更新彙整資料 2025-11-01",
+          "body": "🤖 自動生成於 2025-11-01 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "440ee401",
+          "date": "2025-11-01",
+          "message": "docs: 每日工作紀錄 2025-10-31 (4 commits)",
+          "body": "🤖 自動生成於 2025-11-01 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "fb7fb670",
+          "date": "2025-11-02",
+          "message": "docs: 更新彙整資料 2025-11-02",
+          "body": "🤖 自動生成於 2025-11-02 18:15",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a410ccdc",
+          "date": "2025-11-02",
+          "message": "docs: 每日工作紀錄 2025-11-01 (2 commits)",
+          "body": "🤖 自動生成於 2025-11-02 18:15",
+          "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "interdisciplinary-course-notes\\interdisciplinary-course-notes",
+      "totalCommits": 3,
+      "commits": [
+        {
+          "hash": "2b7771ca",
+          "date": "2025-11-02",
+          "message": "chore: 移除測試文字",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b97d9ee7",
+          "date": "2025-11-02",
+          "message": "test: SSH push",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "39a2c0cd",
+          "date": "2025-11-02",
+          "message": "Initial commit: 建立專案基礎文件",
+          "body": "- 新增 README.md：專案說明、背景資訊、初步研究方向（孩童數位健康）",
+          "category": "文檔",
           "tags": []
         }
       ],
