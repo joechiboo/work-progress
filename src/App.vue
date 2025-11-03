@@ -297,11 +297,31 @@ const setYesterdayFilter = () => {
   applyFilter()
 }
 
-// 還原到預設日期
-const resetToDefault = () => {
-  filterStart.value = DEFAULT_START_DATE
-  filterEnd.value = getDefaultEndDate()
-  applyFilter()
+// 還原到預設日期並重新載入數據
+const resetToDefault = async () => {
+  try {
+    // 強制重新載入數據（加上時間戳避免 cache）
+    const timestamp = new Date().getTime()
+    const response = await fetch(import.meta.env.BASE_URL + `data/work-log-latest.json?t=${timestamp}`)
+    const data = await response.json()
+    rawData.value = data
+    workData.value = data
+
+    // 重置篩選條件
+    filterStart.value = DEFAULT_START_DATE
+    filterEnd.value = getDefaultEndDate()
+    showSideProjects.value = false
+
+    // 套用篩選
+    applyFilter()
+  } catch (error) {
+    console.error('重新載入資料失敗：', error)
+    // 如果載入失敗，至少還原篩選條件
+    filterStart.value = DEFAULT_START_DATE
+    filterEnd.value = getDefaultEndDate()
+    showSideProjects.value = false
+    applyFilter()
+  }
 }
 
 // 套用篩選
