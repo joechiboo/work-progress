@@ -203,6 +203,23 @@
           <div class="bg-white rounded-lg p-5 shadow-md">
             <h4 class="font-bold text-gray-800 mb-4">📈 效率提升趨勢</h4>
             <div class="space-y-3">
+              <!-- 使用前（基準線） -->
+              <div v-if="efficiencyData.periods.length > 0" class="flex items-center">
+                <div class="w-32 text-sm font-medium text-gray-700">{{ efficiencyData.periods[0].period.name }}</div>
+                <div class="flex-1 bg-gray-200 rounded-full h-6 relative overflow-hidden">
+                  <div
+                    class="h-full rounded-full flex items-center justify-end pr-2 bg-gray-400 text-white text-xs font-bold transition-all"
+                    :style="{ width: getEfficiencyPercentage(efficiencyData.periods[0]) + '%' }"
+                  >
+                    基準線
+                  </div>
+                </div>
+                <div class="w-24 text-right text-sm font-semibold text-gray-600">
+                  {{ efficiencyData.periods[0].summary.dailyAverage }} /天
+                </div>
+              </div>
+
+              <!-- 其他時期 -->
               <div v-for="(period, idx) in efficiencyData.periods.slice(1)" :key="idx" class="flex items-center">
                 <div class="w-32 text-sm font-medium text-gray-700">{{ period.period.name }}</div>
                 <div class="flex-1 bg-gray-200 rounded-full h-6 relative overflow-hidden">
