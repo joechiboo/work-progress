@@ -28,9 +28,17 @@ periods = [
         "name": "Claude Max 版",
         "id": "claude-max",
         "since": "2025-09-11",
-        "until": "2025-10-08",
-        "days": 28,
+        "until": "2025-10-29",
+        "days": 49,
         "cost": 97.81
+    },
+    {
+        "name": "Claude Code 版",
+        "id": "claude-code",
+        "since": "2025-10-30",
+        "until": "2025-12-31",
+        "days": 63,
+        "cost": 0
     }
 ]
 

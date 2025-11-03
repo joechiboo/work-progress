@@ -22,9 +22,9 @@ logging.basicConfig(
     ]
 )
 
-GITLAB_PATH = "C:\\Gitlab"
-PERSONAL_PATH = "C:\\Personal\\Project"
-WORK_PROGRESS_PATH = "C:\\Personal\\Project\\work-progress\\work-progress-ssh"
+GITLAB_PATH = "D:\\Gitlab"
+PERSONAL_PATH = "D:\\Personal\\Project"
+WORK_PROGRESS_PATH = "D:\\Personal\\Project\\work-progress"
 AUTHOR = "UCL\\joechiboo"
 
 def get_git_repos(base_path, max_depth=3):
@@ -456,6 +456,7 @@ def merge_to_public():
 
     # 儲存到 public/data
     public_data_path = os.path.join(WORK_PROGRESS_PATH, "public", "data")
+    os.makedirs(public_data_path, exist_ok=True)
 
     # 儲存帶日期的檔案（備份用）
     dated_file = os.path.join(public_data_path, f"work-log-{start_date}-to-{end_date}.json")
