@@ -1,0 +1,121 @@
+{
+  "date": "2025-11-03",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "6dac992f",
+          "time": "12:22",
+          "message": "refactor: 將檢驗值分欄從三欄改為兩欄",
+          "body": "修改內容："
+        },
+        {
+          "hash": "3feb5295",
+          "time": "12:17",
+          "message": "feat: LT281 檢驗值支援分欄顯示功能",
+          "body": "新增功能："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "e4f34a60",
+          "time": "11:23",
+          "message": "feat: 新增加班調整 SQL 與資料表分析工具",
+          "body": "新增檔案："
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "7497ccb5",
+          "time": "09:10",
+          "message": "feat: 新增批次執行日誌與自動清理機制",
+          "body": "## 主要變更"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "b1756214",
+          "time": "08:13",
+          "message": "merge: 合併遠端 2025-11-02 報告（6 commits）與本地變更",
+          "body": ""
+        },
+        {
+          "hash": "5dbb5fdf",
+          "time": "08:11",
+          "message": "docs: 更新 2025-11-02 報告（無 commits）",
+          "body": ""
+        },
+        {
+          "hash": "b899dd9e",
+          "time": "08:11",
+          "message": "feat: 自動排程加入 git pull 同步功能",
+          "body": ""
+        },
+        {
+          "hash": "26d35dba",
+          "time": "08:10",
+          "message": "docs: 更新彙整資料 2025-11-03",
+          "body": "🤖 自動生成於 2025-11-03 08:10"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "interdisciplinary-course-notes\\interdisciplinary-course-notes",
+      "commits": [
+        {
+          "hash": "7317d403",
+          "time": "15:12",
+          "message": "docs: 更新課程資訊與新增選題過程記錄",
+          "body": "- 更新課程名稱為「跨領域創新科技應用」"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "55ef84da",
+          "time": "16:42",
+          "message": "新增 AUC 評估指標備忘錄",
+          "body": "包含 ROC 曲線定義、AUC 值解讀與實務應用考量"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "f04bd80d",
+          "time": "15:44",
+          "message": "Add Taiwan MTL (2025) paper translation and Meeting 16 presentation outline",
+          "body": "- Add complete Chinese translation of Taiwan MTL paper (Scientific Reports 2025)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 7,
+    "totalCommits": 11
+  }
+}
