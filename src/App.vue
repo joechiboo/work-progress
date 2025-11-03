@@ -165,6 +165,62 @@
             </div>
           </div>
         </div>
+
+        <!-- Claude 效率對比 -->
+        <div v-if="efficiencyData" class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg p-6 border-2 border-blue-200">
+          <h3 class="text-2xl font-bold mb-6 text-gray-800">🚀 Claude AI 效率對比分析</h3>
+
+          <!-- 期間對比卡片 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div
+              v-for="period in efficiencyData.periods"
+              :key="period.period.id"
+              class="bg-white rounded-lg p-5 shadow-md hover:shadow-lg transition-shadow"
+            >
+              <div class="text-sm font-semibold text-gray-600 mb-2">{{ period.period.name }}</div>
+              <div class="text-3xl font-bold mb-1" :class="getPeriodColor(period.period.id)">
+                {{ period.summary.dailyAverage }}
+              </div>
+              <div class="text-xs text-gray-500">commits/day</div>
+              <div class="mt-3 pt-3 border-t border-gray-200 text-xs space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-gray-600">總計</span>
+                  <span class="font-semibold">{{ period.summary.totalCommits }}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">天數</span>
+                  <span class="font-semibold">{{ period.period.days }}天</span>
+                </div>
+                <div v-if="period.period.cost > 0" class="flex justify-between">
+                  <span class="text-gray-600">成本</span>
+                  <span class="font-semibold">${{ period.period.cost }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 效率提升統計 -->
+          <div class="bg-white rounded-lg p-5 shadow-md">
+            <h4 class="font-bold text-gray-800 mb-4">📈 效率提升趨勢</h4>
+            <div class="space-y-3">
+              <div v-for="(period, idx) in efficiencyData.periods.slice(1)" :key="idx" class="flex items-center">
+                <div class="w-32 text-sm font-medium text-gray-700">{{ period.period.name }}</div>
+                <div class="flex-1 bg-gray-200 rounded-full h-6 relative overflow-hidden">
+                  <div
+                    class="h-full rounded-full flex items-center justify-end pr-2 text-white text-xs font-bold transition-all"
+                    :class="getEfficiencyBarColor(period.period.id)"
+                    :style="{ width: getEfficiencyPercentage(period) + '%' }"
+                  >
+                    {{ getEfficiencyChange(period) }}
+                  </div>
+                </div>
+                <div class="w-24 text-right text-sm font-semibold" :class="getPeriodColor(period.period.id)">
+                  {{ period.summary.dailyAverage }} /天
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- 載入中或無資料 -->
@@ -185,6 +241,7 @@ const workData = ref(null)
 const filterStart = ref('')
 const filterEnd = ref('')
 const showSideProjects = ref(false)
+const efficiencyData = ref(null)
 
 // 設定預設日期範圍
 const DEFAULT_START_DATE = '2025-10-30'
@@ -193,6 +250,7 @@ const getDefaultEndDate = () => dayjs().subtract(1, 'day').format('YYYY-MM-DD')
 // 載入資料
 onMounted(async () => {
   try {
+    // 載入工作日誌
     const response = await fetch(import.meta.env.BASE_URL + 'data/work-log-latest.json')
     const data = await response.json()
     rawData.value = data
@@ -204,6 +262,11 @@ onMounted(async () => {
 
     // 自動套用篩選
     applyFilter()
+
+    // 載入效率對比數據
+    const effResponse = await fetch(import.meta.env.BASE_URL + 'data/claude-efficiency-data.json')
+    const effData = await effResponse.json()
+    efficiencyData.value = effData
   } catch (error) {
     console.error('載入資料失敗：', error)
   }
@@ -334,6 +397,45 @@ const getCategoryColor = (category) => {
     '未分類': 'border-gray-200 bg-gray-50'
   }
   return colors[category] || colors['未分類']
+}
+
+// 期間顏色
+const getPeriodColor = (periodId) => {
+  const colors = {
+    'pre-claude': 'text-gray-600',
+    'claude-standard': 'text-blue-600',
+    'claude-max': 'text-purple-600',
+    'claude-code': 'text-green-600'
+  }
+  return colors[periodId] || 'text-gray-600'
+}
+
+// 效率條顏色
+const getEfficiencyBarColor = (periodId) => {
+  const colors = {
+    'claude-standard': 'bg-blue-500',
+    'claude-max': 'bg-purple-500',
+    'claude-code': 'bg-green-500'
+  }
+  return colors[periodId] || 'bg-gray-500'
+}
+
+// 計算效率提升百分比（相對於使用前）
+const getEfficiencyPercentage = (period) => {
+  if (!efficiencyData.value || !efficiencyData.value.periods.length) return 0
+  const baseline = efficiencyData.value.periods[0].summary.dailyAverage
+  const current = period.summary.dailyAverage
+  const increase = ((current - baseline) / baseline) * 100
+  return Math.min(Math.max(increase, 0), 500) // 限制在 0-500%
+}
+
+// 效率變化文字
+const getEfficiencyChange = (period) => {
+  if (!efficiencyData.value || !efficiencyData.value.periods.length) return ''
+  const baseline = efficiencyData.value.periods[0].summary.dailyAverage
+  const current = period.summary.dailyAverage
+  const increase = Math.round(((current - baseline) / baseline) * 100)
+  return increase > 0 ? `+${increase}%` : `${increase}%`
 }
 
 // 智能分析專案

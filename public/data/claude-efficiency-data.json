@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-10-09T12:47:36.472394",
-  "author": "joechiboo",
+  "generatedAt": "2025-11-04T07:36:48.181632",
+  "author": "UCL\\joechiboo",
   "periods": [
     {
       "period": {
@@ -14,30 +14,16 @@
       "work_projects": [
         {
           "name": "lisweb",
-          "totalCommits": 184,
+          "totalCommits": 133,
           "categories": {
-            "功能開發": 61,
             "其他": 102,
-            "錯誤修正": 13,
+            "錯誤修正": 2,
+            "功能開發": 21,
             "配置": 4,
             "文檔": 3,
             "測試": 1
           },
           "commits": [
-            {
-              "hash": "3079302d5a6e630c7df9d686857d37b2e04a269f",
-              "date": "2025-07-11",
-              "message": "Merge branch 'feat/Consumble_FeeRemark' into 'main'",
-              "body": "feat:新增收費欄位(台中專用)",
-              "category": "功能開發"
-            },
-            {
-              "hash": "608466c001befd3753e6e0806e3e489b760c5508",
-              "date": "2025-07-11",
-              "message": "Merge branch 'feature/ModifyDevConfig' into 'main'",
-              "body": "feat: 開發Dev組態載入邏輯調整",
-              "category": "功能開發"
-            },
             {
               "hash": "9a11b5f06e53aba6a489bffe4c210307468e3c7e",
               "date": "2025-07-11",
@@ -74,13 +60,6 @@
               "category": "錯誤修正"
             },
             {
-              "hash": "6844acc1bc2b101e5f8a750a7719f25a0d69281d",
-              "date": "2025-07-08",
-              "message": "Merge branch 'fix/Login_validation' into 'main'",
-              "body": "fix:[登入]調整驗證邏輯",
-              "category": "錯誤修正"
-            },
-            {
               "hash": "0dfd1bc5fe94b549d7b2ef4a6911da68ce7f376a",
               "date": "2025-07-04",
               "message": "## 📦 PR：新增《自行操作檢驗數量報表》匯出功能",
@@ -88,11 +67,32 @@
               "category": "功能開發"
             },
             {
-              "hash": "251ab9fd6175fd3518ef88ab620ef12bc7bc3757",
-              "date": "2025-07-04",
-              "message": "Merge branch 'feature/LDT/簽章從圖檔改為程式碼' into 'main'",
-              "body": "[LDT報告] 新增印章功能及報告樣式調整",
-              "category": "功能開發"
+              "hash": "f28f6dc107bab00b12ce44a9ea40417cce830812",
+              "date": "2025-07-03",
+              "message": "危險數據清單原本有一個特殊規則 特別單位，在特定項目符合規則時列出 但剛打來說不要了",
+              "body": "說是因為二次委外的單位，所以不要通知",
+              "category": "其他"
+            },
+            {
+              "hash": "160eaee264351b1c39654b1aa68ec98e4971efdb",
+              "date": "2025-07-03",
+              "message": "由於資料庫中，TR_AGETO 都是存 DAYS 前人很值覺得就把 DAYS / 365 當作 YEARS 了",
+              "body": "但其實 TR_AGECODE 有分 D/M/Y",
+              "category": "其他"
+            },
+            {
+              "hash": "b88a938b4c809d2c4296630652bbe777b4b0b99a",
+              "date": "2025-07-03",
+              "message": "統計欄位",
+              "body": "",
+              "category": "其他"
+            },
+            {
+              "hash": "c609c7f1c010bf37df2e9aa15e445ddc35dc8a39",
+              "date": "2025-07-03",
+              "message": "query 兜好了",
+              "body": "",
+              "category": "其他"
             }
           ]
         },
@@ -136,74 +136,6 @@
           ]
         },
         {
-          "name": "UPC\\Back",
-          "totalCommits": 4,
-          "categories": {
-            "錯誤修正": 2,
-            "功能開發": 2
-          },
-          "commits": [
-            {
-              "hash": "a3b62eb8eb922ebd44ef40fb779c2127d3f0cda1",
-              "date": "2025-07-11",
-              "message": "Merge branch 'fix/OrderManagement' into 'main'",
-              "body": "fix:[訂單]修正金額計算、[交易API]訊息調整",
-              "category": "錯誤修正"
-            },
-            {
-              "hash": "f3389aaaf7656a6c2e36d92d3bf31f24bad08d64",
-              "date": "2025-05-28",
-              "message": "fix 儲存失敗",
-              "body": "",
-              "category": "錯誤修正"
-            },
-            {
-              "hash": "cc254a8fb66ee07f1ef62287009dd00fda6c1280",
-              "date": "2025-05-28",
-              "message": "新增門診表維護功能",
-              "body": "",
-              "category": "功能開發"
-            },
-            {
-              "hash": "d4637b2ab6534a3fb2915088690551266c3bee3a",
-              "date": "2025-05-27",
-              "message": "Merge branch 'feat/newebpay' into 'main'",
-              "body": "fix: ConsentDataTransfer類型修改成可為空(避免無法執行)",
-              "category": "功能開發"
-            }
-          ]
-        },
-        {
-          "name": "Common\\WebApiService",
-          "totalCommits": 3,
-          "categories": {
-            "其他": 3
-          },
-          "commits": [
-            {
-              "hash": "bbdad09288fd078fbadd8022b66a475ee40b0504",
-              "date": "2025-06-05",
-              "message": "Merge branch 'init' into 'main'",
-              "body": "這麼一大包，但只用到小小的部分",
-              "category": "其他"
-            },
-            {
-              "hash": "d6c09a6305468ed02063553ca22a2e9fb263ef8b",
-              "date": "2025-06-05",
-              "message": "這麼一大包，但只用到小小的部分 斟酌",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "cb1977df8bdbc810a721e70289d4ef98946e6a19",
-              "date": "2025-06-04",
-              "message": "Initial commit",
-              "body": "",
-              "category": "其他"
-            }
-          ]
-        },
-        {
           "name": "HIS\\SyncLisData",
           "totalCommits": 3,
           "categories": {
@@ -236,9 +168,9 @@
         },
         {
           "name": "Report\\FOBT",
-          "totalCommits": 3,
+          "totalCommits": 2,
           "categories": {
-            "其他": 3
+            "其他": 2
           },
           "commits": [
             {
@@ -254,35 +186,44 @@
               "message": "clone project",
               "body": "",
               "category": "其他"
-            },
-            {
-              "hash": "bc3e0c6a1f12160dde4eff755d97f7693ebbed94",
-              "date": "2025-05-23",
-              "message": "Initial commit",
-              "body": "",
-              "category": "其他"
             }
           ]
         },
         {
-          "name": "Report\\FoodAllergyTestReport",
+          "name": "UPC\\Back",
           "totalCommits": 2,
           "categories": {
-            "功能開發": 1,
+            "錯誤修正": 1,
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "f3389aaaf7656a6c2e36d92d3bf31f24bad08d64",
+              "date": "2025-05-28",
+              "message": "fix 儲存失敗",
+              "body": "",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "cc254a8fb66ee07f1ef62287009dd00fda6c1280",
+              "date": "2025-05-28",
+              "message": "新增門診表維護功能",
+              "body": "",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "Common\\WebApiService",
+          "totalCommits": 1,
+          "categories": {
             "其他": 1
           },
           "commits": [
             {
-              "hash": "097031067aab867b2cce6428272442f0106657fc",
+              "hash": "d6c09a6305468ed02063553ca22a2e9fb263ef8b",
               "date": "2025-06-05",
-              "message": "這個版本印出去完成日期是正確的",
-              "body": "",
-              "category": "功能開發"
-            },
-            {
-              "hash": "e72c5a30b199aa152e07898f7a8befb619400514",
-              "date": "2025-06-04",
-              "message": "Initial commit",
+              "message": "這麼一大包，但只用到小小的部分 斟酌",
               "body": "",
               "category": "其他"
             }
@@ -301,6 +242,22 @@
               "message": "不要再寄給我了",
               "body": "",
               "category": "其他"
+            }
+          ]
+        },
+        {
+          "name": "Report\\FoodAllergyTestReport",
+          "totalCommits": 1,
+          "categories": {
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "097031067aab867b2cce6428272442f0106657fc",
+              "date": "2025-06-05",
+              "message": "這個版本印出去完成日期是正確的",
+              "body": "",
+              "category": "功能開發"
             }
           ]
         }
@@ -352,11 +309,11 @@
         }
       ],
       "summary": {
-        "workCommits": 204,
+        "workCommits": 147,
         "sideCommits": 5,
-        "totalCommits": 209,
-        "dailyAverage": 2.82,
-        "workDailyAverage": 2.76,
+        "totalCommits": 152,
+        "dailyAverage": 2.05,
+        "workDailyAverage": 1.99,
         "sideDailyAverage": 0.07
       }
     },
@@ -372,50 +329,15 @@
       "work_projects": [
         {
           "name": "lisweb",
-          "totalCommits": 72,
+          "totalCommits": 40,
           "categories": {
-            "功能開發": 37,
             "其他": 24,
-            "文檔": 3,
-            "錯誤修正": 7,
+            "功能開發": 11,
+            "錯誤修正": 2,
+            "文檔": 2,
             "重構": 1
           },
           "commits": [
-            {
-              "hash": "1a6901e837ff11fefd92bcca3b3f84995dd4847e",
-              "date": "2025-09-10",
-              "message": "feat: 實作 LT257 檢驗項目權限控制 - 僅允許 97__ 項目編輯和審核",
-              "body": "- 新增檢驗項目權限控制，非 97__ 項目設為 readonly",
-              "category": "功能開發"
-            },
-            {
-              "hash": "74612ff98494c5e433693c76d8effcc4730e0586",
-              "date": "2025-09-10",
-              "message": "feat: 新增 LT257 單位備註功能與介面調整",
-              "body": "- 調整右側 ExamineInfo 區塊高度從 70vh 改為 60vh",
-              "category": "功能開發"
-            },
-            {
-              "hash": "5a355f1340f225aed4386445458e6fa4bd22a5be",
-              "date": "2025-09-10",
-              "message": "Merge branch 'main' into LT257電話通報",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "6cf54ce72906676f0320506ffe720bb9a8223f7d",
-              "date": "2025-09-09",
-              "message": "Merge branch 'feature/274無法列印的問題' into 'main'",
-              "body": "fix 修正$(\"form\")[1]指到錯誤的回傳表單的問題",
-              "category": "功能開發"
-            },
-            {
-              "hash": "23c4cd6dee638029b8f76e2fc7d10dd0fc50cb48",
-              "date": "2025-09-09",
-              "message": "Merge branch 'feat/pwdRuleV2' into 'main'",
-              "body": "Feat:[密碼管控]規則修正",
-              "category": "功能開發"
-            },
             {
               "hash": "32fde4ac44e8d190847c1a49d309b6e25b6dcd9a",
               "date": "2025-09-09",
@@ -424,61 +346,82 @@
               "category": "其他"
             },
             {
-              "hash": "4dbe8fc284b57dc6fedc825642697d18f212d1b8",
-              "date": "2025-09-06",
-              "message": "Merge branch 'feature/LDT/additionSetting' into 'main'",
-              "body": "feat: [LDT設定] 新增 LDT 內容設定過濾與權限控制功能",
-              "category": "功能開發"
-            },
-            {
-              "hash": "45dc16bb658c40c23c3bf5cd85dd798b2358a199",
-              "date": "2025-09-06",
-              "message": "Merge branch 'feature/LDT/fileUpload' into 'main'",
-              "body": "feat: [LDT報告編輯] 新增實體檔案儲存功能",
-              "category": "功能開發"
-            },
-            {
-              "hash": "ffc235e4f1b19484708361332000e56136b8d459",
-              "date": "2025-09-04",
-              "message": "Merge branch 'feature/BT300B調整桃園需求' into 'main'",
-              "body": "feat: [BT300B] 滿足桃園欄位需求",
-              "category": "功能開發"
-            },
-            {
               "hash": "2c5c886de4a33fe875e10b113a9b816e016bcc06",
               "date": "2025-09-03",
               "message": "單位顯示改優先讀 ORIGINAL_UNIT_TNO",
               "body": "",
               "category": "其他"
+            },
+            {
+              "hash": "f8828906f167a88a12ae7117d5c2718cbe534d48",
+              "date": "2025-09-03",
+              "message": "新增 LT257 電話通報功能",
+              "body": "",
+              "category": "功能開發"
+            },
+            {
+              "hash": "31450e8fa6b1ae061cf764234c60b0eb9ca2b192",
+              "date": "2025-08-26",
+              "message": "1.  CASE HORD_DTL.OD_TR_RANGE WHEN 'MRR' THEN OD_MRR_DESC ELSE OD_TR_RANGE END OD_TR_RANGE 2. 順便處理 sql injection",
+              "body": "",
+              "category": "其他"
+            },
+            {
+              "hash": "4411ad0c95ef73de7b90a895b0ea60e0a44b32e8",
+              "date": "2025-08-20",
+              "message": "本來想廢除，因為文管系統已動態包含 在幹部會議提出後，好像沒什麼結論 所以再修正",
+              "body": "",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "e4b8a2fc798a69fdc5b9b2bffd65cc5509e0b8b8",
+              "date": "2025-08-20",
+              "message": "LT276 未通知時，可點選「待檢中」會跳出 Modal視窗，並預設文字「DD-HH24:MI 聯絡人, 客戶已複述確認」 整合過去的 dangerList 流程， 系統將會先新增 FTR ，再 UPDATE OD_TR_VAL 同時將後端支援 97__ ，不再只限制 9751",
+              "body": "",
+              "category": "功能開發"
+            },
+            {
+              "hash": "102539a7f220b0c9d01181ee809cbb697506fc61",
+              "date": "2025-08-19",
+              "message": "新增 table",
+              "body": "",
+              "category": "功能開發"
+            },
+            {
+              "hash": "a31c1f9037edb289acc96d32e38ac952a44af6f1",
+              "date": "2025-08-19",
+              "message": "調整後端query 新增前端 Modal (之後點選 FTEXT 可新增",
+              "body": "",
+              "category": "功能開發"
+            },
+            {
+              "hash": "ffa0d72502de7c28947e57780d2f320ed27bc7cb",
+              "date": "2025-08-19",
+              "message": "調整金色換成灰色，說金色太明顯 調整F2 說明 按鈕點姓名容易誤按，調整成 checkbox",
+              "body": "",
+              "category": "文檔"
+            },
+            {
+              "hash": "305cd419351a3803594848d0417aa29293742afc",
+              "date": "2025-08-19",
+              "message": "新增語法，方便日後維護",
+              "body": "",
+              "category": "功能開發"
             }
           ]
         },
         {
           "name": "OnlineReport\\ReportHtmlSync",
-          "totalCommits": 31,
+          "totalCommits": 28,
           "categories": {
-            "樣式": 2,
-            "錯誤修正": 4,
             "功能開發": 2,
-            "其他": 14,
+            "其他": 13,
             "文檔": 6,
-            "重構": 3
+            "錯誤修正": 3,
+            "重構": 3,
+            "樣式": 1
           },
           "commits": [
-            {
-              "hash": "61ed23a0857510bfacb9e691aff84ea055d2969d",
-              "date": "2025-09-10",
-              "message": "Add .gitignore and remove build artifacts from repository",
-              "body": "- Add comprehensive .gitignore for .NET projects",
-              "category": "樣式"
-            },
-            {
-              "hash": "f023f5ebb26d613a57265d0787378401b714a9d4",
-              "date": "2025-09-10",
-              "message": "Fix connection string decryption issues and improve error handling",
-              "body": "- Add connection string validation in RunManualMode",
-              "category": "錯誤修正"
-            },
             {
               "hash": "2df4c619a02c5b47ae8082cb5a67adb1cd237519",
               "date": "2025-09-09",
@@ -534,17 +477,31 @@
               "message": "Correct 2-year report processing timeline based on actual system capacity",
               "body": "🔢 Corrected processing time calculations:",
               "category": "其他"
+            },
+            {
+              "hash": "dd8916ff542d4d61aa4bac955ef47dd401dfd24d",
+              "date": "2025-09-06",
+              "message": "Reorganize performance report with clear processing capacity analysis",
+              "body": "📋 Restructured report sections:",
+              "category": "重構"
+            },
+            {
+              "hash": "d28e540655905e8e5c4453b4bffda3d2493dd1e6",
+              "date": "2025-09-06",
+              "message": "Update batch sizes for enhanced processing capacity",
+              "body": "📊 Increased batch processing capacity:",
+              "category": "其他"
             }
           ]
         },
         {
           "name": "OfficialWebsites\\Data2Cloud",
-          "totalCommits": 20,
+          "totalCommits": 19,
           "categories": {
             "功能開發": 11,
             "文檔": 1,
             "錯誤修正": 5,
-            "其他": 3
+            "其他": 2
           },
           "commits": [
             {
@@ -642,33 +599,17 @@
               "category": "其他"
             }
           ]
-        },
-        {
-          "name": "OnlineReport\\FalconCopy",
-          "totalCommits": 1,
-          "categories": {
-            "其他": 1
-          },
-          "commits": [
-            {
-              "hash": "e937d892a2917641f024dd9e0312668e2bbb8226",
-              "date": "2025-09-10",
-              "message": "Initial commit",
-              "body": "",
-              "category": "其他"
-            }
-          ]
         }
       ],
       "side_projects": [
         {
           "name": "uclcloud",
-          "totalCommits": 221,
+          "totalCommits": 218,
           "categories": {
-            "功能開發": 91,
+            "功能開發": 90,
             "錯誤修正": 106,
             "重構": 3,
-            "其他": 7,
+            "其他": 5,
             "樣式": 1,
             "測試": 7,
             "文檔": 2,
@@ -749,23 +690,16 @@
         },
         {
           "name": "joechiboo.github.io",
-          "totalCommits": 79,
+          "totalCommits": 44,
           "categories": {
-            "功能開發": 19,
-            "其他": 23,
-            "錯誤修正": 21,
-            "重構": 10,
+            "其他": 13,
+            "錯誤修正": 14,
+            "功能開發": 10,
             "樣式": 3,
+            "重構": 1,
             "配置": 3
           },
           "commits": [
-            {
-              "hash": "e42b76e4757642477e91106cb07899c83671662e",
-              "date": "2025-09-02",
-              "message": "新增聯合官方網站重構專案到作品集",
-              "body": "新增第8個專案項目，包含中英文雙語支援：",
-              "category": "功能開發"
-            },
             {
               "hash": "b73fea87d5750c6753c2b3af44c1cbc65bf9f0c3",
               "date": "2025-08-30",
@@ -788,27 +722,6 @@
               "category": "功能開發"
             },
             {
-              "hash": "f4177efa38462e61a5bc85e782aa468707280a60",
-              "date": "2025-08-08",
-              "message": "修正 robots.txt 設定確保 sitemap.xml 可被正確存取",
-              "body": "- 移除過於廣泛的 *.json 禁止規則",
-              "category": "錯誤修正"
-            },
-            {
-              "hash": "c8d4d61f21279510abc7a7d7cf731063bd9cde6b",
-              "date": "2025-08-08",
-              "message": "優化 robots.txt 設定",
-              "body": "- 明確禁止爬取開發相關檔案和目錄",
-              "category": "重構"
-            },
-            {
-              "hash": "235b3b18dcfd7cced7d706847243e302dd7ef563",
-              "date": "2025-08-08",
-              "message": "實現 SPA SEO 優化方案",
-              "body": "- 新增 useSEO composable 提供動態 meta 管理",
-              "category": "功能開發"
-            },
-            {
               "hash": "fdf066ba6000f6ca51704f979a5fd1bbd16d54f8",
               "date": "2025-08-06",
               "message": "新增聯合檢驗雲重構專案到作品集",
@@ -828,6 +741,34 @@
               "message": "實現技術作品卡片整體點擊功能，提升用戶體驗",
               "body": "- 整個專案卡片現在可點擊直接開啟線上展示",
               "category": "其他"
+            },
+            {
+              "hash": "1b42d778f5f9c81246aa2bd556c6c83bd5fa6cbe",
+              "date": "2025-08-05",
+              "message": "修正四手聯彈曲目3的描述內容",
+              "body": "- 移除錯誤的宮崎駿動畫配樂描述",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "44acd3ba52469706b611b5b945bc2fa6b97c2dc1",
+              "date": "2025-08-05",
+              "message": "修復主題切換功能 - 移除衝突的媒體查詢規則",
+              "body": "- 移除 responsive.css 中的 @media (prefers-color-scheme: dark) 規則",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "4924ddff0b680dd4cf2c346ca914ea18dc9da6b2",
+              "date": "2025-08-05",
+              "message": "恢復手機版主題切換功能，允許用戶在手機上切換日間/夜間模式",
+              "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+              "category": "其他"
+            },
+            {
+              "hash": "6c55f9e72e0280963287421f9a651a7fd483d198",
+              "date": "2025-08-05",
+              "message": "修正專案名稱並加入路由自動滾動功能",
+              "body": "- 修正 project6Title 從 \"Jiayi 創意專案\" 為 \"家一 創意專案\"",
+              "category": "錯誤修正"
             }
           ]
         },
@@ -918,9 +859,9 @@
         },
         {
           "name": "bordeaux-ii",
-          "totalCommits": 20,
+          "totalCommits": 21,
           "categories": {
-            "其他": 10,
+            "其他": 11,
             "功能開發": 2,
             "錯誤修正": 4,
             "文檔": 1,
@@ -1000,135 +941,6 @@
           ]
         },
         {
-          "name": "RiskPrediction-3H",
-          "totalCommits": 9,
-          "categories": {
-            "樣式": 3,
-            "其他": 3,
-            "測試": 2,
-            "配置": 1
-          },
-          "commits": [
-            {
-              "hash": "5d267176f3caf879d5d21429307518bed051a71b",
-              "date": "2025-09-09",
-              "message": "Add meeting presentations and thesis formatting guidelines",
-              "body": "- Add meeting presentations from meeting01 to meeting13",
-              "category": "樣式"
-            },
-            {
-              "hash": "dfeeade845e195e243a4685841a0a9501e8af8f2",
-              "date": "2025-09-08",
-              "message": "Add comprehensive research methodology guide",
-              "body": "- Document complete research workflow from literature review to paper writing",
-              "category": "樣式"
-            },
-            {
-              "hash": "9b440fecdbd2a98b81bde8d5d12859286992e1d2",
-              "date": "2025-09-08",
-              "message": "Add comprehensive domain knowledge research plan",
-              "body": "- Create detailed 2-week research framework based on supervisor guidance",
-              "category": "樣式"
-            },
-            {
-              "hash": "0662c85dd2ea31c2e04553c42183548878bd79ab",
-              "date": "2025-09-08",
-              "message": "Add work journal and domain knowledge preparation notes",
-              "body": "- Create work_journal.md for tracking project progress",
-              "category": "其他"
-            },
-            {
-              "hash": "b7a1e9420e53fd1338c017e3611e4dabe61cff92",
-              "date": "2025-09-08",
-              "message": "Update Claude Code settings and data source link",
-              "body": "- Update permissions for SSH and Git operations",
-              "category": "其他"
-            },
-            {
-              "hash": "88c50576996091497e9639f717769cbe4ca249e5",
-              "date": "2025-09-08",
-              "message": "Remove SSH test file",
-              "body": "",
-              "category": "測試"
-            },
-            {
-              "hash": "ec4723aae3cde441e8e0a0f4232e629b55c1a924",
-              "date": "2025-09-08",
-              "message": "Test SSH authentication",
-              "body": "",
-              "category": "測試"
-            },
-            {
-              "hash": "b7e9021793e67280f69258bb9fa4e6dc450c239c",
-              "date": "2025-09-08",
-              "message": "Add SUA cardiovascular disease risk factors dataset",
-              "body": "- Add SUA_CVDs_risk_factors.csv (25,744 records)",
-              "category": "其他"
-            },
-            {
-              "hash": "91f6ea929d59a6dacae6b2c4ab69259707aa9153",
-              "date": "2025-09-08",
-              "message": "Initial project setup for RiskPrediction-3H",
-              "body": "- Set up complete project structure for 3H disease risk prediction research",
-              "category": "配置"
-            }
-          ]
-        },
-        {
-          "name": "ZebraSite",
-          "totalCommits": 6,
-          "categories": {
-            "功能開發": 1,
-            "錯誤修正": 2,
-            "配置": 2,
-            "文檔": 1
-          },
-          "commits": [
-            {
-              "hash": "cd551d997796d90ff1040c3d62a71e2d421ad080",
-              "date": "2025-09-01",
-              "message": "新增知識庫和認識聯合頁面",
-              "body": "- 創建 Knowledge.vue 知識庫頁面，包含月度教育訓練、專業資源、醫學新知三大分類",
-              "category": "功能開發"
-            },
-            {
-              "hash": "58595e8d335b053245456ce41e16abf81df289ad",
-              "date": "2025-08-31",
-              "message": "修復內部連結使用 router-link",
-              "body": "- 將 Sidebar.vue 中所有內部連結改為 router-link",
-              "category": "錯誤修正"
-            },
-            {
-              "hash": "5bfef880d6ad08a91de7ea4ac6c031da9122c5fb",
-              "date": "2025-08-31",
-              "message": "Fix GitHub Pages routing for Vue SPA",
-              "body": "",
-              "category": "錯誤修正"
-            },
-            {
-              "hash": "811c6e33d1ecc8b03c235aa48426419addb85f1c",
-              "date": "2025-08-31",
-              "message": "Trigger GitHub Actions after Pages setup",
-              "body": "",
-              "category": "配置"
-            },
-            {
-              "hash": "1f16614820a8f89398e219e085e22d52274935d7",
-              "date": "2025-08-31",
-              "message": "Add GitHub Pages deployment setup",
-              "body": "- Configure GitHub Actions workflow for automatic deployment",
-              "category": "配置"
-            },
-            {
-              "hash": "36458974faec905187789f2f5512784ba2aa2bc9",
-              "date": "2025-08-30",
-              "message": "Initial Vue.js homepage implementation for UCL medical laboratory",
-              "body": "- Created multi-site architecture documentation",
-              "category": "文檔"
-            }
-          ]
-        },
-        {
           "name": "orderlunch",
           "totalCommits": 1,
           "categories": {
@@ -1159,15 +971,31 @@
               "category": "其他"
             }
           ]
+        },
+        {
+          "name": "RiskPrediction-3H",
+          "totalCommits": 1,
+          "categories": {
+            "樣式": 1
+          },
+          "commits": [
+            {
+              "hash": "5d267176f3caf879d5d21429307518bed051a71b",
+              "date": "2025-09-09",
+              "message": "Add meeting presentations and thesis formatting guidelines",
+              "body": "- Add meeting presentations from meeting01 to meeting13",
+              "category": "樣式"
+            }
+          ]
         }
       ],
       "summary": {
-        "workCommits": 126,
-        "sideCommits": 363,
-        "totalCommits": 489,
-        "dailyAverage": 8.29,
-        "workDailyAverage": 2.14,
-        "sideDailyAverage": 6.15
+        "workCommits": 89,
+        "sideCommits": 312,
+        "totalCommits": 401,
+        "dailyAverage": 6.8,
+        "workDailyAverage": 1.51,
+        "sideDailyAverage": 5.29
       }
     },
     {
@@ -1175,172 +1003,317 @@
         "name": "Claude Max 版",
         "id": "claude-max",
         "start": "2025-09-11",
-        "end": "2025-10-08",
-        "days": 28,
+        "end": "2025-10-29",
+        "days": 49,
         "cost": 97.81
       },
       "work_projects": [
         {
           "name": "lisweb",
-          "totalCommits": 149,
+          "totalCommits": 224,
           "categories": {
-            "錯誤修正": 66,
-            "功能開發": 57,
-            "文檔": 5,
-            "重構": 7,
+            "錯誤修正": 108,
+            "功能開發": 84,
+            "重構": 12,
+            "樣式": 2,
+            "文檔": 4,
             "其他": 13,
             "配置": 1
           },
           "commits": [
             {
-              "hash": "96c7abd7bc689c71f70542e8a634551e47ae4200",
-              "date": "2025-10-03",
-              "message": "Merge branch 'fix/HIGHQ_Report' into 'main'",
-              "body": "fix:[庫存]報表查詢參數處理錯誤修正",
+              "hash": "8883b751d04749d3f35fcfe41a9935de5952c742",
+              "date": "2025-10-22",
+              "message": "fix: 修正品管曲線圖 tooltip 在捲動後的位置錯誤",
+              "body": "當使用者捲動 Canvas 容器後 hover 圖表點位，tooltip 會出現在錯誤位置造成跑版。",
               "category": "錯誤修正"
             },
             {
-              "hash": "2ea2a0177f7a44fb27d0b2851a52f7fb47fc9277",
-              "date": "2025-10-03",
-              "message": "feat: 優化手機版收檢查詢互動體驗",
-              "body": "## 手機版改進",
+              "hash": "3449c72ef255775598b13b5066081c6651c15eee",
+              "date": "2025-10-22",
+              "message": "Merge remote-tracking branch 'origin/main' into feature/collection-print-add-confirmer",
+              "body": "",
               "category": "功能開發"
             },
             {
-              "hash": "0266da269323a4bf15e8c272f5f42184bb76223c",
-              "date": "2025-10-03",
-              "message": "feat: 優化編譯速度、改進通知功能、設計新圖示",
-              "body": "## 編譯與效能優化",
+              "hash": "1dc35ccc28fa51daff497051973da08228eea423",
+              "date": "2025-10-22",
+              "message": "feat: 支援多路線收檢員代班顯示",
+              "body": "- 修改 SQL 查詢保留原收檢員路線資訊",
               "category": "功能開發"
             },
             {
-              "hash": "eaecb62e2f1f768a41e4127e3998682f0a9bbfae",
-              "date": "2025-10-03",
-              "message": "config: Enable cross-domain notification to docs.ucl.com.tw",
-              "body": "- Set ExternalNotificationBaseUrl to https://docs.ucl.com.tw",
-              "category": "文檔"
+              "hash": "ee4dd9347adfea3229d4b433b6c5f8287005380d",
+              "date": "2025-10-22",
+              "message": "feat: 支援收檢員多路線合併顯示",
+              "body": "- 後端拆分多路線收檢員為獨立記錄",
+              "category": "功能開發"
             },
             {
-              "hash": "423db50a7ef39ae4cf4132b93d03a29ce90b6088",
-              "date": "2025-10-03",
-              "message": "docs: Update VAPID key generation to use internal API",
-              "body": "- Change primary method to internal API (/api/VapidKey/Generate)",
-              "category": "文檔"
+              "hash": "f9086be93a9af41174d0344aede35d5d91fe4ed2",
+              "date": "2025-10-22",
+              "message": "feat: 收檢員排班支援多路線合併顯示",
+              "body": "- 多路線收檢員合併顯示在同一行（如：路線16, 路線19）",
+              "category": "功能開發"
             },
             {
-              "hash": "8b692b7034c4b00c05155690f7effd83753e6161",
-              "date": "2025-10-03",
-              "message": "docs: Add VAPID key generation guide",
-              "body": "- Explain what VAPID keys are and their purpose",
-              "category": "文檔"
-            },
-            {
-              "hash": "92cc2ab9e1fc9d58cc2e8a51cb939c6f5f866fe7",
-              "date": "2025-10-03",
-              "message": "docs: Refactor notification guide to focus on Web Push only",
-              "body": "- Remove all Email/SMTP related content",
+              "hash": "c731063b5482bdf87080037d0bcd366d9bbc9702",
+              "date": "2025-10-22",
+              "message": "refactor: 改用 CM_NOTE 統一管理收檢員路線資訊",
+              "body": "- 移除 CM_ROUTE_NAME 欄位，統一使用 CM_NOTE 儲存路線",
               "category": "重構"
             },
             {
-              "hash": "c3e2970f22473d0118e2c6851192bb4690806c57",
-              "date": "2025-10-03",
-              "message": "feat: Add cross-domain notification support",
-              "body": "- Add ExternalNotificationBaseUrl config in Web.config",
-              "category": "功能開發"
+              "hash": "6387acc746a1aa938af98f4da7340f4d210b44e0",
+              "date": "2025-10-20",
+              "message": "fix: 收檢員管理頁面支援顯示多路線",
+              "body": "- CM_NOTE 包含多路線時（用逗號分隔），正確拆分並顯示",
+              "category": "錯誤修正"
             },
             {
-              "hash": "d8b9ae6744128385c22f568908f1ccc72edd47bb",
-              "date": "2025-10-03",
-              "message": "docs: Add detailed comments explaining why sw.js must be in root directory",
-              "body": "- Add comprehensive documentation about Service Worker scope",
-              "category": "文檔"
+              "hash": "55bf1ddde1270f89cb4f19f128402e9f35848a74",
+              "date": "2025-10-20",
+              "message": "fix: 緊急修復支援收檢員多路線功能",
+              "body": "## 問題",
+              "category": "錯誤修正"
             },
             {
-              "hash": "7a6d1bb7d43f9ec5cff45c04fdbdfa76d0a90a7b",
-              "date": "2025-10-03",
-              "message": "feat: Add email notification testing and improve logging",
-              "body": "- Add TestEmail API endpoint to verify email settings and test sending",
+              "hash": "96898f172fca78d0129cb4db3ba20104280b117d",
+              "date": "2025-10-20",
+              "message": "fix: 修正推播測試 API 使用正確的方法名稱",
+              "body": "- 使用 SendCollectionNotificationAsync 取代不存在的 SendNotification",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "b1c2a5e9170d0c197510b94b5d4f311b044df51c",
+              "date": "2025-10-20",
+              "message": "feat: 新增推播測試功能並記錄發送/接收時間",
+              "body": "## 主要更新",
               "category": "功能開發"
             }
           ]
         },
         {
           "name": "OnlineReport\\FalconCopy",
-          "totalCommits": 15,
+          "totalCommits": 40,
           "categories": {
-            "功能開發": 10,
-            "文檔": 2,
-            "錯誤修正": 3
+            "重構": 2,
+            "錯誤修正": 12,
+            "功能開發": 15,
+            "其他": 9,
+            "文檔": 2
           },
           "commits": [
             {
-              "hash": "796e78000ecc91a536e3621100e9a9afb6034144",
-              "date": "2025-10-08",
-              "message": "Merge branch 'sync-diagnostic-tools' into 'main'",
-              "body": "整理文件和腳本結構，新增同步診斷工具",
-              "category": "功能開發"
+              "hash": "abf2b0a24b4d0cf7fa7ee034321d724ed9dc5b48",
+              "date": "2025-10-27",
+              "message": "優化日誌輸出並加入 PAT_RESULTD 統計",
+              "body": "1. 日誌優化",
+              "category": "重構"
             },
             {
-              "hash": "be5c4d02b4fa4b1c6fef2ffaa5fe58d99336a9f5",
-              "date": "2025-10-08",
-              "message": "清理根目錄的重複文件",
-              "body": "",
-              "category": "文檔"
-            },
-            {
-              "hash": "efc4b275ec911bdc0036e16c0c2f95fb13a0c349",
-              "date": "2025-10-08",
-              "message": "整理文件目錄結構",
-              "body": "調整：",
-              "category": "文檔"
-            },
-            {
-              "hash": "b3ee1ebdcfa4550c5ac8d32fdd1b4045b6e9bf03",
-              "date": "2025-10-08",
-              "message": "重組 SQL 腳本目錄結構並新增說明文件",
-              "body": "調整：",
-              "category": "功能開發"
-            },
-            {
-              "hash": "79687a1b7b29f72944205cc56056df91d065ed7b",
-              "date": "2025-10-07",
-              "message": "新增同步診斷工具和重置腳本",
-              "body": "新增診斷工具：",
-              "category": "功能開發"
-            },
-            {
-              "hash": "3e84d8d75dc3abd9f7da0257cc58ed8e7775223f",
-              "date": "2025-10-07",
-              "message": "精簡日誌輸出並修正欄位長度限制",
-              "body": "- 移除冗餘的單筆處理日誌，只保留批次總結",
+              "hash": "91454f7c89466de523af790e5abf259fe2023f3b",
+              "date": "2025-10-27",
+              "message": "修正 pat_resultd 同步缺少 MLT_NAME 欄位的問題",
+              "body": "1. 問題發現",
               "category": "錯誤修正"
             },
             {
-              "hash": "1098bfa47cd3c6f0e8fd545b4ef51f2871f146fb",
-              "date": "2025-10-07",
-              "message": "更新桃園遷徙專案：完成全量遷移並更新文檔",
-              "body": "## 修正問題",
+              "hash": "5d90863e0bd09b3095c26e875a8f8f3d4ae33a22",
+              "date": "2025-10-20",
+              "message": "將 DR_CODE 長度警告降為 DEBUG 級別並更新診斷文件",
+              "body": "1. 日誌級別調整",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "0d61e4cad202bea0f3b3d39ae81c6d128e15d7b2",
+              "date": "2025-10-20",
+              "message": "修正刪除操作逾時問題並移除棄用的 pat_resulthx 處理",
+              "body": "1. 修正問題",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "1a8ae851422581ce36fb7124f6aa8bfe3cffc692",
+              "date": "2025-10-20",
+              "message": "簡化日誌輸出並修正 OL_ADDR3 欄位長度限制",
+              "body": "1. 簡化正常執行時的日誌輸出",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "0531f9cff706f7d9df3e0d25649eeb180b416abe",
+              "date": "2025-10-09",
+              "message": "新增完整的機制說明文件和重開機檢查清單",
+              "body": "- PAT_RESULTH_整單同步機制說明.md：詳細說明整單 MERGE 機制",
               "category": "功能開發"
             },
             {
-              "hash": "56b3dffceb5bb8e94aa69d9418ee359daf6eb228",
-              "date": "2025-10-07",
-              "message": "新增桃園遷徙專案文檔和 SQL 腳本",
+              "hash": "63b58c2345abce9c5c30b5df6def26d3d0aa0de0",
+              "date": "2025-10-08",
+              "message": "新增 Oracle 重置腳本，用於重新同步被誤刪的單號",
+              "body": "- reset_56_orders.sql: 重置 56 個受影響的單號",
+              "category": "功能開發"
+            },
+            {
+              "hash": "34612f899202bf88a4c8bb6e1673903683848fe0",
+              "date": "2025-10-08",
+              "message": "新增清理重複 pat_resulth 記錄的 SQL 文件",
+              "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+              "category": "功能開發"
+            },
+            {
+              "hash": "2452add78b2687ad8bfdb7f5ff2026a35cb8f0a7",
+              "date": "2025-10-08",
+              "message": "pat_resulth 每個 order_no 只保留最大 trx_num 的記錄",
+              "body": "**問題**",
+              "category": "其他"
+            },
+            {
+              "hash": "87338e34a529cc0107a4f548408c49388da229d8",
+              "date": "2025-10-08",
+              "message": "繞過 pat_resulthx 的有問題觸發器，直接寫入 pat_resulth",
+              "body": "**問題根因**",
+              "category": "其他"
+            }
+          ]
+        },
+        {
+          "name": "label-printing",
+          "totalCommits": 10,
+          "categories": {
+            "錯誤修正": 3,
+            "其他": 4,
+            "功能開發": 2,
+            "文檔": 1
+          },
+          "commits": [
+            {
+              "hash": "293ee8d8debf6abab6ab68dbb533fe6518de43ce",
+              "date": "2025-10-28",
+              "message": "修正版本號顯示格式",
+              "body": "- 將版本號從 2025.10.28.01 改為 2025.10.28.1（符合 AssemblyVersion 格式）",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "af69527d15312f0ec861c20682c9d5226f59cbbc",
+              "date": "2025-10-28",
+              "message": "更新版本號至 2025.10.28.01",
+              "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+              "category": "其他"
+            },
+            {
+              "hash": "c1169463f739d2ed6339beb010c9bb3f98f33c93",
+              "date": "2025-10-28",
+              "message": "新增 UpdateCustomerDataSafe 的單元測試",
+              "body": "- 驗證 SQL 包含正確的欄位名稱（BIRTH_DATE）",
+              "category": "功能開發"
+            },
+            {
+              "hash": "c8c8b17cfefe33cf13364887ced1526ba5fb3f67",
+              "date": "2025-10-28",
+              "message": "修正資料庫欄位名稱錯誤",
+              "body": "問題：更新客戶資料時，使用錯誤的欄位名稱 DBBIRTH 導致 ORA-00904 錯誤",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "8eb24e723ae4c180618f07f3573000dcaf6bc768",
+              "date": "2025-10-28",
+              "message": "更新 RUN.md：補充發佈指令說明",
+              "body": "- 簡化發佈指令：dotnet publish -c Release -p:Platform=x86",
+              "category": "文檔"
+            },
+            {
+              "hash": "76e9d8e4d0470314acd0f67d5dda64c67c94a894",
+              "date": "2025-10-28",
+              "message": "加入版本資訊 (使用日期格式 2025.10.28)",
+              "body": "- 在專案檔加入版本資訊",
+              "category": "其他"
+            },
+            {
+              "hash": "bb7cc74776a69d68cde97e068f270347de9defcb",
+              "date": "2025-10-28",
+              "message": "修復單元測試並改進驗證邏輯",
+              "body": "改進內容：",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "e3a3c3d08406d65fde2e40dd1077649c4fb302a4",
+              "date": "2025-10-28",
+              "message": "完成標籤列印系統優化",
+              "body": "功能改進：",
+              "category": "功能開發"
+            },
+            {
+              "hash": "2251d1eac6a9f7bf93eafcab3229465f12bd8775",
+              "date": "2025-10-27",
+              "message": "Add .NET 8 migration with SQL Injection protection",
+              "body": "- Migrate BasicBarcode from .NET Framework to .NET 8",
+              "category": "其他"
+            },
+            {
+              "hash": "349e9368fda4b922fd2d7b579fac8a67388c8c9f",
+              "date": "2025-10-27",
+              "message": "Initial commit: BasicBarcode .NET 8 migration project",
+              "body": "- Migrated from .NET Framework to .NET 8",
+              "category": "其他"
+            }
+          ]
+        },
+        {
+          "name": "Management\\OverTimePrompt",
+          "totalCommits": 7,
+          "categories": {
+            "重構": 1,
+            "錯誤修正": 1,
+            "功能開發": 5
+          },
+          "commits": [
+            {
+              "hash": "6d3a241a1d53ea6ba3858c798452ac6ff069cc34",
+              "date": "2025-10-22",
+              "message": "refactor: 調整 Git repository 結構至正確位置",
+              "body": "## 變更內容",
+              "category": "重構"
+            },
+            {
+              "hash": "169411ec6ee336186bffb2446adc03a7313b6918",
+              "date": "2025-10-22",
+              "message": "fix: 優化備份機制與調整流程",
+              "body": "## 1. 建立備份表.sql",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "5e907705ee43d5756345ee4966ef3b15a20b1833",
+              "date": "2025-10-21",
+              "message": "refactor: 重構加班時數管理工具與勞基法合規查詢",
               "body": "## 新增檔案",
               "category": "功能開發"
             },
             {
-              "hash": "3c4a6028c232d5b0df43266a80f3109441aae387",
-              "date": "2025-10-07",
-              "message": "修正欄位截斷問題並精簡 log 輸出",
-              "body": "- 修正 PRH_DR_CODE 欄位截斷：在 Oracle 查詢階段使用 SUBSTR(TRIM(...), 1, 6)",
-              "category": "錯誤修正"
+              "hash": "f69e43ff4ed035d2509ab120253dc7745026ff3e",
+              "date": "2025-10-17",
+              "message": "feat: 加班時數調整工具 - 2025年8月至9月超標員工批次處理",
+              "body": "## 新增 SQL 工具",
+              "category": "功能開發"
             },
             {
-              "hash": "cc08c9fb69721543663153de0082b9cdb572295d",
-              "date": "2025-10-02",
-              "message": "新增同步診斷工具和輔助腳本",
-              "body": "- 新增 CheckSyncStatus.cs - 訂單同步狀態診斷工具",
+              "hash": "2ad8fa76d81f228800086d662a5f264e75a479e8",
+              "date": "2025-10-17",
+              "message": "docs: 新增 Markdown 轉 HTML/PDF 轉換說明與範例檔案",
+              "body": "## 更新內容",
+              "category": "功能開發"
+            },
+            {
+              "hash": "a5fed5230eaee850701295d5989e10819a9eedfb",
+              "date": "2025-10-17",
+              "message": "docs: 新增專案說明文件 README.md",
+              "body": "## 文件內容",
+              "category": "功能開發"
+            },
+            {
+              "hash": "acf29958d2972e4248a91c8361366d37f92c431b",
+              "date": "2025-10-17",
+              "message": "feat: 加班時數分析與管理系統",
+              "body": "## 新增功能",
               "category": "功能開發"
             }
           ]
@@ -1394,17 +1367,25 @@
           ]
         },
         {
-          "name": "UPC\\Back",
-          "totalCommits": 1,
+          "name": "UPC\\Front",
+          "totalCommits": 2,
           "categories": {
+            "錯誤修正": 1,
             "功能開發": 1
           },
           "commits": [
             {
-              "hash": "4d0b4c49912b6b3cd56465f61051a622dee1e645",
-              "date": "2025-09-17",
-              "message": "Merge branch 'feat/ReportReturn' into 'main'",
-              "body": "Feat:[同意書]新增PDF檔案上傳、預約表維護",
+              "hash": "bf6b2665fca5d8348fefe1bad114985ce4a6b414",
+              "date": "2025-10-17",
+              "message": "更新路由設定和門診時間",
+              "body": "- 修正訂單相關路由的 import 路徑",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "d80b40558de7b3c67860165ec9a8d86280f81711",
+              "date": "2025-10-17",
+              "message": "新增部署文檔和 ECS 更新流程說明",
+              "body": "- 新增 docs/DEPLOYMENT.md：包含完整的部署流程、伺服器連線資訊和快取處理方法",
               "category": "功能開發"
             }
           ]
@@ -1412,103 +1393,114 @@
       ],
       "side_projects": [
         {
-          "name": "CharMon",
-          "totalCommits": 117,
+          "name": "work-progress",
+          "totalCommits": 60,
           "categories": {
-            "功能開發": 34,
-            "錯誤修正": 44,
-            "測試": 1,
-            "樣式": 4,
-            "重構": 7,
-            "文檔": 1,
-            "其他": 23,
-            "配置": 3
+            "文檔": 21,
+            "錯誤修正": 9,
+            "功能開發": 25,
+            "其他": 4,
+            "樣式": 1
           },
           "commits": [
             {
-              "hash": "753d14f7dd495ed292e943160b378dfbc4a605f3",
-              "date": "2025-10-03",
-              "message": "docs: 新增課程企劃案文件",
-              "body": "新增跨領域科技融入教學設計企劃案，包含：",
-              "category": "功能開發"
+              "hash": "4bf91b6ba2ae32ed4e78fb895aad67cd8b460a28",
+              "date": "2025-10-29",
+              "message": "docs: 更新彙整資料 2025-10-29",
+              "body": "🤖 自動生成於 2025-10-29 07:05",
+              "category": "文檔"
             },
             {
-              "hash": "7a23720a9b4053d1a262bca4ab4c79b2e4bc9c45",
-              "date": "2025-09-29",
-              "message": "feat: 實現中文理解遊戲全螢幕答案反饋，修復 TypeScript 錯誤",
-              "body": "- 新增全螢幕答案反饋，顯示超大「正確」或「錯誤」文字",
-              "category": "功能開發"
+              "hash": "281dedacc3472da18f74e292e1bc2e17f345493b",
+              "date": "2025-10-29",
+              "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
+              "body": "🤖 自動生成於 2025-10-29 07:05",
+              "category": "文檔"
             },
             {
-              "hash": "b8c42648ab5ec42970c3b9e00717f23d05e2aae6",
-              "date": "2025-09-29",
-              "message": "feat: 進一步強化男女語音差異，極低音調模擬男聲",
-              "body": "- 男聲使用極低音調 (0.1) 和較慢語速 (0.85)",
-              "category": "功能開發"
-            },
-            {
-              "hash": "2cbdb2737174141bdefe6c90d545c3932a26a14b",
-              "date": "2025-09-29",
-              "message": "feat: 改善中文理解遊戲語音體驗，強化男女聲音差異",
-              "body": "- 嘗試自動選擇系統中的男女語音引擎",
-              "category": "功能開發"
-            },
-            {
-              "hash": "5aa05cf1881040a35cd1e7ae38b73cd8bbd520d8",
-              "date": "2025-09-29",
-              "message": "feat: 優化中文理解遊戲體驗，隱藏對話文字並改善語音和版面",
-              "body": "- 隱藏對話文字內容，純語音播放模式提升聽力挑戰",
-              "category": "功能開發"
-            },
-            {
-              "hash": "530aebfc07275a74eb809bf6b50daee904844f8f",
-              "date": "2025-09-29",
-              "message": "fix: 修復中文理解遊戲選擇卡片背景，統一使用 Matrix 風格",
-              "body": "- 將中文理解遊戲卡片從藍色波浪背景改為黑色 Matrix 背景",
+              "hash": "bf56754aee6d26b4166bc2d76fe57238422b670d",
+              "date": "2025-10-28",
+              "message": "fix: 修正自動 push 失敗問題",
+              "body": "- 修改 git add 指令，只加入必要的檔案（daily-reports/, public/data/）",
               "category": "錯誤修正"
             },
             {
-              "hash": "12f0e1c1cf0fe192d3db0835045c4cbf6869249e",
-              "date": "2025-09-29",
-              "message": "feat: 新增中文怪物-中文理解遊戲模式，優化手機聲調選擇體驗",
-              "body": "- 優化中文怪物聲調測驗手機體驗：簡化按鈕標籤為「一、二、三、四、輕」，調整按鈕大小適合觸控操作",
+              "hash": "d13ec521d63ca0e9514f18026ce21b790a5bd7b1",
+              "date": "2025-10-28",
+              "message": "docs: 每日工作紀錄 2025-10-23 至 2025-10-27",
+              "body": "- 10-23: 3 commits (lisweb 1 + work-progress 2)",
+              "category": "文檔"
+            },
+            {
+              "hash": "095e4a4aa3e3a296a0fa065494738a6ee0661653",
+              "date": "2025-10-23",
+              "message": "docs: 更新彙整資料並整合 work-progress 專案（2025-10-22）",
+              "body": "- 新增 work-progress 專案紀錄（6 commits）",
               "category": "功能開發"
             },
             {
-              "hash": "294c517d1452135dce48cf1dd45c1bf1000cc415",
-              "date": "2025-09-29",
-              "message": "feat: 優化手機瀏覽體驗，增大聲調按鈕觸控區域",
-              "body": "- 增加按鈕最小寬度和高度，提升手機觸控體驗",
+              "hash": "c0bfc40d58d21917ee51dc73b19ed7d78a13069d",
+              "date": "2025-10-23",
+              "message": "feat: 整合 work-progress 專案紀錄（歸類為 side project）",
+              "body": "- 移除 work-progress 專案的排除邏輯，將其納入 side project 統計",
               "category": "功能開發"
             },
             {
-              "hash": "52d295fccc473a6f0793c74e5c6774c2d3a6327d",
-              "date": "2025-09-29",
-              "message": "feat: 移除中文怪物遊戲的登入要求，允許訪客直接遊玩",
-              "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+              "hash": "27064bc48c57af5ccab2d9c50685b696587d7576",
+              "date": "2025-10-23",
+              "message": "fix: 修正工作進度介面顯示問題並調整預設日期範圍",
+              "body": "- 修改預設結束日期為昨天（避免顯示今天未完成的資料）",
               "category": "功能開發"
             },
             {
-              "hash": "e41b08088ff46eb8d2fad4504565c67f1aaeb85c",
-              "date": "2025-09-29",
-              "message": "fix: 修正「寶寶」第二個「寶」為輕聲",
-              "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+              "hash": "cdb6ceaad078f6b922d48f31c9fe037adac60f4b",
+              "date": "2025-10-23",
+              "message": "docs: 更新彙整資料 2025-10-23",
+              "body": "🤖 自動生成於 2025-10-23 07:05",
+              "category": "文檔"
+            },
+            {
+              "hash": "98073d63fdbd19eadb7da3925f417035d208e4b2",
+              "date": "2025-10-23",
+              "message": "docs: 每日工作紀錄 2025-10-22 (8 commits)",
+              "body": "🤖 自動生成於 2025-10-23 07:05",
+              "category": "文檔"
+            },
+            {
+              "hash": "da5bad9e641d418a2798266262ae30ce68fa2b0e",
+              "date": "2025-10-22",
+              "message": "fix: 使用正確的 merge_to_public 函數重新生成專案彙整資料",
+              "body": "- 修正 work-log-latest.json 格式（改用專案彙整格式而非每日陣列格式）",
               "category": "錯誤修正"
             }
           ]
         },
         {
           "name": "bordeaux-ii",
-          "totalCommits": 33,
+          "totalCommits": 30,
           "categories": {
-            "功能開發": 7,
-            "錯誤修正": 15,
-            "其他": 8,
+            "其他": 7,
+            "功能開發": 6,
+            "錯誤修正": 14,
             "樣式": 1,
             "文檔": 1,
             "配置": 1
           },
           "commits": [
+            {
+              "hash": "00b3bf32f6cf57c6eceef191b9fe8b49ea1fff83",
+              "date": "2025-10-15",
+              "message": "更新委員資料及會議紀錄",
+              "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+              "category": "其他"
+            },
+            {
+              "hash": "098d2a122329eeac17038e3e21808c8796869d6b",
+              "date": "2025-10-15",
+              "message": "補充 10/2 會議出席紀錄及委員名單 mapping",
+              "body": "- 更新 committeeData.js：補充第 17 次會議（10/2 例會）出席紀錄",
+              "category": "其他"
+            },
             {
               "hash": "a075d2662ff02e8493c1a7ecf66a47a5ca244343",
               "date": "2025-09-30",
@@ -1564,20 +1556,88 @@
               "message": "修正版號顏色：改為淡白色以提高可見度",
               "body": "",
               "category": "錯誤修正"
-            },
+            }
+          ]
+        },
+        {
+          "name": "CharMon",
+          "totalCommits": 30,
+          "categories": {
+            "功能開發": 11,
+            "錯誤修正": 16,
+            "樣式": 1,
+            "重構": 2
+          },
+          "commits": [
             {
-              "hash": "3ef66f8849427193247ab1060a21efe15299905d",
-              "date": "2025-09-15",
-              "message": "新增版號顯示功能",
-              "body": "- 在導航欄右側新增版號顯示 (v0.1.1)",
+              "hash": "753d14f7dd495ed292e943160b378dfbc4a605f3",
+              "date": "2025-10-03",
+              "message": "docs: 新增課程企劃案文件",
+              "body": "新增跨領域科技融入教學設計企劃案，包含：",
               "category": "功能開發"
             },
             {
-              "hash": "de79c7507133130e3485afae457e3a94fd7c4f9d",
-              "date": "2025-09-15",
-              "message": "更新副主任委員資訊：新增高宏宇 (C5-5F)",
-              "body": "- 在委員選舉結果中新增新任副主任委員高O宇",
+              "hash": "ef660d98e36452e1bac11839950077d2500f1253",
+              "date": "2025-09-21",
+              "message": "chore: 更新開發工具和依賴",
+              "body": "- 新增圖像處理套件 (sharp, png-to-ico)",
               "category": "功能開發"
+            },
+            {
+              "hash": "65d674e6b8380c8b4bfcc2a9e7fbf87840a31ab4",
+              "date": "2025-09-21",
+              "message": "feat: 使用 SVG logo 生成新的 favicon.ico",
+              "body": "- 從 logo.svg 轉換生成包含多尺寸的 favicon.ico",
+              "category": "功能開發"
+            },
+            {
+              "hash": "3d1c3db9e93c979427c07aebd2af15382a072283",
+              "date": "2025-09-21",
+              "message": "fix: 新增版本參數解決圖示快取問題",
+              "body": "- 在所有 logo.svg 引用添加 ?v=2 參數",
+              "category": "功能開發"
+            },
+            {
+              "hash": "ad5d75692d7c9a4d23cbf5b2ff9c4288eb55ded6",
+              "date": "2025-09-21",
+              "message": "fix: 修正 manifest.json 語法錯誤和路徑設定",
+              "body": "- 簡化 manifest.json 格式",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "df88f852c9cfe5e540db7172991544318bf3ec3f",
+              "date": "2025-09-21",
+              "message": "fix: 修正靜態資源路徑包含 base URL",
+              "body": "- 所有靜態資源路徑加上 /CharMon/ 前綴",
+              "category": "錯誤修正"
+            },
+            {
+              "hash": "aa0bc376893314865289d9fab3e2967d804f539b",
+              "date": "2025-09-21",
+              "message": "feat: 新增自定義 logo 和改善 SEO 設定",
+              "body": "- 創建 SVG logo 使用「字」作為主要圖標",
+              "category": "功能開發"
+            },
+            {
+              "hash": "1162e45c87795f4dc621abca7a16273da5731146",
+              "date": "2025-09-21",
+              "message": "feat: 新增3個字符到字典",
+              "body": "- 傑: 人部，12劃",
+              "category": "功能開發"
+            },
+            {
+              "hash": "3c1929c59d03530ccbd762cdfa7f1cc79345c9ab",
+              "date": "2025-09-21",
+              "message": "feat: 改進同步功能產生 JSON 格式",
+              "body": "- 同步數據現在產生與 dictionary.json 相同的橫向 JSON 格式",
+              "category": "功能開發"
+            },
+            {
+              "hash": "b63b228db0ec517a2486fef0ee4889dbcc7d1257",
+              "date": "2025-09-21",
+              "message": "style: 改善字典 JSON 格式為橫向排列",
+              "body": "- 將每個字符資料改為單行顯示",
+              "category": "樣式"
             }
           ]
         },
@@ -1666,14 +1726,96 @@
           ]
         },
         {
-          "name": "joechiboo.github.io",
-          "totalCommits": 23,
+          "name": "RiskPrediction-3H",
+          "totalCommits": 20,
           "categories": {
-            "功能開發": 10,
+            "功能開發": 3,
+            "其他": 14,
+            "文檔": 1,
+            "樣式": 2
+          },
+          "commits": [
+            {
+              "hash": "96121743aa9e4be78bf84b1273d76a234b7cead3",
+              "date": "2025-10-14",
+              "message": "Add systematic literature review and SCI journal verification guide",
+              "body": "新增檔案：",
+              "category": "功能開發"
+            },
+            {
+              "hash": "9778a4576e8954e89579cb48851d09b19cc3df32",
+              "date": "2025-10-14",
+              "message": "Update todo.md: Add Taiwan MTL (2025) paper review task for Meeting 16",
+              "body": "",
+              "category": "其他"
+            },
+            {
+              "hash": "210eafeb509fd6cc24a5b6c28c72ece813575cb3",
+              "date": "2025-10-14",
+              "message": "Add six comprehensive research concept documents and meeting materials",
+              "body": "新增六份研究方法與實驗設計文件：",
+              "category": "功能開發"
+            },
+            {
+              "hash": "759b1ac4cd640474e361196c576a872d9d89067a",
+              "date": "2025-10-09",
+              "message": "Update todo.md with Q1-2 completion and today's progress",
+              "body": "- Mark Q1-2 completed: Analyzed two papers from same dataset",
+              "category": "其他"
+            },
+            {
+              "hash": "719cdf2d5fffd32ea5b739c96fb543ffefff834a",
+              "date": "2025-10-08",
+              "message": "Add Chinese southeast community dataset papers (2010-2018)",
+              "body": "- Add Lin et al. (2024): Serum uric acid control and hypertension risk",
+              "category": "其他"
+            },
+            {
+              "hash": "2003ea3de6ab282d93a439493221e039b23e7736",
+              "date": "2025-10-07",
+              "message": "Add Liu et al. (2024) literature analysis and AUC-ROC documentation",
+              "body": "新增台中榮總糖尿病預測研究文獻分析：",
+              "category": "功能開發"
+            },
+            {
+              "hash": "0672f18b6f3ae9f247b361af9845835cc91473b5",
+              "date": "2025-10-02",
+              "message": "Simplify Q1-Q3 descriptions and add next steps",
+              "body": "",
+              "category": "其他"
+            },
+            {
+              "hash": "ef346fee0969f553574b1f5ed63a163f04cb2f50",
+              "date": "2025-10-02",
+              "message": "Update Q1-Q3 order and prepare Meeting 15 presentation",
+              "body": "- Reorder todo.md: Q1=文獻回顧, Q2=預測定義, Q3=資料集",
+              "category": "其他"
+            },
+            {
+              "hash": "e8676115f0153feb08a7524696d1cdff64ee6b80",
+              "date": "2025-10-02",
+              "message": "Add Taiwan 3H literature review and reference papers",
+              "body": "- Add comprehensive Q2 Taiwan literature review covering hypertension, diabetes, and dyslipidemia prediction studies",
+              "category": "其他"
+            },
+            {
+              "hash": "a207262a85d20a621bf69a9ffc73cddece323c81",
+              "date": "2025-10-01",
+              "message": "Update todo.md with Q1 simple explanation",
+              "body": "",
+              "category": "其他"
+            }
+          ]
+        },
+        {
+          "name": "joechiboo.github.io",
+          "totalCommits": 14,
+          "categories": {
+            "功能開發": 6,
             "樣式": 1,
-            "其他": 8,
+            "其他": 5,
             "重構": 1,
-            "錯誤修正": 3
+            "錯誤修正": 1
           },
           "commits": [
             {
@@ -1749,177 +1891,12 @@
           ]
         },
         {
-          "name": "water-tracker",
-          "totalCommits": 21,
-          "categories": {
-            "其他": 9,
-            "錯誤修正": 3,
-            "樣式": 3,
-            "功能開發": 5,
-            "重構": 1
-          },
-          "commits": [
-            {
-              "hash": "4c6c742b07abd8d6a7477b3eb78832d49b4ed1d8",
-              "date": "2025-09-23",
-              "message": "Adjust auto-scroll position to show more core functionality",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "f19d7296946582fbcb0a49025aec298197e46c3b",
-              "date": "2025-09-23",
-              "message": "Add auto-scroll to focus on core functionality on page load",
-              "body": "- Automatically scroll to 60% of header height on page mount",
-              "category": "其他"
-            },
-            {
-              "hash": "0eb8ccabc5b29b953d0705309ce6b33847259af0",
-              "date": "2025-09-23",
-              "message": "Remove confirmation dialog for reset today button",
-              "body": "- Change reset button to directly execute without confirmation",
-              "category": "其他"
-            },
-            {
-              "hash": "8b52095d2d48f4ccf4cfe6339be60d0ef95b0385",
-              "date": "2025-09-23",
-              "message": "Fix reset today button functionality",
-              "body": "- Remove duplicate @click events on reset button that was preventing it from working",
-              "category": "錯誤修正"
-            },
-            {
-              "hash": "72ac849bfb17b6ccbb98ce817f947c60af7e3ee7",
-              "date": "2025-09-23",
-              "message": "Reduce header height to emphasize core tracking functionality",
-              "body": "- Decrease header padding from 2rem to 1rem",
-              "category": "其他"
-            },
-            {
-              "hash": "8e623888835e317927ed25db8836f17d5a52eac6",
-              "date": "2025-09-23",
-              "message": "Change warrior selection cards to blue gradient with white text",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "2fa8a00f5f11d924975fb3dc889de8cf8abcd290",
-              "date": "2025-09-23",
-              "message": "Update UserSettings color scheme for better contrast",
-              "body": "- Change modal background from blue gradient to white",
-              "category": "其他"
-            },
-            {
-              "hash": "8eec7310f8343f2b615c66abbfdb26c2232341d5",
-              "date": "2025-09-23",
-              "message": "Change UserSettings background from purple to blue gradient",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "9cc36bbf6295578e06f172b79e45d82fdc190e75",
-              "date": "2025-09-23",
-              "message": "Implement Help Center modal and improve UI interactions",
-              "body": "- Create HelpCenter component as modal replacing inline knowledge/container sections",
-              "category": "樣式"
-            },
-            {
-              "hash": "7da097db21c184c07c7b2afcf12ab4c7e4fd77cc",
-              "date": "2025-09-23",
-              "message": "Implement collapsible sections and fix UI layout issues",
-              "body": "- Add water drop favicon.svg for browser tab icon",
-              "category": "錯誤修正"
-            }
-          ]
-        },
-        {
-          "name": "RiskPrediction-3H",
-          "totalCommits": 19,
-          "categories": {
-            "功能開發": 1,
-            "其他": 14,
-            "文檔": 2,
-            "樣式": 2
-          },
-          "commits": [
-            {
-              "hash": "2003ea3de6ab282d93a439493221e039b23e7736",
-              "date": "2025-10-07",
-              "message": "Add Liu et al. (2024) literature analysis and AUC-ROC documentation",
-              "body": "新增台中榮總糖尿病預測研究文獻分析：",
-              "category": "功能開發"
-            },
-            {
-              "hash": "0672f18b6f3ae9f247b361af9845835cc91473b5",
-              "date": "2025-10-02",
-              "message": "Simplify Q1-Q3 descriptions and add next steps",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "ef346fee0969f553574b1f5ed63a163f04cb2f50",
-              "date": "2025-10-02",
-              "message": "Update Q1-Q3 order and prepare Meeting 15 presentation",
-              "body": "- Reorder todo.md: Q1=文獻回顧, Q2=預測定義, Q3=資料集",
-              "category": "其他"
-            },
-            {
-              "hash": "e8676115f0153feb08a7524696d1cdff64ee6b80",
-              "date": "2025-10-02",
-              "message": "Add Taiwan 3H literature review and reference papers",
-              "body": "- Add comprehensive Q2 Taiwan literature review covering hypertension, diabetes, and dyslipidemia prediction studies",
-              "category": "其他"
-            },
-            {
-              "hash": "a207262a85d20a621bf69a9ffc73cddece323c81",
-              "date": "2025-10-01",
-              "message": "Update todo.md with Q1 simple explanation",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "3ed798fa505ae860556e6d49d24d20189224e1b8",
-              "date": "2025-10-01",
-              "message": "Add comprehensive Q1 response: Prediction problem definition",
-              "body": "Detailed specification for 3H risk prediction research:",
-              "category": "其他"
-            },
-            {
-              "hash": "91d527e6ccb5b440ce8f094a009d53e54472a030",
-              "date": "2025-10-01",
-              "message": "Add Synthea to SUA format conversion script and documentation",
-              "body": "Created comprehensive data conversion pipeline:",
-              "category": "文檔"
-            },
-            {
-              "hash": "fa4d2ea01e0749526cc49b59874903a0fffde187",
-              "date": "2025-09-30",
-              "message": "Add comprehensive Synthea dataset summary document",
-              "body": "Detailed analysis of the 1K Synthea synthetic patient dataset:",
-              "category": "其他"
-            },
-            {
-              "hash": "513433607efb181017070f4701b421c3cecaf11f",
-              "date": "2025-09-30",
-              "message": "Add Synthea synthetic data as primary dataset",
-              "body": "- Update .gitignore to exclude Synthea data folders",
-              "category": "其他"
-            },
-            {
-              "hash": "dd27c167c0b040f9a4b2018c7b0ffb0dca537b94",
-              "date": "2025-09-22",
-              "message": "Merge branch 'main' of https://github.com/joechiboo/RiskPrediction-3H",
-              "body": "",
-              "category": "其他"
-            }
-          ]
-        },
-        {
           "name": "FridgeMaster",
-          "totalCommits": 13,
+          "totalCommits": 12,
           "categories": {
             "錯誤修正": 5,
             "功能開發": 5,
-            "其他": 2,
+            "其他": 1,
             "文檔": 1
           },
           "commits": [
@@ -1997,13 +1974,48 @@
         },
         {
           "name": "ResearchSeminar-3H",
-          "totalCommits": 6,
+          "totalCommits": 11,
           "categories": {
-            "功能開發": 3,
-            "其他": 2,
+            "其他": 4,
+            "功能開發": 6,
             "文檔": 1
           },
           "commits": [
+            {
+              "hash": "91c5994ec41bd6657e4ee8393429f881576d87cf",
+              "date": "2025-10-28",
+              "message": "更新簡報主題為三高風險預測研究並提交最終報告",
+              "body": "- 更新簡報內容：改為可解釋模型vs黑箱模型比較研究",
+              "category": "其他"
+            },
+            {
+              "hash": "f83dd25a2811ed9dabd174093251da80491a127a",
+              "date": "2025-10-27",
+              "message": "新增文獻閱讀報告內容與格式檢查清單",
+              "body": "- 新增二_文獻來源.md：主要研究論文3篇",
+              "category": "功能開發"
+            },
+            {
+              "hash": "94c94d4b35c2bdb389b0963601840d7a8bd32a84",
+              "date": "2025-10-27",
+              "message": "清理參考文獻過程檔案，僅保留最終整合版",
+              "body": "",
+              "category": "其他"
+            },
+            {
+              "hash": "dcfeb0f547dc012ddfa93ceb75aca908dfa6d2db",
+              "date": "2025-10-27",
+              "message": "新增參考文獻整合（12篇核心論文）",
+              "body": "- 完成12篇核心參考文獻整理（IEEE格式）",
+              "category": "功能開發"
+            },
+            {
+              "hash": "2924ca463e16c4f57050d7ec9eea25c55f379816",
+              "date": "2025-10-14",
+              "message": "新增混淆矩陣評估指標備忘錄與更新簡報講稿",
+              "body": "- 新增confusion_matrix_metrics.md：整理Accuracy、Sensitivity、Specificity、Precision、FPR等指標定義與ROC/AUC說明",
+              "category": "功能開發"
+            },
             {
               "hash": "5d00f8233c5457a03390427599a3f53c778daff0",
               "date": "2025-10-02",
@@ -2038,25 +2050,33 @@
               "message": "Add four main content description files for thesis submission",
               "body": "",
               "category": "其他"
-            },
-            {
-              "hash": "c02dcbe5e4548816137556312ffc33167947a2f1",
-              "date": "2025-09-16",
-              "message": "Add course materials and documentation folders",
-              "body": "",
-              "category": "文檔"
             }
           ]
         },
         {
           "name": "CyclePulse",
-          "totalCommits": 4,
+          "totalCommits": 6,
           "categories": {
+            "文檔": 2,
             "其他": 2,
             "錯誤修正": 1,
             "功能開發": 1
           },
           "commits": [
+            {
+              "hash": "65df5f2e06d444694a45091e33010b7cd1867782",
+              "date": "2025-10-16",
+              "message": "Add comprehensive Garmin HRM-Dual integration guide",
+              "body": "Added detailed documentation for integrating Garmin HRM-Dual heart rate monitor:",
+              "category": "文檔"
+            },
+            {
+              "hash": "4059e7aa32189771c45bfbfd58840ab3f0d182a9",
+              "date": "2025-10-14",
+              "message": "Move failed Bluetooth solutions to docs/bad and add Gadgetbridge guide",
+              "body": "- Move bluetooth-todo.md and MIBAND-TEST-README.md to docs/bad/",
+              "category": "文檔"
+            },
             {
               "hash": "f44e52868c613fba0f6dbd98e6db2da46820099e",
               "date": "2025-09-24",
@@ -2088,41 +2108,34 @@
           ]
         },
         {
-          "name": "work-progress",
-          "totalCommits": 4,
+          "name": "Fast-Trivia",
+          "totalCommits": 3,
           "categories": {
-            "功能開發": 1,
-            "其他": 2,
-            "樣式": 1
+            "配置": 1,
+            "樣式": 1,
+            "錯誤修正": 1
           },
           "commits": [
             {
-              "hash": "4bdff543cfdf1633f5b792ae36bf2f1d01df1499",
-              "date": "2025-10-08",
-              "message": "feat: 智能彙總報告系統",
-              "body": "新增功能：",
-              "category": "功能開發"
+              "hash": "01e6400e2ca95ae4c3f60d18bf870bfef90945ad",
+              "date": "2025-10-21",
+              "message": "chore: merge settings.local.json permissions",
+              "body": "合併本地和遠端的權限設定",
+              "category": "配置"
             },
             {
-              "hash": "77ebf65cc85f345dc200a6743c03fd94fba95c1b",
-              "date": "2025-10-08",
-              "message": "Enable Pages auto-enablement in workflow",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "e6c098e8aa311ba01260edf657fd7943fd8b5a6e",
-              "date": "2025-10-08",
-              "message": "Trigger GitHub Pages deployment",
-              "body": "",
-              "category": "其他"
-            },
-            {
-              "hash": "d253dc21a425294921558d48a670a27050afd902",
-              "date": "2025-10-08",
-              "message": "Initial commit: Work Progress Tracking System",
-              "body": "- Vue 3 + Vite + Tailwind CSS",
+              "hash": "d847fee3fd915094500ba20a88eadf09df9851c1",
+              "date": "2025-10-20",
+              "message": "style: 更新 favicon 為趣味靶心圖示",
+              "body": "- 替換預設的 vite.svg 為自訂的 favicon.png",
               "category": "樣式"
+            },
+            {
+              "hash": "417770c1513c03578ef36e816488e5d4ad29dbf3",
+              "date": "2025-10-20",
+              "message": "fix: 修正正確率計算錯誤與題庫難度篩選問題",
+              "body": "## 修正項目",
+              "category": "錯誤修正"
             }
           ]
         },
@@ -2151,6 +2164,46 @@
           ]
         },
         {
+          "name": "water-tracker",
+          "totalCommits": 2,
+          "categories": {
+            "測試": 1,
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "1dfdb5a3e20bb3f47bab8f7551ecfab45f8d5c65",
+              "date": "2025-10-28",
+              "message": "Add manual trigger for idle reminder testing",
+              "body": "Users can now click the logo to cycle through reminder states:",
+              "category": "測試"
+            },
+            {
+              "hash": "aae28a8c1044fff86784c92bc28f85ec5c0db111",
+              "date": "2025-10-28",
+              "message": "Add idle reminder feature with two-stage alerts",
+              "body": "Implemented a smart idle reminder system that encourages users to drink water:",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "kids-time-control",
+          "totalCommits": 1,
+          "categories": {
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "af5687ac2e846055be7195bc3a9aa8bc579587c5",
+              "date": "2025-10-28",
+              "message": "完成手機應用核心功能修正與優化",
+              "body": "主要更新：",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
           "name": "ZebraSite",
           "totalCommits": 1,
           "categories": {
@@ -2168,30 +2221,340 @@
         }
       ],
       "summary": {
-        "workCommits": 169,
-        "sideCommits": 270,
-        "totalCommits": 439,
-        "dailyAverage": 15.68,
-        "workDailyAverage": 6.04,
-        "sideDailyAverage": 9.64
+        "workCommits": 287,
+        "sideCommits": 219,
+        "totalCommits": 506,
+        "dailyAverage": 10.33,
+        "workDailyAverage": 5.86,
+        "sideDailyAverage": 4.47
+      }
+    },
+    {
+      "period": {
+        "name": "Claude Code 版",
+        "id": "claude-code",
+        "start": "2025-10-30",
+        "end": "2025-12-31",
+        "days": 63,
+        "cost": 0
+      },
+      "work_projects": [
+        {
+          "name": "lisweb",
+          "totalCommits": 2,
+          "categories": {
+            "重構": 1,
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "6dac992f25e09b34a571717533b351966e474f60",
+              "date": "2025-11-03",
+              "message": "refactor: 將檢驗值分欄從三欄改為兩欄",
+              "body": "修改內容：",
+              "category": "重構"
+            },
+            {
+              "hash": "3feb5295b276623ffdc2020b1f166f2f98488496",
+              "date": "2025-11-03",
+              "message": "feat: LT281 檢驗值支援分欄顯示功能",
+              "body": "新增功能：",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "Management\\OverTimePrompt",
+          "totalCommits": 2,
+          "categories": {
+            "功能開發": 2
+          },
+          "commits": [
+            {
+              "hash": "e4f34a6062b4db0a48d1b0c046e260a496b6c005",
+              "date": "2025-11-03",
+              "message": "feat: 新增加班調整 SQL 與資料表分析工具",
+              "body": "新增檔案：",
+              "category": "功能開發"
+            },
+            {
+              "hash": "dde13a1d927595471407600e8e28ea55c6ddada9",
+              "date": "2025-10-30",
+              "message": "docs: 更新加班超標因應策略（v1.1）",
+              "body": "- 更新三個月加班超標人員名單（移除邱久泰，新增吳承庭）",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "label-printing",
+          "totalCommits": 1,
+          "categories": {
+            "錯誤修正": 1
+          },
+          "commits": [
+            {
+              "hash": "a9f25c2ec61ab305fbdb1ac5ea596f3363e48509",
+              "date": "2025-10-30",
+              "message": "修正 .specify 文檔內容與日期",
+              "body": "修正內容：",
+              "category": "錯誤修正"
+            }
+          ]
+        },
+        {
+          "name": "OnlineReport\\FalconCopy",
+          "totalCommits": 1,
+          "categories": {
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "fafe12da04bc1556964c4e81ca888054a4ee6cb7",
+              "date": "2025-10-30",
+              "message": "實作髒資料自動清理機制並優化刪除效能",
+              "body": "1. 髒資料問題診斷",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "OnlineReport\\ReportHtmlSync",
+          "totalCommits": 1,
+          "categories": {
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "7497ccb55385f22b89ec93ba450bf9007ddcbc1a",
+              "date": "2025-11-03",
+              "message": "feat: 新增批次執行日誌與自動清理機制",
+              "body": "## 主要變更",
+              "category": "功能開發"
+            }
+          ]
+        }
+      ],
+      "side_projects": [
+        {
+          "name": "work-progress",
+          "totalCommits": 14,
+          "categories": {
+            "功能開發": 4,
+            "文檔": 9,
+            "其他": 1
+          },
+          "commits": [
+            {
+              "hash": "f0fd44dd2d7577f04919597faa7d66ccdb835bb7",
+              "date": "2025-11-04",
+              "message": "feat: 修改預設篩選開始日期為 2025-10-30",
+              "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+              "category": "功能開發"
+            },
+            {
+              "hash": "479d96f27dde2d71634ef479d62d99d537b41e74",
+              "date": "2025-11-04",
+              "message": "docs: 更新彙整資料 2025-11-04",
+              "body": "🤖 自動生成於 2025-11-04 07:33",
+              "category": "文檔"
+            },
+            {
+              "hash": "2c436cb7b502d60563d0a59e102eec098bbbf9b2",
+              "date": "2025-11-04",
+              "message": "docs: 每日工作紀錄 2025-11-03 (11 commits)",
+              "body": "🤖 自動生成於 2025-11-04 07:33",
+              "category": "文檔"
+            },
+            {
+              "hash": "a2641606b35e6242b77b3420e39b607ea78bfe79",
+              "date": "2025-11-04",
+              "message": "fix: 修正路徑錯誤並新增 Claude Code 版時期",
+              "body": "- 修正腳本路徑從 C:\\ 改為 D:- 修正 WORK_PROGRESS_PATH 移除多餘的 work-progress-ssh",
+              "category": "功能開發"
+            },
+            {
+              "hash": "a4b83dd0edf20f338b39335b8646ac6e67ce46da",
+              "date": "2025-11-04",
+              "message": "docs: 更新彙整資料 2025-11-04",
+              "body": "🤖 自動生成於 2025-11-04 07:22",
+              "category": "文檔"
+            },
+            {
+              "hash": "b17562140ccd6f17f8cdef180c14fbe6fefa1f6f",
+              "date": "2025-11-03",
+              "message": "merge: 合併遠端 2025-11-02 報告（6 commits）與本地變更",
+              "body": "",
+              "category": "其他"
+            },
+            {
+              "hash": "5dbb5fdf7f46a004a83c04108c56f1b997d24388",
+              "date": "2025-11-03",
+              "message": "docs: 更新 2025-11-02 報告（無 commits）",
+              "body": "",
+              "category": "文檔"
+            },
+            {
+              "hash": "b899dd9e935a2535b855c5e94364c7e1249085de",
+              "date": "2025-11-03",
+              "message": "feat: 自動排程加入 git pull 同步功能",
+              "body": "",
+              "category": "功能開發"
+            },
+            {
+              "hash": "26d35dbae51a7c76c9e759fc7eea18c580e5eae9",
+              "date": "2025-11-03",
+              "message": "docs: 更新彙整資料 2025-11-03",
+              "body": "🤖 自動生成於 2025-11-03 08:10",
+              "category": "文檔"
+            },
+            {
+              "hash": "68421f27ad41e20841a24a33535d385042048843",
+              "date": "2025-11-01",
+              "message": "docs: 更新彙整資料 2025-11-01",
+              "body": "🤖 自動生成於 2025-11-01 07:05",
+              "category": "文檔"
+            }
+          ]
+        },
+        {
+          "name": "bordeaux-ii",
+          "totalCommits": 1,
+          "categories": {
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "19efb4a9c6f9f8765ccaf1cbdf39b5eaa1768137",
+              "date": "2025-10-30",
+              "message": "更新 10/23 臨時會議出席記錄",
+              "body": "- 新增 10/23 臨時會議出席資訊到 meetingRecords.js",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "interdisciplinary-course-notes\\interdisciplinary-course-notes",
+          "totalCommits": 1,
+          "categories": {
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "7317d4032b22850b3b87087add9cc27813cd30ce",
+              "date": "2025-11-03",
+              "message": "docs: 更新課程資訊與新增選題過程記錄",
+              "body": "- 更新課程名稱為「跨領域創新科技應用」",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "joechiboo.github.io",
+          "totalCommits": 1,
+          "categories": {
+            "文檔": 1
+          },
+          "commits": [
+            {
+              "hash": "1b3d9cad1723ba7f780767970e4fc42ddc26d4fe",
+              "date": "2025-10-30",
+              "message": "將工作進度專案改為創意專案並更新說明",
+              "body": "- 標題更新為「工作進度自動化排程」",
+              "category": "文檔"
+            }
+          ]
+        },
+        {
+          "name": "ResearchSeminar-3H",
+          "totalCommits": 1,
+          "categories": {
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "55ef84dae2260c546af878936b88d64cac1e89de",
+              "date": "2025-11-03",
+              "message": "新增 AUC 評估指標備忘錄",
+              "body": "包含 ROC 曲線定義、AUC 值解讀與實務應用考量",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "RiskPrediction-3H",
+          "totalCommits": 1,
+          "categories": {
+            "其他": 1
+          },
+          "commits": [
+            {
+              "hash": "f04bd80d372616bd09db58db9b92a3e0288a0480",
+              "date": "2025-11-03",
+              "message": "Add Taiwan MTL (2025) paper translation and Meeting 16 presentation outline",
+              "body": "- Add complete Chinese translation of Taiwan MTL paper (Scientific Reports 2025)",
+              "category": "其他"
+            }
+          ]
+        },
+        {
+          "name": "uclcloud",
+          "totalCommits": 1,
+          "categories": {
+            "功能開發": 1
+          },
+          "commits": [
+            {
+              "hash": "a37be90f42c7379a509c3c950d8f1231ce5e1a68",
+              "date": "2025-10-30",
+              "message": "docs: 新增軟體確效報告 XRM0401001",
+              "body": "新增 UCL Cloud 系統軟體確效報告文件，包含：",
+              "category": "功能開發"
+            }
+          ]
+        },
+        {
+          "name": "water-tracker",
+          "totalCommits": 1,
+          "categories": {
+            "其他": 1
+          },
+          "commits": [
+            {
+              "hash": "dba3f2a5dae7bc7aa3c363ac067ed292748f8025",
+              "date": "2025-10-31",
+              "message": "調整快速加水功能：改為50/100/250/500ml，加入自訂義容量記憶與排序",
+              "body": "- 將預設快速加水選項從 100/250/500/1000ml 改為 50/100/250/500ml",
+              "category": "其他"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "workCommits": 7,
+        "sideCommits": 21,
+        "totalCommits": 28,
+        "dailyAverage": 0.44,
+        "workDailyAverage": 0.11,
+        "sideDailyAverage": 0.33
       }
     }
   ],
   "comparison": {
     "work": {
-      "pre": 204,
-      "standard": 126,
-      "max": 169
+      "pre": 147,
+      "standard": 89,
+      "max": 287
     },
     "side": {
       "pre": 5,
-      "standard": 363,
-      "max": 270
+      "standard": 312,
+      "max": 219
     },
     "total": {
-      "pre": 209,
-      "standard": 489,
-      "max": 439
+      "pre": 152,
+      "standard": 401,
+      "max": 506
     }
   }
 }
