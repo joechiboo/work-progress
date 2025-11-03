@@ -280,8 +280,9 @@ onMounted(async () => {
     // 自動套用篩選
     applyFilter()
 
-    // 載入效率對比數據
-    const effResponse = await fetch(import.meta.env.BASE_URL + 'data/claude-efficiency-data.json')
+    // 載入效率對比數據（加上時間戳避免 cache）
+    const timestamp = new Date().getTime()
+    const effResponse = await fetch(import.meta.env.BASE_URL + `data/claude-efficiency-data.json?t=${timestamp}`)
     const effData = await effResponse.json()
     efficiencyData.value = effData
   } catch (error) {
@@ -302,10 +303,17 @@ const resetToDefault = async () => {
   try {
     // 強制重新載入數據（加上時間戳避免 cache）
     const timestamp = new Date().getTime()
+
+    // 重新載入工作日誌
     const response = await fetch(import.meta.env.BASE_URL + `data/work-log-latest.json?t=${timestamp}`)
     const data = await response.json()
     rawData.value = data
     workData.value = data
+
+    // 重新載入效率數據
+    const effResponse = await fetch(import.meta.env.BASE_URL + `data/claude-efficiency-data.json?t=${timestamp}`)
+    const effData = await effResponse.json()
+    efficiencyData.value = effData
 
     // 重置篩選條件
     filterStart.value = DEFAULT_START_DATE
