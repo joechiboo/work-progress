@@ -7,14 +7,14 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1256,
+    "totalCommits": 1267,
     "projectCount": 32,
-    "dailyAverage": 6.8
+    "dailyAverage": 6.9
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 407,
+      "totalCommits": 409,
       "commits": [
         {
           "hash": "a207ff46",
@@ -3271,6 +3271,22 @@
           "body": "新功能：",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "6dac992f",
+          "date": "2025-11-03",
+          "message": "refactor: 將檢驗值分欄從三欄改為兩欄",
+          "body": "修改內容：",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "3feb5295",
+          "date": "2025-11-03",
+          "message": "feat: LT281 檢驗值支援分欄顯示功能",
+          "body": "新增功能：",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
@@ -5403,7 +5419,7 @@
     },
     {
       "name": "OnlineReport\\ReportHtmlSync",
-      "totalCommits": 32,
+      "totalCommits": 33,
       "commits": [
         {
           "hash": "9cb8d2a0",
@@ -5658,6 +5674,14 @@
           "date": "2025-10-08",
           "message": "feat: 新增桃園站台支援 - 使用舊網路報告系統轉換 HTML",
           "body": "## 新功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7497ccb5",
+          "date": "2025-11-03",
+          "message": "feat: 新增批次執行日誌與自動清理機制",
+          "body": "## 主要變更",
           "category": "功能開發",
           "tags": []
         }
@@ -5960,7 +5984,7 @@
     },
     {
       "name": "Management\\OverTimePrompt",
-      "totalCommits": 9,
+      "totalCommits": 10,
       "commits": [
         {
           "hash": "f69e43ff",
@@ -6032,6 +6056,14 @@
           "message": "docs: 更新加班超標因應策略（v1.1）",
           "body": "- 更新三個月加班超標人員名單（移除邱久泰，新增吳承庭）",
           "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e4f34a60",
+          "date": "2025-11-03",
+          "message": "feat: 新增加班調整 SQL 與資料表分析工具",
+          "body": "新增檔案：",
+          "category": "功能開發",
           "tags": []
         }
       ],
@@ -8396,7 +8428,7 @@
     },
     {
       "name": "RiskPrediction-3H",
-      "totalCommits": 36,
+      "totalCommits": 37,
       "commits": [
         {
           "hash": "dfeeade8",
@@ -8684,6 +8716,253 @@
           "message": "Update todo.md: Change presentation from 10 to 16 pages, remove completed items",
           "body": "- Updated presentation requirement to 16 pages for Taiwan MTL paper",
           "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f04bd80d",
+          "date": "2025-11-03",
+          "message": "Add Taiwan MTL (2025) paper translation and Meeting 16 presentation outline",
+          "body": "- Add complete Chinese translation of Taiwan MTL paper (Scientific Reports 2025)",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "work-progress",
+      "totalCommits": 29,
+      "commits": [
+        {
+          "hash": "da5bad9e",
+          "date": "2025-10-22",
+          "message": "fix: 使用正確的 merge_to_public 函數重新生成專案彙整資料",
+          "body": "- 修正 work-log-latest.json 格式（改用專案彙整格式而非每日陣列格式）",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "29638ad7",
+          "date": "2025-10-22",
+          "message": "fix: 更新 work-log-latest.json 以包含 OverTimePrompt 專案紀錄",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f4c63d7c",
+          "date": "2025-10-22",
+          "message": "fix: 修正 Git repo 掃描以支援巢狀結構並重新整合 OverTimePrompt 專案紀錄",
+          "body": "- 修改 get_git_repos 函數，移除 dirs[:] = [] 以支援巢狀 Git repo",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "26eb0e74",
+          "date": "2025-10-22",
+          "message": "docs: 更新彙整資料 2025-10-22",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e879a7a0",
+          "date": "2025-10-22",
+          "message": "fix: 修正 auto-daily-report.py 確保 merge_to_public 的變更也會被 push",
+          "body": "- 新增在 merge_to_public() 之後的 git commit & push 邏輯",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b6fe5636",
+          "date": "2025-10-22",
+          "message": "docs: 每日工作紀錄 2025-10-21 (1 commits)",
+          "body": "🤖 自動生成於 2025-10-22 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "095e4a4a",
+          "date": "2025-10-23",
+          "message": "docs: 更新彙整資料並整合 work-progress 專案（2025-10-22）",
+          "body": "- 新增 work-progress 專案紀錄（6 commits）",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c0bfc40d",
+          "date": "2025-10-23",
+          "message": "feat: 整合 work-progress 專案紀錄（歸類為 side project）",
+          "body": "- 移除 work-progress 專案的排除邏輯，將其納入 side project 統計",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "27064bc4",
+          "date": "2025-10-23",
+          "message": "fix: 修正工作進度介面顯示問題並調整預設日期範圍",
+          "body": "- 修改預設結束日期為昨天（避免顯示今天未完成的資料）",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cdb6ceaa",
+          "date": "2025-10-23",
+          "message": "docs: 更新彙整資料 2025-10-23",
+          "body": "🤖 自動生成於 2025-10-23 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "98073d63",
+          "date": "2025-10-23",
+          "message": "docs: 每日工作紀錄 2025-10-22 (8 commits)",
+          "body": "🤖 自動生成於 2025-10-23 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "bf56754a",
+          "date": "2025-10-28",
+          "message": "fix: 修正自動 push 失敗問題",
+          "body": "- 修改 git add 指令，只加入必要的檔案（daily-reports/, public/data/）",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d13ec521",
+          "date": "2025-10-28",
+          "message": "docs: 每日工作紀錄 2025-10-23 至 2025-10-27",
+          "body": "- 10-23: 3 commits (lisweb 1 + work-progress 2)",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8fe97a2a",
+          "date": "2025-10-29",
+          "message": "docs: 更新彙整資料 2025-10-29",
+          "body": "🤖 自動生成於 2025-10-29 09:30",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "563b2f15",
+          "date": "2025-10-29",
+          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
+          "body": "🤖 自動生成於 2025-10-29 09:30",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "821a9c8e",
+          "date": "2025-10-29",
+          "message": "docs: 補充 5-7 月每日工作紀錄",
+          "body": "- 新增 2025-05 月紀錄（17 天）",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c697d19e",
+          "date": "2025-10-29",
+          "message": "fix: 修正 auto-daily-report.py 語法錯誤並新增推送保險機制",
+          "body": "- 修正 git push 錯誤處理（移除非函數中的 return）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7db040c0",
+          "date": "2025-10-29",
+          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
+          "body": "🤖 自動生成於 2025-10-29 07:44",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4bf91b6b",
+          "date": "2025-10-29",
+          "message": "docs: 更新彙整資料 2025-10-29",
+          "body": "🤖 自動生成於 2025-10-29 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "281dedac",
+          "date": "2025-10-29",
+          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
+          "body": "🤖 自動生成於 2025-10-29 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "19655c5a",
+          "date": "2025-10-30",
+          "message": "feat: 新增昨日紀錄快速篩選功能",
+          "body": "- 新增「昨日紀錄」按鈕，快速查看昨天的工作紀錄",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c989300e",
+          "date": "2025-10-30",
+          "message": "docs: 更新彙整資料 2025-10-30",
+          "body": "🤖 自動生成於 2025-10-30 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "59e526b6",
+          "date": "2025-10-30",
+          "message": "docs: 每日工作紀錄 2025-10-29 (19 commits)",
+          "body": "🤖 自動生成於 2025-10-30 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1ded0959",
+          "date": "2025-10-31",
+          "message": "docs: 更新彙整資料 2025-10-31",
+          "body": "🤖 自動生成於 2025-10-31 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c233f60e",
+          "date": "2025-10-31",
+          "message": "docs: 每日工作紀錄 2025-10-30 (9 commits)",
+          "body": "🤖 自動生成於 2025-10-31 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b1756214",
+          "date": "2025-11-03",
+          "message": "merge: 合併遠端 2025-11-02 報告（6 commits）與本地變更",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5dbb5fdf",
+          "date": "2025-11-03",
+          "message": "docs: 更新 2025-11-02 報告（無 commits）",
+          "body": "",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b899dd9e",
+          "date": "2025-11-03",
+          "message": "feat: 自動排程加入 git pull 同步功能",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "26d35dba",
+          "date": "2025-11-03",
+          "message": "docs: 更新彙整資料 2025-11-03",
+          "body": "🤖 自動生成於 2025-11-03 08:10",
+          "category": "文檔",
           "tags": []
         }
       ],
@@ -9343,213 +9622,6 @@
       "type": "side"
     },
     {
-      "name": "work-progress",
-      "totalCommits": 25,
-      "commits": [
-        {
-          "hash": "da5bad9e",
-          "date": "2025-10-22",
-          "message": "fix: 使用正確的 merge_to_public 函數重新生成專案彙整資料",
-          "body": "- 修正 work-log-latest.json 格式（改用專案彙整格式而非每日陣列格式）",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "29638ad7",
-          "date": "2025-10-22",
-          "message": "fix: 更新 work-log-latest.json 以包含 OverTimePrompt 專案紀錄",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "f4c63d7c",
-          "date": "2025-10-22",
-          "message": "fix: 修正 Git repo 掃描以支援巢狀結構並重新整合 OverTimePrompt 專案紀錄",
-          "body": "- 修改 get_git_repos 函數，移除 dirs[:] = [] 以支援巢狀 Git repo",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "26eb0e74",
-          "date": "2025-10-22",
-          "message": "docs: 更新彙整資料 2025-10-22",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e879a7a0",
-          "date": "2025-10-22",
-          "message": "fix: 修正 auto-daily-report.py 確保 merge_to_public 的變更也會被 push",
-          "body": "- 新增在 merge_to_public() 之後的 git commit & push 邏輯",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "b6fe5636",
-          "date": "2025-10-22",
-          "message": "docs: 每日工作紀錄 2025-10-21 (1 commits)",
-          "body": "🤖 自動生成於 2025-10-22 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "095e4a4a",
-          "date": "2025-10-23",
-          "message": "docs: 更新彙整資料並整合 work-progress 專案（2025-10-22）",
-          "body": "- 新增 work-progress 專案紀錄（6 commits）",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "c0bfc40d",
-          "date": "2025-10-23",
-          "message": "feat: 整合 work-progress 專案紀錄（歸類為 side project）",
-          "body": "- 移除 work-progress 專案的排除邏輯，將其納入 side project 統計",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "27064bc4",
-          "date": "2025-10-23",
-          "message": "fix: 修正工作進度介面顯示問題並調整預設日期範圍",
-          "body": "- 修改預設結束日期為昨天（避免顯示今天未完成的資料）",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "cdb6ceaa",
-          "date": "2025-10-23",
-          "message": "docs: 更新彙整資料 2025-10-23",
-          "body": "🤖 自動生成於 2025-10-23 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "98073d63",
-          "date": "2025-10-23",
-          "message": "docs: 每日工作紀錄 2025-10-22 (8 commits)",
-          "body": "🤖 自動生成於 2025-10-23 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "bf56754a",
-          "date": "2025-10-28",
-          "message": "fix: 修正自動 push 失敗問題",
-          "body": "- 修改 git add 指令，只加入必要的檔案（daily-reports/, public/data/）",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "d13ec521",
-          "date": "2025-10-28",
-          "message": "docs: 每日工作紀錄 2025-10-23 至 2025-10-27",
-          "body": "- 10-23: 3 commits (lisweb 1 + work-progress 2)",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "8fe97a2a",
-          "date": "2025-10-29",
-          "message": "docs: 更新彙整資料 2025-10-29",
-          "body": "🤖 自動生成於 2025-10-29 09:30",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "563b2f15",
-          "date": "2025-10-29",
-          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
-          "body": "🤖 自動生成於 2025-10-29 09:30",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "821a9c8e",
-          "date": "2025-10-29",
-          "message": "docs: 補充 5-7 月每日工作紀錄",
-          "body": "- 新增 2025-05 月紀錄（17 天）",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "c697d19e",
-          "date": "2025-10-29",
-          "message": "fix: 修正 auto-daily-report.py 語法錯誤並新增推送保險機制",
-          "body": "- 修正 git push 錯誤處理（移除非函數中的 return）",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "7db040c0",
-          "date": "2025-10-29",
-          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
-          "body": "🤖 自動生成於 2025-10-29 07:44",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "4bf91b6b",
-          "date": "2025-10-29",
-          "message": "docs: 更新彙整資料 2025-10-29",
-          "body": "🤖 自動生成於 2025-10-29 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "281dedac",
-          "date": "2025-10-29",
-          "message": "docs: 每日工作紀錄 2025-10-28 (16 commits)",
-          "body": "🤖 自動生成於 2025-10-29 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "19655c5a",
-          "date": "2025-10-30",
-          "message": "feat: 新增昨日紀錄快速篩選功能",
-          "body": "- 新增「昨日紀錄」按鈕，快速查看昨天的工作紀錄",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c989300e",
-          "date": "2025-10-30",
-          "message": "docs: 更新彙整資料 2025-10-30",
-          "body": "🤖 自動生成於 2025-10-30 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "59e526b6",
-          "date": "2025-10-30",
-          "message": "docs: 每日工作紀錄 2025-10-29 (19 commits)",
-          "body": "🤖 自動生成於 2025-10-30 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1ded0959",
-          "date": "2025-10-31",
-          "message": "docs: 更新彙整資料 2025-10-31",
-          "body": "🤖 自動生成於 2025-10-31 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "c233f60e",
-          "date": "2025-10-31",
-          "message": "docs: 每日工作紀錄 2025-10-30 (9 commits)",
-          "body": "🤖 自動生成於 2025-10-31 07:05",
-          "category": "文檔",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
       "name": "water-tracker",
       "totalCommits": 24,
       "commits": [
@@ -9743,6 +9815,117 @@
           "message": "調整快速加水功能：改為50/100/250/500ml，加入自訂義容量記憶與排序",
           "body": "- 將預設快速加水選項從 100/250/500/1000ml 改為 50/100/250/500ml",
           "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "totalCommits": 13,
+      "commits": [
+        {
+          "hash": "2813bb02",
+          "date": "2025-09-10",
+          "message": "Add literature review report and reference materials",
+          "body": "- Complete literature review report focusing on serum uric acid control and hypertension risk",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e05f90b1",
+          "date": "2025-09-16",
+          "message": "Add four main content description files for thesis submission",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c02dcbe5",
+          "date": "2025-09-16",
+          "message": "Add course materials and documentation folders",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "97795068",
+          "date": "2025-09-23",
+          "message": "更新文獻閱讀心得報告內容",
+          "body": "- 完成兩篇論文的文獻來源整理",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7dc771b0",
+          "date": "2025-09-30",
+          "message": "更換期中報告論文為AI心血管疾病診斷研究",
+          "body": "- 替換原有血清尿酸論文為機器學習心血管疾病診斷模型",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "25dc82f5",
+          "date": "2025-10-01",
+          "message": "新增15分鐘簡報內容文件",
+          "body": "- 建立完整的簡報架構（17張投影片）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5d00f823",
+          "date": "2025-10-02",
+          "message": "新增15分鐘簡報講稿（完成前3頁內容）",
+          "body": "- 撰寫完整的15頁簡報講稿架構",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2924ca46",
+          "date": "2025-10-14",
+          "message": "新增混淆矩陣評估指標備忘錄與更新簡報講稿",
+          "body": "- 新增confusion_matrix_metrics.md：整理Accuracy、Sensitivity、Specificity、Precision、FPR等指標定義與ROC/AUC說明",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f83dd25a",
+          "date": "2025-10-27",
+          "message": "新增文獻閱讀報告內容與格式檢查清單",
+          "body": "- 新增二_文獻來源.md：主要研究論文3篇",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "94c94d4b",
+          "date": "2025-10-27",
+          "message": "清理參考文獻過程檔案，僅保留最終整合版",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dcfeb0f5",
+          "date": "2025-10-27",
+          "message": "新增參考文獻整合（12篇核心論文）",
+          "body": "- 完成12篇核心參考文獻整理（IEEE格式）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "91c5994e",
+          "date": "2025-10-28",
+          "message": "更新簡報主題為三高風險預測研究並提交最終報告",
+          "body": "- 更新簡報內容：改為可解釋模型vs黑箱模型比較研究",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "55ef84da",
+          "date": "2025-11-03",
+          "message": "新增 AUC 評估指標備忘錄",
+          "body": "包含 ROC 曲線定義、AUC 值解讀與實務應用考量",
+          "category": "功能開發",
           "tags": []
         }
       ],
@@ -9971,109 +10154,6 @@
       "type": "side"
     },
     {
-      "name": "ResearchSeminar-3H",
-      "totalCommits": 12,
-      "commits": [
-        {
-          "hash": "2813bb02",
-          "date": "2025-09-10",
-          "message": "Add literature review report and reference materials",
-          "body": "- Complete literature review report focusing on serum uric acid control and hypertension risk",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e05f90b1",
-          "date": "2025-09-16",
-          "message": "Add four main content description files for thesis submission",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c02dcbe5",
-          "date": "2025-09-16",
-          "message": "Add course materials and documentation folders",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "97795068",
-          "date": "2025-09-23",
-          "message": "更新文獻閱讀心得報告內容",
-          "body": "- 完成兩篇論文的文獻來源整理",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7dc771b0",
-          "date": "2025-09-30",
-          "message": "更換期中報告論文為AI心血管疾病診斷研究",
-          "body": "- 替換原有血清尿酸論文為機器學習心血管疾病診斷模型",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "25dc82f5",
-          "date": "2025-10-01",
-          "message": "新增15分鐘簡報內容文件",
-          "body": "- 建立完整的簡報架構（17張投影片）",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "5d00f823",
-          "date": "2025-10-02",
-          "message": "新增15分鐘簡報講稿（完成前3頁內容）",
-          "body": "- 撰寫完整的15頁簡報講稿架構",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "2924ca46",
-          "date": "2025-10-14",
-          "message": "新增混淆矩陣評估指標備忘錄與更新簡報講稿",
-          "body": "- 新增confusion_matrix_metrics.md：整理Accuracy、Sensitivity、Specificity、Precision、FPR等指標定義與ROC/AUC說明",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "f83dd25a",
-          "date": "2025-10-27",
-          "message": "新增文獻閱讀報告內容與格式檢查清單",
-          "body": "- 新增二_文獻來源.md：主要研究論文3篇",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "94c94d4b",
-          "date": "2025-10-27",
-          "message": "清理參考文獻過程檔案，僅保留最終整合版",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "dcfeb0f5",
-          "date": "2025-10-27",
-          "message": "新增參考文獻整合（12篇核心論文）",
-          "body": "- 完成12篇核心參考文獻整理（IEEE格式）",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "91c5994e",
-          "date": "2025-10-28",
-          "message": "更新簡報主題為三高風險預測研究並提交最終報告",
-          "body": "- 更新簡報內容：改為可解釋模型vs黑箱模型比較研究",
-          "category": "其他",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
       "name": "ZebraSite",
       "totalCommits": 7,
       "commits": [
@@ -10240,7 +10320,7 @@
     },
     {
       "name": "interdisciplinary-course-notes\\interdisciplinary-course-notes",
-      "totalCommits": 3,
+      "totalCommits": 4,
       "commits": [
         {
           "hash": "2b7771ca",
@@ -10264,6 +10344,14 @@
           "message": "Initial commit: 建立專案基礎文件",
           "body": "- 新增 README.md：專案說明、背景資訊、初步研究方向（孩童數位健康）",
           "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7317d403",
+          "date": "2025-11-03",
+          "message": "docs: 更新課程資訊與新增選題過程記錄",
+          "body": "- 更新課程名稱為「跨領域創新科技應用」",
+          "category": "功能開發",
           "tags": []
         }
       ],
