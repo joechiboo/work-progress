@@ -420,13 +420,18 @@ const getEfficiencyBarColor = (periodId) => {
   return colors[periodId] || 'bg-gray-500'
 }
 
-// 計算效率提升百分比（相對於使用前）
+// 計算效率提升百分比（用於長條圖寬度，基於最大值）
 const getEfficiencyPercentage = (period) => {
   if (!efficiencyData.value || !efficiencyData.value.periods.length) return 0
-  const baseline = efficiencyData.value.periods[0].summary.dailyAverage
+
+  // 找出所有時期中日均最高的值
+  const maxDaily = Math.max(...efficiencyData.value.periods.map(p => p.summary.dailyAverage))
+
+  // 當前時期的日均值
   const current = period.summary.dailyAverage
-  const increase = ((current - baseline) / baseline) * 100
-  return Math.min(Math.max(increase, 0), 500) // 限制在 0-500%
+
+  // 計算相對於最大值的百分比
+  return (current / maxDaily) * 100
 }
 
 // 效率變化文字
