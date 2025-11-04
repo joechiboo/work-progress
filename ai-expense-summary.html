@@ -27,27 +27,27 @@
         .header {
             text-align: center;
             border-bottom: 3px solid #2563eb;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         h1 {
             color: #1e40af;
             margin: 0;
-            font-size: 24px;
+            font-size: 22px;
         }
 
         .subtitle {
             color: #64748b;
-            font-size: 12px;
-            margin: 5px 0 0 0;
+            font-size: 11px;
+            margin: 4px 0 0 0;
         }
 
         .exchange-rate {
             background-color: #fef3c7;
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 4px;
-            margin: 15px 0;
+            margin: 10px 0;
             text-align: center;
             border-left: 3px solid #f59e0b;
             font-size: 11px;
@@ -57,34 +57,34 @@
         .grand-total {
             background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
             border: 3px solid #2563eb;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 6px;
             text-align: center;
         }
 
         .grand-total-label {
-            font-size: 16px;
+            font-size: 14px;
             color: #1e40af;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .grand-total-amount {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
             color: #dc2626;
-            margin: 8px 0;
+            margin: 5px 0;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 11px;
+            margin: 15px 0;
+            font-size: 12px;
         }
 
         th, td {
-            padding: 8px 10px;
+            padding: 10px 12px;
             text-align: left;
             border: 1px solid #cbd5e1;
         }
@@ -105,12 +105,80 @@
         }
 
         .footer {
-            margin-top: 20px;
-            padding-top: 10px;
+            margin-top: 15px;
+            padding-top: 8px;
             border-top: 2px solid #e5e7eb;
             text-align: right;
             color: #6b7280;
             font-size: 10px;
+        }
+
+        .note {
+            background-color: #f0f9ff;
+            border-left: 3px solid #0ea5e9;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 11px;
+            color: #0c4a6e;
+        }
+
+        .note strong {
+            color: #075985;
+        }
+
+        .details-section {
+            margin: 20px 0;
+        }
+
+        .details-section h3 {
+            color: #1e40af;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 5px;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .column {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .column h4 {
+            color: #1e40af;
+            font-size: 12px;
+            margin: 0 0 8px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 10px;
+            border-bottom: 1px dotted #e5e7eb;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-date {
+            color: #64748b;
+        }
+
+        .detail-amount {
+            font-weight: bold;
+            color: #0f172a;
         }
     </style>
 </head>
@@ -167,6 +235,89 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="note">
+        <strong>📌 效益說明：</strong>
+        根據實測數據，使用 Claude AI 工具後開發效率提升 232% - 404%，投資報酬率達 17,900%。
+        相對於人力成本，AI 工具訂閱費用極低，建議核准報銷以提升團隊整體競爭力。
+    </div>
+
+    <!-- 詳細流水帳 -->
+    <div class="details-section">
+        <h3>📋 費用明細流水</h3>
+        <div class="three-column">
+            <!-- 紀伯喬 Joe -->
+            <div class="column">
+                <h4>紀伯喬 Joe</h4>
+                <div class="detail-item">
+                    <span class="detail-date">2025/07/14</span>
+                    <span class="detail-amount">US$ 20.00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/08/14</span>
+                    <span class="detail-amount">US$ 20.00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/09/11</span>
+                    <span class="detail-amount">US$ 97.81</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/10/11</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item" style="background-color: #dbeafe; margin-top: 5px; padding: 5px; border-radius: 3px;">
+                    <span style="font-weight: bold; color: #1e40af;">小計</span>
+                    <span style="font-weight: bold; color: #dc2626;">US$ 237.81</span>
+                </div>
+            </div>
+
+            <!-- 李宗勳 Spark -->
+            <div class="column">
+                <h4>李宗勳 Spark</h4>
+                <div class="detail-item">
+                    <span class="detail-date">2025/07/15</span>
+                    <span class="detail-amount">US$ 20.00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/08/14</span>
+                    <span class="detail-amount">US$ 20.00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/09/11</span>
+                    <span class="detail-amount">US$ 20.00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/09/24</span>
+                    <span class="detail-amount">US$ 86.60</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/10/11</span>
+                    <span class="detail-amount">US$ 20.00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/10/30</span>
+                    <span class="detail-amount">US$ 80.27</span>
+                </div>
+                <div class="detail-item" style="background-color: #dbeafe; margin-top: 5px; padding: 5px; border-radius: 3px;">
+                    <span style="font-weight: bold; color: #1e40af;">小計</span>
+                    <span style="font-weight: bold; color: #dc2626;">US$ 246.87</span>
+                </div>
+            </div>
+
+            <!-- 吳信輝 William -->
+            <div class="column">
+                <h4>吳信輝 William</h4>
+                <div class="detail-item">
+                    <span class="detail-date" style="color: #94a3b8;">-</span>
+                    <span class="detail-amount" style="color: #94a3b8;">無費用記錄</span>
+                </div>
+                <div class="detail-item" style="background-color: #dbeafe; margin-top: 5px; padding: 5px; border-radius: 3px;">
+                    <span style="font-weight: bold; color: #1e40af;">小計</span>
+                    <span style="font-weight: bold; color: #dc2626;">US$ 0.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="footer">
         <p>報告日期：2025 年 11 月 4 日 ｜ 製表人：紀伯喬</p>
