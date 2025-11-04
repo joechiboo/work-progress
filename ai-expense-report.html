@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude AI 工具導入效益評估報告</title>
+    <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 12mm;
+            }
+            body { margin: 0; }
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", Arial, sans-serif;
+            line-height: 1.5;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+            background: white;
+            color: #333;
+            font-size: 12px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #2563eb;
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            color: #1e40af;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 12px;
+            margin: 5px 0 0 0;
+        }
+
+        h2 {
+            color: #1e40af;
+            font-size: 16px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 10px;
+            margin: 18px 0 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 11px;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eff6ff;
+            color: #1e40af;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) { background-color: #f8fafc; }
+
+        .highlight {
+            background-color: #fef3c7;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        .metric-box {
+            display: inline-block;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 10px 15px;
+            margin: 10px 12px 10px 0;
+            border-radius: 4px;
+            min-width: 140px;
+            vertical-align: top;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e40af;
+            line-height: 1.2;
+        }
+
+        .small-text {
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        .text-center { text-align: center; }
+
+        .recommendation {
+            background-color: #fef9c3;
+            border-left: 4px solid #facc15;
+            padding: 12px 15px;
+            margin: 12px 0;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .recommendation strong { color: #854d0e; }
+
+        .footer {
+            margin-top: 15px;
+            padding-top: 8px;
+            border-top: 2px solid #e2e8f0;
+            text-align: right;
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 15px;
+            margin: 12px 0;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        ul {
+            margin: 6px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 4px 0;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Claude AI 工具導入效益評估報告</h1>
+        <p class="subtitle">AI 輔助開發工具費用報銷申請 ｜ 測試期間：2025/05/01 - 2025/10/29（161 天）</p>
+    </div>
+
+    <h2>一、核心數據與投資回報</h2>
+
+    <div class="text-center">
+        <div class="metric-box">
+            <div class="metric-label">使用前基準</div>
+            <div class="metric-value">2.05</div>
+            <div class="small-text">commits/天</div>
+        </div>
+        <div class="metric-box">
+            <div class="metric-label">Claude Pro</div>
+            <div class="metric-value" style="color: #2563eb;">6.80</div>
+            <div class="small-text">commits/天 (+232%)</div>
+        </div>
+        <div class="metric-box">
+            <div class="metric-label">Claude Max</div>
+            <div class="metric-value" style="color: #7c3aed;">10.33</div>
+            <div class="small-text">commits/天 (+404%)</div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>階段</th>
+                <th>期間</th>
+                <th>天數</th>
+                <th>總 Commits</th>
+                <th>日均</th>
+                <th>效率提升</th>
+                <th>月費</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>使用前</td>
+                <td>5/1-7/13</td>
+                <td>74</td>
+                <td>152</td>
+                <td>2.05</td>
+                <td>-</td>
+                <td>$0</td>
+            </tr>
+            <tr style="background-color: #eff6ff;">
+                <td><strong>Claude Pro</strong></td>
+                <td>7/14-9/10</td>
+                <td>59</td>
+                <td>401</td>
+                <td><strong>6.80</strong></td>
+                <td class="success">+232%</td>
+                <td>US$20</td>
+            </tr>
+            <tr style="background-color: #f5f3ff;">
+                <td><strong>Claude Max</strong></td>
+                <td>9/11-10/29</td>
+                <td>49</td>
+                <td>506</td>
+                <td><strong>10.33</strong></td>
+                <td class="success">+404%</td>
+                <td>US$100</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="recommendation">
+        <strong>💡 投資回報分析：</strong>
+        假設工程師月薪 5 萬元，使用 Claude Pro（月費 NT$640）可獲得 3.3 倍產出，等同於增加 2.3 人（價值 11.5 萬/月），<span class="highlight">ROI 達 17,900%</span>
+    </div>
+
+    <h2>二、效益說明</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <strong style="font-size: 11px;">工作效率提升：</strong>
+            <ul>
+                <li>實測數據：產出提升 232% - 404%</li>
+                <li>代碼品質提升與錯誤減少</li>
+                <li>快速學習新技術，縮短開發時程</li>
+                <li>自動生成文件與註解</li>
+            </ul>
+        </div>
+        <div class="column">
+            <strong style="font-size: 11px;">團隊綜效：</strong>
+            <ul>
+                <li>促進知識分享與協作</li>
+                <li>提升團隊競爭力</li>
+                <li>加速專案交付時程</li>
+                <li>降低人力成本負擔</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>三、結論</h2>
+
+    <div class="recommendation">
+        <strong>📌 申請建議</strong><br>
+        實測數據顯示 AI 工具可大幅提升開發效率（+232% ~ +404%），投資報酬率極高（ROI 達 17,900%）。
+        建議採用 <strong>Claude Pro 團隊版</strong>（US$20/人/月 ≈ NT$640），團隊協作效益佳，月費用低廉，相對人力成本可忽略。
+    </div>
+
+    <div class="footer">
+        <p>報告日期：2025/11/04 ｜ 數據來源：Git Commits 統計分析</p>
+    </div>
+</body>
+</html>
