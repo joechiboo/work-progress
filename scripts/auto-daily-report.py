@@ -72,8 +72,8 @@ def get_commits_for_date(repo_path, author, date_str):
             parts = line.split('|||')
             if len(parts) >= 4:
                 author_name = parts[0].strip()
-                # 只保留 UCL\joechiboo、joechiboo 或 Claude 的 commits，排除 merge commits (紀伯喬)
-                if author in author_name or author_name == 'joechiboo' or author_name == 'Claude':
+                # 只保留 UCL\joechiboo、joechiboo、紀伯喬 或 Claude 的 commits
+                if author in author_name or author_name == 'joechiboo' or author_name == '紀伯喬' or author_name == 'Claude':
                     commits.append({
                         "hash": parts[1].strip()[:8],
                         "time": parts[2].strip()[11:16],
