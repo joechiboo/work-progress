@@ -7,7 +7,7 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1308,
+    "totalCommits": 1316,
     "projectCount": 33,
     "dailyAverage": 7.1
   },
@@ -5068,7 +5068,7 @@
     },
     {
       "name": "OnlineReport\\FalconCopy",
-      "totalCommits": 44,
+      "totalCommits": 45,
       "commits": [
         {
           "hash": "cb69b2f6",
@@ -5419,6 +5419,14 @@
           "date": "2025-11-04",
           "message": "修復 pat_orderh.pat_altid 欄位截斷問題",
           "body": "新增 SQL 腳本處理欄位長度不足的問題：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2ae4bdd1",
+          "date": "2025-11-05",
+          "message": "修復重複同步與檢驗項目刪除問題",
+          "body": "## 問題 1：重複同步導致每次處理 3000+ 筆資料",
           "category": "錯誤修正",
           "tags": []
         }
@@ -8531,7 +8539,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 57,
+      "totalCommits": 60,
       "commits": [
         {
           "hash": "da5bad9e",
@@ -8934,6 +8942,30 @@
           "tags": []
         },
         {
+          "hash": "827ea5bd",
+          "date": "2025-11-05",
+          "message": "feat: 支援作者名稱「紀伯喬」以追蹤 PhishGuard 專案",
+          "body": "- 新增「紀伯喬」到作者名稱篩選條件",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "76a9f197",
+          "date": "2025-11-05",
+          "message": "docs: 更新彙整資料 2025-11-05",
+          "body": "🤖 自動生成於 2025-11-05 14:53",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1d760d33",
+          "date": "2025-11-05",
+          "message": "docs: 每日工作紀錄 2025-11-05 (12 commits)",
+          "body": "🤖 自動生成於 2025-11-05 14:52",
+          "category": "文檔",
+          "tags": []
+        },
+        {
           "hash": "766acc9e",
           "date": "2025-11-05",
           "message": "feat: 點擊標題可重新整理資料",
@@ -8994,7 +9026,7 @@
     },
     {
       "name": "RiskPrediction-3H",
-      "totalCommits": 37,
+      "totalCommits": 40,
       "commits": [
         {
           "hash": "dfeeade8",
@@ -9289,6 +9321,30 @@
           "date": "2025-11-03",
           "message": "Add Taiwan MTL (2025) paper translation and Meeting 16 presentation outline",
           "body": "- Add complete Chinese translation of Taiwan MTL paper (Scientific Reports 2025)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "23f52a26",
+          "date": "2025-11-05",
+          "message": "Add Taiwan MTL (2025) paper to systematic literature review",
+          "body": "- Add comprehensive entry for paper #16 in literature review table",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7fc10565",
+          "date": "2025-11-05",
+          "message": "Expand dataset section with comprehensive HWDC details",
+          "body": "- Add HWDC background (location, purpose, data scale)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8caa5eb8",
+          "date": "2025-11-05",
+          "message": "Update Meeting 16 presentation outline with detailed speaker notes",
+          "body": "- Add detailed author information and SCI journal details",
           "category": "其他",
           "tags": []
         }
@@ -10149,7 +10205,7 @@
     },
     {
       "name": "ResearchSeminar-3H",
-      "totalCommits": 13,
+      "totalCommits": 14,
       "commits": [
         {
           "hash": "2813bb02",
@@ -10252,6 +10308,14 @@
           "date": "2025-11-03",
           "message": "新增 AUC 評估指標備忘錄",
           "body": "包含 ROC 曲線定義、AUC 值解讀與實務應用考量",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a2ae3a9d",
+          "date": "2025-11-05",
+          "message": "新增 Meeting 16 精簡版簡報（8頁含講稿整合）",
+          "body": "- 將 15 頁簡報精簡至 8 頁，適合 Meeting 進度報告",
           "category": "功能開發",
           "tags": []
         }
