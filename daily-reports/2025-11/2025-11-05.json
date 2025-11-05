@@ -1,0 +1,103 @@
+{
+  "date": "2025-11-05",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "Management\\PhishGuard-",
+      "commits": [
+        {
+          "hash": "6cd75cb5",
+          "time": "14:06",
+          "message": "feat: 新增加解密功能與 SQL Server 資料庫支援",
+          "body": "## 加解密功能"
+        },
+        {
+          "hash": "062ed306",
+          "time": "12:44",
+          "message": "feat: 完成前端 UI 重構與 SMTP 設定",
+          "body": "## 前端開發"
+        },
+        {
+          "hash": "dd39ef7f",
+          "time": "12:22",
+          "message": "新增釣魚頁面追蹤功能",
+          "body": "- 建立 phishing-page.html 用於追蹤點擊後的行為"
+        },
+        {
+          "hash": "169e14e6",
+          "time": "12:17",
+          "message": "Initial commit: PhishGuard 社交工程演練系統",
+          "body": "- 後端：.NET 8 Web API"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "bb03b6b5",
+          "time": "14:48",
+          "message": "feat: 新增加班時數調整工具與查詢腳本",
+          "body": "**新增檔案**："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "766acc9e",
+          "time": "08:02",
+          "message": "feat: 點擊標題可重新整理資料",
+          "body": "- 整行標題「📊 工作進度追蹤系統」現可點擊"
+        },
+        {
+          "hash": "da409fb9",
+          "time": "07:58",
+          "message": "fix: 修正 todo.md 編碼問題",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "66e3e57a",
+          "time": "07:57",
+          "message": "docs: 新增排程檢查待辦事項",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "30cc822e",
+          "time": "07:57",
+          "message": "feat: 新增完整 log 機制與排程設定腳本",
+          "body": "- 新增 run-daily-and-push-scheduled.bat：專門給排程使用的版本"
+        },
+        {
+          "hash": "b0c19e48",
+          "time": "07:55",
+          "message": "docs: 每日工作紀錄 2025-11-04 (29 commits)",
+          "body": "🤖 自動生成於 2025-11-05 07:55"
+        },
+        {
+          "hash": "a29969d1",
+          "time": "07:48",
+          "message": "docs: 更新彙整資料 2025-11-05",
+          "body": "🤖 自動生成於 2025-11-05 07:48"
+        },
+        {
+          "hash": "d3bcf0b7",
+          "time": "07:48",
+          "message": "docs: 每日工作紀錄 2025-11-04 (29 commits)",
+          "body": "🤖 自動生成於 2025-11-05 07:48"
+        }
+      ],
+      "count": 7
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 7,
+    "totalCommits": 12
+  }
+}
