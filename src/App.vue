@@ -2,7 +2,13 @@
   <div class="min-h-screen bg-gray-50">
     <header class="bg-white shadow-sm">
       <div class="max-w-7xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-900">📊 工作進度追蹤系統</h1>
+        <h1
+          @click="resetToDefault"
+          class="text-3xl font-bold text-gray-900 cursor-pointer hover:opacity-70 transition-opacity"
+          title="點擊重新整理"
+        >
+          📊 工作進度追蹤系統
+        </h1>
       </div>
     </header>
 
