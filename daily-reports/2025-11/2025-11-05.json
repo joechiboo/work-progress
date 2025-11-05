@@ -43,12 +43,42 @@
         }
       ],
       "count": 1
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "2ae4bdd1",
+          "time": "16:20",
+          "message": "修復重複同步與檢驗項目刪除問題",
+          "body": "## 問題 1：重複同步導致每次處理 3000+ 筆資料"
+        }
+      ],
+      "count": 1
     }
   ],
   "side_projects": [
     {
       "name": "work-progress",
       "commits": [
+        {
+          "hash": "827ea5bd",
+          "time": "14:53",
+          "message": "feat: 支援作者名稱「紀伯喬」以追蹤 PhishGuard 專案",
+          "body": "- 新增「紀伯喬」到作者名稱篩選條件"
+        },
+        {
+          "hash": "76a9f197",
+          "time": "14:53",
+          "message": "docs: 更新彙整資料 2025-11-05",
+          "body": "🤖 自動生成於 2025-11-05 14:53"
+        },
+        {
+          "hash": "1d760d33",
+          "time": "14:52",
+          "message": "docs: 每日工作紀錄 2025-11-05 (12 commits)",
+          "body": "🤖 自動生成於 2025-11-05 14:52"
+        },
         {
           "hash": "766acc9e",
           "time": "08:02",
@@ -92,12 +122,48 @@
           "body": "🤖 自動生成於 2025-11-05 07:48"
         }
       ],
-      "count": 7
+      "count": 10
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "23f52a26",
+          "time": "19:37",
+          "message": "Add Taiwan MTL (2025) paper to systematic literature review",
+          "body": "- Add comprehensive entry for paper #16 in literature review table"
+        },
+        {
+          "hash": "7fc10565",
+          "time": "17:59",
+          "message": "Expand dataset section with comprehensive HWDC details",
+          "body": "- Add HWDC background (location, purpose, data scale)"
+        },
+        {
+          "hash": "8caa5eb8",
+          "time": "17:18",
+          "message": "Update Meeting 16 presentation outline with detailed speaker notes",
+          "body": "- Add detailed author information and SCI journal details"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "a2ae3a9d",
+          "time": "19:56",
+          "message": "新增 Meeting 16 精簡版簡報（8頁含講稿整合）",
+          "body": "- 將 15 頁簡報精簡至 8 頁，適合 Meeting 進度報告"
+        }
+      ],
+      "count": 1
     }
   ],
   "summary": {
-    "workCommits": 5,
-    "sideCommits": 7,
-    "totalCommits": 12
+    "workCommits": 6,
+    "sideCommits": 14,
+    "totalCommits": 20
   }
 }
