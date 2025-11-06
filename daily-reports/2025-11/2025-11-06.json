@@ -1,0 +1,145 @@
+{
+  "date": "2025-11-06",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "Management\\PhishGuard-",
+      "commits": [
+        {
+          "hash": "2b7dfb0e",
+          "time": "14:20",
+          "message": "docs: 更新待辦事項為中文",
+          "body": ""
+        },
+        {
+          "hash": "414b3712",
+          "time": "14:19",
+          "message": "feat: 完善郵件發送與演練活動管理功能",
+          "body": "## 郵件系統改善"
+        },
+        {
+          "hash": "5739665d",
+          "time": "11:11",
+          "message": "完成 PhishGuard 社交工程演練系統核心功能",
+          "body": "## 主要功能"
+        },
+        {
+          "hash": "11a24a84",
+          "time": "10:17",
+          "message": "修復 TrackingController 編譯錯誤",
+          "body": "- 新增 Microsoft.EntityFrameworkCore using"
+        },
+        {
+          "hash": "3590aa30",
+          "time": "07:58",
+          "message": "遷移至 SQL Server 並修正前後端整合問題",
+          "body": "## 後端變更"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "8f1ea3f9",
+          "time": "11:33",
+          "message": "新增髒資料診斷與清理腳本",
+          "body": "- 診斷工具：檢查表大小、索引、觸發器、鎖定狀態"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "LiveSheet\\LiveSheet",
+      "commits": [
+        {
+          "hash": "2457ca06",
+          "time": "09:13",
+          "message": "fix: 升級 GitHub Actions Node.js 版本至 20",
+          "body": "修正 Vite 7.2.1 build 失敗問題："
+        },
+        {
+          "hash": "d0a5114b",
+          "time": "09:11",
+          "message": "fix: 更新 GitHub Actions workflow 支援開發分支和手動觸發",
+          "body": "- 新增 claude/** 分支的自動部署支援"
+        },
+        {
+          "hash": "6a80e6b4",
+          "time": "09:05",
+          "message": "docs: 新增開發進度和待辦事項文件",
+          "body": "建立專案管理文件："
+        },
+        {
+          "hash": "ecbfe315",
+          "time": "09:00",
+          "message": "feat: 新增 Phase 1A 前端專案（Vue 3 + Mock 資料）",
+          "body": "實作完整的前端基礎功能，使用假資料模擬即時編輯："
+        },
+        {
+          "hash": "76b1def4",
+          "time": "08:51",
+          "message": "feat: 新增歷程記錄（Audit Log）功能到規格文件",
+          "body": "在 specification.md 中加入完整的歷程記錄功能設計："
+        },
+        {
+          "hash": "e5a931ec",
+          "time": "08:24",
+          "message": "docs: 新增專案 README 文件",
+          "body": "建立完整的專案說明文件，包含："
+        },
+        {
+          "hash": "261d743f",
+          "time": "08:21",
+          "message": "feat: 新增 LiveSheet 專案的 SDD 規格文件",
+          "body": "建立完整的 Spec-Driven Development 文件："
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "29d52378",
+          "time": "17:32",
+          "message": "Merge pull request #1 from joechiboo/claude/gamification-reward-system-011CUmvRKZfUzZA3diySFZeM",
+          "body": "Claude/gamification reward system 011 c umv rk zf uz za3diy sf ze m"
+        },
+        {
+          "hash": "be2286aa",
+          "time": "09:22",
+          "message": "新增 LiveSheet 即時協作試算表系統到作品集",
+          "body": "專案特色："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "1581ecc6",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-06",
+          "body": "🤖 自動生成於 2025-11-06 07:05"
+        },
+        {
+          "hash": "4904d8c8",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-05 (20 commits)",
+          "body": "🤖 自動生成於 2025-11-06 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 11,
+    "totalCommits": 17
+  }
+}
