@@ -1,0 +1,97 @@
+{
+  "date": "2025-11-07",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fd880b46",
+          "time": "12:41",
+          "message": "docs: 新增危急值項目清單文件",
+          "body": "建立完整的危急值項目清單，包含："
+        },
+        {
+          "hash": "35f14118",
+          "time": "11:07",
+          "message": "Merge branch 'main' into feature/danger-list-v2",
+          "body": ""
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Management\\PhishGuard-",
+      "commits": [
+        {
+          "hash": "06281e7d",
+          "time": "16:02",
+          "message": "feat: 新增演練活動恢復功能與維護文件",
+          "body": "- 新增 /api/campaigns/{id}/resume 端點，支援中斷後恢復郵件發送"
+        },
+        {
+          "hash": "94810061",
+          "time": "10:39",
+          "message": "feat: 更新正式網域並優化前端顯示",
+          "body": "- 更新 BaseUrl 為 https://phish.ucl.com.tw"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "aedf746e",
+          "time": "08:54",
+          "message": "feat: 新增超級離峰時段配置 (00:00-07:00)",
+          "body": "- 新增 SuperOffPeakBatchSize: 1000 筆 (00:00-07:00)"
+        },
+        {
+          "hash": "cc361658",
+          "time": "08:45",
+          "message": "fix: 優化資料庫查詢效能，解決超時問題",
+          "body": "主要改進："
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "23747cd1",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-07",
+          "body": "🤖 自動生成於 2025-11-07 07:05"
+        },
+        {
+          "hash": "61ecb878",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-06 (17 commits)",
+          "body": "🤖 自動生成於 2025-11-07 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ResearchSeminar-3H",
+      "commits": [
+        {
+          "hash": "af12bf56",
+          "time": "10:12",
+          "message": "修正簡報結論：更準確描述 SHAP 的定位",
+          "body": "主要修正："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 3,
+    "totalCommits": 9
+  }
+}
