@@ -1,0 +1,151 @@
+{
+  "date": "2025-11-08",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "6e08dd69",
+          "time": "09:29",
+          "message": "docs: 更新待辦事項，聚焦 Linux 環境與 Oracle Data Guard",
+          "body": "重新整理 todo.md，移除已完成或低優先級項目，聚焦於："
+        },
+        {
+          "hash": "f4c1133e",
+          "time": "08:47",
+          "message": "docs: 新增 Oracle 實時複寫方案評估文件",
+          "body": "新增完整的 Oracle-to-Oracle 複寫方案評估，優先推薦 Data Guard"
+        },
+        {
+          "hash": "1feac282",
+          "time": "07:38",
+          "message": "docs: 更新 README 反映最新時段配置",
+          "body": "- 新增時段配置表格"
+        },
+        {
+          "hash": "38feb5fe",
+          "time": "07:27",
+          "message": "fix: 調整時段配置避免影響列印報告系統",
+          "body": "問題：同仁反應列印報告速度變慢"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "7b283323",
+          "time": "12:38",
+          "message": "docs: 新增醫檢師確認清單 HTML 列印版",
+          "body": "移除已有 HH/LL 的項目區塊，只保留需要確認的 24 項"
+        },
+        {
+          "hash": "49ac7b9a",
+          "time": "12:32",
+          "message": "docs: 完成危急值項目分析與醫檢師確認清單",
+          "body": "## 完成項目分析"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "84449ce0",
+          "time": "17:11",
+          "message": "Reorganize docs/ structure for better clarity",
+          "body": "Major changes:"
+        },
+        {
+          "hash": "187c52fa",
+          "time": "16:55",
+          "message": "Create comprehensive Meeting 1-16 summary document",
+          "body": "- Add Meeting_Summary_1-16.md with complete timeline overview"
+        },
+        {
+          "hash": "5608d1d8",
+          "time": "15:56",
+          "message": "Update README with current project structure and progress",
+          "body": "📂 Project Structure Updates:"
+        },
+        {
+          "hash": "b675ba2d",
+          "time": "15:53",
+          "message": "Add Meeting 16 presentation on Taiwan MTL paper",
+          "body": "- 10-minute presentation on Taiwan MTL (2025) paper"
+        },
+        {
+          "hash": "49a7603f",
+          "time": "15:29",
+          "message": "Add thesis guidelines and research memos from seminar course",
+          "body": "📋 Thesis Guidelines (完整複製):"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "water-tracker",
+      "commits": [
+        {
+          "hash": "d523f459",
+          "time": "14:48",
+          "message": "改善龜裂效果：使用徑向漸層模擬自然龜裂紋理",
+          "body": "- 將直線型裂縫改為徑向漸層，呈現不規則多邊形塊狀"
+        },
+        {
+          "hash": "50f3835e",
+          "time": "14:36",
+          "message": "Merge pull request #2 from joechiboo/claude/enhance-water-reminder-effects-011CUumfUkBpF4q5qiaCUXwa",
+          "body": "Improve crack effects: change from circular to linear cracks for more…"
+        },
+        {
+          "hash": "a84f231a",
+          "time": "06:21",
+          "message": "Improve crack effects: change from circular to linear cracks for more realistic appearance",
+          "body": ""
+        },
+        {
+          "hash": "c8b5d3af",
+          "time": "13:03",
+          "message": "Merge pull request #1 from joechiboo/claude/enhance-water-reminder-effects-011CUumfUkBpF4q5qiaCUXwa",
+          "body": "Add two-level background crack effects for water reminders"
+        },
+        {
+          "hash": "0f8eeaed",
+          "time": "04:15",
+          "message": "Add two-level background crack effects for water reminders",
+          "body": "- Add light cracking background effect for level 1 reminder (2 hours idle)"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "444e964a",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-08",
+          "body": "🤖 自動生成於 2025-11-08 07:05"
+        },
+        {
+          "hash": "588b2612",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-07 (9 commits)",
+          "body": "🤖 自動生成於 2025-11-08 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 12,
+    "totalCommits": 18
+  }
+}
