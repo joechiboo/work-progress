@@ -4,8 +4,32 @@
   "work_projects": [],
   "side_projects": [
     {
-      "name": "work-progress\\work-progress-ssh",
+      "name": "work-progress",
       "commits": [
+        {
+          "hash": "5629fd1a",
+          "time": "13:54",
+          "message": "docs: 新增 11/10 檢查事項",
+          "body": "- 檢查 11/9 工作成果是否完整"
+        },
+        {
+          "hash": "b0707c74",
+          "time": "13:48",
+          "message": "fix: 合併 11/8 公司與家裡的工作紀錄",
+          "body": "- 加入家裡的 CyclePulse 3 個 commits"
+        },
+        {
+          "hash": "a7549408",
+          "time": "13:48",
+          "message": "docs: 更新彙整資料 2025-11-09",
+          "body": "🤖 自動生成於 2025-11-09 13:48"
+        },
+        {
+          "hash": "6fe50253",
+          "time": "13:48",
+          "message": "docs: 每日工作紀錄 2025-11-09 (14 commits)",
+          "body": "🤖 自動生成於 2025-11-09 13:48"
+        },
         {
           "hash": "df581e6f",
           "time": "13:47",
@@ -73,36 +97,12 @@
           "body": "🤖 自動生成於 2025-11-09 07:05"
         }
       ],
-      "count": 11
-    },
-    {
-      "name": "CyclePulse",
-      "commits": [
-        {
-          "hash": "f6508cfc",
-          "time": "11:07",
-          "message": "Add Garmin HRM heart rate monitoring with history chart and restore training guide",
-          "body": "Major features:"
-        },
-        {
-          "hash": "3bd95dac",
-          "time": "10:47",
-          "message": "Updates",
-          "body": ""
-        },
-        {
-          "hash": "d8c5dbe4",
-          "time": "10:43",
-          "message": "Updates",
-          "body": ""
-        }
-      ],
-      "count": 3
+      "count": 15
     }
   ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 14,
-    "totalCommits": 14
+    "sideCommits": 15,
+    "totalCommits": 15
   }
 }
