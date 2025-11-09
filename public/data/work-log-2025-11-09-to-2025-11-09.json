@@ -1,0 +1,54 @@
+{
+  "period": {
+    "start": "2025-11-09",
+    "end": "2025-11-09",
+    "days": 1,
+    "weeks": 0.1
+  },
+  "author": "UCL\\joechiboo",
+  "summary": {
+    "totalCommits": 3,
+    "projectCount": 2,
+    "dailyAverage": 3.0
+  },
+  "projects": [
+    {
+      "name": "work-progress\\work-progress-ssh",
+      "totalCommits": 2,
+      "commits": [
+        {
+          "hash": "9a3552a3",
+          "date": "2025-11-09",
+          "message": "docs: 更新彙整資料 2025-11-09",
+          "body": "🤖 自動生成於 2025-11-09 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1a6dabb8",
+          "date": "2025-11-09",
+          "message": "docs: 每日工作紀錄 2025-11-08 (18 commits)",
+          "body": "🤖 自動生成於 2025-11-09 07:05",
+          "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "CyclePulse",
+      "totalCommits": 1,
+      "commits": [
+        {
+          "hash": "f6508cfc",
+          "date": "2025-11-09",
+          "message": "Add Garmin HRM heart rate monitoring with history chart and restore training guide",
+          "body": "Major features:",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    }
+  ]
+}
