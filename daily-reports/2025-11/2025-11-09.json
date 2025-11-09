@@ -7,6 +7,24 @@
       "name": "work-progress\\work-progress-ssh",
       "commits": [
         {
+          "hash": "d7240e9c",
+          "time": "13:42",
+          "message": "fix: 自動偵測環境路徑 (公司 D:\\ vs 家裡 C:\\)",
+          "body": "- 根據 D:\\Gitlab 是否存在自動判斷環境"
+        },
+        {
+          "hash": "c3f8596a",
+          "time": "13:41",
+          "message": "docs: 更新彙整資料 2025-11-09",
+          "body": "🤖 自動生成於 2025-11-09 13:41"
+        },
+        {
+          "hash": "6bc41ed7",
+          "time": "13:41",
+          "message": "docs: 每日工作紀錄 2025-11-09 (5 commits)",
+          "body": "🤖 自動生成於 2025-11-09 13:41"
+        },
+        {
           "hash": "0f4672e7",
           "time": "13:41",
           "message": "docs: 更新彙整資料 2025-11-09",
@@ -31,7 +49,7 @@
           "body": "🤖 自動生成於 2025-11-09 07:05"
         }
       ],
-      "count": 4
+      "count": 7
     },
     {
       "name": "CyclePulse",
@@ -48,7 +66,7 @@
   ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 5,
-    "totalCommits": 5
+    "sideCommits": 8,
+    "totalCommits": 8
   }
 }
