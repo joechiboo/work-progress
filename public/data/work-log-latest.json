@@ -7,14 +7,14 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1355,
+    "totalCommits": 1377,
     "projectCount": 34,
-    "dailyAverage": 7.2
+    "dailyAverage": 7.3
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 411,
+      "totalCommits": 413,
       "commits": [
         {
           "hash": "a207ff46",
@@ -3303,6 +3303,22 @@
           "body": "",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "7b283323",
+          "date": "2025-11-08",
+          "message": "docs: 新增醫檢師確認清單 HTML 列印版",
+          "body": "移除已有 HH/LL 的項目區塊，只保留需要確認的 24 項",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "49ac7b9a",
+          "date": "2025-11-08",
+          "message": "docs: 完成危急值項目分析與醫檢師確認清單",
+          "body": "## 完成項目分析",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
@@ -5459,7 +5475,7 @@
     },
     {
       "name": "OnlineReport\\ReportHtmlSync",
-      "totalCommits": 40,
+      "totalCommits": 44,
       "commits": [
         {
           "hash": "9cb8d2a0",
@@ -5778,6 +5794,38 @@
           "date": "2025-11-07",
           "message": "fix: 優化資料庫查詢效能，解決超時問題",
           "body": "主要改進：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6e08dd69",
+          "date": "2025-11-08",
+          "message": "docs: 更新待辦事項，聚焦 Linux 環境與 Oracle Data Guard",
+          "body": "重新整理 todo.md，移除已完成或低優先級項目，聚焦於：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f4c1133e",
+          "date": "2025-11-08",
+          "message": "docs: 新增 Oracle 實時複寫方案評估文件",
+          "body": "新增完整的 Oracle-to-Oracle 複寫方案評估，優先推薦 Data Guard",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1feac282",
+          "date": "2025-11-08",
+          "message": "docs: 更新 README 反映最新時段配置",
+          "body": "- 新增時段配置表格",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "38feb5fe",
+          "date": "2025-11-08",
+          "message": "fix: 調整時段配置避免影響列印報告系統",
+          "body": "問題：同仁反應列印報告速度變慢",
           "category": "錯誤修正",
           "tags": []
         }
@@ -8148,7 +8196,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 64,
+      "totalCommits": 66,
       "commits": [
         {
           "hash": "da5bad9e",
@@ -8661,6 +8709,22 @@
           "body": "🤖 自動生成於 2025-11-07 07:05",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "444e964a",
+          "date": "2025-11-08",
+          "message": "docs: 更新彙整資料 2025-11-08",
+          "body": "🤖 自動生成於 2025-11-08 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "588b2612",
+          "date": "2025-11-08",
+          "message": "docs: 每日工作紀錄 2025-11-07 (9 commits)",
+          "body": "🤖 自動生成於 2025-11-08 07:05",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
@@ -9170,7 +9234,7 @@
     },
     {
       "name": "RiskPrediction-3H",
-      "totalCommits": 40,
+      "totalCommits": 45,
       "commits": [
         {
           "hash": "dfeeade8",
@@ -9489,6 +9553,285 @@
           "date": "2025-11-05",
           "message": "Update Meeting 16 presentation outline with detailed speaker notes",
           "body": "- Add detailed author information and SCI journal details",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "84449ce0",
+          "date": "2025-11-08",
+          "message": "Reorganize docs/ structure for better clarity",
+          "body": "Major changes:",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "187c52fa",
+          "date": "2025-11-08",
+          "message": "Create comprehensive Meeting 1-16 summary document",
+          "body": "- Add Meeting_Summary_1-16.md with complete timeline overview",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5608d1d8",
+          "date": "2025-11-08",
+          "message": "Update README with current project structure and progress",
+          "body": "📂 Project Structure Updates:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b675ba2d",
+          "date": "2025-11-08",
+          "message": "Add Meeting 16 presentation on Taiwan MTL paper",
+          "body": "- 10-minute presentation on Taiwan MTL (2025) paper",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "49a7603f",
+          "date": "2025-11-08",
+          "message": "Add thesis guidelines and research memos from seminar course",
+          "body": "📋 Thesis Guidelines (完整複製):",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "water-tracker",
+      "totalCommits": 29,
+      "commits": [
+        {
+          "hash": "cf5617b3",
+          "date": "2025-09-22",
+          "message": "Add warrior-themed goal setting system with user types",
+          "body": "- Create UserSettings.vue with 3 warrior types (新手冒險者/水分探索家/水分大師)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3f6abe2d",
+          "date": "2025-09-22",
+          "message": "feat: Add LINE Pay QR code modal popup for better user experience",
+          "body": "- Click on LINE Pay QR code to open enlarged modal view",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "16e74c4f",
+          "date": "2025-09-22",
+          "message": "feat: Transform app to be ultra-friendly for non-drinkers",
+          "body": "Major UX improvements for people who don't like drinking water:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6343501e",
+          "date": "2025-09-22",
+          "message": "ci: Add GitHub Actions workflow for automatic deployment to Pages",
+          "body": "- Set up automated build and deployment pipeline",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f7390b38",
+          "date": "2025-09-22",
+          "message": "feat: Add beautiful blue footer with author information and support",
+          "body": "- Add comprehensive footer with author info and portfolio link",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "44d129d8",
+          "date": "2025-09-22",
+          "message": "refactor: Focus product strategy on non-drinkers and light drinkers",
+          "body": "- Redefine target user segments with specific pain points and strategies",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "a0e06871",
+          "date": "2025-09-22",
+          "message": "feat: Implement Vue.js water tracker application with complete functionality",
+          "body": "- Add Vue 3 project structure with Vite build system",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "050a0966",
+          "date": "2025-09-22",
+          "message": "Add product concept document with user types and feature planning",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "af683564",
+          "date": "2025-09-22",
+          "message": "Initial commit: Add README for water tracker project",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4c6c742b",
+          "date": "2025-09-23",
+          "message": "Adjust auto-scroll position to show more core functionality",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f19d7296",
+          "date": "2025-09-23",
+          "message": "Add auto-scroll to focus on core functionality on page load",
+          "body": "- Automatically scroll to 60% of header height on page mount",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0eb8ccab",
+          "date": "2025-09-23",
+          "message": "Remove confirmation dialog for reset today button",
+          "body": "- Change reset button to directly execute without confirmation",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8b52095d",
+          "date": "2025-09-23",
+          "message": "Fix reset today button functionality",
+          "body": "- Remove duplicate @click events on reset button that was preventing it from working",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "72ac849b",
+          "date": "2025-09-23",
+          "message": "Reduce header height to emphasize core tracking functionality",
+          "body": "- Decrease header padding from 2rem to 1rem",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8e623888",
+          "date": "2025-09-23",
+          "message": "Change warrior selection cards to blue gradient with white text",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2fa8a00f",
+          "date": "2025-09-23",
+          "message": "Update UserSettings color scheme for better contrast",
+          "body": "- Change modal background from blue gradient to white",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8eec7310",
+          "date": "2025-09-23",
+          "message": "Change UserSettings background from purple to blue gradient",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9cc36bbf",
+          "date": "2025-09-23",
+          "message": "Implement Help Center modal and improve UI interactions",
+          "body": "- Create HelpCenter component as modal replacing inline knowledge/container sections",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7da097db",
+          "date": "2025-09-23",
+          "message": "Implement collapsible sections and fix UI layout issues",
+          "body": "- Add water drop favicon.svg for browser tab icon",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "92552618",
+          "date": "2025-09-23",
+          "message": "Optimize warrior selection UX with compact display after selection",
+          "body": "- Add mini warrior display when selected (sticky at top)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a928cde1",
+          "date": "2025-09-23",
+          "message": "Update warrior selection to fixed 3-column layout",
+          "body": "- Change from auto-fit to fixed 3-column grid layout for consistent display",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1dfdb5a3",
+          "date": "2025-10-28",
+          "message": "Add manual trigger for idle reminder testing",
+          "body": "Users can now click the logo to cycle through reminder states:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "aae28a8c",
+          "date": "2025-10-28",
+          "message": "Add idle reminder feature with two-stage alerts",
+          "body": "Implemented a smart idle reminder system that encourages users to drink water:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "dba3f2a5",
+          "date": "2025-10-31",
+          "message": "調整快速加水功能：改為50/100/250/500ml，加入自訂義容量記憶與排序",
+          "body": "- 將預設快速加水選項從 100/250/500/1000ml 改為 50/100/250/500ml",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d523f459",
+          "date": "2025-11-08",
+          "message": "改善龜裂效果：使用徑向漸層模擬自然龜裂紋理",
+          "body": "- 將直線型裂縫改為徑向漸層，呈現不規則多邊形塊狀",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "50f3835e",
+          "date": "2025-11-08",
+          "message": "Merge pull request #2 from joechiboo/claude/enhance-water-reminder-effects-011CUumfUkBpF4q5qiaCUXwa",
+          "body": "Improve crack effects: change from circular to linear cracks for more…",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a84f231a",
+          "date": "2025-11-08",
+          "message": "Improve crack effects: change from circular to linear cracks for more realistic appearance",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c8b5d3af",
+          "date": "2025-11-08",
+          "message": "Merge pull request #1 from joechiboo/claude/enhance-water-reminder-effects-011CUumfUkBpF4q5qiaCUXwa",
+          "body": "Add two-level background crack effects for water reminders",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0f8eeaed",
+          "date": "2025-11-08",
+          "message": "Add two-level background crack effects for water reminders",
+          "body": "- Add light cracking background effect for level 1 reminder (2 hours idle)",
           "category": "其他",
           "tags": []
         }
@@ -10149,207 +10492,8 @@
       "type": "side"
     },
     {
-      "name": "water-tracker",
-      "totalCommits": 24,
-      "commits": [
-        {
-          "hash": "cf5617b3",
-          "date": "2025-09-22",
-          "message": "Add warrior-themed goal setting system with user types",
-          "body": "- Create UserSettings.vue with 3 warrior types (新手冒險者/水分探索家/水分大師)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "3f6abe2d",
-          "date": "2025-09-22",
-          "message": "feat: Add LINE Pay QR code modal popup for better user experience",
-          "body": "- Click on LINE Pay QR code to open enlarged modal view",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "16e74c4f",
-          "date": "2025-09-22",
-          "message": "feat: Transform app to be ultra-friendly for non-drinkers",
-          "body": "Major UX improvements for people who don't like drinking water:",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "6343501e",
-          "date": "2025-09-22",
-          "message": "ci: Add GitHub Actions workflow for automatic deployment to Pages",
-          "body": "- Set up automated build and deployment pipeline",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f7390b38",
-          "date": "2025-09-22",
-          "message": "feat: Add beautiful blue footer with author information and support",
-          "body": "- Add comprehensive footer with author info and portfolio link",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "44d129d8",
-          "date": "2025-09-22",
-          "message": "refactor: Focus product strategy on non-drinkers and light drinkers",
-          "body": "- Redefine target user segments with specific pain points and strategies",
-          "category": "重構",
-          "tags": []
-        },
-        {
-          "hash": "a0e06871",
-          "date": "2025-09-22",
-          "message": "feat: Implement Vue.js water tracker application with complete functionality",
-          "body": "- Add Vue 3 project structure with Vite build system",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "050a0966",
-          "date": "2025-09-22",
-          "message": "Add product concept document with user types and feature planning",
-          "body": "",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "af683564",
-          "date": "2025-09-22",
-          "message": "Initial commit: Add README for water tracker project",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "4c6c742b",
-          "date": "2025-09-23",
-          "message": "Adjust auto-scroll position to show more core functionality",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f19d7296",
-          "date": "2025-09-23",
-          "message": "Add auto-scroll to focus on core functionality on page load",
-          "body": "- Automatically scroll to 60% of header height on page mount",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0eb8ccab",
-          "date": "2025-09-23",
-          "message": "Remove confirmation dialog for reset today button",
-          "body": "- Change reset button to directly execute without confirmation",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "8b52095d",
-          "date": "2025-09-23",
-          "message": "Fix reset today button functionality",
-          "body": "- Remove duplicate @click events on reset button that was preventing it from working",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "72ac849b",
-          "date": "2025-09-23",
-          "message": "Reduce header height to emphasize core tracking functionality",
-          "body": "- Decrease header padding from 2rem to 1rem",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "8e623888",
-          "date": "2025-09-23",
-          "message": "Change warrior selection cards to blue gradient with white text",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2fa8a00f",
-          "date": "2025-09-23",
-          "message": "Update UserSettings color scheme for better contrast",
-          "body": "- Change modal background from blue gradient to white",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "8eec7310",
-          "date": "2025-09-23",
-          "message": "Change UserSettings background from purple to blue gradient",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "9cc36bbf",
-          "date": "2025-09-23",
-          "message": "Implement Help Center modal and improve UI interactions",
-          "body": "- Create HelpCenter component as modal replacing inline knowledge/container sections",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7da097db",
-          "date": "2025-09-23",
-          "message": "Implement collapsible sections and fix UI layout issues",
-          "body": "- Add water drop favicon.svg for browser tab icon",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "92552618",
-          "date": "2025-09-23",
-          "message": "Optimize warrior selection UX with compact display after selection",
-          "body": "- Add mini warrior display when selected (sticky at top)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "a928cde1",
-          "date": "2025-09-23",
-          "message": "Update warrior selection to fixed 3-column layout",
-          "body": "- Change from auto-fit to fixed 3-column grid layout for consistent display",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "1dfdb5a3",
-          "date": "2025-10-28",
-          "message": "Add manual trigger for idle reminder testing",
-          "body": "Users can now click the logo to cycle through reminder states:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "aae28a8c",
-          "date": "2025-10-28",
-          "message": "Add idle reminder feature with two-stage alerts",
-          "body": "Implemented a smart idle reminder system that encourages users to drink water:",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "dba3f2a5",
-          "date": "2025-10-31",
-          "message": "調整快速加水功能：改為50/100/250/500ml，加入自訂義容量記憶與排序",
-          "body": "- 將預設快速加水選項從 100/250/500/1000ml 改為 50/100/250/500ml",
-          "category": "其他",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
       "name": "CyclePulse",
-      "totalCommits": 17,
+      "totalCommits": 19,
       "commits": [
         {
           "hash": "f325ee5d",
@@ -10486,6 +10630,22 @@
           "body": "Major features:",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "3bd95dac",
+          "date": "2025-11-09",
+          "message": "Updates",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d8c5dbe4",
+          "date": "2025-11-09",
+          "message": "Updates",
+          "body": "",
+          "category": "其他",
+          "tags": []
         }
       ],
       "type": "side"
@@ -10618,6 +10778,133 @@
       "type": "side"
     },
     {
+      "name": "work-progress\\work-progress-ssh",
+      "totalCommits": 15,
+      "commits": [
+        {
+          "hash": "68421f27",
+          "date": "2025-11-01",
+          "message": "docs: 更新彙整資料 2025-11-01",
+          "body": "🤖 自動生成於 2025-11-01 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "440ee401",
+          "date": "2025-11-01",
+          "message": "docs: 每日工作紀錄 2025-10-31 (4 commits)",
+          "body": "🤖 自動生成於 2025-11-01 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "fb7fb670",
+          "date": "2025-11-02",
+          "message": "docs: 更新彙整資料 2025-11-02",
+          "body": "🤖 自動生成於 2025-11-02 18:15",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a410ccdc",
+          "date": "2025-11-02",
+          "message": "docs: 每日工作紀錄 2025-11-01 (2 commits)",
+          "body": "🤖 自動生成於 2025-11-02 18:15",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "df581e6f",
+          "date": "2025-11-09",
+          "message": "docs: 更新彙整資料 2025-11-09",
+          "body": "🤖 自動生成於 2025-11-09 13:47",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c1d7bd47",
+          "date": "2025-11-09",
+          "message": "docs: 每日工作紀錄 2025-11-08 (5 commits)",
+          "body": "🤖 自動生成於 2025-11-09 13:47",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "920c68fb",
+          "date": "2025-11-09",
+          "message": "docs: 更新彙整資料 2025-11-09",
+          "body": "🤖 自動生成於 2025-11-09 13:44",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f0e55182",
+          "date": "2025-11-09",
+          "message": "docs: 每日工作紀錄 2025-11-09 (8 commits)",
+          "body": "🤖 自動生成於 2025-11-09 13:44",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d7240e9c",
+          "date": "2025-11-09",
+          "message": "fix: 自動偵測環境路徑 (公司 D:\\ vs 家裡 C:\\)",
+          "body": "- 根據 D:\\Gitlab 是否存在自動判斷環境",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "c3f8596a",
+          "date": "2025-11-09",
+          "message": "docs: 更新彙整資料 2025-11-09",
+          "body": "🤖 自動生成於 2025-11-09 13:41",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "6bc41ed7",
+          "date": "2025-11-09",
+          "message": "docs: 每日工作紀錄 2025-11-09 (5 commits)",
+          "body": "🤖 自動生成於 2025-11-09 13:41",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "0f4672e7",
+          "date": "2025-11-09",
+          "message": "docs: 更新彙整資料 2025-11-09",
+          "body": "🤖 自動生成於 2025-11-09 13:41",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "eb91314a",
+          "date": "2025-11-09",
+          "message": "docs: 每日工作紀錄 2025-11-08 (2 commits)",
+          "body": "🤖 自動生成於 2025-11-09 13:41",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9a3552a3",
+          "date": "2025-11-09",
+          "message": "docs: 更新彙整資料 2025-11-09",
+          "body": "🤖 自動生成於 2025-11-09 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1a6dabb8",
+          "date": "2025-11-09",
+          "message": "docs: 每日工作紀錄 2025-11-08 (18 commits)",
+          "body": "🤖 自動生成於 2025-11-09 07:05",
+          "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
       "name": "FridgeMaster",
       "totalCommits": 13,
       "commits": [
@@ -10723,117 +11010,6 @@
           "message": "feat: add dark mode support with toggle button",
           "body": "- Implement ThemeContext with localStorage persistence",
           "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
-      "name": "work-progress\\work-progress-ssh",
-      "totalCommits": 13,
-      "commits": [
-        {
-          "hash": "68421f27",
-          "date": "2025-11-01",
-          "message": "docs: 更新彙整資料 2025-11-01",
-          "body": "🤖 自動生成於 2025-11-01 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "440ee401",
-          "date": "2025-11-01",
-          "message": "docs: 每日工作紀錄 2025-10-31 (4 commits)",
-          "body": "🤖 自動生成於 2025-11-01 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "fb7fb670",
-          "date": "2025-11-02",
-          "message": "docs: 更新彙整資料 2025-11-02",
-          "body": "🤖 自動生成於 2025-11-02 18:15",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "a410ccdc",
-          "date": "2025-11-02",
-          "message": "docs: 每日工作紀錄 2025-11-01 (2 commits)",
-          "body": "🤖 自動生成於 2025-11-02 18:15",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "444e964a",
-          "date": "2025-11-08",
-          "message": "docs: 更新彙整資料 2025-11-08",
-          "body": "🤖 自動生成於 2025-11-08 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "588b2612",
-          "date": "2025-11-08",
-          "message": "docs: 每日工作紀錄 2025-11-07 (9 commits)",
-          "body": "🤖 自動生成於 2025-11-08 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "d7240e9c",
-          "date": "2025-11-09",
-          "message": "fix: 自動偵測環境路徑 (公司 D:\\ vs 家裡 C:\\)",
-          "body": "- 根據 D:\\Gitlab 是否存在自動判斷環境",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "c3f8596a",
-          "date": "2025-11-09",
-          "message": "docs: 更新彙整資料 2025-11-09",
-          "body": "🤖 自動生成於 2025-11-09 13:41",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "6bc41ed7",
-          "date": "2025-11-09",
-          "message": "docs: 每日工作紀錄 2025-11-09 (5 commits)",
-          "body": "🤖 自動生成於 2025-11-09 13:41",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "0f4672e7",
-          "date": "2025-11-09",
-          "message": "docs: 更新彙整資料 2025-11-09",
-          "body": "🤖 自動生成於 2025-11-09 13:41",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "eb91314a",
-          "date": "2025-11-09",
-          "message": "docs: 每日工作紀錄 2025-11-08 (2 commits)",
-          "body": "🤖 自動生成於 2025-11-09 13:41",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "9a3552a3",
-          "date": "2025-11-09",
-          "message": "docs: 更新彙整資料 2025-11-09",
-          "body": "🤖 自動生成於 2025-11-09 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1a6dabb8",
-          "date": "2025-11-09",
-          "message": "docs: 每日工作紀錄 2025-11-08 (18 commits)",
-          "body": "🤖 自動生成於 2025-11-09 07:05",
-          "category": "文檔",
           "tags": []
         }
       ],
