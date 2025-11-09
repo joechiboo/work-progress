@@ -22,9 +22,16 @@ logging.basicConfig(
     ]
 )
 
-GITLAB_PATH = "D:\\Gitlab"
-PERSONAL_PATH = "D:\\Personal\\Project"
-WORK_PROGRESS_PATH = "D:\\Personal\\Project\\work-progress"
+# 自動偵測環境路徑（公司用 D:\，家裡用 C:\）
+if os.path.exists("D:\\Gitlab"):
+    GITLAB_PATH = "D:\\Gitlab"
+    PERSONAL_PATH = "D:\\Personal\\Project"
+    WORK_PROGRESS_PATH = "D:\\Personal\\Project\\work-progress"
+else:
+    GITLAB_PATH = "C:\\Gitlab"  # 家裡可能沒有 Gitlab
+    PERSONAL_PATH = "C:\\Personal\\Project"
+    WORK_PROGRESS_PATH = "C:\\Personal\\Project\\work-progress\\work-progress-ssh"
+
 AUTHOR = "UCL\\joechiboo"
 
 def get_git_repos(base_path, max_depth=3):
