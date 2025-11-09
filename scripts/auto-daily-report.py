@@ -59,9 +59,10 @@ def get_git_repos(base_path, max_depth=3):
 def get_commits_for_date(repo_path, author, date_str):
     """取得特定日期的 commits"""
     try:
-        # 先抓全部 commits，包含 author name
+        # 先抓全部 commits，包含 author name (包含所有分支)
         cmd = [
             'git', '-C', repo_path, 'log',
+            '--all',
             f'--since={date_str} 00:00',
             f'--until={date_str} 23:59',
             '--format=%an|||%H|||%ai|||%s|||%b',
