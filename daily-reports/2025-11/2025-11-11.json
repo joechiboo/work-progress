@@ -1,0 +1,199 @@
+{
+  "date": "2025-11-11",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2e1d69dd",
+          "time": "16:17",
+          "message": "fix: 修正危急值清單 V2 前端規則與 SQL 查詢錯誤",
+          "body": "## 主要修正"
+        },
+        {
+          "hash": "5bad88d7",
+          "time": "08:39",
+          "message": "chore: 忽略根目錄的 todo.md",
+          "body": ""
+        },
+        {
+          "hash": "0c1f950b",
+          "time": "08:12",
+          "message": "Merge branch 'main' into feature/danger-list-v2",
+          "body": ""
+        },
+        {
+          "hash": "c354de0a",
+          "time": "08:10",
+          "message": "refactor: 清理危急值文件並新增分析工具",
+          "body": "變更內容："
+        },
+        {
+          "hash": "52cbfc69",
+          "time": "08:08",
+          "message": "refactor: 優化危急值醫檢師確認清單格式",
+          "body": "重構為問題導向格式："
+        }
+      ],
+      "count": 5
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "HeartHero",
+      "commits": [
+        {
+          "hash": "3728cdd7",
+          "time": "19:21",
+          "message": "feat: 實作心率打怪遊戲核心功能",
+          "body": "- 新增打怪模式（5 個關卡：史萊姆、哥布林、巨魔、火龍、終極魔王）"
+        },
+        {
+          "hash": "1cbf0e33",
+          "time": "18:52",
+          "message": "feat: 新增心率模擬模式與 GitHub Pages 部署設定",
+          "body": "- 新增心率模擬模式，可在沒有實體心率帶時測試功能"
+        },
+        {
+          "hash": "b801f78c",
+          "time": "09:59",
+          "message": "docs: 更新 README 使用指南",
+          "body": "新增內容："
+        },
+        {
+          "hash": "3b139784",
+          "time": "09:57",
+          "message": "feat(mvp): 建立 Vue 3 專案基礎架構",
+          "body": "完成 HeartHero MVP 階段 1 的核心實作："
+        },
+        {
+          "hash": "553c62d5",
+          "time": "09:54",
+          "message": "feat(spec): 新增家庭互動模式規劃",
+          "body": "在「未來增強功能」章節加入完整的家庭模式設計："
+        },
+        {
+          "hash": "7e36fa1e",
+          "time": "05:09",
+          "message": "feat(sdd): 完善 SDD 規格文檔",
+          "body": "Constitution 更新："
+        },
+        {
+          "hash": "d6dd7051",
+          "time": "00:56",
+          "message": "feat(sdd): 初始化 SDD 開發架構",
+          "body": "建立 Spec-Driven Development (SDD) 專案結構："
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "CyclePulse",
+      "commits": [
+        {
+          "hash": "b9c1d35e",
+          "time": "13:04",
+          "message": "WIP on main: 65df5f2 Add comprehensive Garmin HRM-Dual integration guide",
+          "body": ""
+        },
+        {
+          "hash": "a62b1641",
+          "time": "13:04",
+          "message": "index on main: 65df5f2 Add comprehensive Garmin HRM-Dual integration guide",
+          "body": ""
+        },
+        {
+          "hash": "1f6c075b",
+          "time": "08:58",
+          "message": "Merge pull request #1 from joechiboo/claude/create-bluetooth-rate-library-011CV1BLK6nx1bt4CLURdJX2",
+          "body": "Create Bluetooth integration module for reuse"
+        },
+        {
+          "hash": "6f3c7661",
+          "time": "00:54",
+          "message": "Add comprehensive Bluetooth heart rate library integration guide",
+          "body": "Create detailed documentation for reusing the Bluetooth heart rate integration in other projects. The guide includes:"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "61a4498d",
+          "time": "19:23",
+          "message": "Merge pull request #3 from joechiboo/claude/gamification-reward-system-011CUmvRKZfUzZA3diySFZeM",
+          "body": "為 HeartHero 專案新增線上展示連結"
+        },
+        {
+          "hash": "3591e94d",
+          "time": "10:55",
+          "message": "為 HeartHero 專案新增線上展示連結",
+          "body": "- 新增 Demo 連結：https://joechiboo.github.io/HeartHero/"
+        },
+        {
+          "hash": "0b4a2cb0",
+          "time": "17:58",
+          "message": "Merge pull request #2 from joechiboo/claude/gamification-reward-system-011CUmvRKZfUzZA3diySFZeM",
+          "body": "新增 HeartHero 心跳英雄並調整 LiveSheet 分類"
+        },
+        {
+          "hash": "3ed8201e",
+          "time": "09:57",
+          "message": "新增 HeartHero 心跳英雄並調整 LiveSheet 分類",
+          "body": "1. 新增 HeartHero 心跳英雄專案 ⚔️"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "interdisciplinary-course-notes",
+      "commits": [
+        {
+          "hash": "5e5f3bef",
+          "time": "16:06",
+          "message": "docs: 新增數位敘事教學活動設計 4 頁精簡版",
+          "body": "- 新增 4 頁版本，針對 12pt + 1.5 倍行距優化"
+        },
+        {
+          "hash": "261e15a4",
+          "time": "15:40",
+          "message": "chore: 整理數位敘事作業到專屬資料夾",
+          "body": "- 移動所有數位敘事相關文件到「數位敘事作業」資料夾"
+        },
+        {
+          "hash": "9e3ec86b",
+          "time": "15:28",
+          "message": "chore: 重新整理專案結構",
+          "body": "- 整合所有課程相關文件"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "e25c1c20",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-11",
+          "body": "🤖 自動生成於 2025-11-11 07:05"
+        },
+        {
+          "hash": "efd30f25",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-10 (4 commits)",
+          "body": "🤖 自動生成於 2025-11-11 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 20,
+    "totalCommits": 25
+  }
+}
