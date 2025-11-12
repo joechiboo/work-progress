@@ -1,0 +1,109 @@
+{
+  "date": "2025-11-12",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "020da92b",
+          "time": "12:59",
+          "message": "feat: 統一前端規則與後端 DANGER_RULES 一致",
+          "body": "## 主要變更"
+        },
+        {
+          "hash": "ce6d5528",
+          "time": "08:53",
+          "message": "fix: 恢復 DEBTOR_detail.NOTE 欄位並修正 JOIN",
+          "body": "## 修正"
+        },
+        {
+          "hash": "6e0fd24d",
+          "time": "08:50",
+          "message": "fix: 統一使用 HFCLINIC 表的 CD_ 欄位並移除不必要的 JOIN",
+          "body": "## 問題"
+        },
+        {
+          "hash": "06af9175",
+          "time": "08:48",
+          "message": "fix: 修正 CD_TELNO 欄位來源表錯誤",
+          "body": "## 問題"
+        },
+        {
+          "hash": "eda8321e",
+          "time": "08:47",
+          "message": "fix: 完整修正 SQL 所有欄位的表名前綴",
+          "body": "## 問題"
+        },
+        {
+          "hash": "fce5f4dc",
+          "time": "08:45",
+          "message": "fix: 修正 SQL JOIN 條件缺少表名前綴",
+          "body": "## 問題"
+        },
+        {
+          "hash": "cdafb5f0",
+          "time": "08:44",
+          "message": "fix: 修正 dangerListV2 前端 null 值處理錯誤",
+          "body": "## 問題"
+        },
+        {
+          "hash": "907a11e7",
+          "time": "08:39",
+          "message": "Merge branch 'main' into feature/danger-list-v2",
+          "body": "合併 main 分支的更新："
+        }
+      ],
+      "count": 8
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "77c65477",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-12",
+          "body": "🤖 自動生成於 2025-11-12 07:05"
+        },
+        {
+          "hash": "26cb07b9",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-11 (25 commits)",
+          "body": "🤖 自動生成於 2025-11-12 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "kids-time-control",
+      "commits": [
+        {
+          "hash": "bc5ea0bd",
+          "time": "08:05",
+          "message": "實作 Screen Pinning 螢幕鎖定機制並新增測試文件",
+          "body": "## 主要變更"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "761a8433",
+          "time": "17:01",
+          "message": "Complete EDA for Chinese dataset and prepare Meeting 17",
+          "body": "Major updates:"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 4,
+    "totalCommits": 12
+  }
+}
