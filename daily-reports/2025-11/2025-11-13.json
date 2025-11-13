@@ -1,0 +1,127 @@
+{
+  "date": "2025-11-13",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "0e9fc41e",
+          "time": "09:18",
+          "message": "更新部署文檔：新增快速發佈流程章節",
+          "body": "- 在文檔開頭新增快速發佈流程，方便快速查閱"
+        },
+        {
+          "hash": "a7ce7d6b",
+          "time": "08:59",
+          "message": "清理程式碼並更新版權年份",
+          "body": "- 移除開發用的 console.log 訊息"
+        },
+        {
+          "hash": "a937c298",
+          "time": "08:55",
+          "message": "更新醫師團隊：移除賴彥汝醫師並優化排版",
+          "body": "- 週四下午門診改為休診"
+        },
+        {
+          "hash": "6f24a7b3",
+          "time": "08:43",
+          "message": "Merge branch 'docs/add-deployment-guide'",
+          "body": "新增 ECS 和 ACMG 相關圖片及文件資源"
+        },
+        {
+          "hash": "32f02498",
+          "time": "08:42",
+          "message": "新增 ECS 和 ACMG 相關圖片及文件資源",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "947d4b77",
+          "time": "01:49",
+          "message": "Merge branch 'feature/MB/MaldiChangeSharedlayout' into 'main'",
+          "body": "feat: [細菌Maldi] 更新版面配置"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "45ab6313",
+          "time": "20:03",
+          "message": "Integrate and complete Dual Framework 2025 comprehensive analysis",
+          "body": "- Merged Dual_2025_基本資訊.md and Dual_2025_完整翻譯.md"
+        },
+        {
+          "hash": "2f9b0f1c",
+          "time": "19:55",
+          "message": "Add comprehensive Dual Framework 2025 paper translation",
+          "body": "- Created Dual_2025_完整翻譯.md with full Chinese translation"
+        },
+        {
+          "hash": "6f6bbae9",
+          "time": "19:37",
+          "message": "Organize literature review documents and clean up files",
+          "body": "📚 New Literature Organization System:"
+        },
+        {
+          "hash": "d5724ef8",
+          "time": "19:08",
+          "message": "Complete data preprocessing and feature engineering",
+          "body": "Major achievements:"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "64289afe",
+          "time": "01:43",
+          "message": "deploy: 0967497ff9d090409264ec1a1da5d75ba4b8f3bc",
+          "body": ""
+        },
+        {
+          "hash": "0967497f",
+          "time": "09:42",
+          "message": "更新 10/23 臨時會議出席記錄及委員名稱 mapping",
+          "body": "- 完善 10/23 會議出席記錄結構（新增 attendanceType、attendees 統計）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "edf3392f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-13",
+          "body": "🤖 自動生成於 2025-11-13 07:05"
+        },
+        {
+          "hash": "70b3e6aa",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-12 (12 commits)",
+          "body": "🤖 自動生成於 2025-11-13 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 8,
+    "totalCommits": 14
+  }
+}
