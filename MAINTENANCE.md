@@ -81,6 +81,23 @@ WORK_PROGRESS_PATH = "D:\\Personal\\Project\\work-progress"
 - **Side Projects**: `D:\Personal\Project` 下的其他專案（排除 `work-progress` 本身）
 - **網頁顯示**: 只顯示工作專案，排除 Side Projects
 
+### 4. 網頁預設日期範圍
+
+編輯 `src/App.vue`:
+
+```javascript
+// 設定預設日期範圍
+const DEFAULT_START_DATE = '2025-11-13'  // 預設開始日期
+const getDefaultEndDate = () => dayjs().subtract(1, 'day').format('YYYY-MM-DD')  // 預設結束日期（昨天）
+```
+
+**用途**: 設定網頁載入時的預設篩選日期範圍
+
+**說明**:
+- 開始日期：可根據需要調整，常用於聚焦特定時期的工作記錄
+- 結束日期：自動設為昨天（因為今天的資料要到明天才會生成）
+- 使用者仍可透過網頁介面手動調整日期範圍
+
 ## 🛠️ 常見維護任務
 
 ### 修改 author 名稱
