@@ -1,0 +1,301 @@
+{
+  "date": "2025-11-14",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1a54f1cd",
+          "time": "15:06",
+          "message": "feat: 新增前端非病患樣本排除規則",
+          "body": "## 新增排除規則"
+        },
+        {
+          "hash": "128ce643",
+          "time": "14:44",
+          "message": "docs: 改進 GetValueMapping 方法的說明文件",
+          "body": "## 改進內容"
+        },
+        {
+          "hash": "5196dcfc",
+          "time": "14:43",
+          "message": "refactor: 移動 Frontend_Backend_Sync_Solution.md 至危急值清單V2資料夾",
+          "body": "統一所有危急值相關文檔至同一資料夾"
+        },
+        {
+          "hash": "7fc8e7c9",
+          "time": "14:39",
+          "message": "chore: 清理開發過程中的臨時分析檔案",
+          "body": "移除不需要的分析與測試檔案："
+        },
+        {
+          "hash": "3577d123",
+          "time": "14:37",
+          "message": "refactor: 整合文檔結構至 Documents/危急值清單V2",
+          "body": "## 文檔整合"
+        },
+        {
+          "hash": "ee89785e",
+          "time": "14:28",
+          "message": "docs: 更新備忘錄 - 加入實際測試案例與顏色排序驗證",
+          "body": "## 測試驗證"
+        },
+        {
+          "hash": "626811c6",
+          "time": "14:13",
+          "message": "feat: 優化自動審核項目顏色與排序邏輯",
+          "body": "## 顏色邏輯修正"
+        },
+        {
+          "hash": "dc8efc1a",
+          "time": "13:01",
+          "message": "docs: 新增危急值清單V2開發完成備忘錄",
+          "body": "完整記錄專案開發過程、技術架構、測試結果與部署注意事項"
+        },
+        {
+          "hash": "7ca63580",
+          "time": "13:00",
+          "message": "feat: 實作醫檢師確認自動審核危急值機制",
+          "body": "## 核心功能"
+        },
+        {
+          "hash": "38e820e8",
+          "time": "12:16",
+          "message": "feat: 新增前端排除規則，過濾洗腎室水質檢測與研究編號",
+          "body": "## 新增排除規則"
+        },
+        {
+          "hash": "7a6f5f0f",
+          "time": "11:29",
+          "message": "refactor: 簡化 SQL - DBCODE 直接使用 OH_CLINIC_CODE",
+          "body": "## 優化"
+        },
+        {
+          "hash": "da836eb2",
+          "time": "11:27",
+          "message": "fix: 修正 CLIENTSORT 欄位來源（應為 DEBTOR_detail 表）",
+          "body": "## 問題"
+        },
+        {
+          "hash": "ad2bf73d",
+          "time": "11:27",
+          "message": "fix: 修正鉀離子客製化規則，加入 CLIENTSORT 和 DBCODE 欄位",
+          "body": "## 問題"
+        }
+      ],
+      "count": 13
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "HomeCalc",
+      "commits": [
+        {
+          "hash": "c26df192",
+          "time": "10:08",
+          "message": "Merge pull request #2 from joechiboo/claude/setup-s-feature-01CxPuvSpQdsjEpH5EkGfT32",
+          "body": "修正年利率為2.19%"
+        },
+        {
+          "hash": "eed7c88e",
+          "time": "02:05",
+          "message": "fix: 修正年利率為 2.19%",
+          "body": "- 更新 MortgageCalculator.vue 預設年利率"
+        },
+        {
+          "hash": "cdb029ac",
+          "time": "02:03",
+          "message": "chore: 清理 workflow - 只監聽 main 分支",
+          "body": "- 移除 feature 分支監聽"
+        },
+        {
+          "hash": "66ccd5c3",
+          "time": "10:02",
+          "message": "Merge pull request #1 from joechiboo/claude/setup-s-feature-01CxPuvSpQdsjEpH5EkGfT32",
+          "body": "fix: 移除 environment 設定以解決部署權限問題"
+        },
+        {
+          "hash": "bde07bc3",
+          "time": "02:00",
+          "message": "fix: 移除 environment 設定以解決部署權限問題",
+          "body": "- 移除 github-pages environment 設定"
+        },
+        {
+          "hash": "fbd6db46",
+          "time": "01:51",
+          "message": "docs: 新增 PR 模板",
+          "body": "- 建立 PR_TEMPLATE.md 包含完整的 PR 說明"
+        },
+        {
+          "hash": "2a944a8c",
+          "time": "01:46",
+          "message": "fix: 更新 workflow 監聽當前開發分支",
+          "body": "- 加入 claude/setup-s-feature-01CxPuvSpQdsjEpH5EkGfT32 分支"
+        },
+        {
+          "hash": "7101559a",
+          "time": "01:46",
+          "message": "chore: 設定 GitHub Pages 自動部署",
+          "body": "- 更新 vite.config.js 加入 base path (/HomeCalc/)"
+        },
+        {
+          "hash": "c1ebe5e5",
+          "time": "01:24",
+          "message": "feat: 實作 MVP 核心功能 - 房貸試算器",
+          "body": "- 建立 Vite + Vue 3 專案架構"
+        },
+        {
+          "hash": "8f4ea486",
+          "time": "01:17",
+          "message": "docs: 建立 SDD 文件與專案架構",
+          "body": "- 建立 .specify/memory/ 目錄結構"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "2048d058",
+          "time": "10:19",
+          "message": "Merge pull request #4 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "fix: 移除 GitHub Pages 環境保護限制"
+        },
+        {
+          "hash": "240a3e8f",
+          "time": "02:19",
+          "message": "fix: 移除 GitHub Pages 環境保護限制",
+          "body": "修正部署失敗問題："
+        },
+        {
+          "hash": "0115251c",
+          "time": "10:16",
+          "message": "Merge pull request #3 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "add WorkFlow to Actions"
+        },
+        {
+          "hash": "e3cf9ba1",
+          "time": "02:15",
+          "message": "feat: 新增 GitHub Actions 自動部署 workflow",
+          "body": "建立 GitHub Pages 自動部署流程："
+        },
+        {
+          "hash": "fa28cc44",
+          "time": "10:10",
+          "message": "Merge pull request #2 from joechiboo/main",
+          "body": "Merge pull request #1 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L…"
+        },
+        {
+          "hash": "47aaf2cb",
+          "time": "10:09",
+          "message": "Merge pull request #1 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "feat: 新增 ReadTrack 首頁"
+        },
+        {
+          "hash": "55d23135",
+          "time": "02:00",
+          "message": "feat: 新增 ReadTrack 首頁",
+          "body": "建立響應式首頁展示讀書心得："
+        },
+        {
+          "hash": "c8249b46",
+          "time": "01:22",
+          "message": "feat: 建立讀書心得系統",
+          "body": "新增功能："
+        },
+        {
+          "hash": "a2e749a7",
+          "time": "01:02",
+          "message": "feat: 建立 ReadTrack SDD 規格文件",
+          "body": "建立 GitHub Spec Kit 結構，包含："
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "2c9d891b",
+          "time": "10:32",
+          "message": "Merge pull request #5 from joechiboo/claude/gamification-reward-system-011CUmvRKZfUzZA3diySFZeM",
+          "body": "優化 GitHub Actions workflow 顯示名稱"
+        },
+        {
+          "hash": "baea8f57",
+          "time": "10:30",
+          "message": "優化 GitHub Actions workflow 顯示名稱",
+          "body": "將 workflow 名稱改為動態顯示 commit 訊息，讓 Actions 頁面更容易追蹤變更內容。"
+        },
+        {
+          "hash": "4f003fd2",
+          "time": "10:27",
+          "message": "Merge pull request #4 from joechiboo/claude/gamification-reward-system-011CUmvRKZfUzZA3diySFZeM",
+          "body": "新增 HomeCalc 與 ReadTrack 創意專案到作品集"
+        },
+        {
+          "hash": "5ee4458e",
+          "time": "10:24",
+          "message": "新增 HomeCalc 與 ReadTrack 的線上展示連結",
+          "body": "更新作品集中兩個創意專案的展示連結："
+        },
+        {
+          "hash": "67e95595",
+          "time": "01:24",
+          "message": "新增 HomeCalc 與 ReadTrack 創意專案",
+          "body": "1. 新增 HomeCalc 房貸計算助手 🏠💰"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "2a42bbc8",
+          "time": "09:42",
+          "message": "config: 更新網頁預設日期範圍為 2025-11-13",
+          "body": "- 修改 App.vue 的 DEFAULT_START_DATE 從 10/30 改為 11/13"
+        },
+        {
+          "hash": "5b0c9bee",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-14",
+          "body": "🤖 自動生成於 2025-11-14 07:05"
+        },
+        {
+          "hash": "db039294",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-13 (14 commits)",
+          "body": "🤖 自動生成於 2025-11-14 07:05"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "401dfb2e",
+          "time": "16:41",
+          "message": "Add comprehensive Δ feature engineering strategy document",
+          "body": "Based on Dual Framework 2025 findings (δ-FPG importance 100%):"
+        },
+        {
+          "hash": "9ef4d7c0",
+          "time": "16:19",
+          "message": "Integrate Meeting 17 (Dual Framework 2025) into papers summary",
+          "body": "- Add comprehensive Meeting 17 paper analysis"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 13,
+    "sideCommits": 29,
+    "totalCommits": 42
+  }
+}
