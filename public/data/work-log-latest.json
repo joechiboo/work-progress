@@ -7,7 +7,7 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 1477,
+    "totalCommits": 1485,
     "projectCount": 38,
     "dailyAverage": 7.6
   },
@@ -8524,7 +8524,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 94,
+      "totalCommits": 92,
       "commits": [
         {
           "hash": "da5bad9e",
@@ -9259,22 +9259,6 @@
           "date": "2025-11-14",
           "message": "docs: 每日工作紀錄 2025-11-13 (14 commits)",
           "body": "🤖 自動生成於 2025-11-14 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "63df280e",
-          "date": "2025-11-15",
-          "message": "docs: 更新彙整資料 2025-11-15",
-          "body": "🤖 自動生成於 2025-11-15 07:05",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "f8d0ac2e",
-          "date": "2025-11-15",
-          "message": "docs: 每日工作紀錄 2025-11-14 (42 commits)",
-          "body": "🤖 自動生成於 2025-11-15 07:05",
           "category": "文檔",
           "tags": []
         }
@@ -11299,6 +11283,149 @@
       "type": "side"
     },
     {
+      "name": "ReadTrack",
+      "totalCommits": 17,
+      "commits": [
+        {
+          "hash": "2048d058",
+          "date": "2025-11-14",
+          "message": "Merge pull request #4 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "fix: 移除 GitHub Pages 環境保護限制",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "240a3e8f",
+          "date": "2025-11-14",
+          "message": "fix: 移除 GitHub Pages 環境保護限制",
+          "body": "修正部署失敗問題：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0115251c",
+          "date": "2025-11-14",
+          "message": "Merge pull request #3 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "add WorkFlow to Actions",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e3cf9ba1",
+          "date": "2025-11-14",
+          "message": "feat: 新增 GitHub Actions 自動部署 workflow",
+          "body": "建立 GitHub Pages 自動部署流程：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "fa28cc44",
+          "date": "2025-11-14",
+          "message": "Merge pull request #2 from joechiboo/main",
+          "body": "Merge pull request #1 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L…",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "47aaf2cb",
+          "date": "2025-11-14",
+          "message": "Merge pull request #1 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "feat: 新增 ReadTrack 首頁",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "55d23135",
+          "date": "2025-11-14",
+          "message": "feat: 新增 ReadTrack 首頁",
+          "body": "建立響應式首頁展示讀書心得：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c8249b46",
+          "date": "2025-11-14",
+          "message": "feat: 建立讀書心得系統",
+          "body": "新增功能：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a2e749a7",
+          "date": "2025-11-14",
+          "message": "feat: 建立 ReadTrack SDD 規格文件",
+          "body": "建立 GitHub Spec Kit 結構，包含：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2819f210",
+          "date": "2025-11-15",
+          "message": "Merge pull request #7 from joechiboo/main",
+          "body": "refactor: 調整首頁書籍順序與移除重複按鈕",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "05069227",
+          "date": "2025-11-15",
+          "message": "refactor: 調整首頁書籍順序與移除重複按鈕",
+          "body": "調整：",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "b1269d37",
+          "date": "2025-11-15",
+          "message": "Merge pull request #6 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "feat: 新增讀書心得系統與第二本書《療癒內在小孩》",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b209b9e5",
+          "date": "2025-11-15",
+          "message": "refactor: 進一步簡化個人資訊描述",
+          "body": "微調：",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "7dca7444",
+          "date": "2025-11-15",
+          "message": "refactor: 簡化《富爸爸窮爸爸》心得中的個人資訊",
+          "body": "移除過於詳細的財務數字：",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "6c573fc2",
+          "date": "2025-11-15",
+          "message": "Merge pull request #5 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "feat: 新增讀書心得系統與第二本書《療癒內在小孩》",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "de259795",
+          "date": "2025-11-15",
+          "message": "feat: 新增《療癒內在小孩》讀書心得",
+          "body": "新增第二本讀書心得：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c193f714",
+          "date": "2025-11-15",
+          "message": "feat: 新增 Markdown 自動渲染功能",
+          "body": "建立讀書心得渲染頁面：",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
       "name": "ResearchSeminar-3H",
       "totalCommits": 15,
       "commits": [
@@ -11703,85 +11830,6 @@
       "type": "side"
     },
     {
-      "name": "ReadTrack",
-      "totalCommits": 9,
-      "commits": [
-        {
-          "hash": "2048d058",
-          "date": "2025-11-14",
-          "message": "Merge pull request #4 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
-          "body": "fix: 移除 GitHub Pages 環境保護限制",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "240a3e8f",
-          "date": "2025-11-14",
-          "message": "fix: 移除 GitHub Pages 環境保護限制",
-          "body": "修正部署失敗問題：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "0115251c",
-          "date": "2025-11-14",
-          "message": "Merge pull request #3 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
-          "body": "add WorkFlow to Actions",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e3cf9ba1",
-          "date": "2025-11-14",
-          "message": "feat: 新增 GitHub Actions 自動部署 workflow",
-          "body": "建立 GitHub Pages 自動部署流程：",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "fa28cc44",
-          "date": "2025-11-14",
-          "message": "Merge pull request #2 from joechiboo/main",
-          "body": "Merge pull request #1 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L…",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "47aaf2cb",
-          "date": "2025-11-14",
-          "message": "Merge pull request #1 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
-          "body": "feat: 新增 ReadTrack 首頁",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "55d23135",
-          "date": "2025-11-14",
-          "message": "feat: 新增 ReadTrack 首頁",
-          "body": "建立響應式首頁展示讀書心得：",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c8249b46",
-          "date": "2025-11-14",
-          "message": "feat: 建立讀書心得系統",
-          "body": "新增功能：",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "a2e749a7",
-          "date": "2025-11-14",
-          "message": "feat: 建立 ReadTrack SDD 規格文件",
-          "body": "建立 GitHub Spec Kit 結構，包含：",
-          "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
       "name": "ZebraSite",
       "totalCommits": 7,
       "commits": [
@@ -11972,7 +12020,7 @@
     },
     {
       "name": "work-progress\\work-progress-ssh",
-      "totalCommits": 4,
+      "totalCommits": 6,
       "commits": [
         {
           "hash": "68421f27",
@@ -12003,6 +12051,22 @@
           "date": "2025-11-02",
           "message": "docs: 每日工作紀錄 2025-11-01 (2 commits)",
           "body": "🤖 自動生成於 2025-11-02 18:15",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "63df280e",
+          "date": "2025-11-15",
+          "message": "docs: 更新彙整資料 2025-11-15",
+          "body": "🤖 自動生成於 2025-11-15 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f8d0ac2e",
+          "date": "2025-11-15",
+          "message": "docs: 每日工作紀錄 2025-11-14 (42 commits)",
+          "body": "🤖 自動生成於 2025-11-15 07:05",
           "category": "文檔",
           "tags": []
         }
