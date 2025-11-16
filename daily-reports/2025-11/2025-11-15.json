@@ -4,7 +4,61 @@
   "work_projects": [],
   "side_projects": [
     {
-      "name": "work-progress",
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "2819f210",
+          "time": "21:34",
+          "message": "Merge pull request #7 from joechiboo/main",
+          "body": "refactor: 調整首頁書籍順序與移除重複按鈕"
+        },
+        {
+          "hash": "05069227",
+          "time": "13:33",
+          "message": "refactor: 調整首頁書籍順序與移除重複按鈕",
+          "body": "調整："
+        },
+        {
+          "hash": "b1269d37",
+          "time": "21:27",
+          "message": "Merge pull request #6 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "feat: 新增讀書心得系統與第二本書《療癒內在小孩》"
+        },
+        {
+          "hash": "b209b9e5",
+          "time": "13:24",
+          "message": "refactor: 進一步簡化個人資訊描述",
+          "body": "微調："
+        },
+        {
+          "hash": "7dca7444",
+          "time": "13:23",
+          "message": "refactor: 簡化《富爸爸窮爸爸》心得中的個人資訊",
+          "body": "移除過於詳細的財務數字："
+        },
+        {
+          "hash": "6c573fc2",
+          "time": "21:18",
+          "message": "Merge pull request #5 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "feat: 新增讀書心得系統與第二本書《療癒內在小孩》"
+        },
+        {
+          "hash": "de259795",
+          "time": "12:37",
+          "message": "feat: 新增《療癒內在小孩》讀書心得",
+          "body": "新增第二本讀書心得："
+        },
+        {
+          "hash": "c193f714",
+          "time": "12:33",
+          "message": "feat: 新增 Markdown 自動渲染功能",
+          "body": "建立讀書心得渲染頁面："
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "work-progress\\work-progress-ssh",
       "commits": [
         {
           "hash": "63df280e",
@@ -24,7 +78,7 @@
   ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 2,
-    "totalCommits": 2
+    "sideCommits": 10,
+    "totalCommits": 10
   }
 }
