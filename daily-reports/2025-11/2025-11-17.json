@@ -1,0 +1,157 @@
+{
+  "date": "2025-11-17",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c0bbf536",
+          "time": "14:20",
+          "message": "feat: 建立列印紙張尺寸 POC 測試頁面",
+          "body": "## 功能"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "208d263f",
+          "time": "12:49",
+          "message": "docs: 新增 README.md 專案說明文件",
+          "body": "- 專案簡介與功能特色"
+        },
+        {
+          "hash": "6edda09d",
+          "time": "12:44",
+          "message": "feat: 新增首頁篩選和排序功能",
+          "body": "- 新增搜尋框（可搜尋書名、標籤、內容）"
+        },
+        {
+          "hash": "7cd5fc8c",
+          "time": "12:29",
+          "message": "WIP on claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2: 68359b6 fix: 簡化 GitHub Actions workflow 移除語法錯誤",
+          "body": ""
+        },
+        {
+          "hash": "9d05b42c",
+          "time": "12:29",
+          "message": "index on claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2: 68359b6 fix: 簡化 GitHub Actions workflow 移除語法錯誤",
+          "body": ""
+        },
+        {
+          "hash": "dffa7552",
+          "time": "12:28",
+          "message": "Merge pull request #12 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "fix: 修復 workflow 並更新首頁顯示第三本書"
+        },
+        {
+          "hash": "68359b62",
+          "time": "12:27",
+          "message": "fix: 簡化 GitHub Actions workflow 移除語法錯誤",
+          "body": "- 移除有問題的 run-name 動態表達式"
+        },
+        {
+          "hash": "0a5ee99d",
+          "time": "12:26",
+          "message": "Merge pull request #11 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "fix: 修復 GitHub Actions 語法錯誤"
+        },
+        {
+          "hash": "44774bde",
+          "time": "12:25",
+          "message": "fix: 修復 GitHub Actions workflow 語法錯誤",
+          "body": "- 移除不支援的 regex_replace 函數"
+        },
+        {
+          "hash": "72b1d940",
+          "time": "12:25",
+          "message": "Merge pull request #10 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "fix: 更新首頁加入《每週工作4小時》心得"
+        },
+        {
+          "hash": "0d82c5e6",
+          "time": "12:24",
+          "message": "fix: 更新首頁加入《每週工作4小時》心得連結",
+          "body": "- 新增《每週工作4小時》書籍卡片到首頁"
+        },
+        {
+          "hash": "55e9daf0",
+          "time": "12:21",
+          "message": "Merge pull request #9 from joechiboo/claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": "feat: 新增《每週工作4小時》讀書心得"
+        },
+        {
+          "hash": "7c27e498",
+          "time": "12:18",
+          "message": "Merge branch 'claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2' of https://github.com/joechiboo/ReadTrack into claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2",
+          "body": ""
+        },
+        {
+          "hash": "b041369b",
+          "time": "12:17",
+          "message": "feat: 新增《每週工作4小時》讀書心得",
+          "body": "- 從38歲IT管理者的務實角度分析書中理念"
+        }
+      ],
+      "count": 13
+    },
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "749399bc",
+          "time": "09:26",
+          "message": "Deploy: 更新 11/5 例會會議記錄和出席率數據",
+          "body": ""
+        },
+        {
+          "hash": "8721a90f",
+          "time": "09:24",
+          "message": "整合 11/5 例會會議記錄和出席率數據",
+          "body": "- 新增 11/5 例會會議記錄到 meetingRecords.js"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "ccafccc7",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-17",
+          "body": "🤖 自動生成於 2025-11-17 07:05"
+        },
+        {
+          "hash": "d13f06fe",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-16 (4 commits)",
+          "body": "🤖 自動生成於 2025-11-17 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "7bc4c99d",
+          "time": "15:05",
+          "message": "Add Meeting 17 presentation outline (10 pages, 10 minutes)",
+          "body": "Complete 10-page presentation structure:"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 18,
+    "totalCommits": 19
+  }
+}
