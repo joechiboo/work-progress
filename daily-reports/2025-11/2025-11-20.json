@@ -1,0 +1,181 @@
+{
+  "date": "2025-11-20",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "8cde49dd",
+          "time": "06:57",
+          "message": "Merge branch 'feature/LT270沒有f2功能' into 'main'",
+          "body": "fix[LT270]調整列出的query與f2說明"
+        },
+        {
+          "hash": "dc1aba8b",
+          "time": "10:01",
+          "message": "fix: 修正 GetLastCheckType 安全性與錯誤處理問題",
+          "body": "1. 修正 SQL Injection 漏洞"
+        },
+        {
+          "hash": "752d6614",
+          "time": "09:42",
+          "message": "fix: 修正 LT274 紙張大小與標題顏色連動功能",
+          "body": "- 移除 HTML onchange 屬性，改用 jQuery 事件綁定"
+        },
+        {
+          "hash": "37d80cf5",
+          "time": "09:28",
+          "message": "feat: 新增報告紙張大小設定與篩選功能",
+          "body": "- BT101: 新增客戶報告紙張大小設定 (A4/B5，預設B5)"
+        },
+        {
+          "hash": "6351ad6d",
+          "time": "08:12",
+          "message": "feat: 新增報告紙張尺寸設定功能與文檔",
+          "body": "- BT101: 新增客戶報告紙張尺寸設定 (A4/B5，預設B5)"
+        },
+        {
+          "hash": "5879a16d",
+          "time": "23:38",
+          "message": "Merge branch 'feature/大安品質文件' into 'main'",
+          "body": "fix[文管系統]多項功能調整，詳細請看內文"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "89a6fa40",
+          "time": "07:00",
+          "message": "Merge branch 'fix/TSC_CLS' into 'main'",
+          "body": "fix:[PrintTNO]記憶清除不完全"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "de5222f8",
+          "time": "15:56",
+          "message": "Expand presentation to 11 pages with major improvements",
+          "body": "Changes:"
+        },
+        {
+          "hash": "06a070b8",
+          "time": "15:49",
+          "message": "Reorganize presentation: separate GP failure analysis to dedicated slide",
+          "body": ""
+        },
+        {
+          "hash": "eab42e3e",
+          "time": "15:41",
+          "message": "Add 1-minute speech scripts for all 10 slides",
+          "body": "Added comprehensive speech scripts (講稿) for each slide:"
+        },
+        {
+          "hash": "f39cafcb",
+          "time": "15:37",
+          "message": "Update presentation to include Random Forest results (now 10 pages)",
+          "body": "Added Random Forest (RF) as 6th model:"
+        },
+        {
+          "hash": "d6eaef52",
+          "time": "15:28",
+          "message": "Add 8-page presentation: modeling results summary (01-07)",
+          "body": "Comprehensive presentation covering:"
+        },
+        {
+          "hash": "b61027b4",
+          "time": "15:23",
+          "message": "Complete 07_GP with execution results and comprehensive analysis",
+          "body": "GP Performance (WORST across all models):"
+        },
+        {
+          "hash": "8a225fdb",
+          "time": "15:15",
+          "message": "Fix 07_GP notebook structure and remove all depth() calls",
+          "body": ""
+        },
+        {
+          "hash": "4f241222",
+          "time": "15:04",
+          "message": "Fix AttributeError: remove depth() calls from GP notebook",
+          "body": ""
+        },
+        {
+          "hash": "e743a6b3",
+          "time": "14:54",
+          "message": "Update gplearn installation cell to auto-install",
+          "body": ""
+        },
+        {
+          "hash": "e06672c7",
+          "time": "14:53",
+          "message": "Add installation cell for gplearn in 07_GP notebook",
+          "body": ""
+        },
+        {
+          "hash": "2e71cbc5",
+          "time": "14:49",
+          "message": "Add 07_GeneticProgramming.ipynb for symbolic regression",
+          "body": "GP setup with gplearn SymbolicClassifier:"
+        },
+        {
+          "hash": "0d94979f",
+          "time": "14:42",
+          "message": "Update 06_SVM with execution results and comprehensive analysis",
+          "body": "Surprising finding: SVM training completed in 11 seconds (not 1-2 hours)"
+        },
+        {
+          "hash": "21e932bb",
+          "time": "14:35",
+          "message": "Add 06_SVM.ipynb for Support Vector Machine experiments",
+          "body": "Create SVM implementation notebook with:"
+        },
+        {
+          "hash": "e6086f77",
+          "time": "14:32",
+          "message": "Update 05_NeuralNetworks with execution results and comprehensive analysis",
+          "body": "Key findings:"
+        },
+        {
+          "hash": "2bca472b",
+          "time": "14:23",
+          "message": "Add 05_NeuralNetworks.ipynb for ANN experiments",
+          "body": "Create comprehensive ANN (shallow neural network) implementation:"
+        }
+      ],
+      "count": 15
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "bc294dbe",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-20",
+          "body": "🤖 自動生成於 2025-11-20 07:05"
+        },
+        {
+          "hash": "b453831e",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-19 (20 commits)",
+          "body": "🤖 自動生成於 2025-11-20 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 17,
+    "totalCommits": 24
+  }
+}
