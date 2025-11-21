@@ -1,0 +1,133 @@
+{
+  "date": "2025-11-21",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "f76fa6cc",
+          "time": "11:22",
+          "message": "新增排程執行架構說明文件",
+          "body": "- 新增完整的排程執行流程與服務架構說明"
+        },
+        {
+          "hash": "1c8d96c2",
+          "time": "11:17",
+          "message": "新增 log 自動清理功能，保留 7 天內記錄",
+          "body": "- 新增 LogCleanupService 服務，在程式啟動時自動清理過期 log"
+        },
+        {
+          "hash": "6cfec715",
+          "time": "10:58",
+          "message": "恢復 TableSchemaChecker 和 TestDateFormats 類別",
+          "body": "這兩個類別被 Program.cs 引用，不應該被刪除。"
+        },
+        {
+          "hash": "52f9a8ca",
+          "time": "10:55",
+          "message": "重組 Scripts 目錄結構並新增孤兒資料處理功能",
+          "body": "主要變更:"
+        },
+        {
+          "hash": "ff85c9ed",
+          "time": "10:27",
+          "message": "新增 Oracle 欄位參考文件,防止欄位對應錯誤",
+          "body": "- 新增 OracleQueryTemplates.md: 標準查詢範本與正確欄位名稱"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "0763cf21",
+          "time": "12:50",
+          "message": "docs: 新增 BT300/BT300B 使用說明文檔",
+          "body": "## 新增文檔"
+        },
+        {
+          "hash": "0de74b0b",
+          "time": "12:40",
+          "message": "docs: 新增 BT201 檢驗單輸入系統技術文檔",
+          "body": "## 文檔內容"
+        },
+        {
+          "hash": "b3b93e3d",
+          "time": "12:28",
+          "message": "fix: [BT201] 修正預防保健代號卡號切換時案件分類被覆蓋問題",
+          "body": "## 問題描述"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Management\\PhishGuard-",
+      "commits": [
+        {
+          "hash": "616c2609",
+          "time": "15:29",
+          "message": "docs: 新增部署文件與資料庫結構",
+          "body": "- 新增 Windows Server 部署步驟指南"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "interdisciplinary-course-notes",
+      "commits": [
+        {
+          "hash": "0cab67c8",
+          "time": "15:29",
+          "message": "docs: 新增數據素養作業 Word 版本",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "6cf84a19",
+          "time": "15:28",
+          "message": "feat: 新增數據素養教學活動設計作業",
+          "body": "以資安社交工程演練數據分析為主題，設計完整的教學活動計畫，包含："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "603ed6ad",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-21",
+          "body": "🤖 自動生成於 2025-11-21 07:05"
+        },
+        {
+          "hash": "ce17ea5a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-20 (24 commits)",
+          "body": "🤖 自動生成於 2025-11-21 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "2ff80e6c",
+          "time": "15:59",
+          "message": "Add presentation table versions for easy copy-paste",
+          "body": "Added Files:"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 5,
+    "totalCommits": 14
+  }
+}
