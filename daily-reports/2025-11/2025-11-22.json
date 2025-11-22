@@ -1,0 +1,42 @@
+{
+  "date": "2025-11-22",
+  "weekday": "六",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "979969fb",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-22",
+          "body": "🤖 自動生成於 2025-11-22 07:05"
+        },
+        {
+          "hash": "c9da94cc",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-21 (14 commits)",
+          "body": "🤖 自動生成於 2025-11-22 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "d2414d3e",
+          "time": "15:32",
+          "message": "Add Q3: 雙框架設計詳解 to Meeting 17 QA document",
+          "body": "新增內容："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 3,
+    "totalCommits": 3
+  }
+}
