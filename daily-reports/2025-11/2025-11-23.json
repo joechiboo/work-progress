@@ -1,0 +1,54 @@
+{
+  "date": "2025-11-23",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "83ae16a6",
+          "time": "11:45",
+          "message": "優化第 5 頁為清晰的左右兩欄對比設計",
+          "body": "版面配置改進："
+        },
+        {
+          "hash": "53a5619c",
+          "time": "11:41",
+          "message": "優化 Meeting 17 簡報第 4-5 頁",
+          "body": "第 4 頁改進："
+        },
+        {
+          "hash": "17111abf",
+          "time": "11:32",
+          "message": "整合第 4-5 頁到 Meeting 17 簡報主文件",
+          "body": "變更內容："
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "6492c0f1",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-23",
+          "body": "🤖 自動生成於 2025-11-23 07:05"
+        },
+        {
+          "hash": "d0cbb7bd",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-22 (3 commits)",
+          "body": "🤖 自動生成於 2025-11-23 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 5,
+    "totalCommits": 5
+  }
+}
