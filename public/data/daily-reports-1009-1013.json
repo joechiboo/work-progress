@@ -7,6 +7,12 @@
         "name": "lisweb",
         "commits": [
           {
+            "hash": "8d159894",
+            "time": "16:37",
+            "message": "docs: 新增危險數據清單 V2 規劃文件",
+            "body": "- 分析現有系統的危險值判斷邏輯"
+          },
+          {
             "hash": "6c2089c3",
             "time": "11:20",
             "message": "chore: 移除 SQL debug log",
@@ -151,7 +157,7 @@
             "body": "- 將 manifest.json 加入專案檔 (.csproj)"
           }
         ],
-        "count": 24
+        "count": 25
       },
       {
         "name": "OnlineReport\\FalconCopy",
@@ -217,9 +223,9 @@
       }
     ],
     "summary": {
-      "workCommits": 25,
+      "workCommits": 26,
       "sideCommits": 6,
-      "totalCommits": 31
+      "totalCommits": 32
     }
   },
   {
@@ -258,12 +264,73 @@
   {
     "date": "2025-10-13",
     "weekday": "一",
-    "work_projects": [],
+    "work_projects": [
+      {
+        "name": "lisweb",
+        "commits": [
+          {
+            "hash": "890fc62f",
+            "time": "10:28",
+            "message": "chore: 清理專案檔案並更新 TODO",
+            "body": ""
+          },
+          {
+            "hash": "945cf58f",
+            "time": "09:30",
+            "message": "fix: 暫時移除 RULE_NAME 欄位以避免字元集衝突",
+            "body": ""
+          },
+          {
+            "hash": "3ba3d9c9",
+            "time": "09:00",
+            "message": "fix: 修正 CLIENTSORT 字元集不符合問題（使用 TO_NCHAR 轉換）",
+            "body": ""
+          },
+          {
+            "hash": "dfd74ece",
+            "time": "08:58",
+            "message": "fix: 修正 DANGER_RULES_CUSTOM 使用 NOTES 欄位取代 RULE_NAME",
+            "body": ""
+          },
+          {
+            "hash": "3c1d0511",
+            "time": "08:51",
+            "message": "feat: 建立 DangerListV2 後端 API",
+            "body": "- 建立混合查詢 SQL（保留硬編碼邏輯+規則表反查）"
+          },
+          {
+            "hash": "e559e9ca",
+            "time": "08:29",
+            "message": "docs: 完整整理危險數據清單規則範例",
+            "body": "- 將 nslistRepository.cs 所有硬編碼規則轉換為 INSERT 語句"
+          },
+          {
+            "hash": "60bdf754",
+            "time": "08:17",
+            "message": "feat: 恢復危險數據清單V2資料夾",
+            "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+          },
+          {
+            "hash": "cfb7aed0",
+            "time": "08:14",
+            "message": "docs: 更新危險數據清單V2規劃文件",
+            "body": "- 更新Oracle語法相關內容"
+          },
+          {
+            "hash": "11690dcf",
+            "time": "08:08",
+            "message": "docs: 更新危險數據清單V2規劃為Oracle語法",
+            "body": "- 將所有資料表定義改為Oracle語法"
+          }
+        ],
+        "count": 9
+      }
+    ],
     "side_projects": [],
     "summary": {
-      "workCommits": 0,
+      "workCommits": 9,
       "sideCommits": 0,
-      "totalCommits": 0
+      "totalCommits": 9
     }
   }
 ]

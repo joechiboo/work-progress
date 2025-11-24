@@ -1,0 +1,79 @@
+{
+  "date": "2025-11-24",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "05501452",
+          "time": "07:30",
+          "message": "Merge branch 'feature/LT253ForTY' into 'main'",
+          "body": "feat: [LT253] 桃園要將FTEXT的內容顯示在tooltip內"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "ffe5a05a",
+          "time": "17:59",
+          "message": "Add training time comparison to Slide 4",
+          "body": "- Added training time row to AUC comparison table"
+        },
+        {
+          "hash": "f3dfcccf",
+          "time": "16:59",
+          "message": "Add comprehensive research planning documents and experiment visualizations",
+          "body": "Major additions:"
+        },
+        {
+          "hash": "68219051",
+          "time": "15:08",
+          "message": "Fix page 8: Correct prediction target to Three Highs",
+          "body": "- Changed prediction target from 'high uric acid' to 'Three Highs (hyperglycemia, hypertension, hyperlipidemia)'"
+        },
+        {
+          "hash": "6f42471e",
+          "time": "14:48",
+          "message": "Remove box frames from presentation pages 5-8 for easier copying",
+          "body": "- Simplified formatting on pages 5-8 of Meeting 17 presentation"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d014b399",
+          "time": "15:20",
+          "message": "feat: 新增 Claude Max 完整效益報告",
+          "body": "- 新增 claude-code-efficiency-2025.md 效益評估文件"
+        },
+        {
+          "hash": "3dc8bb98",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-24",
+          "body": "🤖 自動生成於 2025-11-24 07:05"
+        },
+        {
+          "hash": "16321356",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-23 (5 commits)",
+          "body": "🤖 自動生成於 2025-11-24 07:05"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 7,
+    "totalCommits": 8
+  }
+}
