@@ -244,6 +244,186 @@
             </div>
           </div>
         </div>
+
+        <!-- Claude Max 完整效益報告 -->
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg shadow-lg p-8 border-2 border-purple-200">
+          <h3 class="text-3xl font-bold mb-6 text-gray-800 flex items-center gap-3">
+            <span>🔥</span>
+            <span>Claude Max 完整期間效益報告</span>
+          </h3>
+
+          <!-- 總覽數據卡片 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <div class="text-sm text-gray-600 mb-2">使用期間</div>
+              <div class="text-2xl font-bold text-purple-600">75 天</div>
+              <div class="text-xs text-gray-500 mt-1">2025/09/11 - 11/24</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <div class="text-sm text-gray-600 mb-2">總產出</div>
+              <div class="text-2xl font-bold text-blue-600">987 commits</div>
+              <div class="text-xs text-gray-500 mt-1">工作 40% | Side 60%</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <div class="text-sm text-gray-600 mb-2">效率提升</div>
+              <div class="text-2xl font-bold text-green-600">+367%</div>
+              <div class="text-xs text-gray-500 mt-1">4.7倍生產力</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <div class="text-sm text-gray-600 mb-2">投資回報</div>
+              <div class="text-2xl font-bold text-red-600">396x</div>
+              <div class="text-xs text-gray-500 mt-1">累積成本 $277.81</div>
+            </div>
+          </div>
+
+          <!-- 月度表現 -->
+          <div class="bg-white rounded-lg p-6 shadow-md mb-6">
+            <h4 class="font-bold text-gray-800 mb-4 text-lg">📊 月度表現細分</h4>
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-20 text-sm font-medium text-gray-700">9月</div>
+                <div class="flex-1">
+                  <div class="flex justify-between text-xs text-gray-600 mb-1">
+                    <span>9/11-9/30 (20天)</span>
+                    <span class="font-bold text-purple-600">16.80 commits/day</span>
+                  </div>
+                  <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 100%"></div>
+                  </div>
+                  <div class="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>工作: 102 | Side: 234</span>
+                    <span>總計: 336 commits</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="w-20 text-sm font-medium text-gray-700">10月</div>
+                <div class="flex-1">
+                  <div class="flex justify-between text-xs text-gray-600 mb-1">
+                    <span>整月 (31天)</span>
+                    <span class="font-bold text-blue-600">10.39 commits/day</span>
+                  </div>
+                  <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="width: 61.8%"></div>
+                  </div>
+                  <div class="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>工作: 204 | Side: 118</span>
+                    <span>總計: 322 commits</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="w-20 text-sm font-medium text-gray-700">11月</div>
+                <div class="flex-1">
+                  <div class="flex justify-between text-xs text-gray-600 mb-1">
+                    <span>11/1-11/24 (24天)</span>
+                    <span class="font-bold text-green-600">13.71 commits/day</span>
+                  </div>
+                  <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-green-500 to-green-600 rounded-full" style="width: 81.6%"></div>
+                  </div>
+                  <div class="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>工作: 91 | Side: 238</span>
+                    <span>總計: 329 commits</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROI 分析 -->
+          <div class="bg-white rounded-lg p-6 shadow-md mb-6">
+            <h4 class="font-bold text-gray-800 mb-4 text-lg">💰 投資回報分析</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div class="text-sm text-gray-600 mb-3">時間價值</div>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">原始速度需時：</span>
+                    <span class="font-bold text-red-600">350 天</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">實際使用時間：</span>
+                    <span class="font-bold text-green-600">75 天</span>
+                  </div>
+                  <div class="flex justify-between pt-2 border-t">
+                    <span class="text-gray-700 font-semibold">節省時間：</span>
+                    <span class="font-bold text-purple-600">275 天 (79%)</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">節省工時：</span>
+                    <span class="font-bold">2,200 小時</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="text-sm text-gray-600 mb-3">成本效益</div>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">總投資：</span>
+                    <span class="font-bold">$277.81</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">日均成本：</span>
+                    <span class="font-bold">$3.70</span>
+                  </div>
+                  <div class="flex justify-between pt-2 border-t">
+                    <span class="text-gray-700 font-semibold">時間價值：</span>
+                    <span class="font-bold text-green-600">$110,000</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">投資回報率：</span>
+                    <span class="font-bold text-red-600 text-lg">396 倍</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 關鍵成就 -->
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h4 class="font-bold text-gray-800 mb-4 text-lg">🏆 關鍵成就與洞察</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="flex items-start gap-3">
+                <span class="text-2xl">🚀</span>
+                <div>
+                  <div class="font-semibold text-gray-800 mb-1">極限生產力突破</div>
+                  <div class="text-sm text-gray-600">9月巔峰期日均 16.80 commits，相當於 6 個開發者的產出</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-2xl">⚖️</span>
+                <div>
+                  <div class="font-semibold text-gray-800 mb-1">完美工作生活平衡</div>
+                  <div class="text-sm text-gray-600">工作 40% vs Side Projects 60%，創造力完全解放</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-2xl">💪</span>
+                <div>
+                  <div class="font-semibold text-gray-800 mb-1">持續高效無疲勞</div>
+                  <div class="text-sm text-gray-600">75 天穩定維持 13+ commits/day，無明顯衰退期</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-2xl">✨</span>
+                <div>
+                  <div class="font-semibold text-gray-800 mb-1">創新專案爆發</div>
+                  <div class="text-sm text-gray-600">Side Projects 從 2% 提升到 60%（30倍成長）</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 結論 -->
+          <div class="mt-6 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-6 border-l-4 border-purple-500">
+            <p class="text-gray-800 font-medium italic">
+              💡 每月 $100 的投資，換來的不只是 4.7倍的生產力，更是職業生涯的加速器和創造力的解放者。這是我做過最值得的技術投資。
+            </p>
+          </div>
+        </div>
       </div>
 
       <!-- 載入中或無資料 -->
