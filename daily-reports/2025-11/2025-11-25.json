@@ -1,0 +1,127 @@
+{
+  "date": "2025-11-25",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b2d276ec",
+          "time": "04:32",
+          "message": "Merge branch 'fix/ExamItemSettingImport' into 'main'",
+          "body": "fix: [檢驗項目匯入匯出] 支援 TEST_ITPVD 的 TIVD_DISP_SEQ 欄位"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "3bea4880",
+          "time": "11:20",
+          "message": "實現 pat_resultd 整單刷新機制",
+          "body": "- 修改 SyncResultDetailForOrderAsync：同步時先刪除該 ORDER_NO 的所有 pat_resultd"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "867cacb9",
+          "time": "16:30",
+          "message": "Streamline slides: remove Slide 8, simplify future plans (Slide 9→8)",
+          "body": "- Removed verbose model selection guide (old Slide 8)"
+        },
+        {
+          "hash": "51aa67a7",
+          "time": "16:24",
+          "message": "Simplify MTL slide: focus on motivation, results, and decision to drop",
+          "body": "- Reduced from 155 to 35 lines"
+        },
+        {
+          "hash": "55e30f2f",
+          "time": "16:03",
+          "message": "Update experiment visualizations and notebooks",
+          "body": "- Updated model comparison charts"
+        },
+        {
+          "hash": "c4625487",
+          "time": "16:02",
+          "message": "Add GP modeling details (Slide 6) and revise MTL reflection (Slide 7)",
+          "body": "- New Slide 6: GP modeling approach with gplearn parameters, evolution flow, and failure analysis"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "7e04cbbc",
+          "time": "15:20",
+          "message": "作品集大更新：新增 5 個專案並優化現有內容",
+          "body": "## 📋 變更摘要"
+        },
+        {
+          "hash": "042635b5",
+          "time": "07:16",
+          "message": "新增 Wish Pool 許願池創意專案",
+          "body": "專案特色："
+        },
+        {
+          "hash": "e48da6b8",
+          "time": "07:14",
+          "message": "移除搶救杰倫大作戰與台北高爾夫協會專案",
+          "body": "從作品集中移除兩個專案："
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "wish-pool",
+      "commits": [
+        {
+          "hash": "78a05ca3",
+          "time": "15:12",
+          "message": "fix: 自動啟用 GitHub Pages",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "3ca4d4df",
+          "time": "15:07",
+          "message": "feat: 初始化 Vue 3 許願池專案",
+          "body": "- Vue 3 + Vite + TypeScript 架構"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "a7911190",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-25",
+          "body": "🤖 自動生成於 2025-11-25 07:05"
+        },
+        {
+          "hash": "bcb3d60d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-24 (8 commits)",
+          "body": "🤖 自動生成於 2025-11-25 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 11,
+    "totalCommits": 13
+  }
+}
