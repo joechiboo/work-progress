@@ -1,0 +1,73 @@
+{
+  "date": "2025-11-26",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b13e97b5",
+          "time": "16:13",
+          "message": "feat: [危急值清單V2] 新增第二位醫檢師覆核機制",
+          "body": "## 功能說明"
+        },
+        {
+          "hash": "3c1723fb",
+          "time": "09:00",
+          "message": "feat: [危急值清單V2] 新增操作/覆核欄位及灰色標記功能",
+          "body": "## 功能更新"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "5c97f659",
+          "time": "18:00",
+          "message": "Remove redundant presentations folder (content merged into Meeting_17_Complete.md)",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "4c51145d",
+          "time": "17:59",
+          "message": "Consolidate Meeting 17 files into single complete document",
+          "body": "- Merge 4 separate files into Meeting_17_Complete.md (20 pages)"
+        },
+        {
+          "hash": "95554617",
+          "time": "17:08",
+          "message": "Add memo: Static vs Dynamic Risk insight from Dual 2025 discussion",
+          "body": "Key insights:"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "4bceab79",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-26",
+          "body": "🤖 自動生成於 2025-11-26 07:05"
+        },
+        {
+          "hash": "43e2cb6d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-25 (13 commits)",
+          "body": "🤖 自動生成於 2025-11-26 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 5,
+    "totalCommits": 7
+  }
+}
