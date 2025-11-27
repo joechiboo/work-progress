@@ -1,0 +1,61 @@
+{
+  "date": "2025-11-27",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "HIS\\FMFselemium",
+      "commits": [
+        {
+          "hash": "99f0dc60",
+          "time": "15:10",
+          "message": "新增 FMFAnalyzer - WebR 本地計算方案",
+          "body": "- 建立 FMFAnalyzer 專案解析 FMF 前端計算邏輯"
+        },
+        {
+          "hash": "86532c0c",
+          "time": "08:12",
+          "message": "初始化 FMFTrisomyCalculator 專案",
+          "body": "- 建立 .NET 10 Console 專案"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "23756073",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-27",
+          "body": "🤖 自動生成於 2025-11-27 07:05"
+        },
+        {
+          "hash": "f3dd3405",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-26 (7 commits)",
+          "body": "🤖 自動生成於 2025-11-27 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "b15dcca9",
+          "time": "17:55",
+          "message": "Update Meeting 17 slides and add Prevention Medicine Framework",
+          "body": "- Simplify page 5 script (feature importance) to 1-minute version"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 3,
+    "totalCommits": 5
+  }
+}
