@@ -1,0 +1,73 @@
+{
+  "date": "2025-11-28",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "5ce5de6f",
+          "time": "12:14",
+          "message": "fix: [危急值清單V2] 修正權限載入時機問題",
+          "body": "確保 Search() 等待權限 API 載入完成後才執行，"
+        },
+        {
+          "hash": "d0eb6eeb",
+          "time": "11:58",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/DangerListV2-Review",
+          "body": ""
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "HIS\\FMFselemium",
+      "commits": [
+        {
+          "hash": "ee78d783",
+          "time": "08:05",
+          "message": "整理 FMFAnalyzer - 移除測試頁面，新增驗證工具",
+          "body": "- 移除舊版 WebR 測試頁面 (fmf-calculator.html, test-webr.html 等)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d94bd88e",
+          "time": "07:08",
+          "message": "docs: 更新彙整資料 2025-11-28",
+          "body": "🤖 自動生成於 2025-11-28 07:08"
+        },
+        {
+          "hash": "d2e868d0",
+          "time": "07:08",
+          "message": "docs: 每日工作紀錄 2025-11-27 (5 commits)",
+          "body": "🤖 自動生成於 2025-11-28 07:08"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "wish-pool",
+      "commits": [
+        {
+          "hash": "b4a2ad69",
+          "time": "12:59",
+          "message": "feat: 全新許願池首頁與關於頁面",
+          "body": "- 首頁改為互動式許願池，懸停有金幣動畫效果"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 3,
+    "totalCommits": 6
+  }
+}
