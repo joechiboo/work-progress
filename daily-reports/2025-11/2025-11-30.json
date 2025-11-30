@@ -1,0 +1,30 @@
+{
+  "date": "2025-11-30",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "0688f835",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-11-30",
+          "body": "🤖 自動生成於 2025-11-30 07:05"
+        },
+        {
+          "hash": "7721a965",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-29 (2 commits)",
+          "body": "🤖 自動生成於 2025-11-30 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 2,
+    "totalCommits": 2
+  }
+}
