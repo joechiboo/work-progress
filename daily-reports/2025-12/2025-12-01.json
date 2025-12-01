@@ -1,0 +1,91 @@
+{
+  "date": "2025-12-01",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "c244f2b3",
+          "time": "15:03",
+          "message": "docs: 新增處理進度記錄",
+          "body": "- README: 專案說明與 12/1 處理記錄"
+        },
+        {
+          "hash": "b71558d4",
+          "time": "15:02",
+          "message": "feat: 新增加班超時調整 SQL 腳本",
+          "body": "- 5A: 單日加班超過 4.5h 調整（下班時間 = 班別下班 + 4h）"
+        },
+        {
+          "hash": "243221b4",
+          "time": "14:47",
+          "message": "docs: 新增考勤管理系統資料表結構文件 v2.0",
+          "body": "- 新增 table schema 資料夾（含人事、考勤、保險、薪資模組）"
+        },
+        {
+          "hash": "c8cdcf22",
+          "time": "09:20",
+          "message": "refactor: 重整加班調整 SQL 為 5 個核心查詢",
+          "body": "- 整合 18+ 個 SQL 檔案為 5 個核心流程檔案"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "bcbd45bb",
+          "time": "16:53",
+          "message": "fix: 使用本地 SheetJS 套件",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "84ab1919",
+          "time": "16:40",
+          "message": "feat: [項目成長監控] 新增匯出 Excel 功能及說明文檔",
+          "body": "- 新增匯出 Excel 按鈕，使用 SheetJS 產生 xlsx 檔案"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "6931eb53",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-01",
+          "body": "🤖 自動生成於 2025-12-01 07:05"
+        },
+        {
+          "hash": "752a106a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-11-30 (2 commits)",
+          "body": "🤖 自動生成於 2025-12-01 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "cd24a9d1",
+          "time": "10:32",
+          "message": "Add SUA tracking analysis and updated research plan",
+          "body": "- SUA tracking interval analysis: 90% fixed 2-year interval (vs Dual 2025's variable 1-10+ years)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 3,
+    "totalCommits": 9
+  }
+}
