@@ -1,0 +1,73 @@
+{
+  "date": "2025-12-02",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3fd76322",
+          "time": "07:26",
+          "message": "fix: [危急值清單V2] 調整覆核權限與移除不需危報項目",
+          "body": "## 覆核權限調整"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "8bbe21c5",
+          "time": "02:45",
+          "message": "deploy: 42204a2face5c2fd4469ba4379c45a9468e85dc2",
+          "body": ""
+        },
+        {
+          "hash": "42204a2f",
+          "time": "10:44",
+          "message": "新增 11/19 臨時會議記錄及出席率數據",
+          "body": "- 新增 11/19 臨時會議完整會議紀錄（8項報告、4項議題、3項臨時動議）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "12e3e9f7",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-02",
+          "body": "🤖 自動生成於 2025-12-02 07:05"
+        },
+        {
+          "hash": "3f7941cc",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-01 (9 commits)",
+          "body": "🤖 自動生成於 2025-12-02 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "c670ea91",
+          "time": "15:53",
+          "message": "Consolidate Meeting 16 notes and streamline Meeting 17",
+          "body": "- Create Meeting_16_Complete.md by merging two presentation outlines"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 5,
+    "totalCommits": 6
+  }
+}
