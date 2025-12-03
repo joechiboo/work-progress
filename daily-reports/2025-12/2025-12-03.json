@@ -1,0 +1,145 @@
+{
+  "date": "2025-12-03",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "64526ce4",
+          "time": "08:36",
+          "message": "Merge branch 'feature/onlineDoc/refactorForAuthReturn' into 'main'",
+          "body": "feat: [內部通告] 新增報告狀態(草稿、退審)，並優化編號分配機制"
+        },
+        {
+          "hash": "4823c3e1",
+          "time": "16:28",
+          "message": "perf: [危急值清單V2] 移除 Flag=H 改用 TESTCODE 精確查詢",
+          "body": "## 效能優化"
+        },
+        {
+          "hash": "05304b55",
+          "time": "16:22",
+          "message": "perf: [危急值清單V2] 移除 REGEXP_LIKE 提升查詢效能",
+          "body": "## 問題"
+        },
+        {
+          "hash": "933a3739",
+          "time": "16:17",
+          "message": "feat: [危急值清單V2] 實作 2001/2018 RPR/TPPA 配對邏輯",
+          "body": "## 功能說明"
+        },
+        {
+          "hash": "d27488e6",
+          "time": "15:26",
+          "message": "feat: [危急值清單V2] 完善特殊檢驗項目判斷規則",
+          "body": "## 修正內容"
+        },
+        {
+          "hash": "20b1e652",
+          "time": "14:31",
+          "message": "fix: [危急值清單V2] 新增 Legionella (2118/2191) POS 判斷邏輯",
+          "body": "## 問題"
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "marquee-fullscreen",
+      "commits": [
+        {
+          "hash": "6ff84b10",
+          "time": "19:29",
+          "message": "Add favicon with 馬 character",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "df8c1f4d",
+          "time": "19:25",
+          "message": "Add README",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "c0a2eda4",
+          "time": "19:24",
+          "message": "Add fullscreen marquee page",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "HeartHero",
+      "commits": [
+        {
+          "hash": "2ccf6904",
+          "time": "19:46",
+          "message": "merge: 合併遠端變更與本地新功能",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "c78b8a65",
+          "time": "19:41",
+          "message": "feat: 新增螢幕常亮、藍牙自動重連與遊戲進度保存功能",
+          "body": "- 新增 Wake Lock API 防止螢幕休眠"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "wish-pool",
+      "commits": [
+        {
+          "hash": "5e45e513",
+          "time": "19:56",
+          "message": "docs: 修正文檔日期為 2025/12",
+          "body": ""
+        },
+        {
+          "hash": "3cdc30d2",
+          "time": "19:55",
+          "message": "docs: 新增金流整合規劃文檔",
+          "body": "- 系統架構設計（Vercel + Supabase + 綠界）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "bf66a593",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-03",
+          "body": "🤖 自動生成於 2025-12-03 07:05"
+        },
+        {
+          "hash": "ca2f24b0",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-02 (6 commits)",
+          "body": "🤖 自動生成於 2025-12-03 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "fd2df851",
+          "time": "19:29",
+          "message": "新增 Fullscreen-Marquee 全螢幕跑馬燈專案至作品集",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 10,
+    "totalCommits": 16
+  }
+}
