@@ -1,0 +1,187 @@
+{
+  "date": "2025-12-04",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fb3fd112",
+          "time": "03:41",
+          "message": "Merge branch 'fix/InternalAnnounce/readedRecord' into 'main'",
+          "body": "fix: [內部通告] 閱讀狀況SQL有誤"
+        },
+        {
+          "hash": "b9fa4ab7",
+          "time": "01:11",
+          "message": "Merge branch 'fix/DV_url' into 'main'",
+          "body": "fix:[醫師審查]恢復預覽URL，呼叫LT274(同LT302)的報告預覽"
+        },
+        {
+          "hash": "1e7b1fce",
+          "time": "00:15",
+          "message": "Merge branch 'doc/STR008_type11_cust8' into 'main'",
+          "body": "feat:[STR008]調整自訂欄位的取法以及type=11新增自訂八"
+        },
+        {
+          "hash": "3dca08a5",
+          "time": "08:06",
+          "message": "feat(BT404): Excel 匯出新增自費價欄位",
+          "body": "## 修改內容"
+        },
+        {
+          "hash": "273b81aa",
+          "time": "08:00",
+          "message": "feat(BT404): 新增自費價欄位顯示功能",
+          "body": "## 功能說明"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "HIS\\FMFselemium",
+      "commits": [
+        {
+          "hash": "bbbe3dca",
+          "time": "10:25",
+          "message": "FMFAnalyzer 本地計算器優化",
+          "body": "- 新增 v2 計算器: 簡化 NT delta model + calibration factors"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "f8528c3d",
+          "time": "18:25",
+          "message": "Update todo.md with 1/8 meeting preparation tasks",
+          "body": "- Meeting 18 論文閱讀清單（3篇）"
+        },
+        {
+          "hash": "af4f61b8",
+          "time": "18:04",
+          "message": "Add meeting preparation and confusion matrix memos",
+          "body": "1. 1月8日前完整Meeting準備"
+        },
+        {
+          "hash": "aa4e9700",
+          "time": "18:02",
+          "message": "Highlight priority papers in candidate list",
+          "body": "🔥🔥 #5 - Taiwan MJ 高血壓（最優先）"
+        },
+        {
+          "hash": "eb39e086",
+          "time": "17:57",
+          "message": "Add paper candidate list from Dual 2025 references",
+          "body": "13 篇候選論文，分類："
+        },
+        {
+          "hash": "d24c947d",
+          "time": "17:24",
+          "message": "Add MTL experiment retention memo",
+          "body": "教授建議保留 MTL 實驗以豐富論文："
+        },
+        {
+          "hash": "d28fc7e5",
+          "time": "17:09",
+          "message": "Add GP parameter tuning memo from professor's advice",
+          "body": "教授建議："
+        },
+        {
+          "hash": "ccc5dff8",
+          "time": "17:06",
+          "message": "Add memos index with quick summary",
+          "body": "- 整理 5 份 memo 的索引"
+        },
+        {
+          "hash": "295a1022",
+          "time": "17:04",
+          "message": "Add GP alternative libraries research memo",
+          "body": "- 比較 gplearn, PySR, DEAP, Operon, TurboGP"
+        },
+        {
+          "hash": "380ff59c",
+          "time": "17:01",
+          "message": "Add class_weight ablation experiment design memo",
+          "body": "- 整理各模型 class_weight 使用情況"
+        },
+        {
+          "hash": "eda3bb2c",
+          "time": "16:55",
+          "message": "Add Meeting 17 Q&A memos for key research methodology",
+          "body": "- 為何用T3而非T2作為預測目標：解釋Δ特徵與資料洩漏問題"
+        },
+        {
+          "hash": "1d70ddda",
+          "time": "16:42",
+          "message": "Add thesis guidelines folder with degree requirements",
+          "body": "- Create thesis_guidelines folder for academic regulations"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "HomeCalc",
+      "commits": [
+        {
+          "hash": "c3c8841d",
+          "time": "16:07",
+          "message": "Merge branch 'claude/setup-s-feature-01CxPuvSpQdsjEpH5EkGfT32'",
+          "body": ""
+        },
+        {
+          "hash": "08215bf3",
+          "time": "16:06",
+          "message": "WIP on claude/setup-s-feature-01CxPuvSpQdsjEpH5EkGfT32: 3fdf352 feat: 新增 ETF 投資試算器功能",
+          "body": ""
+        },
+        {
+          "hash": "3a3257aa",
+          "time": "16:06",
+          "message": "index on claude/setup-s-feature-01CxPuvSpQdsjEpH5EkGfT32: 3fdf352 feat: 新增 ETF 投資試算器功能",
+          "body": ""
+        },
+        {
+          "hash": "3fdf3521",
+          "time": "16:03",
+          "message": "feat: 新增 ETF 投資試算器功能",
+          "body": "## 主要功能"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "6b0aba5a",
+          "time": "07:22",
+          "message": "chore: 調整篩選起始日預設值為 12/2",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "6beeb0d1",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-04",
+          "body": "🤖 自動生成於 2025-12-04 07:05"
+        },
+        {
+          "hash": "8ebd1ea5",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-03 (16 commits)",
+          "body": "🤖 自動生成於 2025-12-04 07:05"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 18,
+    "totalCommits": 24
+  }
+}
