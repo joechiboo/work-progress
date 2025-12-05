@@ -1,0 +1,43 @@
+{
+  "date": "2025-12-05",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "afa70049",
+          "time": "09:31",
+          "message": "docs: 血型資料匯入 SQL 文件 (CUST_MASTER)",
+          "body": "## 執行摘要"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "452a1b12",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-05",
+          "body": "🤖 自動生成於 2025-12-05 07:05"
+        },
+        {
+          "hash": "1d91db39",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-04 (24 commits)",
+          "body": "🤖 自動生成於 2025-12-05 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 2,
+    "totalCommits": 3
+  }
+}
