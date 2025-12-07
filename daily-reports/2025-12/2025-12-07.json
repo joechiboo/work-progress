@@ -4,109 +4,33 @@
   "work_projects": [],
   "side_projects": [
     {
-      "name": "ReadTrack",
+      "name": "work-progress",
       "commits": [
         {
-          "hash": "",
-          "time": "16:28",
-          "message": "feat: 新增《清晨五點俱樂部》讀書心得",
-          "body": "",
-          "category": "功能開發"
+          "hash": "b86c2632",
+          "time": "17:24",
+          "message": "docs: 每日工作紀錄 2025-12-07 (12 commits)",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
         },
         {
-          "hash": "",
-          "time": "16:37",
-          "message": "update: 更新讀書心得",
-          "body": "",
-          "category": "功能開發"
-        },
-        {
-          "hash": "",
-          "time": "16:40",
-          "message": "update: 更新首頁連結",
-          "body": "",
-          "category": "功能開發"
-        },
-        {
-          "hash": "",
-          "time": "16:50",
-          "message": "feat: 新增《清晨五點俱樂部》心得並更新《富爸爸窮爸爸》",
-          "body": "",
-          "category": "功能開發"
-        },
-        {
-          "hash": "",
-          "time": "16:58",
-          "message": "feat: 新增《清晨五點俱樂部》Kids Time Control 專案超連結",
-          "body": "",
-          "category": "功能開發"
-        },
-        {
-          "hash": "",
-          "time": "17:01",
-          "message": "feat: 更新《富爸爸窮爸爸》閱讀日期欄位",
-          "body": "",
-          "category": "功能開發"
-        },
-        {
-          "hash": "",
-          "time": "17:06",
-          "message": "feat: 新增網站 favicon 圖示",
-          "body": "",
-          "category": "功能開發"
-        },
-        {
-          "hash": "",
-          "time": "17:12",
-          "message": "chore: 更新 Claude 設定檔,新增更多允許的 Bash 指令",
-          "body": "",
-          "category": "其他"
-        }
-      ]
-    },
-    {
-      "name": "Fullscreen-Marquee",
-      "commits": [
-        {
-          "hash": "",
-          "time": "16:57",
-          "message": "Improve marquee speed with adaptive adjustment",
-          "body": "",
-          "category": "功能開發"
-        },
-        {
-          "hash": "",
-          "time": "17:13",
-          "message": "chore: 加入 .gitignore,忽略 .claude/ 本地設定目錄",
-          "body": "",
-          "category": "其他"
-        }
-      ]
-    },
-    {
-      "name": "work-progress-ssh",
-      "commits": [
-        {
-          "hash": "",
-          "time": "07:05",
-          "message": "docs: 每日工作紀錄 2025-12-06 (2 commits)",
-          "body": "",
-          "category": "文檔"
-        },
-        {
-          "hash": "",
+          "hash": "5df54a27",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2025-12-07",
-          "body": "",
-          "category": "文檔"
+          "body": "🤖 自動生成於 2025-12-07 07:05"
+        },
+        {
+          "hash": "be5fdb87",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-06 (2 commits)",
+          "body": "🤖 自動生成於 2025-12-07 07:05"
         }
-      ]
+      ],
+      "count": 3
     }
   ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 12,
-    "totalCommits": 12
-  },
-  "generated_at": "2025-12-07 17:30"
+    "sideCommits": 3,
+    "totalCommits": 3
+  }
 }
