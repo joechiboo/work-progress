@@ -1,0 +1,181 @@
+{
+  "date": "2025-12-08",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "HIS\\FMFselemium",
+      "commits": [
+        {
+          "hash": "15c4125c",
+          "time": "14:15",
+          "message": "改進 Trisomy 模型 - 加入母親年齡特徵，R² 提升至 0.88-0.95",
+          "body": "## 重大改進"
+        },
+        {
+          "hash": "d9179ddb",
+          "time": "12:43",
+          "message": "完成 FMF 回歸模型訓練 - 5 個模型已就緒",
+          "body": "## 完成項目"
+        },
+        {
+          "hash": "9e64f977",
+          "time": "11:53",
+          "message": "更新 .gitignore - 排除測試截圖與個資檔案",
+          "body": "排除項目:"
+        },
+        {
+          "hash": "9cb64384",
+          "time": "11:49",
+          "message": "新增 .gitignore - 移除不必要的編譯產物與套件",
+          "body": "- 新增完整的 .gitignore 檔案"
+        },
+        {
+          "hash": "aa63fe08",
+          "time": "11:47",
+          "message": "清理專案並新增 TrisomyRegression 迴歸測試工具",
+          "body": "## 清理工作"
+        },
+        {
+          "hash": "abcf4af0",
+          "time": "10:36",
+          "message": "簡化專案結構 - 移除 FMFTrisomyCalculator",
+          "body": "- 刪除舊的 Selenium 版本 (FMFTrisomyCalculator)"
+        },
+        {
+          "hash": "422777c5",
+          "time": "10:14",
+          "message": "FMF Preeclampsia 計算器自動化開發 - 基礎功能完成，待修正已知問題",
+          "body": "## 已完成"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "7b2a5122",
+          "time": "06:07",
+          "message": "Merge branch 'fix/LDT/AppendixWithNoVariants' into 'main'",
+          "body": "fix: [LDT報告] 7510AVENIO報告沒有任何基因時，無法列出Appendix區塊內容"
+        },
+        {
+          "hash": "1305d4a0",
+          "time": "23:36",
+          "message": "Merge branch 'feature/LT252群組審核' into 'main'",
+          "body": "FIX LT252加入群組審核功能"
+        },
+        {
+          "hash": "334366a4",
+          "time": "23:35",
+          "message": "Merge branch 'fix/SigninINVNO/sampleTypeTypo' into 'main'",
+          "body": "fix: [陽大簽收] 特殊字元的檢體類型導致程式碼異常"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "6366624f",
+          "time": "17:53",
+          "message": "Add MTL efficiency analysis and export experiment results",
+          "body": "- Add MTL efficiency analysis cells to notebooks 03-07"
+        },
+        {
+          "hash": "eb8fc779",
+          "time": "16:28",
+          "message": "Remove standalone MTL efficiency notebook - will integrate into individual notebooks",
+          "body": ""
+        },
+        {
+          "hash": "b8143815",
+          "time": "16:21",
+          "message": "Add MTL computational efficiency analysis notebook",
+          "body": "補充 MTL 計算效益分析："
+        },
+        {
+          "hash": "bf2800c2",
+          "time": "16:18",
+          "message": "Update confusion matrix memo with final metrics configuration",
+          "body": "主要指標（論文正文）："
+        },
+        {
+          "hash": "67d18032",
+          "time": "15:52",
+          "message": "Add Taiwan MJ hypertension paper deep analysis",
+          "body": "論文重點："
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "59797391",
+          "time": "08:12",
+          "message": "docs: 重新生成 2025-12-07 每日報告（包含 ReadTrack 專案）",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "4745f240",
+          "time": "07:30",
+          "message": "docs: 更新彙整資料 2025-12-08",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "328e35b2",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-08",
+          "body": "🤖 自動生成於 2025-12-08 07:05"
+        },
+        {
+          "hash": "c21a511f",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-07 (3 commits)",
+          "body": "🤖 自動生成於 2025-12-08 07:05"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "HeartHero",
+      "commits": [
+        {
+          "hash": "c7e3224e",
+          "time": "18:28",
+          "message": "fix: 修正運動日誌計時器不更新的問題",
+          "body": "使用響應式的 elapsedSeconds 狀態取代直接計算 Date.now()，"
+        },
+        {
+          "hash": "f2c4f22b",
+          "time": "18:16",
+          "message": "feat: 新增運動日誌模式（籃球優先）",
+          "body": "- 新增 sportSession store："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "558b0c71",
+          "time": "14:41",
+          "message": "feat: 新增 20/20/20 晨間練習 A4 紙本工具",
+          "body": "- 新增 20-20-20-daily.html 可重複使用的練習模板"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 12,
+    "totalCommits": 22
+  }
+}
