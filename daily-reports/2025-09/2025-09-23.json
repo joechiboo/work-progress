@@ -4,84 +4,6 @@
   "work_projects": [],
   "side_projects": [
     {
-      "name": "water-tracker",
-      "commits": [
-        {
-          "hash": "4c6c742b",
-          "time": "07:50",
-          "message": "Adjust auto-scroll position to show more core functionality",
-          "body": ""
-        },
-        {
-          "hash": "f19d7296",
-          "time": "07:26",
-          "message": "Add auto-scroll to focus on core functionality on page load",
-          "body": "- Automatically scroll to 60% of header height on page mount"
-        },
-        {
-          "hash": "0eb8ccab",
-          "time": "07:25",
-          "message": "Remove confirmation dialog for reset today button",
-          "body": "- Change reset button to directly execute without confirmation"
-        },
-        {
-          "hash": "8b52095d",
-          "time": "07:24",
-          "message": "Fix reset today button functionality",
-          "body": "- Remove duplicate @click events on reset button that was preventing it from working"
-        },
-        {
-          "hash": "72ac849b",
-          "time": "07:22",
-          "message": "Reduce header height to emphasize core tracking functionality",
-          "body": "- Decrease header padding from 2rem to 1rem"
-        },
-        {
-          "hash": "8e623888",
-          "time": "07:20",
-          "message": "Change warrior selection cards to blue gradient with white text",
-          "body": ""
-        },
-        {
-          "hash": "2fa8a00f",
-          "time": "07:19",
-          "message": "Update UserSettings color scheme for better contrast",
-          "body": "- Change modal background from blue gradient to white"
-        },
-        {
-          "hash": "8eec7310",
-          "time": "07:17",
-          "message": "Change UserSettings background from purple to blue gradient",
-          "body": ""
-        },
-        {
-          "hash": "9cc36bbf",
-          "time": "07:17",
-          "message": "Implement Help Center modal and improve UI interactions",
-          "body": "- Create HelpCenter component as modal replacing inline knowledge/container sections"
-        },
-        {
-          "hash": "7da097db",
-          "time": "07:12",
-          "message": "Implement collapsible sections and fix UI layout issues",
-          "body": "- Add water drop favicon.svg for browser tab icon"
-        },
-        {
-          "hash": "92552618",
-          "time": "07:08",
-          "message": "Optimize warrior selection UX with compact display after selection",
-          "body": "- Add mini warrior display when selected (sticky at top)"
-        },
-        {
-          "hash": "a928cde1",
-          "time": "07:04",
-          "message": "Update warrior selection to fixed 3-column layout",
-          "body": "- Change from auto-fit to fixed 3-column grid layout for consistent display"
-        }
-      ],
-      "count": 12
-    },
-    {
       "name": "ResearchSeminar-3H",
       "commits": [
         {
@@ -96,7 +18,7 @@
   ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 13,
-    "totalCommits": 13
+    "sideCommits": 1,
+    "totalCommits": 1
   }
 }

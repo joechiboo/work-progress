@@ -74,12 +74,6 @@
           "body": "- Resolves npm cache error in deployment workflow"
         },
         {
-          "hash": "97de1d50",
-          "time": "07:49",
-          "message": "Create nextjs.yml",
-          "body": ""
-        },
-        {
           "hash": "be9846d2",
           "time": "07:48",
           "message": "docs: add comprehensive deployment guide",
@@ -92,7 +86,7 @@
           "body": "- Pure frontend demo using localStorage"
         }
       ],
-      "count": 6
+      "count": 5
     },
     {
       "name": "Pomodoro",
@@ -187,7 +181,7 @@
   ],
   "summary": {
     "workCommits": 6,
-    "sideCommits": 17,
-    "totalCommits": 23
+    "sideCommits": 16,
+    "totalCommits": 22
   }
 }

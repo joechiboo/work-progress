@@ -4,6 +4,66 @@
   "work_projects": [],
   "side_projects": [
     {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "521f3db7",
+          "time": "17:12",
+          "message": "chore: 更新 Claude 設定檔，新增更多允許的 Bash 指令",
+          "body": "新增允許的指令包括："
+        },
+        {
+          "hash": "7a1d971d",
+          "time": "17:06",
+          "message": "feat: 新增網站 favicon 圖示",
+          "body": "- 新增四種尺寸的 favicon PNG 圖示（16x16, 32x32, 192x192, 512x512）"
+        },
+        {
+          "hash": "4da7c665",
+          "time": "17:01",
+          "message": "feat: 更新《富爸爸窮爸爸》閱讀日期欄位",
+          "body": "- 在書籍資訊區塊加入更新日期標註"
+        },
+        {
+          "hash": "b6a4b4ef",
+          "time": "16:58",
+          "message": "feat: 新增《清晨五點俱樂部》Kids Time Control 專案超連結",
+          "body": "- 在「與我目前生活的連結點」段落加入專案連結"
+        },
+        {
+          "hash": "08fa15c3",
+          "time": "16:50",
+          "message": "feat: 新增《清晨五點俱樂部》心得並更新《富爸爸窮爸爸》",
+          "body": "- 新增《清晨五點俱樂部》完整讀書心得 (2025-12-07)"
+        },
+        {
+          "hash": "a325a347",
+          "time": "16:40",
+          "message": "Merge branch 'claude/setup-sdd-spec-kit-01JJ1L3AoV4AzgSvUsKJaKu2'",
+          "body": ""
+        },
+        {
+          "hash": "74c5d0de",
+          "time": "16:40",
+          "message": "update: 更新首頁連結",
+          "body": ""
+        },
+        {
+          "hash": "63686155",
+          "time": "16:37",
+          "message": "update: 更新讀書心得",
+          "body": "- 富爸爸窮爸爸：補充實踐心得（複利、買房思考、財商教育等）"
+        },
+        {
+          "hash": "02acb36a",
+          "time": "16:28",
+          "message": "feat: 新增《清晨五點俱樂部》讀書心得",
+          "body": "整理書中三大核心概念:"
+        }
+      ],
+      "count": 9
+    },
+    {
       "name": "work-progress",
       "commits": [
         {
@@ -30,7 +90,7 @@
   ],
   "summary": {
     "workCommits": 0,
-    "sideCommits": 3,
-    "totalCommits": 3
+    "sideCommits": 12,
+    "totalCommits": 12
   }
 }

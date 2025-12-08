@@ -45,23 +45,10 @@
       "count": 2
     }
   ],
-  "side_projects": [
-    {
-      "name": "joechiboo.github.io",
-      "commits": [
-        {
-          "hash": "e42b76e4",
-          "time": "05:55",
-          "message": "新增聯合官方網站重構專案到作品集",
-          "body": "新增第8個專案項目，包含中英文雙語支援："
-        }
-      ],
-      "count": 1
-    }
-  ],
+  "side_projects": [],
   "summary": {
     "workCommits": 5,
-    "sideCommits": 1,
-    "totalCommits": 6
+    "sideCommits": 0,
+    "totalCommits": 5
   }
 }

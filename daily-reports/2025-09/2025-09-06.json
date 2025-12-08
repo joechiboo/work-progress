@@ -99,23 +99,10 @@
       "count": 1
     }
   ],
-  "side_projects": [
-    {
-      "name": "orderlunch",
-      "commits": [
-        {
-          "hash": "6b610740",
-          "time": "15:43",
-          "message": "Add company lunch ordering system with admin functionality",
-          "body": "- Complete HTML layout with responsive design"
-        }
-      ],
-      "count": 1
-    }
-  ],
+  "side_projects": [],
   "summary": {
     "workCommits": 13,
-    "sideCommits": 1,
-    "totalCommits": 14
+    "sideCommits": 0,
+    "totalCommits": 13
   }
 }

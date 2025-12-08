@@ -221,6 +221,36 @@
   ],
   "side_projects": [
     {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "4bdff543",
+          "time": "12:24",
+          "message": "feat: 智能彙總報告系統",
+          "body": "新增功能："
+        },
+        {
+          "hash": "77ebf65c",
+          "time": "11:40",
+          "message": "Enable Pages auto-enablement in workflow",
+          "body": ""
+        },
+        {
+          "hash": "e6c098e8",
+          "time": "11:37",
+          "message": "Trigger GitHub Pages deployment",
+          "body": ""
+        },
+        {
+          "hash": "d253dc21",
+          "time": "11:36",
+          "message": "Initial commit: Work Progress Tracking System",
+          "body": "- Vue 3 + Vite + Tailwind CSS"
+        }
+      ],
+      "count": 4
+    },
+    {
       "name": "joechiboo.github.io",
       "commits": [
         {
@@ -259,7 +289,7 @@
   ],
   "summary": {
     "workCommits": 32,
-    "sideCommits": 3,
-    "totalCommits": 35
+    "sideCommits": 7,
+    "totalCommits": 39
   }
 }

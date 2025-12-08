@@ -6,6 +6,12 @@
       "name": "lisweb",
       "commits": [
         {
+          "hash": "8d159894",
+          "time": "16:37",
+          "message": "docs: 新增危險數據清單 V2 規劃文件",
+          "body": "- 分析現有系統的危險值判斷邏輯"
+        },
+        {
           "hash": "6c2089c3",
           "time": "11:20",
           "message": "chore: 移除 SQL debug log",
@@ -150,7 +156,7 @@
           "body": "- 將 manifest.json 加入專案檔 (.csproj)"
         }
       ],
-      "count": 24
+      "count": 25
     },
     {
       "name": "OnlineReport\\FalconCopy",
@@ -167,6 +173,42 @@
   ],
   "side_projects": [
     {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f5beaa7c",
+          "time": "17:12",
+          "message": "feat: 修改預設日期範圍為 10/9 至今天",
+          "body": "為 demo 會議準備，將預設起始日期改為 2025-10-09"
+        },
+        {
+          "hash": "37f69ed9",
+          "time": "12:54",
+          "message": "docs: 重新整理效率分析報告，使用正確分類數據",
+          "body": "修正內容："
+        },
+        {
+          "hash": "82711b29",
+          "time": "12:49",
+          "message": "data: 新增完整的 Claude 效率分析數據和報告",
+          "body": "新增檔案："
+        },
+        {
+          "hash": "b24b387b",
+          "time": "07:45",
+          "message": "data: 更新 9/24-10/8 工作紀錄資料",
+          "body": "更新統計："
+        },
+        {
+          "hash": "9c06d2eb",
+          "time": "07:38",
+          "message": "docs: 更新 10/8 工作報告 - 新增 FalconCopy 和 PWA 功能",
+          "body": "新增內容："
+        }
+      ],
+      "count": 5
+    },
+    {
       "name": "RiskPrediction-3H",
       "commits": [
         {
@@ -180,8 +222,8 @@
     }
   ],
   "summary": {
-    "workCommits": 25,
-    "sideCommits": 1,
-    "totalCommits": 26
+    "workCommits": 26,
+    "sideCommits": 6,
+    "totalCommits": 32
   }
 }

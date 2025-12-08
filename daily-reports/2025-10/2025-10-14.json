@@ -12,6 +12,18 @@
           "body": "修正內容："
         },
         {
+          "hash": "9287970a",
+          "time": "12:58",
+          "message": "docs: 完成危險數據清單 V2 效能優化階段性總結",
+          "body": "今日成果："
+        },
+        {
+          "hash": "c5171a8c",
+          "time": "11:44",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/danger-list-v2",
+          "body": ""
+        },
+        {
           "hash": "82924069",
           "time": "10:51",
           "message": "feat: 新增收檢明細列印功能",
@@ -106,12 +118,48 @@
           "time": "07:51",
           "message": "fix: 修正收檢員排班管理的兩個問題",
           "body": "1. 預設月份改為當月（原本預設下個月）"
+        },
+        {
+          "hash": "c24eb20a",
+          "time": "07:42",
+          "message": "chore: 將 todo.md 移出版控",
+          "body": ""
         }
       ],
-      "count": 17
+      "count": 20
     }
   ],
   "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "a2324794",
+          "time": "08:08",
+          "message": "feat: 新增自訂 favicon",
+          "body": "新增內容："
+        },
+        {
+          "hash": "df3946b3",
+          "time": "08:04",
+          "message": "data: 更新資料至 2025-10-14",
+          "body": "更新內容："
+        },
+        {
+          "hash": "28278134",
+          "time": "07:48",
+          "message": "feat: 新增每日自動工作紀錄功能",
+          "body": "新增檔案："
+        },
+        {
+          "hash": "0d84ead7",
+          "time": "07:45",
+          "message": "feat: 新增每日工作紀錄功能 (2025-10-09 ~ 2025-10-13)",
+          "body": "新增功能："
+        }
+      ],
+      "count": 4
+    },
     {
       "name": "RiskPrediction-3H",
       "commits": [
@@ -162,8 +210,8 @@
     }
   ],
   "summary": {
-    "workCommits": 17,
-    "sideCommits": 5,
-    "totalCommits": 22
+    "workCommits": 20,
+    "sideCommits": 9,
+    "totalCommits": 29
   }
 }
