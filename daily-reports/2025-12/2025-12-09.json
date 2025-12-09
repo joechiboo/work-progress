@@ -1,0 +1,169 @@
+{
+  "date": "2025-12-09",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "HIS\\FMFselemium",
+      "commits": [
+        {
+          "hash": "e4ad281b",
+          "time": "12:21",
+          "message": "新增 Trisomy 圖表分析工具",
+          "body": "- FMFRiskAPI/Program.cs 調整"
+        },
+        {
+          "hash": "6e148650",
+          "time": "12:16",
+          "message": "改進 Trisomy 計算器 - 嘗試與 FMF 網站驗證",
+          "body": "- 擴展 TrisomyCalculator 計算邏輯"
+        },
+        {
+          "hash": "74debc06",
+          "time": "11:32",
+          "message": "完成驗證工具建置 - 重新命名並新增備忘錄",
+          "body": "變更:"
+        },
+        {
+          "hash": "8f9666ca",
+          "time": "10:26",
+          "message": "新增 Preeclampsia 驗證工具集",
+          "body": "- query_preeclampsia_cases.sql: Oracle 查詢 (含 TESTCODE 對應表)"
+        },
+        {
+          "hash": "f4dc5d05",
+          "time": "10:19",
+          "message": "修正新案例查詢 SQL - 使用正確的 Oracle 表結構",
+          "body": "- 主表改為 HORD_HDR (基本資料)"
+        },
+        {
+          "hash": "8b1e0255",
+          "time": "09:59",
+          "message": "驗證 Trisomy v2 模型 - 與 FMF 軟體比對",
+          "body": "- 新增驗證程式 src/11_validate_with_fmf.py"
+        },
+        {
+          "hash": "e8aca079",
+          "time": "09:26",
+          "message": "改進 Preeclampsia 模型 - 加入年齡/體重/血壓，R² 大幅提升",
+          "body": "## Preeclampsia 模型改進成果"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "26e48b7e",
+          "time": "18:37",
+          "message": "fix: [危險數據清單V2] 加入完整線性轉換邏輯",
+          "body": "## 問題"
+        },
+        {
+          "hash": "b296a654",
+          "time": "16:38",
+          "message": "fix: [TC_UCL] 修正 engTitle 拼寫錯誤 UML → UCL",
+          "body": "修正台中聯合的英文縮寫設定"
+        },
+        {
+          "hash": "f5f478bb",
+          "time": "07:32",
+          "message": "Merge branch 'feature/252無法審核' into 'main'",
+          "body": "fix 問題不明之前 拉回舊版"
+        },
+        {
+          "hash": "a0d4204b",
+          "time": "04:25",
+          "message": "Merge branch 'feature/252無法審核' into 'main'",
+          "body": "fix 修正有跳rule警告確認後無法審核的問題"
+        },
+        {
+          "hash": "6ece4067",
+          "time": "08:25",
+          "message": "feat: [DangerListV2] 二審人自動成為覆核人",
+          "body": "## 功能說明"
+        },
+        {
+          "hash": "b6c74674",
+          "time": "08:05",
+          "message": "docs: 將 BT402 文件移至根目錄 Documents",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "37d884be",
+          "time": "08:03",
+          "message": "fix: [BT402] 修正金額計算與 BT403/404 不一致問題",
+          "body": "## 問題描述"
+        }
+      ],
+      "count": 7
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "6261cec0",
+          "time": "06:21",
+          "message": "fix: 更新團隊人數為 10 人，精簡職責描述",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "a3371592",
+          "time": "06:16",
+          "message": "feat: 新增《Scrum：用一半的時間做兩倍的事》讀書心得",
+          "body": "- 整合帶領資訊室團隊的 Scrum 實踐經驗"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "e6c88f1f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-09",
+          "body": "🤖 自動生成於 2025-12-09 07:05"
+        },
+        {
+          "hash": "607efd24",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-08 (22 commits)",
+          "body": "🤖 自動生成於 2025-12-09 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "HeartHero",
+      "commits": [
+        {
+          "hash": "bfe7bf26",
+          "time": "07:27",
+          "message": "fix: 運動日誌新增螢幕常亮 + 修正完成按鈕錯誤處理",
+          "body": "- 開始記錄時啟用 Wake Lock 防止螢幕休眠"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "HomeCalc",
+      "commits": [
+        {
+          "hash": "dd9d1151",
+          "time": "08:51",
+          "message": "fix: 切換預測期間時自動調整最後階段的結束月份",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 14,
+    "sideCommits": 6,
+    "totalCommits": 20
+  }
+}
