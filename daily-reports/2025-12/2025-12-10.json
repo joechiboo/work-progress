@@ -1,0 +1,169 @@
+{
+  "date": "2025-12-10",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ceb95420",
+          "time": "14:01",
+          "message": "fix: [危險數據清單V2] 修正 Mycoplasma (2319) 前端過濾遺漏",
+          "body": "- shouldIncludeItem 特殊檢驗碼陣列加入 '2319'"
+        },
+        {
+          "hash": "73aaaa53",
+          "time": "12:58",
+          "message": "fix: [危險數據清單V2] 新增 Mycoplasma pneumoniae Ab IgM (2319) 危報",
+          "body": "- SQL: 新增 2319 到 TESTCODE 清單"
+        },
+        {
+          "hash": "e00a860b",
+          "time": "12:54",
+          "message": "fix: [危險數據清單V2] 修正 Legionella 數值提取邏輯",
+          "body": "- 1:256(+) 格式：用 /1:(\\d+)/ 提取 256"
+        },
+        {
+          "hash": "6dbcfbe2",
+          "time": "12:51",
+          "message": "fix: [危險數據清單V2] Legionella 危值條件改為 >= 256",
+          "body": "- 數值 >= 256 才列入危值通報"
+        },
+        {
+          "hash": "3f7f3b2d",
+          "time": "12:44",
+          "message": "fix: [危險數據清單V2] 修正 Widal (2602-2608) 陽性判斷",
+          "body": "- 支援轉換後格式：1:160(+), 1:320(+), 1:320 (+) 等"
+        },
+        {
+          "hash": "c45f2190",
+          "time": "12:23",
+          "message": "fix: [危險數據清單V2] 修正 Legionella (2118/2191) 陽性判斷",
+          "body": "- 支援轉換後格式：1:128(+), 1:256(+), 128X(POS), 256X(POS)"
+        },
+        {
+          "hash": "62554345",
+          "time": "09:36",
+          "message": "docs: [會員血型管理] 新增 blood-type-sync 排程規格",
+          "body": "- 新增專案資訊（C# .NET Console App）"
+        },
+        {
+          "hash": "e4767f6d",
+          "time": "09:24",
+          "message": "docs: 重整 Documents 資料夾結構",
+          "body": "- 新增 Pages/ 放置頁面功能文檔"
+        },
+        {
+          "hash": "2d24cc63",
+          "time": "08:25",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/BloodType-Import-Schema",
+          "body": ""
+        },
+        {
+          "hash": "e1f9dbd7",
+          "time": "07:36",
+          "message": "fix: [危險數據清單V2] 修正梅毒 RPR/TPPA 陽性判斷支援轉換後格式",
+          "body": "- is2001Positive: 支援 REACTIVE 開頭格式（如 REACTIVE ; 1:16）"
+        },
+        {
+          "hash": "42ad0057",
+          "time": "07:18",
+          "message": "fix: [危險數據清單V2] 簡化值轉換邏輯並改進抗體判斷",
+          "body": "- SQL: 移除 TIVD_RR_DESC 欄位，簡化片語/線性轉換優先順序"
+        }
+      ],
+      "count": 11
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "3c57e29f",
+          "time": "08:10",
+          "message": "恢復精簡模式下的 meta 標籤",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "a859418b",
+          "time": "08:10",
+          "message": "調整排版控制與標題對齊，精簡模式隱藏meta標籤",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "aa053b52",
+          "time": "08:08",
+          "message": "排版控制移至右上角固定位置",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "e911c4df",
+          "time": "08:06",
+          "message": "排版控制選單移至標題右側",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "f7f65720",
+          "time": "08:05",
+          "message": "精簡模式隱藏所有按鈕",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "7896fd80",
+          "time": "08:02",
+          "message": "作品集功能增強：新增排版控制與台北高爾夫專案",
+          "body": "- 新增排版控制按鈕，可選擇 3/4/5/6 列顯示"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "55dac30f",
+          "time": "08:02",
+          "message": "fix: 修正心得中的指南頁面連結路徑",
+          "body": "調整為 GitHub Pages 正確的 /ReadTrack/ base URL"
+        },
+        {
+          "hash": "5567460d",
+          "time": "07:55",
+          "message": "docs: 在 Scrum 心得中加入指南頁面連結",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "dfcfad8d",
+          "time": "06:24",
+          "message": "feat: 新增資訊室 Scrum 導入指南（A4 可列印）",
+          "body": "- 對應《Scrum》讀書心得的實務應用工具"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "3e982212",
+          "time": "07:08",
+          "message": "docs: 更新彙整資料 2025-12-10",
+          "body": "🤖 自動生成於 2025-12-10 07:08"
+        },
+        {
+          "hash": "25a52eeb",
+          "time": "07:08",
+          "message": "docs: 每日工作紀錄 2025-12-09 (20 commits)",
+          "body": "🤖 自動生成於 2025-12-10 07:08"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 11,
+    "totalCommits": 22
+  }
+}
