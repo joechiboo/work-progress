@@ -1,0 +1,73 @@
+{
+  "date": "2025-12-11",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f10df544",
+          "time": "15:10",
+          "message": "refactor: [BT201] 將血型檢核邏輯抽取為獨立函數",
+          "body": "- 新增 validateBloodTypeOrder() 函數，回傳 boolean"
+        },
+        {
+          "hash": "f89c0e98",
+          "time": "15:04",
+          "message": "config: [LT274] 新增高雄分部病理項目至附件報告",
+          "body": "新增 8 個項目代碼："
+        },
+        {
+          "hash": "4839d56d",
+          "time": "15:01",
+          "message": "docs: 新增 TPFileList 文檔並更新 LT274 附加報告說明",
+          "body": "- 新增 TPFileList_品質文件列表.md 完整頁面文檔"
+        },
+        {
+          "hash": "99e01cf3",
+          "time": "10:29",
+          "message": "feat: [TPFileList] 新增放大按鈕擴展 PDF 預覽區域",
+          "body": "- 新增全螢幕模式按鈕，放在 15189 按鈕旁邊"
+        },
+        {
+          "hash": "5d756a1e",
+          "time": "09:41",
+          "message": "fix: [BT201] F2 說明加入 9739 放行條件",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "d81fad2b",
+          "time": "08:20",
+          "message": "feat: [BT201] 首次驗血型檢核機制",
+          "body": "新增血型檢核功能："
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "8bbc8964",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-11",
+          "body": "🤖 自動生成於 2025-12-11 07:05"
+        },
+        {
+          "hash": "82062680",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-10 (22 commits)",
+          "body": "🤖 自動生成於 2025-12-11 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 2,
+    "totalCommits": 8
+  }
+}
