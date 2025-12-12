@@ -1,0 +1,271 @@
+{
+  "date": "2025-12-12",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\臨床生化學會",
+      "commits": [
+        {
+          "hash": "de33cd48",
+          "time": "17:52",
+          "message": "將 index.htm 改為跳轉頁，統一導向 index.html",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "b74669db",
+          "time": "17:46",
+          "message": "更新首頁：學術演講置頂、照片改名避免快取",
+          "body": "- 學術演講消息移到最新消息最上方"
+        },
+        {
+          "hash": "1dcca80f",
+          "time": "14:43",
+          "message": "移除英文版頁面空的理監事名單選單",
+          "body": "英文版理監事名單頁面沒有實際內容，移除 About Us 選單中的"
+        },
+        {
+          "hash": "141b8426",
+          "time": "14:38",
+          "message": "更新網站內容：首頁照片、IFCC logo、第15屆理監事名單",
+          "body": "- 更新首頁照片為新的團體照"
+        },
+        {
+          "hash": "0f1dfe58",
+          "time": "12:52",
+          "message": "Add README with project info",
+          "body": ""
+        },
+        {
+          "hash": "df9191bb",
+          "time": "12:51",
+          "message": "Initial commit: 臨床生化學會官網",
+          "body": ""
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "8cf6f867",
+          "time": "15:26",
+          "message": "fix: [LT274] 修正紙張大小與 title active 狀態連動",
+          "body": "當紙張大小選單為 ALL 時，改為檢查 title 的 active 狀態決定紙張大小"
+        },
+        {
+          "hash": "3b01249c",
+          "time": "07:30",
+          "message": "fix: [BT201] 修正 Razor 編譯錯誤 - 跳脫 JSDoc 註解中的 @ 符號",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "1284eb83",
+          "time": "09:12",
+          "message": "feat: 新增台中分部 (TC) 設定",
+          "body": "- 新增 DefaultConnectionTC 連線字串"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "finger-roulette",
+      "commits": [
+        {
+          "hash": "ed3973d3",
+          "time": "08:14",
+          "message": "v2.4: Fix color rendering - use globalAlpha instead of hex alpha",
+          "body": "- Some browsers don't support 8-digit hex colors (#rrggbbaa)"
+        },
+        {
+          "hash": "85b88858",
+          "time": "08:12",
+          "message": "v2.3: Enhanced debug - show all touch IDs",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "0cfb74c1",
+          "time": "08:09",
+          "message": "v2.2: Simplify - don't delete touches after winner selected",
+          "body": "- touchend does nothing when isSelecting is true"
+        },
+        {
+          "hash": "b3a2a0a2",
+          "time": "08:05",
+          "message": "v2.1: Fix isLosing reference error",
+          "body": "- Remove leftover isLosing condition that caused JS error"
+        },
+        {
+          "hash": "865f2f7f",
+          "time": "08:03",
+          "message": "v2.0: Simplify winner display logic",
+          "body": "- Remove fade-out animation for losers (unnecessary with page reload)"
+        },
+        {
+          "hash": "68b2bc58",
+          "time": "08:02",
+          "message": "v1.9: Fix winner display persistence",
+          "body": "- Use == instead of === to avoid type mismatch issues"
+        },
+        {
+          "hash": "8b2da9bb",
+          "time": "08:00",
+          "message": "v1.8: Draw debug text on canvas for visibility",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "f2ddf818",
+          "time": "07:55",
+          "message": "v1.7: Add isSelecting to debug info",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "53d28000",
+          "time": "07:54",
+          "message": "v1.6: Toggle debug info by clicking version number",
+          "body": "- Debug info hidden by default"
+        },
+        {
+          "hash": "c507f773",
+          "time": "07:53",
+          "message": "v1.5: Add on-screen debug info",
+          "body": "- Display selectedId, winner.id, touchList and drawList counts"
+        },
+        {
+          "hash": "e980c733",
+          "time": "07:52",
+          "message": "v1.4: Persist delay setting with localStorage",
+          "body": "- Save delay seconds to localStorage when changed"
+        },
+        {
+          "hash": "6cbc68c4",
+          "time": "07:50",
+          "message": "v1.3: Debug winner persistence issue",
+          "body": "- Explicitly copy winner properties (id, x, y, color)"
+        },
+        {
+          "hash": "ef5448db",
+          "time": "07:47",
+          "message": "v1.2: Fix winner persistence and use page reload for reset",
+          "body": "- Improve winner detection logic in drawList"
+        },
+        {
+          "hash": "a72133b2",
+          "time": "07:45",
+          "message": "Add version number v1.1 for debugging",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "94a75456",
+          "time": "07:42",
+          "message": "Fix winner display persistence and reset button",
+          "body": "- Deep copy winner object including color to prevent reference issues"
+        },
+        {
+          "hash": "ddc652ac",
+          "time": "07:25",
+          "message": "Fix arrow direction and keep winner visible after touch ends",
+          "body": "- Fix arrow direction calculation by normalizing angle to 0~2π"
+        },
+        {
+          "hash": "eb535334",
+          "time": "06:46",
+          "message": "8-direction arrows pointing to winner",
+          "body": ""
+        },
+        {
+          "hash": "1727ae84",
+          "time": "06:45",
+          "message": "Hide losers completely, only show winner",
+          "body": ""
+        },
+        {
+          "hash": "ecac32c0",
+          "time": "06:44",
+          "message": "Add arrow pointing to winner",
+          "body": ""
+        },
+        {
+          "hash": "8f209705",
+          "time": "06:43",
+          "message": "Fix instruction text responsive styling",
+          "body": ""
+        },
+        {
+          "hash": "e22fd95f",
+          "time": "06:42",
+          "message": "Move result to center of screen",
+          "body": ""
+        },
+        {
+          "hash": "7f544510",
+          "time": "06:42",
+          "message": "Fix: colorful highlight ring & proper reset for second round",
+          "body": ""
+        },
+        {
+          "hash": "6d731982",
+          "time": "06:22",
+          "message": "Add emoji favicon 👆",
+          "body": ""
+        },
+        {
+          "hash": "bf2a400f",
+          "time": "06:18",
+          "message": "Trigger GitHub Pages deploy",
+          "body": ""
+        },
+        {
+          "hash": "8e0a544a",
+          "time": "06:13",
+          "message": "Add finger roulette game",
+          "body": "Multi-touch finger picker with colorful particle effects,"
+        }
+      ],
+      "count": 25
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "0ca87404",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-12",
+          "body": "🤖 自動生成於 2025-12-12 07:05"
+        },
+        {
+          "hash": "7e9137e1",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-11 (8 commits)",
+          "body": "🤖 自動生成於 2025-12-12 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "interdisciplinary-course-notes",
+      "commits": [
+        {
+          "hash": "0f829c40",
+          "time": "16:42",
+          "message": "feat: 新增期末報告講稿與素材",
+          "body": "- 12 頁簡報講稿（約 10 分鐘）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 28,
+    "totalCommits": 37
+  }
+}
