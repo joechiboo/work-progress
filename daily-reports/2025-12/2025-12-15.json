@@ -1,0 +1,217 @@
+{
+  "date": "2025-12-15",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "636447a5",
+          "time": "17:18",
+          "message": "fix: [BT201] 血型檢核僅限台北總部 (UCL_SITE=TP)",
+          "body": "- 分部不需要執行核血NC血型檢核功能"
+        },
+        {
+          "hash": "20683f81",
+          "time": "09:09",
+          "message": "Merge branch 'fix/LDT/utf8issue' into 'main'",
+          "body": "fix: [LDT] 修正中文字元編碼問題 - 改用 NVARCHAR2/NCLOB"
+        },
+        {
+          "hash": "69ff48df",
+          "time": "17:04",
+          "message": "docs: [危險數據清單V2] 加入 #士容 確認記錄",
+          "body": "- 4616 (Neisseria gonorrhoeae DNA) 需要危報的確認者記錄"
+        },
+        {
+          "hash": "5c5fa063",
+          "time": "16:59",
+          "message": "fix: [危險數據清單V2] 加入 4616 (Neisseria gonorrhoeae DNA) 危報",
+          "body": "- SQL: 在特殊項目清單中加入 4616"
+        },
+        {
+          "hash": "5e6ccfa8",
+          "time": "12:07",
+          "message": "fix: [危險數據清單V2] 修正 HIV-1 Viral Load (4649) Flag=H 時被錯誤排除",
+          "body": "- 問題：當 OD_TR_FLAG='H' 時，4649 被導到 isSpecificAntibody 而非 isSpecialTestCode"
+        },
+        {
+          "hash": "ab8c6557",
+          "time": "11:52",
+          "message": "style: [危險數據清單V2] 程式碼格式化",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "8e196555",
+          "time": "11:50",
+          "message": "chore: [危險數據清單V2] 更新 4616 待確認註解",
+          "body": "- 標記 4616 (Neisseria gonorrhoeae DNA) 待確認是否需要危報"
+        },
+        {
+          "hash": "f0473991",
+          "time": "11:49",
+          "message": "fix: [危險數據清單V2] 修正 HIV-1 Viral Load (4649) 過濾邏輯",
+          "body": "- 新增對 \"Not Detected\"、\"Undetected\" 等陰性結果的排除"
+        },
+        {
+          "hash": "2db56872",
+          "time": "11:37",
+          "message": "docs: 移動 TPFileList 文件至 Pages 目錄",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "570728fe",
+          "time": "11:35",
+          "message": "fix: [LRS111] 修正 LOINC 欄位無法儲存的問題",
+          "body": "- 在變更偵測條件中加入 TI_LOINC_CODE 和 TI_LOINC_NAME 的比對"
+        },
+        {
+          "hash": "fd2f62d2",
+          "time": "11:01",
+          "message": "fix: [LR111] 修正 LOINC 欄位儲存 - 更新正確的 Repository",
+          "body": "LR111 使用的是 ExamineWorkstationRepository，而非 ExamItemSettingRepository"
+        },
+        {
+          "hash": "d2c0d42d",
+          "time": "10:44",
+          "message": "fix: [LR111] 移除 LOINC Name 欄位的 readonly 限制",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "5f1470d7",
+          "time": "10:41",
+          "message": "docs: [LR111] 更新文檔加入 LOINC 欄位說明",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "7226a05c",
+          "time": "10:38",
+          "message": "feat: [LR111] 新增 LOINC 欄位支援",
+          "body": "- Model: TestItemModel 新增 TI_LOINC_CODE, TI_LOINC_NAME"
+        },
+        {
+          "hash": "19d85b7a",
+          "time": "00:45",
+          "message": "Merge branch 'fix/LT274-PaperSize-TitleSync' into 'main'",
+          "body": "fix: [LT274] 修正紙張大小與 title active 狀態連動"
+        },
+        {
+          "hash": "69f243e3",
+          "time": "00:43",
+          "message": "Merge branch 'feature/MB/enableSddForTcKh' into 'main'",
+          "body": "feat: [MB301] 細菌SDD報告，台中高雄啟用"
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": "OfficialWebsites\\臨床生化學會",
+      "commits": [
+        {
+          "hash": "45c0b0f8",
+          "time": "11:42",
+          "message": "更新聯絡方式秘書長資訊：郭靜穎 → 饒梓明",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "6e53a216",
+          "time": "11:20",
+          "message": "調整研討會議程表格結構以符合 Word 原稿設計",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "e684cfc4",
+          "time": "11:15",
+          "message": "新增學術演講 logo：IFCC、主辦單位、協辦單位",
+          "body": "- 上方加入 IFCC logo 及 \"Under the auspices of\" 文字"
+        },
+        {
+          "hash": "b2e490b5",
+          "time": "11:10",
+          "message": "更新首頁學術演講：加入完整議程表、調整樣式",
+          "body": "- 將 IFCC logo 替換為完整議程表"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "35c377a8",
+          "time": "14:40",
+          "message": "新增最新消息：TFDA 精準醫療分子檢測實驗室認證",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "6d4c12eb",
+          "time": "12:55",
+          "message": "feat: 首頁預設篩選五星書籍",
+          "body": "- 療癒內在小孩降為 4 星"
+        },
+        {
+          "hash": "fb09065d",
+          "time": "12:54",
+          "message": "feat: 在首頁加入《小狗錢錢》閱讀心得",
+          "body": "- 新增小狗錢錢書籍卡片"
+        },
+        {
+          "hash": "ed56b128",
+          "time": "12:39",
+          "message": "feat: 新增《小狗錢錢》閱讀心得",
+          "body": "- 夢想清單：房貸、財務自由、投資自己"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "interdisciplinary-course-notes",
+      "commits": [
+        {
+          "hash": "719cb98c",
+          "time": "16:52",
+          "message": "docs: 更新錄影提醒與日期",
+          "body": "- 改用 Apowersoft 線上版"
+        },
+        {
+          "hash": "e8e65b98",
+          "time": "16:00",
+          "message": "docs: 更新期末簡報講稿為口語化版本",
+          "body": "- 調整市場分析頁面，將 TAM/SAM/SOM 改為中文說明"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "cd8ca85d",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-15",
+          "body": "🤖 自動生成於 2025-12-15 07:05"
+        },
+        {
+          "hash": "f4d3e941",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-14 (2 commits)",
+          "body": "🤖 自動生成於 2025-12-15 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 21,
+    "sideCommits": 7,
+    "totalCommits": 28
+  }
+}
