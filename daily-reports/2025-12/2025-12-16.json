@@ -1,0 +1,85 @@
+{
+  "date": "2025-12-16",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "LIS\\gene-reference-api",
+      "commits": [
+        {
+          "hash": "fc078ffb",
+          "time": "09:48",
+          "message": "feat: 改用 NCBI ELink 方案，新增 GeneCardsScraper 專案",
+          "body": "## GeneReferenceApi 改進"
+        },
+        {
+          "hash": "8ecaed67",
+          "time": "08:57",
+          "message": "docs: 新增 README 文檔",
+          "body": "- API 端點說明 (GET/POST /api/citation)"
+        },
+        {
+          "hash": "7060a2f1",
+          "time": "08:55",
+          "message": "Initial commit: Gene Reference API",
+          "body": "- .NET 10 Web API for gene citation lookup"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "44d94202",
+          "time": "16:33",
+          "message": "Add ablation experiments and fix SHAP visualization",
+          "body": "- Add 09_Delta_Ablation: analyze contribution of delta features"
+        },
+        {
+          "hash": "9ef313f5",
+          "time": "16:01",
+          "message": "Add SHAP interpretability analysis",
+          "body": "- Create 08_SHAP_Analysis.ipynb with full SHAP analysis for 3 diseases"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "292b7d38",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-16",
+          "body": "🤖 自動生成於 2025-12-16 07:05"
+        },
+        {
+          "hash": "e5a7f02a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-15 (28 commits)",
+          "body": "🤖 自動生成於 2025-12-16 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "fe3e15b4",
+          "time": "07:51",
+          "message": "feat: 新增《The Let Them Theory》閱讀心得",
+          "body": "- 核心觀念：我們唯一能控制的只有自己"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 5,
+    "totalCommits": 8
+  }
+}
