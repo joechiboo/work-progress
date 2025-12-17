@@ -1,0 +1,121 @@
+{
+  "date": "2025-12-17",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "74807372",
+          "time": "19:57",
+          "message": "更新 README 及新增防垃圾郵件文檔",
+          "body": "- 更新 README.md 專案簡介"
+        },
+        {
+          "hash": "25622150",
+          "time": "19:40",
+          "message": "新增防機器人機制說明文檔",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "a38ab11e",
+          "time": "19:39",
+          "message": "新增聯絡表單防機器人機制",
+          "body": "- Honeypot 隱藏欄位"
+        },
+        {
+          "hash": "84582213",
+          "time": "19:29",
+          "message": "新增聯絡表單防機器人機制",
+          "body": "- Honeypot 隱藏欄位"
+        },
+        {
+          "hash": "c040a3ec",
+          "time": "19:29",
+          "message": "新增聯絡表單防機器人機制",
+          "body": "- Honeypot 隱藏欄位"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "53e10f1c",
+          "time": "07:29",
+          "message": "Merge branch 'feature/enableAllRiskCalc' into 'main'",
+          "body": "feat: [成健風險計算] 啟用國健署風險值計算"
+        },
+        {
+          "hash": "46b816cc",
+          "time": "14:16",
+          "message": "docs: [TestItemMonitor] 更新文檔說明查詢月份功能",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "d35cce12",
+          "time": "13:16",
+          "message": "fix: [TestItemMonitor] 修正 Excel 匯出功能",
+          "body": "- 改用 XLSX.write + Blob 方式下載，與其他頁面一致"
+        },
+        {
+          "hash": "07ff09e0",
+          "time": "10:38",
+          "message": "feat: [TestItemMonitor] 支援查詢歷史月份資料",
+          "body": "- 新增「查詢月份」下拉選單，可選擇上月~前6個月"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "c1e27934",
+          "time": "09:38",
+          "message": "新增快取處理：index.html 禁止快取 meta 標籤、最新消息連結加時間戳參數",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "ed838e6c",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-17",
+          "body": "🤖 自動生成於 2025-12-17 07:05"
+        },
+        {
+          "hash": "6af1cde5",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-16 (8 commits)",
+          "body": "🤖 自動生成於 2025-12-17 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "f0acf4a6",
+          "time": "19:00",
+          "message": "Add GP symbolic regression experiments (gplearn + PySR)",
+          "body": "- gplearn parameter tuning: high glucose AUC=0.938 (exceeds LR)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 3,
+    "totalCommits": 13
+  }
+}
