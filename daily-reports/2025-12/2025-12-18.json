@@ -1,0 +1,169 @@
+{
+  "date": "2025-12-18",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c562fb58",
+          "time": "17:00",
+          "message": "fix: [LT252] 簡化查詢移除異體字處理，提升效能",
+          "body": "- 移除 BLG_TX_HDR 和 CUST_MASTER 資料表 JOIN"
+        },
+        {
+          "hash": "82e7d852",
+          "time": "08:03",
+          "message": "Merge branch 'feature/HpSA問卷' into 'main'",
+          "body": "feature/HpSA問卷"
+        },
+        {
+          "hash": "c31a2adc",
+          "time": "12:03",
+          "message": "fix: [LT252] 轉檔醫令（無會員資料）可正常列出",
+          "body": "- GetByWork: CUST_MASTER 改用 LEFT JOIN"
+        },
+        {
+          "hash": "e3137834",
+          "time": "11:31",
+          "message": "fix: [LDTGenerator] 批次查詢限制每個基因 top 3 篇論文",
+          "body": "- 前端傳送 topCount: 3 參數"
+        },
+        {
+          "hash": "2a0c7933",
+          "time": "11:26",
+          "message": "fix: [LDTGenerator] 每篇論文用 <p> 標籤包住",
+          "body": "- 格式與原有參考文獻一致"
+        },
+        {
+          "hash": "378c1192",
+          "time": "11:26",
+          "message": "fix: [LDTGenerator] 同一基因的論文合併成一個項目",
+          "body": "- 所有論文用 <br> 換行分隔"
+        },
+        {
+          "hash": "3ba43c55",
+          "time": "11:22",
+          "message": "fix: [LDTGenerator] 每篇論文獨立成一個項目",
+          "body": "- 使用 citations 陣列，每篇論文單獨加入參考文獻列表"
+        },
+        {
+          "hash": "f65366f9",
+          "time": "11:19",
+          "message": "fix: [LDTGenerator] 移除文獻查詢結果的 [基因名稱] 標題",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "faf49a55",
+          "time": "11:15",
+          "message": "fix: [LDTGenerator] 文獻查詢結果插入現有參考文獻區塊",
+          "body": "- 改為尋找現有的「參考文獻」或「References」區塊"
+        },
+        {
+          "hash": "f637308a",
+          "time": "10:58",
+          "message": "feat: [LDTGenerator] 改進文獻查詢功能",
+          "body": "前端:"
+        },
+        {
+          "hash": "b95cc0d4",
+          "time": "10:51",
+          "message": "fix: [LDTGenerator] 將文獻查詢按鈕移至參考文獻標題旁",
+          "body": "- 移除上方附加資料區塊的輸入框"
+        },
+        {
+          "hash": "64cd6f4a",
+          "time": "10:47",
+          "message": "feat: [LDTGenerator] 新增基因文獻查詢功能",
+          "body": "- 在附加資料區塊新增 Gene 輸入框和「查詢文獻」按鈕"
+        },
+        {
+          "hash": "bb55243b",
+          "time": "09:21",
+          "message": "Merge branch 'docs/BT201-MergeLogic' into fix/BT201-MergeLogic-AllowEmpty",
+          "body": ""
+        },
+        {
+          "hash": "b8147507",
+          "time": "08:48",
+          "message": "fix: [BT201] 修改會員資料 Merge 邏輯，允許空值清除",
+          "body": "- _ChoesData 函數改為 BLG 資料永遠優先"
+        },
+        {
+          "hash": "fe21080f",
+          "time": "08:30",
+          "message": "docs: 重新命名 LT274_批次列印.md",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "66a47ce4",
+          "time": "08:29",
+          "message": "docs: BT201 會員資料 Merge 邏輯整合至主文檔",
+          "body": "- 將會員資料 Merge 邏輯整合至 BT201_檢驗單輸入系統.md"
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": "LIS\\gene-reference-api",
+      "commits": [
+        {
+          "hash": "71d23d7b",
+          "time": "16:32",
+          "message": "docs: 新增完整 API input/output 範例",
+          "body": "- GET /api/citation/{gene} 完整 Request/Response 範例"
+        },
+        {
+          "hash": "f91384c7",
+          "time": "09:16",
+          "message": "feat: 完成 IIS 部署配置",
+          "body": "- 新增 web.config 供 IIS 託管"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "7acb1a35",
+          "time": "17:23",
+          "message": "Add speaker scripts and Related Work comparison table",
+          "body": "- Add 1-minute speaker scripts to all 10 pages of Taiwan MJ presentation"
+        },
+        {
+          "hash": "928c0114",
+          "time": "07:36",
+          "message": "Update PySR experiment with niterations=200 results",
+          "body": "- Test niterations=200 for all three diseases"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "47215245",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-18",
+          "body": "🤖 自動生成於 2025-12-18 07:05"
+        },
+        {
+          "hash": "eb359c80",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-17 (13 commits)",
+          "body": "🤖 自動生成於 2025-12-18 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 18,
+    "sideCommits": 4,
+    "totalCommits": 22
+  }
+}
