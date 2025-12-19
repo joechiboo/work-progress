@@ -1,0 +1,127 @@
+{
+  "date": "2025-12-19",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1a73cf3e",
+          "time": "04:57",
+          "message": "Merge branch 'feature/HpSA問卷' into 'main'",
+          "body": "feature/HpSA問卷"
+        },
+        {
+          "hash": "b8a8e351",
+          "time": "12:13",
+          "message": "refactor: [會員系統] BLGRepository 改用 CUST_MASTERRepository.ExistMember()",
+          "body": "- BLGRepository 改為呼叫 _cUST_MASTERRepository.ExistMember()"
+        },
+        {
+          "hash": "5c2f8d98",
+          "time": "11:37",
+          "message": "refactor: [會員系統] 將 ExistMember 方法移至 CUST_MASTERRepository",
+          "body": "- 新增 CUST_MASTERRepository.ExistMember() public 方法"
+        },
+        {
+          "hash": "15ce783c",
+          "time": "11:05",
+          "message": "feat: [簽收系統] 簽收時自動建立會員資料",
+          "body": "- 簽收存檔成功後，檢查 CUST_MASTER 會員是否存在"
+        },
+        {
+          "hash": "e75a4ce5",
+          "time": "10:56",
+          "message": "feat: [簽收系統] 批量列印新增確認對話框防呆機制",
+          "body": "- 一般批量列印：顯示列印數量及預估時間"
+        }
+      ],
+      "count": 5
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "1ee0c215",
+          "time": "02:47",
+          "message": "deploy: 1357ffca8ed410c022d547b58bf5eaa6b68b3e28",
+          "body": ""
+        },
+        {
+          "hash": "1357ffca",
+          "time": "10:46",
+          "message": "文檔: 新增待辦事項提醒移除 worktree",
+          "body": ""
+        },
+        {
+          "hash": "cf4e98e8",
+          "time": "10:42",
+          "message": "文檔: 新增版號更新說明",
+          "body": ""
+        },
+        {
+          "hash": "77b721b5",
+          "time": "10:40",
+          "message": "Deploy: 版號自動讀取功能",
+          "body": ""
+        },
+        {
+          "hash": "bd81bcbb",
+          "time": "10:34",
+          "message": "自動從 package.json 讀取版號",
+          "body": ""
+        },
+        {
+          "hash": "6b150658",
+          "time": "10:15",
+          "message": "更新選單版號顯示",
+          "body": ""
+        },
+        {
+          "hash": "f5c7edcb",
+          "time": "08:52",
+          "message": "更新選單版號至 v25.12.19.08.33",
+          "body": ""
+        },
+        {
+          "hash": "ec8d4905",
+          "time": "00:48",
+          "message": "deploy: 1e489a82bf2dae2796ecf133fd3f0eb21497a146",
+          "body": ""
+        },
+        {
+          "hash": "1e489a82",
+          "time": "08:47",
+          "message": "更新版號至 v25.12.19.08.33",
+          "body": ""
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "3ebfe5bf",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-19",
+          "body": "🤖 自動生成於 2025-12-19 07:05"
+        },
+        {
+          "hash": "38561e1c",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-18 (22 commits)",
+          "body": "🤖 自動生成於 2025-12-19 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 11,
+    "totalCommits": 16
+  }
+}
