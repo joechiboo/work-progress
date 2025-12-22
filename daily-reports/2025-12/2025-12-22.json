@@ -1,0 +1,43 @@
+{
+  "date": "2025-12-22",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\臨床生化學會",
+      "commits": [
+        {
+          "hash": "c3d73919",
+          "time": "16:02",
+          "message": "新增 APFCB logo 於首頁學術演講區塊",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "b59ed10f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-22",
+          "body": "🤖 自動生成於 2025-12-22 07:05"
+        },
+        {
+          "hash": "a4243d6f",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-21 (2 commits)",
+          "body": "🤖 自動生成於 2025-12-22 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 2,
+    "totalCommits": 3
+  }
+}
