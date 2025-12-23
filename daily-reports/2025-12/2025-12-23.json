@@ -1,0 +1,67 @@
+{
+  "date": "2025-12-23",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "029039c3",
+          "time": "10:26",
+          "message": "fix: [LT252] 移除重複的 switch 語句",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "5a20b300",
+          "time": "10:23",
+          "message": "fix: [LT252] 群組審核加入前置處理（SetMRFValue）",
+          "body": "- Ctrl+Q/Shift+W/Shift+Alt 群組審核時加入與 F8 相同的前置處理"
+        },
+        {
+          "hash": "33af638e",
+          "time": "09:26",
+          "message": "feat: [LT252] 擴充群組審核功能至單項審核快捷鍵",
+          "body": "- Ctrl+Q、Shift+W、Shift+Alt 現在支援群組審核"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "546dd6f1",
+          "time": "10:40",
+          "message": "文檔更新：新增系統環境變數問題排查說明",
+          "body": "記錄 Vite 建置時系統環境變數會覆蓋 .env 檔案的問題，"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "09b6dd4b",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-23",
+          "body": "🤖 自動生成於 2025-12-23 07:05"
+        },
+        {
+          "hash": "c6a659a8",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-22 (3 commits)",
+          "body": "🤖 自動生成於 2025-12-23 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 2,
+    "totalCommits": 6
+  }
+}
