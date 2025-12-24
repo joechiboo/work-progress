@@ -1,0 +1,67 @@
+{
+  "date": "2025-12-24",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "a5df5843",
+          "time": "09:42",
+          "message": "新增 12/24 重置腳本：修復 TRX_NUM 字串排序 Bug 的受影響單號",
+          "body": "- Reset_20251224_457_Orders.sql：457 筆已知問題單號"
+        },
+        {
+          "hash": "5cfcf721",
+          "time": "09:29",
+          "message": "更新文檔：TRX_NUM 排序修復說明",
+          "body": "- 更新程式碼範例為 decimal.Parse 數值比較"
+        },
+        {
+          "hash": "94054ead",
+          "time": "09:28",
+          "message": "修復 TRX_NUM 字串排序導致同步錯誤的 Bug",
+          "body": "問題：PRH_TRX_NUM 為字串類型，使用 OrderByDescending 時會進行字串比較"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "7869ba50",
+          "time": "07:45",
+          "message": "Merge branch 'feature/InterpretResult問題' into 'main'",
+          "body": "[審核頁面] InterpretResult顯示錯誤"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "86d19af4",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-24",
+          "body": "🤖 自動生成於 2025-12-24 07:05"
+        },
+        {
+          "hash": "d1363655",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-23 (6 commits)",
+          "body": "🤖 自動生成於 2025-12-24 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 2,
+    "totalCommits": 6
+  }
+}
