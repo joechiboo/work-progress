@@ -1,0 +1,103 @@
+{
+  "date": "2025-12-29",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "5946224b",
+          "time": "16:28",
+          "message": "docs: 新增 BT410 開立單張收據功能文件",
+          "body": "- 記錄現有功能：開立收據、列印、歷史紀錄查詢"
+        },
+        {
+          "hash": "b864a941",
+          "time": "00:07",
+          "message": "Merge branch 'feature/HpSA問卷bug' into 'main'",
+          "body": "[HPSA問卷] bug修復"
+        },
+        {
+          "hash": "d5579cf8",
+          "time": "07:58",
+          "message": "refactor: 移動公文管理區塊位置",
+          "body": "將 OfficalLetter 方法從條件編譯區塊內移出，"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "44e9afda",
+          "time": "19:19",
+          "message": "Add Meeting 18 experiment progress presentation outline",
+          "body": "- 10-page outline for new experiments since Meeting 17"
+        },
+        {
+          "hash": "03c0e60b",
+          "time": "18:52",
+          "message": "Update presentation scripts with personal insights",
+          "body": "- Revise Page 4, 8, 10 scripts to be more conversational"
+        },
+        {
+          "hash": "b7e48504",
+          "time": "15:57",
+          "message": "Remove original docx files (replaced by PDF)",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "edb8ae13",
+          "time": "15:56",
+          "message": "Add reference documents (converted to PDF)",
+          "body": "- 研究生相關網址 (在職班)"
+        },
+        {
+          "hash": "51539ee4",
+          "time": "15:56",
+          "message": "Add thesis page allocation planning memo",
+          "body": "- Chapter distribution for 40/60/80 page thesis"
+        },
+        {
+          "hash": "1c82fa4a",
+          "time": "15:47",
+          "message": "Add Turnitin plagiarism check memo",
+          "body": "- Document the thesis originality check process"
+        },
+        {
+          "hash": "541ed656",
+          "time": "15:27",
+          "message": "Add thesis preparation guidelines from advisor",
+          "body": "- 口試申請考試檢核表 (精簡版)"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "9f36cfbb",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-29",
+          "body": "🤖 自動生成於 2025-12-29 07:05"
+        },
+        {
+          "hash": "35e2b246",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-28 (2 commits)",
+          "body": "🤖 自動生成於 2025-12-29 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 9,
+    "totalCommits": 12
+  }
+}
