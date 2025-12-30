@@ -1,0 +1,139 @@
+{
+  "date": "2025-12-30",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "183b3a28",
+          "time": "13:02",
+          "message": "feat(LT253): 新增姓名遮罩與顯示個資功能",
+          "body": "- 導航列新增「顯示個資」按鈕"
+        },
+        {
+          "hash": "598508a4",
+          "time": "12:58",
+          "message": "feat: [PII] LT252 新增姓名遮罩與顯示個資功能",
+          "body": "- 新增「顯示個資」按鈕於右上角"
+        },
+        {
+          "hash": "b7c2d1e5",
+          "time": "12:54",
+          "message": "feat: [PII] LT281 新增姓名遮罩與顯示個資功能",
+          "body": "- 新增「顯示個資」按鈕於輸出選擇區"
+        },
+        {
+          "hash": "0fa48dee",
+          "time": "12:50",
+          "message": "feat: [PII] 擴充報告存取歷程記錄至 LT281/LT252/LT253",
+          "body": "- LT281: 新增匯出報告時記錄 EXPORT log"
+        },
+        {
+          "hash": "2ffdb0b8",
+          "time": "12:40",
+          "message": "feat: [PII] 新增個人資料保護功能 - LT302 報告存取歷程記錄",
+          "body": "- 新增 ReportAccessLogRepository 和 API Controller"
+        },
+        {
+          "hash": "ebe86743",
+          "time": "11:57",
+          "message": "docs: [個人資料保護] 新增 PII 專案文檔與 SQL schema",
+          "body": "- 新增 PII_個人資料保護.md 專案文檔 (Documents/Projects/)"
+        },
+        {
+          "hash": "7359b339",
+          "time": "00:27",
+          "message": "Merge branch 'feature/HPSABUG2' into 'main'",
+          "body": "[HPSA] BUG修復"
+        },
+        {
+          "hash": "e584119c",
+          "time": "08:20",
+          "message": "fix: [危險數據清單V2] 修正工作站顯示，使用 WS_PFTEST 對照表",
+          "body": "- 新增 LEFT JOIN WS_PFTEST 取得正確工作站代碼"
+        },
+        {
+          "hash": "5a5b0878",
+          "time": "07:56",
+          "message": "docs: [危險數據清單V2] 更新排除項目說明",
+          "body": "- 更正 4616 為需要危報 (Neisseria gonorrhoeae DNA)"
+        },
+        {
+          "hash": "d6191edc",
+          "time": "07:54",
+          "message": "fix: [危險數據清單V2] 排除 Trichomonas 並修正 Excel 匯出",
+          "body": "1. 排除 Trichomonas vaginalis RNA (4517) 不用危報"
+        },
+        {
+          "hash": "ae01ff45",
+          "time": "07:42",
+          "message": "docs: [BT201] 補充血型檢核功能說明",
+          "body": "- 新增血型檢核 (核血NC) 章節"
+        },
+        {
+          "hash": "b62f460d",
+          "time": "07:24",
+          "message": "fix: [BT201] 修復叫出舊單時血型檢核資料未載入問題",
+          "body": "問題：叫出舊單後加項核血項目 (P101+P102 或 1302) 會被擋住，"
+        },
+        {
+          "hash": "f8b398e6",
+          "time": "23:22",
+          "message": "Merge branch 'feature/ldt/refactAuthdateColumn' into 'main'",
+          "body": "feat: [LDT報告] 調整報告footer右下角審核日期"
+        }
+      ],
+      "count": 13
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "31ff14f0",
+          "time": "19:13",
+          "message": "Update Meeting 18 presentation with refined analysis",
+          "body": "- Shorten scripts for Pages 4, 5, 7 (more concise)"
+        },
+        {
+          "hash": "c563b031",
+          "time": "16:59",
+          "message": "Add RF+SMOTE experiment and update class_weight ablation results",
+          "body": "- Add RF+SMOTE experiment to 03_ModelBuilding.ipynb (Recall: 38% vs balanced 9%)"
+        },
+        {
+          "hash": "83a80f9b",
+          "time": "15:59",
+          "message": "Update Delta ablation experiment with correct comparison framework",
+          "body": "- Fix experiment design: T2-Only vs T2+Δ (instead of Full vs No-Delta)"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "250ee7b2",
+          "time": "07:08",
+          "message": "docs: 更新彙整資料 2025-12-30",
+          "body": "🤖 自動生成於 2025-12-30 07:08"
+        },
+        {
+          "hash": "23b51295",
+          "time": "07:08",
+          "message": "docs: 每日工作紀錄 2025-12-29 (12 commits)",
+          "body": "🤖 自動生成於 2025-12-30 07:08"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 13,
+    "sideCommits": 5,
+    "totalCommits": 18
+  }
+}
