@@ -1,0 +1,157 @@
+{
+  "date": "2025-12-31",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b9767832",
+          "time": "02:45",
+          "message": "Merge branch 'feature/XRA149' into 'main'",
+          "body": "[XRA149]個人資料同意書"
+        },
+        {
+          "hash": "c422bdc7",
+          "time": "10:37",
+          "message": "docs(PII): 新增個人資料保護功能說明文件",
+          "body": "- 新增 PII_個人資料保護功能說明.md（功能說明與操作手冊）"
+        },
+        {
+          "hash": "393818fd",
+          "time": "10:27",
+          "message": "fix(LT302): 修正查詢歷程顯示並新增查詢框",
+          "body": "- 修正 JSON 欄位名稱為 PascalCase 以符合後端回傳格式"
+        },
+        {
+          "hash": "abb34015",
+          "time": "10:09",
+          "message": "fix(PII): 顯示個資狀態下查詢新資料也要記錄 UNMASK log",
+          "body": "- LT302: 查詢時若 piiVisible=true，記錄新報告的 UNMASK log"
+        },
+        {
+          "hash": "8359e736",
+          "time": "10:04",
+          "message": "docs(FunctionMenuEdit): 新增功能選單編輯頁面文件",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "58f98f83",
+          "time": "08:44",
+          "message": "feat(PII): 新增批次記錄 API 避免大量 API 呼叫",
+          "body": "- 新增 /api/ReportAccessLog/LogBatch 批次記錄端點"
+        },
+        {
+          "hash": "1f4e7038",
+          "time": "08:35",
+          "message": "fix(LT302): 啟用姓名遮罩功能",
+          "body": "- 列表預設遮罩姓名（王○明格式）"
+        },
+        {
+          "hash": "dd8cf281",
+          "time": "08:27",
+          "message": "docs(LT302): 新增報告查詢頁面技術文件",
+          "body": "- 概述頁面功能與系統架構"
+        },
+        {
+          "hash": "3fb01080",
+          "time": "08:27",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/report-access-log",
+          "body": ""
+        },
+        {
+          "hash": "1094b639",
+          "time": "08:25",
+          "message": "fix(PII): 修正遮罩邏輯，預設遮罩但可保持顯示狀態",
+          "body": "- 查詢時根據 piiVisible 狀態決定是否遮罩"
+        },
+        {
+          "hash": "87e93613",
+          "time": "08:12",
+          "message": "fix(LT302): 修復 PII 變數作用域與 API 參數問題",
+          "body": "- 將 piiVisible 和 originalData 移至外層作用域"
+        }
+      ],
+      "count": 11
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "499cfe6d",
+          "time": "17:26",
+          "message": "Update Meeting 18 presentation with pending experiments page",
+          "body": "- Add Page 9: 待做實驗 (pending experiments overview)"
+        },
+        {
+          "hash": "5e86c670",
+          "time": "16:40",
+          "message": "Add table centering instruction to Word conversion guide",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "b756a7f5",
+          "time": "16:14",
+          "message": "Update Chapter 3 with figures and add Word conversion guide",
+          "body": "- Replace ASCII diagrams with PNG images (fig3-1, fig3-2)"
+        },
+        {
+          "hash": "a2c60727",
+          "time": "16:00",
+          "message": "Add thesis figures (research framework, timeline)",
+          "body": "- Created fig3-1_research_framework.png (research flowchart)"
+        },
+        {
+          "hash": "19d4ec48",
+          "time": "14:06",
+          "message": "Update Chapter 3 thesis draft with academic formatting",
+          "body": "- Enhanced section 3.2.2 with sample filtering details (6,119→6,056)"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "HomeCalc",
+      "commits": [
+        {
+          "hash": "dce0dc0e",
+          "time": "14:52",
+          "message": "chore: 新增 docs/ 到 .gitignore",
+          "body": "本地私人文檔資料夾，不推送到 GitHub"
+        },
+        {
+          "hash": "76b8694f",
+          "time": "14:46",
+          "message": "chore: 更新房貸與 ETF 預設值（2025/12/31）",
+          "body": "- 房貸本金餘額：16,057,207 → 16,022,079"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "dedd42da",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2025-12-31",
+          "body": "🤖 自動生成於 2025-12-31 07:05"
+        },
+        {
+          "hash": "eac6f761",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2025-12-30 (18 commits)",
+          "body": "🤖 自動生成於 2025-12-31 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 9,
+    "totalCommits": 20
+  }
+}
