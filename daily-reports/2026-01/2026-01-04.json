@@ -1,0 +1,78 @@
+{
+  "date": "2026-01-04",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "f73f3762",
+          "time": "11:18",
+          "message": "Merge pull request #2 from joechiboo/claude/blood-pressure-cardiovascular-ZW3mJ",
+          "body": "Claude/blood pressure cardiovascular zw3m j"
+        },
+        {
+          "hash": "422ee126",
+          "time": "03:13",
+          "message": "Add RF to model comparison table in Meeting 18 slides",
+          "body": ""
+        },
+        {
+          "hash": "d9f12e48",
+          "time": "03:09",
+          "message": "Add imbalance methods ablation experiment to TODO",
+          "body": "Compare Baseline / class_weight / SMOTE / ADASYN / UnderSampling"
+        },
+        {
+          "hash": "919807ce",
+          "time": "11:00",
+          "message": "Merge pull request #1 from joechiboo/claude/blood-pressure-cardiovascular-ZW3mJ",
+          "body": "Blood pressure control and cardiovascular disease prevention"
+        },
+        {
+          "hash": "64742eb2",
+          "time": "02:43",
+          "message": "Add memo: Dataset exploration history and future directions",
+          "body": "Document attempted datasets (HRS, NHANES), their limitations,"
+        },
+        {
+          "hash": "5d3d72af",
+          "time": "02:30",
+          "message": "Add memo: Hypertension prevalence by age and diagnostic standards",
+          "body": "Document age-stratified prevalence rates (18-39: 7%, 40-59: 33%,"
+        },
+        {
+          "hash": "c4712864",
+          "time": "02:24",
+          "message": "Add memo: CVD and blood pressure control medical logic",
+          "body": "Document the evidence-based logic chain linking cardiovascular"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "aec09093",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-04",
+          "body": "🤖 自動生成於 2026-01-04 07:05"
+        },
+        {
+          "hash": "5020cf95",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-03 (3 commits)",
+          "body": "🤖 自動生成於 2026-01-04 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 9,
+    "totalCommits": 9
+  }
+}
