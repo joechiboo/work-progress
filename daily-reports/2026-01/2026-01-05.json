@@ -1,0 +1,103 @@
+{
+  "date": "2026-01-05",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "20f6e159",
+          "time": "19:17",
+          "message": "feat(BT410): 新增收據查詢功能與頁籤切換",
+          "body": "- 新增「查詢收據」頁籤，支援多條件查詢（編號、抬頭、日期、金額、開立人員）"
+        },
+        {
+          "hash": "9a380a32",
+          "time": "18:45",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/BT410-receipt-search-doc",
+          "body": ""
+        },
+        {
+          "hash": "69f6d014",
+          "time": "09:22",
+          "message": "Merge branch 'feature/lt252Allrisk' into 'main'",
+          "body": "feat: [LT252] 調整成健風險計算"
+        },
+        {
+          "hash": "ec73c436",
+          "time": "09:22",
+          "message": "Merge branch 'feature/LDT/addWesClinVar' into 'main'",
+          "body": "feat: [LDT編輯] WES報告ClinVar變異分類新增規則"
+        },
+        {
+          "hash": "d70db019",
+          "time": "09:21",
+          "message": "Merge branch 'feature/XRA149' into 'main'",
+          "body": "[XRA149]同意書"
+        },
+        {
+          "hash": "b3764b67",
+          "time": "01:33",
+          "message": "Merge branch 'feature/HpSA' into 'main'",
+          "body": "[HPSA]問卷"
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "bb3f2019",
+          "time": "19:40",
+          "message": "Add Meeting 18 notes with action items for Meeting 19",
+          "body": "Key discussion points:"
+        },
+        {
+          "hash": "786702b0",
+          "time": "10:24",
+          "message": "Update Meeting 18 presentation with experiment details",
+          "body": "- Fix class_weight table: add AUC column, correct GP Recall to 17%"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "a91fff4f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-05",
+          "body": "🤖 自動生成於 2026-01-05 07:05"
+        },
+        {
+          "hash": "3dc2badd",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-04 (9 commits)",
+          "body": "🤖 自動生成於 2026-01-05 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ReadTrack",
+      "commits": [
+        {
+          "hash": "447ff93d",
+          "time": "19:57",
+          "message": "feat: 新增《整理床鋪》閱讀心得",
+          "body": "- 小勝利建立自信：從整理床鋪開始"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 5,
+    "totalCommits": 11
+  }
+}
