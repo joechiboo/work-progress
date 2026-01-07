@@ -1,0 +1,109 @@
+{
+  "date": "2026-01-07",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "7f7106ca",
+          "time": "15:50",
+          "message": "config: 新增監獄客戶惠總報告格式設定",
+          "body": "TnoToSeq 新增 4287, 4288, 4289, 4290, 4291 監獄客戶代碼"
+        },
+        {
+          "hash": "a2e2d77a",
+          "time": "07:42",
+          "message": "Merge branch 'feature/XRA149fix' into 'main'",
+          "body": "[XRA149] 個人資料授權同意書"
+        },
+        {
+          "hash": "ecb29211",
+          "time": "15:28",
+          "message": "fix(LT403W): 修正結果欄位顏色未套用問題",
+          "body": "- 使用 !important 覆蓋 font color 屬性"
+        },
+        {
+          "hash": "3cb3a474",
+          "time": "15:24",
+          "message": "feat(LT403W): 3124 幽門桿菌糞便抗原特殊顏色標示",
+          "body": "- Positive 結果整行顯示紅色"
+        },
+        {
+          "hash": "f0d96b37",
+          "time": "15:22",
+          "message": "docs: 新增 LT403W 每日報告總結文檔",
+          "body": "- 說明頁面用途、系統架構、查詢條件"
+        },
+        {
+          "hash": "19618ad3",
+          "time": "15:16",
+          "message": "docs(LT252): 新增血型檢核機制說明",
+          "body": "- 業務規則章節新增第 8 項：血型檢核機制"
+        },
+        {
+          "hash": "5226258e",
+          "time": "12:55",
+          "message": "refactor: 優化血型檢核函數",
+          "body": "- 先檢查會員是否有歷史血型資料，若無則跳過檢核"
+        },
+        {
+          "hash": "2e2a778c",
+          "time": "12:50",
+          "message": "fix: 修復血型檢核未觸發問題並清理 console.log",
+          "body": "- LT253: 在 CheckRuleEngine 流程中加入血型檢核"
+        },
+        {
+          "hash": "4594ef3f",
+          "time": "10:49",
+          "message": "feat(LT252/LT253): 新增血型檢核機制",
+          "body": "- ExamineInfo 新增 BLOODGRP_ABO、BLOODGRP_RH 欄位"
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "d5c6fdf4",
+          "time": "17:29",
+          "message": "Add 5-fold CV model comparison experiment",
+          "body": "- Add 13_5FoldCV_Model_Comparison.ipynb with LR, DT, RF, XGB, SVM, NN"
+        },
+        {
+          "hash": "21eac9a2",
+          "time": "17:15",
+          "message": "Add Meeting 19 prep: MJ Health research, paper memos, and Decision Tree experiment",
+          "body": "- Add Meeting_19_Notes.md with MJ Health data application details and fee structure"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "bcd4f7c3",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-07",
+          "body": "🤖 自動生成於 2026-01-07 07:05"
+        },
+        {
+          "hash": "dfd723a7",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-06 (2 commits)",
+          "body": "🤖 自動生成於 2026-01-07 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 4,
+    "totalCommits": 13
+  }
+}
