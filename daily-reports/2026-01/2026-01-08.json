@@ -1,0 +1,115 @@
+{
+  "date": "2026-01-08",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "24803fa6",
+          "time": "17:11",
+          "message": "docs(CopyPrint): 新增盤點機文檔及整合資料表 DDL",
+          "body": "- 新增 CopyPrint_盤點機.md 完整功能文檔"
+        },
+        {
+          "hash": "ba38ee8e",
+          "time": "08:49",
+          "message": "Merge branch 'feature/bt403GenerateExcel' into 'main'",
+          "body": "fix: [BT403] 客製折扣匯出Excel造成欄位異常"
+        },
+        {
+          "hash": "86ceb8ad",
+          "time": "08:43",
+          "message": "Merge branch 'feature/XRA149fix' into 'main'",
+          "body": "[XRA149] 個人資料授權同意書"
+        },
+        {
+          "hash": "85f1a27f",
+          "time": "00:13",
+          "message": "Merge branch 'feature/lt252RiskApi' into 'main'",
+          "body": "feat: [LT252] 成健風險更換API路徑"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "label-printing\\ucl-temp",
+      "commits": [
+        {
+          "hash": "6d037824",
+          "time": "08:56",
+          "message": "feat: 參數化單位名稱與編號顯示模式，移除 SVN 設定",
+          "body": "- 新增 App.config 參數："
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "fc86e619",
+          "time": "10:45",
+          "message": "feat: 新增 Windows Service 版本 (.NET 10)",
+          "body": "- 將原本 Console App 重構為 Windows Service，消除視窗顯示"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "0c3acbd8",
+          "time": "09:27",
+          "message": "chore: 調整篩選起始日預設值為 01/08",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "51ce44ee",
+          "time": "09:26",
+          "message": "chore: 調整篩選起始日預設值為 12/18",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "aa2afc28",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-08",
+          "body": "🤖 自動生成於 2026-01-08 07:05"
+        },
+        {
+          "hash": "6bd0588f",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-07 (13 commits)",
+          "body": "🤖 自動生成於 2026-01-08 07:05"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "26a3e83c",
+          "time": "20:01",
+          "message": "Add MTL concept doc, hypothesis list, and PySR experiments",
+          "body": "- Add docs/concepts/MTL_vs_STL.md: MTL vs STL comparison with health screening philosophy"
+        },
+        {
+          "hash": "599c5604",
+          "time": "18:45",
+          "message": "Add SMOTE+SHAP paper to references",
+          "body": "- Add SMOTE_SHAP_Diabetes_2025.pdf"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 6,
+    "totalCommits": 12
+  }
+}
