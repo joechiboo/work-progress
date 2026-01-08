@@ -54,7 +54,8 @@
       "Bash(git -C \"D:/Gitlab/Management/RiskPrediction-3H\" log --since=\"2025-11-23 00:00\" --until=\"2025-11-24 23:59\" --author=\"joechiboo\" --format=\"%ai|||%s\" --no-merges)",
       "Bash(git -C \"D:/Gitlab/RiskPrediction-3H\" log --since=\"2025-11-23 00:00\" --until=\"2025-11-24 23:59\" --author=\"joechiboo\" --format=\"%ai|||%s\" --no-merges)",
       "Bash(git -C \"D:\\Personal\\Project\\ReadTrack\" log --since=\"2025-12-07 00:00\" --until=\"2025-12-07 23:59\" --author=\"joechiboo\" --format=\"%ai|||%s\" --no-merges)",
-      "Bash(git -C \"D:\\Personal\\Project\\ReadTrack\" log --since=\"2025-12-07 00:00\" --until=\"2025-12-07 23:59\" --format=\"%an\" --no-merges)"
+      "Bash(git -C \"D:\\Personal\\Project\\ReadTrack\" log --since=\"2025-12-07 00:00\" --until=\"2025-12-07 23:59\" --format=\"%an\" --no-merges)",
+      "Bash(git -C \"D:\\\\Gitlab\\\\lisweb\" log --since=\"2025-12-18\" --author=\"joechiboo\" --format=\"%ai|||%s\" --no-merges)"
     ],
     "deny": [],
     "ask": []
