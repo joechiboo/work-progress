@@ -1,0 +1,169 @@
+{
+  "date": "2026-01-09",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fb9ecbf0",
+          "time": "14:23",
+          "message": "chore: 將 CounterLabelPrint.cshtml 加入專案檔",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "bf8d1900",
+          "time": "06:20",
+          "message": "Merge branch 'feature/lt252/validateAllRisk' into 'main'",
+          "body": "feat: [LT252] 成健風險增加前端判斷式，並將跨域API轉移至後端處理"
+        },
+        {
+          "hash": "07e2134d",
+          "time": "10:04",
+          "message": "refactor(XRA149): 移除冗餘的 fetchBirthday，改用 GetbyPID 取得生日",
+          "body": "- 移除 fetchBirthday 函數，避免重複呼叫 CUST_MASTER API"
+        },
+        {
+          "hash": "e8a5f139",
+          "time": "09:54",
+          "message": "feat(XRA149): 整合姓名標籤列印功能",
+          "body": "- 新增標籤列印設定 Modal，支援設定姓名、身分證、生日、電話、列印張數"
+        },
+        {
+          "hash": "01f1531c",
+          "time": "09:40",
+          "message": "style(CounterLabelPrint): 調整標籤預覽樣式",
+          "body": "- 標籤尺寸固定為 200x125px (40:25 比例)"
+        },
+        {
+          "hash": "6e91132f",
+          "time": "09:34",
+          "message": "style(CounterLabelPrint): 預覽姓名字體放大至 24px",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "985a36c3",
+          "time": "09:34",
+          "message": "refactor(CounterLabelPrint): 身分證遮罩勾選移至身分證欄位旁",
+          "body": "- 遮罩勾選框移到身分證輸入框和查詢按鈕旁邊"
+        },
+        {
+          "hash": "58fa7e0f",
+          "time": "09:33",
+          "message": "fix(CounterLabelPrint): 身分證遮罩改用 XXXX 取代 ****",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "8338f0fb",
+          "time": "09:27",
+          "message": "style(CounterLabelPrint): 預覽標籤身分證和姓名置左",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "dcce8fcf",
+          "time": "09:26",
+          "message": "feat(CounterLabelPrint): 新增 F9 快速鍵列印標籤",
+          "body": "- 按 F9 可直接列印標籤"
+        },
+        {
+          "hash": "f49fb0fd",
+          "time": "09:25",
+          "message": "fix(CounterLabelPrint): 調整標籤預覽顯示格式",
+          "body": "- 標籤預覽排版調整："
+        },
+        {
+          "hash": "98d2d567",
+          "time": "08:58",
+          "message": "refactor(CounterLabelPrint): 移除病歷號欄位，列印張數預設改為5",
+          "body": "- CounterLabelPrint.cshtml: 移除病歷號輸入欄位"
+        },
+        {
+          "hash": "dfc862e7",
+          "time": "08:48",
+          "message": "feat(XRA149): 新增姓名標籤列印設定功能",
+          "body": "- 新增設定按鈕（齒輪圖示）開啟設定 Modal"
+        },
+        {
+          "hash": "86a630b6",
+          "time": "08:42",
+          "message": "docs(CounterLabelPrint): 新增櫃台標籤列印文檔",
+          "body": "- 系統架構與相依服務說明"
+        },
+        {
+          "hash": "48c72c43",
+          "time": "08:08",
+          "message": "feat(CounterLabelPrint): 新增櫃台標籤列印功能",
+          "body": "- 新增 CounterLabelPrint.cshtml 獨立頁面"
+        }
+      ],
+      "count": 15
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "80251230",
+          "time": "09:48",
+          "message": "fix: 修正中文姓名第一碼為0時無法顯示的問題",
+          "body": "使用 PrintText 智慧方法自動判斷是否使用 WindowsFontUnicode"
+        },
+        {
+          "hash": "4eaed88a",
+          "time": "07:45",
+          "message": "docs: 新增專案文檔",
+          "body": "- README.md: 專案說明與快速開始指南"
+        },
+        {
+          "hash": "45ea3d48",
+          "time": "07:44",
+          "message": "fix: 新增舊版 API 參數兼容性",
+          "body": "- TNO: 兼容 tno, UCL_TNO, ID_TNO"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "057e5d27",
+          "time": "19:37",
+          "message": "Add China Prediabetes→Diabetes 2025 paper (Meeting 19 選定)",
+          "body": "- Add paper memo with deep analysis"
+        },
+        {
+          "hash": "90391d9e",
+          "time": "19:24",
+          "message": "Add SMOTE+SHAP full translation and update Literature Master Index",
+          "body": "- Add complete Chinese translation of SMOTE+SHAP 2025 paper (~600 lines)"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "defb3484",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-09",
+          "body": "🤖 自動生成於 2026-01-09 07:05"
+        },
+        {
+          "hash": "eeb53b45",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-08 (12 commits)",
+          "body": "🤖 自動生成於 2026-01-09 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 18,
+    "sideCommits": 4,
+    "totalCommits": 22
+  }
+}
