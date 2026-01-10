@@ -1,0 +1,133 @@
+{
+  "date": "2026-01-10",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "581acb80",
+          "time": "00:28",
+          "message": "Merge branch 'chore/build-release-script' into 'main'",
+          "body": "chore: add build-release script and update gitignore"
+        },
+        {
+          "hash": "152f27b0",
+          "time": "08:27",
+          "message": "chore: add build-release script and update gitignore",
+          "body": "- Add build-release.bat for packaging release bundle"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1fdee6e0",
+          "time": "08:39",
+          "message": "chore(XRA149): 移除 GetbyPID 的 console.log",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "eef4eaf8",
+          "time": "08:33",
+          "message": "fix(XRA149): 修正標籤列印未帶入生日的問題",
+          "body": "- printCounterLabel 加入 cachedBirthday 作為 fallback"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "78497dbe",
+          "time": "18:03",
+          "message": "docs: 新增特徵選擇與共病效應實驗假說",
+          "body": "- 新增 #8 特徵選擇實驗（Top 5 特徵能否維持 90% 效能）"
+        },
+        {
+          "hash": "9ab379ea",
+          "time": "17:56",
+          "message": "docs: 更新健檢間隔實驗的資料限制說明",
+          "body": "- 新增 Future Work #9 健檢間隔實驗（稀疏化比較）"
+        },
+        {
+          "hash": "6fe37583",
+          "time": "17:52",
+          "message": "docs: 更新 SUA 資料集追蹤間隔說明",
+          "body": "- 新增官方說明：every two years from 2010 to 2018"
+        },
+        {
+          "hash": "33f4f817",
+          "time": "17:30",
+          "message": "Fix data path in all experiment notebooks",
+          "body": "Updated data path from:"
+        },
+        {
+          "hash": "fa6596db",
+          "time": "17:16",
+          "message": "Add checkup frequency experiment (#14): more checkups = better AUC",
+          "body": "Hypothesis validated: More health checkups improve prediction accuracy"
+        },
+        {
+          "hash": "59f2c75b",
+          "time": "16:42",
+          "message": "Add Kanegae 2020 as Meeting 19 paper selection",
+          "body": "- Add Paper_Kanegae_Hypertension_2020.md (deep analysis)"
+        },
+        {
+          "hash": "875ca6b5",
+          "time": "15:56",
+          "message": "Rename NN to MLP for consistency with literature",
+          "body": "- Update model key from 'NN' to 'MLP' in run_5fold_cv.py"
+        },
+        {
+          "hash": "01b173be",
+          "time": "15:51",
+          "message": "Update thesis chapter and cleanup temp files",
+          "body": "- Update 第三章_研究方法.docx"
+        },
+        {
+          "hash": "756a0623",
+          "time": "15:49",
+          "message": "Reorganize data/ directory with numbered folders",
+          "body": "Structure changes:"
+        },
+        {
+          "hash": "83553046",
+          "time": "15:40",
+          "message": "Reorganize docs/ directory with numbered folders for better navigation",
+          "body": "Structure changes:"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d9241840",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-10",
+          "body": "🤖 自動生成於 2026-01-10 07:05"
+        },
+        {
+          "hash": "eeb37006",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-09 (22 commits)",
+          "body": "🤖 自動生成於 2026-01-10 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 12,
+    "totalCommits": 16
+  }
+}
