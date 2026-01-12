@@ -1,0 +1,115 @@
+{
+  "date": "2026-01-12",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "bf1f4ff6",
+          "time": "14:51",
+          "message": "fix: 修正多路線收檢員代班匹配問題",
+          "body": "- CollectorSchedule: 改進 allRoutes.find() 支援 ROUTE_NAMES 陣列匹配"
+        },
+        {
+          "hash": "9a2f875e",
+          "time": "14:34",
+          "message": "fix(收檢員): 修復多路線收檢員代班匹配問題",
+          "body": "問題："
+        },
+        {
+          "hash": "814faf67",
+          "time": "14:11",
+          "message": "docs: 新增 BT101 客製發送報告與 LT278 收檢員每日彙總文檔",
+          "body": "- BT101: 新增「客製發送報告」(DB_CDR_FLAG) 功能說明"
+        },
+        {
+          "hash": "6d64c7ce",
+          "time": "12:17",
+          "message": "feat(PII): BT201 新增單號查詢 SEARCH log",
+          "body": "- 引入 mask.js 取得 ReportAccessLog"
+        },
+        {
+          "hash": "3ab69df3",
+          "time": "12:14",
+          "message": "feat(PII): 擴展 SEARCH log 至 LT281, LT252, LT253",
+          "body": "- LT281: 改用 SEARCH 取代原本的 UNMASK log，記錄所有搜尋結果"
+        },
+        {
+          "hash": "00d4a29d",
+          "time": "12:01",
+          "message": "feat(PII): 搜尋結果記錄 SEARCH log",
+          "body": "- Repository: LogAccessBatch 改用 INSERT ALL 提升效能"
+        },
+        {
+          "hash": "3b739c8c",
+          "time": "10:26",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/252群組審核",
+          "body": ""
+        },
+        {
+          "hash": "3b17c5c8",
+          "time": "10:13",
+          "message": "docs(DangerListV2): 新增 RPR/TPPA 配對規則說明",
+          "body": "- 新增第 5 項梅毒篩檢規則說明"
+        },
+        {
+          "hash": "1a38f758",
+          "time": "10:12",
+          "message": "fix(DangerListV2): 修正 RPR(2001) 陽性判斷支援嘉義格式",
+          "body": "- is2001Positive 新增 (POS) 格式支援（例如：1:4(POS)）"
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "25aafc30",
+          "time": "20:02",
+          "message": "feat: Implement sliding window dataset for sample augmentation",
+          "body": "- Add sliding window script (scripts/create_sliding_window_dataset.py)"
+        },
+        {
+          "hash": "3b78b8ac",
+          "time": "19:20",
+          "message": "Update PySR parameters and add 5-Fold CV analysis",
+          "body": "- Update GP符號回歸實驗總結.md with 5-Fold CV validation results"
+        },
+        {
+          "hash": "25601a3a",
+          "time": "18:52",
+          "message": "docs: 新增美國膳食指南 2025-2030 深度解析",
+          "body": "- 完整解析 DGA 2025-2030 核心建議"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "e77d5d83",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-12",
+          "body": "🤖 自動生成於 2026-01-12 07:05"
+        },
+        {
+          "hash": "b3857ebb",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-11 (2 commits)",
+          "body": "🤖 自動生成於 2026-01-12 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 5,
+    "totalCommits": 14
+  }
+}
