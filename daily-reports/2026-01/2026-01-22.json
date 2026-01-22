@@ -1,0 +1,115 @@
+{
+  "date": "2026-01-22",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "18a910be",
+          "time": "12:37",
+          "message": "Add NHI upload verification guide",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "3c08f789",
+          "time": "12:11",
+          "message": "Fix NHI.AutoUpload filename format to match NHI standard",
+          "body": "- Change filename format from NHI_{hosCode}_{timestamp}.xml to"
+        },
+        {
+          "hash": "982e9a64",
+          "time": "11:26",
+          "message": "Optimize batch save and fix UpdateLoginRecord Oracle date type",
+          "body": "- Replace foreach loop with batch save method in Controller"
+        },
+        {
+          "hash": "ce485144",
+          "time": "11:18",
+          "message": "Optimize GenerateXML performance with batch loading",
+          "body": "- Add BatchLoadTestValueData() to pre-load all reference data before XML generation loop"
+        },
+        {
+          "hash": "b6776e89",
+          "time": "10:50",
+          "message": "Optimize Get_NHI_data and Get_DBLIS_NHI_data performance",
+          "body": "查詢 list 效能優化："
+        },
+        {
+          "hash": "d0ad2685",
+          "time": "10:15",
+          "message": "Optimize XML export performance with Dictionary lookup",
+          "body": "修復 Find_Total_Data 和 Find_DBLIS_Total_Data 的 N+1 查詢問題："
+        },
+        {
+          "hash": "14f52894",
+          "time": "10:03",
+          "message": "Add missing files and fix csproj references",
+          "body": "- 新增 Images/Loading_icon.gif"
+        },
+        {
+          "hash": "66313f5a",
+          "time": "09:42",
+          "message": "Add station selection to publish script with auto config merge",
+          "body": "- publish.bat 新增站點選單，選擇後自動合併設定到 web.config"
+        },
+        {
+          "hash": "57240e2e",
+          "time": "09:39",
+          "message": "Add station-specific config files for deployment",
+          "body": "新增 7 個站點的設定檔範本到 configs 資料夾："
+        },
+        {
+          "hash": "cb5e6118",
+          "time": "09:32",
+          "message": "chore: 新增發佈腳本 publish.bat",
+          "body": "- 使用 MSBuild 編譯並發佈到 publish/ 目錄"
+        },
+        {
+          "hash": "5aeef3cc",
+          "time": "09:19",
+          "message": "chore: 新增設定檔初始化腳本 init-config.bat",
+          "body": "首次部署時執行此腳本，會自動從 .sample.config 複製設定檔"
+        },
+        {
+          "hash": "247b56eb",
+          "time": "08:54",
+          "message": "feat(web): 新增登入記錄、NLog 14天清除、設定檔拆分",
+          "body": "Web:5566 改進:"
+        },
+        {
+          "hash": "ffd6ecc0",
+          "time": "08:32",
+          "message": "docs: 整理文件結構，新增文件索引",
+          "body": "- 將 AUTOMATION_DESIGN.md, PERFORMANCE_ANALYSIS.md, USER_FLOW.md 移至 docs/"
+        },
+        {
+          "hash": "a62f7953",
+          "time": "08:24",
+          "message": "feat: 新增 SaveToMSSQL 設定開關、TCP 連線測試、加密指令",
+          "body": "- 新增 SaveToMSSQL 設定，可關閉 MSSQL 寫入功能 (因 227 為 SQL Server 2000 不支援)"
+        }
+      ],
+      "count": 14
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "21ea7670",
+          "time": "15:33",
+          "message": "chore: 調整篩選起始日預設值為 01/22",
+          "body": "Co-Authored-By: Claude <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 14,
+    "sideCommits": 1,
+    "totalCommits": 15
+  }
+}

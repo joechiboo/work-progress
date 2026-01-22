@@ -1,0 +1,120 @@
+{
+  "date": "2026-01-21",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "7db6f502",
+          "time": "08:35",
+          "message": "Add diagnostic SQL and connection string encryption utility",
+          "body": "- diagnostic_query.sql: SQL queries for troubleshooting"
+        },
+        {
+          "hash": "59a97a71",
+          "time": "08:33",
+          "message": "Add web.config features and DailyUploadFolder to Console App",
+          "body": "- Add ExceptStrings, ItemCodeIgnore, R41 value handling"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "9b6183b3",
+          "time": "16:40",
+          "message": "config: 新竹啟用 BT410 自動收據編號功能",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "26fc709f",
+          "time": "12:42",
+          "message": "refactor: BT301 移除未使用的 ID_PADDR1 欄位",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "08dd21fe",
+          "time": "12:39",
+          "message": "style: BT301 改用 Template literals 提升可讀性",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b2529f6e",
+          "time": "12:21",
+          "message": "fix: LT257 移除檢體簽收條件，允許列出未簽收但有通知項目的檢體",
+          "body": "問題：部分檢體因異常未簽收，但加掛了 97xx 通知項目後仍無法列出"
+        },
+        {
+          "hash": "a04922e0",
+          "time": "04:05",
+          "message": "Merge branch 'feature/bt201hpsa按鈕' into 'main'",
+          "body": "[BT201]沒有設定要填hpsa問卷的單位不再顯示hpsa問卷按鈕"
+        },
+        {
+          "hash": "009b823b",
+          "time": "11:32",
+          "message": "feat: BT301 新增寄送報告勾選欄位與搜尋列優化",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6ec8b499",
+          "time": "11:28",
+          "message": "style: BT301 搜尋列排版優化",
+          "body": "- 使用 flexbox 重新排列搜尋列元素"
+        },
+        {
+          "hash": "aa05742f",
+          "time": "11:23",
+          "message": "docs: 新增 BT301 客戶帳目查詢文檔",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "57455a05",
+          "time": "11:21",
+          "message": "feat: BT301 新增寄送報告勾選欄位 (郵/E/F/自)",
+          "body": "- ReportBT301 model 新增 ID_MAIL_FLAG, ID_EMAIL_FLAG, ID_FAX_FLAG, ID_SELFPAY_FLAG 欄位"
+        },
+        {
+          "hash": "343fd708",
+          "time": "11:07",
+          "message": "feat: 櫃台標籤列印與 XRA149 新增地址資訊顯示",
+          "body": "- CounterLabelPrint: 新增右側地址資訊面板，顯示 DBADDR1-4"
+        },
+        {
+          "hash": "92f0486f",
+          "time": "10:47",
+          "message": "fix: LT278 地址條改用單位代碼分組",
+          "body": "問題：不同單位但相同地址被合併成一張地址條"
+        },
+        {
+          "hash": "c2a21116",
+          "time": "08:09",
+          "message": "fix: LT278 地址檢核只針對 OPD 個案",
+          "body": "問題：客戶設定郵寄（非 OPD）的單號被誤檢核地址"
+        },
+        {
+          "hash": "3c8e0491",
+          "time": "07:43",
+          "message": "fix: LT278 OPD 地址條不同姓名分開寄送",
+          "body": "需求："
+        },
+        {
+          "hash": "04f476c5",
+          "time": "07:38",
+          "message": "fix: LT278 OPD 地址條姓名欄位 fallback 邏輯",
+          "body": "問題：單號 6012001994 的 ID_NAME 為 null，導致收件人顯示為空"
+        }
+      ],
+      "count": 14
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 16,
+    "sideCommits": 0,
+    "totalCommits": 16
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "date": "2026-01-14",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "07497a23",
+          "time": "19:19",
+          "message": "fix: BT201 勾選項狀態修復",
+          "body": "1. 切換單位時保留勾選項狀態（不再清空）"
+        },
+        {
+          "hash": "f7651982",
+          "time": "06:26",
+          "message": "Merge branch 'feature/XRA149newChange' into 'main'",
+          "body": "[XRA149] 個人資料同意授權區"
+        },
+        {
+          "hash": "d53b5f2d",
+          "time": "09:54",
+          "message": "fix: BT201 郵寄選項統一使用「限掛」標記 & 地址標籤優先排序",
+          "body": "- BT201: 「掛」選項改為在地址前加「限掛」（原為「掛號」）"
+        },
+        {
+          "hash": "84f25d45",
+          "time": "09:39",
+          "message": "fix: 地址標籤列印優先顯示掛號郵寄方式",
+          "body": "同一單位有多份報告時，優先顯示掛號（掛號 > 限掛 > 其他）"
+        },
+        {
+          "hash": "6903512b",
+          "time": "09:34",
+          "message": "fix: 櫃台標籤列印身分證改為非必填",
+          "body": "允許僅輸入姓名即可列印標籤，身分證字號改為選填欄位"
+        },
+        {
+          "hash": "93998973",
+          "time": "00:40",
+          "message": "Merge branch 'feature/hpsabugfix' into 'main'",
+          "body": "[HPSA] BUG修復"
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "08462fc5",
+          "time": "16:55",
+          "message": "docs: Update Meeting19 presentation with scripts and naming convention",
+          "body": "- Add 1-minute script (講稿) for each of the 20 slides"
+        },
+        {
+          "hash": "349a5ec6",
+          "time": "15:57",
+          "message": "docs: Rename Taiwan MJ paper to Meeting18 and remove prep file",
+          "body": "- Rename Taiwan_MJ_Hypertension_2024_Paper_簡報.md → Meeting18_Taiwan_MJ_Hypertension_2024_Paper_簡報.md"
+        },
+        {
+          "hash": "91e49a70",
+          "time": "15:54",
+          "message": "docs: Standardize meeting file naming and add new memos",
+          "body": "- Rename meeting files: Meeting_XX_ → MeetingXX_ for consistency"
+        },
+        {
+          "hash": "6cd1c7b3",
+          "time": "15:16",
+          "message": "docs: Update experiment status (E14, E15 completed)",
+          "body": "- E14 PySR depth experiment: completed with negative result"
+        },
+        {
+          "hash": "85a82da9",
+          "time": "15:15",
+          "message": "docs: Add HRS reference data links and memos",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "082eb62a",
+          "time": "15:15",
+          "message": "feat: Add PySR sliding window experiments (H10)",
+          "body": "- Update Notebook 23: PySR with sliding window data"
+        },
+        {
+          "hash": "97125aef",
+          "time": "15:14",
+          "message": "feat: Add SMOTE vs class_weight comparison experiment (H6)",
+          "body": "- Add Notebook 24: Compare Baseline, class_weight, SMOTE, ADASYN, UnderSampling"
+        }
+      ],
+      "count": 7
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 7,
+    "totalCommits": 13
+  }
+}

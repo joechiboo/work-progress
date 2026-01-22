@@ -1,0 +1,235 @@
+{
+  "date": "2026-01-13",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "85fc01e1",
+          "time": "12:16",
+          "message": "Add documentation for performance analysis, user flow, and automation design",
+          "body": "- PERFORMANCE_ANALYSIS.md: SQL injection risks, N+1 queries, caching issues"
+        },
+        {
+          "hash": "76abbd55",
+          "time": "11:54",
+          "message": "Add tmpclaude-* to .gitignore",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "756c605c",
+          "time": "11:54",
+          "message": "Add batch select by order number feature and F2 help modal",
+          "body": "- Add checkbox toggle in table header to enable \"batch select by order number\""
+        },
+        {
+          "hash": "c6772e8f",
+          "time": "11:28",
+          "message": "Add REQUIREMENTS.md for tracking feature requests",
+          "body": "- REQ-001: Batch select items with same order number"
+        },
+        {
+          "hash": "7db12c98",
+          "time": "11:20",
+          "message": "Add README documentation and update .gitignore",
+          "body": "- Add comprehensive README.md with project overview, setup guide, and known issues"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ff28eb41",
+          "time": "11:56",
+          "message": "Merge branch 'feature/custom-delivery-report' into 'main'",
+          "body": "feat: LT278 地址標籤支援客製發送報告 & 修復 BT201 郵寄選項 bug"
+        },
+        {
+          "hash": "2b0b01da",
+          "time": "19:55",
+          "message": "refactor: 移除 GetAddressList 中 DB_CDR_FLAG 條件",
+          "body": "OPD 訂單的地址標籤透過 GetAddressListFromBLGHDR 處理（BT201 勾選郵寄選項）"
+        },
+        {
+          "hash": "d6e57f5c",
+          "time": "19:52",
+          "message": "feat: LT278 地址標籤支援客製發送報告 & 修復 BT201 郵寄選項重置 bug",
+          "body": "- LT278: 收檢路線選 ALL 時加入 nonFilter=true 顯示所有單位（含 OPD）"
+        },
+        {
+          "hash": "7783a04f",
+          "time": "12:46",
+          "message": "docs: 新增 LT270 確認報告頁面文檔",
+          "body": "- 記錄頁面功能、API 端點、快捷鍵"
+        },
+        {
+          "hash": "7f3d5082",
+          "time": "02:25",
+          "message": "Merge branch 'feature/文管優化' into 'main'",
+          "body": "[文管]聯合生技新增終止上線功能"
+        },
+        {
+          "hash": "002f20dd",
+          "time": "09:40",
+          "message": "fix: 為 mask.js 加入 cache busting 時戳",
+          "body": "修正 BT201、LT252、LT281 頁面的 mask.js 引用，"
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "c4141fe0",
+          "time": "18:00",
+          "message": "chore: Update gitignore and add reference files",
+          "body": "- Remove .claude/ from version control"
+        },
+        {
+          "hash": "3d4b4ce8",
+          "time": "17:56",
+          "message": "docs: Update Meeting 19 Q&A and archive old notebooks",
+          "body": "- Add Q10: Output probability vs binary classification"
+        },
+        {
+          "hash": "9ceb242d",
+          "time": "17:30",
+          "message": "docs: Update hypothesis list and add MJ Health guide",
+          "body": "- Reorganize 10 hypotheses by importance (core/supporting/negative/pending)"
+        },
+        {
+          "hash": "2f9521a4",
+          "time": "17:06",
+          "message": "docs: Add external validation effectiveness discussion",
+          "body": "- Added section 5.2 discussing validity of external validation"
+        },
+        {
+          "hash": "2b92434f",
+          "time": "17:03",
+          "message": "docs: Update external validation with sliding window results",
+          "body": "- Added sliding window validation using 11 common features"
+        },
+        {
+          "hash": "653fac23",
+          "time": "16:53",
+          "message": "docs: Add Synthea external validation analysis",
+          "body": "- Detailed analysis of why only hypertension validation is feasible"
+        },
+        {
+          "hash": "a981d26b",
+          "time": "16:31",
+          "message": "Add feature selection ablation experiment (#22)",
+          "body": "Key finding: Top 5 features achieve 99.7-100% of full model AUC"
+        },
+        {
+          "hash": "7aa17dde",
+          "time": "16:30",
+          "message": "docs: Add Meeting 19 教授問題回覆總整理",
+          "body": "- 回覆 Meeting 18 所有 9 項任務"
+        },
+        {
+          "hash": "d43d56f6",
+          "time": "16:18",
+          "message": "docs: Add comprehensive experiment overview document",
+          "body": "- Document all experiments with purpose, methods, and conclusions"
+        },
+        {
+          "hash": "e2d980a2",
+          "time": "16:15",
+          "message": "feat: Complete Delta ablation study with sliding window data (#21)",
+          "body": "- Add notebook 21: Delta ablation with GroupKFold (replaces 09)"
+        },
+        {
+          "hash": "24597b70",
+          "time": "16:08",
+          "message": "chore: Add large data files to gitignore with source docs",
+          "body": "- Update .gitignore to exclude Synthea, HRS, DGA data folders"
+        },
+        {
+          "hash": "3d3e3951",
+          "time": "16:07",
+          "message": "feat: Complete MTL vs STL experiment and consolidate docs",
+          "body": "- Add notebook 20: PyTorch-based MTL vs STL comparison (5-Fold CV)"
+        },
+        {
+          "hash": "0f863c84",
+          "time": "15:42",
+          "message": "docs: Add comorbidity analysis and 3H disease background",
+          "body": "Comorbidity Analysis:"
+        },
+        {
+          "hash": "c401bee8",
+          "time": "15:29",
+          "message": "Add PySR complex formula experiment notebook (#18)",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "03c742e0",
+          "time": "10:58",
+          "message": "Add PySR complex formula experiment notebook (#18)",
+          "body": "New experiment to find deeper formulas (depth >= 2):"
+        },
+        {
+          "hash": "7b347dd9",
+          "time": "08:13",
+          "message": "feat: Complete SHAP analysis with sliding window data",
+          "body": "Results consistent with original analysis:"
+        },
+        {
+          "hash": "58e93569",
+          "time": "07:57",
+          "message": "refactor: Archive old notebooks, add SHAP sliding window version",
+          "body": "- Move 03-08 to archive/ (replaced by sliding window experiments)"
+        },
+        {
+          "hash": "5f36ce51",
+          "time": "07:49",
+          "message": "docs: Add experiment review after sliding window changes",
+          "body": "- Categorize all notebooks by status (keep/update/redo)"
+        },
+        {
+          "hash": "9f2db513",
+          "time": "07:44",
+          "message": "feat: Add PR-AUC evaluation for imbalanced classification",
+          "body": "- Compare ROC-AUC vs PR-AUC across all diseases"
+        },
+        {
+          "hash": "64b31741",
+          "time": "07:20",
+          "message": "Add Sliding Window 5-Fold CV experiment (#17)",
+          "body": "- New notebook: 17_SlidingWindow_5FoldCV.ipynb"
+        }
+      ],
+      "count": 20
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "bc080e0a",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-13",
+          "body": "🤖 自動生成於 2026-01-13 07:05"
+        },
+        {
+          "hash": "bd4501e3",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-12 (14 commits)",
+          "body": "🤖 自動生成於 2026-01-13 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 22,
+    "totalCommits": 33
+  }
+}

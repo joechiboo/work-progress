@@ -1,0 +1,174 @@
+{
+  "date": "2026-01-20",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "0a7c19fe",
+          "time": "19:47",
+          "message": "Fix XML field mappings and add unit override for NHI codes",
+          "body": "- Fix rdata field mappings (r2=TI_NAME, r3=ANZ_NAME, r9=DoctorCode)"
+        },
+        {
+          "hash": "55d3e26c",
+          "time": "09:57",
+          "message": "Add NHI.AutoUpload Console App for self-pay auto-upload",
+          "body": "- Create .NET 9 Console App with NLog logging (14-day retention)"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "10b000df",
+          "time": "17:50",
+          "message": "Merge main into feature/bt201-self-pay-upload-checkbox",
+          "body": ""
+        },
+        {
+          "hash": "b691d9db",
+          "time": "15:40",
+          "message": "fix: BT300 套檢/套餐展開為細項以支援工作站篩選",
+          "body": "問題：BT300 無法透過工作站(如 WS98)找到單號 6011200820"
+        },
+        {
+          "hash": "35f06406",
+          "time": "07:25",
+          "message": "Merge branch 'feature/hpsafixonemoretime' into 'main'",
+          "body": "[HPSA] 幽門問卷"
+        },
+        {
+          "hash": "a272408e",
+          "time": "04:53",
+          "message": "Merge branch 'feature/XRA149新增功能' into 'main'",
+          "body": "[XRA149]個人資料同意授權書"
+        },
+        {
+          "hash": "bb134331",
+          "time": "04:35",
+          "message": "Merge branch 'feature/洗腎bug修改' into 'main'",
+          "body": "[洗腎簽收]bug修復"
+        },
+        {
+          "hash": "f1396e15",
+          "time": "04:34",
+          "message": "Merge branch 'feature/文管優化' into 'main'",
+          "body": "[文管系統]效能調整"
+        },
+        {
+          "hash": "ce7f3e12",
+          "time": "08:54",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb into fix/dangerlist-v2-issues",
+          "body": ""
+        },
+        {
+          "hash": "aeed832e",
+          "time": "08:48",
+          "message": "fix: dangerListV2 處理 >X.XX 格式的抗體檢驗值",
+          "body": "水痘 M (4313) 等抗體項目的值經過線性轉換後可能變成 >2.30 格式，"
+        },
+        {
+          "hash": "b1eda039",
+          "time": "08:39",
+          "message": "fix: dangerListV2 技術部遮罩判斷使用全域變數",
+          "body": "修正 renderTable 函數中重新宣告 isTechUser 區域變數，"
+        },
+        {
+          "hash": "e533de62",
+          "time": "08:35",
+          "message": "fix: LT278 alert 訊息格式微調",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b86742cc",
+          "time": "08:27",
+          "message": "fix: LT278 修正 alert 訊息中的 Razor 語法",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4fc99bd8",
+          "time": "08:22",
+          "message": "fix: LT278 檢查地址是否只有前綴沒有實際內容",
+          "body": "地址如果只有「限掛」或「掛號」前綴但沒有實際地址，"
+        },
+        {
+          "hash": "2e9313e5",
+          "time": "08:20",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb into fix/lt278-opd-address-sorting",
+          "body": ""
+        },
+        {
+          "hash": "e6366ec1",
+          "time": "08:19",
+          "message": "fix: LT278 排序時加上 null 檢查",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4067f2a9",
+          "time": "08:18",
+          "message": "fix: LT278 為所有欄位加上 null 檢查",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a8bfc985",
+          "time": "08:16",
+          "message": "fix: LT278 加上 null 檢查避免錯誤",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "fba77770",
+          "time": "08:14",
+          "message": "fix: LT278 修正地址前綴邏輯",
+          "body": "- 限時掛號 (R) → 顯示「限掛」前綴"
+        },
+        {
+          "hash": "6e82cd2b",
+          "time": "08:12",
+          "message": "fix: LT278 根據 ID_MAIL_FLAG 決定地址前綴",
+          "body": "修正地址前綴處理邏輯："
+        },
+        {
+          "hash": "ea6b5062",
+          "time": "07:58",
+          "message": "fix: LT278 限時專送地址前綴重複問題",
+          "body": "修正限時專送 (P) 列印地址條時，地址會出現 \"限掛限掛\" 重複前綴的問題。"
+        },
+        {
+          "hash": "18c09ec7",
+          "time": "07:48",
+          "message": "fix: LT278 地址條列印增加問題單號提示",
+          "body": "- 檢查地址或收件人為空的單號"
+        }
+      ],
+      "count": 20
+    },
+    {
+      "name": "UPC\\ldts-scraper",
+      "commits": [
+        {
+          "hash": "9667bdd6",
+          "time": "08:08",
+          "message": "feat: 更新擷取程式並新增 2026/01/20 資料",
+          "body": "- 新增執行時間紀錄功能（顯示總頁數、總筆數、執行時間）"
+        },
+        {
+          "hash": "62c6f73c",
+          "time": "07:39",
+          "message": "Initial commit: LDTs 核准清單擷取工具",
+          "body": "- 新增 Python 爬蟲程式 (Jupyter Notebook)"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 24,
+    "sideCommits": 0,
+    "totalCommits": 24
+  }
+}

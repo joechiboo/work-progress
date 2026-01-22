@@ -1,0 +1,85 @@
+{
+  "date": "2026-01-16",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d61e5151",
+          "time": "12:14",
+          "message": "feat: BT201 新增 FOBT 問卷按鈕",
+          "body": "1. Web.config 新增 FOBT_SurveyUrl 參數"
+        },
+        {
+          "hash": "baa0c6bb",
+          "time": "11:34",
+          "message": "fix: LT278 OPD 地址條排序與分組修正",
+          "body": "1. 修正每次查詢資料順序不一致問題"
+        },
+        {
+          "hash": "6ac1d5e9",
+          "time": "09:22",
+          "message": "fix: 監獄報告異常改為紅色文字",
+          "body": "- 異常時改為紅色文字，而非紅色背景"
+        },
+        {
+          "hash": "3760cdb9",
+          "time": "09:19",
+          "message": "fix: 監獄報告日期欄寬調整",
+          "body": "- 採檢日期、送檢日期、報告日期欄寬從 18 改為 12 (無時間)"
+        },
+        {
+          "hash": "516990dc",
+          "time": "09:14",
+          "message": "feat: 監獄報告匯出功能增強",
+          "body": "- 日期改為民國年格式 (例如 115/1/16)"
+        },
+        {
+          "hash": "1f6158c9",
+          "time": "09:09",
+          "message": "feat: 監獄報告日期改為民國年格式",
+          "body": "- 採檢日期、送檢日期、報告日期改為民國年格式 (例如 115/1/16)"
+        },
+        {
+          "hash": "ec3f5221",
+          "time": "09:00",
+          "message": "feat: 監獄報告匯出調整",
+          "body": "- 檢驗歷程欄位改用 OH_DIAG1 (診斷碼1)"
+        },
+        {
+          "hash": "1ffc2e6a",
+          "time": "08:26",
+          "message": "Merge remote-tracking branch 'origin/main' into feature/prison-report",
+          "body": ""
+        }
+      ],
+      "count": 8
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "6181b0eb",
+          "time": "15:01",
+          "message": "docs: Update Meeting19 slides 18-19 with PySR summary and probability output",
+          "body": "- Slide 18: Add comprehensive PySR experiment history with formulas"
+        },
+        {
+          "hash": "c441a914",
+          "time": "14:24",
+          "message": "docs: Update Meeting19 slides 11-16 with Chinese labels and MTL time comparison",
+          "body": "- Change HTN/HG/DL to 高血壓/高血糖/高血脂 in tables"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 2,
+    "totalCommits": 10
+  }
+}

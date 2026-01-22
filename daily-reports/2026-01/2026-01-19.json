@@ -1,0 +1,151 @@
+{
+  "date": "2026-01-19",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "b18ad6b6",
+          "time": "12:33",
+          "message": "Update automation design to use Console App approach",
+          "body": "- Change from API endpoint approach to standalone Console App (方案 B)"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\blood-type-sync",
+      "commits": [
+        {
+          "hash": "905fd648",
+          "time": "10:42",
+          "message": "Merge branch 'feature/email-always-send'",
+          "body": ""
+        },
+        {
+          "hash": "ccaf818f",
+          "time": "10:42",
+          "message": "chore: 更新 Email 收件人為正式信箱",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b1f6c38e",
+          "time": "10:41",
+          "message": "Merge branch 'feature/email-always-send'",
+          "body": ""
+        },
+        {
+          "hash": "3ff38f4f",
+          "time": "10:40",
+          "message": "fix: 週一只寄週報，平日有異常才寄執行報告",
+          "body": "- 週一：只發送週報，不發送當日執行報告"
+        },
+        {
+          "hash": "310ba973",
+          "time": "10:34",
+          "message": "docs: 新增維護用 SQL 查詢文件",
+          "body": "- 資料不完整會員查詢"
+        },
+        {
+          "hash": "44c68988",
+          "time": "10:32",
+          "message": "docs: 更新 README 文件",
+          "body": "- 更新規則新增「補來源單號」情境"
+        },
+        {
+          "hash": "e5edb11c",
+          "time": "10:10",
+          "message": "chore: 排除 Claude Code 暫存檔",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "73b60f02",
+          "time": "10:08",
+          "message": "feat: 新增週報功能，每週一自動發送",
+          "body": "- 新增 WeeklyReport Model 與 WeeklyReportService"
+        },
+        {
+          "hash": "a9a762f0",
+          "time": "10:00",
+          "message": "chore: 延長 log 與 output 保留期限至 14 天",
+          "body": "Co-Authored-By: Claude <noreply@anthropic.com>"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "01575a0e",
+          "time": "12:03",
+          "message": "feat: BT201 新增自費上傳勾選項",
+          "body": "1. 簡化勾選項標示並加 title 提示"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "16f79481",
+          "time": "03:10",
+          "message": "deploy: 3aac4c1e4f9bbfcb9637ac0454c4803cdff58a5f",
+          "body": ""
+        },
+        {
+          "hash": "3cd5eb6c",
+          "time": "11:10",
+          "message": "Deploy: v26.01.19.11.15",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "3aac4c1e",
+          "time": "11:09",
+          "message": "更新版號至 v26.01.19.11.15",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c8d045d1",
+          "time": "11:06",
+          "message": "Deploy: 完整更新網站內容",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a806bad8",
+          "time": "03:00",
+          "message": "deploy: 6c88960b333ab0571aad18735b07752c7b391547",
+          "body": ""
+        },
+        {
+          "hash": "6c88960b",
+          "time": "10:59",
+          "message": "新增115年1月份例會會議記錄",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "0cf22d38",
+          "time": "16:44",
+          "message": "docs: Update Chapter 3 with experiment alignment",
+          "body": "- Rename T1/T2/T3 to Y-2/Y-1/Y0 throughout"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 7,
+    "totalCommits": 18
+  }
+}

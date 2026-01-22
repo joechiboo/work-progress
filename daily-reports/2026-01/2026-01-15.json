@@ -1,0 +1,168 @@
+{
+  "date": "2026-01-15",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "93809063",
+          "time": "07:22",
+          "message": "Merge branch 'feature/MB/bloodListFilter' into 'main'",
+          "body": "feat: [細菌血瓶] 根據點收檢體來源，隱藏血量觀察"
+        },
+        {
+          "hash": "3befe20a",
+          "time": "07:18",
+          "message": "Merge branch 'feature/HPSAnewChange' into 'main'",
+          "body": "[HPSA]幽門問卷調整"
+        },
+        {
+          "hash": "0bb04f9e",
+          "time": "14:01",
+          "message": "fix: 加入 LEFT JOIN TEST_TV",
+          "body": "新增 LEFT JOIN TEST_TV TTV ON D.OD_TESTCODE = TTV.TTV_TI_CODE AND D.OD_TR_VAL = TTV.TTV_TV_CODE"
+        },
+        {
+          "hash": "af1c2bd3",
+          "time": "13:45",
+          "message": "fix: 修正 TTV_ABNORM_FLAG 別名為 TTV",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "263cae34",
+          "time": "13:39",
+          "message": "fix: 修正 TTV_ABNORM_FLAG 來源為 TEST_TV 表",
+          "body": "TTV_ABNORM_FLAG 來自 TEST_TV 表，不是 TEXTVALUE 表"
+        },
+        {
+          "hash": "798e091f",
+          "time": "13:00",
+          "message": "fix: 暫時隱藏預覽按鈕",
+          "body": "預覽功能待修復，先隱藏按鈕"
+        },
+        {
+          "hash": "7486ae8a",
+          "time": "13:00",
+          "message": "feat: 檢驗結果判定改用 LT281 邏輯",
+          "body": "- 新增 TTV_ABNORM_FLAG 欄位查詢"
+        },
+        {
+          "hash": "05293fe3",
+          "time": "12:57",
+          "message": "fix: 移除 exception StackTrace 顯示",
+          "body": "上線前移除詳細錯誤訊息，僅顯示 ex.Message"
+        },
+        {
+          "hash": "b59f2032",
+          "time": "12:54",
+          "message": "fix: 修正篩檢時機寫死新收、加寬日期及參考值欄位",
+          "body": "- 篩檢時機改為「新收」(原本誤寫在檢驗原因)"
+        },
+        {
+          "hash": "26e51211",
+          "time": "12:52",
+          "message": "fix: 修正預覽 API URL 路徑",
+          "body": "從 ../api/Report/GetPrisonReportData 改為 @Url.Action(\"GetPrisonReportData\", \"Report\")"
+        },
+        {
+          "hash": "694550b2",
+          "time": "12:50",
+          "message": "feat: 監獄報告匯出功能優化",
+          "body": "- 修復預覽 API 404 錯誤 (GetPrisonReportData 改為 public)"
+        },
+        {
+          "hash": "32c3bcb0",
+          "time": "12:40",
+          "message": "fix: 病歷號欄位改用 OH_APID",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6646e8cb",
+          "time": "12:39",
+          "message": "fix: 移除不存在的 OH_CHART_NO 欄位，呼號暫設為空白",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "7e87647b",
+          "time": "12:37",
+          "message": "fix: 開始日期預設值改為當月一號",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "22b4d643",
+          "time": "12:37",
+          "message": "docs: 更新監獄報告匯出文檔，反映新的 17 欄格式",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "e07f7404",
+          "time": "12:35",
+          "message": "fix: 移除不存在的 OH_STYPE 欄位，篩檢時機暫設為空白",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1dac150a",
+          "time": "12:35",
+          "message": "fix: 調整按鈕順序，預覽在前匯出在後",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "e3438380",
+          "time": "12:32",
+          "message": "feat: 監獄報告匯出欄位更新為指定格式",
+          "body": "Excel 欄位更新為："
+        },
+        {
+          "hash": "773580f2",
+          "time": "12:29",
+          "message": "fix: 監獄報告匯出單位欄位顯示名稱",
+          "body": "將檢驗單位從代碼轉換為名稱顯示："
+        },
+        {
+          "hash": "6d7feecb",
+          "time": "12:23",
+          "message": "fix: 監獄報告匯出檔名改用單位名稱",
+          "body": "檔名格式：監獄報告_單位名稱_開始日期_結束日期.xlsx"
+        },
+        {
+          "hash": "8d9acce7",
+          "time": "10:27",
+          "message": "feat: 監獄報告匯出新增結果值轉換",
+          "body": "使用 pTestResult Oracle 函數處理結果值轉換："
+        },
+        {
+          "hash": "d311a64d",
+          "time": "10:24",
+          "message": "feat: 監獄報告匯出功能 (PrisonReport)",
+          "body": "新增嘉義分部需求的監獄報告匯出功能："
+        }
+      ],
+      "count": 22
+    },
+    {
+      "name": "TwowayConnection\\WebOrderArchive",
+      "commits": [
+        {
+          "hash": "c74f660c",
+          "time": "08:50",
+          "message": "加入 TODO 備忘：成功時的通知機制",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "17f36dbb",
+          "time": "08:42",
+          "message": "新增 tmpclaude 忽略設定、改善封存錯誤通知",
+          "body": "- .gitignore 加入 tmpclaude* 規則"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 24,
+    "sideCommits": 0,
+    "totalCommits": 24
+  }
+}

@@ -34,7 +34,7 @@ else:
 
 AUTHOR = "UCL\\joechiboo"
 
-def get_git_repos(base_path, max_depth=3):
+def get_git_repos(base_path, max_depth=4):
     """遞迴尋找所有 Git repositories"""
     logging.info(f"掃描 Git repositories: {base_path} (max_depth={max_depth})")
     repos = []
