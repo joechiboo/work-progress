@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 工具費用報銷總結 - 2026年1月</title>
+    <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+            body { margin: 0; }
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", Arial, sans-serif;
+            line-height: 1.4;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+            background: white;
+            color: #333;
+            font-size: 12px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            color: #1e40af;
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 11px;
+            margin: 4px 0 0 0;
+        }
+
+        .exchange-rate {
+            background-color: #fef3c7;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            text-align: center;
+            border-left: 3px solid #f59e0b;
+            font-size: 11px;
+            color: #92400e;
+        }
+
+        .grand-total {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 3px solid #2563eb;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .grand-total-label {
+            font-size: 14px;
+            color: #1e40af;
+            margin-bottom: 6px;
+        }
+
+        .grand-total-amount {
+            font-size: 28px;
+            font-weight: bold;
+            color: #dc2626;
+            margin: 5px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 12px;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border: 1px solid #cbd5e1;
+        }
+
+        th {
+            background-color: #eff6ff;
+            color: #1e40af;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .highlight {
+            background-color: #fef3c7;
+            font-weight: bold;
+        }
+
+        .pending {
+            background-color: #fef2f2;
+            color: #991b1b;
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 15px;
+            padding-top: 8px;
+            border-top: 2px solid #e5e7eb;
+            text-align: right;
+            color: #6b7280;
+            font-size: 10px;
+        }
+
+        .note {
+            background-color: #f0f9ff;
+            border-left: 3px solid #0ea5e9;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 11px;
+            color: #0c4a6e;
+        }
+
+        .note strong {
+            color: #075985;
+        }
+
+        .details-section {
+            margin: 20px 0;
+        }
+
+        .details-section h3 {
+            color: #1e40af;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 5px;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .column {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .column h4 {
+            color: #1e40af;
+            font-size: 12px;
+            margin: 0 0 8px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 10px;
+            border-bottom: 1px dotted #e5e7eb;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-date {
+            color: #64748b;
+        }
+
+        .detail-amount {
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        .subtotal {
+            background-color: #dbeafe;
+            margin-top: 5px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .subtotal span:first-child {
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        .subtotal span:last-child {
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        .twd-breakdown {
+            font-size: 9px;
+            color: #64748b;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AI 工具費用報銷總結</h1>
+        <p class="subtitle">Claude AI 訂閱費用明細（2025/11 - 2026/01）</p>
+    </div>
+
+    <div class="exchange-rate">
+        <strong>💱 匯率參考：</strong>US$ 100 = NT$ 3,163 + NT$ 48 (國外交易手續費) = NT$ 3,211（實際刷卡金額）
+    </div>
+
+    <!-- 總計 -->
+    <div class="grand-total">
+        <div class="grand-total-label">📊 團隊總報銷金額</div>
+        <div class="grand-total-amount">US$ 717.57 = NT$ 23,040</div>
+    </div>
+
+    <!-- 個人彙總表格 -->
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 20%;">姓名</th>
+                <th style="width: 20%;">美金金額</th>
+                <th style="width: 25%;">台幣金額</th>
+                <th style="width: 20%;">期間</th>
+                <th style="width: 15%;">狀態</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>紀伯喬 Joe</strong></td>
+                <td>US$ 300.00</td>
+                <td class="highlight">NT$ 9,633</td>
+                <td>2025/11-2026/01</td>
+                <td>✓ 已確認</td>
+            </tr>
+            <tr>
+                <td><strong>李宗勳 Spark</strong></td>
+                <td>US$ 300.00</td>
+                <td class="highlight">NT$ 9,633</td>
+                <td>2025/11-2026/01</td>
+                <td>✓ 已確認</td>
+            </tr>
+            <tr>
+                <td><strong>吳信輝 William</strong></td>
+                <td>US$ 117.57</td>
+                <td class="highlight">NT$ 3,774</td>
+                <td>2025/11-2026/01</td>
+                <td>✓ 已確認</td>
+            </tr>
+            <tr style="background-color: #eff6ff; font-weight: bold;">
+                <td><strong>總計</strong></td>
+                <td><strong>US$ 717.57</strong></td>
+                <td style="color: #dc2626;"><strong>NT$ 23,040</strong></td>
+                <td colspan="2">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note">
+        <strong>📌 備註：</strong>
+        <ul style="margin: 5px 0; padding-left: 20px;">
+            <li>台幣金額為實際信用卡扣款金額（含國外交易手續費約 1.5%）</li>
+            <li>Claude Max 訂閱費用：US$ 100/月</li>
+            <li>Claude Pro 訂閱費用：US$ 20/月</li>
+        </ul>
+    </div>
+
+    <!-- 詳細流水帳 -->
+    <div class="details-section">
+        <h3>📋 費用明細流水</h3>
+        <div class="three-column">
+            <!-- 紀伯喬 Joe -->
+            <div class="column">
+                <h4>紀伯喬 Joe</h4>
+                <div class="detail-item">
+                    <span class="detail-date">2025/11/11</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown">NT$ 3,211</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/12/11</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown">NT$ 3,211</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2026/01/11</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown">NT$ 3,211</span>
+                </div>
+                <div class="detail-item subtotal">
+                    <span>小計</span>
+                    <span>US$ 300.00 / NT$ 9,633</span>
+                </div>
+            </div>
+
+            <!-- 李宗勳 Spark -->
+            <div class="column">
+                <h4>李宗勳 Spark</h4>
+                <div class="detail-item">
+                    <span class="detail-date">2025/11/25</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown">NT$ 3,211</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/12/25</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown">NT$ 3,211</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2026/01/25</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown">NT$ 3,211</span>
+                </div>
+                <div class="detail-item subtotal">
+                    <span>小計</span>
+                    <span>US$ 300.00 / NT$ 9,633</span>
+                </div>
+            </div>
+
+            <!-- 吳信輝 William -->
+            <div class="column">
+                <h4>吳信輝 William</h4>
+                <div class="detail-item">
+                    <span class="detail-date">2025/11/10</span>
+                    <span class="detail-amount" style="color: #16a34a;">-US$ 82.43</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown" style="color: #16a34a;">-NT$ 2,648 (方案調整退款)</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2025/12/10</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown">NT$ 3,211</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-date">2026/01/10</span>
+                    <span class="detail-amount">US$ 100.00</span>
+                </div>
+                <div class="detail-item">
+                    <span></span>
+                    <span class="twd-breakdown">NT$ 3,211</span>
+                </div>
+                <div class="detail-item subtotal">
+                    <span>小計</span>
+                    <span>US$ 117.57 / NT$ 3,774</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>報告日期：2026 年 1 月 27 日 ｜ 製表人：紀伯喬</p>
+    </div>
+</body>
+</html>
