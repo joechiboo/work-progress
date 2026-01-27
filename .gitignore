@@ -1,3 +1,6 @@
+# Claude Code Skills (local AI context, not versioned)
+.claude/skills/
+
 # Logs
 logs
 *.log
