@@ -1,0 +1,115 @@
+{
+  "date": "2026-01-23",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "5a80ac83",
+          "time": "08:53",
+          "message": "Add project documentation for demo presentation",
+          "body": "- Add docs/index.html with system overview, AutoUpload details, and processing flow"
+        },
+        {
+          "hash": "9ac903bd",
+          "time": "07:53",
+          "message": "Add NHI_FileSequence table for independent sequence tracking",
+          "body": "- Replace Oracle CLINIC_NHIUPDATE_DETAIL query with MSSQL NHI_FileSequence"
+        },
+        {
+          "hash": "705ebd83",
+          "time": "07:20",
+          "message": "Fix hdata/rdata INSERT missing createtime column",
+          "body": "- Add createtime field to SaveHData INSERT statement"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b24c39ac",
+          "time": "07:42",
+          "message": "Merge branch 'feat/BT301_dyn_coldisplay' into 'main'",
+          "body": "feat:[BT301]依據單位設定顯示客製化設定(Email、傳真、自費健保上傳、郵寄)"
+        },
+        {
+          "hash": "a09eaea4",
+          "time": "09:26",
+          "message": "Merge branch 'main' of https://gitlab.ucl.com.tw/ucl/lis/lisweb into fix/lt257-remove-rcvd-flag-condition",
+          "body": ""
+        },
+        {
+          "hash": "f60afd9d",
+          "time": "09:23",
+          "message": "[LT257] 修正電話通知清單查詢邏輯並更新文檔",
+          "body": "1. 移除 OS_SPL_RCVD_FLAG = 'Y' 條件，讓未簽收檢體也能列出"
+        },
+        {
+          "hash": "04928dea",
+          "time": "00:08",
+          "message": "Merge branch 'feature/bt201hpsa按鈕' into 'main'",
+          "body": "[BT201] 限制只有在FOBT下 才能看到HpSA問卷按鈕"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "d9c88e57",
+          "time": "12:27",
+          "message": "Phase 1 效能優化與死結修復",
+          "body": "效能優化："
+        },
+        {
+          "hash": "2d36d7dd",
+          "time": "10:58",
+          "message": "新增舊系統核心問題記錄與效能優化計畫",
+          "body": "- 舊系統核心問題.md：記錄死結、取消轉入、效能問題"
+        },
+        {
+          "hash": "c6b5b850",
+          "time": "10:26",
+          "message": "新增效能修復與重構文件",
+          "body": "修復:"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "216905ae",
+          "time": "19:30",
+          "message": "docs: Add Chapter 4 figure planning to conversion guide",
+          "body": "- Add table mapping figures to chapter sections (Fig 4-1 to 4-8)"
+        },
+        {
+          "hash": "5d6fa528",
+          "time": "19:27",
+          "message": "docs: Add Word conversion workflow and update thesis chapters",
+          "body": "- Update conversion guide with pandoc reference template usage"
+        },
+        {
+          "hash": "d6852a54",
+          "time": "17:57",
+          "message": "docs: Update Chapter 3-4 content and timeline figure",
+          "body": "- Revise Chapter 3 research methodology"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 3,
+    "totalCommits": 13
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "date": "2026-01-27",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d42378be",
+          "time": "11:06",
+          "message": "Merge branch 'fix/prison-report-name-mapping' into 'main'",
+          "body": "fix: [嘉義] [監獄報告] 項目名稱轉換改用項目代碼對照"
+        },
+        {
+          "hash": "6371397b",
+          "time": "18:57",
+          "message": "fix: [監獄報告] 項目名稱轉換改用項目代碼對照",
+          "body": "- 原本用項目名稱模糊比對可能匹配不到"
+        },
+        {
+          "hash": "9f87424b",
+          "time": "10:16",
+          "message": "feat: [監獄報告] 新增 xls 格式匯出及獄政系統項目名稱轉換",
+          "body": "- 新增匯出格式選項：xls (Excel 97-2003) / xlsx (Excel 2007+)，預設 xls"
+        },
+        {
+          "hash": "04462ab9",
+          "time": "07:58",
+          "message": "fix: LogAccessBatch 改用逐筆 INSERT 避免主鍵重複錯誤",
+          "body": "原本使用 INSERT ALL 搭配 SEQUENCE.NEXTVAL 會產生重複的 LOG_ID，"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "7ccf76b9",
+          "time": "19:31",
+          "message": "v2.12: 修正切換單位時快速列印資料不同步問題",
+          "body": "- 隱藏 txtUNIT_CODE，統一使用 ddlUNITDATA 選擇單位"
+        },
+        {
+          "hash": "aed83079",
+          "time": "12:20",
+          "message": "v2.12: 修正快速列印欄位索引",
+          "body": "- 因 v2.11 新增勾選框欄位，快速列印的 cell index 需要 +1"
+        },
+        {
+          "hash": "46aa6896",
+          "time": "11:22",
+          "message": "v2.11.1: 修正全選勾選框影響轉入HCLAB的問題",
+          "body": "- toggleSelectAll 只影響列印勾選框 (chkPrint class)"
+        },
+        {
+          "hash": "3108705a",
+          "time": "11:18",
+          "message": "v2.11: 標籤部份列印功能與取消轉入修正",
+          "body": "- 標籤部份列印：新增病患勾選框與全選功能"
+        },
+        {
+          "hash": "29acabc2",
+          "time": "10:38",
+          "message": "v2.10: 取消轉入改善 - B03 機制與排除已簽收",
+          "body": "- 使用 B03 機制觸發 LIS 刪除 Oracle 資料"
+        }
+      ],
+      "count": 5
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "337e003b",
+          "time": "15:44",
+          "message": "docs: 新增 2026/01 AI 工具費用報銷總結",
+          "body": "- 紀伯喬: US$300 / NT$9,633"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 1,
+    "totalCommits": 10
+  }
+}

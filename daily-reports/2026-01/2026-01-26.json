@@ -1,0 +1,55 @@
+{
+  "date": "2026-01-26",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "c3d8212c",
+          "time": "15:13",
+          "message": "v2.8: 快速列印優化與分單排序修正",
+          "body": "- 快速列印：病患資料使用 tbody 包裹，避免跨頁切割"
+        },
+        {
+          "hash": "850c56ec",
+          "time": "14:58",
+          "message": "新增開發環境設定與公衛代碼功能文件",
+          "body": "- LinkedServer設定指南.md: 完整本地開發環境設定（SQL Server Express、測試資料庫、Linked Server）"
+        },
+        {
+          "hash": "e6e7c70c",
+          "time": "09:35",
+          "message": "Merge branch '加入遺漏的檔案'",
+          "body": ""
+        },
+        {
+          "hash": "cd6e87ee",
+          "time": "07:44",
+          "message": "v2.5: 快速列印格式大幅調整",
+          "body": "- 移除分單號碼獨立欄位 (9欄)"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "30d1f1d4",
+          "time": "19:06",
+          "message": "docs: Update PySR results to sliding window version",
+          "body": "- Fix model comparison table: PySR 0.580/0.918/0.640 (was 0.684/0.842/0.756)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 1,
+    "totalCommits": 5
+  }
+}

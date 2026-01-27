@@ -6,6 +6,18 @@
       "name": "HealthInsurance\\Clinic_NHI_Update",
       "commits": [
         {
+          "hash": "540cc26e",
+          "time": "19:10",
+          "message": "Add --dry-run mode for testing without file generation",
+          "body": "- Add --dry-run parameter to simulate execution without creating files"
+        },
+        {
+          "hash": "4e7f666c",
+          "time": "18:59",
+          "message": "Enable MSSQL logging to 56.191 NHI database",
+          "body": "- Update MSSQL connection string to 192.168.56.191"
+        },
+        {
           "hash": "18a910be",
           "time": "12:37",
           "message": "Add NHI upload verification guide",
@@ -90,13 +102,79 @@
           "body": "- 新增 SaveToMSSQL 設定，可關閉 MSSQL 寫入功能 (因 227 為 SQL Server 2000 不支援)"
         }
       ],
-      "count": 14
+      "count": 16
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "6f20d1d5",
+          "time": "08:01",
+          "message": "Merge branch 'feature/MB/addCmtRule' into 'main'",
+          "body": "feat: [MBS301z] 添加康寧醫院報告備註"
+        },
+        {
+          "hash": "f1e47695",
+          "time": "08:00",
+          "message": "Merge branch 'feature/MB/cmtForTC' into 'main'",
+          "body": "feat: [MBS301z] 添加一個特殊報告型態的快速按鈕"
+        },
+        {
+          "hash": "02623382",
+          "time": "08:00",
+          "message": "Merge branch 'feat/BT301_BtnOrder' into 'main'",
+          "body": "feat:[BT301]調整按鈕順序"
+        }
+      ],
+      "count": 3
     }
   ],
   "side_projects": [
     {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "1a2a0815",
+          "time": "19:57",
+          "message": "docs: Update PySR experiment design to match actual scripts",
+          "body": "- Fix unary operators: sqrt → abs (matching notebooks 23, 25)"
+        },
+        {
+          "hash": "b7b41a03",
+          "time": "19:56",
+          "message": "docs: Reorganize docs folder structure and update Chapter 3",
+          "body": "- Rename docs/01_thesis to docs/00_thesis for better sorting"
+        },
+        {
+          "hash": "560a4b21",
+          "time": "19:23",
+          "message": "feat: Add comprehensive Delta ablation experiment (H1)",
+          "body": "- Add Notebook 27: Delta ablation with sliding window data"
+        },
+        {
+          "hash": "ef494452",
+          "time": "19:22",
+          "message": "docs: Update Meeting19 presentation and add limitation memos",
+          "body": "- Update Kanegae 2020 presentation slides"
+        },
+        {
+          "hash": "171772b4",
+          "time": "19:22",
+          "message": "docs: Expand Chapter 3 experiment design section (3.6)",
+          "body": "- Add experiment overview table mapping to hypotheses"
+        }
+      ],
+      "count": 5
+    },
+    {
       "name": "work-progress",
       "commits": [
+        {
+          "hash": "ed22d4f0",
+          "time": "15:40",
+          "message": "docs: 重新生成每日報告，新增 HealthInsurance/Clinic_NHI_Update 與 UPC/ldts-scraper 專案",
+          "body": "- 調整 max_depth=4 以掃描更深層專案"
+        },
         {
           "hash": "21ea7670",
           "time": "15:33",
@@ -104,12 +182,12 @@
           "body": "Co-Authored-By: Claude <noreply@anthropic.com>"
         }
       ],
-      "count": 1
+      "count": 2
     }
   ],
   "summary": {
-    "workCommits": 14,
-    "sideCommits": 1,
-    "totalCommits": 15
+    "workCommits": 19,
+    "sideCommits": 7,
+    "totalCommits": 26
   }
 }
