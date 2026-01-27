@@ -3,36 +3,6 @@
   "weekday": "二",
   "work_projects": [
     {
-      "name": "lisweb",
-      "commits": [
-        {
-          "hash": "d42378be",
-          "time": "11:06",
-          "message": "Merge branch 'fix/prison-report-name-mapping' into 'main'",
-          "body": "fix: [嘉義] [監獄報告] 項目名稱轉換改用項目代碼對照"
-        },
-        {
-          "hash": "6371397b",
-          "time": "18:57",
-          "message": "fix: [監獄報告] 項目名稱轉換改用項目代碼對照",
-          "body": "- 原本用項目名稱模糊比對可能匹配不到"
-        },
-        {
-          "hash": "9f87424b",
-          "time": "10:16",
-          "message": "feat: [監獄報告] 新增 xls 格式匯出及獄政系統項目名稱轉換",
-          "body": "- 新增匯出格式選項：xls (Excel 97-2003) / xlsx (Excel 2007+)，預設 xls"
-        },
-        {
-          "hash": "04462ab9",
-          "time": "07:58",
-          "message": "fix: LogAccessBatch 改用逐筆 INSERT 避免主鍵重複錯誤",
-          "body": "原本使用 INSERT ALL 搭配 SEQUENCE.NEXTVAL 會產生重複的 LOG_ID，"
-        }
-      ],
-      "count": 4
-    },
-    {
       "name": "TwowayConnection\\分單系統",
       "commits": [
         {
@@ -67,6 +37,36 @@
         }
       ],
       "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d42378be",
+          "time": "11:06",
+          "message": "Merge branch 'fix/prison-report-name-mapping' into 'main'",
+          "body": "fix: [嘉義] [監獄報告] 項目名稱轉換改用項目代碼對照"
+        },
+        {
+          "hash": "6371397b",
+          "time": "18:57",
+          "message": "fix: [監獄報告] 項目名稱轉換改用項目代碼對照",
+          "body": "- 原本用項目名稱模糊比對可能匹配不到"
+        },
+        {
+          "hash": "9f87424b",
+          "time": "10:16",
+          "message": "feat: [監獄報告] 新增 xls 格式匯出及獄政系統項目名稱轉換",
+          "body": "- 新增匯出格式選項：xls (Excel 97-2003) / xlsx (Excel 2007+)，預設 xls"
+        },
+        {
+          "hash": "04462ab9",
+          "time": "07:58",
+          "message": "fix: LogAccessBatch 改用逐筆 INSERT 避免主鍵重複錯誤",
+          "body": "原本使用 INSERT ALL 搭配 SEQUENCE.NEXTVAL 會產生重複的 LOG_ID，"
+        }
+      ],
+      "count": 4
     }
   ],
   "side_projects": [
@@ -74,18 +74,48 @@
       "name": "work-progress",
       "commits": [
         {
+          "hash": "19f12a06",
+          "time": "20:00",
+          "message": "docs: 新增 2026/01 AI 工具費用報銷總結",
+          "body": "- 紀伯喬: US$300 / NT$9,633"
+        },
+        {
+          "hash": "3e40793f",
+          "time": "19:59",
+          "message": "docs: 每日工作紀錄 2026-01-26 (5 commits)",
+          "body": "🤖 自動生成於 2026-01-27 19:59"
+        },
+        {
+          "hash": "81acf76b",
+          "time": "19:57",
+          "message": "docs: 每日工作紀錄 2026-01-26 (5 commits)",
+          "body": "🤖 自動生成於 2026-01-27 19:57"
+        },
+        {
+          "hash": "0826857b",
+          "time": "19:56",
+          "message": "docs: 每日工作紀錄 2026-01-26 (5 commits)",
+          "body": "🤖 自動生成於 2026-01-27 19:56"
+        },
+        {
+          "hash": "a73b062f",
+          "time": "19:50",
+          "message": "docs: 重新生成每日報告，新增分單系統與三高風險預測專案",
+          "body": "- 修正 max_depth=5 以掃描更深層專案"
+        },
+        {
           "hash": "337e003b",
           "time": "15:44",
           "message": "docs: 新增 2026/01 AI 工具費用報銷總結",
           "body": "- 紀伯喬: US$300 / NT$9,633"
         }
       ],
-      "count": 1
+      "count": 6
     }
   ],
   "summary": {
     "workCommits": 9,
-    "sideCommits": 1,
-    "totalCommits": 10
+    "sideCommits": 6,
+    "totalCommits": 15
   }
 }
