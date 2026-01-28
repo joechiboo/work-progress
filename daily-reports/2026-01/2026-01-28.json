@@ -1,0 +1,187 @@
+{
+  "date": "2026-01-28",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "cbe7b90d",
+          "time": "14:39",
+          "message": "新增 Google 重新索引指南文檔",
+          "body": "說明如何透過 Search Console 請求重新索引"
+        },
+        {
+          "hash": "4de0c7f4",
+          "time": "14:36",
+          "message": "修復 knowledge01.asp itemid 前導零問題",
+          "body": "- 修改參數類型從 adInteger 改為 adVarChar"
+        },
+        {
+          "hash": "8973f598",
+          "time": "14:27",
+          "message": "SEO 優化：動態頁面標題",
+          "body": "- news_info.asp: 標題改為「文章標題 - 商店名稱」"
+        },
+        {
+          "hash": "40cdfaef",
+          "time": "10:54",
+          "message": "新增 Sitemap 產生流程文檔",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "eb882f24",
+          "time": "10:54",
+          "message": "更新 sitemap.xml 並新增 robots.txt",
+          "body": "- 使用 Screaming Frog 重新爬取產生新的 sitemap"
+        },
+        {
+          "hash": "079632c6",
+          "time": "10:44",
+          "message": "新增 Open Graph 標籤以解決 Bing 顯示錯誤 logo 問題",
+          "body": "- 在 meta.asp 加入 og:image, og:title 等標籤"
+        },
+        {
+          "hash": "9322849f",
+          "time": "10:37",
+          "message": "修正 ManageLogin.asp 頁面標題",
+          "body": "- 將 title 改為固定「醫療院所登入」，改善 SEO 顯示"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "LIS\\gene-reference-api",
+      "commits": [
+        {
+          "hash": "925e8ddd",
+          "time": "10:16",
+          "message": "docs: 更新架構流程圖，反映 ELink fallback 機制",
+          "body": "- 流程圖新增 ELink 失敗時的 fallback 直接搜尋分支"
+        },
+        {
+          "hash": "626eb568",
+          "time": "09:57",
+          "message": "docs: 新增部署文檔和 Claude Code skills",
+          "body": "- 新增 docs/deployment.md 部署指南"
+        },
+        {
+          "hash": "ad982cf0",
+          "time": "09:53",
+          "message": "fix: 修復 GNAS/TTC37 等基因查詢失敗問題",
+          "body": "- 新增 ELink API fallback 機制，當 NCBI ELink 失敗時自動改用直接搜尋 PubMed"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "5027b80b",
+          "time": "02:19",
+          "message": "Merge branch 'feature/BT201列印份數' into 'main'",
+          "body": "[BT201] 限時專送/限掛 的列印份數不再因更換單位而被歸0"
+        },
+        {
+          "hash": "5e109ad9",
+          "time": "08:24",
+          "message": "feat: 新增 GetA4Units API 供外部系統查詢 A4 報告單位",
+          "body": "- 新增 GET /api/DEBTOR/GetA4Units API"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "1b84b11b",
+          "time": "12:58",
+          "message": "Add database design documentation",
+          "body": "- Define 4 tables: HisVendors, Sites, SiteHisMapping, TransferLogs"
+        },
+        {
+          "hash": "a93f73ad",
+          "time": "12:38",
+          "message": "Initial project setup with documentation",
+          "body": "- Add README.md with project overview"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "beb1f46e",
+          "time": "08:33",
+          "message": "feat: 新增紙張尺寸 (A4/B5) 支援 - 台中分部專用",
+          "body": "- 新增 PaperSizeService 啟動時從 API 取得 A4 單位清單"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "1de9fe9a",
+          "time": "15:50",
+          "message": "v2.13: 修正多印N張姓名標籤功能",
+          "body": "- btnQuery_Click 加入 PrintNameLabelCount 設定邏輯"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d3dc4a4a",
+          "time": "07:43",
+          "message": "docs: 新增 Agent Skills 架構模板文件",
+          "body": "提供通用的 Agent Skills 架構教學，讓其他專案能快速套用："
+        },
+        {
+          "hash": "34b8e2fc",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-28",
+          "body": "🤖 自動生成於 2026-01-28 07:05"
+        },
+        {
+          "hash": "d0a0bbe9",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-27 (15 commits)",
+          "body": "🤖 自動生成於 2026-01-28 07:05"
+        },
+        {
+          "hash": "1ec9de24",
+          "time": "06:40",
+          "message": "docs: 新增 Agent Skills 架構支援",
+          "body": "- 建立 .claude/skills/daily-report/SKILL.md (不進版控)"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "828f6dfe",
+          "time": "17:34",
+          "message": "docs: Add Chapter 1 draft and update thesis progress",
+          "body": "- Add Chapter 1 (緒論) initial draft with full structure"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 16,
+    "sideCommits": 5,
+    "totalCommits": 21
+  }
+}
