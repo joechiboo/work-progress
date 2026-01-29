@@ -30,17 +30,18 @@ const FEATURE_PATTERNS = [
     ]
   },
   {
-    name: 'BT201 申報畫面',
+    name: 'BT201 檢驗單系統',
     icon: '💼',
     keywords: ['bt201', '申報', '智能'],
     subgroups: [
-      { name: '自動化功能', keywords: ['自動', '身分證', '病歷號', '個資', '醫師', '預防保健', 'f10'] }
+      { name: '申報畫面', keywords: ['申報', '智能', '自動', '身分證', '病歷號', '個資', '醫師', '預防保健', 'f10'] },
+      { name: '檢驗單功能', keywords: ['列印', '份數', '單位', '開立'] }
     ]
   },
   {
     name: '效能優化',
     icon: '⚡',
-    keywords: ['效能', '優化', 'performance', 'sql', '查詢'],
+    keywords: ['效能', '優化', 'performance', 'perf:'],
     subgroups: [
       { name: '查詢優化', keywords: ['lt257', 'lt277', 'sql', '編譯'] }
     ]

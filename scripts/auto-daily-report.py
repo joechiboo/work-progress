@@ -81,6 +81,10 @@ def get_commits_for_date(repo_path, author, date_str):
             if len(parts) >= 4:
                 author_name = parts[0].strip()
                 # 只保留 UCL\joechiboo、joechiboo、紀伯喬 或 Claude 的 commits
+                # 排除 Merge branch commit（GitLab MR 自動產生）
+                commit_msg = parts[3].strip()
+                if commit_msg.startswith('Merge branch'):
+                    continue
                 if author in author_name or author_name == 'joechiboo' or author_name == '紀伯喬' or author_name == 'Claude':
                     commits.append({
                         "hash": parts[1].strip()[:8],
