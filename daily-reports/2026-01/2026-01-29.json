@@ -1,0 +1,127 @@
+{
+  "date": "2026-01-29",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "f041d507",
+          "time": "09:12",
+          "message": "fix: PaperSizeService 支援 XML 格式 API 回應解析",
+          "body": "API 回傳 XML (ArrayOfstring) 格式而非預期的 JSON，"
+        },
+        {
+          "hash": "e295eb70",
+          "time": "08:03",
+          "message": "refactor: 重構專案結構 - 新增 Agent Skills 架構與腳本整理",
+          "body": "## Agent Skills 架構"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "c9dea24b",
+          "time": "13:06",
+          "message": "docs: 更新站台配置資訊（姿飴/B1/孝田對應 WebOrder1-3 及 TSC DT2205）",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "98b2ad42",
+          "time": "11:13",
+          "message": "v2.14: 按檔案批量勾選/取消勾選功能",
+          "body": "- 三個 Master 查詢加入 filename 子查詢"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "fe08258b",
+          "time": "19:35",
+          "message": "Fix r4 result interpretation and atomic sequence numbering",
+          "body": "- Apply result interpretation (linear/phrase conversion) to r4 field,"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b3723efd",
+          "time": "20:00",
+          "message": "fix: 危險值通報修正姓名等於身分證時不排除",
+          "body": "安法、醫心等單位以身分證號作為姓名（如 XC5J009），"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "124f433c",
+          "time": "10:50",
+          "message": "fix: 移除 commit 列表數量限制，全部列出不收納",
+          "body": "- 子分組移除 MAX_ITEMS=5 限制"
+        },
+        {
+          "hash": "4b08b6e8",
+          "time": "10:49",
+          "message": "fix: 修正 commit 分類與排除 merge commit",
+          "body": "- BT201 分類名稱改為「BT201 檢驗單系統」，新增子分組"
+        },
+        {
+          "hash": "cb12b772",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-01-29",
+          "body": "🤖 自動生成於 2026-01-29 07:05"
+        },
+        {
+          "hash": "eb4d93e0",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-28 (21 commits)",
+          "body": "🤖 自動生成於 2026-01-29 07:05"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "8a7797b1",
+          "time": "19:01",
+          "message": "docs: Revise Ch2 (Table 2-1, Dinh correction, problem definition) & add memos",
+          "body": "- Transpose Table 2-1 layout, add Liu/Chen papers, fix Dinh (XGBoost/Information Gain/AUC 0.862)"
+        },
+        {
+          "hash": "d973a003",
+          "time": "17:19",
+          "message": "docs: Refine Ch1 & expand Ch2 class imbalance section",
+          "body": "- Ch1: Add Asia epidemiology data, metabolic syndrome context,"
+        },
+        {
+          "hash": "093f569f",
+          "time": "15:37",
+          "message": "docs: Add Sun 2017 & Ye 2018 papers, update Ch2 literature review",
+          "body": "- Download Sun 2017 (systematic review, 48 hypertension models) and"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 7,
+    "totalCommits": 13
+  }
+}
