@@ -706,9 +706,8 @@ const analyzedProjects = computed(() => {
             ? `${subDates[0]} 至 ${subDates[subDates.length - 1]}`
             : subDates[0]
 
-          const MAX_ITEMS = 5
-          const items = commits.slice(0, MAX_ITEMS).map(c => cleanCommitMessage(c.message))
-          const moreCount = Math.max(0, commits.length - MAX_ITEMS)
+          const items = commits.map(c => cleanCommitMessage(c.message))
+          const moreCount = 0
 
           return {
             name,
@@ -734,12 +733,11 @@ const analyzedProjects = computed(() => {
         ? `${dates[0]} 至 ${dates[dates.length - 1]}`
         : dates[0]
 
-      const MAX_ITEMS = 10
-      const items = ungrouped.slice(0, MAX_ITEMS).map(c => ({
+      const items = ungrouped.map(c => ({
         date: c.date,
         message: cleanCommitMessage(c.message)
       }))
-      const moreCount = Math.max(0, ungrouped.length - MAX_ITEMS)
+      const moreCount = 0
 
       features.push({
         name: features.length > 0 ? '其他變更' : '所有變更',
