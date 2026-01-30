@@ -1,0 +1,79 @@
+{
+  "date": "2026-01-30",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "40b01f66",
+          "time": "15:13",
+          "message": "fix: 危險值排除動物園等含「動物」關鍵字的送檢單位",
+          "body": "原本只排除「老鼠」，導致台北市立動物園的檢體未被過濾。"
+        },
+        {
+          "hash": "e230924d",
+          "time": "15:11",
+          "message": "fix: 姓名等於身分證時僅跳過姓名排除，保留值判斷規則",
+          "body": "修正 return true 導致 Non-Reactive 等非危急值未被過濾的問題。"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "451dcc38",
+          "time": "07:24",
+          "message": "Merge pull request #7 from joechiboo/claude/gamification-reward-system-011CUmvRKZfUzZA3diySFZeM",
+          "body": "新增 iBeer 虛擬啤酒創意專案"
+        },
+        {
+          "hash": "fde6cc53",
+          "time": "23:04",
+          "message": "新增 iBeer 虛擬啤酒創意專案",
+          "body": "🍺 傾斜手機來喝酒！趣味互動的虛擬啤酒 App"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "70322c2c",
+          "time": "07:06",
+          "message": "docs: 更新彙整資料 2026-01-30",
+          "body": "🤖 自動生成於 2026-01-30 07:06"
+        },
+        {
+          "hash": "1ad4e45b",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-01-29 (13 commits)",
+          "body": "🤖 自動生成於 2026-01-30 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "aa6d1c69",
+          "time": "08:50",
+          "message": "docs: Ch3 restructure (model categories, NB/LDA, table renumbering) & ref updates",
+          "body": "- Restructure §3.4 into categorical subsections: traditional stats (LR/NB/LDA),"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 5,
+    "totalCommits": 7
+  }
+}
