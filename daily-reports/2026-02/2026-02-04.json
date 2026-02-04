@@ -1,0 +1,157 @@
+{
+  "date": "2026-02-04",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "05f07945",
+          "time": "17:41",
+          "message": "fix: 儲存 HTML 時移除 window.print() 避免自動列印",
+          "body": "在 SaveHtmlContent 和 SaveHtmlContentBatch 存入 DB 前"
+        },
+        {
+          "hash": "b48769f6",
+          "time": "14:35",
+          "message": "feat: 新增桃園分部 (TY) 部署設定",
+          "body": "- IsTaoyuanStation: true"
+        },
+        {
+          "hash": "3c57f8e8",
+          "time": "12:29",
+          "message": "fix: 報告 URL 預設不自動列印 (goPrint=false)",
+          "body": "排程轉換 HTML 時不需要觸發 window.print()，"
+        },
+        {
+          "hash": "cc2251bf",
+          "time": "10:07",
+          "message": "fix: 醫令異動時自動重新轉換 HTML",
+          "body": "查詢條件新增 trx_dt > CreateTime 判斷，當 LIS 醫令異動"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "fe729632",
+          "time": "19:54",
+          "message": "Add AlleyPin adapter, data layer, and token service tests",
+          "body": "- Contracts: configuration, enums, interfaces, models for report transfer"
+        },
+        {
+          "hash": "9408a3f9",
+          "time": "11:42",
+          "message": "Add project scaffolding and legacy analysis documentation",
+          "body": "- Add solution file and project structure (Api, Worker, Core, Data, Contracts, Tests)"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "e115e4a7",
+          "time": "11:23",
+          "message": "feat: 更新加班超時處理腳本至 2025/12-2026/01 月份",
+          "body": "- 新增違反本月加班上限(>54h)篩選條件"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "2747e009",
+          "time": "14:37",
+          "message": "整理腳本與新增 Claude 設定",
+          "body": "- 刪除已過時的 SQL 腳本（重置同步標記、trigger 解決方案、欄位查詢等）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "8f89e675",
+          "time": "17:55",
+          "message": "docs: Ch4 表編號對調 + 圖表目錄更新 + Ch5 用藥限制補充",
+          "body": "- Ch4: 表 4-13/4-14 編號對調（MTL→4-13, 符號回歸→4-14）"
+        },
+        {
+          "hash": "2d5ad63f",
+          "time": "17:23",
+          "message": "docs: Ch1-Ch5 修訂 + Nb17 NB/LDA 補齊 + Nb28 排除策略實驗 + fig4-1 更新",
+          "body": "- Ch4: 新增 §4.6 排除策略比較（表 4-11、4-12）、章節重新編號"
+        },
+        {
+          "hash": "f2f1458c",
+          "time": "17:23",
+          "message": "fix: fig4-2 改為 3x1 垂直排列 Top 10 + todo.md 章節編號修正",
+          "body": "- fig4-2 從 1x3 水平改為 3x1 垂直，標籤不再重疊"
+        },
+        {
+          "hash": "0606e35b",
+          "time": "17:07",
+          "message": "fix: fig4-3 改為僅顯示高血壓 beeswarm（避免三疾病擠在一起）",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "623b3738",
+          "time": "17:03",
+          "message": "fix: fig4-3 改回 shap.summary_plot 標準 beeswarm 風格",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4ffd1a78",
+          "time": "16:59",
+          "message": "docs: 圖片標籤統一為論文命名（Y-2/Y-1/Δ）+ Ch4 文字對應調整",
+          "body": "- 重新產生 fig4-2, fig4-3 SHAP 圖（Tinput1/Tinput2/Delta_ → Y-2/Y-1/Δ）"
+        },
+        {
+          "hash": "02da893e",
+          "time": "16:41",
+          "message": "docs: notebooks 中文化 + Ch3/Ch4 修訂 + 圖表整合",
+          "body": "- 中文化 notebooks 19 (SHAP)、20 (MTL vs STL)、21 (Delta 消融)、27 (Delta 綜合)"
+        },
+        {
+          "hash": "1f865773",
+          "time": "15:25",
+          "message": "docs: 新增 Majcherek 2025 & SMOTE+SHAP 2025 深度解析，更新 Meeting 20 論文",
+          "body": "- 新增 Majcherek et al. (2025) PLOS ONE 深度解析（18 種模型糖尿病預測，NB/LDA 選擇依據）"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "38382b70",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-04",
+          "body": "🤖 自動生成於 2026-02-04 07:05"
+        },
+        {
+          "hash": "65050cab",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-03 (2 commits)",
+          "body": "🤖 自動生成於 2026-02-04 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 10,
+    "totalCommits": 18
+  }
+}
