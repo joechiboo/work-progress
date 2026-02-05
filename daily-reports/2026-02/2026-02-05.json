@@ -1,0 +1,157 @@
+{
+  "date": "2026-02-05",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "6943666f",
+          "time": "19:41",
+          "message": "Add manual transfer endpoints, AlleyPin E2E test flow, and debugging tools",
+          "body": "- Add manual batch/resend transfer endpoints (POST /api/manual/batch, /api/manual/resend)"
+        },
+        {
+          "hash": "dbe1f753",
+          "time": "08:42",
+          "message": "Add AlleyPin data transfer flow PDF reference",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "51100ff2",
+          "time": "08:41",
+          "message": "Add Serilog, email notifications, transfer stats, and AlleyPin fixes",
+          "body": "- Replace built-in logging with Serilog (file + console) for Api and Worker"
+        },
+        {
+          "hash": "179a158e",
+          "time": "08:22",
+          "message": "Update architecture docs, add HIS vendors, and fix AlleyPin adapter",
+          "body": "- Update architecture.md with Worker BackgroundService flow and resend mechanism"
+        },
+        {
+          "hash": "a6d2495c",
+          "time": "08:04",
+          "message": "Add MSSQL database setup, Oracle query fixes, resend logic, and PII masking",
+          "body": "- Create tables on 56.191/APITransferPlatform with seed data"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "8ba5ffd8",
+          "time": "07:25",
+          "message": "docs: 新增髒資料清理 SQL 腳本供各分部使用",
+          "body": "- cleanup-window-print.sql: 清理自動列印"
+        },
+        {
+          "hash": "61e0232e",
+          "time": "07:09",
+          "message": "fix: 移除 HTML 中禁止複製的 user-select CSS",
+          "body": "- DatabaseService: 新增 CleanHtmlContent 集中清理 HTML (window.print + user-select CSS)"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "c00fc284",
+          "time": "10:00",
+          "message": "v2.15: 查詢排序改為按分單號碼優先，與預覽列印一致",
+          "body": "- Query_PhysicianOrderM 加入 MinTNO 子查詢"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "0facb931",
+          "time": "17:56",
+          "message": "docs: 摘要健檢次數措辭修正 + Ch5 微調 + todo 更新",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c1e6000c",
+          "time": "17:20",
+          "message": "docs: 摘要關鍵詞修正 + MLP 分類名稱統一 + 篇幅規劃狀態更新",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "646f79c1",
+          "time": "17:12",
+          "message": "docs: 中英文摘要初稿 + 前置頁面檔案整理",
+          "body": "- 撰寫中文摘要與英文摘要初稿（背景、方法、六項發現、貢獻）"
+        },
+        {
+          "hash": "3fc0fbb4",
+          "time": "16:05",
+          "message": "docs: 檔案重編號 + 摘要骨架 + 篇幅規劃更新",
+          "body": "- 謝辭：07_ → 00_（按印刷順序）"
+        },
+        {
+          "hash": "2f097c8f",
+          "time": "15:56",
+          "message": "docs: 章節檔案加數字前綴排序 + Ch5 移除水平線",
+          "body": "- 所有章節檔名加上 01_~07_、99_ 前綴，修正 VS Code 中文排序問題"
+        },
+        {
+          "hash": "abe1e9bf",
+          "time": "15:45",
+          "message": "docs: Ch5 §5.3 DGA 段落精簡 + Meeting20 簡報確診定義更新",
+          "body": "- §5.3 飲食段落從 42 行精簡為 3 行（保留核心訊息，刪除重複 DGA 引用）"
+        },
+        {
+          "hash": "cac1829c",
+          "time": "15:36",
+          "message": "docs: Ch5 §5.2 確診定義限制重寫 — 依 Luo et al. 原文分疾病說明",
+          "body": "- 標題改為「確診定義包含非生理指標條件」"
+        },
+        {
+          "hash": "6c509eb8",
+          "time": "15:33",
+          "message": "docs: Ch5 精修 — 補齊 8 項發現 + NB/LDA 分析 + 研究貢獻更新",
+          "body": "- §5.1 發現二補入 NB/LDA 具體分析（LDA 高 AUC 但極低 Sensitivity、NB 受獨立性假設限制）"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "3e74a7c3",
+          "time": "15:16",
+          "message": "chore: 調整預設篩選起始日為 2026-02-05",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4097f328",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-05",
+          "body": "🤖 自動生成於 2026-02-05 07:05"
+        },
+        {
+          "hash": "5268ae30",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-04 (18 commits)",
+          "body": "🤖 自動生成於 2026-02-05 07:05"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 11,
+    "totalCommits": 19
+  }
+}
