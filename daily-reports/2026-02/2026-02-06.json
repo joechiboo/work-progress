@@ -1,0 +1,127 @@
+{
+  "date": "2026-02-06",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b9066c87",
+          "time": "13:00",
+          "message": "feat(BT403): 列印收據時寫入 RECEIPTS 表，支援編號去重",
+          "body": "- PrintBT403 列印時自動將 PRINTRECEIPT=\"Y\" 的客戶收據寫入 RECEIPTS 表"
+        },
+        {
+          "hash": "21468422",
+          "time": "12:14",
+          "message": "docs: 新增 BT403 每月客戶明細表頁面說明",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a6006c4f",
+          "time": "12:14",
+          "message": "feat(BT402): 重新排版並新增開立收據欄位",
+          "body": "- 表單改為橫式佈局，按鈕移至標題行，縮小表單佔用空間"
+        },
+        {
+          "hash": "f6cbb58e",
+          "time": "09:55",
+          "message": "docs: 修正 Web.config 配置說明",
+          "body": "- 大安聯合正式配置改為 Web.Release.config"
+        },
+        {
+          "hash": "c8775d74",
+          "time": "08:19",
+          "message": "docs: 整理文檔目錄結構並新增配置說明",
+          "body": "搬移 LISWeb/Docs 下的文檔至根目錄 Documents："
+        },
+        {
+          "hash": "0d3a8c1a",
+          "time": "08:15",
+          "message": "feat(config): 各分部新增 FOBT 問卷連結設定",
+          "body": "新增 FOBT_SurveyUrl 設定供各分部使用："
+        },
+        {
+          "hash": "71d341cf",
+          "time": "08:00",
+          "message": "style(BT101): 調整出帳人員及付款模式欄位 layout",
+          "body": "- 出帳人員與付款模式合併至同一格"
+        },
+        {
+          "hash": "698cedd0",
+          "time": "07:40",
+          "message": "feat(帳務): BT101 新增出帳人員及付款模式欄位，BT402 支援顯示及篩選",
+          "body": "BT101 客戶資料："
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "Report\\FOBT",
+      "commits": [
+        {
+          "hash": "b1cbcd17",
+          "time": "15:46",
+          "message": "更新 README，替換 GitLab 預設模板為專案實際說明",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6ab515ba",
+          "time": "15:45",
+          "message": "新增地址來源說明文檔與地址維護功能 TODO",
+          "body": "- 地址來源說明.md：記錄病患地址的雙資料庫讀取優先順序與排查步驟"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "a9984b51",
+          "time": "10:43",
+          "message": "feat: 新增出勤統計查詢（遲到/早退/請假）",
+          "body": "- 資訊室個人出勤統計（績效考核用）：遲到/早退 + 請假依假別分類"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "45a24cb0",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-06",
+          "body": "🤖 自動生成於 2026-02-06 07:05"
+        },
+        {
+          "hash": "b30a65ba",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-05 (19 commits)",
+          "body": "🤖 自動生成於 2026-02-06 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "3f0d2756",
+          "time": "17:02",
+          "message": "docs: Meeting20 簡報重構 + 健檢次數圖表更新",
+          "body": "- Meeting20 簡報：Luo 5頁移除，Majcherek 擴展至 10 頁"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 3,
+    "totalCommits": 14
+  }
+}
