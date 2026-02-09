@@ -1,0 +1,163 @@
+{
+  "date": "2026-02-09",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "0e0666b9",
+          "time": "14:27",
+          "message": "Update release plan for v1.0 deployment and add LingYi seed scripts",
+          "body": "- Mark v1.0 as deployed, v1.4 dev complete"
+        },
+        {
+          "hash": "34238c12",
+          "time": "12:57",
+          "message": "Add transfer log query feature with Web UI tab",
+          "body": "New \"傳輸紀錄\" tab in the web interface allows querying transfer logs"
+        },
+        {
+          "hash": "af83b39d",
+          "time": "12:10",
+          "message": "Add Vision, Realsun, Esis XML adapters (Phase 5 complete)",
+          "body": "- HexamAdapterBase: shared HEXAM XML builder for Vision/Realsun"
+        },
+        {
+          "hash": "3c5c4971",
+          "time": "12:10",
+          "message": "Reduce Worker log noise and add per-cycle summary",
+          "body": "- Prevention download log: Information → Debug"
+        },
+        {
+          "hash": "ac368b50",
+          "time": "10:46",
+          "message": "Reduce PII masking log noise from Information to Debug level",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1775b0fa",
+          "time": "10:12",
+          "message": "Optimize Prevention download to once per Worker cycle instead of per-site",
+          "body": "Moved DownloadOrdersAsync from ProcessSiteAsync (called per-site) to"
+        },
+        {
+          "hash": "15987adf",
+          "time": "09:25",
+          "message": "Fix Worker log path for Windows Service and add rollback docs",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "f5f1f260",
+          "time": "09:21",
+          "message": "Add Windows Service hosting support to Worker",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "371adc00",
+          "time": "08:50",
+          "message": "Add API docs tab, clinic code display, resend all-sites option, and update release plan",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "755608ac",
+          "time": "08:38",
+          "message": "Add site search filter and fix resend tab display format",
+          "body": "- Add text search input on both batch and resend tabs to filter"
+        },
+        {
+          "hash": "d6d5c6da",
+          "time": "08:36",
+          "message": "Add Prevention, Group A-C adapters, release plan, and frontend improvements",
+          "body": "- Prevention adapter with 16 CMV sites (v1.0 release)"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "e64939c6",
+          "time": "07:34",
+          "message": "fix(csproj): 移除已搬遷的 Docs 檔案參照，修復建置錯誤",
+          "body": "移除 LISWeb.csproj 中已不存在的檔案參照："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "41d644bd",
+          "time": "09:27",
+          "message": "deploy: eb7f8d0a5e4f9fb0df16261a92c92d22ea893834",
+          "body": ""
+        },
+        {
+          "hash": "eb7f8d0a",
+          "time": "17:26",
+          "message": "更新版號至 v26.02.09.17.26",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "7269f5ba",
+          "time": "17:26",
+          "message": "新增115年1月臨時會記錄、更新出席紀錄、修正委員名字",
+          "body": "- 新增115年1月28日第一次臨時會會議記錄"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "bd46ab4a",
+          "time": "18:57",
+          "message": "docs: 參考文獻 Crossref 核實修正 + Word 轉換",
+          "body": "- #11 Chen→Yang, #28 Patti→Stanciu 正文全面替換 (Ch1/Ch2/Ch5)"
+        },
+        {
+          "hash": "20284683",
+          "time": "18:31",
+          "message": "docs: 圖表排版原則補入 + 參考文獻追蹤建立",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "7db5fb04",
+          "time": "18:02",
+          "message": "docs: 參考文獻整理 + Ch5 措辭精簡 + 下載索引建立",
+          "body": "- 參考文獻：補 DGA 2025-2030 (#30)、Majcherek (#31)，共 31 篇"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "3b68a566",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-09",
+          "body": "🤖 自動生成於 2026-02-09 07:05"
+        },
+        {
+          "hash": "e685cc9c",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-08 (2 commits)",
+          "body": "🤖 自動生成於 2026-02-09 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 12,
+    "sideCommits": 8,
+    "totalCommits": 20
+  }
+}
