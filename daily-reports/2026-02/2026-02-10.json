@@ -1,0 +1,157 @@
+{
+  "date": "2026-02-10",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "014d3828",
+          "time": "19:17",
+          "message": "Fix Alis date fields and nlow/nhigh, add PackageCode resolution and seed scripts",
+          "body": "- Alis: use CollectionDate for lab_date, ValidateDate for report_date,"
+        },
+        {
+          "hash": "aa33f389",
+          "time": "12:17",
+          "message": "Add WebOrder connection string to Worker appsettings",
+          "body": "Worker needs WebOrder DB access for EDAH PhysicianOrderD lookup"
+        },
+        {
+          "hash": "f509d21d",
+          "time": "12:04",
+          "message": "Add EDAH PhysicianOrderD lookup, dryRun support, and TestValue enrichment",
+          "body": "- Add IPhysicianOrderRepository + WebOrder DB integration for EDAH"
+        },
+        {
+          "hash": "249a5459",
+          "time": "08:44",
+          "message": "Fix EDAH and LingYi adapter field mappings from old system comparison",
+          "body": "- SiteHisConfig: add MedicalCode property"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "222f7faa",
+          "time": "17:26",
+          "message": "feat(BT101,BT402): 簡化付款模式為印花/匯款兩種",
+          "body": "- BT101: PAYMENT_MODE 下拉選項由 CHECK/WIRE/CASH 改為 STAMP/WIRE"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "eb41f4a0",
+          "time": "08:14",
+          "message": "新增桃園 Trigger 修復文檔與部署檢查項目",
+          "body": "- 新增 MSSQL Trigger 建立腳本 (ins_resultd, del_resultd)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "perf-toolkit",
+      "commits": [
+        {
+          "hash": "d70e637f",
+          "time": "12:22",
+          "message": "feat: 重新設計首頁，完整呈現評估框架",
+          "body": "- Hero 區：痛點描述與價值主張"
+        },
+        {
+          "hash": "2e9b07b7",
+          "time": "12:19",
+          "message": "docs: 新增發佈機制文檔",
+          "body": "說明 GitHub Pages 自動部署流程、新增頁面方式、"
+        },
+        {
+          "hash": "c99de560",
+          "time": "12:18",
+          "message": "feat: 啟用 GitHub Pages + 首頁索引",
+          "body": "- 新增 GitHub Actions workflow 自動部署"
+        },
+        {
+          "hash": "9b146581",
+          "time": "12:16",
+          "message": "feat: 加入脫敏版主管報告範例",
+          "body": "- 真實姓名替換為角色代號（PG-01, MIS-01, IF-01 等）"
+        },
+        {
+          "hash": "d05ba846",
+          "time": "12:14",
+          "message": "feat: 加入角色差異化評估框架與方法論紀錄",
+          "body": "- 新增三種工作角色分類（PG/MIS/儀器連線）"
+        },
+        {
+          "hash": "74ea3033",
+          "time": "10:33",
+          "message": "init: SDD + Agent Skills 整合框架",
+          "body": "建立規格驅動開發與 AI 協作的雙軌架構："
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "15e4c620",
+          "time": "12:26",
+          "message": "Perf-Toolkit 改為企業專案分類，新增公司標籤",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "ae003090",
+          "time": "12:24",
+          "message": "新增作品集：Perf-Toolkit 績效管理工具包",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "a0e72afa",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-10",
+          "body": "🤖 自動生成於 2026-02-10 07:05"
+        },
+        {
+          "hash": "da0d20e2",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-09 (20 commits)",
+          "body": "🤖 自動生成於 2026-02-10 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "d8712720",
+          "time": "15:00",
+          "message": "docs: Cranmer PySR 引用補齊 + Majcherek 表 2-1 + 附錄移除 + 印刷排版流程",
+          "body": "- 補 Cranmer (2023) PySR 至參考文獻 md/docx + Ch2 §2.4.4、Ch3 §3.4.5 行內引用"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 11,
+    "totalCommits": 17
+  }
+}
