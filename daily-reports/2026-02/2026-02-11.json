@@ -1,0 +1,121 @@
+{
+  "date": "2026-02-11",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "683258ca",
+          "time": "12:29",
+          "message": "Add skipConversion param to manual batch/resend/dry-run endpoints",
+          "body": "Supports both adapter-default (e.g. Prevention SkipValueConversion=true)"
+        },
+        {
+          "hash": "9269107e",
+          "time": "12:20",
+          "message": "Add SkipValueConversion toggle: Prevention sends raw OD_TR_VAL values",
+          "body": "- IHisAdapter.SkipValueConversion: default false, Prevention overrides true"
+        },
+        {
+          "hash": "18fc6b9b",
+          "time": "11:40",
+          "message": "Fix LIS updateLabNo: add ClinicCode for correct SiteHisMapping FK lookup",
+          "body": "SiteHisMappingId=0 violated FK constraint. Now LIS sends ClinicCode,"
+        },
+        {
+          "hash": "fe35a5a5",
+          "time": "11:15",
+          "message": "Add TheseCloud SOAP adapter (v1.5) and LIS integration API endpoints",
+          "body": "- TheseCloud adapter: first SOAP-based adapter using WCF Core proxy, 53-column THCLOUD DataTable format"
+        },
+        {
+          "hash": "f8dbc74b",
+          "time": "08:55",
+          "message": "Add Vision/Realsun seed scripts and dry-run comparison utilities",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6b819a08",
+          "time": "08:55",
+          "message": "Integrate updateLabNo into Prevention adapter (replaces SupPreventionApiDotNetCore)",
+          "body": "- Add PreventionLabNo model and UpdateLabNoAsync API client method"
+        },
+        {
+          "hash": "58e295c2",
+          "time": "08:54",
+          "message": "Add real-time failure email alerts, simplify Prevention download, extend log retention",
+          "body": "- Add SendFailureAlertAsync for immediate email notification on transfer failures"
+        },
+        {
+          "hash": "378c0f24",
+          "time": "08:54",
+          "message": "Refactor Realsun to FTP upload, fix Group B date fields, add dry-run verification",
+          "body": "- Realsun: replace HTTP POST with FTP upload + callback API (FluentFTP)"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fb8996d4",
+          "time": "12:07",
+          "message": "refactor: API 改 async/await，清除所有分點 PMF 連線字串",
+          "body": "- findCMVUnitCodeAsync / CallCMVApiAsync / CMVCreateTNOAsync 改為 async"
+        },
+        {
+          "hash": "228d6802",
+          "time": "11:35",
+          "message": "refactor: 預防簽收改用新 API，移除 PMF 直連",
+          "body": "- findCMVUnitCode() 改呼叫 GET /api/lis/prevention-sites"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\TheseDataUpload",
+      "commits": [
+        {
+          "hash": "52924775",
+          "time": "09:19",
+          "message": "WIP on main: e0a1b6d Initial commit",
+          "body": ""
+        },
+        {
+          "hash": "b589ea9c",
+          "time": "09:19",
+          "message": "index on main: e0a1b6d Initial commit",
+          "body": ""
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "ca0b6fe6",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-11",
+          "body": "🤖 自動生成於 2026-02-11 07:05"
+        },
+        {
+          "hash": "aa0b1a80",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-10 (17 commits)",
+          "body": "🤖 自動生成於 2026-02-11 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 12,
+    "sideCommits": 2,
+    "totalCommits": 14
+  }
+}
