@@ -1,0 +1,79 @@
+{
+  "date": "2026-02-21",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "d8381e94",
+          "time": "11:57",
+          "message": "Add v1.1 e2e comparison scripts and fix LingYi NHICode fallback",
+          "body": "- Fix LingYi NHICode: use InsuranceCode ?? \"\" (not ?? ItemCode)"
+        },
+        {
+          "hash": "28b99864",
+          "time": "10:14",
+          "message": "docs: add Prevention PhysicianOrder download mechanism to his-vendors.md",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a61637c4",
+          "time": "10:12",
+          "message": "Add Prevention PhysicianOrder write + AlleyPin IdNum unmasked + Email fix",
+          "body": "- Prevention: download orders → write PhysicianOrderM/D (duplicate check)"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "125b7252",
+          "time": "23:44",
+          "message": "deploy: 954265d71ff9162847cc33d20eec4426aad817c6",
+          "body": ""
+        },
+        {
+          "hash": "954265d7",
+          "time": "07:44",
+          "message": "更新版號至 v26.02.21.07.43",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a19373f4",
+          "time": "07:43",
+          "message": "新增115年2月份例會會議記錄、更新出席紀錄",
+          "body": "- 新增115年2月4日例會會議記錄（100%出席率）"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "679295ef",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-21",
+          "body": "🤖 自動生成於 2026-02-21 07:05"
+        },
+        {
+          "hash": "711a339b",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-20 (2 commits)",
+          "body": "🤖 自動生成於 2026-02-21 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 5,
+    "totalCommits": 8
+  }
+}
