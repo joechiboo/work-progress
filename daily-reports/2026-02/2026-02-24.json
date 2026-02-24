@@ -1,0 +1,85 @@
+{
+  "date": "2026-02-24",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "93671252",
+          "time": "15:00",
+          "message": "Vision E2E 8-fix batch, LingYi fixes, v1.2-v1.5 docs, scripts + OnlineOrderRepository",
+          "body": "- HexamAdapterBase: BIRDT→yyyy/MM/dd, ADUHE→\"0\", RPTDT/RPTTM→ValidateDate,"
+        },
+        {
+          "hash": "fd387526",
+          "time": "14:57",
+          "message": "Add JianYe Appointments mode (Pid_Mode=2) + fix lab_date fallback for v1.2 adapters",
+          "body": "Appointments mode: multi-branch Oracle query → filter by appointment date"
+        },
+        {
+          "hash": "050c86a1",
+          "time": "11:28",
+          "message": "Fix LingYi ReportSeq sequential numbering, add Worker multi-hour scheduling",
+          "body": "- LingYi ReportSeq: use 1-based index (idx+1) instead of hardcoded \"1\""
+        },
+        {
+          "hash": "b5ff9988",
+          "time": "10:40",
+          "message": "Add resend-by-tno auto-lookup, batch dateTo fix, Worker multi-hour schedule",
+          "body": "- New POST /api/manual/resend-by-tno: given TNOs only, auto-resolves"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "212fa83e",
+          "time": "14:03",
+          "message": "新增桃園 pat_resultdx 欄位截斷事件紀錄與欄位長度檢查腳本",
+          "body": "pat_resultdx 的 prd_test_name/h_test_name (char 25) 和 prd_range (char 30)"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "65ce709d",
+          "time": "08:20",
+          "message": "v2.16: 取消分單/取消轉入支援按檔案篩選勾選",
+          "body": "- 新增 GetCheckedSNList() 收集被勾選的 SN"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "865855d4",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-24",
+          "body": "🤖 自動生成於 2026-02-24 07:05"
+        },
+        {
+          "hash": "18d853fd",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-23 (2 commits)",
+          "body": "🤖 自動生成於 2026-02-24 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 2,
+    "totalCommits": 8
+  }
+}
