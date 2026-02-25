@@ -1,0 +1,55 @@
+{
+  "date": "2026-02-25",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c8b4be27",
+          "time": "11:16",
+          "message": "style:[BT101] 全自費移至付款週期旁; docs: 新增預防簽收機制文檔、更新LT278單位條件說明",
+          "body": "- BT101: 將「全自費」checkbox 從查員工報告列移至付款週期旁"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "3d93c4a6",
+          "time": "10:17",
+          "message": "Fix Realsun E2E: child item sorting (OD_SEQ_NO), header NHIID, MRR desc",
+          "body": "- ORDER BY: child items now sort by OD_SEQ_NO (not TI_DISP_SEQ), matching old system"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "5ecae0f5",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-25",
+          "body": "🤖 自動生成於 2026-02-25 07:05"
+        },
+        {
+          "hash": "cb19abe2",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-24 (8 commits)",
+          "body": "🤖 自動生成於 2026-02-25 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 2,
+    "totalCommits": 4
+  }
+}
