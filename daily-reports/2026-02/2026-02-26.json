@@ -1,0 +1,79 @@
+{
+  "date": "2026-02-26",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "01eb5465",
+          "time": "19:46",
+          "message": "Fix LIS updateLabNo 400 error, add TriggerMode tracking, EDAH error handling",
+          "body": "- Fix /api/lis/updateLabNo: make Uid optional, auto-lookup from Oracle BLG_TX_HDR"
+        },
+        {
+          "hash": "df512dc1",
+          "time": "07:14",
+          "message": "Add TheseCloud adapter, Prevention updateLabNo, Admin API, and Worker enhancements",
+          "body": "- TheseCloud (v1.5): SOAP adapter with WCF proxy, 53-column DataTable, AC code auto-query, seed for 36 sites"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "b875a42a",
+          "time": "09:20",
+          "message": "UNITDATA: 新增項目列印設定介面 + 設定文檔",
+          "body": "- 單位維護頁面新增「列印設定」按鈕，可管理 UNITPrintSetting"
+        },
+        {
+          "hash": "21f8397e",
+          "time": "09:14",
+          "message": "v2.26: 刪除分單部份刪除、顯示分單進度、項目列印設定、HCLAB→LIS、多項修正",
+          "body": "新功能："
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "40074e62",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-26",
+          "body": "🤖 自動生成於 2026-02-26 07:05"
+        },
+        {
+          "hash": "3b321240",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-25 (4 commits)",
+          "body": "🤖 自動生成於 2026-02-26 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "48b98eb6",
+          "time": "14:19",
+          "message": "docs: 論文章節重組（五章→八章）+ 公式編號 + docx 重轉",
+          "body": "- 章節重組：Ch3 問題定義、Ch4 模型方法、Ch5 研究設計、"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 3,
+    "totalCommits": 7
+  }
+}
