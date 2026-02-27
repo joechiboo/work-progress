@@ -1,0 +1,121 @@
+{
+  "date": "2026-02-27",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a8fdfb22",
+          "time": "12:05",
+          "message": "fix: TI_CTL_FLAG 為 NULL 時 Substring 導致 ArgumentOutOfRangeException",
+          "body": "當檢驗項目不存在於 TEST_ITEM 表格時（如 L1002、7394），"
+        },
+        {
+          "hash": "8decff05",
+          "time": "11:06",
+          "message": "docs:[預防簽收] 更新 updateLabNo 400 問題調查紀錄",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "689e3119",
+          "time": "11:06",
+          "message": "docs:[DangerListV2] 整合嘉義客製化文檔至V2主目錄，補_JY.sql至csproj",
+          "body": "- 刪除 Documents/Projects/危急值清單V2_嘉義客製化/ 獨立folder"
+        },
+        {
+          "hash": "d7e19626",
+          "time": "10:55",
+          "message": "refactor:[DangerListV2] SQL按站台分離，嘉義獨立_JY.sql",
+          "body": "- 預設 GetDangerListV2_Ultra.sql 還原（不含4079 OR分支）"
+        },
+        {
+          "hash": "366c1f3d",
+          "time": "10:35",
+          "message": "fix:[DangerListV2] 修正陽明醫院測試案例 flag 及 test codes",
+          "body": "- TestCase_Definition.js: 7 筆測試案例 OD_TR_FLAG 由 HH/LL 改為 H/L"
+        },
+        {
+          "hash": "264f1bd0",
+          "time": "10:32",
+          "message": "fix:[DangerListV2] unitDangerRules 加 UCL_SITE 站台限定",
+          "body": "避免其他分部有相同 DBCODE 時誤套 4079 規則，"
+        },
+        {
+          "hash": "825e447f",
+          "time": "10:11",
+          "message": "feat:[DangerListV2] 新增4079陽明醫院單位專屬危急值規則",
+          "body": "- 三層規則架構: Unit(DBCODE) → Site(UCL_SITE) → Default(HH/LL)"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "893013d9",
+          "time": "11:41",
+          "message": "docs: 同步所有文件與程式碼一致",
+          "body": "修正文件中大量過時資訊，對齊實際程式碼："
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "e2c4f708",
+          "time": "11:43",
+          "message": "DISTRIBUTE: 還原按鈕順序為原始排列",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "c3afc67a",
+          "time": "17:37",
+          "message": "docs: 新增 8 份變更單 (2025/11 - 2026/02)",
+          "body": "- 4059-202511-01 危急值清單 V2"
+        },
+        {
+          "hash": "311af1f2",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-02-27",
+          "body": "🤖 自動生成於 2026-02-27 07:05"
+        },
+        {
+          "hash": "f20d85c5",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-02-26 (7 commits)",
+          "body": "🤖 自動生成於 2026-02-27 07:05"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "1804a2ba",
+          "time": "17:33",
+          "message": "docs: 第二章精簡 + 表 2-2 模型/指標數修正 + 文獻索引更新",
+          "body": "- ch2 章首段、表 2-1 描述精簡"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 4,
+    "totalCommits": 13
+  }
+}
