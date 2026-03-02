@@ -1,0 +1,103 @@
+{
+  "date": "2026-03-02",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "96a25e6b",
+          "time": "16:39",
+          "message": "Refactor AlleyPin ServiceStoreId to per-site via siteConfig.MedicalCode",
+          "body": "Support multi-clinic deployments by using siteConfig.MedicalCode as the"
+        },
+        {
+          "hash": "96a54ee9",
+          "time": "11:54",
+          "message": "Update TheseCloud E2E script: auto-discover TNOs from API",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "9d1ac646",
+          "time": "11:49",
+          "message": "Update v1.4 announcement: add dashboard, LIS fix, JianYePlatform warning",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "820869ba",
+          "time": "11:38",
+          "message": "Fix v1.2 deployment bugs: vitals query, SSL bypass, Alis login type",
+          "body": "- Add PatientVitals record + GetVitalsAsync to IOnlineOrderRepository"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\WebOrderArchive",
+      "commits": [
+        {
+          "hash": "10dc0921",
+          "time": "07:51",
+          "message": "加入 Serilog 日誌、修正封存 PK 衝突、新增維護手冊",
+          "body": "- 封存 INSERT 加入 WHERE NOT EXISTS 防護，避免 Archive 表 PK 衝突中斷"
+        },
+        {
+          "hash": "b9cef6f4",
+          "time": "07:42",
+          "message": "改寫 README 為專案文件、修正封存 PK 衝突問題",
+          "body": "- README 從 GitLab 預設模板改為專案說明（環境、封存對象、設定、常見問題）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "d822b486",
+          "time": "07:51",
+          "message": "v2.27: 轉入LIS改進 — skippedTNOs重試、ADD_ITEM去重、還原部份選取",
+          "body": "- 轉入LIS：新增 skippedTNOs 邏輯，重試時比對身分證號跳過已轉入的"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f1879d63",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-02",
+          "body": "🤖 自動生成於 2026-03-02 07:05"
+        },
+        {
+          "hash": "1d360ffb",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-01 (3 commits)",
+          "body": "🤖 自動生成於 2026-03-02 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "860c41aa",
+          "time": "18:28",
+          "message": "docs: PDF 整理 + 下載索引更新 + 閱讀進度追蹤",
+          "body": "- 新增 PDF：He & Garcia, ADA, Cranmer, James, Chawla, Zhao, Alberti"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 3,
+    "totalCommits": 10
+  }
+}
