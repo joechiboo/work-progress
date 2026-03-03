@@ -1,0 +1,97 @@
+{
+  "date": "2026-03-03",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "8ac71fe7",
+          "time": "12:42",
+          "message": "Remove EDAH \"1:\" titer prefix: confirmed unused in old system via data comparison",
+          "body": "compare-edah-titer.ps1 verified 50 old records all lack \"1:\" prefix —"
+        },
+        {
+          "hash": "01fc38f9",
+          "time": "12:28",
+          "message": "Add EDAH titer prefix, ShenBao semi-quantitative formatting, vendor customization docs",
+          "body": "- EDAH: add \"1:\" prefix for titer testCodes (2323,2324,2325,2326,2522,8816,8817,8818,8824)"
+        },
+        {
+          "hash": "d7620245",
+          "time": "12:04",
+          "message": "Fix EDAH semi-quantitative lab_result formatting",
+          "body": "EDAH requires \"0.6 Negative\" → \"Negative(0.6)\" format for semi-quantitative"
+        },
+        {
+          "hash": "b2163625",
+          "time": "08:45",
+          "message": "v1.3.1: JianYe response check, DelayMs throttle, dashboard UX improvements",
+          "body": "- Fix JianYe adapter: check response body status field (HTTP 200 but status:false → Failed)"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "45b8f623",
+          "time": "13:29",
+          "message": "修正 DB 連線與 Entity 欄位映射，補充專案文檔",
+          "body": "- 連線字串改用 IP 取代 DATANETTW1（DNS 解析問題）"
+        },
+        {
+          "hash": "8faaa67a",
+          "time": "11:40",
+          "message": "新增舊系統分析報告文檔",
+          "body": "詳細記錄舊系統資料表結構、上傳機制、安全問題、"
+        },
+        {
+          "hash": "c6eef032",
+          "time": "11:38",
+          "message": "初始化 UCL Admin 後台管理系統",
+          "body": "- ASP.NET Core 10 + Vue 3 + TypeScript 前後端分離架構"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "bbccbafd",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-03",
+          "body": "🤖 自動生成於 2026-03-03 07:05"
+        },
+        {
+          "hash": "42a536ce",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-02 (10 commits)",
+          "body": "🤖 自動生成於 2026-03-03 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "f379f5cf",
+          "time": "16:42",
+          "message": "Initial commit: course notes for Semantic Web and Information Retrieval",
+          "body": "- Add README with course overview and video links"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 3,
+    "totalCommits": 10
+  }
+}
