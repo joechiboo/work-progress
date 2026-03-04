@@ -1,0 +1,115 @@
+{
+  "date": "2026-03-04",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "088bee4d",
+          "time": "14:13",
+          "message": "Fix Prevention auto-retry: stop retrying TNOs that already succeeded",
+          "body": "Simplified NOT EXISTS check — any Success record for the TNO within the"
+        },
+        {
+          "hash": "35b67d5e",
+          "time": "12:34",
+          "message": "Prevention auto-retry: decouple from download, run independently every hour",
+          "body": "Retry failed Prevention transfers on its own timer (DownloadIntervalMinutes)"
+        },
+        {
+          "hash": "7f5b8624",
+          "time": "12:21",
+          "message": "Add Prevention auto-retry: resend failed transfers after downloading new orders",
+          "body": "When PMF orders are entered late (after reports already failed due to missing UID),"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "858fca96",
+          "time": "09:15",
+          "message": "CKEditor 檔案上傳插件、連線字串加密、環境設定調整",
+          "body": "- 新增 CKEditor 自訂「上傳檔案」按鈕，上傳後插入超連結"
+        },
+        {
+          "hash": "10cdc162",
+          "time": "08:55",
+          "message": "新增檢驗目錄/項目管理、CKEditor 整合、IIS 部署配置",
+          "body": "- 檢驗目錄管理 CRUD (AllGoods_Contain, 含 CKEditor 富文本編輯)"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "5d7016ed",
+          "time": "13:16",
+          "message": "改用 MIN(LINE_NO) 策略取代硬寫 LINE_NO = 0",
+          "body": "部分檢驗（如尿液分析）不存在 LINE_NO = 0，只有 2, 4, 6..."
+        },
+        {
+          "hash": "f4c9a164",
+          "time": "12:57",
+          "message": "修正 PAT_RESULTD 同步只取 LINE_NO = 0，避免空值覆蓋檢驗結果",
+          "body": "Oracle PAT_RESULTD 每個 TRX_NUM 有多筆 LINE_NO，LINE_NO 1 無結果值"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "0ef30d8e",
+          "time": "11:19",
+          "message": "v3.03: 部份選取支援(分單/轉入/取消/刪除) + ID_TNO補零 + SQL測試",
+          "body": "- 部份選取機制：JS collectCheckedRows() + HiddenField + GetCheckedSNList()"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "ac6f5b33",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-04",
+          "body": "🤖 自動生成於 2026-03-04 07:05"
+        },
+        {
+          "hash": "09724bf6",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-03 (10 commits)",
+          "body": "🤖 自動生成於 2026-03-04 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "f0a76b44",
+          "time": "19:24",
+          "message": "docs: Tier 1+2 深度解析全部完成 (17/36, 47%)",
+          "body": "新增 11 篇深度解析：Ye(2018), Kanegae(2020), Sun(2017),"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 3,
+    "totalCommits": 11
+  }
+}
