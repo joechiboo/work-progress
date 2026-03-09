@@ -1,0 +1,109 @@
+{
+  "date": "2026-03-09",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "2b011904",
+          "time": "14:34",
+          "message": "Fix NullRef on r4-1 AppSettings and JS indexOf error masking",
+          "body": "- Add null protection (?? \"\") for r4-1_Negative/Positive/NotDetermined AppSettings"
+        },
+        {
+          "hash": "5280bdcc",
+          "time": "10:07",
+          "message": "Update DEBTOR_LOGIN auth doc with current implementation",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "41e15539",
+          "time": "16:06",
+          "message": "fix: select_PhysicianOrderM 加 M.UTI_UNIT_CODE 過濾，修正跨單位病患無法配號",
+          "body": "- select_PhysicianOrderM 原本只過濾 D.UTI_UNIT_CODE，未過濾 M.UTI_UNIT_CODE"
+        },
+        {
+          "hash": "2e2cac89",
+          "time": "07:16",
+          "message": "v3.09: 更新版號 3.09 / 2026/03/09",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "d7a52531",
+          "time": "18:19",
+          "message": "音訊播放器改為簡潔播放/暫停按鈕",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "294f4fe3",
+          "time": "18:17",
+          "message": "修正音訊播放器無法點擊播放的問題",
+          "body": "- 卡片點擊事件排除 audio 項目，避免攔截播放器操作"
+        },
+        {
+          "hash": "2680d923",
+          "time": "18:14",
+          "message": "新增蕭邦夜曲 op.9 No.2 鋼琴錄音至音樂作品區",
+          "body": "- 新增 HTML5 audio 播放器支援"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "dc97d2aa",
+          "time": "10:07",
+          "message": "deploy: 2d80504ee5c4e3e89bc98955f9d015884006f80b",
+          "body": ""
+        },
+        {
+          "hash": "2d80504e",
+          "time": "18:06",
+          "message": "更新大事記：3/7區權會流會、3/21重開議預定",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "e3c2daef",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-09",
+          "body": "🤖 自動生成於 2026-03-09 07:05"
+        },
+        {
+          "hash": "f350bac4",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-08 (2 commits)",
+          "body": "🤖 自動生成於 2026-03-09 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 7,
+    "totalCommits": 11
+  }
+}
