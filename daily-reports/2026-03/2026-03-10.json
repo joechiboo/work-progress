@@ -1,0 +1,133 @@
+{
+  "date": "2026-03-10",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "6068a354",
+          "time": "17:27",
+          "message": "Fix FinalFail: use CreatedAt instead of Id (GUID has no ordering)",
+          "body": "TransferLogs.Id is UNIQUEIDENTIFIER (GUID), comparing with > gives"
+        },
+        {
+          "hash": "a609c35e",
+          "time": "17:19",
+          "message": "Fix FinalFail filter: include all Types, not just SendReport",
+          "body": "ManualBatch and ManualResend records were excluded from the \"仍失敗\""
+        },
+        {
+          "hash": "7355fec0",
+          "time": "16:14",
+          "message": "Fix Vision response parsing and add MedicalCode sync feature",
+          "body": "- Fix ParseResponseStatus: check PAT CODE=\"0\" in addition to STATUS CODE,"
+        },
+        {
+          "hash": "1d072c8e",
+          "time": "12:27",
+          "message": "Organize scripts/ into subdirectories with README index",
+          "body": "Reorganize 100+ flat scripts into logical subdirectories:"
+        },
+        {
+          "hash": "301c28d8",
+          "time": "12:20",
+          "message": "Add TheseCloud AC code matching for multi-visit patients",
+          "body": "When a patient has multiple visits on the same day (e.g. health checkup +"
+        },
+        {
+          "hash": "37362e52",
+          "time": "11:46",
+          "message": "Fix TheseCloud SOAP URL: nphis.ntpc.gov.tw (not thgcloudsrv)",
+          "body": "seed script and docs were pointing to thgcloudsrv.these.com.tw (Kaohsiung"
+        },
+        {
+          "hash": "674a355a",
+          "time": "08:10",
+          "message": "Fix IISI batch failures: token caching, cycleTime scheduling, FinalFail filter",
+          "body": "- IISI: cache login token per cycle to avoid flooding HIS with login requests"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "LIS\\Schedule\\blood-type-sync",
+      "commits": [
+        {
+          "hash": "73acca1c",
+          "time": "08:36",
+          "message": "feat: 平日無異常不寄 email，週報加入未執行日期警告",
+          "body": "- AlwaysSend 改為 false，平日只在有不一致或錯誤時才寄信"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "90bd2703",
+          "time": "15:50",
+          "message": "v3.11: 快速列印依勾選結果過濾",
+          "body": "- quickPrint() 加入 checkbox 判斷，只列印勾選的病患"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "ae7e9347",
+          "time": "07:16",
+          "message": "Move SRT files into docs/srt/ subfolder",
+          "body": "- Reorganize all 17 SRT subtitle files into docs/srt/ for cleaner structure"
+        },
+        {
+          "hash": "b47b7808",
+          "time": "07:12",
+          "message": "Add Chinese SRT subtitles for all 17 course videos",
+          "body": "- Generate Traditional Chinese SRT subtitle files (01-17) from YouTube auto-generated transcripts via Google Translate"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "a2585627",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-10",
+          "body": "🤖 自動生成於 2026-03-10 07:05"
+        },
+        {
+          "hash": "e71da6c2",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-09 (11 commits)",
+          "body": "🤖 自動生成於 2026-03-10 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "ce141910",
+          "time": "18:17",
+          "message": "docs: 初稿III 全部 md 修改完成 (#1-#11 + Review A-X)",
+          "body": "主要修改："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 5,
+    "totalCommits": 14
+  }
+}
