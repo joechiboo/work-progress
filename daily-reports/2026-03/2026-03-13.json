@@ -1,0 +1,73 @@
+{
+  "date": "2026-03-13",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "120ddf90",
+          "time": "10:16",
+          "message": "Fix phrase-type abnormal flag: use TEST_TV lookup instead of OD_TR_FLAG",
+          "body": "For codified text results (TEXTVALUE), OD_TR_FLAG is often empty while"
+        },
+        {
+          "hash": "6f89bb86",
+          "time": "09:44",
+          "message": "Fix IISI/JianYe: detect HIS status:false as Failed",
+          "body": "IISI adapter was missing response body check entirely — HTTP 200 with"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "8982d62a",
+          "time": "14:09",
+          "message": "fix:[LT274] SP GetReportsDetail 改以 ORD 為主表 + LEFT JOIN BLG",
+          "body": "- SP: FROM BLG_TX_HDR 改為 FROM ORD_H，LEFT JOIN BLG_TX_HDR"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "3640355c",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-13",
+          "body": "🤖 自動生成於 2026-03-13 07:05"
+        },
+        {
+          "hash": "288ea828",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-12 (8 commits)",
+          "body": "🤖 自動生成於 2026-03-13 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "LisA",
+      "commits": [
+        {
+          "hash": "ac81cf82",
+          "time": "12:34",
+          "message": "docs: 新增 MVP UI mockup 及系統架構設計",
+          "body": "- 開單、審核、報告、項目設定等頁面 HTML mockup"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 3,
+    "totalCommits": 6
+  }
+}
