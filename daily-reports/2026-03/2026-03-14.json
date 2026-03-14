@@ -1,0 +1,49 @@
+{
+  "date": "2026-03-14",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "4477f897",
+          "time": "11:57",
+          "message": "fix:[SysParameter] 修正 AJAX URL 路徑，加上 ../ 前綴避免 404",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "868763da",
+          "time": "10:49",
+          "message": "feat:[SysParameter] 新增系統參數管理機制，LT270 批量二審改讀動態設定",
+          "body": "- 新增 SYS_PARAMETER 資料表 DDL（含索引、初始資料）"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "63cd4786",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-14",
+          "body": "🤖 自動生成於 2026-03-14 07:05"
+        },
+        {
+          "hash": "45952158",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-13 (6 commits)",
+          "body": "🤖 自動生成於 2026-03-14 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 2,
+    "totalCommits": 4
+  }
+}
