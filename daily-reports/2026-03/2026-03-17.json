@@ -1,0 +1,109 @@
+{
+  "date": "2026-03-17",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "a4a7d70f",
+          "time": "14:15",
+          "message": "Fix VisionData name fallback: allow matching when VisionData has real ID",
+          "body": "When Oracle has PatientId='00' but VisionData has a real ID (e.g."
+        },
+        {
+          "hash": "0fdac13c",
+          "time": "14:07",
+          "message": "Add VisionData item-based AC code fallback for date mismatch cases",
+          "body": "When BLG_TX_HDR.ID_INVNO is empty and VisionData date match fails"
+        },
+        {
+          "hash": "03acb07b",
+          "time": "14:04",
+          "message": "Fix BeiRongKang AC code mapping: replace SOAP/PhysicianOrderM with VisionData fallback",
+          "body": "The old 3-layer fallback (Oracle → PhysicianOrderM → SOAP Export) caused"
+        },
+        {
+          "hash": "ed8f3e28",
+          "time": "12:24",
+          "message": "Add TNO list API, TheseCloud AC export test endpoint, vitals empty check, and SOAP date fallback",
+          "body": "- Add GET /api/logs/tno-list for fetching all distinct TNOs across pages (resend UI)"
+        },
+        {
+          "hash": "96363e3e",
+          "time": "12:22",
+          "message": "Remove XmlTag KH prefix for Taipei and add ADUHE adult check-up flag",
+          "body": "- Remove hardcoded XmlTag=\"KH\" from Vision DefaultConfig (Taipei doesn't need"
+        },
+        {
+          "hash": "23664cfa",
+          "time": "08:55",
+          "message": "Add Oracle HORD_DTL fallback for P221 vitals when filtered out of report items",
+          "body": "P221 health exam items (height/weight/BP) may have OD_ACTION_FLAG or"
+        },
+        {
+          "hash": "1bf75589",
+          "time": "08:39",
+          "message": "Add P221 vitals fallback for manual orders in IISI/JianYe adapters",
+          "body": "When DbOnlineReservation.Order has no vitals (e.g. manual orders),"
+        },
+        {
+          "hash": "0de3f149",
+          "time": "07:23",
+          "message": "Bypass AC code requirement for QC samples and refine v1.5 Download tracking",
+          "body": "QC samples (PID=00 + name contains \"NO.\" or digits) now upload with empty"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b9ed606d",
+          "time": "10:36",
+          "message": "docs(002C): 新增資料清理與封存機制文件，更新 BT101 文件",
+          "body": "- 新增 002C 封存機制完整文件：三層架構、排程 Job、搬移腳本、HCLAB/HCLABA 差異"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "1f8771cd",
+          "time": "11:30",
+          "message": "feat: 放寬查詢下限至 2021-01-01 取代兩年滾動限制",
+          "body": "原本 trx_dt >= DATEADD(MONTH, -24, GETDATE()) 只轉兩年內資料，"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "fcc16446",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-17",
+          "body": "🤖 自動生成於 2026-03-17 07:05"
+        },
+        {
+          "hash": "d0e65c87",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-16 (11 commits)",
+          "body": "🤖 自動生成於 2026-03-17 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 2,
+    "totalCommits": 12
+  }
+}
