@@ -1,0 +1,145 @@
+{
+  "date": "2026-03-23",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ee7efd82",
+          "time": "16:07",
+          "message": "docs(LT274): 整合效能改善文檔 + HC001O plan regression 修復記錄",
+          "body": "- 新增 README.md: 總覽、三方向進度、文件索引、時間線"
+        },
+        {
+          "hash": "10ecc979",
+          "time": "12:01",
+          "message": "docs(ActOpen): 新增網路報告查詢帳號管理文檔",
+          "body": "記錄 ActOpen/ActQuery/ActEdit 系統架構、操作流程、"
+        },
+        {
+          "hash": "b71931b0",
+          "time": "11:36",
+          "message": "fix(BT300): 修正工作站篩選查無資料及移除多餘 none 選項",
+          "body": "工作站 EXISTS 篩選同時比對展開細項(FILTER_TI_CODE)與原始開單代碼(TI_CODE)，"
+        },
+        {
+          "hash": "bbc55c55",
+          "time": "09:35",
+          "message": "fix(perf): 參數化第一批 Repository literal SQL — 8 檔案 ~30 注入點",
+          "body": "Batch 1 of C# literal SQL parameterization to reduce Oracle hard parse ratio."
+        },
+        {
+          "hash": "33b2f731",
+          "time": "07:50",
+          "message": "Merge remote-tracking branch 'origin/main' into perf/LT274_oracle_analysis_and_SP_bind",
+          "body": ""
+        },
+        {
+          "hash": "d7f4c13a",
+          "time": "07:49",
+          "message": "docs(LT274): 新增 AWR 分析 SQL、趨勢圖表 v2 及 Top SQL 驗證查詢",
+          "body": "- sql_13: AWR 每日趨勢查詢 (DBA_HIST_SYSSTAT)"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "label-printing\\Electrophoresis_Label",
+      "commits": [
+        {
+          "hash": "e00598be",
+          "time": "10:57",
+          "message": "新增 Excel 匯入批量列印功能",
+          "body": "- 新增第四個頁籤「Excel匯入」，支援從 .xlsx 匯入資料並批量列印標籤"
+        },
+        {
+          "hash": "0bca566f",
+          "time": "08:52",
+          "message": "同步 SVN 最新程式碼",
+          "body": "- Form1.cs: 加入 WS41 工作站註解"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "2a3de2da",
+          "time": "12:12",
+          "message": "新增 HCLITF.ORDER_LOCATION 寫回同步，補齊 RUNNER 欄位",
+          "body": "- OrderLocation Model 補齊 OL_RUNNER_CODE、OL_RUNNER_NAME、OL_PRINT_COPIES"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "046f4497",
+          "time": "08:13",
+          "message": "Fix AcCodeRetry infinite loop: enforce max 3 retries via COUNT",
+          "body": "The retry query used t.RetryCount on the original SendReport record,"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "75725bb9",
+          "time": "17:17",
+          "message": "docs: APA → IEEE 參考文獻格式轉換（Ch1-Ch9 全部完成）",
+          "body": "- 參考文獻從 APA 字母排序改為 IEEE 首次出現順序 [1]-[36]"
+        },
+        {
+          "hash": "b01f3087",
+          "time": "16:44",
+          "message": "docs: 初稿IV #1 #10 修正 + Meeting 23 memo + 簡報講稿更新",
+          "body": "- Ch1: 刪除 JACC: Asia 幽靈引用 2 處（#1）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "cfd5e6f0",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-23",
+          "body": "🤖 自動生成於 2026-03-23 07:05"
+        },
+        {
+          "hash": "6655fc44",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-22 (2 commits)",
+          "body": "🤖 自動生成於 2026-03-23 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "6a8411f0",
+          "time": "15:19",
+          "message": "Update key summaries for videos 05 and 06",
+          "body": "- Add grep explanation with 4 limitations in video 05"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 5,
+    "totalCommits": 15
+  }
+}
