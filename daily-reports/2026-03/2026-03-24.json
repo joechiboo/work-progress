@@ -1,0 +1,109 @@
+{
+  "date": "2026-03-24",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "7fcd7d39",
+          "time": "12:20",
+          "message": "docs(LT274E): 新增實際呼叫範例",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "d0028c54",
+          "time": "12:19",
+          "message": "feat(LT274E): 支援英文版 PDF 報告產生",
+          "body": "- LT274E 加入 [AllowAnonymous] 及 UCLToken 參數，支援匿名/PDF 產生呼叫"
+        },
+        {
+          "hash": "7ba6b670",
+          "time": "09:09",
+          "message": "fix(perf): 參數化第二批 ResultRepository + ReportRepository literal SQL",
+          "body": "ResultRepository.cs (11 處):"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "label-printing\\Electrophoresis_Label",
+      "commits": [
+        {
+          "hash": "1d939f25",
+          "time": "08:40",
+          "message": "Excel 匯入時立即查詢資料庫並顯示完整資訊",
+          "body": "- 匯入 Excel 後立即逐筆查 DB，將姓名、病歷號、送檢單位、路線顯示在 DataGridView"
+        },
+        {
+          "hash": "4a6b4f48",
+          "time": "08:16",
+          "message": "Excel 匯入改為只需檢體編號，其餘欄位從資料庫查詢",
+          "body": "- Excel 範例檔改為僅一欄「檢體編號」"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "19a8de43",
+          "time": "10:43",
+          "message": "優化 HCLITF.ORDER_LOCATION 寫回效能：改用 ODP.NET Array Binding 批次執行",
+          "body": "逐筆 MERGE 改為每批 200 筆的 Array Binding，減少 Oracle round-trip 次數"
+        },
+        {
+          "hash": "abff8052",
+          "time": "09:55",
+          "message": "修正同步容錯：空白日期改 DBNull、逐筆 Upsert 避免整批失敗",
+          "body": "- 日期欄位空值改傳 DBNull.Value，修正 nvarchar 轉 datetime 超出範圍錯誤"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "5afeb9f7",
+          "time": "18:02",
+          "message": "docs: 初稿IV 修訂 — Nb10/21/22 重跑 + Ch6 §6.3.4 新增 + 表格重編號",
+          "body": "- Ch1: 修正「可控風險因子」措辭"
+        },
+        {
+          "hash": "434799f1",
+          "time": "15:46",
+          "message": "docs: Nb30 各時間點獨立預測力實驗 + Ch6 §6.7.3 + Ch7 §7.5 討論",
+          "body": "- 新增 Nb30：T1-T4 分別預測 T5（LR/RF/XGB, n=2,526, 5-fold CV）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "01727b6d",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-24",
+          "body": "🤖 自動生成於 2026-03-24 07:05"
+        },
+        {
+          "hash": "63cad38b",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-23 (15 commits)",
+          "body": "🤖 自動生成於 2026-03-24 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 4,
+    "totalCommits": 11
+  }
+}
