@@ -1,0 +1,91 @@
+{
+  "date": "2026-03-25",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1c63be70",
+          "time": "11:37",
+          "message": "fix(BT201): 刪除項目時列印份數不再無條件重設為單位預設值",
+          "body": "刪除項目後改為掃描剩餘項目的客製列印份數取最大值，"
+        },
+        {
+          "hash": "e194edfd",
+          "time": "10:47",
+          "message": "docs(LT274E): 新增 OPD 英文報告 Email 寄送說明 (給 PHP polling 端參考)",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "2c4d8e78",
+          "time": "10:38",
+          "message": "feat(BT201): OPD 新增英文報告 checkbox 及 ID_ENG_FLAG 欄位",
+          "body": "BLG_TX_HDR 新增 ID_ENG_FLAG VARCHAR2(1) 供 PHP polling 端判斷是否寄送英文 PDF 報告。"
+        },
+        {
+          "hash": "60fa122a",
+          "time": "08:36",
+          "message": "docs(LT274): 索引優化分析與工具 (03-25)",
+          "body": "- 新增 5 個索引: BLG_TX_HDR(INVNO,SOURCE_CODE), WKSTN_PLOG(EMAIL/FAX), ORD_HDR(EMAIL/FAX)"
+        },
+        {
+          "hash": "9dd5d3f4",
+          "time": "08:02",
+          "message": "docs: 新增開發常見陷阱與注意事項文件",
+          "body": "記錄 BindByName、SQL 參數化、csproj 加檔等常見開發陷阱，"
+        },
+        {
+          "hash": "d968530e",
+          "time": "07:48",
+          "message": "fix(LT274): 參數化 BLGRepository.cs literal SQL (Batch 3)",
+          "body": "將 BLGRepository.cs 中 11 處字串拼接 SQL 改為 Oracle bind variable，"
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "LisA",
+      "commits": [
+        {
+          "hash": "8ca69e7e",
+          "time": "16:59",
+          "message": "docs: db-schema 日期修正為 0326",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c52592f3",
+          "time": "16:57",
+          "message": "docs: 新增 DB schema 設計、醫三分析與遷移評估",
+          "body": "- db-schema.md: 17 張表設計（Laravel 框架 4 + 應用層 13），支援 B2B/B2C 雙軌"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "38bf687d",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-25",
+          "body": "🤖 自動生成於 2026-03-25 07:05"
+        },
+        {
+          "hash": "490b5b54",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-24 (11 commits)",
+          "body": "🤖 自動生成於 2026-03-25 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 4,
+    "totalCommits": 10
+  }
+}
