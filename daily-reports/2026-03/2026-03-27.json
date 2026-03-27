@@ -1,0 +1,79 @@
+{
+  "date": "2026-03-27",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c8c04e85",
+          "time": "14:35",
+          "message": "feat(BT403): 帳別驗證 + 收據列印兩份 + 收據分頁改善",
+          "body": "- 列印/匯出未選帳別時跳提示"
+        },
+        {
+          "hash": "46e2eecc",
+          "time": "14:32",
+          "message": "fix(BT101): 付款模式選項更新及載入修復",
+          "body": "- 付款模式選項統一改為: 現金(CASH)/印花(STAMP)/支票(CHECK)，移除匯款(WIRE)"
+        },
+        {
+          "hash": "87001c46",
+          "time": "09:38",
+          "message": "feat(BT410): 新增列印兩份(雙面)功能",
+          "body": "- 開立收據頁面新增「列印兩份(雙面)」checkbox"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "80a10deb",
+          "time": "16:53",
+          "message": "Fix BeiRongKang VisionData: gender M/F→1/2, IISI AnamnesisNo use ROC birthday",
+          "body": "- BeiRongKang download: add NormalizeGenderToNumber (M→1, F→2) for VisionData.psex"
+        },
+        {
+          "hash": "4bce3112",
+          "time": "11:20",
+          "message": "Taichung Realsun: direct FTP (password resolved), update docs",
+          "body": "- Realsun FTP password was changed by vendor to ucltc@23752100@23752100"
+        },
+        {
+          "hash": "5f1d4f31",
+          "time": "08:59",
+          "message": "Fix Realsun REGNO regression: restore SpecimenNo for Taipei, config-driven Tno for Taichung",
+          "body": "v1.6 changed GetRegno to always use Tno (for Taichung blood culture bottle"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "e860c6c3",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-27",
+          "body": "🤖 自動生成於 2026-03-27 07:05"
+        },
+        {
+          "hash": "23bea7f1",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-26 (4 commits)",
+          "body": "🤖 自動生成於 2026-03-27 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 2,
+    "totalCommits": 8
+  }
+}
