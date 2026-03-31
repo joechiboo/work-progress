@@ -1,0 +1,85 @@
+{
+  "date": "2026-03-31",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "508e5b9b",
+          "time": "08:30",
+          "message": "Taichung Esis: fix adapter bugs, add seed script (24 clinics)",
+          "body": "Fix 4 EsisAdapter bugs found by comparing with old system XML output:"
+        },
+        {
+          "hash": "434ba978",
+          "time": "07:22",
+          "message": "v1.6.1: Taichung deploy fixes + reduce log verbosity",
+          "body": "- Taichung: Worker startup delay, Prevention Enabled guard, Email InstanceName"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "4ee10469",
+          "time": "10:22",
+          "message": "新增高雄 result_val 截斷事件紀錄，更新欄位長度檢查腳本",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "6bc12e25",
+          "time": "16:31",
+          "message": "v3.31: fix ORA-00917 SaveBatch 單引號跳脫，錯誤訊息增加 TNO 明細",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "ca41abac",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-03-31",
+          "body": "🤖 自動生成於 2026-03-31 07:05"
+        },
+        {
+          "hash": "3e304394",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-30 (2 commits)",
+          "body": "🤖 自動生成於 2026-03-31 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "25e07a60",
+          "time": "17:09",
+          "message": "docs: Ch7-Ch9 修訂 + 初稿IV 排版更新 + Meeting23 簡報",
+          "body": "- 謝辭/中英摘要：instance-based → KNN 文字修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 3,
+    "totalCommits": 7
+  }
+}
