@@ -1,0 +1,91 @@
+{
+  "date": "2026-04-01",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "841a0bb5",
+          "time": "11:27",
+          "message": "style(BT410): checkbox 描述從「雙面」改為「同頁」",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "58253fb6",
+          "time": "11:25",
+          "message": "feat(BT410): 收據列印兩份改為同頁上下排版",
+          "body": "與 BT403 一致：scale(0.9) + height(42vh) + width(70%)，"
+        },
+        {
+          "hash": "987f53fd",
+          "time": "11:23",
+          "message": "feat(BT403): 雙面列印時收據另起一張紙",
+          "body": "Chrome 不支援 page-break-before: right，用 JS 模擬："
+        },
+        {
+          "hash": "4dbfddfd",
+          "time": "11:06",
+          "message": "feat(BT403): 收據列印兩份同頁排版",
+          "body": "- scale(0.9) + rotate(270deg) 合併 transform"
+        },
+        {
+          "hash": "77f3a6b7",
+          "time": "08:34",
+          "message": "fix(LT302): wm_concat 改 LISTAGG + 簽收過濾條件優化",
+          "body": "- wmsys.wm_concat(distinct ...) → LISTAGG(...) WITHIN GROUP (ORDER BY ...)"
+        },
+        {
+          "hash": "75cb99c1",
+          "time": "08:29",
+          "message": "feat(CollectorSchedule): 新增滑鼠拖曳水平捲動日曆功能",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "920ad8f7",
+          "time": "08:12",
+          "message": "style(CollectorSchedule): 凍結左側路線欄位，水平捲動時保持可見",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 7
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "2732279b",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-01",
+          "body": "🤖 自動生成於 2026-04-01 07:05"
+        },
+        {
+          "hash": "e363c9bd",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-03-31 (7 commits)",
+          "body": "🤖 自動生成於 2026-04-01 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "919e41af",
+          "time": "16:42",
+          "message": "docs: Meeting 23 完成 + Meeting 24 memo + 個人筆記",
+          "body": "- M22/M23 簡報 PDF 存檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 3,
+    "totalCommits": 10
+  }
+}
