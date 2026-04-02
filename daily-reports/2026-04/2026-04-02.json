@@ -1,0 +1,48 @@
+{
+  "date": "2026-04-02",
+  "weekday": "四",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "RoboEye-",
+      "commits": [
+        {
+          "hash": "c8d2bc01",
+          "time": "16:53",
+          "message": "feat: add web demo for GitHub Pages deployment",
+          "body": "- Browser-based age/gender prediction using ONNX Runtime Web"
+        },
+        {
+          "hash": "69b98a68",
+          "time": "15:40",
+          "message": "feat: 建立專案骨架 — CNN 即時年齡預測 Demo",
+          "body": "- 論文筆記（DEX, REGA, Transfer Learning）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f42eadb2",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-02",
+          "body": "🤖 自動生成於 2026-04-02 07:05"
+        },
+        {
+          "hash": "b4dddd55",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-01 (10 commits)",
+          "body": "🤖 自動生成於 2026-04-02 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 4,
+    "totalCommits": 4
+  }
+}
