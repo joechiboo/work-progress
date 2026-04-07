@@ -1,0 +1,79 @@
+{
+  "date": "2026-04-07",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "63b4e03c",
+          "time": "11:23",
+          "message": "feat(BT402): 資料格式新增「帳務備註」欄位",
+          "body": "從 DEBTOR_DETAIL.BILLREMARKS 撈取帳務備註，"
+        },
+        {
+          "hash": "3b4606cf",
+          "time": "08:59",
+          "message": "style(BT403/BT410): 調整收據列印兩份裁切線置中位置",
+          "body": "收據列印兩份的 print-page height 從 42vh 調整為 45.2vh，"
+        },
+        {
+          "hash": "1870a659",
+          "time": "08:34",
+          "message": "fix(BT403): 未勾選收據列印兩份時不插入雙面列印空白頁",
+          "body": "雙面列印空白頁邏輯原本無條件執行，導致單面列印時明細和收據之間"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "5be555e1",
+          "time": "17:43",
+          "message": "Add deployment notes: SqlClient DLL override for RID publish",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c61759f2",
+          "time": "17:13",
+          "message": "Add QunYi adapter (inherits LingYi) for clinic 2680 惠民",
+          "body": "群益 HIS API format is identical to 凌醫, reuse LingYiAdapter"
+        },
+        {
+          "hash": "faf9cd6a",
+          "time": "08:33",
+          "message": "Apply TI_OUTPUT_MASK decimal formatting to numeric results",
+          "body": "Read TEST_ITEM.TI_OUTPUT_MASK from Oracle and format numeric result"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "00e28caf",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-07",
+          "body": "🤖 自動生成於 2026-04-07 07:05"
+        },
+        {
+          "hash": "aecbdded",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-06 (2 commits)",
+          "body": "🤖 自動生成於 2026-04-07 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 2,
+    "totalCommits": 8
+  }
+}
