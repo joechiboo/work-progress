@@ -1,0 +1,73 @@
+{
+  "date": "2026-04-08",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "db3a5d5f",
+          "time": "15:37",
+          "message": "feat(LT274): GetReportsDetail 批次查詢改造，減少 SP 呼叫次數",
+          "body": "列印路徑從逐筆呼叫 SP (6.7萬次/日) 改為批次呼叫："
+        },
+        {
+          "hash": "d0bb65b7",
+          "time": "11:05",
+          "message": "fix(LT281): 修正聯合代碼留空時無法全選項目的問題",
+          "body": "GetTestcode 缺少 :rangeStart/:rangeEnd 綁定變數導致查詢失敗，"
+        },
+        {
+          "hash": "ec87b7a4",
+          "time": "10:58",
+          "message": "feat(DangerListV2): 新增傳真功能",
+          "body": "- 聯絡紀錄欄新增傳真按鈕（glyphicon-send），複用 LT302 傳真機制"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "fd81b963",
+          "time": "14:52",
+          "message": "Esis adapter fixes + publish automation",
+          "body": "Esis fixes (confirmed against legacy XML output):"
+        },
+        {
+          "hash": "249ad043",
+          "time": "09:49",
+          "message": "Taoyuan deployment: seed SQL + checklist (10 sites)",
+          "body": "- taoyuan-init.sql: Vision 8站 + Esis 1站 + TheseCloud 1站"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "42be8768",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-08",
+          "body": "🤖 自動生成於 2026-04-08 07:05"
+        },
+        {
+          "hash": "70ed4e88",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-07 (8 commits)",
+          "body": "🤖 自動生成於 2026-04-08 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 2,
+    "totalCommits": 7
+  }
+}
