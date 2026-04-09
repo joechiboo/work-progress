@@ -1,0 +1,91 @@
+{
+  "date": "2026-04-09",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3bb258af",
+          "time": "16:00",
+          "message": "fix(DangerListV2): 修正傳真 folder 及 Page 參數為 LT302",
+          "body": "傳真機制的 folder 和 Page 需為 LT302 才能正確產生 PDF 及寫入紀錄。"
+        },
+        {
+          "hash": "89b467c3",
+          "time": "10:03",
+          "message": "perf(LT274): Assemble 快取 + 前端渲染計時",
+          "body": "- 預載 GetPrintHeader/GetTestGroup/GetTestGroupSort/GetTestHeader/GetRegulatories"
+        },
+        {
+          "hash": "373c32d9",
+          "time": "09:25",
+          "message": "fix(LT274): 批次分頁(50筆)避免SP VARCHAR2溢出 + 並行fetch + 計時log",
+          "body": "- Repository: 超過50筆自動分批，Parallel.ForEach(batches) 並行fetch"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RoboEye-",
+      "commits": [
+        {
+          "hash": "3fad00be",
+          "time": "17:27",
+          "message": "feat: add robot PNG favicon for GitHub Pages compatibility",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "3357b629",
+          "time": "17:21",
+          "message": "fix: InsightFace gender mapping, add age range with outlier trimming",
+          "body": "- Fix gender index mapping (argmax=1 → Male in InsightFace convention)"
+        },
+        {
+          "hash": "328bf4fa",
+          "time": "17:06",
+          "message": "fix: correct InsightFace preprocessing and age scaling",
+          "body": "- BGR channel order and /255 normalization to match cv2.dnn.blobFromImage"
+        },
+        {
+          "hash": "c2ab868b",
+          "time": "16:59",
+          "message": "feat: add InsightFace genderage model and fix inference params",
+          "body": "- Add buffalo_l genderage.onnx (1.3MB) as docs/models/insightface.onnx"
+        },
+        {
+          "hash": "1e289a4e",
+          "time": "16:48",
+          "message": "fix: untrack ONNX from LFS for GitHub Pages compatibility",
+          "body": "Add source code, model configs, papers, and slides."
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "085b24c3",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-09",
+          "body": "🤖 自動生成於 2026-04-09 07:05"
+        },
+        {
+          "hash": "b3e9ff9d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-08 (7 commits)",
+          "body": "🤖 自動生成於 2026-04-09 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 7,
+    "totalCommits": 10
+  }
+}
