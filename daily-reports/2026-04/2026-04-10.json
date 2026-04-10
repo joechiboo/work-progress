@@ -1,0 +1,85 @@
+{
+  "date": "2026-04-10",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "2679b9fd",
+          "time": "11:42",
+          "message": "ui: 統一各頁面標題列寬度對齊菜單列",
+          "body": "將 9 個 aspx 頁面的標題 div 從 width:98% 改為 width:100%; box-sizing:border-box，"
+        },
+        {
+          "hash": "dfded9db",
+          "time": "11:39",
+          "message": "v4.10: EVENTLOG bind params 修正、去重複改留後面、移至指定日期功能",
+          "body": "- EVENTLOG.SaveBatch: 改用 Oracle array binding + BindByName + NVarchar2"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ee793900",
+          "time": "12:55",
+          "message": "feat(BT402/BT403): 新增出帳人員/付款模式/開立收據/帳務備註篩選功能",
+          "body": "BT402:"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f42a395f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-10",
+          "body": "🤖 自動生成於 2026-04-10 07:05"
+        },
+        {
+          "hash": "e24c43c7",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-09 (10 commits)",
+          "body": "🤖 自動生成於 2026-04-10 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "52f9fdb2",
+          "time": "07:23",
+          "message": "新增作品集：RoboEye 機器人視覺 CNN 人臉偵測專案",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "RoboEye-",
+      "commits": [
+        {
+          "hash": "67032ddc",
+          "time": "07:20",
+          "message": "feat: add face alignment for InsightFace, tune age range params",
+          "body": "- Add 68-landmark face alignment with affine transform for InsightFace"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 4,
+    "totalCommits": 7
+  }
+}
