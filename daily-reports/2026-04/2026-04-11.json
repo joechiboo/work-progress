@@ -1,0 +1,103 @@
+{
+  "date": "2026-04-11",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "95c6d7fd",
+          "time": "11:56",
+          "message": "revert(LT274): 退版批次SP取資料，改回逐筆GetReportsDetail2",
+          "body": "- 批次SP取資料導致線性轉換(TIVD)結果不正確，退回逐筆呼叫"
+        },
+        {
+          "hash": "51312591",
+          "time": "11:19",
+          "message": "docs(BT301): 更新文檔：效能修正紀錄 + 路線下拉選單隱藏備註",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "21837232",
+          "time": "11:14",
+          "message": "perf(BT301): 修正全單位查詢大量資料效能問題",
+          "body": "- sortTotalData 改用字串拼接 + 一次 innerHTML，取代逐筆 template clone + jQuery find + DOM append"
+        },
+        {
+          "hash": "47af7a29",
+          "time": "09:30",
+          "message": "fix(LT302): 補上 JS 分色邏輯 - 低值改藍色",
+          "body": "LT302 之前只加了 CSS，漏了 JS 端 redwords 分流邏輯"
+        },
+        {
+          "hash": "2a3e27a6",
+          "time": "09:15",
+          "message": "fix(報告): 正常值顏色依參數控制 - red模式維持藍色",
+          "body": "red 模式維持原樣（正常值=藍色），colored 模式正常值改黑色："
+        },
+        {
+          "hash": "a80f517d",
+          "time": "08:58",
+          "message": "feat(全站): 異常值顏色分級 Phase 3 - CSS 備用 class",
+          "body": "各頁面新增 bluewords/dangerValLow CSS class 備用："
+        },
+        {
+          "hash": "7c6252c7",
+          "time": "08:52",
+          "message": "feat(報告/審核): 異常值顏色分級 Phase 2 - 審核頁面+正常值改黑色",
+          "body": "審核頁面新增低值藍色支援："
+        },
+        {
+          "hash": "86a98267",
+          "time": "08:00",
+          "message": "feat(報告): 異常值顏色分級 - 低值藍色/高值紅色 (Phase 1)",
+          "body": "新增 Web.config AbnormalColorMode 參數控制異常值顏色："
+        }
+      ],
+      "count": 8
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "91264d33",
+          "time": "16:11",
+          "message": "docs: 初稿V 章節標題格式更新（第X節/壹貳參）",
+          "body": "- Word Ch1-Ch8 全部 118 個標題格式轉換完成"
+        },
+        {
+          "hash": "1449dae0",
+          "time": "12:56",
+          "message": "docs: 章節標題格式轉換 + §7.5.2 藥物干擾論述 + §4.6 硬體說明 + 初稿V",
+          "body": "- Ch1-Ch8 標題格式：1.1 → 第一節、1.1.1 → 壹、（依懶人包規範）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "258ffd26",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-11",
+          "body": "🤖 自動生成於 2026-04-11 07:05"
+        },
+        {
+          "hash": "89c6034c",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-10 (7 commits)",
+          "body": "🤖 自動生成於 2026-04-11 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 4,
+    "totalCommits": 12
+  }
+}
