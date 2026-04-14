@@ -1,0 +1,115 @@
+{
+  "date": "2026-04-14",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1333f15d",
+          "time": "17:04",
+          "message": "fix(LT274): 套組/分類 header 保持藍色",
+          "body": "套組名稱 (TG_NAME)、分類 header (IMH_DESC/TH_NAME) 原本是藍色，"
+        },
+        {
+          "hash": "41a44d69",
+          "time": "16:52",
+          "message": "fix(LT275): 移除誤用的 C# 語法 string.IsNullOrEmpty",
+          "body": "Home/LT275 的 cls 判斷誤寫成 C# 的 string.IsNullOrEmpty，"
+        },
+        {
+          "hash": "d0993918",
+          "time": "12:28",
+          "message": "fix: getDangerClass 改用 dict 對照表 + 修正 LR251 多餘 removeClass",
+          "body": "- getDangerClass/getDangerTextClass 改用 dict 對照表，可讀性更好"
+        },
+        {
+          "hash": "cbefab4e",
+          "time": "08:33",
+          "message": "refactor: 異常值顏色抽出共用 CSS/JS，解決 review issues",
+          "body": "新增共用檔案："
+        },
+        {
+          "hash": "c21bfc4c",
+          "time": "07:36",
+          "message": "docs: 異常值顏色分級新增測試案例",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "95f9d0a0",
+          "time": "17:42",
+          "message": "TheseCloud AC 碼改查 WebOrder，移除 SOAP fallback",
+          "body": "SOAP QueryAcCodeAsync 無日期限制時會誤抓歷史年度 AC 碼 — TNO 6040100633"
+        },
+        {
+          "hash": "7e6d5151",
+          "time": "12:25",
+          "message": "Hsinchu deployment (v1.8) + OUTPUT_MASK fix + Realsun callback optional",
+          "body": "- seed SQL: Vision 25 + Esis 5 + Realsun 4 = 34 sites"
+        },
+        {
+          "hash": "6981916b",
+          "time": "08:58",
+          "message": "Add POST /api/test/send-report endpoint",
+          "body": "手動觸發彙總報告 email，不用等排程 08:00。"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "31acb53c",
+          "time": "19:37",
+          "message": "docs: 修正 Luo et al. 年份 2024 → 2023",
+          "body": "Crossref 確認 BMJ Open 出版年份為 2023，原誤植為 2024。"
+        },
+        {
+          "hash": "49a76bc4",
+          "time": "19:29",
+          "message": "docs: 07 論文計畫提要表草稿 + memo 更新",
+          "body": "- 07 論文計畫提要表草稿（精簡版）"
+        },
+        {
+          "hash": "3b9ce0da",
+          "time": "16:33",
+          "message": "docs: 口試申請準備更新 + 畢業初審懶人包 + memo 更新",
+          "body": "- 論文初稿V：點點格式統一、封面書名頁 PDF"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d58c6f7b",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-14",
+          "body": "🤖 自動生成於 2026-04-14 07:05"
+        },
+        {
+          "hash": "f0fd89f8",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-13 (2 commits)",
+          "body": "🤖 自動生成於 2026-04-14 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 5,
+    "totalCommits": 13
+  }
+}
