@@ -1,0 +1,55 @@
+{
+  "date": "2026-04-16",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "4fccf4e0",
+          "time": "10:16",
+          "message": "fix(LT275): 總人數計算改用 TNO 避免病歷號重複導致少算",
+          "body": "原本用 ANAMNESIS_NO distinct count，當多位病患共用相同病歷號（如 \"00\"）時"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "4450dc69",
+          "time": "15:07",
+          "message": "TheseCloud 衛生所 AC 碼補救：重啟 SOAP Export（精確日期 ±1 天）",
+          "body": "為手 key 單補救 AC 碼。安德維持 WebOrder 路徑不變。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "6c45efbc",
+          "time": "07:09",
+          "message": "docs: 更新彙整資料 2026-04-16",
+          "body": "🤖 自動生成於 2026-04-16 07:09"
+        },
+        {
+          "hash": "bc11f48b",
+          "time": "07:09",
+          "message": "docs: 每日工作紀錄 2026-04-15 (2 commits)",
+          "body": "🤖 自動生成於 2026-04-16 07:09"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 2,
+    "totalCommits": 4
+  }
+}
