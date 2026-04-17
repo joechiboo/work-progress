@@ -1,0 +1,61 @@
+{
+  "date": "2026-04-17",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "LIS\\Schedule\\autoadjustblg",
+      "commits": [
+        {
+          "hash": "9118faf1",
+          "time": "11:57",
+          "message": "SERVERS.md 補常用除錯指令與 log 判讀對照",
+          "body": "- log grep 範例(cmd findstr / PowerShell Select-String,跨 roll 檔)"
+        },
+        {
+          "hash": "42998470",
+          "time": "11:51",
+          "message": "加入新竹加項排程 debug log 與各站部署文檔",
+          "body": "- Program.cs: 鎖定 2024/2636/2645/2805 單位 C008→P802 路徑加 [AddItem] log,"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "51e3597d",
+          "time": "10:01",
+          "message": "TheseCloud/BeiRongKang SOAP 批次傳輸：多筆合併單一 call (SendDataCount=10)",
+          "body": "沿用舊系統 TheseDataUpload 的 SendDataCount 切割機制。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "afcb67a9",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-17",
+          "body": "🤖 自動生成於 2026-04-17 07:05"
+        },
+        {
+          "hash": "a3c66899",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-16 (4 commits)",
+          "body": "🤖 自動生成於 2026-04-17 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 2,
+    "totalCommits": 5
+  }
+}
