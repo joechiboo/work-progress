@@ -1,0 +1,55 @@
+{
+  "date": "2026-04-18",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "Report\\FOBT",
+      "commits": [
+        {
+          "hash": "0509c577",
+          "time": "11:46",
+          "message": "改用 Oracle.ManagedDataAccess，解決同仁端缺 Oracle Client 報錯",
+          "body": "System.Data.OracleClient 需要機器安裝 Oracle Client (8.1.7+)，"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "bce25ce9",
+          "time": "11:57",
+          "message": "AC 碼 doc 更新：新北衛主流程改公衛寫入 + 部署後效能數據",
+          "body": "- 修正新北衛流程圖：主要路徑是公衛程式寫 BLG.ID_INVNO，"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "594176fb",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-18",
+          "body": "🤖 自動生成於 2026-04-18 07:05"
+        },
+        {
+          "hash": "e77f4a6a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-17 (5 commits)",
+          "body": "🤖 自動生成於 2026-04-18 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 2,
+    "totalCommits": 4
+  }
+}
