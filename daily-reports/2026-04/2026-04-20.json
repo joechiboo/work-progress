@@ -1,0 +1,115 @@
+{
+  "date": "2026-04-20",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "ea917853",
+          "time": "12:00",
+          "message": "Chiayi deployment (v1.9): Vision-only 2 sites + publish.ps1 多分部支援",
+          "body": "- chiayi-init.sql: APITransferPlatform DB 建立 + Vision 1 vendor + 2 sites (4083/5083, MEDICAL_CODE 3537081434)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "eb806dcb",
+          "time": "06:28",
+          "message": "deploy: fe27f35390650739bfebdf66583f0cdb8637c0eb",
+          "body": ""
+        },
+        {
+          "hash": "fe27f353",
+          "time": "14:27",
+          "message": "更新 CLAUDE.md 部署流程：改為 GitHub Actions 自動部署",
+          "body": "Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "8d0c6b58",
+          "time": "03:49",
+          "message": "deploy: 6736796b6d87a09b8a74df164ca6349da48df670",
+          "body": ""
+        },
+        {
+          "hash": "6736796b",
+          "time": "11:49",
+          "message": "Merge pull request #2 from joechiboo/claude/add-committee-members-Xe83w",
+          "body": "新增115年4月份例會會議記錄及第三屆管委會當選名單"
+        },
+        {
+          "hash": "4911832f",
+          "time": "10:19",
+          "message": "新增115年4月份例會會議記錄、更新版號至 v26.04.20.10.13",
+          "body": "Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "103480c7",
+          "time": "01:36",
+          "message": "更新版號至 v26.04.20.01.36",
+          "body": "https://claude.ai/code/session_014suxvJPad11EwcLkFtrjKg"
+        },
+        {
+          "hash": "da9cc0e2",
+          "time": "09:00",
+          "message": "Merge pull request #1 from joechiboo/claude/add-committee-members-Xe83w",
+          "body": "Add third committee term data to committeeData"
+        },
+        {
+          "hash": "6b0ed0e9",
+          "time": "00:57",
+          "message": "新增第三屆管理委員會當選名單",
+          "body": "依 115-3-21 區權會重開會議結果，新增第三屆 17 位當選委員資訊，"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "289bf5aa",
+          "time": "18:28",
+          "message": "Restructure midterm Q&A: merge SN questions, add synthesis Q10",
+          "body": "- Merge video 02 Q&A into one comprehensive question"
+        },
+        {
+          "hash": "95e903db",
+          "time": "15:37",
+          "message": "Add midterm Q&A review sheet covering videos 01, 02, 05-07",
+          "body": "10 essay-style questions with English prompts and Chinese answers"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "342de6a5",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-20",
+          "body": "🤖 自動生成於 2026-04-20 07:05"
+        },
+        {
+          "hash": "1b128d30",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-19 (2 commits)",
+          "body": "🤖 自動生成於 2026-04-20 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 12,
+    "totalCommits": 13
+  }
+}
