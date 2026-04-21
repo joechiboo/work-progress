@@ -1,0 +1,151 @@
+{
+  "date": "2026-04-21",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2cf7658b",
+          "time": "05:44",
+          "message": "fix(LT257): 補齊 title 預設 active class 讀取 Web.config 設定",
+          "body": ""
+        },
+        {
+          "hash": "008ec4f9",
+          "time": "12:28",
+          "message": "refactor(LT225W): isPid/isDob 改用 bool 型別",
+          "body": "依 review 建議，將 PrintWorkList/ExportLT225 的 isPid/isDob"
+        },
+        {
+          "hash": "f0ccec99",
+          "time": "12:16",
+          "message": "fix(LT302): 補上 api/ReportController 的 _Nlog 宣告",
+          "body": "MR 1048 把 [LT302_WIDE_QUERY]/[LT302_SLOW_QUERY] log 加到 api controller，"
+        },
+        {
+          "hash": "4b5012ab",
+          "time": "12:15",
+          "message": "feat(LT302): 項目代碼支援含字比對 (LIKE %x%)",
+          "body": "- 輸入 32 會找到代號含 32 的項目 (3201, 1032, A32X…)"
+        },
+        {
+          "hash": "6f75f839",
+          "time": "11:57",
+          "message": "fix(LT257): 補齊 title 預設 active class 讀取 Web.config 設定",
+          "body": "Why:"
+        },
+        {
+          "hash": "85386e5a",
+          "time": "11:38",
+          "message": "perf(LT302): 改寫 EXISTS 子查詢為 IN+UNION 並新增查詢監控 log",
+          "body": "- SQL 改寫: EXISTS + OR 跨 BLG_TX_DTL/BLG_PKG_ITEM → BLG.ID_TNO IN + UNION"
+        },
+        {
+          "hash": "fe5baaae",
+          "time": "11:33",
+          "message": "fix(fn_get_importer): 用 EXECUTE IMMEDIATE 動態綁表名",
+          "body": "靜態引用 HCLABA.AORD_DTL 會在缺 HCLABA schema 的分點（如新竹）編譯失敗，"
+        },
+        {
+          "hash": "34658fc2",
+          "time": "11:30",
+          "message": "fix(GetReportsDetail): 修復 IMPORTER 欄位異體字丟失與亂碼",
+          "body": "輸入者欄位含日文異體字 (如「勲」U+52F2) 時在 LT274 顯示為「李宗?」。"
+        },
+        {
+          "hash": "5987f117",
+          "time": "09:34",
+          "message": "chore(OracleAnalysis): 集中報告類文件到 reports/ 子資料夾",
+          "body": "- 4 支效能監控報告 HTML (0330/0401/0407/0420)"
+        },
+        {
+          "hash": "fc11b8b0",
+          "time": "09:23",
+          "message": "chore(OracleAnalysis): 整理效能分析文件，移除含連線資訊的 ps1",
+          "body": "主要變更："
+        },
+        {
+          "hash": "743c5028",
+          "time": "08:59",
+          "message": "feat(LT225W): 新增顯示身分證/生日 checkbox",
+          "body": "- 欄位調整區新增兩個 checkbox (isPid, isDob)，選單位時自動預設勾選"
+        },
+        {
+          "hash": "9518174b",
+          "time": "08:48",
+          "message": "docs: 新增 Output Mask 數值顯示格式文檔",
+          "body": "TI_OUTPUT_MASK 小數點後強制補零行為說明（9/0 無差別）"
+        },
+        {
+          "hash": "a9270826",
+          "time": "08:48",
+          "message": "docs: 新增傳真機制與 FaxReport 查詢頁文檔",
+          "body": "- Documents/BusinessLogic/傳真機制.md: 全系統傳真架構"
+        },
+        {
+          "hash": "8eaa0d24",
+          "time": "08:48",
+          "message": "fix(DangerListV2): 修正傳真 modal 按鈕顯示與版面",
+          "body": "- 頁面 CSS .btn { display: none } 白名單漏掉 modal-footer，"
+        }
+      ],
+      "count": 14
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "6fb97f5e",
+          "time": "18:25",
+          "message": "高雄 v1.9 (Vision 45 站) + Dashboard 排程告警 + TheseCloud AC 碼 sdate/fallback 修正",
+          "body": "- 高雄 Vision 45 站部署 (XmlTag=KH, 139.x 無 NAT, Api port 9000 躲開 mNHIICCDLL)"
+        },
+        {
+          "hash": "18154acc",
+          "time": "07:44",
+          "message": "KH Vision 設定對齊台北：Unit=3→1 + ScheduledHours [1,6,20,23]→[1,7,14,20] + 拿掉 L1002C",
+          "body": "Unit=3 是無效值（TransferUnit enum 只有 PerItem=0/FullReport=1），會讓"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "de986e24",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-21",
+          "body": "🤖 自動生成於 2026-04-21 07:05"
+        },
+        {
+          "hash": "d3268f56",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-20 (13 commits)",
+          "body": "🤖 自動生成於 2026-04-21 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "303b52c0",
+          "time": "17:32",
+          "message": "docs: Meeting 24 簡報初版 + WHO URL 修正 + 07 提要表更新",
+          "body": "- Meeting 24 簡報（14 頁）：英文題目、委員名冊、待簽文件逐份、SCI 規劃、§7.5.2、研究貢獻、表 2-1/2-2"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 16,
+    "sideCommits": 3,
+    "totalCommits": 19
+  }
+}
