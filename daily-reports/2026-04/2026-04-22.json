@@ -1,0 +1,79 @@
+{
+  "date": "2026-04-22",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c8434c57",
+          "time": "15:22",
+          "message": "fix(LT225W): ViewBag 賦值搬出 foreach，根治空資料時 null cast 的來源",
+          "body": "前一 commit 已在 View 加 null 保護止血；本 commit 修根因："
+        },
+        {
+          "hash": "7011febc",
+          "time": "15:19",
+          "message": "fix(LT225W): 避免 workList 為空時 ViewBag null cast 造成 PrintWorkList 崩潰",
+          "body": "Controller 的 ViewBag.isPid/isDob 設定寫在 foreach 迴圈內，當查無資料時不會被賦值。"
+        },
+        {
+          "hash": "95b5db9b",
+          "time": "15:14",
+          "message": "fix(LT274): 修正交錯列印重複送印、TNO binding、加中央 kill switch",
+          "body": "問題與修正："
+        },
+        {
+          "hash": "576a658f",
+          "time": "12:44",
+          "message": "feat(LT274): 新增交錯列印功能，利用印表機 offset stacking 自動分份",
+          "body": "批次列印時逐份送出獨立 print job，讓印表機的 offset stacking 功能在出紙匣上錯開每份報告，解決行政人員手動分份痛點。"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "d7c1cf30",
+          "time": "17:58",
+          "message": "docs: 口試文獻/模型速查卡 + Meeting 24 簡報重排 + 印刷邊界更新",
+          "body": "- 新增口試文獻速查卡（10 篇 Ref）與模型速查卡（11 模型 + 10 meta Q）"
+        },
+        {
+          "hash": "a3a9c5da",
+          "time": "16:26",
+          "message": "docs: Meeting 24 簡報表 2-1、表 2-2 加入講稿",
+          "body": "每份表約 1 分鐘講稿，配合 meeting 練習使用。"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "68aed748",
+          "time": "07:06",
+          "message": "docs: 更新彙整資料 2026-04-22",
+          "body": "🤖 自動生成於 2026-04-22 07:06"
+        },
+        {
+          "hash": "a2b4f80a",
+          "time": "07:06",
+          "message": "docs: 每日工作紀錄 2026-04-21 (19 commits)",
+          "body": "🤖 自動生成於 2026-04-22 07:06"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 4,
+    "totalCommits": 8
+  }
+}
