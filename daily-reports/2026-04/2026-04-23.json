@@ -1,0 +1,145 @@
+{
+  "date": "2026-04-23",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f68bbeab",
+          "time": "19:51",
+          "message": "fix(LT274): Home/LT274 支援交錯列印 offset 參數",
+          "body": "Home/LT274 的列印按鈕用 POST form 直接送 /Report/LT274，缺少讀取 EnableOffsetPrint"
+        },
+        {
+          "hash": "a667773a",
+          "time": "10:05",
+          "message": "feat(LT302): 查詢歷程按鈕限資訊室可見",
+          "body": "查詢歷程會顯示所有人存取報告的記錄，屬於稽核用途，"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "1dee3689",
+          "time": "08:13",
+          "message": "publish.ps1 加 Dashboard：預設 (無 -Branch) 一併打包到 publish/Dashboard",
+          "body": "Branch 部署 (publish.ps1 -Branch CY/KH/...) 不打 Dashboard，因為 Dashboard 只在中央 (台北) 跑。"
+        },
+        {
+          "hash": "b65bcca6",
+          "time": "08:07",
+          "message": "Worker Heartbeat + Dashboard Realtime/心跳 顯示",
+          "body": "Worker:"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RoboEye-",
+      "commits": [
+        {
+          "hash": "397779c4",
+          "time": "17:20",
+          "message": "docs(slides): add Appendix B — CPU vs Colab GPU training time",
+          "body": "Document the local-CPU-abandoned vs Colab-T4-32min comparison for"
+        },
+        {
+          "hash": "2a19f046",
+          "time": "16:43",
+          "message": "docs(slides): update presentation script with gender prediction and benchmark flow",
+          "body": "Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c8f5bae9",
+          "time": "16:43",
+          "message": "feat: toggle benchmark panel by clicking the RoboEye title",
+          "body": "Click the header title to hide/show the benchmark column on desktop,"
+        },
+        {
+          "hash": "82db489d",
+          "time": "16:21",
+          "message": "feat: compact RWD layout for split-screen / narrow viewports",
+          "body": "Stack columns under 1024px so a half-width browser window shows camera"
+        },
+        {
+          "hash": "f7c64bdb",
+          "time": "16:10",
+          "message": "feat: accumulate benchmark history across runs",
+          "body": "Add a two-phase benchmark flow (capture all frames first, then run all"
+        },
+        {
+          "hash": "a44f1115",
+          "time": "15:54",
+          "message": "feat: add 10-sample benchmark UI to compare 3 methods quantitatively",
+          "body": "- Two-column layout (logs + result table) inside #app grid"
+        },
+        {
+          "hash": "1bde00fb",
+          "time": "15:43",
+          "message": "fix: upgrade ONNX Runtime Web to 1.21 for MobileNetV2 compatibility",
+          "body": "- ORT Web 1.17 failed to load roboeye.onnx with opaque WASM error"
+        },
+        {
+          "hash": "4cd71ebe",
+          "time": "15:31",
+          "message": "feat: add MobileNetV2+DEX model (method 2) and gender smoothing",
+          "body": "- Export trained AgeGenderModel checkpoint to ONNX (9.0MB, embedded weights)"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "c79e87e8",
+          "time": "02:35",
+          "message": "deploy: 6105f843dfc6fc25cc8f9f4669072d1fc13fef0a",
+          "body": ""
+        },
+        {
+          "hash": "6105f843",
+          "time": "10:35",
+          "message": "Merge pull request #3 from joechiboo/feat/2026-04-23-update",
+          "body": "新增115年4月第一次臨時會記錄、監委改由宋廣翊擔任"
+        },
+        {
+          "hash": "fad8442c",
+          "time": "10:34",
+          "message": "新增115年4月第一次臨時會會議記錄、監委改由宋廣翊擔任",
+          "body": "- 新增 4/17 臨時會記錄（選舉新任監委、滅鼠、保全懲處、第三方驗屋簽約等）"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "dfc7695f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-23",
+          "body": "🤖 自動生成於 2026-04-23 07:05"
+        },
+        {
+          "hash": "36ef09f6",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-22 (8 commits)",
+          "body": "🤖 自動生成於 2026-04-23 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 13,
+    "totalCommits": 17
+  }
+}
