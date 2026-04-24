@@ -1,0 +1,55 @@
+{
+  "date": "2026-04-24",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c8028652",
+          "time": "08:38",
+          "message": "docs(BT101): 更新 BT201 郵電傳選項說明",
+          "body": "舊文件只列 EM/掛/限/Fax 4 個選項, 實際 BT201 已新增「健」(自費上傳健保快易通)"
+        },
+        {
+          "hash": "08b2e1a9",
+          "time": "08:37",
+          "message": "feat(LT253): 高雄依 BT112 套餐順序顯示檢驗項目",
+          "body": "高雄醫檢師反映 LT252/LT253/LT270 報告項目順序跟 BT112 套餐設定對不上。"
+        },
+        {
+          "hash": "c4df23c1",
+          "time": "08:37",
+          "message": "perf(Examine): 修正 Target API N+1 query, Find_workstation_Data 改 batch",
+          "body": "LT253/LT252/LT270 病患報告輸入畫面載入緩慢, Target API 可達 3.5s。"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d93db1da",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-24",
+          "body": "🤖 自動生成於 2026-04-24 07:05"
+        },
+        {
+          "hash": "add18715",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-23 (17 commits)",
+          "body": "🤖 自動生成於 2026-04-24 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 2,
+    "totalCommits": 5
+  }
+}
