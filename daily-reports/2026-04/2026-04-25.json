@@ -1,0 +1,79 @@
+{
+  "date": "2026-04-25",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "17d68a89",
+          "time": "10:42",
+          "message": "fix: 移至指定日期移除 CANCEL=0 條件",
+          "body": "CANCEL 欄位除了「取消」還有「隱藏」的含義，批次搬移時應"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "0a83f177",
+          "time": "04:59",
+          "message": "deploy: bb95bd74f9306f141999387230b930d60b1a5f69",
+          "body": ""
+        },
+        {
+          "hash": "bb95bd74",
+          "time": "12:59",
+          "message": "Merge pull request #5 from joechiboo/feat/2026-04-25-3rd-term-positions",
+          "body": "新增第三屆管委會職務委員選舉結果"
+        },
+        {
+          "hash": "8f44ca4c",
+          "time": "12:58",
+          "message": "新增第三屆管委會職務委員選舉結果",
+          "body": "依 4/17 職務選舉會議結果，於委員名單頁顯示主委、副委、財委、監委、機電(一)(二)、文康(一)職務指派。"
+        },
+        {
+          "hash": "f384cb7c",
+          "time": "12:53",
+          "message": "Merge pull request #4 from joechiboo/feat/2026-04-23-3rd-term-election",
+          "body": "新增第三屆管委會職務委員選舉會議記錄 (4/17)"
+        },
+        {
+          "hash": "1e4860c7",
+          "time": "12:50",
+          "message": "新增第三屆管委會職務委員選舉會議記錄(4/17)",
+          "body": "- 第三屆於 2026/4/17 19:30 召開職務選舉會議"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "82ac2413",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-25",
+          "body": "🤖 自動生成於 2026-04-25 07:05"
+        },
+        {
+          "hash": "00b14c4d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-24 (5 commits)",
+          "body": "🤖 自動生成於 2026-04-25 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 7,
+    "totalCommits": 8
+  }
+}
