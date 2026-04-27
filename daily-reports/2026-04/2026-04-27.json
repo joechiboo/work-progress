@@ -1,0 +1,121 @@
+{
+  "date": "2026-04-27",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "bfa45da8",
+          "time": "14:50",
+          "message": "config(ty): 桃園外送工作站 WS99 → TY07，補上 DaanOutside",
+          "body": "- OutsideWorkStation: WS99 → TY07"
+        },
+        {
+          "hash": "c4b82643",
+          "time": "11:54",
+          "message": "docs(perf): QC 報表 covering index DDL (04-27 已部署)",
+          "body": "- IDX_QC_TX_DTL_LOGNO_ACT_TC (QTD_LOGNO, QTD_ACTION_FLAG, QTD_TESTCODE, QTD_VAL)"
+        },
+        {
+          "hash": "001fe815",
+          "time": "11:18",
+          "message": "docs(perf): 補入 VisionReportHub 索引升級 DDL 與評估文件",
+          "body": "- IDX_HORD_DTL_TNO_ACT_VAL (OD_TNO, OD_ACTION_FLAG, OD_VALIDATE_ON) 04-27 已建"
+        },
+        {
+          "hash": "35d6b323",
+          "time": "11:11",
+          "message": "perf(ReportAccessLog): LogAccessBatch 改用 ODP.NET Array Binding",
+          "body": "原 foreach + ExecuteNonQuery 改為 ArrayBindCount 一次完成 N 筆 INSERT。"
+        },
+        {
+          "hash": "130767d8",
+          "time": "09:39",
+          "message": "feat(BT402/BT403): 帳務備註支援包含/不包含 + 顯示總筆數",
+          "body": "帳務備註篩選:"
+        },
+        {
+          "hash": "48181114",
+          "time": "08:11",
+          "message": "perf(CBC): wm_concat 改 LISTAGG，降 GetCBCDetailList CPU 消耗",
+          "body": "- ExamineRepository.GetCBCDetailList() (line 5463) wm_concat → LISTAGG"
+        },
+        {
+          "hash": "67d08d70",
+          "time": "08:06",
+          "message": "wip(signin): PostV2 草稿 — 8 處 literal→bind + 7 處 wm_concat→LISTAGG",
+          "body": "- SignInController.Post() 加 bool v2 = false 參數"
+        },
+        {
+          "hash": "98572b8c",
+          "time": "07:39",
+          "message": "docs(perf): 新增架構與計畫文檔，整理 OracleAnalysis 工具腳本",
+          "body": "新增："
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "6ac96c2f",
+          "time": "18:09",
+          "message": "chore: AddressTo2 改填 support，AddressTo3 清空",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "667dbd8d",
+          "time": "18:09",
+          "message": "chore: 移除 AddressTo2 中的 austynwu (離職)",
+          "body": "值清空保留 key，原本 SendMail 會略過空白項。實際生效需手動更新"
+        },
+        {
+          "hash": "55c9c79b",
+          "time": "14:38",
+          "message": "v4.28: 修正批次分單範圍尾數遺漏 + clone 腳本納入 CANCEL=1",
+          "body": "- 批次分單 off-by-one bug：起迄號碼最後一號永遠拿不到"
+        },
+        {
+          "hash": "63536924",
+          "time": "08:55",
+          "message": "docs: 新增 56.228 IIS 目錄結構、SQL 查詢、單位代碼資料維護操作說明",
+          "body": "- deployment-info.md: 補上 Server 2 (56.228) IIS 目錄結構與備份位置"
+        },
+        {
+          "hash": "43d4ec03",
+          "time": "08:51",
+          "message": "v4.27: 更新版號 4.27 / 2026/04/27",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "count": 5
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "334e78bf",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-04-27",
+          "body": "🤖 自動生成於 2026-04-27 07:05"
+        },
+        {
+          "hash": "263d81e3",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-04-26 (2 commits)",
+          "body": "🤖 自動生成於 2026-04-27 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 13,
+    "sideCommits": 2,
+    "totalCommits": 15
+  }
+}
