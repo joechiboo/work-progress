@@ -1,0 +1,78 @@
+{
+  "date": "2026-05-03",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "a482d138",
+          "time": "03:55",
+          "message": "deploy: 7546be1802a7d7158fd9ad4ef5fa64314cc58b6f",
+          "body": ""
+        },
+        {
+          "hash": "7546be18",
+          "time": "11:54",
+          "message": "調整法規與規章頁面文字靠左對齊，更新版本至 26.05.03.11.54",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "80c8a60f",
+          "time": "09:44",
+          "message": "修復法規檔案載入路徑",
+          "body": "vue-cli build 不支援 import.meta.env.BASE_URL，改用 process.env.BASE_URL"
+        },
+        {
+          "hash": "c58ec8f6",
+          "time": "09:37",
+          "message": "修復 LawViewer.vue ESLint 錯誤 (mixed spaces and tabs)",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "75952c58",
+          "time": "09:34",
+          "message": "強化社區規章頁面，新增法規檢視器",
+          "body": "- 新增 LawViewer.vue 法規檢視元件"
+        },
+        {
+          "hash": "b340064f",
+          "time": "09:24",
+          "message": "更新版本至 26.05.03，新增公寓大廈管理條例參考文件",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+        },
+        {
+          "hash": "4b8f28f4",
+          "time": "09:20",
+          "message": "更新第三屆管委會辭職紀錄 (2026-05-03)",
+          "body": "- 標記4位委員辭職：陳O惠(主委)、陳O珊(副委)、林O君(文康)、李O民"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "9be81a8e",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-03",
+          "body": "🤖 自動生成於 2026-05-03 07:05"
+        },
+        {
+          "hash": "cd97cc63",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-02 (2 commits)",
+          "body": "🤖 自動生成於 2026-05-03 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 9,
+    "totalCommits": 9
+  }
+}
