@@ -1,0 +1,85 @@
+{
+  "date": "2026-05-04",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c6f43466",
+          "time": "12:10",
+          "message": "feat(Signin): 跨日簽收單位設定從 web.config 搬至 SYS_PARAMETER",
+          "body": "DBA 可直接 UPDATE SP_PARAM_VALUE 即時新增單位，無需發版。"
+        },
+        {
+          "hash": "9fc625e5",
+          "time": "10:40",
+          "message": "docs(oracle): 5 月效能改善文件 snapshot",
+          "body": "- HANDOFF_iccardupload_parameterization.md — ICCardUpload2.0.exe literal SQL 交接文件"
+        },
+        {
+          "hash": "67a47015",
+          "time": "10:09",
+          "message": "fix(date-input): ENTER 第二格觸發日期格式轉換",
+          "body": "LT302/LT301/LT252/LT257/LT233/BT402 第二個日期欄位按 ENTER 直接送出"
+        },
+        {
+          "hash": "8179f2d8",
+          "time": "10:06",
+          "message": "feat(CounterLabelPrint): 身分證遮罩預設值改由 SYS_PARAMETER 控制",
+          "body": "新增 SP_PARAM_KEY = CounterLabelPrint_HideIdNumberDefault (BOOLEAN, DEFAULT='Y')。"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "87247e77",
+          "time": "17:54",
+          "message": "台北啟用 Esis (0787 富康診所) + EsisAdapter prt_time / 排版修正",
+          "body": "- prt_time 改用 ValidateDate ?? ExamDate（MAX(OD_VALIDATE_ON)，等價舊系統 Last_OD_UPDATE_ON）。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "48caf477",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-04",
+          "body": "🤖 自動生成於 2026-05-04 07:05"
+        },
+        {
+          "hash": "2284b53d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-03 (9 commits)",
+          "body": "🤖 自動生成於 2026-05-04 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "980c0b44",
+          "time": "18:24",
+          "message": "Update midterm Q&A: add video 09 questions, remove homework Q10",
+          "body": "- Replace AND NOT/OR NOT homework question with video 09 content"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 3,
+    "totalCommits": 8
+  }
+}
