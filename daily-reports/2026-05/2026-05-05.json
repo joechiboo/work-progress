@@ -1,0 +1,121 @@
+{
+  "date": "2026-05-05",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\ICCardUpload2",
+      "commits": [
+        {
+          "hash": "c3415b42",
+          "time": "10:57",
+          "message": "perf: parameterize TNO range in BusinessLogic.LoadData",
+          "body": "LoadData() 是 mode 1 上傳產 XML 的 hot path（Oracle 端），其 TNO 範圍"
+        },
+        {
+          "hash": "cb38c590",
+          "time": "09:54",
+          "message": "build: stop copying source App.config(.x.config) to output",
+          "body": "bin\\<config>\\ 之前每次 build 都會多出 7 個冗餘檔（App.config 是"
+        },
+        {
+          "hash": "ecf640e5",
+          "time": "09:46",
+          "message": "build: add PublishTaipei configuration",
+          "body": "新增台北客戶 publish profile，補齊 sln + csproj + 對應 XDT"
+        },
+        {
+          "hash": "e184f8e8",
+          "time": "09:34",
+          "message": "chore: replace departed user email in App.config notification list",
+          "body": "austynwu@ucl.com.tw 已離職多時，改為現任窗口 amber@ucl.com.tw。"
+        },
+        {
+          "hash": "aa3a2cef",
+          "time": "09:31",
+          "message": "docs: clarify DataBaseModel semantics and App.config vs .exe.config",
+          "body": "- DataBaseModel 描述更正：兩個值都是 SQL Server 連線，差別在指"
+        },
+        {
+          "hash": "d320daa3",
+          "time": "09:27",
+          "message": "perf: parameterize literal Oracle SQL to eliminate hard parse churn",
+          "body": "5 queries in BusinessLogicBase.cs interpolated dates / PIDs / TNOs"
+        },
+        {
+          "hash": "24fcfd36",
+          "time": "09:23",
+          "message": "docs: add README with project overview and deployment guide",
+          "body": "涵蓋三種 mode 對照、客戶端部署位置、build/deploy 流程"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f519ca2d",
+          "time": "18:02",
+          "message": "docs(Performance): 歸檔已完成計畫與舊報表 + 文件同步更新",
+          "body": "歸檔到 _archive/："
+        },
+        {
+          "hash": "ea25993b",
+          "time": "17:52",
+          "message": "docs(Performance): HP polling exe 參數化 0504 進度報告",
+          "body": "紀錄 Phase III 三支 polling exe 進度："
+        },
+        {
+          "hash": "29fa4f55",
+          "time": "17:52",
+          "message": "perf(QC): 加 IDX_QC_TX_HDR_UPDATE_BY 消除 INSERT 子查詢 full table scan",
+          "body": "SQL_ID 5zjj83x1b49wj 的子查詢 MAX(QTH_LOGNO) WHERE QTH_UPDATE_BY=:Account3"
+        },
+        {
+          "hash": "e8226db4",
+          "time": "08:15",
+          "message": "chore(Signin): 移除冗餘 Layer 2 + SignSpeUnits config",
+          "body": "Layer 2「高雄聯合 SignSpeUnits」邏輯：當 unit 在清單時，主 SQL 多"
+        },
+        {
+          "hash": "adc6a712",
+          "time": "08:06",
+          "message": "chore(Signin): 移除已棄用的 SpecialUnits config",
+          "body": "C# 三處讀 web.config \"SpecialUnits\" 已全數搬至 SYS_PARAMETER"
+        },
+        {
+          "hash": "57599b4b",
+          "time": "08:00",
+          "message": "fix(Signin): PostV2 同步改讀 SYS_PARAMETER 並啟用 USE_SIGNIN_V2",
+          "body": "跟進 !1078，修正 PostV2 內仍寫死讀 web.config SpecialUnits 的疏漏，"
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "a7a238ec",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-05",
+          "body": "🤖 自動生成於 2026-05-05 07:05"
+        },
+        {
+          "hash": "04fdc895",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-04 (8 commits)",
+          "body": "🤖 自動生成於 2026-05-05 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 13,
+    "sideCommits": 2,
+    "totalCommits": 15
+  }
+}
