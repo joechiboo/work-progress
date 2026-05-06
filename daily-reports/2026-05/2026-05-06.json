@@ -1,0 +1,79 @@
+{
+  "date": "2026-05-06",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "8a80d90e",
+          "time": "10:18",
+          "message": "feat(SigninINVNO): 加快速篩選 + 加印原號標籤 toggle",
+          "body": "- 快速篩選：對 5 個清單 (簽收/缺檢/補件/未對應/CMV) 即時 client-side filter，"
+        },
+        {
+          "hash": "d9d94b38",
+          "time": "09:47",
+          "message": "On perf/qc-update-by-index: wip: iccardupload handoff",
+          "body": ""
+        },
+        {
+          "hash": "68aa84c6",
+          "time": "09:47",
+          "message": "index on perf/qc-update-by-index: f519ca2dd docs(Performance): 歸檔已完成計畫與舊報表 + 文件同步更新",
+          "body": ""
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "8fe212ac",
+          "time": "00:41",
+          "message": "deploy: 85c2abeb19b0c473a28e26cfe39c8aaa5d8ea1d7",
+          "body": ""
+        },
+        {
+          "hash": "85c2abeb",
+          "time": "08:40",
+          "message": "Merge pull request #6 from joechiboo/feat/2026-05-06-financial-mgmt-doc",
+          "body": "新增社區財務管理辦法到法規檢視頁面"
+        },
+        {
+          "hash": "0cc7ac6a",
+          "time": "08:39",
+          "message": "新增社區財務管理辦法到法規檢視頁面",
+          "body": "- 將 PDF 解析成 markdown 並加進 LawViewer 第三個 tab"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "0a8aa206",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-06",
+          "body": "🤖 自動生成於 2026-05-06 07:05"
+        },
+        {
+          "hash": "34a87d55",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-05 (15 commits)",
+          "body": "🤖 自動生成於 2026-05-06 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 5,
+    "totalCommits": 8
+  }
+}
