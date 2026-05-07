@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-07",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\ICCardUpload2",
+      "commits": [
+        {
+          "hash": "43138da4",
+          "time": "10:56",
+          "message": "docs: add deployment checklist and 2026-05-06 mode 2 hang known issue",
+          "body": "新增「部署驗收清單」章節（4 階段：部署前 / 第一輪手動 / 第二輪自然"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "117ebbe9",
+          "time": "18:05",
+          "message": "docs: 新增 2026/02-04 AI 工具費用報銷總結",
+          "body": "Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "0cba9ecf",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-07",
+          "body": "🤖 自動生成於 2026-05-07 07:05"
+        },
+        {
+          "hash": "a9a7aecf",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-06 (8 commits)",
+          "body": "🤖 自動生成於 2026-05-07 07:05"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 3,
+    "totalCommits": 4
+  }
+}
