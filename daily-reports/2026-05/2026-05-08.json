@@ -1,0 +1,61 @@
+{
+  "date": "2026-05-08",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "TakoDoko",
+      "commits": [
+        {
+          "hash": "d55b85ab",
+          "time": "10:48",
+          "message": "chore: 整理部署文件與 script",
+          "body": "- LinuxDeployment.md 開頭新增「TL;DR — 日常更新部署」段落，"
+        },
+        {
+          "hash": "630318bf",
+          "time": "09:57",
+          "message": "feat: 搜尋範圍新增「全選/取消全選」切換按鈕",
+          "body": "預設搜尋範圍只勾「名稱、關鍵字」，使用者若想用 IP 或網址搜尋"
+        },
+        {
+          "hash": "fb491ead",
+          "time": "09:53",
+          "message": "On main: wip-unrelated-pre-pr",
+          "body": ""
+        },
+        {
+          "hash": "4cb46b00",
+          "time": "09:53",
+          "message": "index on main: b641ac1 Merge branch 'fix/token-expiry-and-refresh-token' into 'main'",
+          "body": ""
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "dd748614",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-08",
+          "body": "🤖 自動生成於 2026-05-08 07:05"
+        },
+        {
+          "hash": "b63c856f",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-07 (4 commits)",
+          "body": "🤖 自動生成於 2026-05-08 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 2,
+    "totalCommits": 6
+  }
+}
