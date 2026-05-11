@@ -1,0 +1,55 @@
+{
+  "date": "2026-05-11",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\ICCardUpload2",
+      "commits": [
+        {
+          "hash": "efd7251b",
+          "time": "17:38",
+          "message": "docs: add cert-file-restore as final last resort for cloud SAM recovery",
+          "body": "雲端安全模組 (SAM) 排查順序新增第 6 步「憑證檔還原原始版本」作為"
+        },
+        {
+          "hash": "8d552674",
+          "time": "15:00",
+          "message": "docs: record 2026-05-11 mode 2 hang findings + cloud SAM module troubleshooting",
+          "body": "新增兩個 Known Issues 條目："
+        },
+        {
+          "hash": "823b8726",
+          "time": "08:43",
+          "message": "obs: instrument mode 2 + defensive null checks for next deploy attempt",
+          "body": "為下次重試 mode 2 部署做準備，目標是「即便再卡，也能從 log 找到死點」："
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "cc6aa2f2",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-11",
+          "body": "🤖 自動生成於 2026-05-11 07:05"
+        },
+        {
+          "hash": "5bf24729",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-10 (2 commits)",
+          "body": "🤖 自動生成於 2026-05-11 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 2,
+    "totalCommits": 5
+  }
+}
