@@ -1,0 +1,85 @@
+{
+  "date": "2026-05-12",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "39985e83",
+          "time": "17:22",
+          "message": "修正 CKEditor 5 圖片工具列無法顯示 + Production API base URL",
+          "body": "- 把 resizeImage 個別按鈕 (25/50/75) 改回單一下拉，避免缺 icon"
+        },
+        {
+          "hash": "3363af54",
+          "time": "16:01",
+          "message": "CKEditor 圖片工具列加入縮放與對齊選項",
+          "body": "新增 25%/50%/75%/原始 縮放下拉，以及置中/靠左/靠右對齊按鈕，"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "HealthInsurance\\ICCardUpload2",
+      "commits": [
+        {
+          "hash": "a7c93256",
+          "time": "11:06",
+          "message": "docs: detail cert-file-restore steps for cloud SAM last-resort recovery",
+          "body": "Step 6 補完具體操作（之前缺實際路徑/動作）："
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "db8f87a5",
+          "time": "14:50",
+          "message": "feat:[BT402] 新增收據抬頭、統一編號欄位",
+          "body": "- 比照既有「資料格式」checkbox 模式，新增「收據抬頭」「統一編號」兩個 checkbox 控制顯示/列印/匯出"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "85cfa85b",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-12",
+          "body": "🤖 自動生成於 2026-05-12 07:05"
+        },
+        {
+          "hash": "c2312d59",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-11 (5 commits)",
+          "body": "🤖 自動生成於 2026-05-12 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "c8f906f0",
+          "time": "07:18",
+          "message": "Add printable A4 cheatsheet (HTML version)",
+          "body": "Print-optimized HTML version of midterm cheatsheet with:"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 3,
+    "totalCommits": 7
+  }
+}
