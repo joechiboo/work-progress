@@ -1,0 +1,85 @@
+{
+  "date": "2026-05-13",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "e5aa4201",
+          "time": "14:08",
+          "message": "fix(api): 單位管理表單 DOM 流失 + 改用浮動 toast 訊息",
+          "body": "- cancelSiteForm: 移除 form-row 前先搬回原位，避免 admin-site-form"
+        },
+        {
+          "hash": "7b2b3e51",
+          "time": "12:50",
+          "message": "test: OutputMaskFormattingTests 整理（補充註解 + 拆細測例）",
+          "body": "主要是讓 mask 行為（9/0 對應「選擇性 / 必補」小數位數）的測試表達更清楚，"
+        },
+        {
+          "hash": "e9f47bbf",
+          "time": "12:50",
+          "message": "ui(api): Dashboard → Api 查詢頁 deep link + admin 表單 null-ref 修正",
+          "body": "- 支援從 Dashboard 點失敗紀錄帶 query string (?hisCode=&clinicCode=&tno=&status=)"
+        },
+        {
+          "hash": "f5d2f65e",
+          "time": "12:49",
+          "message": "fix(thesecloud): VisionData 欄位截斷 + Download 失敗日期寫 TransferLog",
+          "body": "VisionData header/item 欄位（Idno/Regno/Pdrid/Pcliid/Inhiid 等）寫入 SQL Server 時"
+        },
+        {
+          "hash": "e03a5d6e",
+          "time": "12:49",
+          "message": "feat: 站台設定 IncludeHiddenItems 旗標（北榮康保留 LIS `!` item）",
+          "body": "Oracle OD_TR_VAL == \"!\" 在 LIS 端代表「隱藏旗標」（這個項目不對外發送），"
+        },
+        {
+          "hash": "bd2f7973",
+          "time": "12:49",
+          "message": "feat(email): 跨分部彙總每日傳輸報告 + Api SMTP From 修正",
+          "body": "主功能：台北 Worker 在 08:00 跨站連各分部 SQL Server，組成「全分部」彙總信寄一封，"
+        },
+        {
+          "hash": "46bcdf43",
+          "time": "10:21",
+          "message": "docs(esis): 補上 0787 富康 5/4 事件分析存查",
+          "body": "- 新舊系統 XML 兩處實作差異（prt_time、XML 排版）保留紀錄，"
+        },
+        {
+          "hash": "24757315",
+          "time": "10:19",
+          "message": "Revert \"台北啟用 Esis (0787 富康診所) + EsisAdapter prt_time / 排版修正\"",
+          "body": "This reverts commit 87247e7."
+        }
+      ],
+      "count": 8
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "1dfdabf4",
+          "time": "07:09",
+          "message": "docs: 更新彙整資料 2026-05-13",
+          "body": "🤖 自動生成於 2026-05-13 07:09"
+        },
+        {
+          "hash": "afff2eea",
+          "time": "07:09",
+          "message": "docs: 每日工作紀錄 2026-05-12 (7 commits)",
+          "body": "🤖 自動生成於 2026-05-13 07:09"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 2,
+    "totalCommits": 10
+  }
+}
