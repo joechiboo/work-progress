@@ -1,0 +1,43 @@
+{
+  "date": "2026-05-14",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "aa1ac1c1",
+          "time": "09:42",
+          "message": "v5.14: 移至指定日期改用 SN 過濾，修正無檔名單位無法搬移",
+          "body": "- 原本依 filename 過濾，當 filename 為 NULL 時 IN (...) 永遠 match 不到"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "e0930f06",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-14",
+          "body": "🤖 自動生成於 2026-05-14 07:05"
+        },
+        {
+          "hash": "8ca62437",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-13 (10 commits)",
+          "body": "🤖 自動生成於 2026-05-14 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 2,
+    "totalCommits": 3
+  }
+}
