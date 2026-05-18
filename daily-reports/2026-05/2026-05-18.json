@@ -1,0 +1,103 @@
+{
+  "date": "2026-05-18",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "c5ee5953",
+          "time": "09:25",
+          "message": "部署腳本支援 -Push 推到 Server + 補充部署/舊站整合文件",
+          "body": "deploy.ps1: 新增 -Push 參數，build 完直接推到 \\192.168.156.224\\d$\\ucl-admin 對應目錄"
+        },
+        {
+          "hash": "49c7d482",
+          "time": "09:25",
+          "message": "新增連線字串加密工具 (tools/EncryptTool)",
+          "body": "獨立 console 程式，用對稱金鑰把資料庫連線字串加密後再寫進 appsettings.json，避免明文外洩。"
+        },
+        {
+          "hash": "0329a532",
+          "time": "09:24",
+          "message": "新增最新消息與 Banner 廣告管理模組",
+          "body": "- ShopMovement: allshopmovement CRUD (MoveType 1~4 涵蓋會員專屬活動/會員訊息/聯合訊息/人才招募)，MoveID 保留舊系統 yyMMddHHmmss 格式，軟刪除"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TakoDoko",
+      "commits": [
+        {
+          "hash": "38156b47",
+          "time": "14:42",
+          "message": "hotfix: 修部署 script 在 PS 5.1 上的兩個執行問題",
+          "body": "實測 deploy-frontend.ps1 在 Windows PowerShell 5.1 跑不起來，修兩件事："
+        },
+        {
+          "hash": "87659964",
+          "time": "10:07",
+          "message": "feat: 新增一鍵部署 script",
+          "body": "- scripts/deploy/deploy-frontend.ps1：npm build + scp dist"
+        },
+        {
+          "hash": "1fd3a07e",
+          "time": "10:05",
+          "message": "chore: bump frontend v1.4.1 + 補強發版流程文件",
+          "body": "- frontend v1.4.0 → v1.4.1（含「全選 / 取消全選」按鈕）"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "0c4e78ad",
+          "time": "08:31",
+          "message": "新增首頁訊息與知識庫維護指南及 SQL 紀錄",
+          "body": "- docs/news-and-knowledge-maintenance.md：allshopmovement 與 Knowledge 兩表維護 SOP、HTML 範本、GoodsID 對照、錯誤排除"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f3740097",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-18",
+          "body": "🤖 自動生成於 2026-05-18 07:05"
+        },
+        {
+          "hash": "7301cf81",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-17 (2 commits)",
+          "body": "🤖 自動生成於 2026-05-18 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "a00ce073",
+          "time": "10:32",
+          "message": "Add video duration column to course index",
+          "body": "- Add duration (mm:ss) for all 17 videos"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 3,
+    "totalCommits": 10
+  }
+}
