@@ -1,0 +1,127 @@
+{
+  "date": "2026-05-22",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "2e3ac3f4",
+          "time": "15:22",
+          "message": "fix: 1 號站 URL alias 沒有 1 (/WebOrder/ 而非 /WebOrder1/)",
+          "body": "IIS alias: WebOrder, WebOrder2, WebOrder3"
+        },
+        {
+          "hash": "f7f55394",
+          "time": "11:53",
+          "message": "feat: 加部署自動化 (4 站 web.config + Deploy-FenDan.ps1)",
+          "body": "- deploy/configs/Web.WebOrder{1,2,3,4}.config：4 個 IIS 站台各自完整 web.config"
+        },
+        {
+          "hash": "e0cb101e",
+          "time": "11:01",
+          "message": "feat: 顯示登入人「代號 (姓名)」 + SSOLogin.aspx BOM 修正",
+          "body": "- SSOLogin.aspx 改存 UTF-8 BOM (原本沒 BOM 導致 ASP.NET 用 Big5 解析中文崩潰)"
+        },
+        {
+          "hash": "dd0893ed",
+          "time": "10:06",
+          "message": "chore: EVENTLOG 識別碼 [D] 改為 [分單]",
+          "body": "更直觀標示來源系統，避免將來看 log 還要記憶 [D] 代表什麼"
+        },
+        {
+          "hash": "8b6eb053",
+          "time": "10:01",
+          "message": "feat: 接 LIS SSO 取代假登入，EVENTLOG/ORD_DECLARE 寫入真實操作人",
+          "body": "- 移除 MenuControl Page_Load 從 web.config 強塞假身份的邏輯"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fb21749d",
+          "time": "12:10",
+          "message": "docs:[DangerListV2] 杏康診所窗口更新（2026-05-22 客戶通知）",
+          "body": "客戶提供的 Excel 更新："
+        },
+        {
+          "hash": "fab33f1e",
+          "time": "10:52",
+          "message": "feat:[SSO] JWT 加入 name claim，附帶使用者姓名",
+          "body": "- JwtHelper.GenerateSsoToken 新增選填 userName 參數，有值時放入 name claim"
+        },
+        {
+          "hash": "676a400d",
+          "time": "09:38",
+          "message": "feat:[SSO] 新增泛用 SsoTo Action 與接入文件",
+          "body": "新增 Home/SsoTo?sys={prefix} 泛用 SSO 跳轉入口，新系統接入只需在"
+        },
+        {
+          "hash": "dc49c00e",
+          "time": "09:10",
+          "message": "feat:[DangerListV2] 杏昌集團洗腎室客製化危急值規則",
+          "body": "以「企業集團 + 客戶類別」雙條件識別杏昌洗腎室"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "cf255940",
+          "time": "15:01",
+          "message": "refactor(api): manual resend 改走 TransferBatchAsync 真批次",
+          "body": "杏翔 / 北榮康補傳的觀察：每筆獨立 SOAP call（看 TransferLog 14:44~14:46"
+        },
+        {
+          "hash": "13eff2b5",
+          "time": "14:49",
+          "message": "fix(thesecloud): IgnoreSslErrors config flag 繞過廠商過期憑證",
+          "body": "杏翔外網憑證過期導致新北衛生所 SOAP 全面 SSL handshake 失敗。"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "68eedddc",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-22",
+          "body": "🤖 自動生成於 2026-05-22 07:05"
+        },
+        {
+          "hash": "4ea9f12d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-21 (2 commits)",
+          "body": "🤖 自動生成於 2026-05-22 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "431e592a",
+          "time": "16:01",
+          "message": "docs: 口試準備推進 + 場地確認 + Q&A 速記卡",
+          "body": "- 場地確認：視聽館 4 樓 F408（單號 1144000151）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 3,
+    "totalCommits": 14
+  }
+}
