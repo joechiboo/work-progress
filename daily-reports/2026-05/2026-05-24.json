@@ -1,0 +1,78 @@
+{
+  "date": "2026-05-24",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "f9adc0f6",
+          "time": "17:37",
+          "message": "Merge pull request #10 from joechiboo/claude/portfolio-categories",
+          "body": "補上 Lessons After School 的 demo 連結與 VitePress 技術棧"
+        },
+        {
+          "hash": "0e73a656",
+          "time": "08:59",
+          "message": "補上 Lessons After School 的 demo 連結與 VitePress 技術棧",
+          "body": ""
+        },
+        {
+          "hash": "47425880",
+          "time": "15:27",
+          "message": "Merge pull request #9 from joechiboo/claude/portfolio-categories",
+          "body": "新增 Lessons After School 並重整作品集分類"
+        },
+        {
+          "hash": "0a6e7e9c",
+          "time": "07:07",
+          "message": "新增 Lessons After School 並重整作品集分類",
+          "body": "- 新增專案：lessons-after-school（人生洞察類）"
+        },
+        {
+          "hash": "9fda6d01",
+          "time": "07:07",
+          "message": "新增 Lessons After School 並重整作品集分類",
+          "body": "- 新增專案：lessons-after-school（人生洞察類）"
+        },
+        {
+          "hash": "b1a1b933",
+          "time": "13:03",
+          "message": "Merge pull request #8 from joechiboo/claude/kind-dijkstra-CYGNd",
+          "body": "Add CubeLab project to portfolio"
+        },
+        {
+          "hash": "1138b287",
+          "time": "05:02",
+          "message": "新增作品集：CubeLab 魔術方塊實驗室親子共學專案",
+          "body": ""
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "08e21404",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-24",
+          "body": "🤖 自動生成於 2026-05-24 07:05"
+        },
+        {
+          "hash": "9ab93e2e",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-23 (2 commits)",
+          "body": "🤖 自動生成於 2026-05-24 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 9,
+    "totalCommits": 9
+  }
+}
