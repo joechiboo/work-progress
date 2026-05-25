@@ -1,0 +1,103 @@
+{
+  "date": "2026-05-25",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "764f70c2",
+          "time": "08:20",
+          "message": "chore: bump v5.25.02 — 登出按鈕移到登入人旁邊",
+          "body": "- 位置從版本標籤前移到「登入人 (姓名)」緊接著"
+        },
+        {
+          "hash": "50ea9c54",
+          "time": "08:20",
+          "message": "fix: MenuControl 加上登出按鈕",
+          "body": "原本 MenuControl.ascx 漏放登出 LinkButton，雖然 code-behind 有 lbtnLogout_Click handler 但無 UI 觸發。SSO 上線後使用者需要可以主動登出 (同時清分單 Session + 跳 LIS LogOut)。"
+        },
+        {
+          "hash": "45dd6e48",
+          "time": "08:13",
+          "message": "fix: Deploy-FenDan.ps1 加 UTF-8 BOM",
+          "body": "沒 BOM 時 PowerShell 5.1 預設用 cp950 解析，中文字串會壞掉導致 ParseError"
+        },
+        {
+          "hash": "b2625836",
+          "time": "08:02",
+          "message": "chore: bump v5.25 + 版本更新記錄加入 SSO 條目",
+          "body": "- MenuControl.ascx 版本標籤: 5.14 → 5.25 (2026/05/25)"
+        },
+        {
+          "hash": "7ec3dd28",
+          "time": "07:47",
+          "message": "On feat/sso-jwt: localhost SSO test config",
+          "body": ""
+        },
+        {
+          "hash": "b1497457",
+          "time": "07:47",
+          "message": "index on feat/sso-jwt: 2e3ac3f fix: 1 號站 URL alias 沒有 1 (/WebOrder/ 而非 /WebOrder1/)",
+          "body": ""
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d3d3ed75",
+          "time": "19:30",
+          "message": "docs(BillCode): 補充 BT201 Branch A/B 分流與歷史陷阱",
+          "body": "整合 MR !1121 的調查脈絡:"
+        },
+        {
+          "hash": "457a5a8b",
+          "time": "19:24",
+          "message": "fix(BT201): 套餐/套檢 keyin 時套用客製化帳別",
+          "body": "當 keyin 套餐 (IMH_TYPE=P) 或套檢進入 Branch B (走 api/ITEMMASTER/GetItem)"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "af6beeb2",
+          "time": "19:44",
+          "message": "檢驗目錄/項目搜尋改為加權排序、擴大搜尋欄位",
+          "body": "- 識別碼精確命中 (1000) > 名稱/識別欄位 contains (100/80) > HTML 內容欄位 contains (5)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "fe986ac1",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-25",
+          "body": "🤖 自動生成於 2026-05-25 07:05"
+        },
+        {
+          "hash": "8a6a87b1",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-24 (9 commits)",
+          "body": "🤖 自動生成於 2026-05-25 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 2,
+    "totalCommits": 11
+  }
+}
