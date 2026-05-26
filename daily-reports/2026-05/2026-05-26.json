@@ -1,0 +1,79 @@
+{
+  "date": "2026-05-26",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "5a3684ac",
+          "time": "14:32",
+          "message": "refactor:[DangerListV2] 杏昌規則收斂 — 僅 3 家電話通報客戶 + Glucose/K 兩項",
+          "body": "2026-05-22 與業務確認後的規格收斂："
+        },
+        {
+          "hash": "404bb25c",
+          "time": "14:32",
+          "message": "refactor:[DangerListV2] 杏昌規則收斂 — 僅 3 家電話通報客戶 + Glucose/K 兩項",
+          "body": "2026-05-22 與業務確認後的規格收斂："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "c8b5a3dd",
+          "time": "08:46",
+          "message": "修正 ShopMovement/BannerAd 與 DB 欄位型別錯配",
+          "body": "- ShopMovement.MoveType (entity string?) ↔ allshopmovement.MoveType (DB int): 加 ValueConverter"
+        },
+        {
+          "hash": "de1e7769",
+          "time": "08:01",
+          "message": "deploy.ps1 改存 UTF-8 with BOM",
+          "body": "PS 5.1 預設用 ANSI 讀 .ps1，無 BOM 的 UTF-8 中文註解會被誤解，導致 parser 錯誤"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "7bde48f6",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-26",
+          "body": "🤖 自動生成於 2026-05-26 07:05"
+        },
+        {
+          "hash": "4646286c",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-25 (11 commits)",
+          "body": "🤖 自動生成於 2026-05-26 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "3315c918",
+          "time": "19:11",
+          "message": "docs: 初稿VIII 左右對齊修訂 + 口試當天文件清單 + 學弟妹路線圖",
+          "body": "- 論文初稿VIII：Ch1-Ch9 左右對齊補齊、目錄行距修正、章節置中"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 3,
+    "totalCommits": 7
+  }
+}
