@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-27",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "5d031e0f",
+          "time": "08:16",
+          "message": "AI回覆 改走 C 方案：只寄給 ittest，客戶不收表單副本",
+          "body": "由 ittest 端 AI 讀 body 後自行 compose 給客戶 email；Reply-To 仍保留客戶 email 當備援。"
+        },
+        {
+          "hash": "76595439",
+          "time": "08:10",
+          "message": "gmailsend 加 BCC 參數，AI回覆 路徑 ittest 改密件副本",
+          "body": "- FunChar.asp: gmailsend 加第 7 參數 BccMail"
+        },
+        {
+          "hash": "0cd03789",
+          "time": "07:55",
+          "message": "聯絡我們類別 radio 可點 label 選取，加大可點範圍",
+          "body": "把每個 radio + 文字包進 <label class=\"kind-opt\">，配 cursor:pointer 樣式"
+        },
+        {
+          "hash": "e1744175",
+          "time": "07:51",
+          "message": "gmailsend 加 ReplyTo 覆寫參數，AI回覆 路徑回信直達客戶",
+          "body": "- FunChar.asp: gmailsend 加第 6 參數 ReplyToOverride，空字串維持原本行為"
+        },
+        {
+          "hash": "3a68850b",
+          "time": "07:31",
+          "message": "聯絡我們新增 AI 回覆類別並新增 SMB 部署指南",
+          "body": "- cusCenter.asp 加 \"AI回覆\" radio (value=4)，header/footer 改用共用 include"
+        }
+      ],
+      "count": 5
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "324b9081",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-27",
+          "body": "🤖 自動生成於 2026-05-27 07:05"
+        },
+        {
+          "hash": "d7ec11c6",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-26 (7 commits)",
+          "body": "🤖 自動生成於 2026-05-27 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 2,
+    "totalCommits": 7
+  }
+}
