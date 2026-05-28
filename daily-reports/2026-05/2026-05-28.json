@@ -1,0 +1,43 @@
+{
+  "date": "2026-05-28",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "1ed627bb",
+          "time": "10:16",
+          "message": "fix;修復排程吊死導致 ACTIVE 鎖卡住問題",
+          "body": "1. 全部 SQL 加 CommandTimeout = 60 秒，避免遇到 Oracle lock 或網路問題無限等待"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "dc716104",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-28",
+          "body": "🤖 自動生成於 2026-05-28 07:05"
+        },
+        {
+          "hash": "c3a032c6",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-27 (7 commits)",
+          "body": "🤖 自動生成於 2026-05-28 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 2,
+    "totalCommits": 3
+  }
+}
