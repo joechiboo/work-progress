@@ -1,0 +1,127 @@
+{
+  "date": "2026-05-29",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "35b7b23e",
+          "time": "12:17",
+          "message": "feat(signin): 收據抬頭帶患者姓名、內容改「健康管理血液檢驗費」",
+          "body": "- TITLE = blg.ID_LAST_NAME (患者姓名, 會員主檔優先), 取代原單位 RECEIPTHEADER"
+        },
+        {
+          "hash": "4d73fda3",
+          "time": "12:16",
+          "message": "docs(schema): 1235 fallback 信箱「暫不設」決策註解",
+          "body": "- 上線暫不設 RECEIPT_MAIL_FALLBACK_EMAIL_1235, 走 ID_EMAIL→DBEMAIL 前兩層"
+        },
+        {
+          "hash": "26c6f3f4",
+          "time": "12:16",
+          "message": "feat(bt410): 查詢單位預設改全部 + 日期排版 + blob 錯誤訊息顯示",
+          "body": "- 查詢 tab 單位下拉預設由 1235 改為「全部」(空字串), 不鎖單位"
+        },
+        {
+          "hash": "96544789",
+          "time": "12:15",
+          "message": "fix(receipt): 批次列印修虛擬目錄 404 + PDF 合併 doc.Close() 順序",
+          "body": "- baseUrl 補上 ApplicationPath, 部署在虛擬目錄 (http://server/lisweb) 時才不會 404"
+        },
+        {
+          "hash": "843ed1dd",
+          "time": "12:15",
+          "message": "feat(receipt): 收據加蓋公司大章 + 公司章/印花章統一受 stamp 參數控制",
+          "body": "- PrintBT410: 加台北方形公司大章 (台北_紅章_新.jpg), position:absolute 不撐寬負責人那行"
+        },
+        {
+          "hash": "5cab2d46",
+          "time": "11:57",
+          "message": "feat(signin): 簽收即收款，當下配號並寫 RECEIPTS（一檢體一張）",
+          "body": "簽收命中白名單時，除了寫 SPECIMEN_RECEIPT_QUEUE，當下就配號 + 寫 RECEIPTS，"
+        },
+        {
+          "hash": "83c2b643",
+          "time": "11:38",
+          "message": "docs(spec): 補 Trigger 去重責任邊界 (同 TNO 跨輪重複須擋)",
+          "body": "- 明確分工: LISWeb producer 一單一列不去重, 去重全在 Trigger"
+        },
+        {
+          "hash": "40ef55a9",
+          "time": "11:03",
+          "message": "docs: 光璨 1235 簽收 Email 主計畫 + NotificationPlatform 介接規格",
+          "body": "- WorldGym_1235_簽收Email通知.md: 主計畫 (架構決策/Q1~Q7/實作清單/deploy 順序)"
+        },
+        {
+          "hash": "9e4b4077",
+          "time": "11:03",
+          "message": "feat(schema): SPECIMEN_RECEIPT_QUEUE 建表 + SYS_PARAMETER 白名單",
+          "body": "- SPECIMEN_RECEIPT_QUEUE: 表 + Sequence + Trigger 自動編號(避免 MAX+1 race)"
+        },
+        {
+          "hash": "74dabee9",
+          "time": "11:03",
+          "message": "feat(bt410): 收據加印花總繳章 + /Report/ReceiptPdf API + 批次列印匯出",
+          "body": "- PrintBT410: ViewBag.stamp 條件渲染印花總繳章 + .stamp-duty CSS"
+        },
+        {
+          "hash": "db423201",
+          "time": "11:03",
+          "message": "feat(receipt): RECEIPTS 加 DBCODE 欄位 + Save/Search 透傳 + GetByReceiptNos",
+          "body": "- ReceiptDto 加 DBCODE; Repository Save/Search 透傳, 新增 GetByReceiptNos"
+        },
+        {
+          "hash": "6df789c3",
+          "time": "11:01",
+          "message": "feat(signin): 簽收成功後寫入收據寄送 queue (光璨 1235)",
+          "body": "- SigninRepository: 新增 EnqueueReceipt (純 INSERT 寫 SPECIMEN_RECEIPT_QUEUE,"
+        }
+      ],
+      "count": 12
+    },
+    {
+      "name": "NotificationPlatform",
+      "commits": [
+        {
+          "hash": "31b03b53",
+          "time": "10:10",
+          "message": "feat:加 SpecimenReceiptWorker 串光璨 1235 簽收收據自動寄送",
+          "body": "- EmailTrigger 加 Console 模式分流: --console=receipt 走新 worker, 既有 --console 維持合約到期"
+        },
+        {
+          "hash": "72284b07",
+          "time": "10:09",
+          "message": "feat:EmailService 升版支援 PDF 附件與失敗 throttle 通知",
+          "body": "- EmailQueue 加 AttachmentBytes/AttachmentName/EmailType/SourceSystem (nullable)"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d0e1ccd9",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-05-29",
+          "body": "🤖 自動生成於 2026-05-29 07:05"
+        },
+        {
+          "hash": "6d64844e",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-28 (3 commits)",
+          "body": "🤖 自動生成於 2026-05-29 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 14,
+    "sideCommits": 2,
+    "totalCommits": 16
+  }
+}
