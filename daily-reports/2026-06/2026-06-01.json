@@ -1,0 +1,133 @@
+{
+  "date": "2026-06-01",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ca768aa1",
+          "time": "14:47",
+          "message": "docs(receipt): 記錄 BT410/BT403 收據版型共用重構 (tech-debt, 暫不做)",
+          "body": "紅章勾選時兩邊各加一次蓋章 markup, 暴露收據版型重複。記錄共用做法、"
+        },
+        {
+          "hash": "c42eea45",
+          "time": "14:35",
+          "message": "feat(receipt): BT410/BT403 加「蓋公司紅章」勾選框",
+          "body": "- BT410 開立 + BT403 各加勾選框(預設勾): 勾→蓋公司紅章, 不勾→沒章"
+        },
+        {
+          "hash": "252e0a51",
+          "time": "12:48",
+          "message": "fix(signin): 簽收源頭去重防重複開收據 + queue 補 RECEIPT_NO/TNO index",
+          "body": "- 簽收前 ReceiptAlreadyQueued(TNO) 查 SPECIMEN_RECEIPT_QUEUE, 同 TNO 已進過"
+        },
+        {
+          "hash": "0ac38a5e",
+          "time": "12:48",
+          "message": "fix(receipt): 公司大章改只台北(UCL_SITE=TP)顯示",
+          "body": "大章是台北紅章, 分部不該蓋; 改為僅 UCL_SITE=TP 顯示且不受 stamp 控制,"
+        },
+        {
+          "hash": "cd018b89",
+          "time": "09:38",
+          "message": "fix(consumable): 修正針頭等模板品項選單失效（底線數量寫死問題）",
+          "body": "快捷面板改查表設定後，dialog 判斷與篩選字串寫死「剛好 4 個底線」(____)，"
+        },
+        {
+          "hash": "b4281b03",
+          "time": "09:37",
+          "message": "feat(receipt): BT410 收據改用 headless PDF 渲染、抽出收據 partial",
+          "body": "- 新增 HeadlessPdfHelper，ReceiptController/ReportController 改走 headless 產 PDF"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "9b6a5aa5",
+          "time": "11:54",
+          "message": "docs;新增 DEPLOY.md 部署流程文件",
+          "body": "涵蓋 build、打包 (slim package)、部署 (停排程→備份→抄檔→啟排程)、"
+        },
+        {
+          "hash": "8a1ca129",
+          "time": "11:43",
+          "message": "fix;補上 Connection.Open() 的 timeout 保護",
+          "body": "1. 新增 OpenWithTimeout(IDbConnection) 包 cn.Open()，預設 15 秒"
+        },
+        {
+          "hash": "dfea3b97",
+          "time": "11:26",
+          "message": "fix;消除 ORA-01400 雜訊與 NLog 歸檔改進",
+          "body": "1. BuildDefaultMergeSql / BuildDetailedMergeSql 在 USING 外加 WHERE OD_TESTCODE_LIST IS NOT NULL"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\臨床生化學會",
+      "commits": [
+        {
+          "hash": "828a9b7b",
+          "time": "11:48",
+          "message": "更新 README 託管資訊：實際掛在智邦代管 (211.72.207.202)，非內網 56.80",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "18bf9779",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-01",
+          "body": "🤖 自動生成於 2026-06-01 07:05"
+        },
+        {
+          "hash": "b111f2b0",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-05-31 (2 commits)",
+          "body": "🤖 自動生成於 2026-06-01 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "8726f484",
+          "time": "15:01",
+          "message": "docs: Meeting 26 議程 + 封面版本管理 + 簡報素材",
+          "body": "- Meeting 26 議程：論文 review 拉到最前（教授改稿意見要在 6/22 印刷"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "f9eb1f41",
+          "time": "16:21",
+          "message": "Add final exam Q&A review sheet and weak-points tracker",
+          "body": "- Add 10 essay-style questions covering videos 10-14"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 4,
+    "totalCommits": 14
+  }
+}
