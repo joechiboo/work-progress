@@ -1,0 +1,139 @@
+{
+  "date": "2026-06-02",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "NotificationPlatform",
+      "commits": [
+        {
+          "hash": "47c7ea31",
+          "time": "12:46",
+          "message": "doc:DEPLOY/RELEASE-PLAN 把 IIS app pool 從 mailapi 改成實際名稱 UCL_EmailAPI",
+          "body": "從 56.92 現場確認:"
+        },
+        {
+          "hash": "7be3630d",
+          "time": "12:39",
+          "message": "doc:新增 RELEASE-PLAN-2026-06-02.md 部署執行 checklist",
+          "body": "D-day 操作 checklist, 跟著一步一步打勾即可:"
+        },
+        {
+          "hash": "03566241",
+          "time": "12:35",
+          "message": "test:加 NotificationPlatform.Tests 涵蓋 retry/throttle/grouping/scheduling + 整合測試",
+          "body": "# 為了可測試性的小 refactor"
+        },
+        {
+          "hash": "620e4218",
+          "time": "12:17",
+          "message": "refactor:整合 EmailService.exe + Task Scheduler 進 EmailTrigger Web API",
+          "body": "對應 ADR-001 (docs/ADR-001-unified-web-api.md)"
+        },
+        {
+          "hash": "9d76b8a5",
+          "time": "11:36",
+          "message": "doc:新增 DEPLOY.md 部署 runbook",
+          "body": "涵蓋:"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "da4b6f68",
+          "time": "12:48",
+          "message": "perf(BT403): 列印改同步開窗解彈窗封鎖 + View 分組消 O(U×N) 重掃",
+          "body": "問題: 列印按下後一直轉圈、瀏覽器擋彈窗、大範圍(0000-2000)只能切100號分批印"
+        },
+        {
+          "hash": "6662d8a4",
+          "time": "11:48",
+          "message": "feat(LR152): 加修改權限閘門，沿用 LRS111 Permission17",
+          "body": "- HomeController.LR152() 加 ViewBag.canEdit = USER_CTL_FLAG1.Substring(6,1)"
+        },
+        {
+          "hash": "03e91f01",
+          "time": "11:34",
+          "message": "feat(LR152): 開放 LRS152 於 docs 版瀏覽 + 補頁面文檔",
+          "body": "- 將 HomeController.LR152() 移出 #if !DOCS 區塊，改放 #region 檢驗及工作站"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "e315998f",
+          "time": "10:44",
+          "message": "新增 webshop/shop 版控盲區與上版注意事項文檔",
+          "body": "- docs/webshop-shop-version-control.md：說明該目錄大多沒納入 git、prod 常被直接改，本機副本易過時；附改檔/部署/同步回 git 的鐵則與漂移快檢腳本"
+        },
+        {
+          "hash": "bed0cf82",
+          "time": "10:33",
+          "message": "ServiceQueryInfo 參考區間圖片去除上方多餘空白，並納入版控",
+          "body": "- figure.image margin 1em auto → 0 auto，移除 CKEditor 圖片(參考區間表格)上方多出的空白"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "f2002efa",
+          "time": "10:39",
+          "message": "fix(thesecloud): 杏雲正常代表值 MRR 收斂防截斷 + 片語型異常旗標正規化",
+          "body": "杏雲（新北衛生所/安德）回報 SOAP HTTP 500「字串或二進位資料會被截斷」："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "75ff5bea",
+          "time": "22:35",
+          "message": "Merge pull request #11 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "Add GreenKeeper lawn mower simulator project to portfolio"
+        },
+        {
+          "hash": "70d4ec25",
+          "time": "14:33",
+          "message": "新增 GreenKeeper 除草機模擬器至作品集",
+          "body": "加入展示路徑規劃演算法的網頁模擬器專案，包含中英文介紹、"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "6e84f95e",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-02",
+          "body": "🤖 自動生成於 2026-06-02 07:05"
+        },
+        {
+          "hash": "e8c3f815",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-01 (14 commits)",
+          "body": "🤖 自動生成於 2026-06-02 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 4,
+    "totalCommits": 15
+  }
+}
