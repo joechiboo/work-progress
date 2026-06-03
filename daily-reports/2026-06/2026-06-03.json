@@ -1,0 +1,157 @@
+{
+  "date": "2026-06-03",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "NotificationPlatform",
+      "commits": [
+        {
+          "hash": "016e810d",
+          "time": "16:08",
+          "message": "fix:Swagger AddServer(/mailapi) — UI 自動帶上 /mailapi/ 前綴",
+          "body": "線上實際 path 是 https://api.ucl.com.tw/mailapi/api/..."
+        },
+        {
+          "hash": "bc0fd067",
+          "time": "16:00",
+          "message": "feat(v1.2):附件支援 + Admin/Encrypt 隱藏對外 + Swagger 中文 XML 註解",
+          "body": "# 新功能"
+        },
+        {
+          "hash": "d76bd354",
+          "time": "12:17",
+          "message": "doc:新增鴿子 Pigeon 命名文檔 + API 接口文件版號/歷程",
+          "body": "- docs/NAMING.md: 專案正式代號「鴿子 Pigeon」,記錄命名由來與部門生物命名脈絡(TakoDoko / Hydra / Pigeon)"
+        },
+        {
+          "hash": "0ed99658",
+          "time": "11:55",
+          "message": "fix:LISWeb BaseUrl 改 https (避免 http→https redirect 砍 query string)",
+          "body": "實測 2026-06-03 SpecimenReceipt 端到端流程, 收到的 PDF 內容全空白 —"
+        },
+        {
+          "hash": "fea681f1",
+          "time": "11:23",
+          "message": "fix:GetPendingReceiptQueue 改 ROWNUM (Oracle.ManagedDataAccess.Core 對 FETCH FIRST + bind variable 不穩, 噴 ORA-00933)",
+          "body": "實測 prod 跑 Smoke E 時 stdout log 確認 line 171 GetPendingReceiptQueue 噴錯."
+        },
+        {
+          "hash": "fa6f220b",
+          "time": "11:18",
+          "message": "fix:拿掉 BLG_TX_HDR.ID_EMAIL_FLAG 過濾 (LIS 端控制 opt-in, 我們不加第二層)",
+          "body": "原本為了「安全」加的 WHERE ID_EMAIL_FLAG = 'Y', 但這是多餘的 —"
+        },
+        {
+          "hash": "d30fb72e",
+          "time": "11:05",
+          "message": "doc:README SpecimenReceipt 流程描述對齊新 group key (RECEIPT_NO)",
+          "body": ""
+        },
+        {
+          "hash": "e78d6b60",
+          "time": "11:03",
+          "message": "feat:HFCONTRACT 合約信延到 06:40 才寄, 避免凌晨 02:00 寄出造成業務員早上信箱 timestamp 亂掉",
+          "body": "- appsettings 加 HfContract:SendAtHour (預設 6) / SendAtMinute (預設 40)"
+        },
+        {
+          "hash": "d9a9f483",
+          "time": "11:02",
+          "message": "fix:SpecimenReceipt 對齊 LIS Oracle 實際 schema (今天部署用)",
+          "body": "# 背景"
+        },
+        {
+          "hash": "11606386",
+          "time": "10:26",
+          "message": "refactor:拿掉 --console=X 改用 Admin API + 配套文件更新",
+          "body": "對齊 ADR-001 §2.3 設計哲學「單一進程、純 Web API」, 移除 refactor 過渡期遺留的 console mode 尾巴。"
+        }
+      ],
+      "count": 10
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "greenkeeper",
+      "commits": [
+        {
+          "hash": "f6866ad5",
+          "time": "19:57",
+          "message": "docs: 樹莓派系統已就緒 — IP 連得通",
+          "body": "microSD 裡有可開機上網的系統（192.168.169.91 有回應），"
+        },
+        {
+          "hash": "361f4a9e",
+          "time": "19:51",
+          "message": "docs: 強化套件採購提醒 — 下單前確認電池/主板/內容物",
+          "body": "把「含不含電池」列為下單前第一檢查點（多數套件不含電池本體），"
+        },
+        {
+          "hash": "bd0e929c",
+          "time": "19:49",
+          "message": "docs: microSD 已插在 Pi 上",
+          "body": "確認記憶卡已就位；剩待確認裡面有無系統（接電有畫面=有）。"
+        },
+        {
+          "hash": "ca0da9ec",
+          "time": "19:47",
+          "message": "docs: 確認樹莓派為 Pi 4",
+          "body": "由兩藍兩黑 USB 接孔認出，算力足以跑 YOLO。更新盤點表、"
+        },
+        {
+          "hash": "93e19417",
+          "time": "19:46",
+          "message": "docs: 更新硬體進度 — webcam 到手、Arduino 明天到、套件可採購",
+          "body": "webcam 已拿到公司的；Arduino 同事明天帶來；其他齊全後"
+        },
+        {
+          "hash": "d73dccfc",
+          "time": "14:48",
+          "message": "docs: README 補上真實機器目標與計劃頁連結",
+          "body": "加入「邁向真實機器」的方向說明、計劃頁/路線圖連結，"
+        },
+        {
+          "hash": "7b2cccb4",
+          "time": "14:48",
+          "message": "feat: 新增計劃頁 plan.html，首頁加連結",
+          "body": "把邁向真實機器的計劃視覺化成獨立網頁：三層架構、四階段"
+        },
+        {
+          "hash": "5a7a538f",
+          "time": "14:39",
+          "message": "docs: 新增硬體盤點清單",
+          "body": "可勾選的採購/盤點清單：核心部件狀態、兩種「眼睛」之分、"
+        },
+        {
+          "hash": "0b6059eb",
+          "time": "11:30",
+          "message": "docs: 新增實體機器路線圖（硬體/韌體方向）",
+          "body": "確立目標為做出真實會走的機器，模擬器定位為大腦練習場。"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "5e680db8",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-03",
+          "body": "🤖 自動生成於 2026-06-03 07:05"
+        },
+        {
+          "hash": "4d71f80e",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-02 (15 commits)",
+          "body": "🤖 自動生成於 2026-06-03 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 11,
+    "totalCommits": 21
+  }
+}
