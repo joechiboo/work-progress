@@ -1,0 +1,109 @@
+{
+  "date": "2026-06-04",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b8b68a63",
+          "time": "12:49",
+          "message": "feat(BT402): 新增客戶抬頭地址條列印 (Y印帳單地址/N印角碼)",
+          "body": "- GetReportBT402 補撈 DBADDR3/SEND_BILL_MAIL/BILLRECEIVER + join HFCLINIC 撈 CD_DBCLASS"
+        },
+        {
+          "hash": "3e0c7143",
+          "time": "10:41",
+          "message": "feat(BT101): 新增帳單郵寄與否欄位設定 (SEND_BILL_MAIL)",
+          "body": "- DEBTOR_DETAIL 新增 SEND_BILL_MAIL (Y/N, 預設 N)，標記帳單是否直接郵寄"
+        },
+        {
+          "hash": "0e2b51a3",
+          "time": "09:56",
+          "message": "docs: 補進尚未推送的各專案文檔",
+          "body": "- WorldGym 1235: NotificationPlatform 介接規格、簽收 Email 通知更新"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "NotificationPlatform",
+      "commits": [
+        {
+          "hash": "20dd41b8",
+          "time": "09:26",
+          "message": "chore:Swagger v1.2 → v1.3 (CreatedFrom 改選填的版號)",
+          "body": ""
+        },
+        {
+          "hash": "00647ae8",
+          "time": "09:26",
+          "message": "feat:CreatedFrom 改選填, 空白時信件不出現 footer + hr 分隔線",
+          "body": "# 需求"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "greenkeeper",
+      "commits": [
+        {
+          "hash": "2be16a77",
+          "time": "08:49",
+          "message": "docs: 定案套件與合體架構",
+          "body": "- 套件選定：傑森創工 Uno 2WD（含教學/接線圖/範例），這台用 Uno、"
+        },
+        {
+          "hash": "6b8e5097",
+          "time": "08:02",
+          "message": "docs: 記錄 Arduino 連線排雷（CH340/Code 10/COM5）",
+          "body": "板子為 MEGA 2560 clone（CH340 晶片）。記錄三坑：充電線、"
+        },
+        {
+          "hash": "c2ded835",
+          "time": "07:51",
+          "message": "docs: Arduino 已到手 — MEGA 2560",
+          "body": "同事提供 Arduino MEGA 2560，腳位多、做自走車很夠用。"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "b26ddb5d",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-04",
+          "body": "🤖 自動生成於 2026-06-04 07:05"
+        },
+        {
+          "hash": "cf32d60c",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-03 (21 commits)",
+          "body": "🤖 自動生成於 2026-06-04 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "caa33437",
+          "time": "07:59",
+          "message": "M0: Vue 3 + Vite + Tailwind scaffold, docs, and GitHub Pages deploy",
+          "body": "- Project docs: README, HANDOFF build spec, TODO plan, property data request"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 6,
+    "totalCommits": 11
+  }
+}
