@@ -1,0 +1,121 @@
+{
+  "date": "2026-06-05",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "8d315d06",
+          "time": "14:27",
+          "message": "deploy.ps1 新增 -SkipInstall 跳過 npm ci",
+          "body": "node_modules 已存在且 package-lock 沒變時, 用 -SkipInstall 跳過 npm ci"
+        },
+        {
+          "hash": "fd173b98",
+          "time": "09:56",
+          "message": "首頁新增跑馬燈管理卡片、選單改名為檢驗資料管理，補目錄/商品釐清文件",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c1f84aba",
+          "time": "09:38",
+          "message": "部署改走 app_offline.htm 流程，純 SMB 不再需要 RDP 停 App Pool",
+          "body": "deploy.ps1:"
+        },
+        {
+          "hash": "91af1219",
+          "time": "09:16",
+          "message": "新增跑馬燈 / 檢驗新知 / 網站連結管理三組功能",
+          "body": "- 跑馬燈 (Marquee): coollady keyless entity + raw UPDATE，沿用舊系統 changechar 編碼"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "4c32a8ca",
+          "time": "12:51",
+          "message": "docs(分析儀): 整合 ANZ_ACTIVE_FLAG 停用機制與 LT351 下拉關係",
+          "body": "整合分析儀啟用/停用 (ANZ_ACTIVE_FLAG) 跨頁面機制:"
+        },
+        {
+          "hash": "b177fbba",
+          "time": "12:31",
+          "message": "style(地址條): 角碼往上移避免列印被裁 (bottom 10→18px)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1ba3a99f",
+          "time": "12:26",
+          "message": "refactor(地址條): 抽出共用 _AddressLabel partial + 402 長資料防護",
+          "body": "- LT278 PrintAddress 與 BT402 PrintBT402Address 共用 _AddressLabel.cshtml"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "c671e6d7",
+          "time": "11:53",
+          "message": "feat(api): logs 詳情 Request/Response 加複製按鈕",
+          "body": "後台 logs 展開後的 Request/Response JSON 很長、手動框選不易。標題旁"
+        },
+        {
+          "hash": "7f1eb27d",
+          "time": "11:27",
+          "message": "fix(abnormalflag): 異常旗標正規化改在 AlleyPin adapter，還原來源層 N",
+          "body": "f2002ef 在共用 SQL 層把片語型正常值 TTV_ABNORM_FLAG='N' 正規化為 NULL，"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "f76c86b3",
+          "time": "15:45",
+          "message": "docs: 三高文獻擴充 +4 篇 + narrative chain 整合",
+          "body": "新增對手分析（共 8 篇相關研究）："
+        },
+        {
+          "hash": "4859d791",
+          "time": "15:04",
+          "message": "docs: Meeting 26 完整議程 + SCI 簡報 + 簡報 review 進度 + Zhang 2020 解析",
+          "body": "- Meeting 26 議程：三主軸結構（論文修改 + 簡報內容規劃 + SCI 期刊方向）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "7f1d11c8",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-05",
+          "body": "🤖 自動生成於 2026-06-05 07:05"
+        },
+        {
+          "hash": "adf3be58",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-04 (11 commits)",
+          "body": "🤖 自動生成於 2026-06-05 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 4,
+    "totalCommits": 13
+  }
+}
