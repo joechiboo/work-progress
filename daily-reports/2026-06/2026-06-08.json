@@ -1,0 +1,133 @@
+{
+  "date": "2026-06-08",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "33abeef4",
+          "time": "14:46",
+          "message": "docs(權限): 補 § 8.1 權限變更生效路徑",
+          "body": "釐清管理員改完權限後使用者拿到新權限的三條路徑："
+        },
+        {
+          "hash": "9f287f2c",
+          "time": "12:52",
+          "message": "docs(效能): QC 修正結論 + 業務評估 HANDOFF",
+          "body": "- 證據表(每台分析儀: 最後QC/待審/>1年待審)整合進 PLAN §2"
+        },
+        {
+          "hash": "5f248ed4",
+          "time": "12:33",
+          "message": "docs(效能): QC PLAN 補白話情境說明 (給業務/品管看)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b9709f14",
+          "time": "12:30",
+          "message": "docs(工單範本): 預計效益改一行收尾移到骨架最下面",
+          "body": "調整欄位順序: 預計效益從中段移到最後一行,骨架與欄位說明表同步;"
+        },
+        {
+          "hash": "10206196",
+          "time": "12:23",
+          "message": "docs(效能): QC GetWaitList 調查 — 根因為殭屍待審資料 (PLAN)",
+          "body": "10ww82u1hb45d 調查結論:"
+        },
+        {
+          "hash": "e2bc8844",
+          "time": "11:52",
+          "message": "feat(BT402): 有地址就不印角碼 (只在 DBADDR3 為空時印角碼)",
+          "body": "需求方訪談補充: 有帳單地址=要郵寄, 不需路線角碼; 沒地址才印角碼供路線配送"
+        },
+        {
+          "hash": "7e4e9653",
+          "time": "11:26",
+          "message": "feat(BT402): 貼紙收件含「回郵信封」時地址前加紅色「回郵」",
+          "body": "- _AddressLabel partial 加 RedPrefix 支援: 有值就在地址前印紅字前綴(地址完整不擷取),"
+        },
+        {
+          "hash": "3f046e8f",
+          "time": "11:11",
+          "message": "docs(效能): 0608 效能週報 + 工單範本 + 決策待辦",
+          "body": "- 0608 週報 (md + html): 新 #1 醫師審查 N+1、權限 cache 部署前 baseline、"
+        },
+        {
+          "hash": "9b834ef4",
+          "time": "10:13",
+          "message": "docs(權限): 新增權限快取一頁簡報 HTML",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "70380310",
+          "time": "09:51",
+          "message": "perf(權限): AuthorizeRoles 改 Session 快取 (AWR Top10 #5+#10 對應)",
+          "body": "問題: [AuthorizeRoles(\"useable\")] 套在 HomeController 90+ actions,"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "d18d2a00",
+          "time": "14:15",
+          "message": "fix(thesecloud): 萱仁洗後項目用 NhiCodeExcludeItems 排除健保碼",
+          "body": "洗腎洗前/洗後驗同一分析物但健保只一個項目：BUN洗後（9478）借用洗前"
+        },
+        {
+          "hash": "c7858c0b",
+          "time": "14:15",
+          "message": "perf(api): 依日期補傳改走 TransferBatchAsync 真批次",
+          "body": "/api/manual/batch（依日期補傳）原本 foreach 逐筆呼叫 TransferAsync，"
+        },
+        {
+          "hash": "3eb8c42a",
+          "time": "11:12",
+          "message": "fix(thesecloud): 萱仁 HIS檢驗代碼改帶健保碼（PreferNhiCode flag）",
+          "body": "萱仁診所（12075）的 HIS 醫令是用健保碼當 HIS檢驗代碼，回傳檢驗值時"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "762953f1",
+          "time": "16:33",
+          "message": "更新 info_ucl@ucl.com.tw 寄信密碼",
+          "body": "gmailsend 內 mail_pwd 改為新密碼"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "28621deb",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-08",
+          "body": "🤖 自動生成於 2026-06-08 07:05"
+        },
+        {
+          "hash": "ba7c937a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-07 (2 commits)",
+          "body": "🤖 自動生成於 2026-06-08 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 14,
+    "sideCommits": 2,
+    "totalCommits": 16
+  }
+}
