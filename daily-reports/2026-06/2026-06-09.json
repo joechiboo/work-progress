@@ -1,0 +1,229 @@
+{
+  "date": "2026-06-09",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "Report\\pTau衛教",
+      "commits": [
+        {
+          "hash": "a2abca1e",
+          "time": "18:44",
+          "message": "docs: LIS 規格補 scale.max 動態刻度、超刻度待決議(§9)、依數值變動內容盤點(§10)",
+          "body": "來源：同仁 memo 2026-06。供日後 LIS 實作參考。"
+        },
+        {
+          "hash": "1d65ea8c",
+          "time": "11:27",
+          "message": "docs: 報告動態欄位規格(LIS 實作) + 預覽 PDF 進專案",
+          "body": "- docs/報告動態欄位規格_LIS實作.md：data-field 對照、風險級別/色條邏輯、簽章、產 PDF 注意事項"
+        },
+        {
+          "hash": "6f6e8c3d",
+          "time": "11:22",
+          "message": "fix: 修正風險色條標籤被裁切；報告簽署改用公司藍/紅章",
+          "body": "- riskbar marker 移出 overflow:hidden 的色條、外層 wrap 留上方空間，標籤不再被切"
+        },
+        {
+          "hash": "b903b9f2",
+          "time": "11:11",
+          "message": "fix: 參考文獻改用三折頁 v7 版本，移除冷泉港特有引用",
+          "body": "- 217/181 參考文獻統一為 Hampel/Teunissen/JAMA Neurol/Annals 4 筆"
+        },
+        {
+          "hash": "36e270e1",
+          "time": "11:09",
+          "message": "feat: pTau217(9頁雙面) + pTau181(5頁) 報告範本，併入 特殊報告/",
+          "body": "- pTau217：A4 9頁，三段風險判讀 + 目錄導讀 + 趨勢折線圖 + 檢測方式比較"
+        },
+        {
+          "hash": "abd20a57",
+          "time": "10:59",
+          "message": "feat: 聯合版 p-Tau217 個人報告 A4 設計範本 + 整合決策文件",
+          "body": "- 報告/pTau217檢測報告_聯合版_v1.html：A4 直式 5 頁，整合醫霖/冷泉港範本優點 + UCL 品牌 + 雙指標"
+        },
+        {
+          "hash": "f8e404c1",
+          "time": "10:48",
+          "message": "docs: README 聚焦報告設計定位,接入交由 LIS",
+          "body": ""
+        },
+        {
+          "hash": "f8edcbb7",
+          "time": "10:37",
+          "message": "Add .gitattributes: 正規化換行、標記二進位檔",
+          "body": ""
+        },
+        {
+          "hash": "057108b4",
+          "time": "10:36",
+          "message": "Initial commit: pTau 衛教素材",
+          "body": ""
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fc16e907",
+          "time": "17:49",
+          "message": "fix(XRA149): 修正櫃台標籤印到上一個受檢者",
+          "body": "個資同意書捆綁列印的姓名標籤改為直接讀主表單 (#PAT_ID/#PAT_NAME)，不再經過「標籤列印設定」Modal 殘留的隱藏副本 (#labelIdNumberRaw)。"
+        },
+        {
+          "hash": "6e6ac24d",
+          "time": "14:22",
+          "message": "perf(oracle): ONLINE_LOG + HISITF_LOG 索引 + Top10 現況儀表板",
+          "body": "今日 DB 端索引快贏 (已在 SQL Developer 執行):"
+        },
+        {
+          "hash": "66b22bdc",
+          "time": "09:14",
+          "message": "feat(log): App_Data/Logs 自動清理 (預設保留 60 天)",
+          "body": "問題: NLog 寫到 App_Data/Logs/{yyyy-MM-dd}/ 結構, 日期資料夾累積無限長,"
+        },
+        {
+          "hash": "c638c097",
+          "time": "08:52",
+          "message": "fix(權限): SignalR Session-null 退回單筆查詢 + log 減量",
+          "body": "prod 觀察到問題:"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "7d190c90",
+          "time": "08:33",
+          "message": "fix(deploy): 補新竹 web.ProductionHC.config + 缺檔改 fail-fast",
+          "body": "新竹 Api 跑在 IIS，環境靠 web.config 注入 ASPNETCORE_ENVIRONMENT。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "af015e19",
+          "time": "07:24",
+          "message": "docs: TODO 標記機車位過濾完成、補上大/小/無障礙分型待辦",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b8537d58",
+          "time": "07:24",
+          "message": "feat(print): A4 PDF generators for B1 motor seats (overview/per-building + single page)",
+          "body": "向量輸出、固定 A4 橫式，避免列印 HTML 的縮放問題。print-seats 產總覽+各棟放大；"
+        },
+        {
+          "hash": "6b554579",
+          "time": "07:24",
+          "message": "feat(tools): B1 seat classification & tower-assignment tools; demo uses clean data",
+          "body": "- classify.html：框選標記車種，預設 zones 種好、可微調、匯出 ground-truth"
+        },
+        {
+          "hash": "4cd316be",
+          "time": "07:23",
+          "message": "feat(map): B1 seat ground-truth (655 motor / 55 car / 164 bike), data module + tests",
+          "body": "人工分類 B1 平面圖標註點得到 ground-truth：機車 655（號碼 1..655 連續無重複無缺號）、"
+        },
+        {
+          "hash": "1294cc22",
+          "time": "07:23",
+          "message": "chore(deps): add pngjs and pdf-lib for B1 map rendering & PDF export",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "11f98868",
+          "time": "16:57",
+          "message": "docs: 王老師回信，印刷量 1 → 2 本（中研院郵寄）",
+          "body": "王老師 2026-06-08 回信確認：要紙本郵寄至中研院 + Email PDF"
+        },
+        {
+          "hash": "5020f8a4",
+          "time": "16:28",
+          "message": "docs(SCI): cardiometabolic 重構 + 6 張 Figure caption + 學術措辭軟化",
+          "body": "術語校正（從中翻直譯 → 國際標準）："
+        },
+        {
+          "hash": "19832ff9",
+          "time": "15:43",
+          "message": "docs: Slide 17/18/21 整合 + Meeting 27 SCI 投稿決策簡報",
+          "body": "口試簡報整合（Slide 17/18/21）："
+        },
+        {
+          "hash": "1b5c6f25",
+          "time": "14:42",
+          "message": "docs: 新增 SCI 投稿稿件 v1 + Meeting 26 PDF",
+          "body": "- docs/10_SCI/: manuscript_v1（中文/中英對照 md+docx）+ IEEE tex 範本"
+        },
+        {
+          "hash": "d7768076",
+          "time": "14:38",
+          "message": "docs: Meeting 26 紀錄 + 時程文檔同步更新",
+          "body": "- 新增 Meeting 26 紀錄：教授 6/16-7/2 出國帶論文看；SCI 費用教授支援"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "greenkeeper",
+      "commits": [
+        {
+          "hash": "c8e818bd",
+          "time": "19:34",
+          "message": "docs: 補樹莓派 SSH 連法與 rfkill 排雷筆記",
+          "body": "記錄 ssh pi@192.168.169.91（Debian 11/Pi4/aarch64）、IP 被 DHCP"
+        },
+        {
+          "hash": "5c6825f6",
+          "time": "19:32",
+          "message": "docs: 補模組取捨與 Pi↔Arduino 溝通說明",
+          "body": "- 修正教學連結（ir=循跡、bt=藍牙）"
+        },
+        {
+          "hash": "2869e8e9",
+          "time": "12:49",
+          "message": "docs: 新增自走車組裝指南（傑森創工 Uno 2WD）",
+          "body": "整理官方 13 頁手冊為 20 步精簡版（機構→電子件→接線）+ 接線腳位表"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "e0b0e17d",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-09",
+          "body": "🤖 自動生成於 2026-06-09 07:05"
+        },
+        {
+          "hash": "36b2da40",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-08 (16 commits)",
+          "body": "🤖 自動生成於 2026-06-09 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 14,
+    "sideCommits": 15,
+    "totalCommits": 29
+  }
+}
