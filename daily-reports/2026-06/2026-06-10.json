@@ -1,0 +1,175 @@
+{
+  "date": "2026-06-10",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2608c738",
+          "time": "11:52",
+          "message": "docs(權限): 開發紀錄補 2026-06-10 關閉聊天室 + Session-null 教訓",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "859c242c",
+          "time": "11:48",
+          "message": "chore(chat): 關閉聊天室 (Chat_Display=N, 5分部+Release)",
+          "body": "查證結果: 聊天室實際沒人用 — chat Redis 近 72h Chat:Conv:*=0 (零對話),"
+        },
+        {
+          "hash": "03f11cde",
+          "time": "11:26",
+          "message": "fix(BT201): keyin 身分證自動帶個資加 race 防護 (修覆蓋病歷號)",
+          "body": "同一條 keyin 個資流程的另一個問題:CUST_MASTER 回應回來時無條件"
+        },
+        {
+          "hash": "ad798ef8",
+          "time": "11:21",
+          "message": "fix(BT201): 移除缺生日時查 CLINIC_TEMPORARY 補生日的邏輯",
+          "body": "CLINIC_TEMPORARY 是 Austyn 5566 健保上傳專案的暫存表。原本 BT201 keyin"
+        },
+        {
+          "hash": "5363a587",
+          "time": "08:30",
+          "message": "docs: HC001O 改 Mars (元件負責); 索引仍記 Joe 所做",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "55e16eba",
+          "time": "08:27",
+          "message": "docs: 儀表板加負責人 (Joe/Mars/Spark) + 負責人分工區塊",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "e3a49614",
+          "time": "08:24",
+          "message": "docs: 更新 Top10 儀表板至 06-10 (4刀全驗證, 現況Top刷新)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "3d6056bc",
+          "time": "08:16",
+          "message": "perf(oracle): DEBTOR_DETAIL NOPARALLEL (消小表平行掃描 overhead)",
+          "body": "- 3f88zzu9rv7t6: DEBTOR_DETAIL 僅 2,907列/80block 卻 DEGREE DEFAULT,"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "Report\\pTau衛教",
+      "commits": [
+        {
+          "hash": "b9f1f785",
+          "time": "11:30",
+          "message": "feat: pTau 報告 v3 互動切換版 + 套用同仁批註 + 檔案重整",
+          "body": "v3（181 陰/陽、217 低/中/高）：單一檔以情境切換列即時連動數值、"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "greenkeeper",
+      "commits": [
+        {
+          "hash": "8826cfb7",
+          "time": "14:04",
+          "message": "docs: 調整優先序為 Pi整合(視覺)→藍牙→超音波",
+          "body": "記錄 2026-06-10 新優先序。Pi 整合含動作鏈/視覺/接合三塊；"
+        },
+        {
+          "hash": "459eeacc",
+          "time": "12:58",
+          "message": "feat: 階段 1 車會走！左右輪速可分別微調",
+          "body": "- 里程碑：組裝→Blink→L298N 馬達會動，車能跑（2026-06-10）"
+        },
+        {
+          "hash": "fdcaa0a5",
+          "time": "12:46",
+          "message": "feat: 新增 firmware/ 與 L298N 馬達測試 sketch",
+          "body": "l298n_test.ino：前進/後退/左/右/停自動循環，腳位對應接線"
+        },
+        {
+          "hash": "87618d81",
+          "time": "12:13",
+          "message": "docs: L298N 接線補完整（ENB→D5 + 拔跳線帽）",
+          "body": "補上漏掉的 ENB→D5、ENA/ENB 跳線帽必拔、信號/電源/馬達三捆分類、"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "4fffc939",
+          "time": "12:10",
+          "message": "docs: 機制合規與建置規劃(12) + 管理辦法(05)；含 eTag 實際規模與身分驗證決策",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "fa0ff83e",
+          "time": "12:10",
+          "message": "feat(register): 登記即註冊 + 戶號/車號登入（localStorage 介面，待換 Supabase）",
+          "body": "- store/db.js：register/login/getHousehold，登記即註冊、一戶一次、車號全域唯一、戶號+任一車號登入"
+        },
+        {
+          "hash": "3e16febe",
+          "time": "12:10",
+          "message": "chore(security): gitignore eTag/個資名冊（戶號↔車號）與 private/ 資料夾",
+          "body": "公開 repo 嚴禁住戶身分/車號資料；擋 *.xlsx、*eTag*、*名冊*、*戶號*、private/。"
+        },
+        {
+          "hash": "25f5558c",
+          "time": "08:02",
+          "message": "@ fix(map): GH 下排現場校正 497–531、498 漏水排除、加盤點進度視覺化",
+          "body": "- b1-classification.json：GH 下排 35 格 id +7（490–524 → 497–531），"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "877022dd",
+          "time": "17:31",
+          "message": "Update weak-points: track Q1/Q2/Q5 improvements",
+          "body": "Today's progress (2026-06-10):"
+        },
+        {
+          "hash": "224d7ece",
+          "time": "15:32",
+          "message": "Add final exam study materials and update weak-points tracker",
+          "body": "- Add final-cheatsheet-a4 (Markdown + HTML) for quick reference"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "ef282cf5",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-10",
+          "body": "🤖 自動生成於 2026-06-10 07:05"
+        },
+        {
+          "hash": "a174da94",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-09 (29 commits)",
+          "body": "🤖 自動生成於 2026-06-10 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 12,
+    "totalCommits": 21
+  }
+}
