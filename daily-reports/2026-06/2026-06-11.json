@@ -1,0 +1,187 @@
+{
+  "date": "2026-06-11",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "260474ed",
+          "time": "14:09",
+          "message": "docs: 決策待辦刷新至 06-11 (下一題候選A/B/C + PHP追蹤 + 已定案歸檔)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "68332191",
+          "time": "12:52",
+          "message": "docs: 儀表板修正 — N+1 負責人=Joe; 現況Top依CPU重排(PHP家族430為#1)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c53ccd52",
+          "time": "12:47",
+          "message": "docs: Top10 儀表板更新至 06-11 中午 (6項已解, 權限/聊天室畢業, QC開工)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Report\\pTau衛教",
+      "commits": [
+        {
+          "hash": "58a224e6",
+          "time": "16:30",
+          "message": "feat: pTau v5 — 國際臨床實證、淺色暖封面、年長者易讀字級",
+          "body": "217 內容："
+        },
+        {
+          "hash": "c550e8f5",
+          "time": "10:26",
+          "message": "feat: pTau v4 互動範本 — 各風險帶增加數值切換選項",
+          "body": "181：陽性新增 臨界 1.05 / 明顯 1.25 / 偏高 1.45 三檔（neg/pos1/pos2/pos3）"
+        },
+        {
+          "hash": "493be70b",
+          "time": "10:08",
+          "message": "feat: pTau 報告 v4 — 套用 0610 文案修訂、v3 歸檔",
+          "body": "依同仁回饋調整（181 + 217）："
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "greenkeeper",
+      "commits": [
+        {
+          "hash": "62d1859a",
+          "time": "09:35",
+          "message": "docs: README 進度同步 + 模組決策紀錄（藍牙跳過、超音波延後）",
+          "body": "- README：實體車進度（會走/動作鏈/視覺 ✅）、firmware/robot 目錄說明"
+        },
+        {
+          "hash": "74a1514a",
+          "time": "09:22",
+          "message": "docs: 出車 SOP 升級 — 無線遙測到位",
+          "body": "Pi 連上內網 UCL WiFi（192.168.169.71，與 PC 同網段直通 SSH），"
+        },
+        {
+          "hash": "5f330f9a",
+          "time": "08:54",
+          "message": "docs: 車載 Pi 配置與出車 SOP",
+          "body": "車上配置圖、供電分開、scp 部署、測試三部曲、剪臍帶 SOP"
+        },
+        {
+          "hash": "8cc2e96c",
+          "time": "08:45",
+          "message": "fix: auto_drive 序列埠後備補 /dev/ttyACM0（官方 Uno）",
+          "body": "lsusb 顯示 Uno 是官方板（2341:0043 CDC ACM）→ 裝置是 ttyACM0"
+        },
+        {
+          "hash": "7680f832",
+          "time": "08:37",
+          "message": "docs: 真車演算法進化路線 + 繞障礙分工",
+          "body": "模擬器 ALGORITHMS = 真車升級路線圖（反應式→沿牆→里程計→SLAM→BCD）。"
+        },
+        {
+          "hash": "86d8f23e",
+          "time": "08:35",
+          "message": "feat: auto_drive.py — 視覺→決策→動作首次接合",
+          "body": "規則 v1：偵測到 person（信心>=0.5）→ 停，否則前進。"
+        },
+        {
+          "hash": "6b13a61a",
+          "time": "08:32",
+          "message": "docs: 里程碑 — 視覺打通，階段 1/2 完成、階段 3 進行中",
+          "body": "2026-06-11 同日打通動作鏈 + 視覺：vision_test.py 框出 tv/keyboard"
+        },
+        {
+          "hash": "d7d963a8",
+          "time": "08:29",
+          "message": "feat: webcam + YOLO 第一眼測試腳本",
+          "body": "vision_test.py：抓一張 webcam 畫面 → YOLOv8n(imgsz=320) 偵測 →"
+        },
+        {
+          "hash": "23a6b365",
+          "time": "08:15",
+          "message": "docs: 里程碑 — Pi→Uno 動作鏈打通（2026-06-11）",
+          "body": "Pi 跑 robot/drive_test.py 車會動。記錄 scp 部署與 Pi 端"
+        },
+        {
+          "hash": "844b6e05",
+          "time": "07:53",
+          "message": "feat: 階段 3 動作鏈 — Serial 控制韌體 + Pi 端測試腳本",
+          "body": "- firmware/serial_control：聽 USB 序列埠 w/x/a/d/s 開車，"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "90bb6152",
+          "time": "18:15",
+          "message": "Refine Q7 weak point: clarify IDF only for multi-term queries",
+          "body": "- Add precise wording: \"single-term query\" vs \"multi-term query\""
+        },
+        {
+          "hash": "cc949799",
+          "time": "18:10",
+          "message": "Complete Q1-Q10 full round practice (2026-06-11)",
+          "body": "Final scores after full test:"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "8cf851d7",
+          "time": "07:06",
+          "message": "docs: 更新彙整資料 2026-06-11",
+          "body": "🤖 自動生成於 2026-06-11 07:06"
+        },
+        {
+          "hash": "4bc2d6ab",
+          "time": "07:06",
+          "message": "docs: 每日工作紀錄 2026-06-10 (21 commits)",
+          "body": "🤖 自動生成於 2026-06-11 07:06"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "ae6956da",
+          "time": "03:49",
+          "message": "調整 RoboEye 標題為 CNN 年齡性別辨識",
+          "body": "將「機器人視覺」改為更明確點出核心功能的「CNN 年齡性別辨識」。"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "6cab7bbc",
+          "time": "07:33",
+          "message": "@ fix(map): 左區 B1 現場校正第二批（今日盤點 105 格，累計 139/654）",
+          "body": "左側各直行為蛇型(boustrophedon)編號，逐行確認方向後校正："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 16,
+    "totalCommits": 22
+  }
+}
