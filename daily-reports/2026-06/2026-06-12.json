@@ -1,0 +1,217 @@
+{
+  "date": "2026-06-12",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "commits": [
+        {
+          "hash": "d33cf784",
+          "time": "16:48",
+          "message": "Document AutoUpload date-filter issue and agreed fix",
+          "body": "ORDER_DT single-day window misses orders whose selfpay flag or report"
+        },
+        {
+          "hash": "618e6f77",
+          "time": "10:56",
+          "message": "Fix taichung dbLisConn to site-local 1.227",
+          "body": "Repo said 192.168.1.252 but the live taichung station logs to"
+        },
+        {
+          "hash": "eb3a1664",
+          "time": "10:39",
+          "message": "Add per-branch display name and rename Taichung station",
+          "body": "UI title was hardcoded as Daan United for every branch site. _Layout.cshtml"
+        },
+        {
+          "hash": "24ee856c",
+          "time": "09:30",
+          "message": "Split whitelisted sub-packages into separate hdata for NHI upload",
+          "body": "Clinics ordering P801 (CBC+DC combined panel) had all results merged"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Report\\pTau衛教",
+      "commits": [
+        {
+          "hash": "8a453615",
+          "time": "11:56",
+          "message": "refine: APOE 報告 文案調整（e3/e3、e2/e3、心血管措辭、載脂蛋白B、發生率備註）",
+          "body": "- e3/e3 說明改寫（標準結合力、遺傳風險、均衡飲食）；e2/e3 改「相對常見的 APOE 基因型之一」"
+        },
+        {
+          "hash": "2e76d7bd",
+          "time": "07:53",
+          "message": "docs: 新增 APOE 報告 LIS 對接規格 + 互相指路",
+          "body": "- docs/APOE報告動態欄位規格_LIS實作.md：data-field 欄位、6 基因型查表帶入、"
+        },
+        {
+          "hash": "a0bc1fbb",
+          "time": "07:45",
+          "message": "refine: APOE 報告 v1 內容修訂（聯合發生率資料、ε4 心血管/ApoB、措辭與版面）",
+          "body": "- 族群發生率改用大安聯合 16 年臺灣人群資料（10,404 筆）：e2/e2 0.45｜e2/e3 10.85｜e3/e3 66.72｜e2/e4 1.67｜e3/e4 18.70｜e4/e4 1.60%，並加註資料來源小字"
+        },
+        {
+          "hash": "c19fa539",
+          "time": "07:10",
+          "message": "feat: 新增 APOE 基因檢測報告 v1 + p-tau v5 數據一致性修正",
+          "body": "APOE 報告 v1（2 頁互動，6 基因型可切換）："
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "report-pTau",
+      "commits": [
+        {
+          "hash": "8a453615",
+          "time": "11:56",
+          "message": "refine: APOE 報告 文案調整（e3/e3、e2/e3、心血管措辭、載脂蛋白B、發生率備註）",
+          "body": "- e3/e3 說明改寫（標準結合力、遺傳風險、均衡飲食）；e2/e3 改「相對常見的 APOE 基因型之一」"
+        },
+        {
+          "hash": "2e76d7bd",
+          "time": "07:53",
+          "message": "docs: 新增 APOE 報告 LIS 對接規格 + 互相指路",
+          "body": "- docs/APOE報告動態欄位規格_LIS實作.md：data-field 欄位、6 基因型查表帶入、"
+        },
+        {
+          "hash": "a0bc1fbb",
+          "time": "07:45",
+          "message": "refine: APOE 報告 v1 內容修訂（聯合發生率資料、ε4 心血管/ApoB、措辭與版面）",
+          "body": "- 族群發生率改用大安聯合 16 年臺灣人群資料（10,404 筆）：e2/e2 0.45｜e2/e3 10.85｜e3/e3 66.72｜e2/e4 1.67｜e3/e4 18.70｜e4/e4 1.60%，並加註資料來源小字"
+        },
+        {
+          "hash": "c19fa539",
+          "time": "07:10",
+          "message": "feat: 新增 APOE 基因檢測報告 v1 + p-tau v5 數據一致性修正",
+          "body": "APOE 報告 v1（2 頁互動，6 基因型可切換）："
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fe52168f",
+          "time": "11:24",
+          "message": "style(BT101): 帳單郵寄checkbox移至帳單地址後方,標籤簡化為「郵寄」",
+          "body": ""
+        },
+        {
+          "hash": "0e703ad7",
+          "time": "11:24",
+          "message": "feat(DangerListV2): 危急值清單顯示醫檢師項目備註 OD_TR_COMMENT",
+          "body": "- SQL/Repository/ViewModel 帶出 OD_TR_COMMENT"
+        },
+        {
+          "hash": "3d4db276",
+          "time": "07:37",
+          "message": "docs(效能): BT201 變更單位排查 — GetTidySPLIST 主嫌 + Redis 歷史考證",
+          "body": "- keyin 身分證路徑確認乾淨 (7 buf/0.9ms, async, !1158 後無殘餘)"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "greenkeeper",
+      "commits": [
+        {
+          "hash": "79a256bf",
+          "time": "12:54",
+          "message": "docs: 採購改電子材料行（蝦皮運費比貨貴）",
+          "body": "槽型測速感測器 ×2（認 ㄇ 字形，XD-51/HC-020K），"
+        },
+        {
+          "hash": "efe7806b",
+          "time": "12:41",
+          "message": "docs: 收工筆記 — 熱車時間 2 分鐘 + 下週開工項",
+          "body": "出車 SOP 補實測熱車時間（開機+載入 YOLO 約 2 分鐘，journal 出現"
+        },
+        {
+          "hash": "6d8d5241",
+          "time": "12:20",
+          "message": "docs: 地圖機制白話指南（航位推算→編碼器→建圖→BCD）",
+          "body": "把模糊的口頭說明整理成 user guide：三名詞白話對照、進度條、"
+        },
+        {
+          "hash": "ac26d825",
+          "time": "12:04",
+          "message": "docs: 開機自動啟動完工 — SOP 改 systemd 版",
+          "body": "出車 SOP 大幅簡化：上電即服役、電池開關=武裝開關+煞車，"
+        },
+        {
+          "hash": "36fd07ca",
+          "time": "12:02",
+          "message": "fix: systemd 服務加 python3 -u，journal 才看得到判斷輸出",
+          "body": "無終端機時 Python 緩衝 stdout，journalctl 只見 systemd 訊息"
+        },
+        {
+          "hash": "3fd8268e",
+          "time": "11:55",
+          "message": "feat: systemd 服務 — 開機自動啟動 auto_drive",
+          "body": "開機即跑、掛掉 5 秒自動重啟；馬達電池開關當武裝開關"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "4a1a1c72",
+          "time": "08:45",
+          "message": "@ feat(print): 待盤點兩塊 A4 PDF（左塊旋轉、右塊正常）",
+          "body": "供下週現場盤點手寫真實號碼："
+        },
+        {
+          "hash": "ee045b9f",
+          "time": "08:33",
+          "message": "@ fix(map): 右下＋中段現場校正第三批（今日 180 格，累計 319/656）",
+          "body": "承上批繼續以現場為準校正（含蛇型反向、+5/+6 同向位移）："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "b90e8481",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-12",
+          "body": "🤖 自動生成於 2026-06-12 07:05"
+        },
+        {
+          "hash": "3516c185",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-11 (22 commits)",
+          "body": "🤖 自動生成於 2026-06-12 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "semantic-web-and-information-retrieval",
+      "commits": [
+        {
+          "hash": "419cd26e",
+          "time": "16:41",
+          "message": "Update weak-points and A4 cheatsheet after 6/12 practice round",
+          "body": "Today's findings (no-hint mode):"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 15,
+    "sideCommits": 11,
+    "totalCommits": 26
+  }
+}
