@@ -1,0 +1,30 @@
+{
+  "date": "2026-06-13",
+  "weekday": "六",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "8e26e02c",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-13",
+          "body": "🤖 自動生成於 2026-06-13 07:05"
+        },
+        {
+          "hash": "1665c7ea",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-12 (26 commits)",
+          "body": "🤖 自動生成於 2026-06-13 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 2,
+    "totalCommits": 2
+  }
+}
