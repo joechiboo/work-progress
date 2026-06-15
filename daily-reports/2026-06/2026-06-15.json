@@ -1,0 +1,103 @@
+{
+  "date": "2026-06-15",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "da072d73",
+          "time": "18:22",
+          "message": "docs(效能): QC GetWaitList 上線驗收 — 已驗證 ~10x",
+          "body": "- PLAN §7 加上線實測：10ww→0ys705a8ydc3s，buf/exec 220K→20.7K(↓90%)、"
+        },
+        {
+          "hash": "e72b22c5",
+          "time": "08:03",
+          "message": "docs(效能): 641365 血球(CBC)審查清單調查 — 本週主攻",
+          "body": "- 新增 PLAN_examine_cbc_list_perf.md：定位 641365=GetCBCDetailList"
+        },
+        {
+          "hash": "67d5c11f",
+          "time": "07:22",
+          "message": "docs(效能): 0615 週報 (md + html)",
+          "body": "- 本週六刀全部上線且週末驗證維持 (HC001O 102/HISITF 17/DEBTOR 84/N+1/權限/聊天室)"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Report\\pTau衛教",
+      "commits": [
+        {
+          "hash": "acb06d57",
+          "time": "10:06",
+          "message": "refine: APOE e2/e4 心血管段「會降低」改「可能降低」LDL-C",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a2db4e3e",
+          "time": "10:03",
+          "message": "refine: APOE 心血管段落調整（ApoB/ESC-EAS 補充、e3/e4 移除 ApoB 句）",
+          "body": "- e2/e4、e2/e2：心血管段改寫，補 ApoB（載脂蛋白B）與 2019 ESC/EAS 指引之補充評估說明"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "report-pTau",
+      "commits": [
+        {
+          "hash": "acb06d57",
+          "time": "10:06",
+          "message": "refine: APOE e2/e4 心血管段「會降低」改「可能降低」LDL-C",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a2db4e3e",
+          "time": "10:03",
+          "message": "refine: APOE 心血管段落調整（ApoB/ESC-EAS 補充、e3/e4 移除 ApoB 句）",
+          "body": "- e2/e4、e2/e2：心血管段改寫，補 ApoB（載脂蛋白B）與 2019 ESC/EAS 指引之補充評估說明"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "5613743e",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-15",
+          "body": "🤖 自動生成於 2026-06-15 07:05"
+        },
+        {
+          "hash": "e5eb88bd",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-14 (2 commits)",
+          "body": "🤖 自動生成於 2026-06-15 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "1457facd",
+          "time": "11:48",
+          "message": "feat(map): B1 左/中區現場校正大批次 + 分類工具升級（盤點累計 587 格）",
+          "body": "seat-select-demo（現場校正）:"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 3,
+    "totalCommits": 10
+  }
+}
