@@ -1,0 +1,277 @@
+{
+  "date": "2026-06-16",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "af26f4ae",
+          "time": "15:23",
+          "message": "refactor(特殊報告): 日期格式化改用 DateTimeHelper.ToDateTimeStr",
+          "body": "回應 review：FmtDate 委派給既有 DateTimeExtensions.ToDateTimeStr，消除重複。"
+        },
+        {
+          "hash": "a2443716",
+          "time": "14:45",
+          "message": "docs(預防簽收): 醫令下載已整合進 VisionReportHub Worker",
+          "body": "醫令下載由舊排程改為 Worker 定期 cycle(TryDownloadPreventionOrdersAsync，預設 60 分)，"
+        },
+        {
+          "hash": "35ef0129",
+          "time": "14:45",
+          "message": "docs(效能): Top10 現況儀表板更新至 06-15 AWR",
+          "body": "- 改用 06-15 全日真實數據；LT274 報告組裝 SP(9f9huz17wu2jq) 躍居 #1(週 5,159 CPU / 34 萬 execs)"
+        },
+        {
+          "hash": "95d4df18",
+          "time": "14:44",
+          "message": "fix(特殊報告): 181 改用血漿代碼 7393 + 趨勢判讀走 DB 區間表",
+          "body": "- 181 檢驗代碼 7396(CSF,切點27) → 7393(p-tau181 Plasma,切點0.934)，對應設計稿"
+        },
+        {
+          "hash": "127e505e",
+          "time": "12:41",
+          "message": "fix(特殊報告): 測試回饋修正 — 生日佔位 / PID 防護 / 趨勢限筆 / 版面",
+          "body": "- 生日 1900-01-01(缺值佔位)顯示空白；性別‧出生改組合顯示，避免缺值留孤立分隔點"
+        },
+        {
+          "hash": "2a5e3273",
+          "time": "12:22",
+          "message": "docs: 新增資料庫核心 Table 欄位參考(ORD_HDR/SPL/DTL/DEBTOR/HFCLINIC)",
+          "body": "從 ALL_TAB_COLUMNS 撈真實 schema; 含「概念→欄位」快速對應 + 踩雷紀錄"
+        },
+        {
+          "hash": "2e7f7c9f",
+          "time": "12:21",
+          "message": "feat(特殊報告): pTau181/217 + APOE 報告與批量列印",
+          "body": "- 新增 SpecialReportController + SpecialReportRepository + SpecialReportViewModel"
+        },
+        {
+          "hash": "6393ffdc",
+          "time": "07:55",
+          "message": "docs(效能): 開 641365 血球審查清單優化工單",
+          "body": "照工單範本產出：縮 diffDays(業務確認後) + ORD_SPL 索引消除"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "NotificationPlatform",
+      "commits": [
+        {
+          "hash": "18945498",
+          "time": "12:06",
+          "message": "doc:IIS-SETUP.md — 記錄保證 BackgroundService 24/7 運作的 IIS 設定",
+          "body": "背景：2026-06-13 ~ 6/15 發生 34 小時 worker process 死亡事件,"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "fb8eb956",
+          "time": "18:30",
+          "message": "feat(register): 戶號正規化與格式驗證 + 接入登記頁",
+          "body": "- household.js: normalizeHousehold(全形→半形/去空白/大寫) + isValidHousehold"
+        },
+        {
+          "hash": "4f690640",
+          "time": "11:00",
+          "message": "fix(map): 圖例大車位數字修正 616->609 (對齊實際資料654)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "56f48f05",
+          "time": "10:37",
+          "message": "docs(map): 盤點數修正為655(含498漏水排除格)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "06074909",
+          "time": "10:28",
+          "message": "style(map): 排除checkbox改回預設不勾選",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c28c6b98",
+          "time": "10:27",
+          "message": "fix(map): initHidden移除excl，排除(498漏水)預設顯示",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4176f945",
+          "time": "10:27",
+          "message": "style(map): 面板「排除」移到機車車位組、預設顯示(498漏水)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "40b2ba22",
+          "time": "10:24",
+          "message": "feat(map): 排除/雜訊拆分 - 498保留排除, 其餘55格雜訊改cat-noise隱藏",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "9377114d",
+          "time": "10:19",
+          "message": "docs(map): 更新demo面板盤點進度 654/654 全數完成",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b23d59d4",
+          "time": "10:15",
+          "message": "style(map): 581標verified + 581-585排密(11px)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "8215582f",
+          "time": "10:14",
+          "message": "fix(map): 改對 595(x1282)->581, x1397還原為595, 582-585搬到正確位置",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "01193bd8",
+          "time": "10:00",
+          "message": "feat(map): B1 右區 595改581 + 往右加582-585",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b5727e91",
+          "time": "08:56",
+          "message": "feat(map): B1 右區 x1320欄 刪608 + 605-607反向重編586-588",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "75a75e8f",
+          "time": "08:53",
+          "message": "feat(map): B1 右區 x1320欄 602->590, 刪603, 604->589",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "2a17595e",
+          "time": "08:52",
+          "message": "feat(map): B1 右區 x1283欄舊596-601砍掉",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "429cb087",
+          "time": "08:49",
+          "message": "style(map): B1 右區 591-594 改為一格一空(隔slot)排列",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "da0c727c",
+          "time": "08:48",
+          "message": "fix(map): 修正 591-594 標籤 y 座標壞值(字串相接bug)，數字恢復顯示",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "21657b90",
+          "time": "08:45",
+          "message": "fix(map): B1 右區 591-594 移到原616-613直排位置(x1361)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "04029ceb",
+          "time": "08:43",
+          "message": "feat(map): B1 右區 x1361欄609-616改為橫排591-594",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6b3d1504",
+          "time": "08:40",
+          "message": "feat(map): B1 右區橫排 589-588重編577-578 + 加579-580",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "3419e39f",
+          "time": "08:39",
+          "message": "feat(map): B1 右區 594-590橫排反向重編為572-576",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "39bae120",
+          "time": "08:37",
+          "message": "feat(map): B1 右區 x1397欄 617-624反向重編為605-598 + 補595-597",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "955bb954",
+          "time": "08:36",
+          "message": "feat(map): B1 右區 x1434欄 613 下方補 614-616",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "83ef5555",
+          "time": "08:34",
+          "message": "feat(map): B1 右區 x1434欄 632-625 反向重編為 606-613",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "0091a748",
+          "time": "08:29",
+          "message": "feat(map): B1 右區 x1469行 633-628 間補上 629-632",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1414fef4",
+          "time": "08:20",
+          "message": "fix(map): B1 右區校正重放 (575-565>628-618, 刪576-587, 加617, 633-640反轉)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "853f04ab",
+          "time": "08:17",
+          "message": "fix(map): B1 右區現場校正第一批 + 還原被覆蓋的編輯",
+          "body": "右區（x1469 右中區塊）:"
+        }
+      ],
+      "count": 26
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "19c85757",
+          "time": "15:47",
+          "message": "docs: Slide 21 Calibration 效度分析新加，總頁數 23→24",
+          "body": "新增 Slide 21 Calibration（接 Slide 20「37.2% 高血壓」的疑問）："
+        },
+        {
+          "hash": "2a9654fa",
+          "time": "15:39",
+          "message": "docs: Slide 19/20/22/23 整合，全 23 頁口試簡報 review 完成",
+          "body": "- Slide 19 符號回歸：加可解釋性 progression framing（black-box → SHAP →"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "3c952866",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-16",
+          "body": "🤖 自動生成於 2026-06-16 07:05"
+        },
+        {
+          "hash": "82b1643d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-15 (10 commits)",
+          "body": "🤖 自動生成於 2026-06-16 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 30,
+    "totalCommits": 39
+  }
+}
