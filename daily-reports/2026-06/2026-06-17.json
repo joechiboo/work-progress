@@ -1,0 +1,127 @@
+{
+  "date": "2026-06-17",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d46bc0c3",
+          "time": "14:46",
+          "message": "style(BT101): 中間欄上移補帳單郵寄移走後的空檔",
+          "body": "帳單郵寄移到上方帳單地址後，中間欄(收據抬頭列)留下空檔。將統一編號以下"
+        },
+        {
+          "hash": "c99fe935",
+          "time": "14:46",
+          "message": "feat(BT402): 地址條抬頭改用單位名稱+帳單貼紙收件",
+          "body": "原本抬頭優先用收據抬頭(RECEIPTHEADER)，但收據抬頭常與診所名不同"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "05fb5d60",
+          "time": "09:12",
+          "message": "docs: 選位志願分發規格 + 捨棄 Google 表單 + 架構對齊 Supabase",
+          "body": "- docs/04 紙本登記表：加「車位志願序」（全戶共用一份、與車輛數無關）"
+        },
+        {
+          "hash": "e4d9fbcc",
+          "time": "08:51",
+          "message": "feat(nav): 右上角依登入狀態切換——登入時顯示戶號+登出鈕",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "51bb43b2",
+          "time": "08:47",
+          "message": "fix(register): 編輯/登記後保留登入狀態，不再導向重新登入",
+          "body": "- session store(sessionHousehold/Plate): 登入狀態跨頁保留"
+        },
+        {
+          "hash": "6b4e9c44",
+          "time": "08:38",
+          "message": "feat(register): update-household 後端 + 認證車號擁有權驗證 + 改全 Supabase",
+          "body": "- Edge Function update-household + migration: app_update_household 原子RPC"
+        },
+        {
+          "hash": "44afaa9c",
+          "time": "08:26",
+          "message": "feat(register): 編輯登記(新增/移除機車) + nav登入移右 + 戶號範例統一",
+          "body": "- updateHousehold: local-backend(整批取代/車號唯一/重編第幾輛)+facade+supabase client"
+        },
+        {
+          "hash": "e760040d",
+          "time": "08:20",
+          "message": "docs: Supabase 架構與安全模型入 doc12 §4；修 TODO 損壞、HANDOFF 去「無後端」",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "5398a574",
+          "time": "08:19",
+          "message": "feat(data): 線上登記改接 Supabase（Edge Functions + RLS deny-all）",
+          "body": "- src/store: db.js 改 async facade，依 VITE_SUPABASE_URL 切 localStorage/Supabase"
+        },
+        {
+          "hash": "d13a7b19",
+          "time": "08:08",
+          "message": "feat(register): 手機號碼驗證(09開頭10碼/市話)，選填空白不擋",
+          "body": "- phone.js: isValidTWPhone; 手機09+8碼、市話0[1-8]+7~8碼；空白視為有效"
+        },
+        {
+          "hash": "7396b7b1",
+          "time": "07:47",
+          "message": "feat(register): 聯絡電話自動格式化(手機4-3-3) + 接入登記頁",
+          "body": "- phone.js: formatTWPhone, 09開頭10碼→0986-642-519; 市話不強斷; 4 測試"
+        },
+        {
+          "hash": "e577ea3c",
+          "time": "07:28",
+          "message": "refactor(register): 戶號正規化單一來源(db用household.js) + 車號前端即時正規化",
+          "body": "- db.js normHouse 改用 normalizeHousehold（修大小寫/全形被當兩戶的去重 bug）"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "c26dc25d",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-17",
+          "body": "🤖 自動生成於 2026-06-17 07:05"
+        },
+        {
+          "hash": "02f285b4",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-16 (39 commits)",
+          "body": "🤖 自動生成於 2026-06-17 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "b3261b01",
+          "time": "17:21",
+          "message": "docs: 初稿 IX 共病性分析補強 + Ch6 §6.9 新加 + 表編號連鎖更新",
+          "body": "- Ch6 §6.9 三疾病共病性分析新加（表 6-17/18/19 共病組合/OR/Phi 矩陣）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 13,
+    "totalCommits": 15
+  }
+}
