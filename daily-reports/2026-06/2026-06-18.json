@@ -1,0 +1,283 @@
+{
+  "date": "2026-06-18",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "4ac17799",
+          "time": "15:57",
+          "message": "@ docs(整合): 杏昌簡報歸位 危急值清單V2 + 補 WorldGym 介接規格變更紀錄",
+          "body": "- 杏昌簡報 DangerListV2_杏昌_簡報.html 從新建英文夾 DangerListV2/ 移入既有"
+        },
+        {
+          "hash": "16bbfee3",
+          "time": "09:56",
+          "message": "docs: 補進尚未推送的各專案文檔",
+          "body": "- WorldGym 1235: NotificationPlatform 介接規格、簽收 Email 通知更新"
+        },
+        {
+          "hash": "07a09f38",
+          "time": "10:12",
+          "message": "docs(效能): Top10 儀表板更新至 06-18",
+          "body": "- 641365 加 06-16/17 突發暴衝(buf 79K→290K/avg 1.7s)+ 06-18 上版失敗下週重試"
+        },
+        {
+          "hash": "b7dfd63d",
+          "time": "09:52",
+          "message": "docs(效能): BT201 GetTidySPLIST MemoryCache 實作記錄(PLAN §7)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "93317b70",
+          "time": "09:51",
+          "message": "feat(BT201): GetTidySPLIST 加 in-proc MemoryCache 降變更單位重抓",
+          "body": "變更單位卡頓主嫌：GetTidySPLIST 每次回傳 ITEM_MASTERH 全量 6,310 列"
+        },
+        {
+          "hash": "ed40d625",
+          "time": "09:44",
+          "message": "feat(BT403): 新增檢體標示欄位並重組欄位/選項區塊",
+          "body": "- 中間選項區拆成「欄位」(健保碼/健保點數/檢驗代碼/檢體標示) 與"
+        },
+        {
+          "hash": "5a298446",
+          "time": "07:08",
+          "message": "docs(效能): 新增效能排查手冊（工具速查 + 劇本 + App/IIS 層）",
+          "body": "- oracle_tool.ps1 全 21 個 action 速查表（即時/AWR歷史/單一SQL/結構）"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "NotificationPlatform",
+      "commits": [
+        {
+          "hash": "fe1dcb02",
+          "time": "10:07",
+          "message": "feat:HfContract 改成每週一 09:00 寄出 (可由 config 切回每日)",
+          "body": "# 需求"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "25847680",
+          "time": "19:18",
+          "message": "docs(13): 功能流程與進度總覽——登記→匯出名冊→匯入→抽籤 已打通",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "5c753961",
+          "time": "19:18",
+          "message": "feat(dev): mock 工程師專區（dev-only）——灌 20 跨棟假戶/清除/分發 demo",
+          "body": "- src/dev/mock.js(+test)：20 戶跨棟 A–H/S、戶段 9xx 好清；單/多車、重機、身障、志願小位、志願少選/未填/多選"
+        },
+        {
+          "hash": "93210979",
+          "time": "19:12",
+          "message": "feat(allocate): 抽籤接真實名冊——匯出腳本 + CSV 匯入 + 作業手冊",
+          "body": "工作流：腳本從 Supabase 匯出名冊 CSV → 匯入抽籤頁 → distribute。"
+        },
+        {
+          "hash": "834b1e1d",
+          "time": "18:54",
+          "message": "fix(register): 已登入直接點「登記」自動進編輯模式、帶出該戶資料",
+          "body": "原本只認 MeView 傳的 editTarget；直接點導覽「登記」即使已登入也是空白新登記表。"
+        },
+        {
+          "hash": "ab3859b2",
+          "time": "18:45",
+          "message": "feat(allocate): 抽籤配位頁——設種子跑 distribute、結果/落選/監察 log、重抽",
+          "body": "- /allocate 從 stub 變實頁：20 戶樣本（sampleRoster + buildRoster + 戶層級志願）"
+        },
+        {
+          "hash": "8ab772e2",
+          "time": "18:41",
+          "message": "docs(todo): 志願序選位頁 + 後端 save-wishes 標為完成（已部署）",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "bd1286d5",
+          "time": "18:36",
+          "message": "feat(session): 登入狀態存 sessionStorage——重整保持登入、關分頁自動清",
+          "body": "原本純記憶體 → 一重整就登出，UX 差。改 sessionStorage："
+        },
+        {
+          "hash": "f5e655bc",
+          "time": "18:30",
+          "message": "fix(select): 先匿名試排後登入，掛載時把匿名志願接管到該戶",
+          "body": "bug：匿名存 anon key、登入後重掛載讀戶號 key（空）→ 看不到；登出又讀回 anon"
+        },
+        {
+          "hash": "d1531fe2",
+          "time": "18:24",
+          "message": "feat(wishes): 車位志願序接 Supabase——household 加欄 + save-wishes Edge Function",
+          "body": "- migration 0003：household 加 車位志願(text[]) + 志願落選保底(bool)"
+        },
+        {
+          "hash": "f92d0b60",
+          "time": "18:16",
+          "message": "fix(select): 志願本地快取——自動儲存 + 登入接管匿名選擇 + ASCII 參數",
+          "body": "- wishes.js 參數改 ASCII（避免中文綁定識別字風險）"
+        },
+        {
+          "hash": "de5f9cbd",
+          "time": "18:06",
+          "message": "docs(select): 釐清「已承租」標註職責——物業後台繳費確認後寫入、住戶端唯讀",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6c83d81f",
+          "time": "18:05",
+          "message": "feat(select): 圖例分「可選/不可選」兩組，已售正名為已承租",
+          "body": "- 可選：大位/小位/已選"
+        },
+        {
+          "hash": "c846f3a5",
+          "time": "18:04",
+          "message": "docs(decisions): 新增 Q14 換位手續費（100/Phase II）；Q9 還原（公開 seed 為 UI 細節，不立題）",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1c305a03",
+          "time": "18:01",
+          "message": "chore(select): occupied 移除展示樣本，預設空（由後端帶）",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "f00f2532",
+          "time": "17:53",
+          "message": "feat(select): 加「已售/已被選」車位狀態——深灰標記、不可選",
+          "body": "辦法允許志願小位免抽、提前繳費選位 → 這些位子在抽籤/志願分發前已被佔走，"
+        },
+        {
+          "hash": "f3594245",
+          "time": "17:52",
+          "message": "feat(export): 配位結果→清單/CSV 核心（result.js + fee.js + 測試）",
+          "body": "- src/data/fee.js：年繳費率 A7（一般1200/重機3600）"
+        },
+        {
+          "hash": "dc8a476e",
+          "time": "17:49",
+          "message": "feat(select): 選位頁加寬版面 + 座位顯示車位編號",
+          "body": "- App.vue：main/header/footer 寬度依路由——選位頁放寬到 1600px、其餘維持 5xl"
+        },
+        {
+          "hash": "e3375f59",
+          "time": "17:45",
+          "message": "fix(select): 進場聚焦座位區 + 修左右無法拖曳/座位糊掉/側欄被擠",
+          "body": "回應實測問題："
+        },
+        {
+          "hash": "7dfe7c60",
+          "time": "17:35",
+          "message": "fix(select): 選位頁觸控操作——雙指縮放、平移不打架、放大點擊區",
+          "body": "手機操作問題修正："
+        },
+        {
+          "hash": "456d5f54",
+          "time": "17:32",
+          "message": "fix(ui): 全域補 cursor:pointer——按鈕等可點元素統一手型",
+          "body": "Tailwind v4 preflight 不自動給原生 <button> 加 pointer，導致按鈕顯示箭頭。"
+        },
+        {
+          "hash": "b7d82f7c",
+          "time": "17:29",
+          "message": "feat(select): 選車位志願頁——B1 地圖點選排志願序",
+          "body": "把 demo 的選位互動搬進 Vue 正式頁："
+        },
+        {
+          "hash": "d58f4f99",
+          "time": "17:22",
+          "message": "docs(rules): 登記改全程線上、行照查驗移到簽約繳費時",
+          "body": "住戶說明頁改為新流程（大位/一般路徑）："
+        },
+        {
+          "hash": "80936049",
+          "time": "17:14",
+          "message": "docs(decisions): 決策題目重編 Q1–Q13、結案 Q3/Q4/Q8/Q9、重機改貼合辦法「雙機車位」",
+          "body": "- Q 編號化、依急迫度排；已決定者移「已決定(追認)」區"
+        },
+        {
+          "hash": "4dc28488",
+          "time": "16:43",
+          "message": "docs: 文檔整合對齊現況——移除舊 allocate 引擎、選位統一為填志願分發",
+          "body": "清掉多次轉向累積的文檔債，每主題定單一事實來源："
+        },
+        {
+          "hash": "e37b580e",
+          "time": "16:32",
+          "message": "docs(form): 紙本登記表 Word 版（單頁 A4、116 年度）+ 來源 md 年度修正",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "9bcf1f27",
+          "time": "16:17",
+          "message": "feat(registry): 登記 schema 加車位志願 + 志願落選保底（戶層級）",
+          "body": "讓紙本/線上登打的志願序能進名冊、餵給 distribute.js 分發引擎："
+        },
+        {
+          "hash": "57f7af9e",
+          "time": "16:08",
+          "message": "feat(demo): 車位志願序選擇——點選順序＝志願1/2/3，清單顯示排名",
+          "body": "demo 從「無序選位」改為「填志願序」：點選順序即志願序，右側清單顯示"
+        },
+        {
+          "hash": "f23df587",
+          "time": "15:56",
+          "message": "feat(lottery): 志願分發引擎 distribute.js（填志願+統一分發第一階段）",
+          "body": "決策 A2 / docs/09 §選位作業模式的核心引擎，與 allocate.js（seq-based）並存："
+        },
+        {
+          "hash": "f6094d65",
+          "time": "08:28",
+          "message": "feat(map): B1 小車位盤點 + 公益位標記 + demo 互動",
+          "body": "- 盤點：606-655、577-605、302-349、263-276…等批次 motor→small，"
+        },
+        {
+          "hash": "16b52377",
+          "time": "08:07",
+          "message": "ci(pages): build 注入 VITE_SUPABASE_* (repo variables)，線上版接 Supabase",
+          "body": "未設時前端 fallback localStorage；變數為公開值故用 variables 非 secrets。"
+        },
+        {
+          "hash": "b3effbdd",
+          "time": "07:35",
+          "message": "fix(map): seats 對齊 demo 盤點正解（機車654、大/小/無障礙分型、修測試）",
+          "body": "- 新增 scripts/build-classification-from-demo.mjs：補上 demo→b1-classification.json 產生器"
+        }
+      ],
+      "count": 31
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d605e79f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-18",
+          "body": "🤖 自動生成於 2026-06-18 07:05"
+        },
+        {
+          "hash": "95adc385",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-17 (15 commits)",
+          "body": "🤖 自動生成於 2026-06-18 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 33,
+    "totalCommits": 41
+  }
+}
