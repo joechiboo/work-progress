@@ -1,0 +1,217 @@
+{
+  "date": "2026-06-22",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "df2b0764",
+          "time": "19:55",
+          "message": "fix(BT402): 地址條抬頭長名字切兩行 (取代縮字), 徹底解跑版",
+          "body": "旋轉直書版面自動折行會把多欄互疊成糊。改成手動切字:"
+        },
+        {
+          "hash": "87ef4268",
+          "time": "19:15",
+          "message": "fix(BT402): 總計改從資料累加, 修 NaN/全0",
+          "body": "原本總計列用 nth-child 刮畫面文字 + parseInt 加總, 容易抓錯格/被非數字汙染"
+        },
+        {
+          "hash": "01c83725",
+          "time": "17:59",
+          "message": "fix(BT402): 單位起訖改獨立判斷, 修只填一邊就誤列全部",
+          "body": "原本 if (unitcode != \"0\" && unitcode2 != \"}\") 用 && 綁兩端, 只填一邊"
+        },
+        {
+          "hash": "a55c7db1",
+          "time": "17:39",
+          "message": "fix(特殊報告): 移除多餘 ORD_SPL join 修歷次趨勢重複列",
+          "body": "ORD_DTL 直接以 OD_TNO=OH_TNO 接 ORD_HDR；原本多 join ORD_SPL 在多檢體(spl)"
+        },
+        {
+          "hash": "9c37ffcb",
+          "time": "17:28",
+          "message": "feat(BT402): 地址條改用郵寄旗標(SEND_BILL_MAIL)控制是否印地址",
+          "body": "原本只看 DBADDR3 有沒有值就印地址, 「郵寄」checkbox 形同虛設。"
+        },
+        {
+          "hash": "856c8e49",
+          "time": "16:44",
+          "message": "fix(BT402): 地址條抬頭/地址改漸進縮字+壓低截斷, 修跑版",
+          "body": "抬頭接了帳單貼紙收件後常超過 11 字, 但原字級邏輯 28 字以下都用預設"
+        },
+        {
+          "hash": "67f56818",
+          "time": "16:51",
+          "message": "fix(特殊報告): 下拉名稱比照 LIS + 181 陰性用詞調整",
+          "body": "回應驗收意見（黃士容 2026-06-22）："
+        },
+        {
+          "hash": "14179363",
+          "time": "16:44",
+          "message": "fix(BT402): 地址條抬頭/地址改漸進縮字+壓低截斷, 修跑版",
+          "body": "抬頭接了帳單貼紙收件後常超過 11 字, 但原字級邏輯 28 字以下都用預設"
+        },
+        {
+          "hash": "e59fbaba",
+          "time": "12:38",
+          "message": "docs(效能): 新增 IIS 效能瓶頸追蹤表 + README 索引",
+          "body": "把 IIS log(台北 W3SVC11, 6/18 完整工作日)挖出的瓶頸集中成一份 backlog/"
+        },
+        {
+          "hash": "23490d89",
+          "time": "12:36",
+          "message": "perf(通知): NotificationLog 加索引修 GetUnreadcnt 輪詢全表掃 (DDL 待執行)",
+          "body": "IIS log(台北 W3SVC11, 6/18) /api/Notification/GetUnreadcnt 714s 累計、9,247次/天。"
+        },
+        {
+          "hash": "1d4b760c",
+          "time": "12:35",
+          "message": "perf(日誌): ReportAccessLog/LogBatch 也移到背景(同 Log)",
+          "body": "IIS log(6/18) LogBatch 14,236 次/天同步批次 INSERT。前端 logBatch(mask.js)"
+        },
+        {
+          "hash": "5f037cbe",
+          "time": "12:04",
+          "message": "perf(報告影像): BlobToImage 加瀏覽器私有快取(private, max-age=1h)",
+          "body": "IIS log(台北 W3SVC11, 6/18) 分析 /Report/BlobToImage 3,840 次/天："
+        },
+        {
+          "hash": "5f1746c8",
+          "time": "11:39",
+          "message": "perf(QC): QC_Validity 加 filtered index 修 GetBlockList 35秒爆點 (DDL 待執行)",
+          "body": "IIS log(台北 W3SVC11, 6/18) 顯示 /api/QC/GetBlockList 最大單筆 35 秒。"
+        },
+        {
+          "hash": "13ba4429",
+          "time": "11:20",
+          "message": "perf(日誌): ReportAccessLog/Log 存取稽核寫入移到背景，不阻塞 request 執行緒",
+          "body": "IIS log (台北 W3SVC11, 6/18) 顯示 /api/ReportAccessLog/Log 20,231 次/天"
+        },
+        {
+          "hash": "08e602d2",
+          "time": "11:13",
+          "message": "perf(日誌): recordUserEventLog 事件日誌寫入移到背景，不阻塞 request 執行緒",
+          "body": "IIS log (台北 W3SVC11, 6/18 完整工作日) 顯示 /Home/recordUserEventLog"
+        },
+        {
+          "hash": "62bd4071",
+          "time": "11:02",
+          "message": "docs(效能): 把 IIS_Loading/iis_tool 整合進效能排查手冊 + README",
+          "body": "- 效能排查手冊 §3 加交叉引用指向 IIS_Loading doc + iis_tool，"
+        },
+        {
+          "hash": "8d5434b2",
+          "time": "10:52",
+          "message": "docs(效能): IIS_Loading 補 iis_tool.ps1 實際引用 + 台北站台對照",
+          "body": "- §2/§3/§4.2 把「之後再寫腳本」占位改成實際 iis_tool.ps1 指令"
+        },
+        {
+          "hash": "5464cd4e",
+          "time": "10:10",
+          "message": "docs(效能): 641365 上版驗收記錄整合進 PLAN §6",
+          "body": "- 方向1 縮 diffDays(Mars 06-22 上線):cost 72K→13K(-82%)、ORD_HDR"
+        },
+        {
+          "hash": "121b8d42",
+          "time": "09:57",
+          "message": "docs(效能): 新增 IIS Loading 排查與監控（補 App 端盲區）",
+          "body": "- 新增 IIS_Loading_排查與監控.md：系統緩慢「還在慢/已恢復」分流、"
+        },
+        {
+          "hash": "04f618e7",
+          "time": "07:46",
+          "message": "docs(效能): 0622 週報 HTML 視覺版 + 641365 負責人更正為 Mars",
+          "body": "- 新增 效能監控報告_0622.html(趨勢圖 + KPI + Top 瓶頸,比照 0615)"
+        },
+        {
+          "hash": "14b7b898",
+          "time": "07:24",
+          "message": "docs(效能): 0622 週報 + 儀表板更新",
+          "body": "- BT201 GetTidySPLIST cache(MR !1188)上線生效：526a77 06-19 起退出 AWR"
+        }
+      ],
+      "count": 21
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "9d8b9264",
+          "time": "09:02",
+          "message": "feat(allocate): 配位結果依順序號排序 + 志願小位/無障礙分出「免抽已定」+ 落選補順序號",
+          "body": "回應實測："
+        },
+        {
+          "hash": "fe6b1ce5",
+          "time": "08:53",
+          "message": "docs: 大整併——HANDOFF 歸檔、CSV schema 入 12§4.6、待決/狀態去重指向 10/13",
+          "body": "- HANDOFF.md → docs/archive/（已被 05/10/12/13 取代）；§8 CSV schema 移入 12 §4.6（對齊 registry.js/result.js 現行欄位）"
+        },
+        {
+          "hash": "823b2059",
+          "time": "08:50",
+          "message": "fix(roster): 統一戶號驗證(registry→household.js) + mock 戶號改 9X 兩碼",
+          "body": "根因：mock 戶號是 3 碼戶(A1-901)，register/normalize.ts 放行寫進 DB，但 registry"
+        },
+        {
+          "hash": "cd0cb918",
+          "time": "08:40",
+          "message": "fix(allocate): 匯入按鈕樣式化 + 匯入成功綠色提示",
+          "body": "- file input 用 file: 修飾變深色按鈕（原生「選擇檔案」太陽春）"
+        },
+        {
+          "hash": "09796ac3",
+          "time": "08:37",
+          "message": "test(roster): 鎖定「匯出名冊 CSV → 匯入 → distribute」橋接 + TODO 同步現況",
+          "body": "- roster-bridge.test.js：export-roster.mjs/後台 SQL 的 CSV 格式 → parseCSVObjects"
+        },
+        {
+          "hash": "fe8d9da5",
+          "time": "08:31",
+          "message": "docs: 加文檔索引 docs/README.md + 修 13 重號（抽籤作業手冊→14）",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "9312ae77",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-22",
+          "body": "🤖 自動生成於 2026-06-22 07:05"
+        },
+        {
+          "hash": "d1b9415a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-21 (2 commits)",
+          "body": "🤖 自動生成於 2026-06-22 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "daba9e11",
+          "time": "16:13",
+          "message": "docs: 簡報 25→27 頁，加 §6.9 共病性分析 + Q&A 預備地圖",
+          "body": "簡報擴充（25 → 27 頁）："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 21,
+    "sideCommits": 9,
+    "totalCommits": 30
+  }
+}
