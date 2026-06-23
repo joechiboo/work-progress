@@ -1,0 +1,187 @@
+{
+  "date": "2026-06-23",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "4a09d4dc",
+          "time": "18:53",
+          "message": "docs(效能): 追蹤表「驗收待辦」改成 明早/週四 兩天驗收清單",
+          "body": "- 明早(06-24): A.先看06-23完整日log(驗昨天已部署的BlobToImage/日誌/Notification)"
+        },
+        {
+          "hash": "9fe8411f",
+          "time": "11:21",
+          "message": "docs(效能): 新增 IIS log 自動清理排程文檔",
+          "body": "把 2026-06-22 手動清台北 IIS log 的做法做成每日排程："
+        },
+        {
+          "hash": "bf180634",
+          "time": "11:08",
+          "message": "perf(報表): ResultRepository 日期過濾改 sargable，觸發 BLG_TX_HDR partition pruning",
+          "body": "27rttw2zjt5gd 重報表(AWR: 8execs, 70萬 buf/exec, 平均17.5s)。執行計畫顯示"
+        },
+        {
+          "hash": "d8b6cd7b",
+          "time": "10:41",
+          "message": "docs(效能): IIS 瓶頸追蹤表更新到 6/22-6/23 session 完整版",
+          "body": "把整個 session 的發現+驗收數字+狀態整合進追蹤表(原版只到中途):"
+        },
+        {
+          "hash": "242893eb",
+          "time": "10:39",
+          "message": "fix(特殊報告): 批量頁敘述比照 LIS + 報告頁尾加檢體編號",
+          "body": "- SpecialReportBatch 頁敘述：pTau181/pTau217/APOE → p-tau181 Plasma / p-tau217 / Apo-E Genotyping"
+        },
+        {
+          "hash": "afb99c0c",
+          "time": "09:34",
+          "message": "fix(審核): Examine/Target 空明細時 GetHistory 拋 ORA-00936(遺漏表示式)",
+          "body": "IIS log(台北 W3SVC11, 6/22) Examine/Target 105筆 500/天且惡化(6/18 36→6/22 105)，"
+        },
+        {
+          "hash": "6b5c7ea1",
+          "time": "07:26",
+          "message": "docs(效能): QC 第一階段完整 AWR 週驗收(PLAN §8)",
+          "body": "上線滿 8 天用完整 AWR 複驗(坐實 §7 留的 TODO):buf/exec 穩定 ~21K"
+        },
+        {
+          "hash": "f94d544e",
+          "time": "07:08",
+          "message": "fix(特殊報告): APOE 報告驗收文字調整（黃士容 2026-06-22）",
+          "body": "- 第1頁「檢測項目：APOE 基因分型」的 APOE 改斜體"
+        }
+      ],
+      "count": 8
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "444c5516",
+          "time": "18:05",
+          "message": "docs: 整合本輪討論 — ExportView 結案、Q15 工作人員剩餘位、is_admin 雙用途、publish-result 虛報",
+          "body": "- docs/10: 新增 Q15（社區工作人員剩餘位：繳費/登記時點/數量/順序；建議本人繳 1,200 按月比例）；題號表頭/B 區 → Q1–Q16"
+        },
+        {
+          "hash": "794a03ca",
+          "time": "17:58",
+          "message": "docs: 同步今日進度 — schema 結果/繳費欄、安全分流範例、指派完成、Q16 時間線",
+          "body": "- docs/12：資料模型補 vehicle 結果/繳費欄 + locked_seat；migrations 0001-0006、"
+        },
+        {
+          "hash": "6ea34870",
+          "time": "17:38",
+          "message": "docs(13): 車位指派維護(含繳費)標完成；記下一步 distribute 與指派對齊",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "f04e6fcf",
+          "time": "17:36",
+          "message": "feat(dev): 加「清除配位結果」工具（保留住戶/車輛）",
+          "body": "走 publish-result 送空 rows ＝清空 vehicle 結果欄（撤回發佈），免貼 SQL。"
+        },
+        {
+          "hash": "73a009e8",
+          "time": "17:35",
+          "message": "feat(seat-admin): 車位指派維護（抽籤前確定小位/無障礙+繳費）",
+          "body": "維護頁從「純鎖定」升級為「指派＋鎖定」：點位填車號/車種/類型/繳費 →"
+        },
+        {
+          "hash": "d207f9f2",
+          "time": "17:14",
+          "message": "feat(allocate): 匯入名冊顯示 戶數/車輛數/共幾輪（=一戶最多車輛數）",
+          "body": "匯入成功訊息：「N 戶 / M 輛 · 最多 K 輛/戶 → 共 K 輪（另有無障礙輪）」，"
+        },
+        {
+          "hash": "9fd8e973",
+          "time": "17:07",
+          "message": "feat(admin): H3-6 也設為管理員 + 寫入改用共用 ADMIN_PASSWORD；distribute +3 測試",
+          "body": "- roles.js：isAdmin 認 household.is_admin 或白名單戶號(['H3-6'])；export ADMIN_PASSWORD"
+        },
+        {
+          "hash": "c4cc6653",
+          "time": "16:39",
+          "message": "docs(13): 結果回填標完成 + 記下次待測（順序號連續、一人多車位、結果回填實機驗證）",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "5ec4772a",
+          "time": "11:47",
+          "message": "feat(result): 結果回填 MeView——發佈配位結果到後端、住戶登入看自己分到的位",
+          "body": "- migration 0005：vehicle 加 車位編號/車位類型/配位狀態/簽約期限"
+        },
+        {
+          "hash": "4c1a359c",
+          "time": "09:00",
+          "message": "feat(admin): 配位頁限管理員/本機 + 文檔更新到 06-23",
+          "body": "- /allocate（會匯入全名冊個資）加 beforeEnter：限 isAdmin 或 dev；nav「配位」同步隱藏"
+        },
+        {
+          "hash": "3e46a586",
+          "time": "08:54",
+          "message": "feat(distribute): 順序號改跨輪連續累加（每車唯一、不重來、不共用）",
+          "body": "原本每輪重置 1..N → 同號在 R1/R2 重複。改成全程連續累加 seqCounter："
+        },
+        {
+          "hash": "b96dc16f",
+          "time": "08:43",
+          "message": "feat(admin): 鎖定車位上 Supabase——locked_seat 表 + set-locked Edge Function + 三頁讀雲端",
+          "body": "- migration 0004：locked_seat 表（anon 可讀、非敏感；寫入只走 Edge Function）"
+        },
+        {
+          "hash": "59df02ae",
+          "time": "08:36",
+          "message": "feat(nav): 登入管理員時 nav 顯示「🔧 管理」入口（在 dev 旁）",
+          "body": "isAdmin 時才出現，連到 /seat-admin，免得找不到維護頁入口。"
+        },
+        {
+          "hash": "eb04fbb4",
+          "time": "08:33",
+          "message": "feat(admin): 車位鎖定維護頁 + 管理員特例登入 + 抽籤排除鎖定",
+          "body": "方式一第一刀（用共用 <SeatMap>）："
+        },
+        {
+          "hash": "ce84b89a",
+          "time": "08:24",
+          "message": "refactor(map): 抽出共用 <SeatMap> 元件，SelectView 改用（為維護頁打底）",
+          "body": "地圖(底圖+SVG+拖曳/雙指/Ctrl滾輪縮放+進場聚焦)抽成 src/components/SeatMap.vue："
+        },
+        {
+          "hash": "17021142",
+          "time": "08:04",
+          "message": "feat(allocate): 抽完可下載配位結果 CSV（公告日→簽約期限、含應繳/狀態）",
+          "body": "完成 Phase I 物業端交付物：抽籤後輸入公告日 → 下載「配位結果 CSV」"
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "9f003b67",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-23",
+          "body": "🤖 自動生成於 2026-06-23 07:05"
+        },
+        {
+          "hash": "4b71b318",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-22 (30 commits)",
+          "body": "🤖 自動生成於 2026-06-23 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 18,
+    "totalCommits": 26
+  }
+}
