@@ -1,0 +1,265 @@
+{
+  "date": "2026-06-24",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f8127431",
+          "time": "14:29",
+          "message": "fix(BT402): 地址條縮字分級(≤8/9-16/17-24/>24) + 地址往上名稱往下拉開間距",
+          "body": "- 地址依字數縮字並對半切兩行; 固定 40px 欄寬讓名稱位置固定不被擠"
+        },
+        {
+          "hash": "13af8ffc",
+          "time": "12:55",
+          "message": "docs(效能): 維護視窗改 05:15 已套用+結構驗證, 列入 6/25 review (附 RMAN 連8天FAILED 旁支發現)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c1efef3e",
+          "time": "12:19",
+          "message": "fix(BT402): 地址條強制 .spin content-box, 修 bootstrap border-box 致地址兩行撞 title",
+          "body": "獨立測試(無bootstrap/content-box)地址兩行不撞, 但 app 載入 bootstrap"
+        },
+        {
+          "hash": "07866845",
+          "time": "12:09",
+          "message": "feat(BT402): 地址也切兩行(不撞title) + 標題>16字改縮字容納更多",
+          "body": "地址: 比照標題改手動<br>切兩行(≤11單行/12-22兩行/>22加…), 16px 不縮字不"
+        },
+        {
+          "hash": "4e775a36",
+          "time": "11:48",
+          "message": "feat(BT402): 地址條單位名稱優先用 DBUNICODE, 修異體字顯示",
+          "body": "DEBTOR.DBUNICODE 是全系統解異體字亂碼的既有欄位。地址條抬頭原本用"
+        },
+        {
+          "hash": "24e7828e",
+          "time": "11:36",
+          "message": "fix(BT402): 地址條列印加左/上內距, 修沒地址時 title 貼邊被裁",
+          "body": "沒地址的單位 title 會貼到格子最左, 落在印表機不可印區 → 紙本被切。"
+        },
+        {
+          "hash": "dd33eced",
+          "time": "11:48",
+          "message": "feat(BT402): 地址條單位名稱優先用 DBUNICODE, 修異體字顯示",
+          "body": "DEBTOR.DBUNICODE 是全系統解異體字亂碼的既有欄位。地址條抬頭原本用"
+        },
+        {
+          "hash": "b4223dc9",
+          "time": "11:36",
+          "message": "fix(BT402): 地址條列印加左/上內距, 修沒地址時 title 貼邊被裁",
+          "body": "沒地址的單位 title 會貼到格子最左, 落在印表機不可印區 → 紙本被切。"
+        },
+        {
+          "hash": "0a143cfd",
+          "time": "11:36",
+          "message": "fix(BT402): 地址條列印加左/上內距, 修沒地址時 title 貼邊被裁",
+          "body": "沒地址的單位 title 會貼到格子最左, 落在印表機不可印區 → 紙本被切。"
+        },
+        {
+          "hash": "b7c037f8",
+          "time": "11:14",
+          "message": "fix(smoke): 失敗信 body 以 UTF-8 bytes 送出,中文不亂碼",
+          "body": "PS 5.1 的 Invoke-RestMethod -Body 字串會用非 UTF-8 編碼送出,中文掉成 ?。"
+        },
+        {
+          "hash": "6960460d",
+          "time": "10:30",
+          "message": "chore: gitignore 擋 OracleAnalysis 下的 .html 與 lt274_tnos.txt(PHI 防護)",
+          "body": "PrintReport before/after 驗證 harness(lt274_before_after.ps1,本地用)會把"
+        },
+        {
+          "hash": "58c6a357",
+          "time": "11:07",
+          "message": "fix(smoke): 排程版以 UTF-8 擷取輸出,失敗信中文不亂碼",
+          "body": "加 [Console]::OutputEncoding=UTF8,讓 PowerShell 正確擷取 playwright 的中文輸出(測試/步驟名),寄信時不再變成亂碼。"
+        },
+        {
+          "hash": "9009f0bd",
+          "time": "11:06",
+          "message": "docs(效能): 魔王 scope 補 before/after 驗證 harness(重構安全網)",
+          "body": "上次批次SP退版就是缺before/after。加: capture before→重構→capture after→compare"
+        },
+        {
+          "hash": "a3f57928",
+          "time": "10:34",
+          "message": "feat(smoke): 失敗通知改走 NotificationPlatform 郵件 API",
+          "body": "捨棄 raw SMTP,改呼叫公司郵件 API(api.ucl.com.tw/mailapi):"
+        },
+        {
+          "hash": "17581983",
+          "time": "10:27",
+          "message": "feat(smoke): 新增 PowerShell 排程版 + 失敗寄 Email",
+          "body": "- run-smoke-scheduled.ps1:跑 smoke → 寫 log → 失敗寄 Email(SMOKE_MAIL_ALWAYS=true 則每次都寄),SMTP 設定讀 .env"
+        },
+        {
+          "hash": "a0b029a2",
+          "time": "10:11",
+          "message": "docs(smoke): 修正排程 schtasks 指令(PowerShell 引號 + 實際路徑)",
+          "body": "原指令用 cmd 風格跳脫 \"..\" 在 PowerShell 會拆壞路徑;改成單行普通雙引號,並補路徑避免空格的提醒。"
+        },
+        {
+          "hash": "88fa1210",
+          "time": "10:08",
+          "message": "docs(效能): PrintReport 魔王塊2 scope 到具體(view 渲染 83% = GroupBy-in-view 反模式)",
+          "body": "本地插樁拆解(已還原): PrintReport ~0.30s 中 GetPrintLT274 ~50ms(17%),"
+        },
+        {
+          "hash": "b08e6d74",
+          "time": "10:06",
+          "message": "feat(smoke): 新增排程版腳本 + 每日排程說明",
+          "body": "- run-smoke-scheduled.cmd:無 pause、結果寫 logs/smoke-history.log、回傳結束碼供排程器判定"
+        },
+        {
+          "hash": "52f4c3a4",
+          "time": "10:00",
+          "message": "docs(smoke): .env.example 同步最新設定欄位 + 清掉未用變數",
+          "body": "- .env.example 補上 TNO 序號、改 ITEM_CODES/RESULT_VALUES(舊版停在單項目),標清楚必填 vs 預設,方便同仁建置"
+        },
+        {
+          "hash": "356f2e25",
+          "time": "09:57",
+          "message": "feat(smoke): 新增上版後冒煙測試工具 (Playwright E2E)",
+          "body": "獨立 Node 專案 (Tests/Smoke/),從瀏覽器外驅動正式機驗收核心流程:"
+        },
+        {
+          "hash": "406e4ad6",
+          "time": "08:50",
+          "message": "docs(效能): PrintReport 魔王 scope + PHP 分類更正",
+          "body": "- 新增「PrintReport 魔王 Scope」: 魔王其實兩隻(DB CPU vs 使用者體感),目標/武器不同"
+        },
+        {
+          "hash": "907f10ed",
+          "time": "07:58",
+          "message": "docs(效能): 27rttw follow 修正(SQL文字改→新SQL_ID,舊的停止累積)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "80690164",
+          "time": "07:56",
+          "message": "docs(效能): 整合兩天成果 + DB Top SQL follow 清單",
+          "body": "- Examine/Authorise +80% 標記為非持續(6/22暫衝,6/23回落-67%);27rttw 移至已修"
+        },
+        {
+          "hash": "53a6b206",
+          "time": "07:33",
+          "message": "docs(效能): 追蹤表填入 06-23 驗收結果(含誠實修正)",
+          "body": "- BlobToImage 快取 ✅ 驗收 −63% 次數(3,710→1,385)、−66% 累計，命中預估"
+        }
+      ],
+      "count": 24
+    },
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "4f8ed3e4",
+          "time": "09:34",
+          "message": "docs(queue): memo 補 2026-06-02 Queue 機制改進 TODO 與 log 路徑說明",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "80052eea",
+          "time": "09:33",
+          "message": "feat(queue): 自動補二審 eventlog 標記 [Auto] 區分人工/系統審核",
+          "body": "一審完自動補的二審(_AddQueue)借用空著的 WS_CODE 欄標 'AUTO',"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "10f3f775",
+          "time": "17:32",
+          "message": "fix(session): 結果/我的登記頁進頁時自動重抓戶資料（免重新登入）",
+          "body": "問題：結果頁讀的是登入當下的 session 快照；物業在後台指派/標記繳費後，"
+        },
+        {
+          "hash": "d2ebf0d6",
+          "time": "17:26",
+          "message": "docs: ResultView 改全狀態 + 流程說明（含已登記未繳費）",
+          "body": "ResultView.vue 程式碼已隨 14f71f7 進版。本 commit 同步 docs/13："
+        },
+        {
+          "hash": "14f71f79",
+          "time": "17:25",
+          "message": "feat(result): 結果確認頁 — 登入後顯示已繳費確認的車位",
+          "body": "ResultView 由 stub 改為實頁：登入住戶看自己「已繳費＋有位」的車位（待繳/未中"
+        },
+        {
+          "hash": "19262c22",
+          "time": "17:25",
+          "message": "fix(publish-result): 回實際命中數 + 查無車號（修「已發佈 N 筆」虛報）",
+          "body": "#2：`.update().eq()` 配 0 列在 PostgREST 不算錯，舊碼照加 updated → 車號不在 DB"
+        },
+        {
+          "hash": "6fffff0e",
+          "time": "17:05",
+          "message": "feat(seats): 498 漏水位恢復為實體大位，改用 locked_seat 鎖定排除",
+          "body": "原本 498 在盤點資料標 cat:excl（缺號）→ 主檔只有 654、498 是缺號。"
+        },
+        {
+          "hash": "49728411",
+          "time": "16:58",
+          "message": "feat(distribute): 對齊物業指派 — 已指派車位跳過抽籤、直接記入結果",
+          "body": "修補唯一功能洞（#1）：物業 11/1-15 指派的小位/無障礙會被 11/16 抽籤重複分配。"
+        },
+        {
+          "hash": "156d71a3",
+          "time": "16:36",
+          "message": "refactor: 刪除 ExportView（匯出已由 AllocateView 下載 CSV 取代）",
+          "body": "匯出頁的「配位結果 CSV」已整合進 AllocateView（⬇ 下載配位結果 CSV），"
+        },
+        {
+          "hash": "4141d1b5",
+          "time": "16:27",
+          "message": "fix(allocate): 配位頁改公開範例 demo；真實名冊匯入移到 dev 專區（限管理員）",
+          "body": "修正上一版方向：配位頁不該鎖、該移的是「匯入真實名冊」。"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "b71060ac",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-24",
+          "body": "🤖 自動生成於 2026-06-24 07:05"
+        },
+        {
+          "hash": "b76d2f3c",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-23 (26 commits)",
+          "body": "🤖 自動生成於 2026-06-24 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "035f333d",
+          "time": "14:46",
+          "message": "docs: Q2 答案卡擴充 — CV vs 過擬合的學生考試類比",
+          "body": "- 加「追問追答」層：委員問「test AUC 還 OK 不就好了嗎」的應對"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 26,
+    "sideCommits": 11,
+    "totalCommits": 37
+  }
+}
