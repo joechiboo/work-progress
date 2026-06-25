@@ -1,0 +1,253 @@
+{
+  "date": "2026-06-25",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "6f1ed4a7",
+          "time": "15:42",
+          "message": "docs(效能): PHP polling 複合索引分析(週六 06-27 處理)",
+          "body": "關鍵發現:不是「缺 OD_UPDATE_ON 索引」—— 單欄索引 IDX_OD_UPDATE_ON"
+        },
+        {
+          "hash": "9c2368af",
+          "time": "15:36",
+          "message": "docs(效能): Examine/Target 5xx 6/24完整日驗證(~105→1, url_detail)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c2cdd558",
+          "time": "14:25",
+          "message": "fix(BT402): 地址條收窄地址欄寬 40→28px 拉近單位/名稱, 移除 translateX",
+          "body": "- 真正的間距來源是地址欄固定寬 40px(短地址只佔~16px, 名稱被推到 40px 後)"
+        },
+        {
+          "hash": "8759eded",
+          "time": "14:12",
+          "message": "fix(BT402): 地址條收窄單位/名稱間距 + 整體下移避開上緣裁切",
+          "body": "- translateX 位移 ±8→±3: 自然折後本不撞, 大幅拉開造成間距太開"
+        },
+        {
+          "hash": "12fad94a",
+          "time": "09:34",
+          "message": "feat(smoke): 冒煙測試多站台支援(代號選站)+ 操作文檔",
+          "body": "- run-smoke.cmd <代號> 指定站台 (TP/TY/HC/TC/CY/KH,不分大小寫,也收 1-6)"
+        },
+        {
+          "hash": "a94849e7",
+          "time": "09:16",
+          "message": "docs(效能): 補完審核頁集團 Scope(第二大宗~23K秒/日)",
+          "body": "把一直只標『複雜難啃』的審核頁集團拆成兩個問題:"
+        },
+        {
+          "hash": "7d2e3e99",
+          "time": "08:27",
+          "message": "docs: 補推 審核Queue機制(Speed Mode) + SARGable 索引教學 demo",
+          "body": "兩份先前未進版控的文檔:"
+        },
+        {
+          "hash": "a8a36dd6",
+          "time": "08:18",
+          "message": "docs(效能): Top10 儀表板全刷到 6/25 + 更正 9f9(LT274明細SP)/2qunyph(PID萬用字元) 身份",
+          "body": "- 儀表板: 本波6項戰果(IIS層+維護)、現況Top瓶頸改06-24~25兩日CPU、PHP家族升#1群、計劃更新"
+        },
+        {
+          "hash": "d04f1f58",
+          "time": "08:00",
+          "message": "fix(BT402): 地址條地址與名稱改自然折(比照278), 取消機械對半切",
+          "body": "- 地址、名稱皆改 vertical-rl 自然折 + 依字數縮字, 不再手動對半切兩行"
+        },
+        {
+          "hash": "d72d9add",
+          "time": "07:36",
+          "message": "docs(效能): 6/25 review 結果整合 — 維護視窗雙向驗證解決, Top SQL 刷新(PHP家族升最大群+2qunyph新面孔), RMAN移待DBA區",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "count": 10
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "b9155062",
+          "time": "14:43",
+          "message": "fix(patrol): 預先宣告全域 Module 修 PaddleOCR 載入失敗",
+          "body": "PaddleOCR 內含 Emscripten 編譯的 OpenCV，用隱式全域 `Module = {}`，在 Vite ESM"
+        },
+        {
+          "hash": "b6d16158",
+          "time": "13:01",
+          "message": "feat(patrol): OCR 載入進度條 — 自抓模型顯示 % 再交 paddle 讀快取",
+          "body": "之前載入沒回饋、不知要等多久。改：ocr.js 先自行串流下載 5 個模型檔(累計 bytes"
+        },
+        {
+          "hash": "6895c7e3",
+          "time": "12:54",
+          "message": "perf(patrol): 模型自架 GitHub Pages + OCR 單例 — 不走百度 CDN、不重複載入",
+          "body": "「下載太久」根因＝模型從百度北京 CDN 抓(台灣連很慢/不穩)。改："
+        },
+        {
+          "hash": "b815aacd",
+          "time": "12:44",
+          "message": "chore: 頁尾加版號（建置時間 V202606251242）方便確認線上版本",
+          "body": "vite.config define 注入台北時區建置時間 → App.vue 頁尾「樂菲莊園機車車位管理工具 Vxxxx」。"
+        },
+        {
+          "hash": "05c9fe1b",
+          "time": "12:41",
+          "message": "feat(patrol): OCR 引擎換 PaddleOCR — 內建偵測，車牌不必對齊填滿",
+          "body": "Tesseract 把整框當一行字、要求對齊且慢/不準。改用 PaddleOCR(@paddlejs-models/ocr)："
+        },
+        {
+          "hash": "235e70c2",
+          "time": "12:38",
+          "message": "docs(13): 簽約繳費改標——線下臨櫃，系統支援已足；待 Q5 線上收款/Phase II 退費候補",
+          "body": "原標 ⬜「簽約繳費（Phase II）」誤導：這步是辦法定的唯一臨櫃環節（驗行照+簽約+繳費），"
+        },
+        {
+          "hash": "d8fda037",
+          "time": "12:36",
+          "message": "docs(13): 列 TODO — PatrolView 加物業使用說明",
+          "body": "巡邏稽核工具本體已由平行 session 做出（比對車號↔車位、紅綠燈、違規記錄、"
+        },
+        {
+          "hash": "e783de7c",
+          "time": "12:30",
+          "message": "feat(patrol): 兩格皆有自動檢查 + 相機結果浮層；車牌收為 6–7 碼",
+          "body": "- 辨到車位+車號(兩格都有)→ 自動觸發比對；結果用相機上浮層顯示(🟢/🔴/⚠️)，"
+        },
+        {
+          "hash": "bd8f2e75",
+          "time": "12:26",
+          "message": "feat(patrol): 即時相機辨識 — getUserMedia 連續預覽 + 取景框 + Tesseract OCR",
+          "body": "借 RoboEye 的瀏覽器即時推論架構，加進巡邏："
+        },
+        {
+          "hash": "9e06f1e0",
+          "time": "12:26",
+          "message": "docs(rules): 住戶說明頁流程補「⑦ 巡邏稽核」一棒",
+          "body": "rules.html 的年度時序原本停在「⑥ 啟用 eTag」，住戶不知道之後物業會巡查違停。"
+        },
+        {
+          "hash": "4bc9294c",
+          "time": "12:19",
+          "message": "docs(13): is_admin 標可接受風險（延後）；#3 落選改為「保底自動排位」提案",
+          "body": "- is_admin 後端化：2026-06-25 決策暫列「可接受風險」——社區內部工具，公開字串"
+        },
+        {
+          "hash": "190a56b1",
+          "time": "12:19",
+          "message": "feat(patrol): 巡邏稽核核心 — 車位↔車號比對 + 紅綠燈 + 違規記錄",
+          "body": "巡邏的零風險核心（之後相機/OCR 層填同一組欄位疊上）："
+        },
+        {
+          "hash": "cbf014d2",
+          "time": "12:13",
+          "message": "docs(13): 洞①（標記中籤大位已繳）標完成 — 維護頁已可改繳費",
+          "body": "平行 session 已把 assign-seat 的 list 改撈 locked_seat ∪ vehicle 已分配，"
+        },
+        {
+          "hash": "c797e75a",
+          "time": "11:58",
+          "message": "fix(me): 真實住戶兼管理員（如 H3-6）看得到自己的車輛/編輯/選位",
+          "body": "MeView 原本用 v-if=\"!isAdmin\" 藏掉「車輛表/編輯登記/選車位志願序/結果」，"
+        },
+        {
+          "hash": "e069eea6",
+          "time": "11:57",
+          "message": "fix(select): 志願序純綁登入住戶、不寫裝置 — 修同台電腦換住戶會看到上一位志願",
+          "body": "舊版志願序存 localStorage（裝置層、永久），未登入試排還落到共用 anon key →"
+        },
+        {
+          "hash": "9daab85b",
+          "time": "11:53",
+          "message": "refactor(result): 抽 vehicleResultStatus 純函式 + 測試",
+          "body": "ResultView 的每台車狀態判斷（paid/pending/waitlist/registered）內嵌在組件、"
+        },
+        {
+          "hash": "98cee5b4",
+          "time": "11:53",
+          "message": "feat(nav): 主選單登記與配位中間加「選位」",
+          "body": "住戶流程的「選車位志願序」原本只在首頁流程圖 + 登記完成 CTA + MeView，"
+        },
+        {
+          "hash": "7ca220aa",
+          "time": "11:52",
+          "message": "refactor(me): /me 移除管理員工具區塊 — 管理入口統一在 nav",
+          "body": "/me 回歸純住戶頁（登入/我的登記/抽籤結果）。管理員工具（車位維護/配位/dev）"
+        },
+        {
+          "hash": "1665f0ad",
+          "time": "11:42",
+          "message": "fix(seat-admin): 維護頁顯示抽籤已分走的位為佔用，防代選撞位",
+          "body": "抽籤中籤的大位寫在 vehicle.車位編號、不在 locked_seat → 抽籤後物業代選落選戶"
+        },
+        {
+          "hash": "84dcc6e7",
+          "time": "11:41",
+          "message": "fix(flow): 把「選車位志願序」補回流程引導（原本只藏在 MeView）",
+          "body": "問題：SelectView(/select) 功能正常，但登記完成只導去「查看我的登記」，"
+        }
+      ],
+      "count": 20
+    },
+    {
+      "name": "greenkeeper",
+      "commits": [
+        {
+          "hash": "d05a1c19",
+          "time": "13:00",
+          "message": "docs: serial_control 加收指令教學註解（對照 Pi 端）",
+          "body": "標出收指令三段：Serial.begin baud 須與 Pi 一致、apply() 是"
+        },
+        {
+          "hash": "8efc726c",
+          "time": "12:56",
+          "message": "docs: auto_drive 加 Pi→Arduino 溝通教學註解",
+          "body": "把序列通訊三步驟（開門/決定/送出）的講解寫進程式碼："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "663006b2",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-25",
+          "body": "🤖 自動生成於 2026-06-25 07:05"
+        },
+        {
+          "hash": "603709b1",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-24 (37 commits)",
+          "body": "🤖 自動生成於 2026-06-25 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "737f29a9",
+          "time": "17:33",
+          "message": "docs: 中英摘要依教授意見修訂 + 簡報共病三高中文化 + Q6 過擬合反向檢查",
+          "body": "摘要修訂（教授 6/25 手寫 + 影片意見）："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 25,
+    "totalCommits": 35
+  }
+}
