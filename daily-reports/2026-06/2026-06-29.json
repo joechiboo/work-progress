@@ -1,0 +1,127 @@
+{
+  "date": "2026-06-29",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "645d3d9a",
+          "time": "08:26",
+          "message": "perf(LT274): PrintReport 加計時埋點定位 ~900ms + 更正魔王 scope(prod實證非render)",
+          "body": "prod 分析(6/26 IIS+AWR)推翻本地 profile 的「view 83%=GroupBy」:"
+        },
+        {
+          "hash": "1d6310e7",
+          "time": "08:02",
+          "message": "docs(CRM): 文檔併入 Projects/CRM系統/ 並與既有開發手冊互連",
+          "body": "回應 cathylu review (!1233 原紀錄):"
+        },
+        {
+          "hash": "45633dfe",
+          "time": "07:47",
+          "message": "docs(效能): 儀表板 chart 數據更新至 0629 七日(PHP轉綠/LT274魔王)",
+          "body": "上次只改 Top 表文字、漏改 chart 的 JS items 陣列(還是 06-24~25 舊數據、"
+        },
+        {
+          "hash": "7140e83c",
+          "time": "07:32",
+          "message": "docs(效能): 0629 週報 HTML 視覺版",
+          "body": "趨勢圖(近7天CPU/HP)+ KPI + Top瓶頸表;主題 PHP索引大勝(退出Top)、"
+        },
+        {
+          "hash": "fd970188",
+          "time": "07:22",
+          "message": "docs(效能): 0629 週報 + 儀表板更新",
+          "body": "- 0629 週報:PHP polling 索引大勝(06-28/29 退出 AWR Top)、LT274 9f9huz"
+        },
+        {
+          "hash": "2554c25a",
+          "time": "07:17",
+          "message": "Merge remote-tracking branch 'origin/main' into docs/perf-weekly-0629",
+          "body": ""
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "e1b56f8f",
+          "time": "14:26",
+          "message": "refactor: 月統計姓名改直接 JOIN Oracle USER_ACCOUNT，移除 DistUserMap",
+          "body": "USER_ACCOUNT(LIS 使用者表, USER_ID/USER_NAME)與 EVENTLOG 同在 HCLAB Oracle，"
+        },
+        {
+          "hash": "42dad421",
+          "time": "11:22",
+          "message": "feat: 分單作業多項調整 + 配號查詢/每月統計 (v6.30)",
+          "body": "(1) 配號 200 號上限：起迄號碼旁加「限制200號內」checkbox，前端擋 迄-起+1>200，取消勾選可放行"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "ce179f36",
+          "time": "17:28",
+          "message": "docs: 時程表更新 7/3-7/7 務實流程",
+          "body": "- 7/3 拿教授紙本後：回辦公室改 → 回傳教授二次確認（新增卡點）"
+        },
+        {
+          "hash": "779d56a1",
+          "time": "17:23",
+          "message": "docs: 教授 Ch1-2 潤稿落實 + IEEE 引用重編號",
+          "body": "教授意見："
+        },
+        {
+          "hash": "924de4c7",
+          "time": "15:30",
+          "message": "docs: 時程表更新 — 教授 7/3 給修改稿、寄送口委 7/3-7/7、資料袋已領",
+          "body": "- 6/28-29 印刷取消（教授 7/3 才給修改過紙本）"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "97ea6062",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-06-29",
+          "body": "🤖 自動生成於 2026-06-29 07:05"
+        },
+        {
+          "hash": "27caab86",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-28 (2 commits)",
+          "body": "🤖 自動生成於 2026-06-29 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "taipeigolf\\TaipeiGolf",
+      "commits": [
+        {
+          "hash": "53197f92",
+          "time": "14:06",
+          "message": "docs(維運手冊): 補上實測的 DB clone 流程（Plesk 原生 .bak → 本機 RESTORE）",
+          "body": "- 方案 A/B 兩種下載方式，標註 sqlpackage .bacpac 因孤兒使用者 SQL71501 不可用"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 6,
+    "totalCommits": 14
+  }
+}
