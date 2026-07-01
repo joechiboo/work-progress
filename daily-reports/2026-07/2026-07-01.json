@@ -1,0 +1,175 @@
+{
+  "date": "2026-07-01",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "5b55b413",
+          "time": "17:45",
+          "message": "docs(效能): 魔王移機成功 + RMAN 已解決",
+          "body": "- 魔王: ReportHtmlSync 三管齊下(dedup+節流+移機56.231),c-ip驗證56.231對56.230爆量今早~11:13後歸零,56.230卸載批次渲染"
+        },
+        {
+          "hash": "40593ab0",
+          "time": "11:39",
+          "message": "fix(RecordTNO): 修正號碼區間搜尋失效（改在 initComplete 綁定）",
+          "body": "當日配號/查詢記錄的搜尋框輸入號碼（如 09048）應篩出涵蓋該號的配號列"
+        },
+        {
+          "hash": "42a7f866",
+          "time": "12:03",
+          "message": "feat(RecordTNO): 每月統計整合分單(EVENTLOG快取) + 鎖權限 + Excel匯出",
+          "body": "每月統計頁調整（2026-07-01 細節修正）："
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "dbd1744b",
+          "time": "14:21",
+          "message": "fix: v7.1.02 重疊提示排除空白/'00' 的 ID(避免匿名檢體誤判)",
+          "body": "7.1 上線後 0925 新竹聯合狂跳「已被別張單轉入過」：CheckTransferOverlap 用 M.ID"
+        },
+        {
+          "hash": "d3b3cef3",
+          "time": "11:35",
+          "message": "docs: 分單數量統計資料來源說明(用 EVENTLOG 免建表；釐清與 DistAuditLog 差別)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "HIS\\SharedProject",
+      "commits": [
+        {
+          "hash": "845e91f1",
+          "time": "12:29",
+          "message": "TscDll 新增 WindowsfontUnicode，姓名標籤改走 Unicode 列印",
+          "body": "TSC windowsfont 會把字串轉為系統 ANSI(Big5)，Big5 無對應的異體字／罕見字會印成 '?'。新增 WindowsfontUnicode（將字串轉 UTF-16LE 位元組，呼叫 DLL 的 windowsfontUnicode 匯出點），並把 PrintSimplelabel 姓名欄位改用它；字型名稱維持 ANSI。作法參考 LocalPrintHttpService。"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "label-printing\\Electrophoresis_Label",
+      "commits": [
+        {
+          "hash": "7661df5b",
+          "time": "12:28",
+          "message": "修正病患姓名疊字：標籤列印優先讀取 Unicode 欄位 ID_NAME",
+          "body": "含異體字／罕見字的姓名（Big5 無對應）原本讀 Big5 欄位 ID_LAST_NAME，該欄位在 Unicode→Big5 轉換時已損壞，導致印出疊字（例：蔡采〇→蔡采采）。GetTno／GetBLG 改以 NVL(ID_NAME, ID_LAST_NAME) 優先取 Unicode 欄位，Big5 僅作 fallback；ID_NAME 為 NULL 的舊資料維持原行為。"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "f8dadd7d",
+          "time": "11:12",
+          "message": "feat: 報告渲染去重 + 時段分級節流，解決 LIS 列印伺服器 CPU 過載",
+          "body": "LIS 團隊回報 ReportHtmlSync 排程造成列印伺服器 (56.230) CPU 過載、影響真人列印。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "a7ad292e",
+          "time": "10:19",
+          "message": "feat(dev): /dev 正式版對管理員開放 — 抽籤日免架本機",
+          "body": "「真實抽籤全鏈只在本機 dev」的缺口 → /dev 改為正式版也註冊、限管理員進入。"
+        },
+        {
+          "hash": "0c43c564",
+          "time": "10:12",
+          "message": "docs(todo): 抽籤日本機 dev 全鏈待測 + 真實作業放哪待決；資安 B 已做/待換密碼",
+          "body": "- 加「🖥️ 抽籤日作業(本機 dev)未實測」：真實抽籤全鏈只在 npm run dev 有(/dev"
+        },
+        {
+          "hash": "6b8e1c0c",
+          "time": "10:01",
+          "message": "feat(security+patrol): 管理密碼移出 bundle(手動輸入) + 巡邏三態狀態",
+          "body": "資安(補 B)：移除前端 hardcode 的 ADMIN_PASSWORD 常數與 H3-6 白名單。"
+        },
+        {
+          "hash": "43365e36",
+          "time": "08:04",
+          "message": "docs: 整合 2026-07-01 討論 — 發佈/寫入鎖權限重議、未繳費狀態已存在、實測待辦",
+          "body": "- is_admin 項加「2026-07-01 重新評估」：/allocate 公開後 bundle 共用密碼＝可竄改結果"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "89d1dcf5",
+          "time": "17:27",
+          "message": "chore: 刪除 meeting22 舊簡報 PDF（保留 .md 紀錄即可）",
+          "body": "Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "343c39dc",
+          "time": "17:21",
+          "message": "docs: Q&A 答案卡修 3 個過時 bug + 簡報論文同步",
+          "body": "Q&A 答案卡："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "taipeigolf\\TaipeiGolf",
+      "commits": [
+        {
+          "hash": "a52fb34e",
+          "time": "09:55",
+          "message": "docs: 加入維運與部署計畫（三塊備份 + 上版手冊）",
+          "body": "- 維運：半年全站快照 / 週AP內容FTP同步 / 每日DB bcp備份"
+        },
+        {
+          "hash": "f1abc6e6",
+          "time": "08:23",
+          "message": "security: 上傳白名單 + 上傳目錄禁執行 script (防 webshell 注入)",
+          "body": "- AdminController 所有上傳點 (images + file1~6 + UploadFile) 改用副檔名白名單 +"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f3d5491a",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-01",
+          "body": "🤖 自動生成於 2026-07-01 07:05"
+        },
+        {
+          "hash": "2b2dfaeb",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-06-30 (31 commits)",
+          "body": "🤖 自動生成於 2026-07-01 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 10,
+    "totalCommits": 18
+  }
+}
