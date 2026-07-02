@@ -1,0 +1,157 @@
+{
+  "date": "2026-07-02",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "be6865c8",
+          "time": "10:15",
+          "message": "feat(BT403): 列印記錄套用篩選加入「帳別」",
+          "body": "- 列印記錄 modal 讀取主畫面帳別多選，帶入查詢並顯示於「套用篩選」摘要"
+        },
+        {
+          "hash": "40d9f2e8",
+          "time": "09:30",
+          "message": "docs(incident): 2026-07-02 全站無法登入 (Oracle 驅動 CreateServiceCtx null key) 事故報告",
+          "body": "含根因、時間線、可復用的驅動升級步驟 (net40/19.16)、排除過的無效方向、"
+        },
+        {
+          "hash": "3ab99853",
+          "time": "09:20",
+          "message": "docs(效能): 7/1驗收(白天大成功) + 深夜補轉打爆Oracle新事故(02-05時1,900筆5xx)",
+          "body": "- 白天: PrintReport #1→#13(縮30倍), 真人列印快3-4倍, 整站72-112ms史上最健康"
+        },
+        {
+          "hash": "0c34b68f",
+          "time": "05:45",
+          "message": "fix(LT252): 修正 Queue 來源 commit 誤植的 JS 語法錯誤導致工作清單空白",
+          "body": "105df920b (fix:[LT252] Queue Page 來源修正) 誤把一行註解拆成兩行,殘留"
+        },
+        {
+          "hash": "436d0e83",
+          "time": "05:04",
+          "message": "fix(Login): 升級 Oracle.ManagedDataAccess 12.2→19.16 修正全站無法登入",
+          "body": "DB 於 2026-07-02 03:45 重啟後 instance metadata 異常(instance_name 變小寫 hclab),"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "label-printing\\Electrophoresis_Label",
+      "commits": [
+        {
+          "hash": "c52aea88",
+          "time": "08:23",
+          "message": "升級 Oracle.ManagedDataAccess 12.2→19.16 修正無法連線 HCLAB",
+          "body": "同 lisweb 2026-07-02 全站無法登入問題:HCLAB DB 重啟後 instance metadata"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "3da46664",
+          "time": "09:49",
+          "message": "fix: 併發預設砍到 ≤2 + 部署指南整合 SMB 上版實務",
+          "body": "2026-07-02 事故:Heavy 併發 12 凌晨對撞 DB 夜間維護，把後端 listener 打爆。"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "950a2e0e",
+          "time": "09:05",
+          "message": "feat: v7.2 開放分單前人工改號/重新配號",
+          "body": "行政遇多配號/回傳補單時可自行改 TNO。解封既有的編輯/下一號按鈕："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "5565d92f",
+          "time": "16:38",
+          "message": "docs(runbook): 抽籤手冊 §二 升級為現場 Rundown（跑場腳本）",
+          "body": "彩排/正式同一套：事前檢查清單 → 現場照跑 7 步 → 重跑/測好幾次的重置流程（重抽 vs 重測、清除配位結果）→ 出錯應變表。取代原簡略「抽籤流程」。"
+        },
+        {
+          "hash": "2442585c",
+          "time": "15:56",
+          "message": "docs(runbook): 抽籤手冊補「換新機器先設 .env」— 公開值可直接複製",
+          "body": ".env 是 gitignored、pull 不到；筆電抽籤日 npm run dev 會缺 URL/anon key。"
+        },
+        {
+          "hash": "9bb9d9af",
+          "time": "09:30",
+          "message": "feat(auth): 雙管道管理員 — admin 帳號(密碼) + H3-6(車牌擁有權) 都是管理員",
+          "body": "回應「兩個帳號都能是管理員」：後端寫入/管理讀取改用 verifyAdmin，任一成立即通過："
+        },
+        {
+          "hash": "b20bf77f",
+          "time": "09:12",
+          "message": "fix(patrol): 掃描頁可手動輸入車牌 + 結果訊息帶車號",
+          "body": "- CamScanner 控制列加「手動輸入車牌」欄(辨識不到/辨錯直接打)，送出走與辨識同一條路"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "cf5b8176",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-02",
+          "body": "🤖 自動生成於 2026-07-02 07:05"
+        },
+        {
+          "hash": "3d9d09b7",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-01 (18 commits)",
+          "body": "🤖 自動生成於 2026-07-02 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "jiayi.github.io",
+      "commits": [
+        {
+          "hash": "46596757",
+          "time": "17:37",
+          "message": "Add Flappy Dragon game with hand-drawn canvas dragon",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "taipeigolf\\TaipeiGolf",
+      "commits": [
+        {
+          "hash": "f765ac45",
+          "time": "09:50",
+          "message": "scripts: 加入 AP/DB 每日同步腳本（單向 prod→本地 + log）",
+          "body": "- backup-db.ps1：bcp 4 表 prod→_archive\\db-daily + 灌回本地 SQLEXPRESS + log 筆數增量"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 8,
+    "totalCommits": 16
+  }
+}
