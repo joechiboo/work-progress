@@ -1,0 +1,229 @@
+{
+  "date": "2026-07-03",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ebcafc96",
+          "time": "19:17",
+          "message": "docs: 2026-07-03 台中節流量能事故教訓 — Tiers 要按站台量能配",
+          "body": "- 台北保守值(50/併發2)照搬台中 → 時速 600 vs 進單 6k/hr,佇列積 21k"
+        },
+        {
+          "hash": "8ccb7a60",
+          "time": "14:20",
+          "message": "fix(RecordTNO): 再修號碼區間搜尋失效（DataTables 2.x 搜尋框選取）",
+          "body": "上一版把 bindRangeSearch 移到 initComplete 仍無效。真因：本頁載入"
+        },
+        {
+          "hash": "e3f30216",
+          "time": "13:45",
+          "message": "docs: 台中部署佈局實勘整合 + 2026-07-03 換版紀錄",
+          "body": "- 站台表補台中實際路徑 D:\\Schedule\\ReportHtmlSync（走 D$ share）、"
+        },
+        {
+          "hash": "821bc5c8",
+          "time": "12:51",
+          "message": "fix: 異體字姓名存入 text 欄位變 '?' — 存檔前將非 Big5 字元轉 NCR",
+          "body": "pat_resulth.htmlContent 是 text (CP950)，SQL Server 隱式轉換把 Big5"
+        },
+        {
+          "hash": "a4e0fee9",
+          "time": "10:23",
+          "message": "docs(帳別): 補歷史單據回溯章節 (BLG_TX 欄位對應 + 0088 案例)",
+          "body": "規則表 (TestCodeBillCodeRule) 不追溯已寫入 Oracle 的歷史單據；"
+        },
+        {
+          "hash": "597ebcab",
+          "time": "09:44",
+          "message": "fix(特殊報告): p-tau 數值破表改用斷軸呈現 + 移除雙面列印空白頁",
+          "body": "- 趨勢折線圖(217): 值>1.0 時圓點 y 座標算成負值飛出畫面, 導致點與數值一起"
+        },
+        {
+          "hash": "4c0bf3fe",
+          "time": "08:57",
+          "message": "feat(CodeMap): BLG_TX_DTL 殘留 UNKNOW 的單一律顯示 + 已有對應僅清殘留",
+          "body": "問題 (新竹 6070230049): 單子還有 UNKNOW 但 CodeMap 沒顯示, 原因:"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "0ea94443",
+          "time": "17:43",
+          "message": "變更紀錄補記：pat_resultd 改型完成、拆字個案處理、渲染參數調整",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c2e438c8",
+          "time": "14:18",
+          "message": "SKILL 補 set-name 指令說明",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "7ab3b0b8",
+          "time": "14:17",
+          "message": "新增 set-name 手動更名指令、resync-badnames 增加 --target 範圍參數",
+          "body": "- set-name <單號> <姓名> [主機] [--rerender]：拆字等源頭已修個案直接改 pat_resulth/pat_orderh，"
+        },
+        {
+          "hash": "5a67a9de",
+          "time": "14:09",
+          "message": "病患姓名異體字修正：優先取用 LIS 異體字欄位（保守替換規則）",
+          "body": "- 同步查詢 LEFT JOIN BLG_TX_HDR/CUST_MASTER，僅在原值含壞字（? 或 Big5 造字區 PUA）"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "5bae7d58",
+          "time": "08:50",
+          "message": "fix: 手動改號的存檔時機改到「轉入」(分單=依起迄重新配號，兩者互斥)",
+          "body": "實測發現：分單是依號碼起迄重新配號(必填起迄、且會蓋掉手動輸入)，"
+        },
+        {
+          "hash": "773ea70e",
+          "time": "08:36",
+          "message": "feat: 分單前改號改為直接打字(分單時一併存) + 修 gvListM debug alert",
+          "body": "5碼列的號碼欄直接開放輸入(淡黃底提示)，按「分單」時 SaveManualTnoEdits"
+        },
+        {
+          "hash": "a3c5d9cf",
+          "time": "08:22",
+          "message": "feat: v7.3 開放已轉入單改號(與 LIS 對齊) + 拔掉下一號按鈕",
+          "body": "LIS 端已把單號處理好時，可回來把分單系統 ID_TNO 改成一致(檢驗值"
+        },
+        {
+          "hash": "655f34ac",
+          "time": "08:20",
+          "message": "feat: v7.3 開放已轉入單改號(與 LIS 對齊，便於檢驗值回傳)",
+          "body": "LIS 端已把單號處理好時，可回來把分單系統 ID_TNO 改成一致。"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "ebcafc96",
+          "time": "19:17",
+          "message": "docs: 2026-07-03 台中節流量能事故教訓 — Tiers 要按站台量能配",
+          "body": "- 台北保守值(50/併發2)照搬台中 → 時速 600 vs 進單 6k/hr,佇列積 21k"
+        },
+        {
+          "hash": "e3f30216",
+          "time": "13:45",
+          "message": "docs: 台中部署佈局實勘整合 + 2026-07-03 換版紀錄",
+          "body": "- 站台表補台中實際路徑 D:\\Schedule\\ReportHtmlSync（走 D$ share）、"
+        },
+        {
+          "hash": "821bc5c8",
+          "time": "12:51",
+          "message": "fix: 異體字姓名存入 text 欄位變 '?' — 存檔前將非 Big5 字元轉 NCR",
+          "body": "pat_resulth.htmlContent 是 text (CP950)，SQL Server 隱式轉換把 Big5"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TakoDoko",
+      "commits": [
+        {
+          "hash": "ce84eb78",
+          "time": "08:29",
+          "message": "feat: 登入相關頁面背景改為海底水族箱風格（v1.4.2）",
+          "body": "同仁反映紫色漸層背景不好看；章魚應該住海裡，改成藍色海洋。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "17eae7c6",
+          "time": "15:14",
+          "message": "fix(patrol): 巡查記錄同車號去重 — 即時掃描不再狂疊同一車",
+          "body": "即時掃描每 200ms 查一次，同車號會不斷 unshift 疊出大量重複列。"
+        },
+        {
+          "hash": "45673830",
+          "time": "15:14",
+          "message": "feat(nav): 手機 RWD 導覽 — 漢堡選單取代水平捲動",
+          "body": "原本所有連結擠一列 + overflow-x-auto，手機難點、管理/進階常被擠出畫面。"
+        },
+        {
+          "hash": "9f4ea296",
+          "time": "15:04",
+          "message": "fix(ocr): 模型存 Cache Storage 持久化 — 刷新/重開免重下 11MB",
+          "body": "原本只有記憶體 singleton + HTTP cache，刷新後常重抓整包模型。改為："
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "b1ecf425",
+          "time": "08:18",
+          "message": "作品卡片顯示 GitHub 最後更新時間",
+          "body": "用 Intl.RelativeTimeFormat 顯示「X 天前更新」（中英文），"
+        },
+        {
+          "hash": "7a88fae7",
+          "time": "08:07",
+          "message": "作品集改依 GitHub repo 最後 push 時間排序",
+          "body": "載入時抓 GitHub API 的 pushed_at 排序專案，沒上 GitHub 的排最後；"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "b44e3dd5",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-03",
+          "body": "🤖 自動生成於 2026-07-03 07:05"
+        },
+        {
+          "hash": "8efc01e9",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-02 (16 commits)",
+          "body": "🤖 自動生成於 2026-07-03 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "b70269dc",
+          "time": "18:00",
+          "message": "docs: 論文題目改「血液檢查之三高疾病風險預測」+ Ch3 加 t 時間序列對照",
+          "body": "- 中文題目：血液檢查之三高疾病風險預測：一個經驗性比較研究"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 19,
+    "sideCommits": 8,
+    "totalCommits": 27
+  }
+}
