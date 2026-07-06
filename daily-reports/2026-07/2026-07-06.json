@@ -1,0 +1,73 @@
+{
+  "date": "2026-07-06",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "62583af4",
+          "time": "12:54",
+          "message": "feat(smoke): 每日排程冒煙測試擴為全分部六站",
+          "body": "- run-smoke-scheduled.ps1 支援 SMOKE_SCHED_SITES(逗號分隔站台代號)依序掃描:"
+        },
+        {
+          "hash": "f18b48df",
+          "time": "08:12",
+          "message": "docs(效能): 新增週報產出 SOP",
+          "body": "- 日期範圍慣例:週一產出、涵蓋上一個「週日到週六」(週日起算)、"
+        },
+        {
+          "hash": "383ac7b8",
+          "time": "07:49",
+          "message": "docs(效能): 0706 週報 (md + HTML 視覺版)",
+          "body": "- PHP polling 索引維持(Top15無polling家族);LT274 9f9huz 仍CPU#1魔王"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "4285c9a6",
+          "time": "19:49",
+          "message": "docs: Q&A 新增 Q19 符號回歸完整說明（是什麼→發現→限制→定位）",
+          "body": "- 四層說明 + 三個必守追問（0.114/循環論證/不穩為何報告）"
+        },
+        {
+          "hash": "776b7d7e",
+          "time": "17:20",
+          "message": "docs: Q&A 新增共病 OR/Phi + 符號回歸 0.114 rank-invariant 兩題",
+          "body": "- Q17：共病性 Phi 低但 OR 顯著不矛盾（相對倍數 vs 絕對預測、樂透比喻、三配對 OR）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "ecf11e9e",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-06",
+          "body": "🤖 自動生成於 2026-07-06 07:05"
+        },
+        {
+          "hash": "2657cbbb",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-05 (2 commits)",
+          "body": "🤖 自動生成於 2026-07-06 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 4,
+    "totalCommits": 7
+  }
+}
