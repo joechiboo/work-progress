@@ -1,0 +1,121 @@
+{
+  "date": "2026-07-07",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2dc8f2d7",
+          "time": "13:23",
+          "message": "test(QC): 批次查詢正式庫資料對比驗證 + ORDER BY 加確定性 tiebreaker",
+          "body": "真實個案 (TESTCODE 0012, ICP-MS 4 組批號) 新舊 SQL 逐列對比:"
+        },
+        {
+          "hash": "26d6ca77",
+          "time": "12:59",
+          "message": "fix(帳務): BT401 補滿值漏接入 model + BT113 依單位 dp 補滿顯示",
+          "body": "BT401: 上一版算了補滿的 priceStr 但三個 model 分支仍用原值,"
+        },
+        {
+          "hash": "79ab53e0",
+          "time": "12:53",
+          "message": "fix(BT113): 特價表維護頁顯示支援 4 位小數, 防止存檔蓋掉 4 位價",
+          "body": "GetSpecialList 原用 #0.00 格式, 4 位特價載入畫面被砍成 2 位;"
+        },
+        {
+          "hash": "f2df6212",
+          "time": "12:50",
+          "message": "feat(帳務): 4位單價補滿顯示 + Excel 逐格 dp + BT404 區間效能",
+          "body": "一、補滿小數位 (dp != 2 的單位 70 → 70.0000, 同單位顯示一致; 2位單位全部不動):"
+        },
+        {
+          "hash": "5afbe951",
+          "time": "12:49",
+          "message": "perf(QC): LR354/LT351 關聯批號明細改批次查詢 (N+1 改善)",
+          "body": "SQL_ID caj1myhk760gd (0706 週報待認領): 工作日 ~15K 次/日、buf/exec"
+        },
+        {
+          "hash": "eef38fbc",
+          "time": "12:17",
+          "message": "feat(帳務): BT401/BT405 支援單價 4 位小數 (per-unit 旗標)",
+          "body": "BT401 (每日業績報表):"
+        },
+        {
+          "hash": "fadcb808",
+          "time": "12:16",
+          "message": "docs(LT302): DDL 腳本註記台北索引已建 + 實測數據",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6bfdc55f",
+          "time": "12:11",
+          "message": "perf(LT302): 身分證查詢改前綴比對 + BLG_TX_HDR ID_PID 複合索引",
+          "body": "SQL_ID 2qunyph9cw8xr (0706 週報 Top #9, 449K buf/exec 全 Top 10 最貴單次):"
+        },
+        {
+          "hash": "4d6879b9",
+          "time": "12:00",
+          "message": "fix(BT402): 前端跨單位大總計改 round 4 位, 與 per-unit 列一致",
+          "body": "石園per-unit列顯示4位但底部總計仍前端 round 2位(Math.round*100/100) → 兩者對不齊。"
+        },
+        {
+          "hash": "460211d1",
+          "time": "11:57",
+          "message": "feat(帳務): 石園診所檢驗單價支援小數點4位 (per-unit 旗標)",
+          "body": "- 旗標 DEBTOR_DETAIL.PRICE_DECIMALS (預設2, 石園0416=4) 控制單價顯示/計算位數; 其他單位維持2位, 可證明無影響"
+        },
+        {
+          "hash": "68b83be7",
+          "time": "11:19",
+          "message": "test(smoke): 專用測試帳號 SMOKE01 工具 + 分部相容修正回流",
+          "body": "- 新增 setup-account.cmd / specs/setup-account.spec.ts:透過 SU101 的"
+        }
+      ],
+      "count": 11
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "15837430",
+          "time": "17:36",
+          "message": "docs: Q6 加追問「樹模型為何容易過擬合」（無限分裂背死資料 vs LR 沒能力死記）",
+          "body": "- 樹無限分裂→train 0.997 連雜訊都學→過擬合；LR 一條線 gap 0.01"
+        },
+        {
+          "hash": "fa14d0c0",
+          "time": "16:37",
+          "message": "docs: 送委員定版 — 新題目封面/書名頁 + 拔謝辭 + 合併 PDF（20260703）",
+          "body": "- 封面/書名頁：新題目「血液檢查之三高疾病風險預測」中英 + 7 月"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "8f52bb8c",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-07",
+          "body": "🤖 自動生成於 2026-07-07 07:05"
+        },
+        {
+          "hash": "45cad1d3",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-06 (7 commits)",
+          "body": "🤖 自動生成於 2026-07-07 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 4,
+    "totalCommits": 15
+  }
+}
