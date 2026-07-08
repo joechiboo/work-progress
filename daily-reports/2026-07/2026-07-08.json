@@ -1,0 +1,193 @@
+{
+  "date": "2026-07-08",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a145d03d",
+          "time": "16:55",
+          "message": "docs(陷阱): 新增 SchemaModify 不進 csproj 的例外說明",
+          "body": "對到「新增檔案必須加入 csproj」規則的慣性；補一條例外避免 SchemaModify 腳本被順手登記而反覆撞合併衝突（MR !1283 即因此卡住）。"
+        },
+        {
+          "hash": "5e13ff01",
+          "time": "16:45",
+          "message": "chore(SchemaModify): 所有 SchemaModify 腳本移出 .csproj（保留版控）",
+          "body": "SchemaModify 下為 DDL/資料修補等參考與交接用腳本，不編譯也不部署為 Web Content，不需列入 .csproj。而每支都往 csproj 同一區塊登記，會反覆與 main 產生合併衝突（MR !1283 即因此卡住）。此次一次移除既有 5 條登記；SchemaModify 檔全部保留在版控。專案內原本 198 支 SchemaModify 檔中也僅這 5 支曾被登記，多數本就未進 csproj，本次統一慣例。"
+        },
+        {
+          "hash": "07e9cb4c",
+          "time": "16:41",
+          "message": "Merge remote-tracking branch 'origin/main' into perf/report-access-log-batch",
+          "body": ""
+        },
+        {
+          "hash": "b7e62984",
+          "time": "16:41",
+          "message": "chore(ReportAccessLog): SchemaModify SQL 移出 csproj 保留版控",
+          "body": "SchemaModify 下的 DDL 腳本屬參考/交接用途，不需列入 .csproj（不編譯、不部署為 Web Content），且每支都往 csproj 同一區塊塞條目會反覆造成與 main 的合併衝突（本 MR 即卡此）。SQL 檔仍保留在版控，與同資料夾 CleanupJob.sql / REPORT_ACCESS_LOG.sql 慣例一致。"
+        },
+        {
+          "hash": "ebfcc9e8",
+          "time": "12:41",
+          "message": "fix(LT225W): 新竹啟用 LisIncludeMB 讓外送 MB 工作站(WS91/WS92)可選",
+          "body": "新竹(SJ) LisIncludeMB=N 導致 LT225W 製作工作清單以 HC+MB 過濾，"
+        },
+        {
+          "hash": "82a1da5c",
+          "time": "11:55",
+          "message": "chore(CHG202607080003): SQL 腳本補強分部群組差異處理",
+          "body": "- SYSTEM 權限改用 GROUP_CD='1' (各站 admin 群名稱 SYSTEM/SYSADM 不一, 代碼固定 1)"
+        },
+        {
+          "hash": "4113dd0f",
+          "time": "11:44",
+          "message": "docs(LRS152): 更新設計文件 修改權限拆為 QC 專屬 Permission24",
+          "body": "反映 Permission17→Permission24 拆分、防禦式讀取、只種子不收回策略與遷移 SQL 位置。"
+        },
+        {
+          "hash": "9ce15386",
+          "time": "11:36",
+          "message": "docs(LR152): 更新註解 修改權限改用 Permission24 (原沿用 LRS111)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1a0481d8",
+          "time": "11:32",
+          "message": "docs(SchemaModify): Permission24 QC152 權限資料遷移 SQL",
+          "body": "六站 backfill USER_CTL_FLAG2 第4碼 = 現在 Permission17 值 (QC 編輯者零回歸)。"
+        },
+        {
+          "hash": "2ac86ca8",
+          "time": "11:30",
+          "message": "feat(SU101): 新增 Permission24「設定品管樣本(LRS152)」QC 專屬權限",
+          "body": "CTL_FLAG2_length 3→4，SU101.cshtml + AccMntCmn.js 權限清單同步新增"
+        },
+        {
+          "hash": "b3fcfefb",
+          "time": "11:23",
+          "message": "refactor(LRS152): QC 樣本修改權限改用 USER_CTL_FLAG2 Permission24",
+          "body": "從沿用 LRS111 Permission17 拆出獨立 QC 旗標，避免與「建立/修改 LRS111"
+        },
+        {
+          "hash": "a245f94c",
+          "time": "11:21",
+          "message": "feat(RecordTNO): 每月統計加員工編號欄 + 合計工作表 + 當日配號排序/縮欄寬",
+          "body": "同仁回饋 4 項調整:"
+        },
+        {
+          "hash": "f6e14c9f",
+          "time": "11:18",
+          "message": "feat(功能選單): 關聯系統新增 AI_EMAIL 外部連結 (CHG202607080003)",
+          "body": "- Menu.cshtml / FunctionMenu.cshtml: PN_PGID='AI_EMAIL' 導向"
+        },
+        {
+          "hash": "b0c7c731",
+          "time": "11:14",
+          "message": "On feature/shihyuan-price-4dp: price-4dp: Web.config test-DB pointer (56.225) - restore on shihyuan branch",
+          "body": ""
+        },
+        {
+          "hash": "773bbe9a",
+          "time": "11:14",
+          "message": "index on feature/shihyuan-price-4dp: 3d7694ebb style(BT401,BT405): 匯出鈕文字「匯出excel」改「匯出」",
+          "body": ""
+        },
+        {
+          "hash": "d971066c",
+          "time": "10:52",
+          "message": "docs(ReportAccessLog): 清理排程台北正式站已執行標註",
+          "body": "PROC + JOB 07-08 建立完成 (PROC VALID, JOB SCHEDULED 首跑 07-09 03:00,"
+        },
+        {
+          "hash": "73c58ada",
+          "time": "10:47",
+          "message": "docs(ReportAccessLog): 新增 PLAN 文檔 + 登記 README 索引",
+          "body": "補齊獨立分析文檔 (同 QC/LT302 慣例): 調查結論(array binding+async 早已"
+        },
+        {
+          "hash": "6177a21d",
+          "time": "10:40",
+          "message": "docs(ReportAccessLog): 清理排程改每日小批刪 + 保留期常數化",
+          "body": "依 review: 每月大批刪 → 每日 3 點小批刪 (分批 LOOP+每批 COMMIT),"
+        },
+        {
+          "hash": "35097d45",
+          "time": "10:32",
+          "message": "perf(ReportAccessLog): sequence cache 加大 + 稽核總開關 + 補清理排程",
+          "body": "SQL_ID 4zg69tcsf5b0p (每日 ~88 萬列稽核 INSERT): 寫入已 array binding"
+        },
+        {
+          "hash": "3d7694eb",
+          "time": "09:56",
+          "message": "style(BT401,BT405): 匯出鈕文字「匯出excel」改「匯出」",
+          "body": "與 BT403/BT404 統一。BT4xx 帳務系列匯出鈕文字一致。"
+        },
+        {
+          "hash": "1aa4fe31",
+          "time": "09:40",
+          "message": "fix(BT404): 匯出 Excel 金額欄補滿小數位 (單價/自費價/總價/實收)",
+          "body": "BT404 兩條匯出路 (ByUnit 每單位一 sheet / 合併版) 金額值為全精度"
+        },
+        {
+          "hash": "bae57d52",
+          "time": "09:31",
+          "message": "style(BT404): 匯出鈕文字「匯出excel」改「匯出」",
+          "body": "Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "d91d7e49",
+          "time": "09:22",
+          "message": "fix(BT403): 匯出 Excel 收費/健保金額欄逐格補滿小數位, 與其他頁一致",
+          "body": "先前只移除 F2 截位讓全精度值透出, 但整數金額(70/320)沒補零、"
+        },
+        {
+          "hash": "49c30db1",
+          "time": "09:17",
+          "message": "fix(BT403): 匯出 Excel 凍結窗格 off-by-one, 收費欄往右捲即消失",
+          "body": "BuildWorksheet 凍結傳 endCol (最後一欄本身), 實際凍住 1..endCol-1,"
+        },
+        {
+          "hash": "b64e02da",
+          "time": "09:11",
+          "message": "feat(BT404): 總計列補上「總價」欄加總",
+          "body": "總計列原本只加總檢體數量與實收, 總價欄一直空著。"
+        },
+        {
+          "hash": "decfd5d2",
+          "time": "08:47",
+          "message": "style(BT403): 匯出鈕文字「匯出excel」改「匯出」",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 26
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "1f796ee8",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-08",
+          "body": "🤖 自動生成於 2026-07-08 07:05"
+        },
+        {
+          "hash": "9271b46b",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-07 (15 commits)",
+          "body": "🤖 自動生成於 2026-07-08 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 26,
+    "sideCommits": 2,
+    "totalCommits": 28
+  }
+}
