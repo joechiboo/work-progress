@@ -1,0 +1,157 @@
+{
+  "date": "2026-07-09",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "464007b2",
+          "time": "14:40",
+          "message": "feat(RecordTNO): 員編改人事系統/合計加合併合計/當日配號小號置底/再縮號碼欄",
+          "body": "同仁退回修改 4 項:"
+        },
+        {
+          "hash": "a3902be1",
+          "time": "11:15",
+          "message": "feat(LT252/LT255): 歷史紀錄視窗項目排序改與主畫面工作站順序一致",
+          "body": "台中接續反映：Cumulative Result 視窗的項目順序與主畫面不同"
+        },
+        {
+          "hash": "eb8829ed",
+          "time": "10:48",
+          "message": "feat(選單): AI_EMAIL 連結支援各站 SYS_PARAMETER 覆寫, 台北改走 SsoTo SSO (CHG202607080003)",
+          "body": "- Menu/FunctionMenu.cshtml: AI_EMAIL href 優先讀 SYS_PARAMETER AI_EMAIL_MENU_URL,"
+        },
+        {
+          "hash": "5292deaf",
+          "time": "10:28",
+          "message": "chore(smoke): 離線可攜包打包腳本與發佈程序",
+          "body": "- make-package.ps1: 打包原始碼+node_modules+Chromium(PLAYWRIGHT_BROWSERS_PATH=0)"
+        },
+        {
+          "hash": "5903e448",
+          "time": "10:14",
+          "message": "feat(LT252/LT255): 歷史紀錄視窗預設依工作站過濾項目",
+          "body": "台中反映累積結果(Cumulative Result)視窗會列出整張單所有工作站的項目。"
+        },
+        {
+          "hash": "2aa3d6ea",
+          "time": "08:26",
+          "message": "docs(CRM): 快速新增SOP補「寫之前先查」既有紀錄查詢章節",
+          "body": "- 新增 crm_visit_query.ps1 用法（本地唯讀工具, gitignored）"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "3fec124e",
+          "time": "10:38",
+          "message": "docs: 7/8 佇列卡住事件定案與排程工作必要設定",
+          "body": "- memo.txt 補 2026-07-09 事件記錄：根因在 Task Scheduler"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "lucky-draw",
+      "commits": [
+        {
+          "hash": "4fa9cbf9",
+          "time": "12:44",
+          "message": "Coin tails: re-add mouth fire (mono); heads stays fireless",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "677f1343",
+          "time": "12:43",
+          "message": "Dragon coin art: add teeth and claws, two wings, remove mouth fire",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "38634acb",
+          "time": "12:39",
+          "message": "Add coin flip mode, range presets, drag-to-adjust, SVG dragon coin",
+          "body": "- Two tabs (coin flip default): CSS 3D coin toss animation, tally + history"
+        },
+        {
+          "hash": "90c8ee81",
+          "time": "12:39",
+          "message": "Add .nojekyll to skip Jekyll build on Pages",
+          "body": ""
+        },
+        {
+          "hash": "b080f85d",
+          "time": "12:32",
+          "message": "Implement lucky draw page with custom range controls",
+          "body": ""
+        },
+        {
+          "hash": "3060cf33",
+          "time": "12:26",
+          "message": "Mark repo creation and Pages setup as done",
+          "body": ""
+        },
+        {
+          "hash": "12237441",
+          "time": "12:25",
+          "message": "Add project spec README",
+          "body": ""
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "8d65a0da",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-09",
+          "body": "🤖 自動生成於 2026-07-09 07:05"
+        },
+        {
+          "hash": "005a4367",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-08 (28 commits)",
+          "body": "🤖 自動生成於 2026-07-09 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "02d69317",
+          "time": "12:30",
+          "message": "feat: 作品集新增 Lucky Draw 抽籤工具",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "ef1ea5c1",
+          "time": "17:58",
+          "message": "docs: Δ 冗餘重新定位 + p6/p16/p21 防守點補強",
+          "body": "簡報（口試演練_簡報.md）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 11,
+    "totalCommits": 18
+  }
+}
