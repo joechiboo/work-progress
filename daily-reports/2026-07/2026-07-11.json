@@ -1,0 +1,60 @@
+{
+  "date": "2026-07-11",
+  "weekday": "六",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "jiayi.github.io",
+      "commits": [
+        {
+          "hash": "184640b8",
+          "time": "18:52",
+          "message": "新增雷霆平衡、暴風爆裂兩顆無屬性陀螺，全面重調平衡",
+          "body": "- 平衡驗證：node tools/balance.js 蒙地卡羅勝率矩陣，五顆總體勝率 47%~54%"
+        },
+        {
+          "hash": "ed1777e1",
+          "time": "18:30",
+          "message": "新增四種場地＋平衡驗證文檔與無頭模擬工具",
+          "body": "- 場地：標準碗型/火山口(中央外推)/冰晶湖面(低阻尼)/迷你鬥場(R132)"
+        },
+        {
+          "hash": "df0faa70",
+          "time": "18:09",
+          "message": "必殺時機視窗 1.6 秒改為 5 秒，附倒數顯示",
+          "body": "伺服器單邊逾時同步調為 8 秒（須大於前端視窗＋延遲）"
+        },
+        {
+          "hash": "50c080d1",
+          "time": "18:06",
+          "message": "戰鬥平衡調整：延長戰局、保證必殺時機每場觸發",
+          "body": "無頭模擬 480 場/組合 實測調參："
+        },
+        {
+          "hash": "a11731e4",
+          "time": "17:53",
+          "message": "新增必殺時機 QTE：碰撞前定格、雙方拚時機",
+          "body": "- 模擬偵測即將大力對撞（確定性條件）→ 兩端同一步定格"
+        },
+        {
+          "hash": "54b05575",
+          "time": "17:38",
+          "message": "連線等待畫面顯示伺服器喚醒進度，避免看似卡住",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6c259cef",
+          "time": "17:32",
+          "message": "新增旋風對決（戰鬥陀螺）遊戲，支援本機與連線對戰",
+          "body": "- 單機版：雙人盲選、發射小遊戲、確定性戰鬥模擬（固定步長 + 種子亂數）"
+        }
+      ],
+      "count": 7
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 7,
+    "totalCommits": 7
+  }
+}

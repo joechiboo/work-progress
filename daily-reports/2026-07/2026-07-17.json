@@ -1,0 +1,67 @@
+{
+  "date": "2026-07-17",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b4558bce",
+          "time": "12:58",
+          "message": "feat(特殊報告): 夾帶列印改為逐病患穿插常規報告後",
+          "body": "多筆列印時，原本常規報告全部集中、特殊報告(pTau181/217/APOE)全部集中在最後；"
+        },
+        {
+          "hash": "19afdfef",
+          "time": "12:40",
+          "message": "fix(特殊報告): LT274E 夾帶特殊報告加 pageSize/B5 zoom(修 B5 橫向爆版)",
+          "body": "英文報告(LT274E)夾帶特殊報告時,B5 列印會橫向爆版:特殊報告固定 A4(210mm)"
+        },
+        {
+          "hash": "343e788b",
+          "time": "12:08",
+          "message": "feat(特殊報告): LT302 列印英文報告時夾帶英文版特殊報告",
+          "body": "工單 CHG202607150008 延伸：綁報告語言 —— 按「列印英文報告」(printE→LT274E)"
+        },
+        {
+          "hash": "ed774609",
+          "time": "07:24",
+          "message": "feat(特殊報告): pTau181/217 報告中英雙語 + 語言切換",
+          "body": "工單 CHG202607150008：三份特殊報告英文版全數完成(APOE 已於前一 commit)。"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "report-pTau",
+      "commits": [
+        {
+          "hash": "16d62d04",
+          "time": "11:52",
+          "message": "feat(特殊報告): 英文版交付 — pTau181/217/APOE 中英雙語互動版 + 範例/文案",
+          "body": "- APOE/PTau181/PTau217.html: 中英切換 + 級別/基因型切換互動版(內容對齊 LIS)"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "4ae9484b",
+          "time": "15:40",
+          "message": "docs: 逐字稿完成 + 委員修正清單 + 離校表單/畢業流程整合",
+          "body": "逐字稿（逐字稿_口試委員.md）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 1,
+    "totalCommits": 6
+  }
+}

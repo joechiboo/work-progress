@@ -1,0 +1,72 @@
+{
+  "date": "2026-07-14",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "7740ce9f",
+          "time": "09:57",
+          "message": "docs(project): 新增HCINI背景程式機制說明 + 友達細菌異常電話通知評估",
+          "body": "- HCINI_背景程式與BLG-ORD同步機制: 盤點ucl/hcini各常駐程式角色, 釐清BLG→ORD(HC010,ID_POLL_FLAG交握)與電話/簡訊通知鏈(HC008)"
+        },
+        {
+          "hash": "23c1eee2",
+          "time": "09:42",
+          "message": "style(LT274): 查詢列修回12格+夾帶checkbox移到列印按鈕旁",
+          "body": "- 檢體編號範圍 col-md-3→2(TNO最多10碼, 原本欄位總和13格超出grid)"
+        },
+        {
+          "hash": "84d22942",
+          "time": "09:40",
+          "message": "style(LT302): 夾帶特殊報告checkbox移進明細modal的列印按鈕列",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "cd944ba2",
+          "time": "09:37",
+          "message": "feat(LT274/302): 夾帶特殊報告改為頁面checkbox(預設勾選可取消)",
+          "body": "- LT274 checkbox 在紙張大小下方; LT302 在報告抬頭群組下方"
+        },
+        {
+          "hash": "b795d306",
+          "time": "09:28",
+          "message": "fix(LT274夾帶): 反制Bootstrap3樣式滲入特殊報告",
+          "body": "- .row 負margin+clearfix偽元素在grid容器變幽靈格, 封面欄位列跑版"
+        },
+        {
+          "hash": "94e13625",
+          "time": "09:22",
+          "message": "fix(LT274/302): 紙本列印頁預設自動夾帶特殊報告(attachSpecial=Y)",
+          "body": "頁面不再需要網址手動帶 Y; 緊急關閉改為 ?attachSpecial=N。"
+        },
+        {
+          "hash": "2952ef57",
+          "time": "09:10",
+          "message": "refactor(LT274/302): 特殊報告改為同一print job內夾帶(取代另開視窗)",
+          "body": "使用者實測不接受另開視窗 → 改為 Report/LT274.cshtml 內直接渲染:"
+        },
+        {
+          "hash": "20086dd9",
+          "time": "08:51",
+          "message": "feat(LT302): 列印報告夾帶特殊報告 + 全通路整合memo",
+          "body": "- LT302 網址帶 attachSpecial=Y 時(default N)：批次列印/一般列印後"
+        },
+        {
+          "hash": "d76d9097",
+          "time": "08:40",
+          "message": "feat(LT274): 紙本列印夾帶特殊報告(pTau181/217/APOE)",
+          "body": "- Home/LT274 網址帶 attachSpecial=Y 時(default N)，列印後偵測勾選單號"
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "side_projects": [],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 0,
+    "totalCommits": 9
+  }
+}

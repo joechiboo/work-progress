@@ -7,14 +7,14 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 3707,
-    "projectCount": 70,
-    "dailyAverage": 8.4
+    "totalCommits": 3767,
+    "projectCount": 72,
+    "dailyAverage": 8.5
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1098,
+      "totalCommits": 1126,
       "commits": [
         {
           "hash": "a207ff46",
@@ -8799,6 +8799,230 @@
           "body": "- 新增 crm_visit_query.ps1 用法（本地唯讀工具, gitignored）",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "ae657788",
+          "date": "2026-07-13",
+          "message": "fix(CodeMap): price 空白送出造成帳務缺項的資料遺失洞",
+          "body": "問題 (新竹 07-09 TROP 單 6070930014, FatalFile.log ORA-01400 實證):",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3321a45f",
+          "date": "2026-07-13",
+          "message": "fix(LT225W): 外送站快選按鈕限定新竹(SJ)顯示",
+          "body": "WS91~97 為新竹工作站配置，其他分部設定不同，按鈕依 UCL_SITE 判斷輸出",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cc7452b7",
+          "date": "2026-07-13",
+          "message": "feat(LT225W): 外送站 WS91~97 快選 + 空清單不開視窗",
+          "body": "- 工作站欄位旁新增「外送站 WS91~97」按鈕，一鍵選取範圍內存在的工作站（比照舊系統起迄範圍用法）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "58603650",
+          "date": "2026-07-13",
+          "message": "docs(效能): 0713 週報 (md + HTML,範圍07-05~11照新慣例)",
+          "body": "- 效能主線告一段落:PHP索引維持、LT274魔王降31%(5836→4003s)仍#1、多數收尾",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "da979df3",
+          "date": "2026-07-13",
+          "message": "feat(RecordTNO): 每月統計加月份選擇(全年/指定月)",
+          "body": "同仁需求: 統計改成可選月份, 不再只能看整年",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7740ce9f",
+          "date": "2026-07-14",
+          "message": "docs(project): 新增HCINI背景程式機制說明 + 友達細菌異常電話通知評估",
+          "body": "- HCINI_背景程式與BLG-ORD同步機制: 盤點ucl/hcini各常駐程式角色, 釐清BLG→ORD(HC010,ID_POLL_FLAG交握)與電話/簡訊通知鏈(HC008)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "23c1eee2",
+          "date": "2026-07-14",
+          "message": "style(LT274): 查詢列修回12格+夾帶checkbox移到列印按鈕旁",
+          "body": "- 檢體編號範圍 col-md-3→2(TNO最多10碼, 原本欄位總和13格超出grid)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "84d22942",
+          "date": "2026-07-14",
+          "message": "style(LT302): 夾帶特殊報告checkbox移進明細modal的列印按鈕列",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cd944ba2",
+          "date": "2026-07-14",
+          "message": "feat(LT274/302): 夾帶特殊報告改為頁面checkbox(預設勾選可取消)",
+          "body": "- LT274 checkbox 在紙張大小下方; LT302 在報告抬頭群組下方",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b795d306",
+          "date": "2026-07-14",
+          "message": "fix(LT274夾帶): 反制Bootstrap3樣式滲入特殊報告",
+          "body": "- .row 負margin+clearfix偽元素在grid容器變幽靈格, 封面欄位列跑版",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "94e13625",
+          "date": "2026-07-14",
+          "message": "fix(LT274/302): 紙本列印頁預設自動夾帶特殊報告(attachSpecial=Y)",
+          "body": "頁面不再需要網址手動帶 Y; 緊急關閉改為 ?attachSpecial=N。",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2952ef57",
+          "date": "2026-07-14",
+          "message": "refactor(LT274/302): 特殊報告改為同一print job內夾帶(取代另開視窗)",
+          "body": "使用者實測不接受另開視窗 → 改為 Report/LT274.cshtml 內直接渲染:",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "20086dd9",
+          "date": "2026-07-14",
+          "message": "feat(LT302): 列印報告夾帶特殊報告 + 全通路整合memo",
+          "body": "- LT302 網址帶 attachSpecial=Y 時(default N)：批次列印/一般列印後",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d76d9097",
+          "date": "2026-07-14",
+          "message": "feat(LT274): 紙本列印夾帶特殊報告(pTau181/217/APOE)",
+          "body": "- Home/LT274 網址帶 attachSpecial=Y 時(default N)，列印後偵測勾選單號",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "fed8923b",
+          "date": "2026-07-15",
+          "message": "style(RecordTNO): 當日配號版面集中置中",
+          "body": "同仁回饋當日配號表太鬆散:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0c3375d7",
+          "date": "2026-07-15",
+          "message": "fix(SpecialReport): 表頭/APOE/批量偵測全面支援歷史表HORD",
+          "body": "延續前一commit的趨勢修正，補齊其餘只查ORD的路徑，讓歸檔單也能補印:",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "96c0121f",
+          "date": "2026-07-15",
+          "message": "fix(SpecialReport): pTau歷次趨勢納入歷史表HORD",
+          "body": "舊單結案後會搬進HORD_HDR/HORD_DTL，趨勢查詢只撈ORD導致歷次缺漏",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0df1317e",
+          "date": "2026-07-16",
+          "message": "feat(特殊報告): APOE 報告中英雙語 + 語言切換 checkbox",
+          "body": "工單 CHG202607150008：配合 LIS 英文報告轉出英文版特殊報告。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0ffed573",
+          "date": "2026-07-16",
+          "message": "feat(特殊報告): 新增 sample=Y 去識別參數供對外樣本",
+          "body": "PTau181/PTau217/APOE/Batch 加 sample 參數; Y 時遮蔽姓名/生日/身分證/",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "32ef926d",
+          "date": "2026-07-16",
+          "message": "docs(SelectPdf): 陷阱文檔補坑6 — 自抓URL跨站VPN NAT hairpin timeout",
+          "body": "補上 CHG202607150010 的完整記載: 現象/真因(NAT位址hairpin)/正解",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "30e07cf2",
+          "date": "2026-07-16",
+          "message": "fix(RecordTNO): 當日配號不分頁全部顯示",
+          "body": "同仁回饋: (1)不用限制一頁15筆 (2)超過一頁時新增列不在第一筆。",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3a0df8d3",
+          "date": "2026-07-16",
+          "message": "fix(Report): PDF自抓URL改走PdfSelfBaseUrl,解跨站VPN NAT hairpin timeout",
+          "body": "CHG202607150010: 從台北經VPN NAT位址(192.168.22.x)呼叫LT274Pdf等",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3745312c",
+          "date": "2026-07-16",
+          "message": "docs(特殊報告): 記錄舊入口SpecialReportBatch關閉(台北PERMISSION停用+還原SQL)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4141487f",
+          "date": "2026-07-16",
+          "message": "fix(RecordTNO): 新增列固定放第一行",
+          "body": "號碼排序改 desc 後, 新增的空號碼列被重繪排到最底。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b4558bce",
+          "date": "2026-07-17",
+          "message": "feat(特殊報告): 夾帶列印改為逐病患穿插常規報告後",
+          "body": "多筆列印時，原本常規報告全部集中、特殊報告(pTau181/217/APOE)全部集中在最後；",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "19afdfef",
+          "date": "2026-07-17",
+          "message": "fix(特殊報告): LT274E 夾帶特殊報告加 pageSize/B5 zoom(修 B5 橫向爆版)",
+          "body": "英文報告(LT274E)夾帶特殊報告時,B5 列印會橫向爆版:特殊報告固定 A4(210mm)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "343e788b",
+          "date": "2026-07-17",
+          "message": "feat(特殊報告): LT302 列印英文報告時夾帶英文版特殊報告",
+          "body": "工單 CHG202607150008 延伸：綁報告語言 —— 按「列印英文報告」(printE→LT274E)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ed774609",
+          "date": "2026-07-17",
+          "message": "feat(特殊報告): pTau181/217 報告中英雙語 + 語言切換",
+          "body": "工單 CHG202607150008：三份特殊報告英文版全數完成(APOE 已於前一 commit)。",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
@@ -10580,7 +10804,7 @@
     },
     {
       "name": "TwowayConnection\\VisionReportHub",
-      "totalCommits": 117,
+      "totalCommits": 119,
       "commits": [
         {
           "hash": "1b84b11b",
@@ -11517,13 +11741,29 @@
           "body": "新竹 Api 跑在 IIS，環境靠 web.config 注入 ASPNETCORE_ENVIRONMENT。",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "ba12ecf6",
+          "date": "2026-07-18",
+          "message": "docs(deploy): 補 Dashboard 復原步驟",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "2f01bd64",
+          "date": "2026-07-18",
+          "message": "feat(dashboard): HIS 逐日明細 drill-down，回溯爆炸事件與補傳區間",
+          "body": "- 矩陣點 HIS 列展開「分部 × 近 7/14 天」逐日表：成功/失敗筆數 + 未補 TNO 數",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "TwowayConnection\\分單系統",
-      "totalCommits": 83,
+      "totalCommits": 85,
       "commits": [
         {
           "hash": "d9c88e57",
@@ -12187,6 +12427,22 @@
           "message": "feat: v7.3 開放已轉入單改號(與 LIS 對齊，便於檢驗值回傳)",
           "body": "LIS 端已把單號處理好時，可回來把分單系統 ID_TNO 改成一致。",
           "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "69aeb2a8",
+          "date": "2026-07-16",
+          "message": "chore: 撤回版本記錄那節(DB-only 調整不進版)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ca64187a",
+          "date": "2026-07-16",
+          "message": "chore: 關閉配號查詢/每月統計選單(SysMenu 拔 menuid 9/10，僅 DB)",
+          "body": "v6.30 掛上的兩頁確定不需要，從 WebOrder.SysMenu 移除(4 站共用 DB，",
+          "category": "其他",
           "tags": []
         }
       ],
@@ -14830,6 +15086,117 @@
       "type": "work"
     },
     {
+      "name": "UPC\\Front",
+      "totalCommits": 13,
+      "commits": [
+        {
+          "hash": "bf6b2665",
+          "date": "2025-10-17",
+          "message": "更新路由設定和門診時間",
+          "body": "- 修正訂單相關路由的 import 路徑",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d80b4055",
+          "date": "2025-10-17",
+          "message": "新增部署文檔和 ECS 更新流程說明",
+          "body": "- 新增 docs/DEPLOYMENT.md：包含完整的部署流程、伺服器連線資訊和快取處理方法",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0e9fc41e",
+          "date": "2025-11-13",
+          "message": "更新部署文檔：新增快速發佈流程章節",
+          "body": "- 在文檔開頭新增快速發佈流程，方便快速查閱",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a7ce7d6b",
+          "date": "2025-11-13",
+          "message": "清理程式碼並更新版權年份",
+          "body": "- 移除開發用的 console.log 訊息",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a937c298",
+          "date": "2025-11-13",
+          "message": "更新醫師團隊：移除賴彥汝醫師並優化排版",
+          "body": "- 週四下午門診改為休診",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "6f24a7b3",
+          "date": "2025-11-13",
+          "message": "Merge branch 'docs/add-deployment-guide'",
+          "body": "新增 ECS 和 ACMG 相關圖片及文件資源",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "32f02498",
+          "date": "2025-11-13",
+          "message": "新增 ECS 和 ACMG 相關圖片及文件資源",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "35c377a8",
+          "date": "2025-12-15",
+          "message": "新增最新消息：TFDA 精準醫療分子檢測實驗室認證",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c1e27934",
+          "date": "2025-12-17",
+          "message": "新增快取處理：index.html 禁止快取 meta 標籤、最新消息連結加時間戳參數",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "546dd6f1",
+          "date": "2025-12-23",
+          "message": "文檔更新：新增系統環境變數問題排查說明",
+          "body": "記錄 Vite 建置時系統環境變數會覆蓋 .env 檔案的問題，",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0ec50eb4",
+          "date": "2026-07-13",
+          "message": "更新 ECS panel 至 V14（清單頁數 17→15）並修訂更新文檔",
+          "body": "- public/ECS_01~15.png 由 V14 PDF 重新轉出，刪除多餘的 ECS_16/17.png",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c2880856",
+          "date": "2026-07-16",
+          "message": "文檔補充：ECS 更新提醒 public/ 與 dist/ 需 build 同步",
+          "body": "新增地雷警告：只重轉 public/ 而未 npm run build 時，dist/ 仍是舊圖，",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "54cdbaf1",
+          "date": "2026-07-16",
+          "message": "更新 ECS panel V14（修正版）：來源 PDF 修正列 259 跨頁切列問題",
+          "body": "蕭醫師 2026-07-15 重出 V14，修掉列 259（FKTN）跨第 6/7 頁的分頁問題。",
+          "category": "錯誤修正",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "Management\\PhishGuard-",
       "totalCommits": 13,
       "commits": [
@@ -15242,93 +15609,6 @@
       "type": "work"
     },
     {
-      "name": "UPC\\Front",
-      "totalCommits": 10,
-      "commits": [
-        {
-          "hash": "bf6b2665",
-          "date": "2025-10-17",
-          "message": "更新路由設定和門診時間",
-          "body": "- 修正訂單相關路由的 import 路徑",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d80b4055",
-          "date": "2025-10-17",
-          "message": "新增部署文檔和 ECS 更新流程說明",
-          "body": "- 新增 docs/DEPLOYMENT.md：包含完整的部署流程、伺服器連線資訊和快取處理方法",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "0e9fc41e",
-          "date": "2025-11-13",
-          "message": "更新部署文檔：新增快速發佈流程章節",
-          "body": "- 在文檔開頭新增快速發佈流程，方便快速查閱",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "a7ce7d6b",
-          "date": "2025-11-13",
-          "message": "清理程式碼並更新版權年份",
-          "body": "- 移除開發用的 console.log 訊息",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "a937c298",
-          "date": "2025-11-13",
-          "message": "更新醫師團隊：移除賴彥汝醫師並優化排版",
-          "body": "- 週四下午門診改為休診",
-          "category": "重構",
-          "tags": []
-        },
-        {
-          "hash": "6f24a7b3",
-          "date": "2025-11-13",
-          "message": "Merge branch 'docs/add-deployment-guide'",
-          "body": "新增 ECS 和 ACMG 相關圖片及文件資源",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "32f02498",
-          "date": "2025-11-13",
-          "message": "新增 ECS 和 ACMG 相關圖片及文件資源",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "35c377a8",
-          "date": "2025-12-15",
-          "message": "新增最新消息：TFDA 精準醫療分子檢測實驗室認證",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c1e27934",
-          "date": "2025-12-17",
-          "message": "新增快取處理：index.html 禁止快取 meta 標籤、最新消息連結加時間戳參數",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "546dd6f1",
-          "date": "2025-12-23",
-          "message": "文檔更新：新增系統環境變數問題排查說明",
-          "body": "記錄 Vite 建置時系統環境變數會覆蓋 .env 檔案的問題，",
-          "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
       "name": "LIS\\Schedule\\blood-type-sync",
       "totalCommits": 10,
       "commits": [
@@ -15621,6 +15901,69 @@
       "type": "work"
     },
     {
+      "name": "report-pTau",
+      "totalCommits": 7,
+      "commits": [
+        {
+          "hash": "8a453615",
+          "date": "2026-06-12",
+          "message": "refine: APOE 報告 文案調整（e3/e3、e2/e3、心血管措辭、載脂蛋白B、發生率備註）",
+          "body": "- e3/e3 說明改寫（標準結合力、遺傳風險、均衡飲食）；e2/e3 改「相對常見的 APOE 基因型之一」",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2e76d7bd",
+          "date": "2026-06-12",
+          "message": "docs: 新增 APOE 報告 LIS 對接規格 + 互相指路",
+          "body": "- docs/APOE報告動態欄位規格_LIS實作.md：data-field 欄位、6 基因型查表帶入、",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a0bc1fbb",
+          "date": "2026-06-12",
+          "message": "refine: APOE 報告 v1 內容修訂（聯合發生率資料、ε4 心血管/ApoB、措辭與版面）",
+          "body": "- 族群發生率改用大安聯合 16 年臺灣人群資料（10,404 筆）：e2/e2 0.45｜e2/e3 10.85｜e3/e3 66.72｜e2/e4 1.67｜e3/e4 18.70｜e4/e4 1.60%，並加註資料來源小字",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c19fa539",
+          "date": "2026-06-12",
+          "message": "feat: 新增 APOE 基因檢測報告 v1 + p-tau v5 數據一致性修正",
+          "body": "APOE 報告 v1（2 頁互動，6 基因型可切換）：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "acb06d57",
+          "date": "2026-06-15",
+          "message": "refine: APOE e2/e4 心血管段「會降低」改「可能降低」LDL-C",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a2db4e3e",
+          "date": "2026-06-15",
+          "message": "refine: APOE 心血管段落調整（ApoB/ESC-EAS 補充、e3/e4 移除 ApoB 句）",
+          "body": "- e2/e4、e2/e2：心血管段改寫，補 ApoB（載脂蛋白B）與 2019 ESC/EAS 指引之補充評估說明",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "16d62d04",
+          "date": "2026-07-17",
+          "message": "feat(特殊報告): 英文版交付 — pTau181/217/APOE 中英雙語互動版 + 範例/文案",
+          "body": "- APOE/PTau181/PTau217.html: 中英切換 + 級別/基因型切換互動版(內容對齊 LIS)",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "label-printing\\Electrophoresis_Label",
       "totalCommits": 6,
       "commits": [
@@ -15670,61 +16013,6 @@
           "message": "升級 Oracle.ManagedDataAccess 12.2→19.16 修正無法連線 HCLAB",
           "body": "同 lisweb 2026-07-02 全站無法登入問題:HCLAB DB 重啟後 instance metadata",
           "category": "錯誤修正",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "report-pTau",
-      "totalCommits": 6,
-      "commits": [
-        {
-          "hash": "8a453615",
-          "date": "2026-06-12",
-          "message": "refine: APOE 報告 文案調整（e3/e3、e2/e3、心血管措辭、載脂蛋白B、發生率備註）",
-          "body": "- e3/e3 說明改寫（標準結合力、遺傳風險、均衡飲食）；e2/e3 改「相對常見的 APOE 基因型之一」",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2e76d7bd",
-          "date": "2026-06-12",
-          "message": "docs: 新增 APOE 報告 LIS 對接規格 + 互相指路",
-          "body": "- docs/APOE報告動態欄位規格_LIS實作.md：data-field 欄位、6 基因型查表帶入、",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "a0bc1fbb",
-          "date": "2026-06-12",
-          "message": "refine: APOE 報告 v1 內容修訂（聯合發生率資料、ε4 心血管/ApoB、措辭與版面）",
-          "body": "- 族群發生率改用大安聯合 16 年臺灣人群資料（10,404 筆）：e2/e2 0.45｜e2/e3 10.85｜e3/e3 66.72｜e2/e4 1.67｜e3/e4 18.70｜e4/e4 1.60%，並加註資料來源小字",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c19fa539",
-          "date": "2026-06-12",
-          "message": "feat: 新增 APOE 基因檢測報告 v1 + p-tau v5 數據一致性修正",
-          "body": "APOE 報告 v1（2 頁互動，6 基因型可切換）：",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "acb06d57",
-          "date": "2026-06-15",
-          "message": "refine: APOE e2/e4 心血管段「會降低」改「可能降低」LDL-C",
-          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "a2db4e3e",
-          "date": "2026-06-15",
-          "message": "refine: APOE 心血管段落調整（ApoB/ESC-EAS 補充、e3/e4 移除 ApoB 句）",
-          "body": "- e2/e4、e2/e2：心血管段改寫，補 ApoB（載脂蛋白B）與 2019 ESC/EAS 指引之補充評估說明",
-          "category": "其他",
           "tags": []
         }
       ],
@@ -16056,7 +16344,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 573,
+      "totalCommits": 575,
       "commits": [
         {
           "hash": "4bdff543",
@@ -20641,13 +20929,29 @@
           "body": "🤖 自動生成於 2026-07-09 07:05",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "26a6686d",
+          "date": "2026-07-10",
+          "message": "docs: 更新彙整資料 2026-07-10",
+          "body": "🤖 自動生成於 2026-07-10 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a186a294",
+          "date": "2026-07-10",
+          "message": "docs: 每日工作紀錄 2026-07-09 (18 commits)",
+          "body": "🤖 自動生成於 2026-07-10 07:05",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "RiskPrediction-3H",
-      "totalCommits": 297,
+      "totalCommits": 299,
       "commits": [
         {
           "hash": "5d267176",
@@ -23024,13 +23328,29 @@
           "body": "簡報（口試演練_簡報.md）",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "5920ca79",
+          "date": "2026-07-16",
+          "message": "docs: 口試通過 → 建立離校階段 folder + 委員意見整理",
+          "body": "- 新增 docs/11_離校/ 離校主控資料夾",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4ae9484b",
+          "date": "2026-07-17",
+          "message": "docs: 逐字稿完成 + 委員修正清單 + 離校表單/畢業流程整合",
+          "body": "逐字稿（逐字稿_口試委員.md）",
+          "category": "錯誤修正",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "ParkFee",
-      "totalCommits": 149,
+      "totalCommits": 150,
       "commits": [
         {
           "hash": "caa33437",
@@ -24223,13 +24543,21 @@
           "body": "原本只有記憶體 singleton + HTTP cache，刷新後常重抓整包模型。改為：",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "701323c5",
+          "date": "2026-07-15",
+          "message": "docs(meeting): 8 月例會 8 題投票單＋LINE 通知草稿",
+          "body": "- 新增 docs/15 投票提案單（8 題＋追認區＋會前準備）、docs/16 LINE 訊息草稿",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "joechiboo.github.io",
-      "totalCommits": 120,
+      "totalCommits": 124,
       "commits": [
         {
           "hash": "e78a3ec4",
@@ -25164,6 +25492,38 @@
           "date": "2026-07-09",
           "message": "feat: 作品集新增 Lucky Draw 抽籤工具",
           "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ed80a995",
+          "date": "2026-07-15",
+          "message": "feat: 作品集新增 Pickup Board 家庭接送看板",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "455d4659",
+          "date": "2026-07-18",
+          "message": "Merge pull request #12 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "作品集新增紅蓮劍姬並重新套用 RoboEye 標題",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "72e8a803",
+          "date": "2026-07-18",
+          "message": "重新套用 RoboEye 標題為 CNN 年齡性別辨識",
+          "body": "先前變更在 main 後續開發中被還原，此處重新套用。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7a8edf51",
+          "date": "2026-07-18",
+          "message": "新增紅蓮劍姬 - 地城試煉至作品集",
+          "body": "加入單一 HTML Canvas 打造的 2D 俯視角 roguelite 動作遊戲，",
           "category": "功能開發",
           "tags": []
         },
@@ -27624,7 +27984,7 @@
     },
     {
       "name": "jiayi.github.io",
-      "totalCommits": 27,
+      "totalCommits": 34,
       "commits": [
         {
           "hash": "a9a9fea3",
@@ -27840,6 +28200,62 @@
           "message": "Add Flappy Dragon game with hand-drawn canvas dragon",
           "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
           "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "184640b8",
+          "date": "2026-07-11",
+          "message": "新增雷霆平衡、暴風爆裂兩顆無屬性陀螺，全面重調平衡",
+          "body": "- 平衡驗證：node tools/balance.js 蒙地卡羅勝率矩陣，五顆總體勝率 47%~54%",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ed1777e1",
+          "date": "2026-07-11",
+          "message": "新增四種場地＋平衡驗證文檔與無頭模擬工具",
+          "body": "- 場地：標準碗型/火山口(中央外推)/冰晶湖面(低阻尼)/迷你鬥場(R132)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "df0faa70",
+          "date": "2026-07-11",
+          "message": "必殺時機視窗 1.6 秒改為 5 秒，附倒數顯示",
+          "body": "伺服器單邊逾時同步調為 8 秒（須大於前端視窗＋延遲）",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "50c080d1",
+          "date": "2026-07-11",
+          "message": "戰鬥平衡調整：延長戰局、保證必殺時機每場觸發",
+          "body": "無頭模擬 480 場/組合 實測調參：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a11731e4",
+          "date": "2026-07-11",
+          "message": "新增必殺時機 QTE：碰撞前定格、雙方拚時機",
+          "body": "- 模擬偵測即將大力對撞（確定性條件）→ 兩端同一步定格",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "54b05575",
+          "date": "2026-07-11",
+          "message": "連線等待畫面顯示伺服器喚醒進度，避免看似卡住",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6c259cef",
+          "date": "2026-07-11",
+          "message": "新增旋風對決（戰鬥陀螺）遊戲，支援本機與連線對戰",
+          "body": "- 單機版：雙人盲選、發射小遊戲、確定性戰鬥模擬（固定步長 + 種子亂數）",
+          "category": "功能開發",
           "tags": []
         }
       ],
@@ -29885,6 +30301,69 @@
       "type": "side"
     },
     {
+      "name": "pickup-board",
+      "totalCommits": 7,
+      "commits": [
+        {
+          "hash": "afc11542",
+          "date": "2026-07-15",
+          "message": "Docs: privacy hardening plan (RPC + BOARD_ID in URL hash) and data-entry conventions",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "74993b2e",
+          "date": "2026-07-15",
+          "message": "CLAUDE.md: add natural-language data entry guide for Supabase",
+          "body": "供手機 claude.ai/code session 用:讀-合併-寫回的 REST 流程與 activity 欄位說明。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2eba3d72",
+          "date": "2026-07-15",
+          "message": "Docs: mark Supabase integration done",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5d88ffc3",
+          "date": "2026-07-15",
+          "message": "Connect to Supabase project (fill URL + publishable key)",
+          "body": "REST 煙霧測試通過:anon 可讀寫 boards 表,初始 row 已建立。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f6361a2c",
+          "date": "2026-07-15",
+          "message": "Add Supabase setup walkthrough (supabase/SETUP.md)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b7dddfa3",
+          "date": "2026-07-15",
+          "message": "Wire up Supabase storage (config pending)",
+          "body": "storage.js 改為 Supabase boards 表(單 row 存整包 JSON),localStorage 降為快取/斷網 fallback。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2bbee8cd",
+          "date": "2026-07-15",
+          "message": "Initial commit: 接送看板 (ported from claude.ai artifact)",
+          "body": "Vite + React 單頁 app:今天/本週/分享/管理。",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
       "name": "work-progress\\work-progress-ssh",
       "totalCommits": 6,
       "commits": [
@@ -30153,6 +30632,21 @@
           "message": "Add fullscreen marquee page",
           "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
           "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "line-memory-album",
+      "totalCommits": 1,
+      "commits": [
+        {
+          "hash": "1ef4111a",
+          "date": "2026-07-13",
+          "message": "Initial commit: 專案規劃文件",
+          "body": "LINE 相簿紀念冊 Web 版，目標部署 GitHub Pages。",
+          "category": "文檔",
           "tags": []
         }
       ],

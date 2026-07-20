@@ -1,0 +1,109 @@
+{
+  "date": "2026-07-16",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "0df1317e",
+          "time": "16:00",
+          "message": "feat(特殊報告): APOE 報告中英雙語 + 語言切換 checkbox",
+          "body": "工單 CHG202607150008：配合 LIS 英文報告轉出英文版特殊報告。"
+        },
+        {
+          "hash": "0ffed573",
+          "time": "12:22",
+          "message": "feat(特殊報告): 新增 sample=Y 去識別參數供對外樣本",
+          "body": "PTau181/PTau217/APOE/Batch 加 sample 參數; Y 時遮蔽姓名/生日/身分證/"
+        },
+        {
+          "hash": "32ef926d",
+          "time": "09:29",
+          "message": "docs(SelectPdf): 陷阱文檔補坑6 — 自抓URL跨站VPN NAT hairpin timeout",
+          "body": "補上 CHG202607150010 的完整記載: 現象/真因(NAT位址hairpin)/正解"
+        },
+        {
+          "hash": "30e07cf2",
+          "time": "09:18",
+          "message": "fix(RecordTNO): 當日配號不分頁全部顯示",
+          "body": "同仁回饋: (1)不用限制一頁15筆 (2)超過一頁時新增列不在第一筆。"
+        },
+        {
+          "hash": "3a0df8d3",
+          "time": "09:12",
+          "message": "fix(Report): PDF自抓URL改走PdfSelfBaseUrl,解跨站VPN NAT hairpin timeout",
+          "body": "CHG202607150010: 從台北經VPN NAT位址(192.168.22.x)呼叫LT274Pdf等"
+        },
+        {
+          "hash": "3745312c",
+          "time": "08:21",
+          "message": "docs(特殊報告): 記錄舊入口SpecialReportBatch關閉(台北PERMISSION停用+還原SQL)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4141487f",
+          "time": "07:40",
+          "message": "fix(RecordTNO): 新增列固定放第一行",
+          "body": "號碼排序改 desc 後, 新增的空號碼列被重繪排到最底。"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "69aeb2a8",
+          "time": "07:52",
+          "message": "chore: 撤回版本記錄那節(DB-only 調整不進版)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "ca64187a",
+          "time": "07:51",
+          "message": "chore: 關閉配號查詢/每月統計選單(SysMenu 拔 menuid 9/10，僅 DB)",
+          "body": "v6.30 掛上的兩頁確定不需要，從 WebOrder.SysMenu 移除(4 站共用 DB，"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "c2880856",
+          "time": "07:19",
+          "message": "文檔補充：ECS 更新提醒 public/ 與 dist/ 需 build 同步",
+          "body": "新增地雷警告：只重轉 public/ 而未 npm run build 時，dist/ 仍是舊圖，"
+        },
+        {
+          "hash": "54cdbaf1",
+          "time": "06:53",
+          "message": "更新 ECS panel V14（修正版）：來源 PDF 修正列 259 跨頁切列問題",
+          "body": "蕭醫師 2026-07-15 重出 V14，修掉列 259（FKTN）跨第 6/7 頁的分頁問題。"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "5920ca79",
+          "time": "15:32",
+          "message": "docs: 口試通過 → 建立離校階段 folder + 委員意見整理",
+          "body": "- 新增 docs/11_離校/ 離校主控資料夾"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 1,
+    "totalCommits": 12
+  }
+}

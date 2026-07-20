@@ -1,0 +1,109 @@
+{
+  "date": "2026-07-15",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fed8923b",
+          "time": "10:19",
+          "message": "style(RecordTNO): 當日配號版面集中置中",
+          "body": "同仁回饋當日配號表太鬆散:"
+        },
+        {
+          "hash": "0c3375d7",
+          "time": "07:56",
+          "message": "fix(SpecialReport): 表頭/APOE/批量偵測全面支援歷史表HORD",
+          "body": "延續前一commit的趨勢修正，補齊其餘只查ORD的路徑，讓歸檔單也能補印:"
+        },
+        {
+          "hash": "96c0121f",
+          "time": "07:39",
+          "message": "fix(SpecialReport): pTau歷次趨勢納入歷史表HORD",
+          "body": "舊單結案後會搬進HORD_HDR/HORD_DTL，趨勢查詢只撈ORD導致歷次缺漏"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "pickup-board",
+      "commits": [
+        {
+          "hash": "afc11542",
+          "time": "17:24",
+          "message": "Docs: privacy hardening plan (RPC + BOARD_ID in URL hash) and data-entry conventions",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "74993b2e",
+          "time": "17:13",
+          "message": "CLAUDE.md: add natural-language data entry guide for Supabase",
+          "body": "供手機 claude.ai/code session 用:讀-合併-寫回的 REST 流程與 activity 欄位說明。"
+        },
+        {
+          "hash": "2eba3d72",
+          "time": "17:10",
+          "message": "Docs: mark Supabase integration done",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "5d88ffc3",
+          "time": "17:09",
+          "message": "Connect to Supabase project (fill URL + publishable key)",
+          "body": "REST 煙霧測試通過:anon 可讀寫 boards 表,初始 row 已建立。"
+        },
+        {
+          "hash": "f6361a2c",
+          "time": "17:00",
+          "message": "Add Supabase setup walkthrough (supabase/SETUP.md)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b7dddfa3",
+          "time": "16:58",
+          "message": "Wire up Supabase storage (config pending)",
+          "body": "storage.js 改為 Supabase boards 表(單 row 存整包 JSON),localStorage 降為快取/斷網 fallback。"
+        },
+        {
+          "hash": "2bbee8cd",
+          "time": "16:46",
+          "message": "Initial commit: 接送看板 (ported from claude.ai artifact)",
+          "body": "Vite + React 單頁 app:今天/本週/分享/管理。"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "ed80a995",
+          "time": "16:51",
+          "message": "feat: 作品集新增 Pickup Board 家庭接送看板",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "701323c5",
+          "time": "09:40",
+          "message": "docs(meeting): 8 月例會 8 題投票單＋LINE 通知草稿",
+          "body": "- 新增 docs/15 投票提案單（8 題＋追認區＋會前準備）、docs/16 LINE 訊息草稿"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 9,
+    "totalCommits": 12
+  }
+}

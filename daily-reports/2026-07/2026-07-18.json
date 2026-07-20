@@ -1,0 +1,55 @@
+{
+  "date": "2026-07-18",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "ba12ecf6",
+          "time": "10:19",
+          "message": "docs(deploy): 補 Dashboard 復原步驟",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "2f01bd64",
+          "time": "10:12",
+          "message": "feat(dashboard): HIS 逐日明細 drill-down，回溯爆炸事件與補傳區間",
+          "body": "- 矩陣點 HIS 列展開「分部 × 近 7/14 天」逐日表：成功/失敗筆數 + 未補 TNO 數"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "455d4659",
+          "time": "20:00",
+          "message": "Merge pull request #12 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "作品集新增紅蓮劍姬並重新套用 RoboEye 標題"
+        },
+        {
+          "hash": "72e8a803",
+          "time": "11:59",
+          "message": "重新套用 RoboEye 標題為 CNN 年齡性別辨識",
+          "body": "先前變更在 main 後續開發中被還原，此處重新套用。"
+        },
+        {
+          "hash": "7a8edf51",
+          "time": "11:31",
+          "message": "新增紅蓮劍姬 - 地城試煉至作品集",
+          "body": "加入單一 HTML Canvas 打造的 2D 俯視角 roguelite 動作遊戲，"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 3,
+    "totalCommits": 5
+  }
+}

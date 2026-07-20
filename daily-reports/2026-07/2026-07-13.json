@@ -1,0 +1,73 @@
+{
+  "date": "2026-07-13",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ae657788",
+          "time": "08:35",
+          "message": "fix(CodeMap): price 空白送出造成帳務缺項的資料遺失洞",
+          "body": "問題 (新竹 07-09 TROP 單 6070930014, FatalFile.log ORA-01400 實證):"
+        },
+        {
+          "hash": "3321a45f",
+          "time": "08:29",
+          "message": "fix(LT225W): 外送站快選按鈕限定新竹(SJ)顯示",
+          "body": "WS91~97 為新竹工作站配置，其他分部設定不同，按鈕依 UCL_SITE 判斷輸出"
+        },
+        {
+          "hash": "cc7452b7",
+          "time": "08:18",
+          "message": "feat(LT225W): 外送站 WS91~97 快選 + 空清單不開視窗",
+          "body": "- 工作站欄位旁新增「外送站 WS91~97」按鈕，一鍵選取範圍內存在的工作站（比照舊系統起迄範圍用法）"
+        },
+        {
+          "hash": "58603650",
+          "time": "08:08",
+          "message": "docs(效能): 0713 週報 (md + HTML,範圍07-05~11照新慣例)",
+          "body": "- 效能主線告一段落:PHP索引維持、LT274魔王降31%(5836→4003s)仍#1、多數收尾"
+        },
+        {
+          "hash": "da979df3",
+          "time": "08:06",
+          "message": "feat(RecordTNO): 每月統計加月份選擇(全年/指定月)",
+          "body": "同仁需求: 統計改成可選月份, 不再只能看整年"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "0ec50eb4",
+          "time": "11:37",
+          "message": "更新 ECS panel 至 V14（清單頁數 17→15）並修訂更新文檔",
+          "body": "- public/ECS_01~15.png 由 V14 PDF 重新轉出，刪除多餘的 ECS_16/17.png"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "line-memory-album",
+      "commits": [
+        {
+          "hash": "1ef4111a",
+          "time": "09:52",
+          "message": "Initial commit: 專案規劃文件",
+          "body": "LINE 相簿紀念冊 Web 版，目標部署 GitHub Pages。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 6,
+    "sideCommits": 1,
+    "totalCommits": 7
+  }
+}
