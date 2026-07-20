@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-19",
+  "weekday": "日",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "f75c2fdc",
+          "time": "10:04",
+          "message": "Merge pull request #13 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "新增 CoinCare 作品、hidden 旗標機制與 RoboEye 標題"
+        },
+        {
+          "hash": "5b0d70e5",
+          "time": "02:00",
+          "message": "新增 CoinCare 愛心投幣箱 3D 至作品集",
+          "body": "加入 Three.js 打造、結合遊戲與慈善捐獻概念的 3D 網頁小遊戲，"
+        },
+        {
+          "hash": "d6e8de46",
+          "time": "01:58",
+          "message": "新增作品 hidden 旗標機制",
+          "body": "在 project 上設 hidden: true 即可從清單、類別篩選與計數中移除，"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 3,
+    "totalCommits": 3
+  }
+}
