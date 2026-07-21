@@ -1,0 +1,331 @@
+{
+  "date": "2026-07-21",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "57799e0a",
+          "time": "17:27",
+          "message": "docs: 延遲地板真因 — 上游 hcini + FalconCopy 兩跳同步管線",
+          "body": "補 docs/3 §2.1: trx_dt 記審核時刻,記錄經 ORD→hcini→hclitf→FalconCopy→mssql"
+        },
+        {
+          "hash": "21927398",
+          "time": "17:18",
+          "message": "docs: 混合制風險盤點 + 毒單偵測 SQL",
+          "body": "- docs/4 §3.1: 三風險(毒單佔道/查詢翻倍/配額設定)含偵測與緩解、非風險說明"
+        },
+        {
+          "hash": "a0805e7d",
+          "time": "17:12",
+          "message": "docs: 同步延遲 SLA 定版 — 混合制通過 7/21 下午尖峰實戰",
+          "body": "兩日對比: 7/20 尖峰 1,992 張挨餓/最慘 193 分 → 7/21 尖峰(進單更大) 0 張/最慘 19 分。"
+        },
+        {
+          "hash": "b31eb278",
+          "time": "11:15",
+          "message": "feat(RecordTNO): 恢復刪除(限本人當日)+重複檢查併發修正",
+          "body": "(1) 刪除功能: 僅能刪自己登記的當日配號; 前端只對自己的列顯示刪除鈕,"
+        },
+        {
+          "hash": "1dba8b50",
+          "time": "09:13",
+          "message": "feat(LT252): 標籤列印補病歷號、姓名不遮罩、單位名稱放寬至7字",
+          "body": "- 姓名改送未遮罩 originalName，遮罩狀態下列印會寫入 ReportAccessLog 稽核"
+        },
+        {
+          "hash": "4484a6cf",
+          "time": "08:34",
+          "message": "docs: 量能設計原則 — 「避峰→跟量」設計思維成篇",
+          "body": "- 新增 docs/4: 三旋鈕分工(併發=紅線/批次=跟量/配額=保底)、避峰前提"
+        },
+        {
+          "hash": "38137d0d",
+          "time": "08:15",
+          "message": "feat: 混合制撈單 — 每批保留 OldestQuotaPerBatch 名額給等最久的單",
+          "body": "塞車時純後進先出會讓舊單被新單無限插隊 (7/20 台北 2,115 張 >30 分、"
+        },
+        {
+          "hash": "58027af7",
+          "time": "07:59",
+          "message": "fix(特殊報告): APOE e2/e4 補回心血管尾句 + pTau181 趨勢表判讀改 Above reference interval",
+          "body": "黃士容二次驗收："
+        },
+        {
+          "hash": "6f8e0995",
+          "time": "07:59",
+          "message": "fix(特殊報告): APOE e2/e4 補回心血管尾句 + pTau181 趨勢表判讀改 Above reference interval",
+          "body": "黃士容二次驗收："
+        },
+        {
+          "hash": "a9893878",
+          "time": "07:07",
+          "message": "fix(Report): 台北 PdfSelfBaseUrl 改 https://lisweb.ucl.com.tw,修傳真 404 白紙",
+          "body": "2026-07-21 事故: 台北上版 MR!1316 後傳真發出白紙。實測 LT274Pdf 下載的"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "7933188a",
+          "time": "09:42",
+          "message": "feat(install): install.bat自動保留各站appsettings.json, 更新統一走移除重裝",
+          "body": "- 安裝腳本產生器: xcopy前暫存既有appsettings.json、複製後還原"
+        },
+        {
+          "hash": "f95f25a7",
+          "time": "09:38",
+          "message": "docs(INSTALL): review修訂—展開install.bat逐步說明(URL ACL用途)、更新加備份/回退、驗證加時間戳; build-release.bat自封裝旗標改true與csproj一致",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1b09bb18",
+          "time": "09:32",
+          "message": "docs(INSTALL): 補NAS部署點與runtime備援說明",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "41edabef",
+          "time": "09:30",
+          "message": "docs: 新增工作站安裝與更新指南 INSTALL.md",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "057d7caf",
+          "time": "09:26",
+          "message": "docs(API-SPEC): 補病歷號縮字與12碼上限說明",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "9893bdf1",
+          "time": "09:26",
+          "message": "fix(QRCode標籤): 病歷號上限改12碼，實測第13碼會切到DataMatrix",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "462348c2",
+          "time": "09:24",
+          "message": "fix(QRCode標籤): 病歷號超過9碼縮小字體，避免擠到DataMatrix",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "d1e0732b",
+          "time": "09:13",
+          "message": "feat(QRCode標籤): 新增病歷號列印、姓名不截3字、單位名稱上限7字",
+          "body": "- CustomTextLabelData 新增 Apid 欄位，query 參數 apid（空值或 00 不印）"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "57799e0a",
+          "time": "17:27",
+          "message": "docs: 延遲地板真因 — 上游 hcini + FalconCopy 兩跳同步管線",
+          "body": "補 docs/3 §2.1: trx_dt 記審核時刻,記錄經 ORD→hcini→hclitf→FalconCopy→mssql"
+        },
+        {
+          "hash": "21927398",
+          "time": "17:18",
+          "message": "docs: 混合制風險盤點 + 毒單偵測 SQL",
+          "body": "- docs/4 §3.1: 三風險(毒單佔道/查詢翻倍/配額設定)含偵測與緩解、非風險說明"
+        },
+        {
+          "hash": "a0805e7d",
+          "time": "17:12",
+          "message": "docs: 同步延遲 SLA 定版 — 混合制通過 7/21 下午尖峰實戰",
+          "body": "兩日對比: 7/20 尖峰 1,992 張挨餓/最慘 193 分 → 7/21 尖峰(進單更大) 0 張/最慘 19 分。"
+        },
+        {
+          "hash": "4484a6cf",
+          "time": "08:34",
+          "message": "docs: 量能設計原則 — 「避峰→跟量」設計思維成篇",
+          "body": "- 新增 docs/4: 三旋鈕分工(併發=紅線/批次=跟量/配額=保底)、避峰前提"
+        },
+        {
+          "hash": "38137d0d",
+          "time": "08:15",
+          "message": "feat: 混合制撈單 — 每批保留 OldestQuotaPerBatch 名額給等最久的單",
+          "body": "塞車時純後進先出會讓舊單被新單無限插隊 (7/20 台北 2,115 張 >30 分、"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "report-pTau",
+      "commits": [
+        {
+          "hash": "a4583c54",
+          "time": "11:57",
+          "message": "fix(特殊報告): 修互動版風險條 marker/色段切換 state 不更新（黃士容）",
+          "body": "互動版 apply() 切換 state 時只更新 innerHTML(文字) 與 className(顏色)，"
+        },
+        {
+          "hash": "5db60f0e",
+          "time": "09:22",
+          "message": "fix(特殊報告): 修互動版 pTau217 高風險 STATES 表格爆版（黃士容）",
+          "body": "高風險 state 的 data-dyn \"14\"(SVG 趨勢圖日期標籤，應僅日期如 low/mid) 被汙染成"
+        },
+        {
+          "hash": "590e863a",
+          "time": "07:59",
+          "message": "fix(特殊報告): 互動版 APOE e2/e4 補心血管尾句 + pTau181 趨勢表 Above reference interval",
+          "body": "黃士容二次驗收，同步 lisweb 修正到互動版："
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "lab-report-generator",
+      "commits": [
+        {
+          "hash": "87143bc8",
+          "time": "19:47",
+          "message": "複製貼上分頁加入匯入格式說明與 txt/csv 檔案上傳",
+          "body": "- 新增「選擇檔案(txt/csv)」:讀檔填入貼上框,再走既有匯入流程"
+        },
+        {
+          "hash": "0f09e714",
+          "time": "19:46",
+          "message": "手動輸入表格新增「異常」勾選欄,可覆寫自動判讀",
+          "body": "- 每列加 checkbox:未勾選時依參考區間自動判讀,勾選後以手動為準"
+        },
+        {
+          "hash": "34fcbd8b",
+          "time": "19:43",
+          "message": "移除判讀欄改用紅色標示異常;輸入分為三種方式",
+          "body": "- 報告/編輯區移除「判讀(H/L)」欄,異常值直接以紅色呈現"
+        },
+        {
+          "hash": "291aca83",
+          "time": "19:31",
+          "message": "改用單一檔案版:合併 css/js 進 index.html",
+          "body": "依偏好回到自帶樣式與腳本的單檔結構,刪除 css/style.css、js/app.js,"
+        },
+        {
+          "hash": "7182fbff",
+          "time": "19:26",
+          "message": "Initial commit: 檢驗報告產生器(階段一 + 階段二)",
+          "body": "純前端檢驗報告產生器,資料完全在瀏覽器本機處理:"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "2b65d83a",
+          "time": "16:19",
+          "message": "docs: 離校清單更新 — 週五LINE/當面拆分 + 18/19 分兩次簽",
+          "body": "- 週五 7/24 是 LINE（不見面）：寄標紅版、報告行程、問交接/top-K；助教問系所冊數"
+        },
+        {
+          "hash": "c43bec9b",
+          "time": "16:13",
+          "message": "docs: 彩色印刷區間更新為 9 張彩圖 / 5 區間",
+          "body": "- 使用者視覺確認漏抓的彩圖：圖6-1(ROC細線)、圖6-5、圖6-6 → 共 9 張彩色"
+        },
+        {
+          "hash": "a82c01ff",
+          "time": "16:08",
+          "message": "docs: §7.7 精簡省 63 字（縮一頁）+ 彩色印刷區間文檔",
+          "body": "- Ch7 §7.7 綜合討論：點5/點6 砍冗字 + 移除「高血壓 +16.9%」句，共省 63 字，縮回一頁"
+        },
+        {
+          "hash": "73ce0db6",
+          "time": "15:46",
+          "message": "docs: M6 改為 §7.1 引言（移除懸空小標）",
+          "body": "- Ch7 §7.1「評估指標的多面向考量」小標移除，內容當節開頭引言（與 M4/M5 當引言一致，不成節）"
+        },
+        {
+          "hash": "a3dd137b",
+          "time": "14:58",
+          "message": "docs: M4/M5/M6 定案（誠實版）+ top-K 底線問教授",
+          "body": "M4/M5（Ch5 選型原則，誠實重寫）"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "80e26df9",
+          "time": "11:53",
+          "message": "feat(admin): 維護頁批次鎖定 — 貼車位號一次鎖動線/結構區、可逐格解除",
+          "body": "永久結構鎖定但可維護解鎖：用現有 locked_seat 機制(選位/抽籤/電腦選位三處都排除)。"
+        },
+        {
+          "hash": "9a4e748e",
+          "time": "11:45",
+          "message": "feat(tool): 分棟順序工具 order.html — 點擊序即電腦選位填補序",
+          "body": "每棟逐格點選座位，點擊順序＝填補順序；只需點靠電梯前幾格，其餘自動用距離補後段。"
+        },
+        {
+          "hash": "6c57dfeb",
+          "time": "11:17",
+          "message": "feat(allocate): 電腦選位 — 志願落空+勾電腦選號自動配本棟靠電梯剩位",
+          "body": "distribute 新增電腦選位關卡：志願全落空且勾電腦選號的一般車，依順序號(保底一位優先)"
+        },
+        {
+          "hash": "8e5d8ca9",
+          "time": "11:17",
+          "message": "feat(zoning): 各棟電腦選號優先序 — build-tower-priority.mjs + tower-priority.json",
+          "body": "每個可承租大位依最近梯廳核心(AB/CD/EF/GH)分棟，棟內按離電梯距離排序。"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "0fceb330",
+          "time": "19:30",
+          "message": "Merge pull request #16 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "作品集新增 Lab Report Generator 檢驗報告產生器"
+        },
+        {
+          "hash": "4f5f796a",
+          "time": "11:28",
+          "message": "新增 Lab Report Generator 檢驗報告產生器至作品集",
+          "body": "加入公司檢驗部門內部使用的純前端醫療檢驗報告產生工具，"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "98dfbf16",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-21",
+          "body": "🤖 自動生成於 2026-07-21 07:05"
+        },
+        {
+          "hash": "e4934fad",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-20 (27 commits)",
+          "body": "🤖 自動生成於 2026-07-21 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 26,
+    "sideCommits": 18,
+    "totalCommits": 44
+  }
+}
