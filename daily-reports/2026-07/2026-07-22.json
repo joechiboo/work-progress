@@ -1,0 +1,169 @@
+{
+  "date": "2026-07-22",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "93d768d1",
+          "time": "10:12",
+          "message": "docs(rule-engine): 新增 Rule Engine 規則引擎機制總覽文檔",
+          "body": "- 架構: RULE_OBJ/RULE_LIBRARY/RTREE 四層樹/PMI_PARA/PKG_RULE/RULE_ACTION"
+        },
+        {
+          "hash": "8ac2b2d2",
+          "time": "10:08",
+          "message": "docs: 上游斷線實際案例 — 2026-07-21 FalconCopy 停擺 56 分",
+          "body": "docs/3 §2.1 補實例:17:59-18:54 上游同步停擺,排程照跑/100% 成功但撈到空佇列,"
+        },
+        {
+          "hash": "e27bb049",
+          "time": "08:18",
+          "message": "docs(deploy): 部署暖機 PLAN 補 0722 事故復盤 + lisweb2 驗證定案",
+          "body": "- §9: 500 事故根因(apphost+web.config 雙來源重複)+一分鐘救援 SOP+"
+        },
+        {
+          "hash": "3a41efbf",
+          "time": "07:16",
+          "message": "fix(deploy): AppInit 暖機設定改放 Web.Release.config(台北) 免被 WebDeploy 洗掉",
+          "body": "2026-07-22 真實部署驗證發現: 昨天設在 applicationHost.config 的"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "22af0f4c",
+          "time": "09:35",
+          "message": "docs: SOP 補註日常開發用 VS Code(VS2022 僅為 MSBuild 來源)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "092a8914",
+          "time": "09:29",
+          "message": "docs: 建立編譯與發佈SOP(不需VS2019、兩行指令完成)",
+          "body": "- 新增 編譯與發佈SOP.md：MSBuild(VS2022)+targeting pack 需求、"
+        },
+        {
+          "hash": "d9212be7",
+          "time": "08:56",
+          "message": "fix: WebOrder1 標籤機 PRNName 同步線上實況(DT2205-125 → 122)",
+          "body": "行政搬家後線上 config 已於 7/6 直接改為 DT2205-122，"
+        },
+        {
+          "hash": "54a41b7a",
+          "time": "08:52",
+          "message": "fix: v7.22 已轉入改號排除同單兄弟醫令(修「同單兩筆改同號」誤擋)",
+          "body": "單位2187回報：兩筆醫令共用 6072112414 要改成 LIS 端的 6072002651，"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "1f4dc257",
+          "time": "13:39",
+          "message": "新增告警階梯引擎與撲咬自動修復：Discord/Mail 雙 tier 常備",
+          "body": "把兩支能動的 notifier 串成有記憶的階梯，解決舊版「每 10 分洗頻」與"
+        },
+        {
+          "hash": "9773b026",
+          "time": "12:40",
+          "message": "新增 Email 嚎叫管道：走 NotificationPlatform mailapi 寄告警信",
+          "body": "- MailApiHowler：Login 取 JWT（process 內快取）→ POST /TriggerNow，"
+        },
+        {
+          "hash": "4af14886",
+          "time": "12:18",
+          "message": "初始骨架：Cerberus・地獄不眠狼 — 例行任務心跳看門狗",
+          "body": "- .NET 10 console，fire-and-exit，設計由排程每 10 分鐘巡守一次"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "8ac2b2d2",
+          "time": "10:08",
+          "message": "docs: 上游斷線實際案例 — 2026-07-21 FalconCopy 停擺 56 分",
+          "body": "docs/3 §2.1 補實例:17:59-18:54 上游同步停擺,排程照跑/100% 成功但撈到空佇列,"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "59dd6243",
+          "time": "16:47",
+          "message": "docs: 離校死線提前至 8/29 + 審定書處理 + 各關卡工作天",
+          "body": "- 系辦 7/21 公告：各關卡審核工作天（教授3-5天/助教2-3天/主任1-3天）"
+        },
+        {
+          "hash": "1228278f",
+          "time": "16:15",
+          "message": "docs: 22 AI檢核預跑修圖6-8 + 離校完整流程（同學權威版）",
+          "body": "- Ch6 圖6-8：說明移到圖下方（22 AI檢核預跑抓到，其餘11張圖皆正確；Word 本就正確，md 對齊）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "212196ab",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-22",
+          "body": "🤖 自動生成於 2026-07-22 07:05"
+        },
+        {
+          "hash": "df56a225",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-21 (44 commits)",
+          "body": "🤖 自動生成於 2026-07-22 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lab-report-generator",
+      "commits": [
+        {
+          "hash": "f70f1a7e",
+          "time": "09:28",
+          "message": "新增 OCR 辨識分頁:上傳/貼上報告截圖,本機辨識後匯入檢驗項目",
+          "body": "第四種輸入方式,用 Tesseract.js(WASM)在本機辨識,圖片不上傳,守住"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "186f17e2",
+          "time": "06:50",
+          "message": "feat(admin): 批次鎖定支援範圍語法 + 批次解除",
+          "body": "輸入 423-438 自動展開整段(支援 - – — ~ 至 到 等分隔)，可混合單號/範圍。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 12,
+    "sideCommits": 6,
+    "totalCommits": 18
+  }
+}
