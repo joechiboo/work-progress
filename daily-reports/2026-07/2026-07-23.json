@@ -1,0 +1,253 @@
+{
+  "date": "2026-07-23",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "01afe4a5",
+          "time": "13:18",
+          "message": "告警圖示換成三頭犬：🐺 → 🐶🐶🐶",
+          "body": "Unicode 沒有地獄犬 emoji，用三顆狗頭對應 Cerberus 三頭犬意象，"
+        },
+        {
+          "hash": "83170db8",
+          "time": "10:37",
+          "message": "正名「地獄犬」：拿掉硬套的「地獄不眠狼」flavor",
+          "body": "- README 標題/由來、Discord footer、告警回應手冊標題、程式註解全面改為地獄犬"
+        },
+        {
+          "hash": "7b1b770d",
+          "time": "10:30",
+          "message": "佈署指南：勾掉撲咬啟用待辦（2026-07-23 點火＋實彈演習成功）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "8c9ca396",
+          "time": "09:14",
+          "message": "撲咬點火：BiteEnabled 開為 true（本機 schtasks /Run 喚醒 FalconCopy）",
+          "body": "- 同機佈署（56.231）Host 留空走本機執行，無跨機 RPC 權限問題"
+        },
+        {
+          "hash": "d018d2ab",
+          "time": "08:40",
+          "message": "佈署指南：勾掉已完成待辦（TaskName 實查、23h 根因已根治）",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6d180f9d",
+          "time": "08:34",
+          "message": "收尾：拿掉 QuietWindows 補丁、log 保留 30 天、新增告警回應手冊",
+          "body": "- appsettings：ReadOK 23h 觸發器已於 2026-07-23 根治（Repetition.Duration 清空＝"
+        },
+        {
+          "hash": "b54c00cc",
+          "time": "08:26",
+          "message": "撲咬支援同機本機執行＋填入 FalconCopy 實際排程工作名",
+          "body": "- Biter：Bite.Host 留空＝本機直接 schtasks /Run（同機佈署免走 loopback RPC）。"
+        },
+        {
+          "hash": "cee334ab",
+          "time": "08:23",
+          "message": "佈署指南：狀態更新為已上線（2026-07-23 於 56.231 完成驗收）＋ markdown lint 修整",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "7ff99598",
+          "time": "08:22",
+          "message": "佈署指南修正：排程建立改用 PS 5.1 可行的無限重複 workaround",
+          "body": "56.231 實地執行發現 Windows PowerShell 5.1 的 Register-ScheduledTask 不吃"
+        },
+        {
+          "hash": "b9b0f8e1",
+          "time": "08:02",
+          "message": "新增佈署指南：台北 56.231 同機佈署、一次性排程設定與驗收",
+          "body": "佈署包（self-contained win-x64）已放上 \\192.168.56.231\\Schedule\\Cerberus\\。"
+        },
+        {
+          "hash": "8db29341",
+          "time": "07:53",
+          "message": "文件補齊（接入/架構/mailapi/Discord）＋監控範圍先收成只守台北",
+          "body": "- 新增 Docs/接入指南.md、Docs/架構與擴充.md、Docs/mailapi串接.md；更新 Docs/Discord串接.md、README。"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "0d2c400b",
+          "time": "17:17",
+          "message": "feat(CopyPrint): 盤點機列印張數增加鎖定功能",
+          "body": "仿尾碼鎖定模式:"
+        },
+        {
+          "hash": "2288e4b6",
+          "time": "10:42",
+          "message": "fix(BS5): 修復 5.3.0 升版後表格 tr 底色被儲存格蓋住(BT300B選行變色等4頁)",
+          "body": "7/15 bootstrap530 從 v5.3.0-alpha1 升 v5.3.0 正式版後,"
+        },
+        {
+          "hash": "0e69c2fa",
+          "time": "07:32",
+          "message": "docs(problems): 新增發佈流程耗時現況盤點 — 5分鐘拆解與通往1分鐘路線",
+          "body": "- 0723 實測拆解: build+MvcBuildViews ~2分 / 傳輸30s / 自動暖機50s /"
+        },
+        {
+          "hash": "a3640a95",
+          "time": "07:20",
+          "message": "docs(deploy): 部署暖機正式結案 — intweb01 端到端終驗 0723",
+          "body": "- 真實 WebDeploy 終驗: 50s 自動 db=ok(AppInit生效) → Warmup 0.83s /"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TakoDoko",
+      "commits": [
+        {
+          "hash": "e040ac12",
+          "time": "07:49",
+          "message": "fix: 修正 HTTP 正式站複製密碼失效，改用 useCopyToClipboard fallback（v1.4.3）",
+          "body": "正式站走 http://192.168.56.179，非安全來源下瀏覽器沒有 navigator.clipboard，"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "tempokid",
+      "commits": [
+        {
+          "hash": "1ca98894",
+          "time": "17:19",
+          "message": "Rhythm hero: monsters fight back with telegraphed attacks",
+          "body": "Monsters now take 2 hits (boss 3). A hit that does not kill puts the"
+        },
+        {
+          "hash": "62df8068",
+          "time": "17:06",
+          "message": "Rhythm hero: four Patapon drums, obstacle types, HP system",
+          "body": "- Four drum buttons with distinct timbres: pata (mid tom), pon"
+        },
+        {
+          "hash": "38066773",
+          "time": "16:14",
+          "message": "Add Patapon-style mode: rhythm hero (call-and-response march)",
+          "body": "New third mode. The game drums a 4-beat command in rhythm"
+        },
+        {
+          "hash": "cd152141",
+          "time": "16:04",
+          "message": "Show per-grade tally when a round ends",
+          "body": "Both modes now display a PERFECT/GREAT/GOOD/MISS count strip at the"
+        },
+        {
+          "hash": "f0dce0ea",
+          "time": "15:59",
+          "message": "Hide-and-seek: metronome hides after 4 beats instead of 8",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "17211098",
+          "time": "15:58",
+          "message": "Add scoring with combo multiplier and persistent total",
+          "body": "PERFECT/GREAT/GOOD earn 100/60/20 base points, multiplied by combo"
+        },
+        {
+          "hash": "7a3011c2",
+          "time": "15:54",
+          "message": "Add mode menu + hide-and-seek metronome mode; direction hints",
+          "body": "- Home screen now lets you pick a mode"
+        },
+        {
+          "hash": "4f93c13f",
+          "time": "15:50",
+          "message": "Default tempo to 88 BPM",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "339885e5",
+          "time": "10:28",
+          "message": "Add game-style graded hit popups (PERFECT/GREAT/GOOD/MISS)",
+          "body": "Each tap spawns an animated floating grade on the tap button,"
+        },
+        {
+          "hash": "92391ae8",
+          "time": "09:57",
+          "message": "Initial scaffold: tap-the-beat rhythm game",
+          "body": "Single-file PWA-ready web game to help kids practice steady tempo."
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "fb7227d3",
+          "time": "10:46",
+          "message": "Merge pull request #17 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "作品集新增 TempoKid 兒童節拍訓練"
+        },
+        {
+          "hash": "da15b264",
+          "time": "02:00",
+          "message": "新增 TempoKid 兒童節拍訓練至作品集",
+          "body": "加入專為兒童設計的節拍穩定度訓練遊戲，純前端 HTML + Web Audio API，"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "fd100f80",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-23",
+          "body": "🤖 自動生成於 2026-07-23 07:05"
+        },
+        {
+          "hash": "c2596561",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-22 (18 commits)",
+          "body": "🤖 自動生成於 2026-07-23 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "5345cd90",
+          "time": "18:58",
+          "message": "ci: Supabase keep-alive — 每 3 天 ping 防免費版閒置暫停",
+          "body": "2026-07-23 專案因閒置被暫停(DNS 撤掉、全站斷線、批次鎖定寫不進去)。"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "ed2499cd",
+          "time": "15:19",
+          "message": "docs: 謝辭加 AI 使用註明（21聲明書配套）+ 離校清單細節",
+          "body": "- 謝辭：加生成式 AI（Claude）使用註明句（規範要求勾「有使用」則論文內須說明）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 16,
+    "sideCommits": 16,
+    "totalCommits": 32
+  }
+}
