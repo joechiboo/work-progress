@@ -1,0 +1,103 @@
+{
+  "date": "2026-07-24",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "15150384",
+          "time": "19:07",
+          "message": "fix(BS5): 修復 5.3.0 tr 層級文字色/底色被儲存格蓋住(LT276紅字等4頁)",
+          "body": "7/15 bootstrap530 升 v5.3.0 正式版後, 儲存格規則多了"
+        },
+        {
+          "hash": "8329c111",
+          "time": "09:56",
+          "message": "docs(rule-engine): 0160 案定案 + placement/去重結論修正",
+          "body": "依 0160 全報告加註實作經驗修正文檔:"
+        },
+        {
+          "hash": "24cc9d2a",
+          "time": "09:13",
+          "message": "docs(rule-engine): 新增規則開發與測試實戰 playbook",
+          "body": "- 從零建一條規則到驗證會觸發的完整流程,用士林遠東0160案當範例"
+        },
+        {
+          "hash": "36828208",
+          "time": "08:16",
+          "message": "feat(layout): 連測試資料庫時頁面頂端顯示警示橫幅",
+          "body": "- _Layout.cshtml: 解密 HCLAB 連線取 HOST,命中 appSetting TestDbHosts"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "1a63ed3d",
+          "time": "18:45",
+          "message": "docs: Meeting 簡報（論文修正報告7頁+講稿）+ 教授出國路線分析",
+          "body": "- meeting_論文修正報告.md：7頁簡報+每頁1分鐘講稿（委員6點回應+離校請求）"
+        },
+        {
+          "hash": "288db6dd",
+          "time": "16:44",
+          "message": "docs: 補圖書館上傳教學影片 + 官網下載區連結",
+          "body": "- 教學影片 ×2（YouTube）"
+        },
+        {
+          "hash": "8fae862d",
+          "time": "15:57",
+          "message": "docs: 圖書館上傳程序完整（讀 000-4/000-5）",
+          "body": "- 電子檔≠紙本：電子檔不含封面/授權書/審定書（110學年教務會議），只書名頁+謝誌+摘要+目錄+本文"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "lab-report-generator",
+      "commits": [
+        {
+          "hash": "e6e3d2ef",
+          "time": "16:53",
+          "message": "OCR 依原始報告紅字自動補標異常",
+          "body": "數值判讀器對非數值參考區間(如 MRR)或質性結果無從比較,但紙本報告"
+        },
+        {
+          "hash": "f1e77670",
+          "time": "16:33",
+          "message": "OCR 分欄改用「以單位為錨的純文字解析」,取代不穩的 TSV 座標",
+          "body": "Tesseract v7 的 TSV 座標路徑在瀏覽器實測回傳空/無效,且座標法有欄位"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "faf2a117",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-24",
+          "body": "🤖 自動生成於 2026-07-24 07:05"
+        },
+        {
+          "hash": "182dffa8",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-23 (32 commits)",
+          "body": "🤖 自動生成於 2026-07-24 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 7,
+    "totalCommits": 11
+  }
+}
