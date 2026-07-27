@@ -1,0 +1,199 @@
+{
+  "date": "2026-07-27",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d2f43178",
+          "time": "18:45",
+          "message": "fix(STR001): 亞東委託單資料列字號統一16pt並補院所代碼底線",
+          "body": "- 資料列字號統一 16pt(比照原範本資料字型大小);字型仍沿用各欄設定"
+        },
+        {
+          "hash": "0022b43e",
+          "time": "17:58",
+          "message": "fix(STR001): 亞東委託單沿用範本各欄字型字號並修送檢日期版面",
+          "body": "- 資料列改回沿用範本各欄字型/字號(全欄標楷體、僅檢體種類 Times New Roman;"
+        },
+        {
+          "hash": "31c995ec",
+          "time": "17:47",
+          "message": "fix(STR001): 亞東委託單字型改12pt、復原特殊項目標色、移除送檢日期底線",
+          "body": "- 資料列字型 16pt→12pt，貼近原始委託單密度(檢驗項目長字不再撐高列)"
+        },
+        {
+          "hash": "adcc2800",
+          "time": "14:06",
+          "message": "fix(STR001): 亞東委託單資料列統一字型黑字並移除注意事項底線",
+          "body": "- 資料列改用統一字型(中文標楷體/英數 Times New Roman、16pt、置中、黑字)，"
+        },
+        {
+          "hash": "36ed4769",
+          "time": "12:52",
+          "message": "fix(STR001): 亞東委託單修正頁碼/注意事項樣式/移除殘留網底",
+          "body": "- 範本注意事項列補回頁碼(自動 PAGE 欄位「P1」)並改為置中 tab"
+        },
+        {
+          "hash": "46b8e637",
+          "time": "12:42",
+          "message": "fix(STR001): 亞東委託單改用聯合十碼單號並沿用範本字型",
+          "body": "- 聯合病歷號欄改帶 TNO(聯合十碼單號)，非 APID"
+        },
+        {
+          "hash": "316ab683",
+          "time": "12:32",
+          "message": "feat(STR001): 新增亞東醫院外送清單 Word 委託單套版並正名頁面",
+          "body": "- STR001 標題正名為「外送清單」(不再限台北病理中心)"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "24265278",
+          "time": "19:04",
+          "message": "移除首頁 menu 的線上付款連結",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "fde1025d",
+          "time": "19:34",
+          "message": "Merge pull request #19 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "封存夜市彈珠 Yeshi Pinball"
+        },
+        {
+          "hash": "e69da0e8",
+          "time": "11:34",
+          "message": "封存夜市彈珠 Yeshi Pinball",
+          "body": "設 hidden: true 從作品集主畫面下架，資料保留可隨時恢復。"
+        },
+        {
+          "hash": "cbcb3f9c",
+          "time": "19:15",
+          "message": "Merge pull request #18 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "作品集新增夜市彈珠 Yeshi Pinball"
+        },
+        {
+          "hash": "1d8456f1",
+          "time": "11:15",
+          "message": "新增夜市彈珠 Yeshi Pinball 至作品集",
+          "body": "加入台灣夜市風格的彈珠台網頁遊戲，採用 Phaser 3 + Matter 物理引擎，"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "tempokid",
+      "commits": [
+        {
+          "hash": "f00a14ba",
+          "time": "19:56",
+          "message": "Replace rock emoji with widely-supported moai",
+          "body": "U+1FAA8 rock is Emoji 13.0 (2020) and renders as tofu on Windows 10"
+        },
+        {
+          "hash": "d72f3175",
+          "time": "19:44",
+          "message": "Rhythm hero: visual-first HUD and game-feel (juice) pass",
+          "body": "Screen simplification per playtest: remove score, running total and"
+        },
+        {
+          "hash": "47a69eb6",
+          "time": "08:51",
+          "message": "Make don drum audible on phone speakers; add 3/4 idea to roadmap",
+          "body": "Phone speakers cannot reproduce the 140-70Hz fundamental, so the don"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "gurenkenki",
+      "commits": [
+        {
+          "hash": "5a06dd71",
+          "time": "08:39",
+          "message": "善逸首頁立繪改為蹲低拔刀居合構圖：頭埋低不露臉、雙手按刀、羽織後揚、刀口寒光電光、速度線蓄勢；鏡射面向選單",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "733cd9d4",
+          "time": "08:33",
+          "message": "新增角色選擇：我妻善逸（雷之呼吸六式）；艾莉絲玩法不變。每3級學一型、Lv18普攻進化電轟雷轟；裝備共享、等級獨立（存檔v2自動搬移）；首頁立繪/說明面板隨角色連動、善逸立繪靠左；方向鍵雙擊衝刺",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "b3b5d692",
+          "time": "17:33",
+          "message": "docs: 論文凍版 - 第八章擴展慢性疾病段依教授意見擴充",
+          "body": "依 7/27 meeting 教授意見：研究不限三高，可推廣至更廣泛慢性疾病。"
+        },
+        {
+          "hash": "f1b068ed",
+          "time": "11:51",
+          "message": "docs: 8/18 timebox 離校時程定案 + meeting 簡報重整",
+          "body": "- 離校方案定案：無論 review 結果，8/18 送系辦、19 走教授掃描簽"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "fdccee55",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-27",
+          "body": "🤖 自動生成於 2026-07-27 07:05"
+        },
+        {
+          "hash": "3850494e",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-26 (2 commits)",
+          "body": "🤖 自動生成於 2026-07-27 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "yeshi-pinball",
+      "commits": [
+        {
+          "hash": "3d9e59d5",
+          "time": "19:33",
+          "message": "加入投幣下注機制：模式輪跳＋停止鎖定＋彩金錢包",
+          "body": "- 底部改為 10 格，投幣（扣彩金）才生球，一次 1 元、單球上限 100"
+        },
+        {
+          "hash": "77e120b6",
+          "time": "19:13",
+          "message": "Initial commit: 夜市彈珠 Phaser 3 pinball game",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 15,
+    "totalCommits": 23
+  }
+}
