@@ -1,0 +1,115 @@
+{
+  "date": "2026-07-28",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "0d9a5cce",
+          "time": "11:19",
+          "message": "fix(LT274): 0160版型footer依需求方調整版面",
+          "body": "- 附加資料移至footer最上方(緊貼表格底線)"
+        },
+        {
+          "hash": "cd13acb1",
+          "time": "11:04",
+          "message": "feat(LT274): 士林遠東0160專屬報告footer版型",
+          "body": "- CD_RPTHDR_TYPE=0160 時走專屬footer：不顯示輸入者/簽署人/本所印章"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "89753ffc",
+          "time": "08:32",
+          "message": "內頁改版:套用溫暖親和風設計系統",
+          "body": "- 最新消息:卡片式手風琴 + 日期膠囊標籤"
+        },
+        {
+          "hash": "4948bb2a",
+          "time": "08:20",
+          "message": "首頁全面改版:溫暖親和風新設計",
+          "body": "- 新增 theme.css 設計系統(珊瑚橘/奶油白/暖棕色系)與 Noto Sans/Serif TC 字體"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "bceed2a5",
+          "time": "15:21",
+          "message": "docs: 新增系統維運手冊並修正 IsDisable 狀態值說明",
+          "body": "- 新增 docs/7 系統維運手冊：DB 連線方式、IsDisable 可見範圍矩陣、關閉檢驗所 SOP"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "taipeigolf\\TaipeiGolf",
+      "commits": [
+        {
+          "hash": "2c6e6f53",
+          "time": "09:55",
+          "message": "上版鐵則補充：含中文檔案必須 UTF-8 with BOM",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b9f0e968",
+          "time": "09:54",
+          "message": "Album view 補 UTF-8 BOM（修 prod 亂碼）",
+          "body": "無 BOM 時 prod ASP.NET 以 Windows-1252 讀檔，整頁中文變亂碼。"
+        },
+        {
+          "hash": "a1f361bf",
+          "time": "09:44",
+          "message": "活動花絮改版：卡片式相簿牆，移除 lightbox 與 jQuery Mobile",
+          "body": "- 封面改 object-fit: cover 維持比例，整卡可點直接開 FB 相簿"
+        },
+        {
+          "hash": "eededb4e",
+          "time": "09:43",
+          "message": "images/news 批次壓縮 31 張（54.7MB -> 8.0MB）",
+          "body": "與 prod 同步（2026-07-28 已 FTP 覆蓋上線並驗證）。"
+        },
+        {
+          "hash": "0831f61b",
+          "time": "09:43",
+          "message": "上傳圖片自動壓縮 + 批次壓縮腳本 + runbook",
+          "body": "- ImageHelper.SaveCompressed：長邊縮至 1600px、JPEG q80 重編碼、"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "77819531",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-28",
+          "body": "🤖 自動生成於 2026-07-28 07:05"
+        },
+        {
+          "hash": "596553b1",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-27 (23 commits)",
+          "body": "🤖 自動生成於 2026-07-28 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 7,
+    "totalCommits": 12
+  }
+}
