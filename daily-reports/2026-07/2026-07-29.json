@@ -1,0 +1,211 @@
+{
+  "date": "2026-07-29",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d5ad8938",
+          "time": "16:51",
+          "message": "feat(LT252): 電泳報告 F4 帶入四項陰性,改用 QUICK_FILL 設定表驅動",
+          "body": "生化組原本靠 Rule 1281 在審核(F8)時帶入陰性,但別組同仁在 LT253"
+        },
+        {
+          "hash": "17868da5",
+          "time": "15:46",
+          "message": "docs(電泳): 補上 F4 設定表驅動建議與不可借用 TI_DFLT_VALUE 的理由",
+          "body": "避免 F4 演變成一個工作站一段硬寫(現已兩段,電泳是第三段):"
+        },
+        {
+          "hash": "c084913d",
+          "time": "15:31",
+          "message": "docs(電泳): 修正 F4 建議為狀態循環,補上儀器/人工結果來源數據",
+          "body": "近180天 OD_RESULT_SRC: 區帶七項(9652-9658,9564)約98%由儀器送入"
+        },
+        {
+          "hash": "7e31837d",
+          "time": "15:24",
+          "message": "docs(電泳): 補上 NS 使用量實測數據與 F4 接管建議",
+          "body": "台北近180天 ORD_DTL 統計: 血清電泳 9565 共 3680 筆,"
+        },
+        {
+          "hash": "7bd06e4e",
+          "time": "15:18",
+          "message": "docs(電泳): 新增電泳報告機制文檔",
+          "body": "整理血清/尿液/CSF/脂蛋白電泳的項目組成、工作站 WS43、"
+        },
+        {
+          "hash": "83844c23",
+          "time": "14:24",
+          "message": "feat(STR001): 亞東委託單抬頭移入頁首每頁重複、頁碼、頁尾分機128",
+          "body": "- 抬頭三段(標題/送檢院所+日期/頁碼+注意事項)移入 Word 頁首，每頁自動重複"
+        },
+        {
+          "hash": "7e04df69",
+          "time": "12:53",
+          "message": "fix(Layout): 測試DB橫幅可點擊縮小避免遮住頂部按鈕",
+          "body": "- 點擊橫幅縮成右上角小標籤(⚠ 測試DB),再點展開"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "e1baaec8",
+          "time": "11:59",
+          "message": "CKEditor 連結預設另開視窗 (target=_blank)",
+          "body": "- 四個編輯器頁面加 link.decorators.openInNewTab (defaultValue: true)，"
+        },
+        {
+          "hash": "698efa1a",
+          "time": "11:59",
+          "message": "新增各公司基本資料管理 (Company_Data CRUD)",
+          "body": "- Entity/DTO/Service/Controller + 前端列表與 6 區塊 CKEditor 表單"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "ea8807c6",
+          "time": "10:22",
+          "message": "docs(deploy): 新竹 07-29 部署紀錄 + 實機資訊勘誤",
+          "body": "- 新竹 Worker 2026-07-29 更新（降頻重試），部署狀態表更新"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "567e25fd",
+          "time": "16:20",
+          "message": "feat(privacy): 公告/投影全面去戶號 — 公開面以車號為代表",
+          "body": "使用者原則：公告=車號↔車位 mapping、戶號不公開。"
+        },
+        {
+          "hash": "33e8c7e2",
+          "time": "15:30",
+          "message": "docs(form): 紙本登記表改版 — 電腦選號取代保底、志願編號改地面數字、重機區說明",
+          "body": "md+Word(UTF-16 HTML) 同步：①勾選欄「志願落選保底」→「電腦選號」(本棟靠電梯剩位；"
+        },
+        {
+          "hash": "d7290d79",
+          "time": "15:22",
+          "message": "feat(heavy): 重機專區 321-349 — 類別區分取代鎖定、重機戶可自選",
+          "body": "seats.js：321-349 標 type=重機區+heavy 旗標(非鎖定)。一般志願(COMPAT 大/小)、"
+        },
+        {
+          "hash": "17f07e8d",
+          "time": "15:12",
+          "message": "feat(zoning): 四棟手排順序整合完成 — AB/CD/EF 新點 + GH 前次手排",
+          "body": "使用者 order.html 點完四棟：AB 102/CD 102/EF 109(含跨棟重疊 41 格) + GH 82(前次手排 527 起，"
+        },
+        {
+          "hash": "a6e84b7a",
+          "time": "15:00",
+          "message": "fix(tool): order.html 清除鈕失效 — 移除殘留的 ordTower 引用",
+          "body": "重疊改版時清除本棟/全部清除仍引用已刪除的 ordTower，點擊即拋 ReferenceError。改為直接清空 order 陣列。"
+        },
+        {
+          "hash": "a5a1c28e",
+          "time": "14:58",
+          "message": "feat(zoning): 手排底稿接入 + order.html 跨棟重疊點選",
+          "body": "使用者於 order.html 手排 GH(527,528,...82格) → 匯出檔進 src/map/tower-order-manual.json，"
+        },
+        {
+          "hash": "1366f94f",
+          "time": "14:48",
+          "message": "feat(tool): result.html 配位結果地圖 + 修 order.html 點擊失效",
+          "body": "result.html：/allocate 執行抽籤自動寫 localStorage(同網域、資料不出瀏覽器)，"
+        },
+        {
+          "hash": "32b2135f",
+          "time": "12:55",
+          "message": "fix(zoning): EF 電梯出口留 EF — GH 改拿右區+指定塊 419-442",
+          "body": "x 中位切分把 EF 出口周邊劃給 GH(使用者：感覺不對)。改回 X_RIGHT=1240(EF·GH 核心中點)"
+        },
+        {
+          "hash": "07ca7d70",
+          "time": "12:47",
+          "message": "feat(zoning): 分界改自動抓數量中位 — 四棟均分 81/82/79/79",
+          "body": "使用者要求比例平均：固定分界(y=900/x=1240)改為左欄依 y 上下對半分 AB/CD、"
+        },
+        {
+          "hash": "412fb562",
+          "time": "12:38",
+          "message": "feat(tool): order.html 接 live 鎖定灰化不可點 + 著色改新分區；tower-priority 扣 321-349",
+          "body": "321-349 已鎖定預留重機區(共75格)。order.html：凍結位灰、不可點、自動清出已存順序；"
+        },
+        {
+          "hash": "4d159e69",
+          "time": "12:31",
+          "message": "fix(tool): order.html 左鍵直接拖曳平移 — 拖>6px 不觸發點座位",
+          "body": "原本平移要空白鍵/右鍵拖，不直覺。改左鍵按住即拖動地圖；放開時若位移超過 6px 就不算點選，點座位不受影響。"
+        },
+        {
+          "hash": "0deff95f",
+          "time": "12:25",
+          "message": "docs(rules): 電腦選號定調 — 補救機制、落選事後自選免費、異動收處理費",
+          "body": "2026-07-24 定調：自選志願為主、電腦選號僅補救；沒勾者等大勢底定後從剩位自選(不用補錢)；"
+        },
+        {
+          "hash": "85f024da",
+          "time": "12:23",
+          "message": "feat(zoning): 各棟優先序改「方向+均分+重疊」版 — 扣鎖定、四棟約均分",
+          "body": "使用者規則：左欄上段=AB上→下、左欄下段=CD下→上、中間=EF、右邊=GH(靠電梯近→遠)；"
+        }
+      ],
+      "count": 13
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "d8a90d5d",
+          "time": "11:48",
+          "message": "docs: 離校總清單重整 + 依懶人包 000-5 更正上傳與授權書流程",
+          "body": "新增「📍 現在進度」單一入口小節（已完成 / 現在這步 / 接下來 11 步），"
+        },
+        {
+          "hash": "876867c3",
+          "time": "09:08",
+          "message": "docs: 系上審核退件修正 + 方程式內文引用 + JISE survey",
+          "body": "系上審核第1次退件（7/29），依助教紅筆意見修正："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "31da3b6c",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-29",
+          "body": "🤖 自動生成於 2026-07-29 07:05"
+        },
+        {
+          "hash": "28374ee4",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-28 (12 commits)",
+          "body": "🤖 自動生成於 2026-07-29 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 10,
+    "sideCommits": 17,
+    "totalCommits": 27
+  }
+}
