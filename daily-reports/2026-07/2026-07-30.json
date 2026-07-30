@@ -1,0 +1,235 @@
+{
+  "date": "2026-07-30",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "c7e42a0f",
+          "time": "08:39",
+          "message": "test: 更新登入帳號檢核測試以符合新格式規則",
+          "body": "- Register_WithInvalidLoginId 預期訊息改為新格式檢核訊息，並新增逗號、空白、過短帳號案例"
+        },
+        {
+          "hash": "8e2dd513",
+          "time": "08:29",
+          "message": "fix: 註冊帳號格式檢核與錯誤訊息顯示",
+          "body": "- 前後端新增登入帳號格式檢核（僅英數字 3-40 字元），防止如 ,DONGSHING2275 的髒數據寫入"
+        },
+        {
+          "hash": "a7a838f5",
+          "time": "08:20",
+          "message": "feat: 審核管理卡片新增待審核數量徽章",
+          "body": "管理員進入會員中心時呼叫 /Member/pending-reviews，"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bard-comics",
+      "commits": [
+        {
+          "hash": "358b1050",
+          "time": "17:45",
+          "message": "feat: 六場首輪草稿一次上站——夫人讀信到最終決戰，全劇動線串通",
+          "body": "- 1-5~7(12頁)、2-1~2(8頁)、3-4(7頁)、4-1(7頁)、5-1(5頁)、5-2~9(9頁)"
+        },
+        {
+          "hash": "0ffc70c6",
+          "time": "17:39",
+          "message": "feat: 每場對照劇本頁——中文改寫 × 莎翁原文，從分鏡 JSON 自動生成",
+          "body": "- tools/generate_script_page.py：讀 storyboard JSON 出 script.html，"
+        },
+        {
+          "hash": "f1cd1f69",
+          "time": "17:33",
+          "message": "fix: 七格構圖雙胞胎換鏡位——同話同主體多格顯式差異化取景",
+          "body": "感知雜湊掃描 152 格 cache 確認：無同檔重用，但 seed 固定下相近 prompt"
+        },
+        {
+          "hash": "3343c35e",
+          "time": "13:05",
+          "message": "feat: 閱讀器加「上一場」——跳場鈕、第一頁退場接上一場末頁(#last)、完場導引補回鏈",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "bb949657",
+          "time": "12:12",
+          "message": "feat: 補場三話分鏡完成——全劇 13 話分鏡全數到位（90 頁 201 格）",
+          "body": "- 2-3~4 門房與加冕 6頁13格：門房醉話喜劇調劑、發現弒君、王子出逃、"
+        },
+        {
+          "hash": "4f9730f4",
+          "time": "12:05",
+          "message": "feat: MVP 分鏡全數完成——宴會驚魂、大釜幻影、夫人夢遊、最終決戰",
+          "body": "- 3-4 宴會驚魂 7頁16格：班柯鬼魂兩度現身、「我已兩足深陷血泊」"
+        },
+        {
+          "hash": "b1e2f860",
+          "time": "11:56",
+          "message": "feat: 1-2 戰報、1-3 女巫預言首輪草稿上站，三場閱讀動線串接",
+          "body": "- 1-2（6 頁）、1-3（8 頁）閱讀頁＋JPG，含本場人物角註"
+        },
+        {
+          "hash": "0b9cadb1",
+          "time": "11:46",
+          "message": "docs: roadmap 改全劇 13 話總表——標 MVP 九話先走，過場併話或字卡橋接",
+          "body": "- 原著五幕攤成 13 話，一列一話含分鏡/生圖/上站狀態欄"
+        },
+        {
+          "hash": "133b2d9a",
+          "time": "11:41",
+          "message": "docs: 1-1 校稿補記——多人同格特徵全滅實錘、女巫帽待決、速度實測",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a1349c0c",
+          "time": "11:41",
+          "message": "feat: 1-4 立儲、1-5~7 夫人讀信、2-1~2 弒君之夜分鏡 JSON",
+          "body": "- 第一幕分鏡全數完成（1-4 為選用集數，網站卡片未列）"
+        },
+        {
+          "hash": "704cfa9c",
+          "time": "11:41",
+          "message": "feat: 劇目卡加簡介＋摺頁式劇情梗概；馬克白頁加登場人物表",
+          "body": "- 莎劇總覽頁四部劇：短簡介改寫成劇情勾子，加 <details> 節目冊摺頁長梗概"
+        },
+        {
+          "hash": "fdf9b774",
+          "time": "11:39",
+          "message": "feat: 頁碼列加獨立「下一場」跳章鈕",
+          "body": "不用翻到最後一頁就能跳章；data-next-url 未設時呈灰色（製作中）"
+        },
+        {
+          "hash": "95228173",
+          "time": "11:37",
+          "message": "feat: 完場導引——最後一頁出現「本場完」與下一場提示",
+          "body": "- 翻頁到最後一頁（或卷軸看到底）顯示：本場完＋回節目單＋下一場預告"
+        },
+        {
+          "hash": "34b72f0a",
+          "time": "11:33",
+          "message": "feat: 漫畫閱讀器雙模式——翻頁（單頁放大、點擊/鍵盤/按鈕換頁）＋卷軸",
+          "body": "- 翻頁模式跳出 680px 窄欄，圖以視窗高度放大，PC 看得夠大"
+        },
+        {
+          "hash": "957fb48e",
+          "time": "11:27",
+          "message": "feat: 馬克白 1-1 首輪草稿 5 頁刊上站（Pollinations 免費生圖）",
+          "body": "- shakespeare/macbeth/1-1/ 閱讀頁：整頁直式閱讀＋草稿聲明"
+        },
+        {
+          "hash": "32027057",
+          "time": "11:26",
+          "message": "docs: 文本來源/角色設定/roadmap 文檔；1-2 戰報、1-3 女巫預言分鏡 JSON",
+          "body": "分鏡腳本 md 移除——storyboard JSON 為單一事實來源，人讀版由 docs 補位"
+        },
+        {
+          "hash": "e288c81c",
+          "time": "11:25",
+          "message": "feat: 生圖 pipeline 三供應商化（pollinations 預設/gemini/openai）＋名句直排上英文原文",
+          "body": "- COMIC_PROVIDER 環境變數切換供應商，429/5xx 退避重試"
+        },
+        {
+          "hash": "7840381c",
+          "time": "11:01",
+          "message": "style: 統一字型堆疊——拉丁文一律 Cinzel，字型改用 CSS 變數集中管理",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "61588c6e",
+          "time": "10:53",
+          "message": "style: 改版為劇院 playbill 風格（深色舞台、聚光燈、金色鉛字、幕次編排）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1136fa6b",
+          "time": "10:49",
+          "message": "feat: GitHub Pages 三層網站骨架（分類 → 莎劇 → 馬克白場次）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4dcb9f04",
+          "time": "10:43",
+          "message": "docs: README 擴充專案緣起與選題路線（莎劇起頭，延伸世說新語/四大奇書/金庸）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 21
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "ea7c78c8",
+          "time": "10:46",
+          "message": "Merge pull request #20 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "作品集新增 Bard Comics 莎士比亞漫畫"
+        },
+        {
+          "hash": "db29a2be",
+          "time": "02:46",
+          "message": "新增 Bard Comics 莎士比亞漫畫至作品集",
+          "body": "加入以 OpenAI gpt-image-1 + Pillow 自動化生圖管線，將莎士比亞經典"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "taipeigolf\\TaipeiGolf",
+      "commits": [
+        {
+          "hash": "405fb1a8",
+          "time": "15:22",
+          "message": "上傳上限調至 20MB + 上架手冊更新（後台上傳 500 已修復）",
+          "body": "- Web.config：maxRequestLength=20480KB / maxAllowedContentLength=20MB，"
+        },
+        {
+          "hash": "5394d8c4",
+          "time": "06:15",
+          "message": "新增 115年青年盃第二回合編組表 (7/31)",
+          "body": "依最新編組資料製作第二回合編組表 xlsx，"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "40cf7c93",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-07-30",
+          "body": "🤖 自動生成於 2026-07-30 07:05"
+        },
+        {
+          "hash": "a0942aa0",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-07-29 (27 commits)",
+          "body": "🤖 自動生成於 2026-07-30 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "c16d422e",
+          "time": "17:15",
+          "message": "docs: 圖書館上傳完成 + 裝訂版組合 + 畢業致謝信",
+          "body": "圖書館建檔與上傳（2026-07-30 完成 step1-3）："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 28,
+    "totalCommits": 31
+  }
+}
