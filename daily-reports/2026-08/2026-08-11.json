@@ -1,0 +1,67 @@
+{
+  "date": "2026-08-11",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d7d0f089",
+          "time": "13:17",
+          "message": "docs(ST208): 同步操作說明與頁面文檔至儲存後可編輯行為",
+          "body": "- Help(F2)：既有清單改為可勾除項目/新增醫令後儲存生效，"
+        },
+        {
+          "hash": "455f0847",
+          "time": "13:14",
+          "message": "fix(ST208): 既有清單渲染依 TNO+項目代碼去重，避免刪除被重複列寫回",
+          "body": "同一檢驗項目設定在多個外送單位時，OUTLAB_DTL join 會讓既有清單"
+        },
+        {
+          "hash": "4be198ca",
+          "time": "11:12",
+          "message": "feat(ST208): 外送清單儲存後可編輯，並記錄檔案上傳狀態",
+          "body": "醫檢師反映清單儲存後無法修改醫令。原因為既有清單的刪除"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "4f1c6ce9",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-11",
+          "body": "🤖 自動生成於 2026-08-11 07:05"
+        },
+        {
+          "hash": "54f31873",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-10 (6 commits)",
+          "body": "🤖 自動生成於 2026-08-11 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "cf7a3758",
+          "time": "11:34",
+          "message": "docs(sql): 0007 補 service_role GRANT — 新表不自動授權、漏掉 permission denied",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 3,
+    "totalCommits": 6
+  }
+}
