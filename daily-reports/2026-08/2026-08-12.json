@@ -1,0 +1,55 @@
+{
+  "date": "2026-08-12",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2f96529b",
+          "time": "14:58",
+          "message": "feat(特殊報告): PDF報告(LT274Pdf)支援夾帶特殊報告 attachSpecial=Y",
+          "body": "Phase 3 PDF通路開通:LT274Pdf 收 attachSpecial=Y 時,產出的 PDF 夾帶"
+        },
+        {
+          "hash": "8731c7ed",
+          "time": "14:51",
+          "message": "fix(LT281): 隱藏查詢表單後補「顯示查詢條件」按鈕叫回",
+          "body": "隱藏按鈕在 form 內，form 隱藏後按鈕跟著消失；"
+        },
+        {
+          "hash": "b4ac0b47",
+          "time": "14:40",
+          "message": "feat(LT281): F2操作說明、增加欄位列(開單/採檢日期)、移除誤觸收合",
+          "body": "1. 新增 F2 操作說明視窗：沿用共用 _HelpModal + SystemHelp.js，"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "34b8d368",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-12",
+          "body": "🤖 自動生成於 2026-08-12 07:05"
+        },
+        {
+          "hash": "646322c0",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-11 (6 commits)",
+          "body": "🤖 自動生成於 2026-08-12 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 2,
+    "totalCommits": 5
+  }
+}
