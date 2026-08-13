@@ -1,0 +1,115 @@
+{
+  "date": "2026-08-13",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "47a0b050",
+          "time": "10:08",
+          "message": "docs: 可靠性三層防線（維運設計準則）",
+          "body": "設計/review/事故 post-mortem 的檢核框架："
+        },
+        {
+          "hash": "bfab159b",
+          "time": "10:00",
+          "message": "AuthoriseQueue head 切換心跳行為 [Heartbeat]",
+          "body": "新版 AuthoriseQueue exe（心跳行＋租約鎖）已於 2026-08-13 佈上 56.231，"
+        },
+        {
+          "hash": "bbd22630",
+          "time": "09:42",
+          "message": "fix: 讀心跳 log 改開 ReadWrite share，讀檔失敗視同失去心跳",
+          "body": "09:40 首輪實戰發現：AuthoriseQueue 的 NLog 每分 :01 握著寫入權，"
+        },
+        {
+          "hash": "3130db82",
+          "time": "09:28",
+          "message": "第二顆頭：AuthoriseQueue@台北（消化排程心跳監控）",
+          "body": "- appsettings.json 新增 LogFreshness head：盯 56.231 AuthoriseQueue.Program.log"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "eeb658ab",
+          "time": "10:08",
+          "message": "docs: README 導覽補可靠性三層防線準則連結（Cerberus repo）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "2747dbd1",
+          "time": "09:58",
+          "message": "docs: 部署備份只留最近一組，備份前先清舊 .bak_*",
+          "body": "rollback 只會用上一版；歷次 .bak 越積越多（現場已清掉 20260601 組）。"
+        },
+        {
+          "hash": "ae2bd81f",
+          "time": "09:51",
+          "message": "feat: AuthoriseSchedule 鎖改租約制（原子取鎖＋逾時接管＋歸屬釋放）",
+          "body": "舊鎖三問題：stale lock 只能人工解、SELECT+UPDATE 非原子、"
+        },
+        {
+          "hash": "16d9ef9e",
+          "time": "09:32",
+          "message": "feat: 加 [Heartbeat] 心跳行，接入 Cerberus 看門狗監控",
+          "body": "- Main finally 在 [Run] End 之後補一行「[Heartbeat] OK, result=...」，"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3813e5e0",
+          "time": "13:22",
+          "message": "docs(Problems): w3wp OOM 文件補「建議的動手順序」章節",
+          "body": "偵察(RAM/AppInit確認)→測試機驗證(Web Garden warmup)→正式上privateMemory→dump分析"
+        },
+        {
+          "hash": "ae6f1e8e",
+          "time": "13:01",
+          "message": "docs(Problems): 全站間歇500 w3wp記憶體高壓OOM 調查文件",
+          "body": "- 8/1 LT225W OOM 回報實查結論: process級記憶體高壓, 非單頁問題"
+        },
+        {
+          "hash": "bf0d4609",
+          "time": "09:12",
+          "message": "docs(Pages): LT255/LT259 重驗流程差異 — 前端檢核方向相反、後端零檢核",
+          "body": "- LT255 擋已審核(R)且僅限儀器值; LT259 擋未審核, 兩頁互補(審核前/後)"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "498d3988",
+          "time": "07:10",
+          "message": "docs: 更新彙整資料 2026-08-13",
+          "body": "🤖 自動生成於 2026-08-13 07:10"
+        },
+        {
+          "hash": "2e33b9f7",
+          "time": "07:10",
+          "message": "docs: 每日工作紀錄 2026-08-12 (5 commits)",
+          "body": "🤖 自動生成於 2026-08-13 07:10"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 11,
+    "sideCommits": 2,
+    "totalCommits": 13
+  }
+}
