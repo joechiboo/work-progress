@@ -1,0 +1,139 @@
+{
+  "date": "2026-08-15",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "ecd84a61",
+          "time": "12:45",
+          "message": "fix(LR251): 白血球分類計數 Total 列固定於捲動區底部",
+          "body": "老人模式(FontSizePx=16)字級放大後,左側計數表 550px 捲動區塞不下"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "maggie-logistics-website",
+      "commits": [
+        {
+          "hash": "a9c9ce68",
+          "time": "19:24",
+          "message": "舊站 125 則歷史新聞三語遷入，最新消息移到導覽第二位",
+          "body": "- 自 foundercargo.com.tw news_detail.php 擷取 2015-07~2025-06 共 125 則（繁/英/簡），存 src/i18n/news.js"
+        },
+        {
+          "hash": "7d3ac2ce",
+          "time": "17:57",
+          "message": "手機版收緊:首頁服務卡改橫向緊湊列、Partners logo 牆維持兩欄",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "766026b0",
+          "time": "16:17",
+          "message": "lftp mirror 加 --no-perms：Windows FTP 不支援 SITE CHMOD",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "12090586",
+          "time": "16:16",
+          "message": "部署改用 lftp：修 FTPS 資料通道 ECONNRESET",
+          "body": "FTP-Deploy-Action 底層不支援 TLS session 重用，伺服器重置資料連線；"
+        },
+        {
+          "hash": "8f29f310",
+          "time": "16:14",
+          "message": "世界地圖航線圖、據點資料整理與多語系補充",
+          "body": "- 新增 WorldMap.vue 與 networkGeo.js：全球據點視覺化"
+        },
+        {
+          "hash": "43927d52",
+          "time": "16:14",
+          "message": "封測環境部署：IIS rewrite、robots 擋收錄、GitHub Actions 自動部署",
+          "body": "- public/web.config：IIS SPA fallback（Windows Plesk 不吃 .htaccess）"
+        },
+        {
+          "hash": "3e1ca364",
+          "time": "15:11",
+          "message": "補強視覺：解決方案卡片圖、消息縮圖、CTA 背景照片",
+          "body": "- 產業解決方案三卡改為圖片卡（電路板／焊接火花／倉儲走道，Unsplash）"
+        },
+        {
+          "hash": "50969e7f",
+          "time": "15:01",
+          "message": "首頁數據帶加說明、整合圖庫照片與合作夥伴 logo 牆",
+          "body": "- 數據帶：四項數字各加一句脈絡說明（三語），並可點擊連往對應頁"
+        },
+        {
+          "hash": "0430b628",
+          "time": "14:39",
+          "message": "Demo 雛型：Vue 3 + Vite 三語響應式官網",
+          "body": "- 首頁：Hero 航線視覺、數據帶、五大服務、產業方案、核心航線、合作夥伴、消息、CTA"
+        },
+        {
+          "hash": "05ae4672",
+          "time": "14:15",
+          "message": "新增舊站盤點：foundercargo.com.tw 解析",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a48f8219",
+          "time": "14:09",
+          "message": "初始化專案結構：需求訪談、報價單草稿、合約重點",
+          "body": "- docs/01-需求訪談.md：客戶需求整理與待釐清事項"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "971bd969",
+          "time": "07:11",
+          "message": "docs: 更新彙整資料 2026-08-15",
+          "body": "🤖 自動生成於 2026-08-15 07:11"
+        },
+        {
+          "hash": "bb59df32",
+          "time": "07:11",
+          "message": "docs: 每日工作紀錄 2026-08-14 (3 commits)",
+          "body": "🤖 自動生成於 2026-08-15 07:11"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "f1333ee7",
+          "time": "11:54",
+          "message": "feat(print): A3 機車位分類圖 — print-map-a3.mjs 產 b1-map-a3.pdf",
+          "body": "大/小/無障礙/重機區/腳踏車分色＋編號，鎖定保留(Supabase locked_seat 即時)黑圈、"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "68e5ac9f",
+          "time": "19:43",
+          "message": "docs: 8/18 離校當天檢查表",
+          "body": "彙整前置作業、附件 3 紙袋 8 項、當天時序、五關卡動線與離校後待辦。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 15,
+    "totalCommits": 16
+  }
+}
