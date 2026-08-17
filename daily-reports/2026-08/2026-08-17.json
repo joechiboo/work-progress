@@ -1,0 +1,193 @@
+{
+  "date": "2026-08-17",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "86f24325",
+          "time": "17:44",
+          "message": "fix(BT201): 處方案件檢核改為空白不算不符",
+          "body": "實測台北 2026-07 有串接的單 3857 筆, 原規則會提示 629 筆(16%),"
+        },
+        {
+          "hash": "d745d3df",
+          "time": "16:40",
+          "message": "feat(BT201): 申報處方案件編號串接檢核",
+          "body": "按申報資料 OK 或存檔時，檢查處方案件(DE_SAME_TNO)串到的那張單"
+        },
+        {
+          "hash": "1e54913c",
+          "time": "15:17",
+          "message": "fix(DeliveryChk): 重複簽收顯示Rack、取消後重簽正確置頂",
+          "body": "同仁反映兩點，皆為 2026-03-31 該批改動的既有副作用（非本次引入）："
+        },
+        {
+          "hash": "b69c43d6",
+          "time": "15:07",
+          "message": "fix(DeliveryChk): 最新簽收列紅字被BS5.3儲存格色蓋掉",
+          "body": "同仁反映 WS25 分頁最新簽收列由紅字黃底變黑字黃底。"
+        },
+        {
+          "hash": "db3ae292",
+          "time": "11:53",
+          "message": "feat(DeliveryChk): 亞東H清單列印調整(22粗體/框線/橫式/項目不帶代碼)",
+          "body": "工單追加需求："
+        },
+        {
+          "hash": "6a420aef",
+          "time": "11:30",
+          "message": "feat(DeliveryChk): 亞東H標籤列印設定modal+服務狀態指示+修流水連號bug",
+          "body": "- 「列印設定」按鈕(列印清單旁)開 modal：張數(1-5)/撥紙/側邊條碼/上下顛倒/前後對調，"
+        },
+        {
+          "hash": "9906ba99",
+          "time": "11:24",
+          "message": "feat(DeliveryChk): 亞東H分頁新增撥紙模式切換",
+          "body": "- 補印按鈕旁新增 ON/OFF 切換鈕（同 CopyPrint 樣式），標籤列印帶 peel 參數"
+        },
+        {
+          "hash": "57b987eb",
+          "time": "11:08",
+          "message": "fix(DeliveryChk): 亞東H標籤列印服務位址空值修正",
+          "body": "- /Home/DeliveryChk 路由（選單入口）與 DeliveryChk2 共用 View 但未塞 ViewBag.ServicePath，"
+        },
+        {
+          "hash": "eb212083",
+          "time": "07:47",
+          "message": "fix(LR152): 模板複製一併帶入Mean/SD與質性Reference Range",
+          "body": "- 複製模式不再將QRD_MEAN_VAL/QRD_VARIANT歸零，Mean/SD隨模板複製"
+        },
+        {
+          "hash": "ac610184",
+          "time": "07:43",
+          "message": "feat(LT281): 採檢日期預設不含時間，新增「採檢日期含時間」選項",
+          "body": "台中反映採檢日期欄位不需要時間。頁面顯示與 Excel 匯出的採檢日期"
+        },
+        {
+          "hash": "98ab3a76",
+          "time": "07:33",
+          "message": "feat(BT201): 就醫日期自動帶入採檢日期 (AutoVisitDTToColDT)",
+          "body": "- 新增 appSettings 旗標 AutoVisitDTToColDT, 預設 0 不啟用"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "b1c52af0",
+          "time": "12:31",
+          "message": "docs: 新增工作站更新步驟說明 txt (隨部署包放 NAS)",
+          "body": "給工作站同仁看的簡易版步驟，重點提醒："
+        },
+        {
+          "hash": "8be7dab4",
+          "time": "12:28",
+          "message": "docs: 補 NAS 部署包更新慣例與多台工作站更新程序",
+          "body": "- NAS 部署點結構與 backup\\<YYYYMMDD>\\ 備份慣例（更新前先備份被取代的舊版）"
+        },
+        {
+          "hash": "6423c344",
+          "time": "12:22",
+          "message": "chore: 版次更新 V2026.08.17.01 (TNO標籤 seqNo/noBarcode)",
+          "body": "各站更新後可由 ?control=version 確認是否為含簽收序號功能的版本。"
+        },
+        {
+          "hash": "8e78e926",
+          "time": "11:40",
+          "message": "feat: TNO標籤支援簽收序號(seqNo)與不印條碼(noBarcode)參數",
+          "body": "亞東H WS45 病理簽收需求：標籤不印條碼，改在條碼位置印大字簽收序號。"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "39b3da7d",
+          "time": "11:17",
+          "message": "feat(sim): 模擬規模拉到 277 戶 ≈ 401 台（貼近實際使用 ~400）",
+          "body": "sample.js：戶號唯一性修到 336 戶（原 168 戶即撞號被去重）、新增 社宅(1/40)/"
+        },
+        {
+          "hash": "1e5fc099",
+          "time": "10:56",
+          "message": "docs(todo): 抽籤模擬排程 — 每月一輪、8月底首輪兼全鏈實測",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "530a17f4",
+          "time": "10:54",
+          "message": "docs(q14): 換位定案「純管理免開發」— 物業於維護頁解鎖+指派、100 元線下收",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b57c8eb8",
+          "time": "10:49",
+          "message": "docs(meeting): 追認 7 項照單通過結案；經理討論約 8/22 下午",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "af2efd59",
+          "time": "10:40",
+          "message": "docs(meeting): 2026-08-16 機車位小組會議紀錄＋發布版＋決策回填",
+          "body": "docs/17 內部紀錄（8 題決議＋追蹤）、docs/18 LINE 發布版（小組/管委會兩版）、"
+        },
+        {
+          "hash": "d7aa00b0",
+          "time": "10:39",
+          "message": "feat(heavy+social): 重機穿插一般位相鄰兩格、社宅戶限公益位 — 2026-08-16 小組決議落地",
+          "body": "重機（Q6 否決專區）：拆 321-349 重機區（seats.js HEAVY_ZONE/type 退場），"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "47a66679",
+          "time": "19:11",
+          "message": "docs: SCI 資料夾改號 10_SCI → 12_SCI + JISE 投稿骨架與模板",
+          "body": "- docs/10_SCI → docs/12_SCI（避開已存在的 10_口試申請後 / 11_離校 編號）"
+        },
+        {
+          "hash": "87abba9d",
+          "time": "18:38",
+          "message": "chore: 整理根目錄 PDF — 掃描原稿歸檔、中間檔清除",
+          "body": "- 論文本人_系上審核_001.pdf → docs/11_離校/系上審核退件意見_第1次_掃描原稿.pdf"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "5a76b060",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-17",
+          "body": "🤖 自動生成於 2026-08-17 07:05"
+        },
+        {
+          "hash": "e3b64d3a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-16 (2 commits)",
+          "body": "🤖 自動生成於 2026-08-17 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 15,
+    "sideCommits": 10,
+    "totalCommits": 25
+  }
+}
