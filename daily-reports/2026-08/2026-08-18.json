@@ -1,0 +1,229 @@
+{
+  "date": "2026-08-18",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "374a6234",
+          "time": "17:30",
+          "message": "docs: 同步 V2026.08.18.03 版次至更新步驟說明與 INSTALL 版本紀錄",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "13d20a17",
+          "time": "17:23",
+          "message": "chore: 版次 V2026.08.18.03 (單位名稱三段式字級)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b56b5bc3",
+          "time": "17:21",
+          "message": "feat(QRCode標籤): 單位名稱超過12字再縮至字級15",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "7d5cd2ec",
+          "time": "17:13",
+          "message": "feat(QRCode標籤): 單位名稱超過7字縮小字級；版次 V2026.08.18.02",
+          "body": "字級 30→20，可容納約 11 個全形字，同姓名/病歷號既有做法。"
+        },
+        {
+          "hash": "e3d8df89",
+          "time": "17:07",
+          "message": "Merge main (V2026.08.18.01) into feature/qrcode-label-unitlen",
+          "body": ""
+        },
+        {
+          "hash": "c810e6aa",
+          "time": "16:56",
+          "message": "docs: 同步 V2026.08.18.01 版次至更新步驟說明與 INSTALL 版本紀錄",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "ecb40e59",
+          "time": "16:51",
+          "message": "chore: 版次更新 V2026.08.18.01 (TY標籤檢體管名代號修正)",
+          "body": "含 song 8/18 修正：生化/紫頭管名帶英文代號時保留完整名稱、管名 0 印空白。"
+        },
+        {
+          "hash": "f1a8ffe6",
+          "time": "16:36",
+          "message": "feat(QRCode標籤): 單位名稱截斷改由 unitLen 參數控制（未帶=7、0=不截斷）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "96a38fbe",
+          "time": "16:36",
+          "message": "feat(LT252): 附加報告標籤單位名稱不在前端截斷，改帶 unitLen=0 交由列印服務控制",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "47b1fd68",
+          "time": "08:10",
+          "message": "fix(BT201): 方向修正為採檢日期自動帶入就醫日期 (AutoColDTToVisitDT)",
+          "body": "- 需求確認後反轉方向: 採檢日期輸入完成, 若就醫日期為空自動帶入"
+        },
+        {
+          "hash": "d4f58b7d",
+          "time": "07:37",
+          "message": "feat(DeliveryChk): 亞東H清單列印加頁碼、標籤加病患姓名",
+          "body": "工單追加需求，皆為純前端："
+        },
+        {
+          "hash": "e1d9fdaa",
+          "time": "07:37",
+          "message": "feat(DeliveryChk): 亞東H清單列印加頁碼、標籤加病患姓名",
+          "body": "工單追加需求，皆為純前端："
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "6e9f7362",
+          "time": "19:59",
+          "message": "feat(zones): 回灌公益位手排順序（order.html 公益頁）",
+          "body": "103,104,102,101,100,99,98,97,96,95,92,93,94,1-7（20 格全排）。"
+        },
+        {
+          "hash": "154df6bd",
+          "time": "19:53",
+          "message": "feat(order-tool): order.html 加「公益位（社宅）」群組；補回 321-349",
+          "body": "工具原排除重機專區 321-349（專區已否決）→ 補回，四棟候選 291→332 格。"
+        },
+        {
+          "hash": "38cf8509",
+          "time": "19:49",
+          "message": "feat(zones): tower-priority 新增區順序 — 公益位（社宅戶電腦選號）＋自行車預留",
+          "body": "修：社宅戶志願落空即使勾電腦選號也永遠配不到（候選清單排除 public）。"
+        },
+        {
+          "hash": "8fd5aa05",
+          "time": "19:34",
+          "message": "docs(bylaw): 換位不設次數上限 — 改為每次收費＋管理中心得拒絕頻繁申請",
+          "body": "原草案「每戶以一次為限」過嚴，決議本意為「不可太頻繁」；條文改以作業費"
+        },
+        {
+          "hash": "1b5e4d93",
+          "time": "19:25",
+          "message": "docs(bylaw): 自行車位數不修 — 641-655 開放停自行車屬管理措施、非法定車位數變更",
+          "body": "參二(七)自行車 164 個回復原狀（移除 179 與改設說明）；(四)(五)大/小機車位維持"
+        },
+        {
+          "hash": "aabd5348",
+          "time": "19:22",
+          "message": "docs(bylaw): 條文只寫規則、不寫沿革 — 移除 641-655 改設說明與公益位「共20個」計數",
+          "body": "參二(七)：改設來源移至說明欄（會議紀錄記載即可），條文僅載數量 179。"
+        },
+        {
+          "hash": "a2706860",
+          "time": "19:17",
+          "message": "docs(bylaw): 標紅版改為辦法全文對照；新增第 8 項費用名稱統一為「維護清潔費」",
+          "body": "全文版：壹～玖＋附件一～四完整條文，異動處紅字/紅色刪除線（刪除線亦為紅色），"
+        },
+        {
+          "hash": "9e9a0eaf",
+          "time": "19:11",
+          "message": "docs(bylaw): 保留 2 格無障礙不入條文 — 屬執行做法(鎖定辦理)，身障優先權由伍二(三)(四)既有規定保障",
+          "body": "日後增減格數免修法；條文僅保留「重機承租無障礙位遇身障申請須無條件退租」之準用。"
+        },
+        {
+          "hash": "f484904d",
+          "time": "18:59",
+          "message": "docs(bylaw): 修訂草案標紅版 HTML — 紅字新增＋刪節線，逐條 redline 供例會投影/列印",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "651ff95d",
+          "time": "18:52",
+          "message": "docs(bylaw): 草案定位 — 下次例行會議提案、細節先過機車位小組",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "54478e2d",
+          "time": "09:52",
+          "message": "docs(bylaw): 辦法修訂草案 19 — 8/16 決議條文對照表 7 條",
+          "body": "參二數量表(留 Q11 空格)、肆五重機穿插+無障礙、伍二分發明文化/行照或身分證/"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "7ee6cc3e",
+          "time": "12:03",
+          "message": "deploy: 36a66b4b75f83db9890a4c64fcfcc0cc17fa67f6",
+          "body": ""
+        },
+        {
+          "hash": "36a66b4b",
+          "time": "20:02",
+          "message": "Merge pull request #8 from joechiboo/claude/meeting-notes-integration-u6ft80",
+          "body": "新增第三屆管委會 115 年 5～8 月例會出席率統計"
+        },
+        {
+          "hash": "44b7979f",
+          "time": "12:01",
+          "message": "新增第三屆管委會115年5～8月例會出席率統計",
+          "body": "依四場例會會議記錄的出席表，統計12位現任委員的出席狀況。"
+        },
+        {
+          "hash": "830ee321",
+          "time": "19:53",
+          "message": "Merge pull request #7 from joechiboo/claude/meeting-notes-integration-u6ft80",
+          "body": "新增第三屆管委會 115 年 5～8 月例會會議記錄"
+        },
+        {
+          "hash": "4999f850",
+          "time": "11:49",
+          "message": "更新版本號至 26.08.18.19.49",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a712fbf0",
+          "time": "11:31",
+          "message": "新增第三屆管委會115年5～8月例會會議記錄",
+          "body": "補上先前未整合的四份例會會議記錄（5/20、6/16、7/7、8/6），"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f0e233cc",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-18",
+          "body": "🤖 自動生成於 2026-08-18 07:05"
+        },
+        {
+          "hash": "0acd7edb",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-17 (25 commits)",
+          "body": "🤖 自動生成於 2026-08-18 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 12,
+    "sideCommits": 19,
+    "totalCommits": 31
+  }
+}
