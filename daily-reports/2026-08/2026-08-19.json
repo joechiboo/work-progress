@@ -1,0 +1,145 @@
+{
+  "date": "2026-08-19",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3eedc318",
+          "time": "16:20",
+          "message": "docs(PDF報告): 註記 pageSize 只支援 A4/B5,傳 letter 等未知值會安靜跑版",
+          "body": "同仁回報 pageSize=letter 跑版。查證結果:系統從未支援 Letter,UI 選單只有"
+        },
+        {
+          "hash": "5d12ef02",
+          "time": "16:10",
+          "message": "fix(LT274E): 英文報告分頁改用量實際高度,A4 才真的能用",
+          "body": "原本分頁是「估算列數」(bodyLength=41 + 閾值硬編碼 49/98/147/196)，只校準過"
+        },
+        {
+          "hash": "3397f8a1",
+          "time": "16:01",
+          "message": "revert(LT274Pdf): 移除 lang=en 的 pageSize 相關改動,回歸單純置中修正",
+          "body": "英文報告 A4 支援牽涉分頁演算法改寫(LT274E 是估算列數、只校準過 B5)，"
+        },
+        {
+          "hash": "059733a5",
+          "time": "15:59",
+          "message": "fix(DeliveryChk): 亞東H簽收清單補上 5007 針吸細胞學",
+          "body": "同仁反映 6081910597 (5007 Needle aspiration cytology) 未出現在清單。"
+        },
+        {
+          "hash": "460e3991",
+          "time": "15:38",
+          "message": "feat(LT252): 附加報告標籤帶 sideNo=0 不印側邊編號",
+          "body": "配合列印服務 V2026.08.19.01（localprinthttpservice MR !31）："
+        },
+        {
+          "hash": "de57d921",
+          "time": "15:07",
+          "message": "revert(LT274Pdf): 退回 lang=en 傳 pageSize——LT274E 是 B5-only 設計",
+          "body": "LT274E 英文報告分頁=前端 JS 按每頁行數插表頭/表尾(以 B5 紙高校準)，非 CSS"
+        },
+        {
+          "hash": "75562a9d",
+          "time": "14:49",
+          "message": "fix(DeliveryChk): 亞東H清單列印跑版修正(分頁點與自然分頁打架)",
+          "body": "實印回報：清單以直式印出且 13 列處自然換頁，與每 18 列的指定分頁點"
+        },
+        {
+          "hash": "a799fd9f",
+          "time": "14:19",
+          "message": "fix(LT274): 夾帶特殊報告 PDF 偏移右裁——夾帶區自行置中脫離 17.5cm container",
+          "body": "特殊報告固定 210mm 寬、被塞在 .container(寫死 17.5cm)裡：子元素比容器寬時"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "499fda61",
+          "time": "15:37",
+          "message": "feat(QRCode標籤): 新增 sideNo 參數控制側邊編號；版次 V2026.08.19.01",
+          "body": "附加報告（QRCode）標籤右上前 5 碼＋右緣直式後 5 碼的側邊編號，"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "dd30f6ad",
+          "time": "23:12",
+          "message": "deploy: f779fff7c246ad4f6fa2b86967ece8e9eaa213cc",
+          "body": ""
+        },
+        {
+          "hash": "f779fff7",
+          "time": "07:11",
+          "message": "Merge pull request #10 from joechiboo/claude/meeting-notes-integration-u6ft80",
+          "body": "補註第三屆三位委員辭職狀態"
+        },
+        {
+          "hash": "a0b7ce59",
+          "time": "23:11",
+          "message": "補註第三屆三位委員辭職狀態",
+          "body": "張O晶（原財委）、潘O雄（原監委）、張O俊確認已辭職，於委員"
+        },
+        {
+          "hash": "c2044904",
+          "time": "07:08",
+          "message": "Merge pull request #9 from joechiboo/claude/meeting-notes-integration-u6ft80",
+          "body": "調整第三屆財務委員標記為「遞補」"
+        },
+        {
+          "hash": "b7fe4898",
+          "time": "23:08",
+          "message": "調整第三屆財務委員標記為「遞補」",
+          "body": "原標記「戶號待確認」為內部備註，不宜顯示於住戶頁面。"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "9e6ca897",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-19",
+          "body": "🤖 自動生成於 2026-08-19 07:05"
+        },
+        {
+          "hash": "6d31b8f0",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-18 (31 commits)",
+          "body": "🤖 自動生成於 2026-08-19 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "5d3d8a63",
+          "time": "07:32",
+          "message": "feat(bylaw): nav 加「辦法」頁籤 — 現行辦法／修訂草案上線",
+          "body": "住戶說明頁 rules.html 只有白話摘要，辦法條文全文線上看不到；"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 8,
+    "totalCommits": 17
+  }
+}
