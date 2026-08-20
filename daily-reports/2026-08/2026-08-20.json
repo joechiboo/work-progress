@@ -1,0 +1,175 @@
+{
+  "date": "2026-08-20",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "45d50600",
+          "time": "15:55",
+          "message": "fix(BT201): 就醫日改動時無條件同步採檢日 + 補文檔",
+          "body": "- 與 user 確認: 每次改動就醫日期都同步覆蓋採檢日期, 移除採檢日為空才帶入的判斷"
+        },
+        {
+          "hash": "93205eee",
+          "time": "15:47",
+          "message": "fix(BT201): 方向還原為就醫日期自動帶入採檢日期 (AutoVisitDTToColDT)",
+          "body": "- MR!1406 的方向反轉是誤判, 正確需求為就醫日期輸入後自動帶入採檢日期 (採檢日期為空時)"
+        },
+        {
+          "hash": "f5dcaa2d",
+          "time": "15:31",
+          "message": "Merge remote-tracking branch 'origin/main' into feat/TrainVerify",
+          "body": ""
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "9f8b429a",
+          "time": "19:58",
+          "message": "chore: 忽略 Word 鎖定暫存檔 ~$*",
+          "body": "Word 開著 public/forms 底下的檔案時會產生 ~$xxx.docx 鎖定檔，"
+        },
+        {
+          "hash": "63143e00",
+          "time": "19:36",
+          "message": "feat(bylaw): 由條文自動產生管理辦法 Word 檔（現行版／修訂版）",
+          "body": "需求：要有可編輯的 Word 版辦法，方便日後維護。原本只有正式公告版 PDF"
+        },
+        {
+          "hash": "8cb2119f",
+          "time": "19:27",
+          "message": "feat(bylaw): 辦法頁加表單下載區，紙本登記表上線",
+          "body": "docs/04-紙本登記表.doc 一直只躺在 repo 裡沒有對外，住戶說明頁提到「可到管理"
+        },
+        {
+          "hash": "82ef6d56",
+          "time": "19:08",
+          "message": "docs(bylaw): 第 13 條改為「月日固定、只留年度空格」— 相對寫法有實際破綻",
+          "body": "前一版寫「自次年一月一日起至同年十二月三十一日止」，想避免每年修辦法，"
+        },
+        {
+          "hash": "e2f4a619",
+          "time": "18:57",
+          "message": "docs(bylaw): 修訂案增第 13 條 — 附件一契約承租期限由空白填實",
+          "body": "【附件一】四「本社區機車停車位承租期限：自＿＿至＿＿止」一直是空白欄位，"
+        },
+        {
+          "hash": "de1d77f7",
+          "time": "18:53",
+          "message": "docs(bylaw): 641-655 維持鎖定停自行車，肆十五但書加「總數有餘裕、限部分區域」",
+          "body": "現況：641–655 已在停自行車，但辦法肆十五本文全面禁止機車區停自行車 → 自打嘴巴。"
+        },
+        {
+          "hash": "244ba9d6",
+          "time": "18:36",
+          "message": "feat(print): A3 新增自行車專版（--bike）",
+          "body": "全區 A3 本來就含自行車（右下角橘色、圖例「腳踏車 164」），但 164 格擠在一小塊，"
+        },
+        {
+          "hash": "f8d88745",
+          "time": "18:29",
+          "message": "fix(basemap): 只拿掉汽車位的黃框，機車/自行車的保留",
+          "body": "前兩版都做錯方向：先是連機車格線一起洗掉，再來是全部改成淺灰。原版圖是"
+        },
+        {
+          "hash": "584b1c09",
+          "time": "18:20",
+          "message": "fix(basemap): 建照色塊改畫成淺灰，不要整個拿掉 — 縮圖時車位格子看不見",
+          "body": "上一版把黃/橘色塊整個不畫，放大看沒問題，但實際顯示尺寸下車位格子幾乎消失、"
+        },
+        {
+          "hash": "fa07ed0c",
+          "time": "18:09",
+          "message": "feat(bike): 自行車走完整條線 — 名冊、配位、匯出、結果顯示",
+          "body": "distribute-bikes.js 早就寫好了但從來沒人呼叫，而且名冊這一段根本傳不過去。"
+        },
+        {
+          "hash": "94c2e02d",
+          "time": "17:51",
+          "message": "feat(bike): 登記表單支援自行車（車種選單＋特徵欄）",
+          "body": "後端 vehicles.ts / migration 0009 早已支援自行車（合成車號綁戶號、第幾輛"
+        },
+        {
+          "hash": "d7b9f2a7",
+          "time": "17:51",
+          "message": "fix(basemap): 色塊改在向量層過濾 — 修好被一起洗掉的機車/自行車格線",
+          "body": "上一版用「渲染後濾顏色」拿掉建照色塊，結果把機車格的黑框一起吃掉了。"
+        },
+        {
+          "hash": "7f8ad591",
+          "time": "17:29",
+          "message": "fix(map): 工具頁座標同步新底圖＋底圖產生集中管理、淡化建照色塊",
+          "body": "換底圖後 order/result/towers 三頁的座標是產生時寫死的、沒跟著更新，"
+        },
+        {
+          "hash": "205f8527",
+          "time": "17:28",
+          "message": "docs(todo): 開發缺口收斂計畫 — 9/30 全關硬線、週別里程碑",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "992105dd",
+          "time": "17:16",
+          "message": "fix(login): 擋自行車合成車號當登入憑證 — 部署後實測抓到的洞",
+          "body": "合成鍵 '自行車-<戶號>-1' 從戶號即可推得，能登入＝知道戶號就看得到"
+        },
+        {
+          "hash": "6d47250e",
+          "time": "17:09",
+          "message": "feat(map): 底圖與座標改用竣工圖重建＋套用 8/19 現場實勘",
+          "body": "原底圖描自 docs/A2-5 地下一層平面圖.pdf（舊版）。與竣工圖 A205（新北市建照"
+        },
+        {
+          "hash": "7417455f",
+          "time": "17:01",
+          "message": "docs(20): 口頭報告段落具體化 — 系統進度四點（選位/自行車/底圖/8月模擬結果）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "50f987e2",
+          "time": "16:51",
+          "message": "docs(meeting): 例會提案單 20＋Q17–Q21 自行車議題入決策表、草案補 9–12 條",
+          "body": "- docs/10：新增 Q17 公益自行車位、Q18 整合設計(已定)、Q19 條文補款、"
+        },
+        {
+          "hash": "f13c6dcd",
+          "time": "16:51",
+          "message": "feat(bike): 自行車整合 — B 前綴編號、綁戶號登記、免費費率、維護頁車種切換",
+          "body": "- seat-id.js：自行車 B001–B164 內部鍵（與機車 155 格撞號）、顯示層剝前綴、"
+        }
+      ],
+      "count": 19
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "78a95c38",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-20",
+          "body": "🤖 自動生成於 2026-08-20 07:05"
+        },
+        {
+          "hash": "7e3af6ab",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-19 (17 commits)",
+          "body": "🤖 自動生成於 2026-08-20 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 3,
+    "sideCommits": 21,
+    "totalCommits": 24
+  }
+}
