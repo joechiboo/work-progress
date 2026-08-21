@@ -1,0 +1,187 @@
+{
+  "date": "2026-08-21",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a68826a3",
+          "time": "13:02",
+          "message": "fix(功能選單): 方向鍵擋預設行為, 防游標瀏覽(F7)讓焦點爬進導覽列",
+          "body": "使用者按 ↑↓ 移動綠色選中項時, 若瀏覽器誤開了游標瀏覽(F7 熱鍵),"
+        },
+        {
+          "hash": "b29b2be4",
+          "time": "12:55",
+          "message": "docs(RuleEngine): 台中檢體延誤案根因定案 — 台中HC010(Forms版)無規則引擎支援",
+          "body": "三輪實測時序完整記錄於部署腳本檔頭:"
+        },
+        {
+          "hash": "b83c9c34",
+          "time": "12:40",
+          "message": "fix(功能選單): Enter 一律以綠色選中項優先, BT201捷徑不吃鍵盤焦點",
+          "body": "問題: 鍵盤焦點若停在導覽列「BT201 - 檢驗單輸入」捷徑上(誤按Tab/Shift+Tab、"
+        },
+        {
+          "hash": "dd4ff9e2",
+          "time": "12:01",
+          "message": "fix(BT201): LDTs管制單位新增0928大安聯合",
+          "body": "台北反應0928(大安聯合醫事檢驗所, DBBILLTYPE=0)可輸入LDTs項目。"
+        },
+        {
+          "hash": "dae599f0",
+          "time": "09:39",
+          "message": "docs+db(RuleEngine): COLDATE_DIFF檢體延誤自動註解 測試庫驗證完成+台中部署腳本",
+          "body": "- 評估文檔更新為實作定案版: oistatus取代teststatus(套餐碼ITEM_TYPE=P不進ma_result)、"
+        },
+        {
+          "hash": "46cd5ae8",
+          "time": "08:47",
+          "message": "docs(RuleEngine): 新增ConditionFunction擴充指南 + 台中P80x檢體延誤註解評估",
+          "body": "- 新增 RuleEngine_新增ConditionFunction指南: 函式庫缺條件時的擴充SOP"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "26a5a619",
+          "time": "07:14",
+          "message": "fix: 滾檔寬限——新檔尚無心跳行不再誤判失聯",
+          "body": "AuthoriseQueue 的 log 每天 00:00:01 滾檔，Cerberus 00:00 那輪巡守"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "d629536b",
+          "time": "07:30",
+          "message": "Merge pull request #26 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "論文英文題目改用官方版本"
+        },
+        {
+          "hash": "bf5021c3",
+          "time": "23:30",
+          "message": "論文英文題目改用官方版本",
+          "body": "更新為 An Empirical Study on Blood Test-Based Risk Prediction"
+        },
+        {
+          "hash": "c40f1bfe",
+          "time": "07:28",
+          "message": "Merge pull request #25 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "學歷卡補上正式論文題目"
+        },
+        {
+          "hash": "5f9ec2b8",
+          "time": "23:28",
+          "message": "學歷卡補上正式論文題目",
+          "body": "論文方向更新為正式題目：《血液檢查之三高疾病風險預測："
+        },
+        {
+          "hash": "4eaf22ac",
+          "time": "07:19",
+          "message": "Merge pull request #24 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "依實際 README 修正汎達物流案描述與技術棧"
+        },
+        {
+          "hash": "eaed969b",
+          "time": "23:19",
+          "message": "依實際 README 修正汎達物流案的描述與技術棧",
+          "body": "- 定位改為官網重建 Demo 雛型（接外包嘗試），不再寫成已交付改版案"
+        },
+        {
+          "hash": "52b07cac",
+          "time": "07:17",
+          "message": "Merge pull request #23 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "作品集新增汎達國際物流官網改版（含新舊站對照）"
+        },
+        {
+          "hash": "f7140978",
+          "time": "23:16",
+          "message": "新增汎達國際物流官網改版至作品集",
+          "body": "- 加入嘗試接外包的官網改版案：以舊站為 input 重新設計、含線上報價"
+        },
+        {
+          "hash": "0ec933cb",
+          "time": "07:14",
+          "message": "Merge pull request #22 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "更新在職碩士學歷為已畢業（2026）"
+        },
+        {
+          "hash": "c83d1a08",
+          "time": "23:10",
+          "message": "修正英文語音介紹單引號字串內的撇號語法錯誤",
+          "body": "master's 的撇號誤置於單引號字串內導致 build 失敗，改為"
+        },
+        {
+          "hash": "e55bacbd",
+          "time": "23:08",
+          "message": "更新在職碩士學歷為已畢業（2026）",
+          "body": "- 資訊科學碩士就讀期間 2024 - 就讀中 → 2024年 - 2026年（只寫到年，"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "3ebce4b1",
+          "time": "17:52",
+          "message": "docs(forms): 附件三 e-Tag 申請書補進版控（原檔名撞 .gitignore *eTag* 規則，改名避開）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "73eeae68",
+          "time": "17:51",
+          "message": "docs(forms): 附件一~四獨立表單草稿（HTML+Word 兩版，待校對）＋TODO 記待辦",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "9731a2c5",
+          "time": "17:27",
+          "message": "docs(bylaw): 標紅版附件三/四移除欄位與未修正註記行",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b26779ae",
+          "time": "17:26",
+          "message": "docs(bylaw): 修訂案定稿 14 條＋8/22 會議文件",
+          "body": "- 提案單重構：13 題（1-7 小組決議逐題確認、8-13 自行車題組），每題標【照小組原案／會後變更／新議題】＋ A4 一頁版"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "6de8c5bb",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-21",
+          "body": "🤖 自動生成於 2026-08-21 07:05"
+        },
+        {
+          "hash": "9202f3fe",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-20 (24 commits)",
+          "body": "🤖 自動生成於 2026-08-21 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 17,
+    "totalCommits": 24
+  }
+}
