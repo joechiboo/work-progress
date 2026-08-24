@@ -1,0 +1,211 @@
+{
+  "date": "2026-08-24",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "b1f7fba8",
+          "time": "08:10",
+          "message": "新增各站部署版本紀錄（集中表格，取代散落各篇的部署紀錄）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "cb850908",
+          "time": "08:03",
+          "message": "事件紀錄：台北 Free PSA 被 P215 刪除標記覆蓋（根因分析與修復）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "169e234f",
+          "time": "08:03",
+          "message": "修正 RESULTD 整單刷新被舊 DELETE 交易覆蓋（台北 6082102777 Free PSA 消失）",
+          "body": "- 明細改為跨 header 群組以 PRD_TEST_CODE 去重，每個項目只保留"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "0569dc35",
+          "time": "08:03",
+          "message": "docs(RuleEngine): 檢體延誤案第六輪比對 — 程式/設定/DB三面皆同, 差異鎖定hcini程式內部",
+          "body": "- hc010.fmx兩站同一檔(2017/3/8); hc010.ini逐行相同; TaskLoader任務差異無關"
+        },
+        {
+          "hash": "de76b7c7",
+          "time": "07:44",
+          "message": "docs(RuleEngine): 檢體延誤案第四輪排查 — 週末例行重啟實驗負向+台北DB端比對相同",
+          "body": "- 08-22~24 HCINI每日05:52重啟兩輪後, 週六57張真實延誤單仍零自動觸發"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "f8043e32",
+          "time": "17:23",
+          "message": "feat(web): 材料頁 1、2 加 PDF 按鈕（?print=1 開啟即跳列印，可另存 PDF）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "98a57086",
+          "time": "17:21",
+          "message": "docs(web): 材料頁移除「三點想先請大家留意」段（與 LINE 訊息版本 A 一致）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c5b1a0cc",
+          "time": "17:17",
+          "message": "feat(web): 例會材料頁 public/meeting.html — 一個連結含三份材料",
+          "body": "- 提案單 A4 隨 build-bylaw 一併複製到 public/agenda-a4.html"
+        },
+        {
+          "hash": "9970a4b0",
+          "time": "17:11",
+          "message": "docs: 9月例會材料 LINE 發布訊息（純文字，避免預覽複製吃換行）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "7c599e0f",
+          "time": "17:08",
+          "message": "docs(agenda): 6-1 餘位釋出補上自行車公益位 5 格（第 10 條亦須加但書）；6-2 註明僅涉機車",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "c344ad78",
+          "time": "17:06",
+          "message": "docs(agenda): 刪除第 10 題（自行車同梯，照辦法執行）與第 12 題（公告方式）；題號重排為 12 題",
+          "body": "- 同梯本即辦法伍三所定，免決議；公告方式過於技術，採預設做法、不提例會"
+        },
+        {
+          "hash": "b6b16bc0",
+          "time": "16:56",
+          "message": "docs(bylaw): 附件一/二移除刪節線，只留紅字新增；圖例補註說明",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b701d733",
+          "time": "16:55",
+          "message": "docs(bylaw): 附件一/二版面改回原件樣式（欄位標籤＋底線，車位編號在上、個人欄位在下）",
+          "body": "依使用者提供的原始附件一：不用框線表格；【需出示證明文件】原本就在下方欄位區，"
+        },
+        {
+          "hash": "739810ee",
+          "time": "16:53",
+          "message": "docs(bylaw): 附件收進一頁 — 刪「須出示證明文件」行、列印時簽章欄與欄位框收緊",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "ca1d0ff0",
+          "time": "16:50",
+          "message": "docs(bylaw): 附件一/二的修正說明移到次頁，表單版面保持完整",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a9ca719d",
+          "time": "16:48",
+          "message": "docs(bylaw): 撤回附件四簽章欄修正（回 14 項）；四個附件列印時各自獨立一頁",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "f9c91284",
+          "time": "16:45",
+          "message": "docs(bylaw): 附件一~四改為表單樣式併入標紅版，異動處標紅（15 項修正）",
+          "body": "- 四個附件改用實際表單版面：欄位框、懸掛縮排、簽章欄（全文 42 處條號段落一併套用）"
+        },
+        {
+          "hash": "ec9a8470",
+          "time": "16:16",
+          "message": "chore(print): A3 全區圖重生（金圈修正後）；自行車專版退場、本機封存不進版控",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a8af5d4b",
+          "time": "16:13",
+          "message": "docs(agenda): 例會第 6 題增列 6-1／6-2（經理提：公益位餘位與收費）",
+          "body": "- 6-1 社宅登記不足時餘位可否開放一般住戶：甲 保留為主、餘位當年度釋出（次年回復保留）"
+        },
+        {
+          "hash": "084cac7c",
+          "time": "16:08",
+          "message": "feat(distribute): 重機取無障礙位＝單格，不再湊相鄰兩格",
+          "body": "規則（2026-08-24 使用者確認）：無障礙格較寬，一台重機停一格即足。"
+        },
+        {
+          "hash": "1dc76762",
+          "time": "16:04",
+          "message": "docs(todo): 641-655 自行車分發改標「例會後啟動」",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "920bc994",
+          "time": "15:56",
+          "message": "feat(distribute): 無障礙位不分社宅身分＋TODO 收攏",
+          "body": "- 2026-08-24 決策：無障礙位有實際需要（身障）即可承租，不再排除社宅戶"
+        },
+        {
+          "hash": "d0f5322d",
+          "time": "15:43",
+          "message": "fix(print): A3 分兩趟畫 — 公益金圈被相鄰圓點蓋掉",
+          "body": "自行車位間距 6.5pt、小車位 8.1pt，都小於圓直徑 10.8pt；單趟畫時後一格的"
+        },
+        {
+          "hash": "bbffcf8f",
+          "time": "15:37",
+          "message": "docs(agenda): 第 14 題改為只決「要不要提區權會」，辦法本次不動",
+          "body": "- 制度方向（維持/續租優先/多年期/年限上限）降為區權會屆時討論之參考，例會不表決"
+        },
+        {
+          "hash": "eaf65915",
+          "time": "15:34",
+          "message": "docs(agenda): 例會新增第 14 題 — 是否維持每年全面重抽（Q22，須提區權會）",
+          "body": "- 提案單新增「三、制度性議題」段：甲維持現制／乙續租優先／丙多年期／丁續租+年限上限"
+        },
+        {
+          "hash": "1bff9eb7",
+          "time": "15:30",
+          "message": "docs(todo): 社區幫匯入檔產生器列 9/30 硬線＋散項收攏",
+          "body": "- 加嚴宣告：所有需求（含 12 月才用到的產出）一律 9/30 前完成，12 月只餵真資料跑一次"
+        },
+        {
+          "hash": "653e1e17",
+          "time": "15:24",
+          "message": "docs(fee): 社區幫費用匯入規格（docs/24）＋真實帳務檔 gitignore＋TODO",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        }
+      ],
+      "count": 22
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "402e0ed1",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-24",
+          "body": "🤖 自動生成於 2026-08-24 07:05"
+        },
+        {
+          "hash": "9fd46219",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-23 (2 commits)",
+          "body": "🤖 自動生成於 2026-08-24 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 5,
+    "sideCommits": 24,
+    "totalCommits": 29
+  }
+}
