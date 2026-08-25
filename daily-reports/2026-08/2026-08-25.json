@@ -1,0 +1,181 @@
+{
+  "date": "2026-08-25",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a5c3bd77",
+          "time": "17:36",
+          "message": "config(LT274): 附件報告清單新增 pTau181/pTau217/APOE",
+          "body": "工單需求：LT274 列印報告的「附件報告」篩選要涵蓋"
+        },
+        {
+          "hash": "2c90e351",
+          "time": "11:21",
+          "message": "docs(HCLAB_web): 新增 PHP 系統解析與儀器原始檔(.res)取值指南",
+          "body": "因研究單位需要未開單項目 RDW-SD(8602) 的數值，追查 HCLAB_web"
+        },
+        {
+          "hash": "2c59f6a9",
+          "time": "10:56",
+          "message": "feat:[BT201]預防保健卡號自動帶入部份負擔009與疾病碼Z0000",
+          "body": "申報資料視窗輸入預防保健卡號(IC21等10個)時，原本只自動帶入原處方案件A3"
+        },
+        {
+          "hash": "e8aa3cab",
+          "time": "10:50",
+          "message": "docs(RuleEngine): 檢體延誤案根因破案定案 — 三站010部署圖+修法=HC010M移植rule段落",
+          "body": "- V$SQL實證: 桃園=.NET hc010(內建rule, 04-07上線常駐MERGE+字面值evaluate);"
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "cc3701d9",
+          "time": "23:42",
+          "message": "feat(sr): 搜尋預算階梯 — 0.727 是算力上限，放大預算後 SR 追平 XGB",
+          "body": "驗證了「timeout 才是綁定條件」的假設"
+        },
+        {
+          "hash": "526dae3f",
+          "time": "19:16",
+          "message": "feat(sr): SR vs 傳統模型切分對齊 + 發現預算階梯問題",
+          "body": "對齊：SR 其實贏 LR，不是輸"
+        },
+        {
+          "hash": "c5b04b2e",
+          "time": "16:46",
+          "message": "feat(external): 外部驗證補校準度 + CHARLS 資料使用義務清單",
+          "body": "校準度分析（run_external_calibration.py）發現兩件事："
+        },
+        {
+          "hash": "7a755f40",
+          "time": "15:46",
+          "message": "feat(SCI): SR 組態診斷實驗 + JISE 投稿規劃 + docs 重整",
+          "body": "## 符號回歸組態診斷（高血壓，3 折 StratifiedGroupKFold）"
+        },
+        {
+          "hash": "0a7e7fc9",
+          "time": "15:36",
+          "message": "fix(mlp): 關掉 early stopping，修好高血脂 AUC 0.496 崩潰 (B1-a)",
+          "body": "機制"
+        },
+        {
+          "hash": "8b67ddeb",
+          "time": "15:22",
+          "message": "feat(eval): AUC 改用 bootstrap 95% CI，配對 bootstrap 取代配對 t-test (B1)",
+          "body": "修好兩個阻塞"
+        },
+        {
+          "hash": "c6cadbdf",
+          "time": "15:09",
+          "message": "docs: 碩論階段封存至 90_archive_碩論 + 新增文件總索引",
+          "body": "口試 2026-07-14 通過、2026-08-18 離校，碩論階段結案。研究重心轉為"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "2d973b38",
+          "time": "16:39",
+          "message": "docs: 紙本登記表修正＋工作人員入口列 TODO；Q15 回填同梯登記與暫緩規則",
+          "body": ""
+        },
+        {
+          "hash": "bd3e75e5",
+          "time": "16:34",
+          "message": "feat(distribute): 工作人員一起登記選位，配位排最後且住戶未配完則暫緩",
+          "body": "辦法伍二（十二）限制的是配位時點（「停車資格程序完結後如有剩餘車位」），"
+        },
+        {
+          "hash": "0095179b",
+          "time": "16:25",
+          "message": "docs(forms): 附件一/二改為原件版面，與標紅版一致；Word 版同步重生",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1df3a296",
+          "time": "16:24",
+          "message": "feat(scripts): 登記資料健檢腳本 check-roster.mjs（防呆偵測，只報告不修正）",
+          "body": "9 項檢查：社宅需求 vs 公益位容量（重機計 2 格）、社宅自行車 vs 114-118、"
+        },
+        {
+          "hash": "f01c15a3",
+          "time": "16:20",
+          "message": "docs: 維護頁公益位資格檢查結案回填",
+          "body": ""
+        },
+        {
+          "hash": "9d7424b2",
+          "time": "16:20",
+          "message": "feat(admin): 維護頁指派加公益位資格檢查（社宅↔公益位分流）",
+          "body": "物業指派會繞過配位引擎的 eligibleFor 分流，11/1-15 指派階段有實際風險："
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "e0e69bee",
+          "time": "08:57",
+          "message": "Merge pull request #27 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "更新未來目標：外木山長泳達成、移除日月潭泳渡"
+        },
+        {
+          "hash": "53666a3d",
+          "time": "00:57",
+          "message": "更新未來目標：外木山長泳達成、移除日月潭泳渡",
+          "body": "- 基隆外木山長泳 ❌ → ✅（已完成）"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "818acdda",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-25",
+          "body": "🤖 自動生成於 2026-08-25 07:05"
+        },
+        {
+          "hash": "c245a120",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-24 (29 commits)",
+          "body": "🤖 自動生成於 2026-08-25 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "soundstage",
+      "commits": [
+        {
+          "hash": "862e83fd",
+          "time": "09:22",
+          "message": "新增 TODO.md：待辦盤點與真實檔案實測結論",
+          "body": "用真實素材（304 MB、2:28、h264 1920x1080 rotation=-90、AAC 48kHz"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 18,
+    "totalCommits": 22
+  }
+}
