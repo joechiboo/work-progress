@@ -1,0 +1,187 @@
+{
+  "date": "2026-08-26",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "7e373018",
+          "time": "14:48",
+          "message": "fix(BT201): 預防保健代號快取相容舊版 API 回應格式",
+          "body": "MR!1435 (014cf46bb) 把 GetPreventiveHealthCodes 從「卡號陣列」改成"
+        },
+        {
+          "hash": "442dee20",
+          "time": "14:09",
+          "message": "fix(BT201): 身分證查會員的回應不再搶走已移走的焦點",
+          "body": "桃園反應 keyin 時「身分證打完基本資料帶入 lag，已經 Enter 到項目那邊，又跳回"
+        },
+        {
+          "hash": "07a7f42c",
+          "time": "12:51",
+          "message": "fix: 設定檔改以 exe 所在資料夾為準，不再依賴工作目錄",
+          "body": "`LoadConfiguration()` 與 `DiagnoseConnection` 都用 `Directory.GetCurrentDirectory()`"
+        },
+        {
+          "hash": "05056cf0",
+          "time": "12:44",
+          "message": "feat: 新竹 (HC) ReportHtmlConverter 首次部署",
+          "body": "新竹分部要上線報告 HTML 同步機制。本次完成 Converter 這條線的"
+        },
+        {
+          "hash": "98194a8b",
+          "time": "07:50",
+          "message": "feat(PatchNotesAdmin): 儲存後自動跳至列表下一筆",
+          "body": "- 儲存成功後自動載入目前篩選順序中的下一筆，搭配「未處理」篩選可逐筆連續處理"
+        },
+        {
+          "hash": "014cf46b",
+          "time": "07:34",
+          "message": "fix:[BT201]預防保健疾病碼改依專案別帶入, HPV卡號不自動帶Z0000",
+          "body": "MR!1429 對全部10個預防保健卡號一律帶入疾病碼Z0000。回頭檢視"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "07a7f42c",
+          "time": "12:51",
+          "message": "fix: 設定檔改以 exe 所在資料夾為準，不再依賴工作目錄",
+          "body": "`LoadConfiguration()` 與 `DiagnoseConnection` 都用 `Directory.GetCurrentDirectory()`"
+        },
+        {
+          "hash": "05056cf0",
+          "time": "12:44",
+          "message": "feat: 新竹 (HC) ReportHtmlConverter 首次部署",
+          "body": "新竹分部要上線報告 HTML 同步機制。本次完成 Converter 這條線的"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "dc5c1c01",
+          "time": "16:33",
+          "message": "docs(todo): 模擬檢查表補工作人員公告隱藏、健檢先跑、維護頁資格確認三項",
+          "body": ""
+        },
+        {
+          "hash": "0be145ca",
+          "time": "16:31",
+          "message": "docs(todo): 員工名單已匯入 staff_roster（11 位在職）",
+          "body": ""
+        },
+        {
+          "hash": "c629e1c0",
+          "time": "16:21",
+          "message": "feat(db): 員工名單改放 Supabase staff_roster（RLS deny-all，僅 service_role）",
+          "body": "檔案放 private/ 換機器就抓不到 → 開一張表，任何機器以 service_role 讀取。"
+        },
+        {
+          "hash": "a965653f",
+          "time": "16:18",
+          "message": "feat(scripts): 健檢比對員工名單，名單外的工作人員標記交物業確認",
+          "body": "線上表單開放自勾「工作人員」（免收費用）→ 系統無從驗證身分，故於健檢比對名單："
+        },
+        {
+          "hash": "b5125d48",
+          "time": "16:14",
+          "message": "docs: 工作人員一律走櫃檯登記，線上表單不提供該選項",
+          "body": "線上表單開放芳鄰自填，若可自勾「工作人員」等同任何人取得免費車位且系統無從驗證；"
+        },
+        {
+          "hash": "7a412f74",
+          "time": "16:10",
+          "message": "docs: Q15 補記「社區工作人員」範圍未定義（清潔為外包、離職繳回難稽核）",
+          "body": ""
+        },
+        {
+          "hash": "96845261",
+          "time": "16:08",
+          "message": "feat(export): 公告公開版隱藏工作人員配位",
+          "body": "工作人員配的是住戶配畢後之剩餘位、免費且隨時可收回，與住戶承租結果性質不同；"
+        },
+        {
+          "hash": "99e7160d",
+          "time": "16:05",
+          "message": "feat(household): 工作人員以合成戶號「員工-<編號>」沿用同一條線",
+          "body": "登入是「戶號＋車號」比對，工作人員有車牌 → 給了戶號即可沿用登記/登入/選位/結果，"
+        },
+        {
+          "hash": "4f339920",
+          "time": "15:59",
+          "message": "docs(forms): 管理中心欄的日期改窄欄，收件編號不再被擠到下一行",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "fe59d17a",
+          "time": "15:59",
+          "message": "docs(forms): 登記表的工作人員承諾改為單行知悉事項",
+          "body": "四條承諾＋獨立簽名欄在登記時點是空的——讓出/離職繳回等義務發生在「配得車位之後」，"
+        },
+        {
+          "hash": "15b13d8e",
+          "time": "15:55",
+          "message": "docs(forms): 登記表第三項（車位志願序）起另頁，版面更寬鬆好填",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "f578e7f8",
+          "time": "15:52",
+          "message": "docs(forms): 工作人員整合進同一張登記表（不另做專表）",
+          "body": "依使用者決定改為單一表單："
+        },
+        {
+          "hash": "7638abbe",
+          "time": "15:49",
+          "message": "docs(forms): 紙本登記表全面更新＋工作人員申請表",
+          "body": "docs/04 修正三處會出錯或缺漏的地方："
+        }
+      ],
+      "count": 13
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "39e2cf31",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-26",
+          "body": "🤖 自動生成於 2026-08-26 07:05"
+        },
+        {
+          "hash": "4bb4d81f",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-25 (22 commits)",
+          "body": "🤖 自動生成於 2026-08-26 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "531eed5c",
+          "time": "16:51",
+          "message": "feat(sr): P6 重現出 max(SBP_T1, SBP_T2) + 啟動 5折×3seed×三疾病過夜跑批",
+          "body": "主要發現：SR 自行推導出「取較差的那次讀數」"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 8,
+    "sideCommits": 16,
+    "totalCommits": 24
+  }
+}
