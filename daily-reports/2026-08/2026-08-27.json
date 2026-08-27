@@ -1,0 +1,247 @@
+{
+  "date": "2026-08-27",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3dac81d4",
+          "time": "12:36",
+          "message": "fix(ST208): 排序按鈕預設值維持原樣，只修排序本身",
+          "body": "工單原本提「固定按鈕在 by 檢體編號 或 處理時間排序邏輯」二擇一，"
+        },
+        {
+          "hash": "77a55216",
+          "time": "12:10",
+          "message": "fix(ST208): 修正外送清單排序造成台北轉檔拆成多個條碼",
+          "body": "by時間排序只以 OH_TRX_DT 排序，但同一批簽收的檢體 OH_TRX_DT 完全相同"
+        },
+        {
+          "hash": "d8bab95b",
+          "time": "07:55",
+          "message": "docs: 新站台上線檢查清單 — 新竹首次部署踩坑總結",
+          "body": "把新竹 (HC) 2026-08-26~27 首次部署的實際經驗整理成可重複執行的 SOP，"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "3f8fe111",
+          "time": "08:21",
+          "message": "新增 TEST_ITEM 項目主檔同步（Task 4），供報告彙總按紙本順序排序",
+          "body": "台中 P811 Hb-EP 彙總排序與紙本不符（單號 6081907273）：HCLITF 介面表"
+        },
+        {
+          "hash": "26900d23",
+          "time": "08:05",
+          "message": "新竹上線：schema 升級腳本、部署文件、排程定義與 schema 預檢工具",
+          "body": "2026-08-27 新竹 FalconCopy 首次上線（取代 ReadOK）的完整交付物："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "d8bab95b",
+          "time": "07:55",
+          "message": "docs: 新站台上線檢查清單 — 新竹首次部署踩坑總結",
+          "body": "把新竹 (HC) 2026-08-26~27 首次部署的實際經驗整理成可重複執行的 SOP，"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "a977f043",
+          "time": "11:50",
+          "message": "補上診所完整地址並修正 Apple 地圖連結",
+          "body": "- Location.vue / Footer.vue 地址由「台北市大安區」改為完整地址"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "dbecbc72",
+          "time": "20:01",
+          "message": "docs(todo): /allocate 加「從 Supabase 載入名冊」按鈕（A 路線前置，取代匯出+匯入兩步）",
+          "body": ""
+        },
+        {
+          "hash": "d5b54a01",
+          "time": "19:59",
+          "message": "docs(todo): 11/15 登記前須清乾淨測試資料（列出三種特徵與刪除順序）",
+          "body": ""
+        },
+        {
+          "hash": "de06d784",
+          "time": "19:52",
+          "message": "docs(select): 電腦選號預設打勾、移除重複的 ☑ 符號",
+          "body": "☑ 與原生 checkbox 並存造成混淆。預設打勾依據 8/27 模擬：未勾者在志願落空後"
+        },
+        {
+          "hash": "a3c28d89",
+          "time": "19:49",
+          "message": "fix(deploy): save-wishes 未隨 normalize.ts 一起部署 → 選位頁仍擋員工戶號",
+          "body": "Edge Function 各自打包一份 _shared，改共用檔後必須所有引用者一起部署，"
+        },
+        {
+          "hash": "6ba5cf1a",
+          "time": "19:44",
+          "message": "fix: 工作人員登記三個 bug（後端驗證、錯誤訊息被吞、前綴要人工打）",
+          "body": "① 後端 _shared/normalize.ts 的 isValidHousehold 未同步放寬 → 員工-XXX 被擋"
+        },
+        {
+          "hash": "8581317c",
+          "time": "19:41",
+          "message": "docs(register): 送出錯誤訊息依身分切換；完成頁一併拿掉「免收費用」",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "ebfa0172",
+          "time": "19:40",
+          "message": "docs(register): 勾工作人員時，戶號提示與 placeholder 改為「員工-姓名」",
+          "body": "驗證本就接受（isValidHousehold 已放寬），但提示只寫住戶格式，"
+        },
+        {
+          "hash": "ca3739be",
+          "time": "19:36",
+          "message": "feat(scripts): 健檢加身分衝突檢查（社宅＋工作人員、旗標與戶號不一致）",
+          "body": "- 社宅×工作人員：規則直接牴觸（前者限公益位、後者不得用公益位），引擎會走"
+        },
+        {
+          "hash": "b8f9e887",
+          "time": "19:35",
+          "message": "docs(register): 工作人員勾選說明拿掉「免收費用」",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4f345dd5",
+          "time": "19:35",
+          "message": "docs(register): 工作人員勾選說明精簡為一句（免收費、剩餘位、須讓出）",
+          "body": "完整權利義務在辦法伍二（十二）與紙本表，登記頁只需讓對方知道三件事。"
+        },
+        {
+          "hash": "d2c6c230",
+          "time": "19:34",
+          "message": "feat(register): 登記頁加「社區工作人員」勾選",
+          "body": "前端 → db facade → supabase/local 兩個 backend 全串；欄位說明載明免收費、"
+        },
+        {
+          "hash": "42647759",
+          "time": "19:30",
+          "message": "chore(brand): 站台名稱由 ParkFee 改為樂菲莊園",
+          "body": "導覽列 logo、分頁標題、辦法速查標題（源頭改 docs/05，隨 build-bylaw 帶入）。"
+        },
+        {
+          "hash": "3400df4e",
+          "time": "19:29",
+          "message": "feat(scripts): make-test-roster 改為真實登記打底＋mock 補到目標台數（預設 400）",
+          "body": "模擬要貼近實際規模（約 277 戶 401 台）：先以 service_role 讀 Supabase 既有登記，"
+        },
+        {
+          "hash": "fd333fd0",
+          "time": "19:04",
+          "message": "docs(todo): 記錄「移除車輛不會釋放車位鎖」缺口（會留下鎖著但沒人用的孤兒格）",
+          "body": ""
+        },
+        {
+          "hash": "c0b4e14d",
+          "time": "19:02",
+          "message": "test(registry): 補工作人員/社宅戶層級傳播的回歸測試",
+          "body": "2026-08-27 全鏈實測抓到的 bug（工作人員未傳播）先前只修未測，補上；"
+        },
+        {
+          "hash": "069bdd56",
+          "time": "18:59",
+          "message": "fix(registry): 工作人員旗標未傳播到全戶（多車時第 2 台會被當住戶配位）",
+          "body": "buildRoster 的戶層級傳播原本只涵蓋 車位志願／志願落選保底／社宅，漏了工作人員："
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "0790841a",
+          "time": "16:59",
+          "message": "docs(meeting): Meeting 30 教授影片回覆簡報",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "83f80c07",
+          "time": "16:59",
+          "message": "docs(sci): 決策紀錄、SR 實驗總覽、兩篇 JISE 同型論文深度解析",
+          "body": "- 決策紀錄.md：集中記錄已定案事項與推翻的前提，避免跨 session 重複討論"
+        },
+        {
+          "hash": "5d987680",
+          "time": "16:58",
+          "message": "feat(sr): 高血糖／高血脂 P4-P6 結果 + 前沿彙整 + 基線表更新",
+          "body": "三疾病 × 3 seeds × 5 折、niter=2000、timeout=600s 過夜跑批的產出。"
+        },
+        {
+          "hash": "a957e5df",
+          "time": "16:58",
+          "message": "fix(sr): run_id 補上疾病代碼 + Pareto 前沿長期保存",
+          "body": "兩個腳本的 run_id 原本不含疾病，三疾病用同一組 (設定, seed, timeout,"
+        },
+        {
+          "hash": "53b5178e",
+          "time": "16:52",
+          "message": "docs: 新增跨 session 交接快照（2026-08-27）",
+          "body": "session 重啟前的狀態快照。權威待辦仍是 TODO.md，本檔只記跨 session"
+        },
+        {
+          "hash": "fd29c4bd",
+          "time": "07:01",
+          "message": "feat(sr): 變數預算消融 — SR 不是贏不了，是輸在預算而那是刻意的",
+          "body": "問題：SR 三疾病都排第 3/6，為什麼贏不了？"
+        },
+        {
+          "hash": "4be1a9ba",
+          "time": "00:50",
+          "message": "feat(sr): 三疾病正式版 45 次跑 — SR 全部第 3/6，max() 結構修正為高血壓專屬",
+          "body": "過夜跑批完成：P6 × 5 折 × 3 seed × 三疾病 @ timeout=600s"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f123bf99",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-27",
+          "body": "🤖 自動生成於 2026-08-27 07:05"
+        },
+        {
+          "hash": "e1f3f6fc",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-26 (24 commits)",
+          "body": "🤖 自動生成於 2026-08-27 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 7,
+    "sideCommits": 25,
+    "totalCommits": 32
+  }
+}
