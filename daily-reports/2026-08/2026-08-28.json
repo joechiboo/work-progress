@@ -1,0 +1,325 @@
+{
+  "date": "2026-08-28",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "13ace8da",
+          "time": "15:19",
+          "message": "Merge main into docs/test-plan — 解衝突並補 DryRun 與 TEST_PLAN 關係說明",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4a775ab3",
+          "time": "15:10",
+          "message": "feat: 單位執行模式 Disabled/DryRun/Live — 支援分批切換與陪跑驗證",
+          "body": "- UnitSettings.Enabled 改為 Mode 三態；DryRun 只解析不寫 DB 不搬檔（含已驗證檔快取防洗版）"
+        },
+        {
+          "hash": "41aa8906",
+          "time": "15:01",
+          "message": "docs: 依單位存活查詢結果 — 150+ 活躍單位、UTI_UNIT_CODE 垃圾資料、0885 缺席",
+          "body": "- ProgCode 品質 OK（0 null/blank）"
+        },
+        {
+          "hash": "b313c180",
+          "time": "14:58",
+          "message": "docs: 收回 Common 停用判定 — 三家族只在失敗時寫 MessLog",
+          "body": "- Keelung/ansn/Common 僅失敗才寫 log（主版才是成功失敗都寫）→ 無 log 不等於沒在跑"
+        },
+        {
+          "hash": "4841604e",
+          "time": "14:55",
+          "message": "docs: Common 覆核定案 — MessLog 實查 2023-04 後未再執行，判定停用",
+          "body": "- 三大家族當日皆有 log（keelung/ansn/主版現役），Common 與 QFT php 停用"
+        },
+        {
+          "hash": "85cc72c5",
+          "time": "12:57",
+          "message": "docs: 部署主機定案 56.227；FlexibleParsing 初盤結果",
+          "body": "- 新 service 與收檔資料夾部署於 192.168.56.227"
+        },
+        {
+          "hash": "195f6361",
+          "time": "12:49",
+          "message": "docs: 表格 adapter 定調 mapping-driven — 版型只是欄位對應的快選",
+          "body": "- 四方/名頌/大同/ansn 欄位模式本質是「來源欄 index → WebOrder 欄位」對應"
+        },
+        {
+          "hash": "37d1b63f",
+          "time": "12:27",
+          "message": "docs: P5 分批切換 runbook — 新 service 接舊資料夾、停排程即切換",
+          "body": "- 每單位五步驟：煙霧測試→設定指舊資料夾→停舊排程→啟用→觀察期"
+        },
+        {
+          "hash": "f9092aa6",
+          "time": "12:23",
+          "message": "docs: 測試計畫 — WebOrder_Test 平行驗證與逐模組切換",
+          "body": "- 新增 TEST_PLAN.md：平行測試設計（同批醫令檔雙餵、逐檔比對）、"
+        },
+        {
+          "hash": "8618ee8e",
+          "time": "08:38",
+          "message": "feat: P1 骨架 — .NET 10 Worker Service + Xml adapter + 共用 Pipeline",
+          "body": "- OrderInSql.Core：統一醫令模型、IOrderFileAdapter、XmlOrderFileAdapter（移植主版"
+        },
+        {
+          "hash": "c6a668e5",
+          "time": "08:28",
+          "message": "docs: 選型更新 — Runtime 改 .NET 10 LTS、Excel 定案 NPOI、排程用內建 Timer",
+          "body": "- .NET 8 支援 2026-11 終止，新專案一律以 .NET 10 為主（公司原則）"
+        },
+        {
+          "hash": "6f497b64",
+          "time": "08:24",
+          "message": "docs: 確認 PhysicianOrderM/D 其他寫入者與 upsert 硬性約束",
+          "body": "- 公衛 WebOrder 站台會 UPDATE/DELETE；LISWeb 洗腎流程回填 ID_TNO+TO_ORA"
+        },
+        {
+          "hash": "734454ca",
+          "time": "08:21",
+          "message": "docs: ansn 家族細讀 — Branch/UNIMAX 非 fork，是三世代同時在線",
+          "body": "- 一代 UNIMAX（25 欄）、二代 Branch（27 欄+TransferUCLCode，純手動）、三代 ansn/chansnsn（28 欄+REMARK，v1.20.0103）"
+        },
+        {
+          "hash": "77de4249",
+          "time": "08:17",
+          "message": "docs: 解析器定位為 Adapter — 外部版型轉接統一醫令模型",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "805989ef",
+          "time": "08:16",
+          "message": "docs: 新增 3.6 資料夾與排程收斂設計",
+          "body": "- 排程 10+ 條歸零：時間窗規則（after3pm/超三點）從排程名稱變成單位設定"
+        },
+        {
+          "hash": "24ec82da",
+          "time": "08:16",
+          "message": "docs: 反組譯後家族分析 — 9 支變體實為 3 套程式碼",
+          "body": "- 業務脈絡：檢驗所收多元客戶醫令 → 各格式解析器 → WebOrder DB → 下游 LIS"
+        },
+        {
+          "hash": "cc7718bc",
+          "time": "08:10",
+          "message": "feat: 反組譯 .227 全部 14 支變體還原原始碼至 decompiled/",
+          "body": "- ilspycmd 11.0 反組譯 archive/ 內各變體 exe，還原 csproj + 完整類別結構"
+        },
+        {
+          "hash": "46439a53",
+          "time": "08:01",
+          "message": "docs: 記錄 .227 檔案撈回結果；.gitignore 排除 archive/（含個資與二進位）",
+          "body": "- .227 C:\\ 共 14 個 OrderInSQL 部署資料夾 + 排程 .job 已複製到 archive/（僅 exe 無原始碼，需反編譯）"
+        },
+        {
+          "hash": "7ce1e33e",
+          "time": "07:56",
+          "message": "docs: 依 168.227 排程盤點更新變體清單（實際 9 支）",
+          "body": "- 從 .227 工作排程找到 6 支未入版控變體：Veterans / xevox / xevox2 / Cube / Cube2 / chansnsn"
+        },
+        {
+          "hash": "5ab7e790",
+          "time": "07:53",
+          "message": "docs: 補充 168.227 (WS2003) 退役動機與盤點項目、修 markdownlint",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "e015c2bd",
+          "time": "07:52",
+          "message": "docs: 初版 README 與重構計畫",
+          "body": "- 盤點四支既有 OrderInSQL 變體（主版 XML / Common Excel / Keelung CSV / 新竹安慎）"
+        }
+      ],
+      "count": 21
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "761102f4",
+          "time": "15:14",
+          "message": "docs(ST208): 排序拆條碼案結案記錄與 ORDER BY 陷阱",
+          "body": "- 問題文檔更新為結案：補上上線時程、2026-08-28 桃園當天實單驗證結果"
+        },
+        {
+          "hash": "13fba25d",
+          "time": "11:31",
+          "message": "docs: 補影響評估、受影響進入點、六站上版說明，LT302 補查詢範圍限制",
+          "body": "OrderNo_年份碰撞問題.md:"
+        },
+        {
+          "hash": "47d85f3e",
+          "time": "11:05",
+          "message": "docs(problems): 補完 TNO 年份碰撞 — 編碼規則、號碼回收生命週期、正式庫實測",
+          "body": "原文件只寫到「年份個位數 10 年循環」，缺了真正的機制與實際災情。"
+        },
+        {
+          "hash": "0771056d",
+          "time": "09:03",
+          "message": "fix(report): 修 TNO 年份碰撞導致三層 fallback 端出別人報告",
+          "body": "GetReportsDetail 的 ORD→HORD→AORD fallback 最後一層是無條件 else，"
+        },
+        {
+          "hash": "23df7ef2",
+          "time": "08:03",
+          "message": "style(DataImport2): 艾所範本範例列改用高雄實際檔案版面",
+          "body": "照實際檔案內容呈現(兩位病人含Positive案例+空白分隔列),"
+        },
+        {
+          "hash": "07ed0172",
+          "time": "07:59",
+          "message": "feat(DataImport2): 下載範本改下拉選版型, 版型可自帶範例列",
+          "body": "- 原按鈕寫死抓currentTemplate||第一個版型, 兩版型後無從選擇"
+        },
+        {
+          "hash": "ce9b3126",
+          "time": "07:46",
+          "message": "feat(DataImport2): 新增艾所碳13呼氣檢查匯入版型與引擎擴充",
+          "body": "高雄健仁醫院外送碳13幽門螺旋桿菌呼氣檢查(委艾所醫事檢驗所), Excel結果轉入LIS。"
+        },
+        {
+          "hash": "181e4c2c",
+          "time": "07:35",
+          "message": "docs(DataImport2): 新增功能說明與高雄碳13呼氣報告轉入評估",
+          "body": "- Pages/DataImport2: 版型架構、匯入流程、寫入四表、使用現況(桃園)、擴充點"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "dab29cf2",
+          "time": "16:03",
+          "message": "docs: 燈號語意與兩種磚——涵蓋一整天就需要排程型",
+          "body": "牆要整合整日維運節奏（冒煙、備份、批次），逼出 Cerberus 沒有的第二種模型："
+        },
+        {
+          "hash": "89862ba6",
+          "time": "16:00",
+          "message": "Argus 起手：監控牆設計綱要",
+          "body": "百眼巨人接住地獄犬的視野——Cerberus 負責叫，Argus 負責看。"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "8dd0236a",
+          "time": "16:29",
+          "message": "第三顆頭：HC010 醫令產生@台北（新頭型別 DbBacklog）",
+          "body": "輪詢型程式卡住時，process 未必死、log 未必停，看心跳完全抓不到。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "74a81842",
+          "time": "08:33",
+          "message": "docs(sci): 外部驗證總覽、基線表二選一，並更正三處過期或錯誤的陳述",
+          "body": "新增兩份索引/決策文件："
+        },
+        {
+          "hash": "6dbc6ad4",
+          "time": "08:33",
+          "message": "feat(sr): 補跑高血糖與高血脂的 P0/P2，三疾病確認「best 把公式壓成單變數」",
+          "body": "原本只有高血壓有碩論設定(P0)的基準，另兩個疾病沒有前後對照。補跑 P0 與 P2"
+        },
+        {
+          "hash": "f89a0a77",
+          "time": "08:33",
+          "message": "fix(mlp): early stopping 修正擴及外部驗證與滑動窗口，並確立「選穩定不選高分」",
+          "body": "B1-a 修好 run_5fold_cv.py 之後，同一個 bug 還留在另外兩處。"
+        },
+        {
+          "hash": "9815fa58",
+          "time": "08:32",
+          "message": "feat(charls): 第三個外部世代 — 核心的雙時點＋Δ 設計首次在獨立世代重現",
+          "body": "CHARLS(China Health and Retirement Longitudinal Study) W1(2011)/W2(2013)/"
+        },
+        {
+          "hash": "c03337d6",
+          "time": "08:32",
+          "message": "chore(data): 排除 CHARLS 與 Dryad 原始微觀資料",
+          "body": "CHARLS 與 Dryad(Chen_RC/NAGALA) 的資料使用協議明文禁止散布原始微觀資料，"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "boo-camp",
+      "commits": [
+        {
+          "hash": "e591bed4",
+          "time": "12:41",
+          "message": "修正夜衝時間：10/23（五）晚上，不是 Day 1",
+          "body": "原本把「夜衝的朋友這天到」寫在 10/24 的晚上，錯了。夜衝是提前一晚，"
+        },
+        {
+          "hash": "fb7a5208",
+          "time": "12:29",
+          "message": "首頁重做、營位表加合計與排序、補上營區資訊",
+          "body": "Hero：夜空漸層、發光月亮、星空、飛過的蝙蝠、地面霧氣與樹林剪影，"
+        },
+        {
+          "hash": "2b5b0cdc",
+          "time": "11:50",
+          "message": "新增 2026 萬聖節團露活動網站",
+          "body": "單頁靜態網站，內容集中在 assets/data.js 方便主辦自行維護。"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "5df21fef",
+          "time": "11:53",
+          "message": "Merge pull request #28 from joechiboo/claude/adoring-archimedes-QO4wZ",
+          "body": "作品集新增 Boo Camp 萬聖節團露網站"
+        },
+        {
+          "hash": "7fb466ee",
+          "time": "03:53",
+          "message": "新增 Boo Camp 萬聖節團露網站至作品集",
+          "body": "加入 2026 萬聖節團體露營的活動資訊站：倒數計時、行程、餐食、"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "2540739f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-28",
+          "body": "🤖 自動生成於 2026-08-28 07:05"
+        },
+        {
+          "hash": "5241576b",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-27 (32 commits)",
+          "body": "🤖 自動生成於 2026-08-28 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 32,
+    "sideCommits": 12,
+    "totalCommits": 44
+  }
+}
