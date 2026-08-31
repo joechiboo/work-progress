@@ -1,0 +1,355 @@
+{
+  "date": "2026-08-31",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "17d505e1",
+          "time": "19:10",
+          "message": "佈署指南：補上 Argus 每次更新都會踩的兩個坑",
+          "body": "今天佈了三次，每一次都要手動處理這兩件事，但文件裡一個字都沒有。"
+        },
+        {
+          "hash": "69016872",
+          "time": "19:05",
+          "message": "牆面：試聽同時示意紅色、HTML 不快取、監控清單加入口",
+          "body": "三個實際使用時發現的問題。"
+        },
+        {
+          "hash": "a39c3e16",
+          "time": "18:40",
+          "message": "牆面：說明面板、警報音效、紅色警戒視覺",
+          "body": "三件使用者當場提出的缺口。"
+        },
+        {
+          "hash": "6f0186c2",
+          "time": "17:17",
+          "message": "README：記錄目前線上狀態（原本還寫著「尚未開始」）",
+          "body": "第 11 行原本寫「後端與 Cerberus 串接尚未開始」，但今天已經上線並吃真資料。"
+        },
+        {
+          "hash": "589857c7",
+          "time": "17:17",
+          "message": "佈署指南：防火牆不能用 localsubnet",
+          "body": "實測踩到的。這裡的網路是「server 一個網段、使用者一個網段」——"
+        },
+        {
+          "hash": "5de0f926",
+          "time": "16:50",
+          "message": "佈署指南：補上開防火牆這一步，並記下怎麼分辨它",
+          "body": "實際佈署時漏掉的一步。服務顯示 RUNNING、sc.exe query 正常，"
+        },
+        {
+          "hash": "e0562832",
+          "time": "16:44",
+          "message": "支援 Windows 服務模式；並清掉誤入 repo 的測試密鑰",
+          "body": "## 服務模式"
+        },
+        {
+          "hash": "0af398ea",
+          "time": "16:28",
+          "message": "更正：前身那面牆在台北，不在新竹",
+          "body": "README〈前身〉原本寫「新竹 B1 大廳電視」。新竹沒有 B1，9100 這面牆只有"
+        },
+        {
+          "hash": "fab4c392",
+          "time": "16:23",
+          "message": "埠改成 9200：跟前身那面牆並存，不動它",
+          "body": "9100 是前身 ucl/ops/todo 的埠，實測那個 IIS 站台還在跑。不確定新竹 B1"
+        },
+        {
+          "hash": "01daf96e",
+          "time": "16:19",
+          "message": "佈署指南：改埠只有 --urls 和改 appsettings 有效",
+          "body": "實際跑過 publish 出來的 exe 才發現的兩件事。"
+        },
+        {
+          "hash": "9ab9574a",
+          "time": "13:02",
+          "message": "修正：56.229:9100 不是空槽，前身的牆還在跑",
+          "body": "原本文件寫「可能還空著，省掉找機器」，是照 README 對前身的描述推的。"
+        },
+        {
+          "hash": "c04159c5",
+          "time": "12:42",
+          "message": "Argus 骨架：接快照、SignalR 推播、牆面吃真資料",
+          "body": "Phase 1b 的 Argus 半邊。對面是 cerberus!18。"
+        },
+        {
+          "hash": "6cee7c05",
+          "time": "12:27",
+          "message": "牆面：秒數會跳、灰燈上場、情境改成可點",
+          "body": "「地獄犬 18 秒前回報」原本是寫死的字，盯著看永遠不動——一面牆上唯一"
+        },
+        {
+          "hash": "3c466a22",
+          "time": "11:02",
+          "message": "圖示改成去背五眼；分頁尺寸靠描邊撐輪廓",
+          "body": "原本各尺寸畫不同版本（64px 以上五眼、以下退回單眼），結果分頁上看到的"
+        },
+        {
+          "hash": "e2d4ff8c",
+          "time": "10:46",
+          "message": "牆面圖示：百眼巨人的眼睛",
+          "body": "分頁上一排無標題的白底頁籤裡認不出哪個是牆——電視端排錯誤、"
+        },
+        {
+          "hash": "b1c90fd4",
+          "time": "10:41",
+          "message": "牆面改為整片背景即狀態；音效預設開啟",
+          "body": "一、綠色不夠明顯 → 整片背景就是狀態（綠／琥珀／紅／灰）"
+        },
+        {
+          "hash": "ba5c654b",
+          "time": "10:37",
+          "message": "牆面靜態原型：把四條設計準則變成看得見的東西",
+          "body": "只能顯示「全綠」的原型沒辦法評估設計——紅燈長什麼樣、佔多少版面才是重點，"
+        }
+      ],
+      "count": 17
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "c10e4a0d",
+          "time": "17:25",
+          "message": "更正佈署指南的根因：危險的是 robocopy 跑很久，不是巡守變慢",
+          "body": "上一版把「一輪 30 秒」當成撞上排程的原因，那是**開發機經 VPN** 的數字。"
+        },
+        {
+          "hash": "e6d82307",
+          "time": "17:23",
+          "message": "佈署前先停排程：六顆跨站頭讓「撞上正在跑」從極低變成常態",
+          "body": "2026-08-31 佈六顆 DbBacklog 頭時實際誤發 6 則 Discord 告警。"
+        },
+        {
+          "hash": "1bac9634",
+          "time": "17:17",
+          "message": "Wall 設定從正式機補回 repo（差點被整包覆蓋掉）",
+          "body": "Wall.Url 與 TokenEnc 一直只存在 56.231 上，repo 裡是空字串。"
+        },
+        {
+          "hash": "64021921",
+          "time": "17:11",
+          "message": "佈署指南：publish 模式不能換（今天害看門狗停擺 9 分鐘）",
+          "body": "正式機那包是 self-contained。我用 framework-dependent 覆蓋上去，"
+        },
+        {
+          "hash": "a7ec9b7c",
+          "time": "17:08",
+          "message": "DbBacklog 支援 SQL Server，接入 VisionReportHub 六站「整批失敗」頭",
+          "body": "Cerberus 只認得 Oracle，但 VisionReportHub 的傳輸紀錄在 SQL Server。"
+        },
+        {
+          "hash": "bff96964",
+          "time": "16:56",
+          "message": "文件對齊事實：排程是 2 分鐘，不是 10 分鐘",
+          "body": "正式機（台北 56.231）的排程間隔實際是每 2 分鐘，但 README、Program.cs"
+        },
+        {
+          "hash": "a978c6f6",
+          "time": "16:23",
+          "message": "監控牆回報：Argus 的埠是 9200 不是 9100",
+          "body": "Argus 決定跟前身 ucl/ops/todo 那面牆並存（9100 上那個 IIS 站台還在跑），"
+        },
+        {
+          "hash": "bf9396a0",
+          "time": "12:33",
+          "message": "IStatusSink：每輪把完整快照送上 Argus 監控牆",
+          "body": "牆要的東西跟告警不一樣，所以不複用 IHowler：IHowler 只在狀態變化時"
+        },
+        {
+          "hash": "405e6a01",
+          "time": "10:33",
+          "message": "docs: 冒煙測試頭的告警回應 SOP + 上線紀錄",
+          "body": "第四顆頭 2026-08-31 10:32 上線。補告警回應手冊："
+        },
+        {
+          "hash": "72d83aba",
+          "time": "10:25",
+          "message": "第四顆頭：冒煙測試六站（ScheduledRun 首個真實用例）",
+          "body": "冒煙 2026-08-31 從個人開發機搬到 56.231，原因正是這顆頭要抓的東西——"
+        },
+        {
+          "hash": "e099f65c",
+          "time": "10:11",
+          "message": "新頭型別 ScheduledRun：一天一次的任務「跑了沒」",
+          "body": "心跳型問「現在還在跳嗎」，但冒煙測試、RMAN 備份、夜間批次這類一天只跑一次的"
+        },
+        {
+          "hash": "123dc791",
+          "time": "09:48",
+          "message": "docs(佈署): 排程改 PT2M 結案 + 補改動後的驗收步驟",
+          "body": "2026-08-31 已把巡守間隔從 10 分改成 2 分（原本配不上 AuthoriseQueue 的"
+        },
+        {
+          "hash": "bfa3cb58",
+          "time": "09:41",
+          "message": "docs(佈署): robocopy 補 /XD logs /XF state.json + HC010 上線紀錄",
+          "body": "2026-08-31 佈 HC010 那顆頭時發現的坑：原本的 robocopy 指令會把開發機的"
+        }
+      ],
+      "count": 13
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "63762dd4",
+          "time": "15:10",
+          "message": "docs(Problems): LT252/LT253 高度重複分析 — 建議抽共用JS不合併頁面",
+          "body": "LT252(6435行/67函式) 與 LT253(6033行/59函式) 共同持有 53 支同名函式，"
+        },
+        {
+          "hash": "f189fd83",
+          "time": "12:28",
+          "message": "feat(PriceChk): 價格/數量異常清單加入出帳人員欄位與篩選",
+          "body": "與 BT101/BT402 同一來源 DEBTOR_DETAIL.BILLING_PERSON："
+        },
+        {
+          "hash": "b5ab9eff",
+          "time": "12:37",
+          "message": "fix(BT201): 單位白名單改為明確判台中(LabUniform)，他站 fail-open",
+          "body": "原本只靠「旗標只在 Web.TC_UCL.config 開」隱含限定台中，程式裡看不到"
+        },
+        {
+          "hash": "2d3157ac",
+          "time": "12:25",
+          "message": "docs(BT201): 註明單位白名單是台中代碼、他站啟用旗標前須換碼",
+          "body": "單位代碼各分部不共用(1959 台中=苑裡李綜合(社服)、台北=樂利國小)，"
+        },
+        {
+          "hash": "f813ad60",
+          "time": "12:23",
+          "message": "fix(BT201): 就醫日帶入採檢日限定送檢單位 1993/1959/6962",
+          "body": "台中反映 AutoVisitDTToColDT 開啟後全站單位都會被覆蓋採檢日，"
+        },
+        {
+          "hash": "4b2cb7f2",
+          "time": "10:05",
+          "message": "feat(smoke): 可攜包補排程啟動器，讓冒煙能搬到常開伺服器",
+          "body": "冒煙目前跑在個人開發機（C:\\Tools\\smoke）。部署文件自己就寫著「別放會關機的"
+        },
+        {
+          "hash": "2dc70e68",
+          "time": "09:41",
+          "message": "docs(Problems): 補56.225端到端實測結果 — 兩輪5秒內全鏈路通過",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "bebf78c6",
+          "time": "09:33",
+          "message": "fix(Examine): 補套餐子項與GLOBAL備註的R01重產缺口＋文檔整合驗證結果",
+          "body": "追 hcini 原始碼(HC002S/HC010M)後確認完整機制:"
+        },
+        {
+          "hash": "9a3f4d07",
+          "time": "09:16",
+          "message": "docs(Problems): 審後修改備註未同步網路報告查詢 — 案例、同步鏈與修法記錄",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "be58f91a",
+          "time": "09:14",
+          "message": "fix(Examine): 審後修改備註重設OD_CTL_FLAG1讓002S同步網路報告",
+          "body": "案例 6073002693 項目 9044:全部審核完成後用備註視窗(EDIT COMMENT)加註,"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "328d190a",
+          "time": "17:34",
+          "message": "docs(deploy): 台北 2026-08-31 Worker 部署紀錄",
+          "body": "關閉傳輸 email、每輪 [Heartbeat]、心跳 15 分。Api/Dashboard 未動。"
+        },
+        {
+          "hash": "b2e655df",
+          "time": "17:27",
+          "message": "關掉傳輸 email，把整批失敗告警交給 Cerberus 看門狗",
+          "body": "每日彙總信與個案失敗即時警報都是「讀了不用做事」的信。每天固定寄、"
+        },
+        {
+          "hash": "a1a37fd6",
+          "time": "16:13",
+          "message": "docs(thesecloud): 新竹安貞杏雲建置 + 補齊 config 分層/新增 vendor 流程",
+          "body": "工單 SR202608310002：新竹要接杏雲回傳，2852 安貞診所。"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "9fd25def",
+          "time": "09:34",
+          "message": "test_item 主檔同步全站鋪開（六站上線紀錄）＋部署文件補齊",
+          "body": "2026-08-31 將 MR !7 的 test_item 主檔同步部署到其餘五站（台中 8/27 先行）："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "boo-camp",
+      "commits": [
+        {
+          "hash": "33124266",
+          "time": "14:36",
+          "message": "新增自助餐收費區，並以收費表重建營位表",
+          "body": "依「各組名單與費用總計」公告新增收費區塊："
+        },
+        {
+          "hash": "88e91c07",
+          "time": "08:26",
+          "message": "更新營位異動：蘭屋⇄彩菊換房、新屋聯絡人更正、新增星星",
+          "body": "依 2026/08 LINE 群組與新版營位圖更新："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "93dfe440",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-08-31",
+          "body": "🤖 自動生成於 2026-08-31 07:05"
+        },
+        {
+          "hash": "e7909d4d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-30 (2 commits)",
+          "body": "🤖 自動生成於 2026-08-31 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "8c800979",
+          "time": "17:53",
+          "message": "docs(sci): session 收尾 — 標記舊基線表作廢、統一名次陳述、交接快照",
+          "body": "X1 標記舊基線表作廢（保留檔案供追溯，不刪）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 44,
+    "sideCommits": 5,
+    "totalCommits": 49
+  }
+}
