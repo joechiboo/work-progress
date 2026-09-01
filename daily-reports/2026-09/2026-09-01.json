@@ -1,0 +1,265 @@
+{
+  "date": "2026-09-01",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "47b46384",
+          "time": "19:42",
+          "message": "多分部設計：六站上牆之前，先承認「一份快照就是全部真相」是個假設",
+          "body": "現在的形狀有三個「一」——一份快照、一個新鮮度、一張重跑單。六個分部會同時撞上"
+        },
+        {
+          "hash": "10f84a04",
+          "time": "18:37",
+          "message": "README：監控來源表跟上現實——牆上早就有 12 顆頭，表裡還寫著待做",
+          "body": "儀器佇列、報告回傳六站上線都沒回來更新這張表；"
+        },
+        {
+          "hash": "935fa7c8",
+          "time": "08:58",
+          "message": "佈署指南：那段注入 TokenEnc 的指令自己會把設定檔弄壞",
+          "body": "2026-09-01 佈署重跑按鈕時，照這份文件寫的 PowerShell 注入 TokenEnc，"
+        },
+        {
+          "hash": "07526aa1",
+          "time": "08:13",
+          "message": "牆面：紅磚上的重跑按鈕，讓修好的東西能當天恢復成綠",
+          "body": "牆本來是唯讀的。開這個例外只為了一種情況：磚上顯示的東西已經修好"
+        },
+        {
+          "hash": "77b6f3e3",
+          "time": "07:52",
+          "message": "佈署指南：修好被吃掉的路徑，照抄那段會失敗",
+          "body": "〈更新版本時每次都會踩的兩個坑〉那段 PowerShell 的路徑在檔案裡是壞的："
+        },
+        {
+          "hash": "72bc326d",
+          "time": "07:44",
+          "message": "牆面：按靜音要立刻收聲，不是等這一輪播完",
+          "body": "beep() 開頭的 soundOn 檢查只擋得住「不再播下一次」，擋不住已經在播的那一份。"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "5289f700",
+          "time": "09:48",
+          "message": "docs: 轉移流程 Runbook — 單一入口 SOP",
+          "body": "- 階段 0 環境準備（56.227 部署/煙霧測試/測試庫對照表同步）"
+        },
+        {
+          "hash": "4cb063b0",
+          "time": "09:38",
+          "message": "fix: 平行比對抓到的兩個 bug + 比對工具與執行紀錄",
+          "body": "- 主檔 INSERT 申報欄位改為一律寫入（含空字串），對齊舊版行為；UPDATE 維持非空才更新"
+        },
+        {
+          "hash": "b0bbd161",
+          "time": "08:59",
+          "message": "chore: gitignore 執行期 logs/ 目錄",
+          "body": ""
+        },
+        {
+          "hash": "353a4aaa",
+          "time": "08:59",
+          "message": "feat: 連線字串支援 UCL 共用 DES 加解密（相容 LISWeb Cipher）",
+          "body": "- UclCipher：MD5(keyString+UCL)→DES-CBC/PKCS7/Base64，與 Models/Cipher.cs 同演算法"
+        },
+        {
+          "hash": "dd095d19",
+          "time": "08:50",
+          "message": "feat: P2 第一階段 — mapping 引擎 + Delimited adapter（Keelung 家族）",
+          "body": "- ColumnSchema：邏輯欄位→來源欄 index，preset KeelungStandard(V1-3)/Cube(V4)"
+        },
+        {
+          "hash": "59fb3155",
+          "time": "08:29",
+          "message": "feat: UNIT_TEST_ITEM 同步 — P1 收尾，主版兩種檔型全支援",
+          "body": "- XmlOrderFileAdapter 實作 IUnitTestItemFileParser（8 位置欄位，沿用舊版 dr[0..7] 取值）"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "a253255c",
+          "time": "16:23",
+          "message": "佈署指南：補 2026-09-01 儀器佇列兩顆頭上線紀錄",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "ac8a4f7c",
+          "time": "16:17",
+          "message": "儀器佇列兩顆頭補 221 帳密與實查結果：pattern 限縮、門檻確認百倍餘裕",
+          "body": "2026-09-01 16:15 一次性 SYSTEM 排程在 56.231 實查：SYSTEM 直讀 221 被拒，"
+        },
+        {
+          "hash": "a406a4e7",
+          "time": "15:53",
+          "message": "第四種頭型別 FolderBacklog：盯住檔案交換佇列的消化，首例 HCINI 儀器醫令/結果",
+          "body": "跟 DbBacklog 問同一個問題——「該被消化的東西有沒有卡住」——只是佇列長在"
+        },
+        {
+          "hash": "ca735216",
+          "time": "08:57",
+          "message": "佈署指南：補上 2026-09-01 重跑按鈕那次的佈署紀錄",
+          "body": "順帶記下一個反直覺的觀察：這次 robocopy 只複製 6 個檔 315KB，"
+        },
+        {
+          "hash": "2b56b3be",
+          "time": "08:02",
+          "message": "牆上的重跑按鈕：接下指令、驗過、交給排程",
+          "body": "Argus 那面牆現在會在紅磚上畫「↻ 重跑 KH」。這一端負責把按下去的"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "9e19c355",
+          "time": "15:32",
+          "message": "docs(HCLAB_web): OL_DTL 路線首次實戰交付記錄（明志科大 RDW-SD 二批）",
+          "body": "- 25 筆全走 DB 一句 SQL 交付，7 天內走 DB 的決策規則實戰成立"
+        },
+        {
+          "hash": "35431849",
+          "time": "07:53",
+          "message": "冒煙：單站重跑也寫進 smoke-history.log，監控牆才可能恢復",
+          "body": "某站早上掛掉、修好之後，牆上那格還是紅的——因為 Cerberus 的"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "LIS\\Schedule\\autoadjustblg",
+      "commits": [
+        {
+          "hash": "c4ef9649",
+          "time": "08:38",
+          "message": "HIV ICT 4850 陰性/無法判定 自動加做 NAT 4649 (台北 0319 新北市衛生局檢驗科)",
+          "body": "客戶需求: HIV ICT (4850) 結果陰性時, 加做 NAT (4649)。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "3b7ec3c8",
+          "time": "19:59",
+          "message": "docs(14): 名冊取得順序對調——Dashboard 產 CSV 為正案、一鍵載入為備案",
+          "body": "理由是可事後驗算：CSV 是固定快照，抽籤前可給委員過目、抽完連同種子存證，"
+        },
+        {
+          "hash": "6214688c",
+          "time": "19:58",
+          "message": "docs(14): 名冊取得改列三條路（一鍵載入為正常做法）；備案 SQL 補回缺的四欄",
+          "body": "原附錄的 SQL 缺 社宅／工作人員／車位編號／已繳費 —— 照舊版匯入會讓社宅戶與"
+        },
+        {
+          "hash": "b4d4b990",
+          "time": "19:50",
+          "message": "fix(security): list-roster 預設不回傳聯絡電話（最小化）",
+          "body": "配位引擎與結果匯出都不需要電話（distribute.js／export/result.js 皆無此欄），"
+        },
+        {
+          "hash": "a6d61f3f",
+          "time": "19:34",
+          "message": "docs(todo): 0012 已套用並驗過（三項 PASS），該條結案",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "744662f2",
+          "time": "19:29",
+          "message": "fix(distribute): 重機改用「實體相鄰」配對，不再只看編號連號",
+          "body": "辦法肆五要求「相鄰之兩個機車位」，但引擎原本用編號 n/n+1 判斷 —— 實測 654 對"
+        },
+        {
+          "hash": "a4def497",
+          "time": "19:28",
+          "message": "docs(13): 回填 8 月已結案決議（Q6/Q7/Q11/Q13/Q14/Q15），待決項改列現況",
+          "body": "原本 Q5–Q15 一整排都掛在「等管委會」，其中六題 8/16–8/19 已決並實作完，"
+        },
+        {
+          "hash": "eea7aa29",
+          "time": "19:26",
+          "message": "fix(db): 編輯登記不再清掉配位結果、移除車輛一併釋放車位鎖",
+          "body": "app_update_household 是「整批刪除該戶車輛再插回」，插回時只帶登記欄位："
+        },
+        {
+          "hash": "f6ac7607",
+          "time": "19:21",
+          "message": "feat(allocate): 一鍵從 Supabase 載入真實名冊（新增 list-roster Edge Function）",
+          "body": "原本要用真實名冊得「export-roster.mjs 產 CSV → /dev 匯入」兩步，且需 service_role"
+        },
+        {
+          "hash": "4ea180d9",
+          "time": "19:17",
+          "message": "docs(todo): 靠近棟別查證（大位已完成、小位未做但非阻塞）；標出已逾期項目",
+          "body": ""
+        },
+        {
+          "hash": "515f9642",
+          "time": "19:16",
+          "message": "feat(select): 工作人員不得選公益位與無障礙位",
+          "body": "引擎的工作人員輪本就只配一般剩餘位（ok＝!public && type!=='無障礙'），"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "3d61d72f",
+          "time": "17:27",
+          "message": "docs(meeting30): 補頁次規劃與 Slide 5／7／8／9，原 Slide 4 移到第 9 頁",
+          "body": "由平行 session／本人編輯寫成，非本 session 產出，此處僅一併提交避免留在工作區。"
+        },
+        {
+          "hash": "31461342",
+          "time": "17:27",
+          "message": "feat(sr): B8 — SR 公式的外部驗證，公式可移植但 max 詮釋作廢",
+          "body": "把 A2 正式版 P6@600s 的 15 條高血壓公式常數凍結搬到 CHARLS，"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d30766de",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-01",
+          "body": "🤖 自動生成於 2026-09-01 07:05"
+        },
+        {
+          "hash": "119a45d5",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-08-31 (49 commits)",
+          "body": "🤖 自動生成於 2026-09-01 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 20,
+    "sideCommits": 14,
+    "totalCommits": 34
+  }
+}
