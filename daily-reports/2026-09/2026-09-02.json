@@ -1,0 +1,301 @@
+{
+  "date": "2026-09-02",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "6dfa566b",
+          "time": "15:44",
+          "message": "Merge origin/main into feat/p2-excel-adapter — 解衝突",
+          "body": "- SqlOrderRepository.UpsertOrderAsync：Ansn profile 分流與 V4 大包寫入順序並存"
+        },
+        {
+          "hash": "aab74bf8",
+          "time": "12:39",
+          "message": "docs: 流量基線 — XML 現役 5 家日均 10.5 檔、全家族 170 檔/日；查詢腳本入 tools",
+          "body": "- docs/TRAFFIC_BASELINE.md：兩種口徑（MessLog vs 明細 filename）、各家族單位數與日均、"
+        },
+        {
+          "hash": "138b1ca4",
+          "time": "12:39",
+          "message": "docs: 一頁式專案說明頁（docs/index.html）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1a2a23ef",
+          "time": "12:39",
+          "message": "docs: FlexibleParsing 實機定位 — AutoDeliver @168.229「自動剪圖」排程、與批次7 PHP 同鏈",
+          "body": "- 部署主機找到了：168.229 D:\\Schedule\\AutoDeliver\\，排程名「自動剪圖(剪格式)」每 10 分鐘"
+        },
+        {
+          "hash": "3b058290",
+          "time": "12:16",
+          "message": "docs: OrderCheckJob 定案 — 11 筆 Cancel 歸因更正、Cancel 退出逐欄比對",
+          "body": "對 56.191 正式庫實查（唯讀）+ 讀完 PHP 尾段，三個定案："
+        },
+        {
+          "hash": "d07a2652",
+          "time": "09:21",
+          "message": "docs: 修補層深查 — 兩條全域 Cancel 規則、upd_user 指紋、規則2語法錯誤",
+          "body": "接續前一版盤點，細讀後三項修正與新發現："
+        },
+        {
+          "hash": "492e957f",
+          "time": "08:59",
+          "message": "docs: 轉檔後修補層盤點 — QFT PHP 判定翻案，比對對照組帶修補",
+          "body": "登入 .227 取回 WebOrder_QFT_change_Delivers_DT.php 實際查證，三個發現："
+        },
+        {
+          "hash": "98d9ed50",
+          "time": "08:48",
+          "message": "WIP on main: 5facbb7 Merge branch 'feat/cutover-assets' into 'main'",
+          "body": ""
+        },
+        {
+          "hash": "d9af7171",
+          "time": "08:48",
+          "message": "index on main: 5facbb7 Merge branch 'feat/cutover-assets' into 'main'",
+          "body": ""
+        },
+        {
+          "hash": "ffb78ded",
+          "time": "08:42",
+          "message": "fix: V4 大包（套組）明細 — Keelung 家族結案，明細零未解釋差異",
+          "body": "全量稽核（tools/keelung-detail-audit.sql）揪出抽樣看不到的真缺口："
+        },
+        {
+          "hash": "a951d1fc",
+          "time": "08:39",
+          "message": "feat: ansn Live 寫入語意 — 內容鍵 upsert、DB 端重算 SEQUENCE、明細防重",
+          "body": "ansn 的 upsert 規則與主版/Keelung 是真的不同，無法用欄位對應收斂，"
+        },
+        {
+          "hash": "976f7392",
+          "time": "08:28",
+          "message": "docs: FlexibleParsing 列為第四家族並排入 P2.5 — 評估結論不需大重構",
+          "body": "盤點後確認 FlexibleParsing（ASP.NET MVC + AutuParsing/AutoTransfer/AutoDeliver"
+        },
+        {
+          "hash": "ac8f9e08",
+          "time": "08:26",
+          "message": "feat: 檔名守門 + Keelung 回放結案（主檔零差異）",
+          "body": "- ImportPipeline 新增 FileNameIncluded/FileNameExcluded 守門：擋掉他系統產出的"
+        },
+        {
+          "hash": "7c008b29",
+          "time": "08:17",
+          "message": "feat: 外送大安 preset — 表頭偵測、民國日期、同資料夾多格式自動切換",
+          "body": "- ColumnSchema.DaAn：16 欄含中文表頭的現役子格式（Cube 資料夾內混入，單位 0078/1068）"
+        },
+        {
+          "hash": "97d67da3",
+          "time": "08:11",
+          "message": "fix: Excel 讀取層換 ExcelDataReader — 真實檔驗證抓到 NPOI 開不了 BIFF5",
+          "body": "archive 真實 ansn 檔煙霧測試發現兩個合成測試抓不到的問題："
+        },
+        {
+          "hash": "5ff45eec",
+          "time": "08:10",
+          "message": "feat: Keelung 回放第一輪 — FileNaming 慣例、CSV 引號剝除、V4 取消條件",
+          "body": "- OrderFileContext 新增 FileNaming=UnitPrefixed（Keelung 檔名無類型標記，首段=單位）"
+        },
+        {
+          "hash": "d5784048",
+          "time": "08:02",
+          "message": "feat: P2 Excel adapter — ansn 安慎家族三世代（25/27/28 欄）",
+          "body": "以第三代（v1.20.0103）為行為基準，NPOI 讀 .xls/.xlsx（鎖 2.7.4，"
+        },
+        {
+          "hash": "f654d295",
+          "time": "07:53",
+          "message": "feat: 衛生所切換日資產備妥 — pull/feed/GO/ROLLBACK 範本與操作順序",
+          "body": "- 實體腳本已部署 56.227 cutover-weborder-xml/（含帳密，不進 git）"
+        },
+        {
+          "hash": "39e7ef31",
+          "time": "07:47",
+          "message": "docs: 切換窗口改為反向平行設計 — 新服務寫正式、舊程式改吃副本寫測試庫當驗證影子",
+          "body": "- pull 任務(/MOV)接管檔案流、feed 任務餵舊程式副本，無搶檔競態"
+        },
+        {
+          "hash": "070a4380",
+          "time": "07:30",
+          "message": "docs: DryRun 陪跑補影子同步機制 + FTP 落點待確認",
+          "body": "- 56.227 排程 robocopy 鏡像 .227 備份資料夾（唯讀零干擾），DryRun 盯影子夾全自動陪跑"
+        },
+        {
+          "hash": "f46b926f",
+          "time": "07:23",
+          "message": "feat: Keelung DB enrichment — UCL 對照展開 + SEQUENCE 續號",
+          "body": "- Repository：GetUclCodes（移植 Xerox_Barcode 版查詢：精準比對→放寬→濾 NA/distinct）、"
+        }
+      ],
+      "count": 21
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "beb072f5",
+          "time": "18:44",
+          "message": "點唱機說明獨立成一頁，工具列多「♪ 點歌」入口；點歌列加「✕ 清除」",
+          "body": "原本點歌列藏在「怎麼讀這面牆」最底下，想點歌的人要先翻過整頁燈號說明。"
+        },
+        {
+          "hash": "ad54e11d",
+          "time": "18:36",
+          "message": "點不了的歌當場講：瀏覽器端試放預檢＋音樂列報跳過原因",
+          "body": "〈相見恨晚〉事件的修法：官方 MV 常關嵌入，歌排進去被電視無聲跳過，"
+        },
+        {
+          "hash": "6b368ed5",
+          "time": "18:25",
+          "message": "點唱機插播：排到最前面、電視立刻切過去，原本那首播完插播後接回續播",
+          "body": "入口三個：說明面板的「⚡ 插播」鈕、API 加 ?cutIn=1、JSON 寫 \"cutIn\":true。"
+        },
+        {
+          "hash": "6e804468",
+          "time": "18:02",
+          "message": ".claude/ 是本機 session 設定，不進 repo",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "ffd3a42a",
+          "time": "18:02",
+          "message": "牆上直接點歌：說明面板放輸入框，貼連結就排入，同仁不用任何權限",
+          "body": "「說明檔應該按一個按鈕會打開」＋「讓同仁也會操作」的答案合在一起："
+        },
+        {
+          "hash": "98ddab16",
+          "time": "17:55",
+          "message": "README 點唱機段落連到操作說明",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "f9dca9e2",
+          "time": "17:54",
+          "message": "點唱機使用說明：給同仁的版本",
+          "body": "README 那段是設計理由，這份是操作手冊：怎麼點歌（拖 YouTube 連結"
+        },
+        {
+          "hash": "9dbff0d0",
+          "time": "17:42",
+          "message": "左下角加版號：建置時間自己蓋章，佈署完一眼分辨換版了沒",
+          "body": "「以為部了新版、其實線上還是舊的」發生過不只一次——瀏覽器快取、"
+        },
+        {
+          "hash": "5bf1f3b2",
+          "time": "17:26",
+          "message": "點唱機加 YouTube 音源：連結拖進資料夾就是點歌",
+          "body": "延續「清單＝資料夾」的哲學，YouTube 曲目也是一個檔案："
+        },
+        {
+          "hash": "095fcc67",
+          "time": "17:18",
+          "message": "點唱機：牆順便當辦公室音樂播放器，但警報永遠優先",
+          "body": "同仁提議的背景音樂功能。兩種點歌方式殊途同歸："
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "e569db84",
+          "time": "07:59",
+          "message": "fix: 頁首版號更新 9.02(9.02 上版時漏改 MenuControl.ascx)",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "4261c2f6",
+          "time": "07:44",
+          "message": "fix: 重疊提示查詢死結修正(CheckTransferOverlap 反覆失敗)",
+          "body": "- CheckTransferOverlap 查詢加 WITH (NOLOCK)：純提示性檢查不拿 S 鎖，"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "50dd75f0",
+          "time": "19:58",
+          "message": "docs(26): 追加階段 6.5「一戶多車」測試（混合車種共用志願、三輪配位）",
+          "body": "一戶多車是常態，且志願清單為戶層級共用 —— 同一格會被不同車以不同方式取用"
+        },
+        {
+          "hash": "9e6067d2",
+          "time": "19:55",
+          "message": "docs(26): 加進度書籤——階段 1-5 通過，明天從階段 6 抽籤續測",
+          "body": "記錄今天修的兩項（重機志願序、鄰格預覽撤回）與未決的重機選位設計題。"
+        },
+        {
+          "hash": "79aff611",
+          "time": "19:54",
+          "message": "Revert \"feat(select): 重機選位顯示「自動帶入的鄰格」\"",
+          "body": "This reverts commit 47995ad1b9a9ccbcfc67fcd4cfd58b080ca4ef72."
+        },
+        {
+          "hash": "47995ad1",
+          "time": "19:50",
+          "message": "feat(select): 重機選位顯示「自動帶入的鄰格」",
+          "body": "重機一台占相鄰兩格，但選位圖只標了點選的那一格 —— 住戶看不出系統會搭哪一格，"
+        },
+        {
+          "hash": "da034949",
+          "time": "19:44",
+          "message": "fix(distribute): 重機取位改為嚴格依志願序，無障礙位不再插隊",
+          "body": "2026-09-02 正式站台手動實測抓到：takeHeavy 原本先掃「志願中有沒有無障礙位」"
+        },
+        {
+          "hash": "eea7517b",
+          "time": "19:14",
+          "message": "docs(26): B 段改為逐步手動測試流程（7 階段、25 步，含每步預期與判讀）",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "48b1d6c8",
+          "time": "19:10",
+          "message": "docs(26): 加 B 段回填表與測試資料清除 SQL（驗收留存）",
+          "body": ""
+        },
+        {
+          "hash": "ddd647a0",
+          "time": "19:05",
+          "message": "test(e2e): A 段自動測試計畫與結果（全數通過）",
+          "body": "A1 單元 196＋build｜A2 引擎全鏈（不變量三項皆 0）｜A3 重機實體相鄰 18 台零假相鄰"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "030f6886",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-02",
+          "body": "🤖 自動生成於 2026-09-02 07:05"
+        },
+        {
+          "hash": "835c21c9",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-01 (34 commits)",
+          "body": "🤖 自動生成於 2026-09-02 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 33,
+    "sideCommits": 10,
+    "totalCommits": 43
+  }
+}
