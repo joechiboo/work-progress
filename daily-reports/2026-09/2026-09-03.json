@@ -1,0 +1,163 @@
+{
+  "date": "2026-09-03",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "b03aef14",
+          "time": "18:02",
+          "message": "磚上直接寫出去哪台、看哪個檔、下哪一行指令",
+          "body": "紅燈亮著的時候，人需要的下一個資訊是「去哪台、看哪個檔、下哪一行指令」。"
+        },
+        {
+          "hash": "6a53420b",
+          "time": "08:11",
+          "message": "播過的歌按一下就再點：點歌面板列出已撥清單，「♪ 排入」「⚡ 插播」搬回待撥",
+          "body": "「重播＝把檔案從已撥搬回待撥」本來要開檔案總管，現在面板上就有：已撥清單"
+        },
+        {
+          "hash": "9d5f4a87",
+          "time": "07:48",
+          "message": "清單空了一鍵續攤：從已撥隨機撈幾首回來接著播",
+          "body": "待播空了音樂就停，而「已撥」正是驗證過能播的歌單庫——"
+        },
+        {
+          "hash": "442cb020",
+          "time": "07:42",
+          "message": "撥不了的歌自成一格：按原因隔離、點歌當下就擋、面板看得到為什麼",
+          "body": "「我那首怎麼一直沒播」的根治。播不出聲音的歌原本混在「已撥」裡，"
+        },
+        {
+          "hash": "3d9b5821",
+          "time": "07:20",
+          "message": "卡住的那首在自己座位就能跳過：點歌面板加「⏭ 跳過現在這首」",
+          "body": "音樂列的 ⏭ 只有電視按得到，可是最常遇到「這首卡住了／點錯了」的，"
+        },
+        {
+          "hash": "5233f15c",
+          "time": "07:09",
+          "message": "音樂列上的「？」拿掉：跟工具列的「♪ 點歌」是同一個入口，電視上兩顆並排",
+          "body": "說明頁拆開後，點唱機面板已經有「♪ 點歌」這顆常駐入口（所有畫面都有），"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "ad0c8a96",
+          "time": "18:25",
+          "message": "feat: ansn 影子夾守門 — 排除 FlexibleParsing 產出的 1120/0539 檔",
+          "body": "用正式庫明細的 filename 欄反推守門範圍：近 7 天備份夾 225 檔、正式庫"
+        },
+        {
+          "hash": "87782e63",
+          "time": "18:00",
+          "message": "docs: ansn 家族結案 — 最後 2 筆歸因為修補層跨單位搬單",
+          "body": "0005 潘曼玲/劉明美「我方有、正式庫 0005 無」的兩張主檔，跨單位反查後"
+        },
+        {
+          "hash": "a711186d",
+          "time": "17:52",
+          "message": "docs: ansn 全量稽核結案 — 明細零未解釋差異，僅餘 2 張主檔待查",
+          "body": "新增 tools/ansn-detail-audit.sql（比照 keelung 版，只取一對一映射）。"
+        },
+        {
+          "hash": "39fd30ca",
+          "time": "17:32",
+          "message": "fix: ansn 回放續查 — ID_INVNO 翻案為修補層擁有，列入白名單",
+          "body": "追查 378 筆 ID_INVNO 差異，一度加了 IdInvnoSource 選項讓長慎線改取"
+        },
+        {
+          "hash": "ace75935",
+          "time": "14:12",
+          "message": "fix: ansn 回放揪出兩個真 bug — 表頭全欄驗證、BIFF5 Big5 亂碼",
+          "body": "第一輪 ansn 回放（安慎 20 檔 + 長慎 12 檔，對 WebOrder_Test）抓到："
+        },
+        {
+          "hash": "d84e95fd",
+          "time": "12:22",
+          "message": "docs: 專案說明頁更新至 2026-09-03 實況",
+          "body": "- P2 改完成（含 ansn Live 語意、外送大安、V4 大包）；P5 補 Keelung 回放結案"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "241d727f",
+          "time": "17:59",
+          "message": "refactor(HDPID): UPDATE 參數改成名稱值成對傳入，並清除查詢間殘留狀態",
+          "body": "自我 review 抓到兩點，都是會誤導維護者的寫法："
+        },
+        {
+          "hash": "9c78246a",
+          "time": "14:09",
+          "message": "perf(HDPID): 查詢預設不回傳「已有ID」的列，payload 降為 1/14",
+          "body": "實測整月加全部流程單位（電腦組每月的實際工作量）：台北 71 個單位"
+        },
+        {
+          "hash": "5238b037",
+          "time": "13:25",
+          "message": "docs(HDPID): 補頁面說明文件",
+          "body": "比照 Documents/Pages 其他頁面的格式，補上 HDPID 的頁面說明："
+        },
+        {
+          "hash": "087bcbef",
+          "time": "12:34",
+          "message": "feat(HDPID): 新增洗腎檔案製作頁，整合身分證比對與匯入",
+          "body": "把洗腎檔（腎臟醫學會檔案）原本的三段流程整合成單一頁面："
+        },
+        {
+          "hash": "583ffdf1",
+          "time": "08:07",
+          "message": "feat(BT403): 列印記錄只列 BT101 帳別為「月結帳」的單位",
+          "body": "- 列印記錄 modal 母集合加 DEBTOR.DBBILLTYPE='0' (BT101 帳別=月結帳) 條件"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "cba4a083",
+          "time": "18:02",
+          "message": "紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令",
+          "body": "告警回應手冊寫得很完整，但它躺在 repo 裡——紅燈亮著的時候沒有人會先"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "753eefd1",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-03",
+          "body": "🤖 自動生成於 2026-09-03 07:05"
+        },
+        {
+          "hash": "d791ac76",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-02 (43 commits)",
+          "body": "🤖 自動生成於 2026-09-03 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 18,
+    "sideCommits": 2,
+    "totalCommits": 20
+  }
+}
