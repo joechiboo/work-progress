@@ -1,0 +1,241 @@
+{
+  "date": "2026-09-04",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "64894ba4",
+          "time": "17:26",
+          "message": "docs: 訂正 ORA-01830 的判定 — 只影響病患主檔，醫令正常寫入",
+          "body": "前一版（MR !46）推論「1120 的醫令可能沒有進入任何系統」是錯的。原因是"
+        },
+        {
+          "hash": "78117219",
+          "time": "16:30",
+          "message": "﻿docs: 查證 ORA-00001 時發現現場問題 — 1120 的 Oracle 寫入每天靜默失敗",
+          "body": "原本要釐清「ORA-00001 是設計還是掉單」以定案 Oracle A/B 案。讀"
+        },
+        {
+          "hash": "3baff865",
+          "time": "16:24",
+          "message": "﻿fix: 健檢腳本讀日誌要指定 UTF8，否則靜默回報 OK",
+          "body": "首版部署後回報「預期失敗 0 筆」，但當天實際有 24 筆 —— Serilog 寫 UTF-8，"
+        },
+        {
+          "hash": "acdd9282",
+          "time": "15:58",
+          "message": "feat: DryRun 陪跑每日健檢；REFACTORING_PLAN 過期阻塞項更正",
+          "body": "tools/shadow-health-check.ps1：每天一行 OK/ALERT 寫進"
+        },
+        {
+          "hash": "dadfad74",
+          "time": "15:44",
+          "message": "docs: 批次 1 單位轉移卡（9/8 切換當天的單一參照）",
+          "body": "docs/migrations/batch1-weborder-xml.md —— 把當天要做的事收斂到一頁："
+        },
+        {
+          "hash": "e13407c5",
+          "time": "15:36",
+          "message": "docs: 上游收檔管道盤點 — 階段 0 最後兩個未結項結案",
+          "body": "1. .227 排程停用權限：joechiboo 可 RDP 自行操作（使用者確認）"
+        },
+        {
+          "hash": "4f2b9248",
+          "time": "15:32",
+          "message": "docs: 批次 1 切換日定 2026-09-08；切換資產複查修正兩處",
+          "body": "批次表更新：批次 1 標定切換日 9/8（週二）；批次 2-5 狀態改為反映"
+        },
+        {
+          "hash": "920cd83f",
+          "time": "12:58",
+          "message": "docs: 未結項盤點 — 補打已完成的驗收/階段0 項目，標註實際驗證方式",
+          "body": "- TEST_PLAN §6：三家族回放全數完成（ansn 09-03 補上）；線上平行改記"
+        },
+        {
+          "hash": "3e762203",
+          "time": "12:43",
+          "message": "docs: 轉檔前處理層盤點 — parsing_order_files.php 是批次 3/4/5 的上游相依",
+          "body": "原本 runbook 把它列在批次 7「逐一盤點後決定移植或退役」。實查 1,263 行"
+        },
+        {
+          "hash": "6a29511c",
+          "time": "08:54",
+          "message": "docs: ansn 影子陪跑上線 — 預期失敗清單與判讀標準",
+          "body": "2026-09-04 ansn 兩條線影子陪跑於 56.227 開啟："
+        },
+        {
+          "hash": "c68693c1",
+          "time": "08:39",
+          "message": "docs: 56.227 更版 SOP — self-contained 部署實錄與踩坑",
+          "body": "2026-09-04 首次更版（含 ansn 三修正）實踩記錄："
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "5864b377",
+          "time": "17:03",
+          "message": "「播過的歌」搬出點歌面板，自己一頁",
+          "body": "點新歌跟翻舊歌是兩件事，擠在同一個面板的結果是兩邊都難用："
+        },
+        {
+          "hash": "d3e30c7c",
+          "time": "16:33",
+          "message": "快取補上窗口與節制：看得見裡面有什麼，也不會把鄰居的磁碟吃光",
+          "body": "兩件事一起送，因為它們動到同一支 YoutubeCache 與同一份使用說明，按檔案分不開。"
+        },
+        {
+          "hash": "761982c5",
+          "time": "16:17",
+          "message": "插播等 mp3 這件事只做了一半：轉好了沒人通知電視，而且常常根本沒在等",
+          "body": "插播的設計是「現在這首照播，插播的歌轉好那一秒才讓位」——讓位換來十幾秒安靜"
+        },
+        {
+          "hash": "75da89ec",
+          "time": "15:55",
+          "message": "版號改成「這包最後被動過的時間」：只看 dll 對設定和牆面是瞎的",
+          "body": "版號存在的理由是 README 寫的那句：「以為部了新版、其實線上還是舊的」發生過不只一次。"
+        },
+        {
+          "hash": "cb2d1fa5",
+          "time": "15:44",
+          "message": "設定漂移：線上有、repo 沒有的設定就是下一次發佈的地雷",
+          "body": "佈署是 `robocopy publish ... /E`，整份 appsettings.json 會被蓋掉。"
+        },
+        {
+          "hash": "fd15506e",
+          "time": "15:35",
+          "message": "點唱機：YouTube 先在伺服器轉成 mp3 再播（預設關閉）",
+          "body": "設了 Music:ToolsFolder 之後，背景工照播放順序把待撥裡的 .url 交給"
+        },
+        {
+          "hash": "13164030",
+          "time": "08:47",
+          "message": "README 準則第 4 條跟線上牴觸了：主機位址現在是刻意顯示的",
+          "body": "原本寫「畫面上不出現 server IP」，但 !31 上線後紅磚會直接印出主機與排程路徑。"
+        },
+        {
+          "hash": "81c4581e",
+          "time": "08:46",
+          "message": "怎麼測這面牆、以及它多久才會叫（另一個 session 的未提交稿，原樣收進來）",
+          "body": "這批不是我寫的，內容一字未改，只是它在工作目錄裡躺了大半天沒進版控，"
+        },
+        {
+          "hash": "9ad4f0bc",
+          "time": "08:10",
+          "message": "失聯指引寫錯巡守間隔：10 分 → 2 分",
+          "body": "排程 2026-08-31 就從 PT10M 改成 PT2M 了（見 Cerberus Docs/佈署指南.md"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "df27488b",
+          "time": "12:50",
+          "message": "佇列頭第一步少了 net use：同仁照著跑會直接被拒",
+          "body": "2026-09-04 用 is1 實測整條路徑，抓到兩件事。"
+        },
+        {
+          "hash": "2d591462",
+          "time": "08:45",
+          "message": "手冊補上 HC010 在哪、怎麼重啟；佈署指南補上 09-04 三次佈署",
+          "body": "告警回應手冊那段「⚠️ 待補：HC010 跑在哪台機器、服務名是什麼、怎麼安全重啟」"
+        },
+        {
+          "hash": "949a9e7e",
+          "time": "08:44",
+          "message": "FalconCopy 重複鏈斷掉的判讀與修法（另一個 session 的未提交稿，原樣收進來）",
+          "body": "這批不是我寫的，內容一字未改，只是它在工作目錄裡躺了大半天沒進版控，"
+        },
+        {
+          "hash": "3e38bfcb",
+          "time": "08:36",
+          "message": "221 實機確認：三顆頭的主機與重啟位置都查到了，待查證記號全部拿掉",
+          "body": "使用者 RDP 上 192.168.168.221，桌面 TaskLoader UCL 的任務清單直接給出答案："
+        },
+        {
+          "hash": "e78fa4a5",
+          "time": "08:34",
+          "message": "指引補到「照著就能動手」：兩顆佇列頭改以資料夾為起點，六站報告回傳補上 SQL",
+          "body": "上線後逐顆對同仁的要求（哪台主機／詳細資訊／指引）掃一遍，12 顆只有 3 顆完全"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "62026b6c",
+          "time": "18:17",
+          "message": "docs: 各站部署版本紀錄 — 桃園換版與渲染分流實錄",
+          "body": "程式沒有版本號（csproj 未設 Version、assembly 恆為 1.0.0.0），各站跑哪一版"
+        },
+        {
+          "hash": "75fc337e",
+          "time": "16:14",
+          "message": "fix(CodeMap): 未簽收單被當成已刪單濾掉, 改用簽收狀態欄+逾期收合",
+          "body": "ID_TRX_DT = 9999-12-31 是「尚未簽收」的預設值 (CheckRepository 簽收時"
+        },
+        {
+          "hash": "02124889",
+          "time": "17:44",
+          "message": "fix(BT201): 處方案件檢核改為空白不算不符",
+          "body": "實測台北 2026-07 有串接的單 3857 筆, 原規則會提示 629 筆(16%),"
+        },
+        {
+          "hash": "673ee441",
+          "time": "16:40",
+          "message": "feat(BT201): 申報處方案件編號串接檢核",
+          "body": "按申報資料 OK 或存檔時，檢查處方案件(DE_SAME_TNO)串到的那張單"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "62026b6c",
+          "time": "18:17",
+          "message": "docs: 各站部署版本紀錄 — 桃園換版與渲染分流實錄",
+          "body": "程式沒有版本號（csproj 未設 Version、assembly 恆為 1.0.0.0），各站跑哪一版"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "bcbdb98c",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-04",
+          "body": "🤖 自動生成於 2026-09-04 07:05"
+        },
+        {
+          "hash": "70ea0f91",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-03 (20 commits)",
+          "body": "🤖 自動生成於 2026-09-04 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 30,
+    "sideCommits": 2,
+    "totalCommits": 32
+  }
+}
