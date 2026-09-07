@@ -1,0 +1,241 @@
+{
+  "date": "2026-09-07",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "da1ec172",
+          "time": "20:01",
+          "message": "﻿docs: 時窗落地與批次 3/4 影子陪跑開啟 — 切換前夜收尾",
+          "body": "- 批次 1 轉移卡：.CUTOVER 已帶 ProcessingWindow 09:00-18:00（與舊排程"
+        },
+        {
+          "hash": "9f64358c",
+          "time": "19:56",
+          "message": "﻿feat: ProcessingWindow 單位時窗 — 舊制「超過時窗隔天轉」是業務語意",
+          "body": "同仁 2026-09-07 確認：排程只轉到 15:00/15:30/18:00（依線別）不是實作"
+        },
+        {
+          "hash": "ec37f5e4",
+          "time": "19:37",
+          "message": "﻿docs: 批次 2 新前置 — 15:30 時窗語意（同仁 2026-09-07 提出）",
+          "body": "查證結果：15:30 條件不在程式裡，在排程時窗（排程名即載明 to pm3 /"
+        },
+        {
+          "hash": "c15ad989",
+          "time": "08:37",
+          "message": "test: 批次 3/4 剩餘四線首輪回放 — 328 檔全過、零程式錯誤證據",
+          "body": "Xevox/Xevox2/Veterans/Cube2 四線一次回放（素材以「正式庫明細有該"
+        },
+        {
+          "hash": "668dad27",
+          "time": "08:30",
+          "message": "docs: 上游對齊清單 — 收檔管道與檔名前綴規則待談",
+          "body": "批次 1 切換不需上游配合，但 .227 退役時 FTP 落點要搬到 56.227，"
+        },
+        {
+          "hash": "931ce3f8",
+          "time": "08:19",
+          "message": "docs: 批次 2（TaTung）切換資產備妥 — 轉移卡＋伺服器端腳本",
+          "body": "實機資產（已部署，不進 repo）："
+        },
+        {
+          "hash": "b11ea1b6",
+          "time": "07:58",
+          "message": "docs: 切換日 56.227 端改為換檔制 — 並修掉一個會靜默寫錯庫的陷阱",
+          "body": "預備 9/8 切換時發現：56.227 服務的連線字串密文解開是 WebOrder_Test"
+        },
+        {
+          "hash": "6c186245",
+          "time": "07:28",
+          "message": "docs: 前處理 PHP 逐塊核對定版 — 修正輸入夾錯誤、給出各批次 pull 排除規則",
+          "body": "初版表用「區塊位置」推輸入夾，但 $dir 會在程式中途重設，逐塊讀碼後修正："
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "df39b048",
+          "time": "13:04",
+          "message": "docs(002C): 台中停用自建清理封存排程，記錄 HCLAB.AORD 孤兒表",
+          "body": "同仁接手傳統 HCINI.002C，台中 DB 自建的四支排程全部 DISABLE："
+        },
+        {
+          "hash": "b0401e92",
+          "time": "12:39",
+          "message": "revert(deploy): 拿掉 csproj StampVersionNumber, 版號由 CI 寫進 production 分支即可",
+          "body": ".gitlab-ci.yml 在 tag 時已用 xmlstarlet 把 Web.config VersionNumber 改成 tag 並 merge 進 production,"
+        },
+        {
+          "hash": "84c37e0e",
+          "time": "12:35",
+          "message": "feat(HDPID): 已有ID的單先過檢查碼並標示結果；第二輪回饋",
+          "body": "- 已有 ID 的單先驗身分證檢查碼：不對的列為 ID格式錯，不做資料庫核對、"
+        },
+        {
+          "hash": "5feb3ed0",
+          "time": "12:33",
+          "message": "fix(BT201): 處方案件檢核排除不申報單與 00 佔位ID",
+          "body": "上線首日(V2026.09.07.001)實際誤報回報 6090502004 -> 6090502003:"
+        },
+        {
+          "hash": "6ddeb515",
+          "time": "12:27",
+          "message": "feat(deploy): 發佈時把 git tag 蓋進 VersionNumber, Warmup 回 ver=, 冒煙加版號確認",
+          "body": "- csproj 新增 StampVersionNumber target (AfterTargets=TransformWebConfig, DeployOnBuild 時才跑):"
+        },
+        {
+          "hash": "ea19aa5e",
+          "time": "07:55",
+          "message": "docs(HDPID): 記錄 H 槽 Excel 退場決定，Phase 2 一次性匯入取消",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "a7f1acea",
+          "time": "07:47",
+          "message": "feat(HDPID): 已有ID的單改跟資料庫雙向核對，可加入資料庫；上線第一輪回饋",
+          "body": "電腦組 2026-09-07 回了四點："
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "33ac37e0",
+          "time": "20:03",
+          "message": "docs/deploy: 台中 WebOrder_Test 改為測試「資料庫」— 還原腳本、測試站 config 指測試庫、Oracle 待決",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "34fdf04e",
+          "time": "19:58",
+          "message": "docs/deploy: 台中加常設測試站 /WebOrder_Test（獨立資料夾＋SsoSys=FenDanTCTest，同一把 JwtKey）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "e982edd1",
+          "time": "19:57",
+          "message": "docs: 台中換版改為「新版直接上 /WebOrder、舊版退到 /WebOrder2」＋ SysMenu 相對路徑腳本",
+          "body": "- URL 由 IIS app 虛擬路徑決定，切換日只改 /WebOrder 與 /WebOrder2 的實體路徑與 pool，"
+        },
+        {
+          "hash": "2bc060cb",
+          "time": "13:03",
+          "message": "docs/deploy: 台中現役站定位完成（33.228 HCLAB:8080 /WebOrder → D:\\WebOrder）＋ WebOrder3 新站材料",
+          "body": "- 33.228（TCWEBEXTRA）實查：現役 = HCLAB 站台 8080 的 /WebOrder → D:\\WebOrder（DLL 2023-08-29，"
+        },
+        {
+          "hash": "1be5fc98",
+          "time": "12:33",
+          "message": "docs: 更正台中現況 — 現役站在 33.228（TCWEBEXTRA），33.229 是死站；DB 前置 4/5 已跑",
+          "body": "- 33.227 dm_exec_sessions 證實連 WebOrder 的 .NET 程式來自 TCWEBEXTRA（1.228=33.228）"
+        },
+        {
+          "hash": "9c4154e0",
+          "time": "08:39",
+          "message": "docs: 台中反組譯比對結論、WebOrder2 備份完成、補 UNITDATA.prePrintLableOrnot 前置腳本",
+          "body": "- 台中 WebOrder2 的 UCLWeb.dll 與 repo 基線 4f74dca 編出的 DLL 同用 ilspycmd 反組譯比對："
+        },
+        {
+          "hash": "d8ed4027",
+          "time": "08:28",
+          "message": "docs: 各分部發佈狀況盤點 — 台中自成一套（33.229 舊站 2023 build、33.227 DB）與換版方案",
+          "body": "- 新增 docs/各分部發佈狀況.md：各分部站台/DB/版本總表、台中站台與 DB 物件比對、"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "7ffee3f5",
+          "time": "07:54",
+          "message": "點唱機的音量落差修在檔案上：全域那顆旋鈕修不掉它",
+          "body": "「有些音訊比較大有些比較少」的來源是每首歌自己被錄／被壓成什麼響度。"
+        },
+        {
+          "hash": "5a7f2556",
+          "time": "07:21",
+          "message": "牆角落顯示磁碟用量：60% 轉琥珀、80% 轉紅",
+          "body": "同仁擔心點唱機吃空間那次，我們是連進伺服器手動量的。量完發現當下沒問題，"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "debbdcef",
+          "time": "17:55",
+          "message": "feat(sci): SCI 改稿開工 — 教授影音逐字稿、Zotero 文獻庫、JISE 工作稿第一章",
+          "body": "- 教授影音/：8 支影音轉逐字稿（faster-whisper large-v3-turbo）＋ index README，"
+        },
+        {
+          "hash": "5ae6d226",
+          "time": "17:55",
+          "message": "docs(archive): 隨身碟獨有檔案回收進 repo — 定稿III_裝訂、Turnitin 報告、離校文件",
+          "body": "與 F:\\ 隨身碟全量 hash 比對後（100 同名檔 97 一致），取回本地缺少的："
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "74eb0a51",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-07",
+          "body": "🤖 自動生成於 2026-09-07 07:05"
+        },
+        {
+          "hash": "aa66dec8",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-06 (2 commits)",
+          "body": "🤖 自動生成於 2026-09-07 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "hrm",
+      "commits": [
+        {
+          "hash": "b1bcff39",
+          "time": "17:11",
+          "message": "建立 HRM 文件骨架",
+          "body": "以文件形式經營家庭關係，不含程式碼。"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "00eaa78f",
+          "time": "19:50",
+          "message": "docs: 9/3 例會會議紀錄、辦法草案依決議修正、住戶實施細則初稿",
+          "body": "- 新增 docs/會議紀錄.md（11 題＋辦法 13 項逐條表，供主委/經理核對）"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 24,
+    "sideCommits": 6,
+    "totalCommits": 30
+  }
+}
