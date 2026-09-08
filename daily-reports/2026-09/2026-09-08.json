@@ -1,0 +1,193 @@
+{
+  "date": "2026-09-08",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "5846ce14",
+          "time": "18:02",
+          "message": "﻿docs: FP 上游檔對帳 — 單數 10/10 吻合，明細差是 DryRun 口徑非缺陷",
+          "body": "以 filename 對帳正式庫實際寫入量：10 個 FP 上游檔單數全中。"
+        },
+        {
+          "hash": "d3be380e",
+          "time": "17:24",
+          "message": "﻿feat: pull 加寫入完成門檻 — 保護不冪等家族免於半截檔",
+          "body": "我們每 2 分鐘拉檔、舊程式 10 分鐘一次，抓到 FTP 上傳中或前處理 PHP"
+        },
+        {
+          "hash": "a5661353",
+          "time": "17:02",
+          "message": "﻿docs: 批次3補洞驗證 — FP 上游檔全數解析成功，兩層排除都要改",
+          "body": "排除是兩層的（robocopy ＋ 單位設定 FileNameExcluded），只改一層檔案會"
+        },
+        {
+          "hash": "b00fc49b",
+          "time": "16:49",
+          "message": "﻿docs: 推翻假設 — FlexibleParsing 是批次 3/4/5 的上游，非平行系統",
+          "body": "Companys.mode=Transfer（27 家）把醫院格式轉標準格式後丟進我們的收檔夾，"
+        },
+        {
+          "hash": "e4c89fd6",
+          "time": "16:36",
+          "message": "﻿feat: 0244 雙引號跳脫收斂 — 解批次 4 就地清理 race",
+          "body": ".227 前處理 PHP 對 0244-* 逐行 \"\"→\"（史例 \"\"Atypical pANCA\"\"），"
+        },
+        {
+          "hash": "730967d5",
+          "time": "10:05",
+          "message": "﻿docs: feed 重餵 bug — /XO 對會被搬走的目的夾無效，改帳本制",
+          "body": "批次 1 實戰發現每檔被影子重複處理 5 次（XML 冪等故無損）。"
+        },
+        {
+          "hash": "fc755f77",
+          "time": "09:25",
+          "message": "﻿docs: 批次2產生器補強 — TATUNG Live 注入時窗與 QFT hook",
+          "body": "09-07 備的 make-cutover-config.ps1 早於 hook 定案，缺 ProcessingWindow"
+        },
+        {
+          "hash": "d00ac846",
+          "time": "09:19",
+          "message": "﻿docs: 批次1開球事故記錄 — 髒 staging SqlClient DLL、更版 SOP 補強",
+          "body": "09:00 三檔炸 PlatformNotSupportedException（09-04 staging 被鎖檔留下"
+        },
+        {
+          "hash": "f1208944",
+          "time": "08:22",
+          "message": "﻿docs: hook 決策反轉記錄 — 修補層維持舊流程，新服務以 hook 重現 bat 語意",
+          "body": "POST_IMPORT_FIXUPS 原結論「新服務不需要加 post-import hook」於 2026-09-08"
+        },
+        {
+          "hash": "7a38e4a9",
+          "time": "08:16",
+          "message": "﻿feat: PostImportHookUrl 轉入後處理 hook — 維持舊 bat「exe→php」語意",
+          "body": "同仁 2026-09-08 定調：QFT 修補層近期不重構、走舊流程。舊制 11 支排程"
+        },
+        {
+          "hash": "28524c72",
+          "time": "07:22",
+          "message": "﻿docs: TODO.md — 切換期間的人工動作清單",
+          "body": "批次 1 已於 2026-09-08 07:17 切換完成（.227 舊排程未停、轉為影子），"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "f6b8fe12",
+          "time": "15:29",
+          "message": "docs: 台中 9.08 SSO profile「tp」已上線（2026-09-08 下午）— 台北資訊室經 33.228 走台北 lisweb 登入",
+          "body": "- 各分部發佈狀況：台中列改 9.08、現役資料夾 D:\\WebOrder3；步驟表加第 9 步（部署內容、備份位置、"
+        },
+        {
+          "hash": "78979bb3",
+          "time": "13:44",
+          "message": "feat: v9.08 SSO profile — 台中站同時接台中 LisWeb 與台北 lisweb(台北資訊室經 33.228 進站可登入)",
+          "body": "台北資訊室開 http://192.168.33.228:8080/WebOrder/ 會被導去台中 LisWeb 1.229(台北連不到)，"
+        },
+        {
+          "hash": "233b30fa",
+          "time": "08:30",
+          "message": "ops: 新增台中上線後健康檢查腳本 Watch-FenDanTC.ps1",
+          "body": "唯讀、可重複跑，一次看完："
+        },
+        {
+          "hash": "621aa887",
+          "time": "08:14",
+          "message": "docs: 台中 9.02 已上線（2026-09-08）— /WebOrder 換新版、舊版 1.1 留在 /WebOrder2",
+          "body": "切換結果："
+        },
+        {
+          "hash": "7b48edff",
+          "time": "08:00",
+          "message": "docs: 台中新版已推到 D:\\WebOrder3；切換簡化為兩行 appcmd（沿用現役 pool）",
+          "body": "- 步驟 3 完成：repo main 的 build 推到 33.228 D:\\WebOrder3（56 檔、18 aspx、9 dll），"
+        },
+        {
+          "hash": "443c4cf8",
+          "time": "07:52",
+          "message": "test: 台中測試庫 smoke test 6/6 PASS，順修 smoke test 兩個時序/預期 bug",
+          "body": "實測（開發機 9.02 + 台中測試庫 33.227 WebOrder_Test，單位 1062 皓生 2026/09/07）："
+        },
+        {
+          "hash": "4cae81db",
+          "time": "07:26",
+          "message": "test: 台中測試庫 WebOrder_Test 建好，開發機改對台中真實資料驗新版",
+          "body": "- 33.227 還原 WebOrder_Test（用 9/8 凌晨正式庫備份；134,952 筆主檔一致、4 項前置物件與"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a80806ba",
+          "time": "16:46",
+          "message": "feat(HDPID): LIS 輸錯的 ID 可一鍵改成資料庫的 ID；單位預設改「資料庫有建檔」不再掃 EVENTLOG；第三輪回饋",
+          "body": "電腦組 2026-09-08 回了三點："
+        },
+        {
+          "hash": "d1d33fda",
+          "time": "12:53",
+          "message": "docs(LT252): 補 F5 審後修改的 EVENTLOG 機制說明",
+          "body": "- LT252 頁面文檔新增「業務規則 9. 審後修改歷程」：L25/L09 判定、EL_COMMENT 格式、"
+        },
+        {
+          "hash": "0d863ef2",
+          "time": "08:54",
+          "message": "chore(config): 移除 HCLAB 測試機連線字串後方的行尾註解",
+          "body": "該註解接在被註解掉的 connectionString 之後，同一行放兩段內容，"
+        },
+        {
+          "hash": "4737cdde",
+          "time": "08:52",
+          "message": "fix(rule-engine): 台中檢體延誤註解誤判 — 排除哨兵採檢日 1900-01-01",
+          "body": "台中 010 補上規則呼叫後，Rule 9024 於 2026-09-07 生效當天即誤判"
+        },
+        {
+          "hash": "1cba0076",
+          "time": "07:55",
+          "message": "docs(rule-engine): 補「超出線性值未標旗」問題文檔與旗標判定陷阱",
+          "body": "ACCESS2 9111/2061/2361 線性上限隨校正液批號變動，儀器直接送 \">459.00\""
+        },
+        {
+          "hash": "ffc75c47",
+          "time": "07:27",
+          "message": "chore(smoke): 補 sync-sources.ps1 並更正部署文件的排程實體",
+          "body": "冒煙測試的每日 07:30 排程 2026-08-31 起跑在 56.231，但文件的「發佈／更新"
+        }
+      ],
+      "count": 6
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "73e052f9",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-08",
+          "body": "🤖 自動生成於 2026-09-08 07:05"
+        },
+        {
+          "hash": "e6e5ddd0",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-07 (30 commits)",
+          "body": "🤖 自動生成於 2026-09-08 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 24,
+    "sideCommits": 2,
+    "totalCommits": 26
+  }
+}
