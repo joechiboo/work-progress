@@ -1,0 +1,319 @@
+{
+  "date": "2026-09-09",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "f38ace49",
+          "time": "15:58",
+          "message": "﻿docs: 大同線回歸測試提前完成、零回歸",
+          "body": "用含三個修正（TextFieldParser／位元組截斷／身分證檢核）的新 binary"
+        },
+        {
+          "hash": "049f9dad",
+          "time": "15:30",
+          "message": "﻿docs: 部署順序定案 — 新版 binary 不可搶在批次 2 切換前上",
+          "body": "實查確認身分證檢核對批次 2 是 no-op（0173 欄位本來就空白、3540 286/289"
+        },
+        {
+          "hash": "d5cf1b47",
+          "time": "13:17",
+          "message": "﻿docs: 批次 3 回放門檻結案 — 主檔與明細零未解釋差異",
+          "body": "明細層比對（第三輪資料）全數歸因："
+        },
+        {
+          "hash": "ad52d47a",
+          "time": "13:07",
+          "message": "﻿feat: 身分證格式檢核（Keelung 限定）＋ 批次 4 資產；批次 3 硬門檻達成",
+          "body": "第三個未移植行為：PhysicianOrderM_DML.PIDorCID 判定身分證格式不合"
+        },
+        {
+          "hash": "36b8f0cc",
+          "time": "12:56",
+          "message": "docs: FlexibleParsing 產出契約 — 21 欄逐欄規格、valid 逐家切換機制",
+          "body": "批次 3a（9/22）兩條線的流量幾乎全是 FP 的 .txt 產出，但回放素材註解明寫"
+        },
+        {
+          "hash": "1f49deff",
+          "time": "12:50",
+          "message": "docs: TODO 的 TFP 門檻同步為「第一輪已完成、卡第二輪」",
+          "body": "原句「但四線尚未重回放」已過期：第一輪 2026-09-09 跑完（DiffId=0、"
+        },
+        {
+          "hash": "7bf30792",
+          "time": "12:48",
+          "message": "docs: WORKSTREAMS 補 TFP 全稱、L2 進度更新為第二輪重回放",
+          "body": "- 補上 TFP＝TextFieldParser 的定義與由來（縮寫在 TODO/TEST_PLAN 沿用已久，"
+        },
+        {
+          "hash": "1711d1ba",
+          "time": "12:44",
+          "message": "docs: 四條工作線分工 — 1-5 結案趕 10/14、批次 6 推到「只差切換」",
+          "body": "把「趕在 Spark 長假前（10/17）完成」拆成可平行推進的四條線，供多個"
+        },
+        {
+          "hash": "d0ae6a24",
+          "time": "12:39",
+          "message": "﻿fix: 補上欄位位元組截斷 — 修 FP 上游檔 14 碼生日寫成空值",
+          "body": "TFP 重回放（328 檔零失敗）證實右移 bug 已修（DiffId=0、未對齊 529→284），"
+        },
+        {
+          "hash": "2c2487a8",
+          "time": "12:17",
+          "message": "docs: 批次 4（Cube＋Cube2）單位轉移卡 — 9/15 切換",
+          "body": "照 batch2-tatung 樣板建卡，資料全部來自實測與既有文件："
+        },
+        {
+          "hash": "4fcf9c91",
+          "time": "12:16",
+          "message": "﻿docs: 9/9 最終時程定版 — 4→9/15、3a→9/22、3b→9/29、5→10/6",
+          "body": "納入中秋連假（9/25-28）與 Spark 長假封鎖窗（10/17-25）；pull 收口"
+        },
+        {
+          "hash": "bcfe5a3b",
+          "time": "11:46",
+          "message": "﻿fix: Delimited adapter 改用 TextFieldParser — 修引號內逗號右移 bug",
+          "body": "批次 3 回放歸因抓到真 bug：naive Split(',') 把 \"Cortisol (Blood, AM)\""
+        },
+        {
+          "hash": "8f932fb3",
+          "time": "11:22",
+          "message": "﻿docs: ORA-01830 決策 — 自家開發、併入批次 6 自修；清重複註解",
+          "body": "FlexibleParsing 為自家開發，非外部通報案。實證範圍限 1120"
+        },
+        {
+          "hash": "7cfdb267",
+          "time": "11:12",
+          "message": "﻿feat: ProcessingWindow 多段窗 — after3pm 立人線的兩段觸發器",
+          "body": ".job 實測 03a 線有兩筆觸發器（07:00-12:00＋15:00-19:00），單段窗"
+        },
+        {
+          "hash": "f28b3f5b",
+          "time": "10:19",
+          "message": "﻿docs: 排程時間現況盤點 — .job 觸發器實測、各批次時窗權威來源",
+          "body": "新增 SCHEDULE_INVENTORY.md：.227 十條轉檔排程＋QFT＋前處理 PHP＋"
+        },
+        {
+          "hash": "5047f203",
+          "time": "10:16",
+          "message": "﻿fix: 時窗改用 .job 觸發器實測值 — 排程名稱是誤導",
+          "body": "解析 .227 legacy .job 二進位觸發器（以批次1與 QFT 兩條已知排程驗證"
+        },
+        {
+          "hash": "1d98ba23",
+          "time": "08:59",
+          "message": "docs: pull 收口計畫 — 一支排程＋一張清單，批次 3 之前完成",
+          "body": "批次 2 切換前確認架構時發現：兩支 pull 的差異只有參數（來源/目的/引擎/門檻/排除），"
+        },
+        {
+          "hash": "bb5c7e78",
+          "time": "08:29",
+          "message": "﻿docs: 批次 2 提前至 9/10（四）— Spark 同意；修 TODO 曆法錯誤",
+          "body": "批次 1 首日全綠、資產經實戰補強、Spark（雙向連線負責人，本月週六班"
+        }
+      ],
+      "count": 18
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "cb9ae03a",
+          "time": "10:01",
+          "message": "fix(LT302): 項目代碼查詢支援套檢子項 (TEST_PROFILE 反查父代碼)",
+          "body": "- 現象: 3531 + 9/5 查得到含 P016 的單, 但 3531 + 0258 + 9/5 查不到"
+        },
+        {
+          "hash": "a4544611",
+          "time": "09:20",
+          "message": "docs(problems): 補「匯入檢驗值未套用 Output Mask 小數位」問題文檔",
+          "body": "客訴 6090510091（7432 PRA）報告顯示 1 而非 1.00。查台北正式庫確認："
+        },
+        {
+          "hash": "75451d03",
+          "time": "08:32",
+          "message": "docs(rule-engine): 檢體延誤註解 hc010 端問題已開 Tickit #353 給 Mars",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "e0e7d65c",
+          "time": "08:04",
+          "message": "docs(rule-engine): 記錄台中 Rule 9024 於 2026-09-09 08:02 重開與模擬驗證結果",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "58141734",
+          "time": "08:01",
+          "message": "fix(rule-engine): 台中上線修正實測 — v0.2 已部署、誤加註解已清、規則待重開",
+          "body": "正式庫（192.168.33.253）執行紀錄："
+        },
+        {
+          "hash": "229e14c4",
+          "time": "08:04",
+          "message": "docs(rule-engine): 記錄台中 Rule 9024 於 2026-09-09 08:02 重開與模擬驗證結果",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "1dc07008",
+          "time": "08:01",
+          "message": "fix(rule-engine): 台中上線修正實測 — v0.2 已部署、誤加註解已清、規則待重開",
+          "body": "正式庫（192.168.33.253）執行紀錄："
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "5bc25216",
+          "time": "16:17",
+          "message": "把電視內建瀏覽器那條從推論換成實測，並把診斷工具寫進佈署指南",
+          "body": "設計準則 3 原本只寫「不要用電視內建瀏覽器：沒有 flag 可設、會自己休眠、"
+        },
+        {
+          "hash": "9f59f417",
+          "time": "15:49",
+          "message": "游標移到哪就把焦點給哪：補上 Google TV「目標要先有焦點才吃得到點擊」那個縫隙",
+          "body": "自動時鐘顯示關掉之後電視還是點不動，所以往下一個已知原因走。"
+        },
+        {
+          "hash": "83617921",
+          "time": "15:35",
+          "message": "補上焦點框：電視上方向鍵是唯一可靠的操作路徑，沒有框等於瞎按",
+          "body": "滑鼠在電視內建瀏覽器上不一定管用（Browser Here 這類 WebView 殼可能自己吃掉"
+        },
+        {
+          "hash": "4cca4360",
+          "time": "15:18",
+          "message": "電視上點不動：加一個看得見的事件探針，別再用猜的",
+          "body": "上一版把 ES2020 語法拿掉之後電視還是點不動，代表原本的判斷不是全部原因。"
+        },
+        {
+          "hash": "8e724d7b",
+          "time": "15:05",
+          "message": "電視內建瀏覽器上按鈕全死：不是事件綁錯，是整支腳本沒被解析",
+          "body": "牆面的程式碼全在同一個 script 區塊裡。裡面用了 14 個 ?. 和 8 個 ??（ES2020），"
+        },
+        {
+          "hash": "97ed1f69",
+          "time": "07:49",
+          "message": "檔名含 ... 的歌不再從清單上消失：擋穿越的是分隔符號，不是兩個點",
+          "body": "IsSafeName 原本連「檔名含 ..」一起擋。那條防不到目錄穿越——穿越要靠 \\ 或 /"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "bdd0b236",
+          "time": "16:14",
+          "message": "docs(deploy): 釐清「能不能遠端做」看的是通道不是機器",
+          "body": "原本 G2 寫成「SMB 通不代表 IIS reset 通」＋「Api 永遠要 RDP」，方向是錯的："
+        },
+        {
+          "hash": "43a97244",
+          "time": "15:51",
+          "message": "docs(churi): 補 3520 切換完成紀錄與排程開窗的坑",
+          "body": "- 舊排程 2026-09-09 15:40 停用（RDP 手動，遠端 schtasks/COM 在 56.231 不通）"
+        },
+        {
+          "hash": "8d87d2a8",
+          "time": "15:37",
+          "message": "fix(ftp): 上傳改用 FtpRemoteExists.NoCheck，drop folder 帳號沒有 DELETE 權限",
+          "body": "初日 3520 第一次正式上傳就 550 Permission denied，堆疊指到"
+        },
+        {
+          "hash": "3c616095",
+          "time": "14:54",
+          "message": "feat(churi): 3520 廣川醫美中心併入大一統，取代 56.231 的 PowerShell 排程",
+          "body": "廣川的檢驗值回傳目前靠 56.231 上一支 Task Scheduler 每天 07:00 跑的"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "7cbff470",
+          "time": "10:12",
+          "message": "fix: 佇列 USER 欄加寬 10→15，補 AUTOAUTHORISE 記名的 DDL 與踩坑記錄",
+          "body": "WS76 自動二審上線後實測發現 AUTOAUTHORISE（13 碼）塞不進佇列表的 USER 欄，"
+        },
+        {
+          "hash": "f53f3537",
+          "time": "08:34",
+          "message": "docs: DEPLOY 備份清單補 ExcludeQueue.json，並記無 RDP 時的佈署做法",
+          "body": "2026-09-09 佈 WS76 自動二審時發現的兩個文件缺口："
+        },
+        {
+          "hash": "e2b7e8cd",
+          "time": "08:09",
+          "message": "feat: WS76 異常通知項目不看操作者權限自動二審，記名 AUTOAUTHORISE",
+          "body": "會議決議：行政審 WS76（異常通知時間）由系統自動二審，避免通知人員"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "4299864a",
+          "time": "07:53",
+          "message": "冒煙紅燈先排除冷啟動誤報：受害的其實是每天第一個上班的人",
+          "body": "2026-09-05 嘉義那次 FAIL(CY) 不是站壞，是夜間閒置把 w3wp 殺掉、"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "768f282d",
+          "time": "17:54",
+          "message": "feat(fee): 社區幫費用匯入檔產製",
+          "body": "配位結果 → 社區幫可匯入的 Big5 CSV，收機車位年繳費（一般 1,200／重機 3,600／自行車 0）。"
+        },
+        {
+          "hash": "c140b291",
+          "time": "16:47",
+          "message": "fix(fee): 工作人員費用改為比照住戶（9/3 例會否決免費案）",
+          "body": "匯出結果的「應繳金額」原本把工作人員零元化，而該匯出正是社區幫收費檔的"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "5ba85d83",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-09",
+          "body": "🤖 自動生成於 2026-09-09 07:05"
+        },
+        {
+          "hash": "375a9269",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-08 (26 commits)",
+          "body": "🤖 自動生成於 2026-09-09 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 39,
+    "sideCommits": 4,
+    "totalCommits": 43
+  }
+}
