@@ -1,0 +1,367 @@
+{
+  "date": "2026-09-10",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "277f79ba",
+          "time": "18:19",
+          "message": "tools: 回放前置腳本 — 搬素材＋印出三段必要 SQL",
+          "body": "把每輪回放的前置收成一行。只動本機檔案與列印 SQL，不自己對 DB 下手。"
+        },
+        {
+          "hash": "998ef010",
+          "time": "18:08",
+          "message": "tools: 56.227 更版腳本 — 把更版 SOP 的守門自動化，走 SMB 免 RDP",
+          "body": "2026-09-10 確認 sc.exe \\server stop/start 掛在 SMB session 上可用，"
+        },
+        {
+          "hash": "412fac3e",
+          "time": "17:01",
+          "message": "docs: 缺口② 決策材料 — 舊碼結構與實測結果矛盾，建議維持首列",
+          "body": "為 9/11 拍板備料。內容："
+        },
+        {
+          "hash": "99b837a9",
+          "time": "16:54",
+          "message": "docs: 缺口① 已修，TODO 打勾並補上實測曝險數字",
+          "body": "MR !101 已合併：FilterUclCodes 只濾 NA、V4 ELSE 改判斷參數，測試 109/109。"
+        },
+        {
+          "hash": "ce3d6683",
+          "time": "16:53",
+          "message": "fix: UCL 展開別濾掉空字串；V4 ELSE 分支改判斷參數",
+          "body": "批次 4 重回放揪出、且回頭影響已切換的批次 2 的兩個移植缺口。"
+        },
+        {
+          "hash": "06e130ff",
+          "time": "16:19",
+          "message": "docs: 9/15 兩批同切定案，並排出剩下兩個工作天的作戰計畫",
+          "body": "批次 2 與批次 4 於 9/15（二）同日切換（2026-09-10 拍板）。當天 3 條線"
+        },
+        {
+          "hash": "85f2206b",
+          "time": "16:12",
+          "message": "docs: 建立 repo 層 CLAUDE.md — 記下設定陣列依索引合併這個坑",
+          "body": "2026-09-10 批次 2 首日事故的防復發文件。內容："
+        },
+        {
+          "hash": "01c8badc",
+          "time": "14:04",
+          "message": "fix: 設定陣列依索引合併把 ansn 寫入語意餵給 Keelung 單位",
+          "body": "批次 2 首日事故根因。appsettings.json（範本）與 appsettings.Local.json（現場）"
+        },
+        {
+          "hash": "1421b852",
+          "time": "12:24",
+          "message": "docs: 批次 2 順延 9/15、時程重排；併單成因列全案第一優先",
+          "body": "批次 2 自 9/10 順延至 9/15（二）。全案硬門檻改為「併單成因定位＋修正上線」，"
+        },
+        {
+          "hash": "43b00219",
+          "time": "12:03",
+          "message": "docs: 批次 2 切換當日回退與資料修復全紀錄",
+          "body": "07:20-07:35 切換完成、檔案流三段全通（首檔 11 張單、pull settle 門檻如預期"
+        },
+        {
+          "hash": "ed927850",
+          "time": "11:42",
+          "message": "docs: 批次 4 未竟事項進 TODO、進度表同步",
+          "body": "TODO 新增「批次 4 開球前必清」段："
+        },
+        {
+          "hash": "4773e684",
+          "time": "11:39",
+          "message": "docs: TODO 批次 6 狀態同步 — 兩個決策收斂為一題、ORA-01830 優先度下修",
+          "body": "三處更新（經 L1 授權代寫 TODO.md）："
+        },
+        {
+          "hash": "5bcc3527",
+          "time": "11:31",
+          "message": "docs: 更新 L4 進度與 kickoff prompt — 6a 紙上前置已提前完成",
+          "body": "WORKSTREAMS："
+        },
+        {
+          "hash": "d399ecd0",
+          "time": "11:23",
+          "message": "docs: Cube 主線重回放結果 — 未達零未解釋差異，揪出兩個移植缺口",
+          "body": "素材 350 檔（Cube_Backup_Files 8/31 起、正式庫 filename 有紀錄者，30 單位，"
+        },
+        {
+          "hash": "1fd9f66a",
+          "time": "11:17",
+          "message": "docs: Parsing DB 實查 — 27 家設定附錄，6a-1 實質剩兩件",
+          "body": "唯讀查 Parsing DB @168.229 的 Companys + FileFormat，補上 BATCH6A_PLAN §9"
+        },
+        {
+          "hash": "2a34d17a",
+          "time": "08:41",
+          "message": "docs: 訂正「無 HCLAB 查詢權限」誤判 — Oracle A/B 重新框定為成本問題",
+          "body": "2026-09-04 寫下的「我方沒有 HCLAB 的查詢權限，連驗證都做不到」是錯的："
+        },
+        {
+          "hash": "424f47cf",
+          "time": "08:12",
+          "message": "fix: 位元組上限表綁回版位 — DaAn 採檢日不再被截斷寫錯",
+          "body": "FieldMaxBytes 原本是全域 static、依原始欄位索引無條件套用，且在版位對映"
+        },
+        {
+          "hash": "c8f64066",
+          "time": "08:04",
+          "message": "docs: 簽收模式讀碼結案 — 對 Transfer 是死參數，6a-1 由四件縮為三件",
+          "body": "追完 isSigninMode 在 FlexibleParsing 的全部消費點："
+        },
+        {
+          "hash": "ff9b9d4e",
+          "time": "07:55",
+          "message": "docs: 批次 6a 執行計畫 — 三段式、逐家切換、骨架前提實查通過",
+          "body": "批次 6 拆成 6a／6b 分別排期，6a 不再是「阻塞中不排期」。"
+        },
+        {
+          "hash": "c708800b",
+          "time": "07:54",
+          "message": "docs: 批次 4 切換資產進版控；揪出 DaAn 採檢日截斷缺陷",
+          "body": "那批資產原本只在伺服器上（56.227 cutover-cube\\、.227 兩份 .CUTOVER），"
+        },
+        {
+          "hash": "2b0464d0",
+          "time": "07:51",
+          "message": "﻿docs: 回放清資料鐵律 — 以單位為範圍，不可用日期當唯一條件",
+          "body": "2026-09-09 踩到：為跑批次 3 回放，用 cre_date >= 今天 清 WebOrder_Test，"
+        }
+      ],
+      "count": 21
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b5b412c8",
+          "time": "18:03",
+          "message": "fix(LT274Pdf): 轉檔引擎改走 headless Edge，修報告 PDF 無頁碼與內容被硬切",
+          "body": "桃園回報報告 PDF 跑版、B5 尤其明顯。實測與站台無關 —— 台北打同一支端點、同樣參數，"
+        },
+        {
+          "hash": "9679c356",
+          "time": "17:15",
+          "message": "fix(DangerListV2): 杏昌電話通報客戶補 Ca/P/Hb/Hct/WBC — 三站上線至今一直漏報",
+          "body": "嘉義杏嘉回報「Ca<6.5 / P>12 / Hb<7 / Hct>60 都沒出現」。逐站對 TR_RANGE 後確認"
+        },
+        {
+          "hash": "20169ffb",
+          "time": "16:20",
+          "message": "feat(DangerListV2): 嘉義杏嘉診所 (4285/5285) 套用杏昌電話通報危急值規則",
+          "body": "沿用既有「電話通報」客戶那組客製化：Glucose (9005/9401/9506/9507) <65 或 >500、"
+        },
+        {
+          "hash": "974d4f0c",
+          "time": "14:14",
+          "message": "早窗起點 11:00 → 10:00，早上的盲區從 4 小時縮成 3 小時",
+          "body": "被問到「早上七點會怎麼樣」才發現起點訂得比需要的保守。07:00 是刻意不判定的"
+        },
+        {
+          "hash": "3caaf4f3",
+          "time": "13:06",
+          "message": "補註解：為什麼判定只能看 LogTime — 斷線期間讀卡機會暫存、復原後補傳",
+          "body": "2026-09-09 那次收卡中斷（08:15 → 09-10 09:04）有 1340 筆的 CardTime 是 09-09、"
+        },
+        {
+          "hash": "8f17d345",
+          "time": "13:05",
+          "message": "判定窗放寬：11:00-16:59 與 17:00-23:59，別讓後備門檻決定時窗",
+          "body": "第一版把判定窗縮成「平日 11 點與 18 點各一小時」，結果那塊磚一天有 22 小時是灰的、"
+        },
+        {
+          "hash": "6de15944",
+          "time": "12:18",
+          "message": "feat(Attendance): 新增門禁刷卡資料新鮮度探測端點 CardLogFreshness",
+          "body": "Argus 監控牆要監控門禁刷卡資料有沒有在進來，但偵測方 Cerberus(56.231)"
+        },
+        {
+          "hash": "6070639d",
+          "time": "11:42",
+          "message": "feat(HDPID): 同名多ID偵測（排程會把打錯的 ID 抄進資料庫）＋本期新病人一定列出",
+          "body": "行政 2026-09-10 第二批案例，兩件都查到根因："
+        },
+        {
+          "hash": "730b82d5",
+          "time": "11:29",
+          "message": "docs(HDPID): 資料庫同步機制改為已驗證的事實：HCLAB_web 排程至少每天跑，只同步有洗腎 D 項目的單",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "b3761718",
+          "time": "11:17",
+          "message": "feat(HDPID): 跨單位提示：換單位的病人在新單位會標出原單位；補「資料庫來源與切點」說明",
+          "body": "行政 2026-09-10 兩個問題："
+        },
+        {
+          "hash": "e8562ee5",
+          "time": "11:42",
+          "message": "feat(HDPID): 同名多ID偵測（排程會把打錯的 ID 抄進資料庫）＋本期新病人一定列出",
+          "body": "行政 2026-09-10 第二批案例，兩件都查到根因："
+        },
+        {
+          "hash": "8e8eded2",
+          "time": "11:29",
+          "message": "docs(HDPID): 資料庫同步機制改為已驗證的事實：HCLAB_web 排程至少每天跑，只同步有洗腎 D 項目的單",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "20630dec",
+          "time": "11:17",
+          "message": "feat(HDPID): 跨單位提示：換單位的病人在新單位會標出原單位；補「資料庫來源與切點」說明",
+          "body": "行政 2026-09-10 兩個問題："
+        },
+        {
+          "hash": "309b075b",
+          "time": "07:29",
+          "message": "feat(HDPID): 新病人 ID 輸錯可在列內輸入正確 ID，一次更正 LIS 並加入資料庫；第四輪回饋",
+          "body": "電腦組 2026-09-10：新病人顯示 ID 格式錯時，希望能直接在頁面輸入正確 ID，"
+        }
+      ],
+      "count": 14
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "6a321d43",
+          "time": "13:08",
+          "message": "門檻 300 → 600 分：配合 lisweb 放寬判定窗（lisweb!1501）",
+          "body": "原本那塊磚一天有 22 小時是灰的，因為判定窗被縮成「平日 11 點與 18 點各一小時」。"
+        },
+        {
+          "hash": "b1d38a7c",
+          "time": "12:55",
+          "message": "啟用大門打卡機那顆頭：156.224 連得到差勤 DB，這是實測出來的",
+          "body": "lisweb!1500 已 merge 並佈到 docs。驗證結果："
+        },
+        {
+          "hash": "75443e55",
+          "time": "12:42",
+          "message": "錯字：牆上那句「驗証」應為「驗證」",
+          "body": "上一版我用 unicode escape 寫中文時打錯碼位（U+8A3C「証」，台灣用的是 U+8B49「證」），"
+        },
+        {
+          "hash": "cd102b2e",
+          "time": "12:40",
+          "message": "連不到就請人代打：新增 HttpFreshness，打卡機那顆改走 docs 的端點",
+          "body": "56.231 連不到差勤 DB（1433 只放行辦公網段），56.230 實測也一樣擋。"
+        },
+        {
+          "hash": "5603a152",
+          "time": "11:37",
+          "message": "診斷講得太寬了：不是 56.x 連不到 168.x，是 168.127 只放行辦公網段",
+          "body": "上一版寫「那台到 168.x 網段的路由／防火牆」，把要網路組做的事講成了開通一個網段。"
+        },
+        {
+          "hash": "df1643c1",
+          "time": "11:16",
+          "message": "「監控未上線」的主詞是誰看不出來，改成「還沒在看」",
+          "body": "走廊上看到「大門打卡機／監控未上線」，第一直覺是「打卡機沒上線」——"
+        },
+        {
+          "hash": "3e3b1393",
+          "time": "08:47",
+          "message": "停用的頭要留在牆上：把缺口藏起來就是自己製造假綠",
+          "body": "上一版把打卡機那顆停用之後，牆回到 12 塊全綠——但那件事一件都沒解決："
+        },
+        {
+          "hash": "14f95640",
+          "time": "08:39",
+          "message": "看門狗那台連不到門禁 DB：加 Enabled 旗標，先把打卡機那顆擱著",
+          "body": "上一版佈上去才發現 **56.231 連不到 192.168.168.127**（SQL-64 / provider error 40），"
+        },
+        {
+          "hash": "366cd4b1",
+          "time": "08:23",
+          "message": "打卡機停了 23 小時沒人知道：加 DbFreshness，以及只亮到黃燈的次要頭",
+          "body": "2026-09-10 查 SMS_DB 時發現全公司 27 台讀卡機自 09-09 08:15 起完全沒有新資料，"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "52a43fe4",
+          "time": "16:15",
+          "message": "點唱機改成分頁籤：點歌／待播／播過／mp3 庫，一頁一件事、一條捲軸",
+          "body": "上一版把三份清單疊在同一頁，實際打開來看（截圖）有兩個問題，各自有一個根因："
+        },
+        {
+          "hash": "b1333631",
+          "time": "15:02",
+          "message": "點唱機重新設計：兩個面板併成一個，輸入框在最上面",
+          "body": "原本拆成「♪ 點歌」與「🔁 重播」兩顆鈕、兩個面板，總共 4 組問句標籤、9 段散文、"
+        },
+        {
+          "hash": "a13f7f72",
+          "time": "14:11",
+          "message": "點唱機說明砍掉一半：想點首歌的人不該先讀完八段散文",
+          "body": "點唱機那頁從「怎麼點歌」變成了一份規格書——孤兒 mp3、LUFS、轉檔機制、"
+        },
+        {
+          "hash": "3605f51b",
+          "time": "08:51",
+          "message": "警報吵不吵看的是出聲佔比，不是重播間隔：紅 10 分、黃 1 小時",
+          "body": "牆上的警報實際上接近連續播放，而設定看起來完全正常："
+        },
+        {
+          "hash": "4c73a71d",
+          "time": "08:23",
+          "message": "牆上第一顆只亮黃燈的頭：大門打卡機，以及陣發資料為什麼不能當心跳看",
+          "body": "Cerberus 那側加了 DbFreshness 與 Minor（cerberus 分支 feat/db-freshness-card-reader），"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "d31779a6",
+          "time": "16:57",
+          "message": "docs(deploy): 台北 2026-09-10 部署紀錄",
+          "body": "Worker + Api 上健曄細菌 MB 還原（MR !17）。正式機 dry-run 驗證"
+        },
+        {
+          "hash": "13279e3c",
+          "time": "16:31",
+          "message": "fix(jianye): 細菌報告還原成父項 testcode",
+          "body": "展望大一統的細菌（MB）結構特殊：父項（例 3214 細菌培養）是 Type P"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "82a78d53",
+          "time": "07:08",
+          "message": "docs: 更新彙整資料 2026-09-10",
+          "body": "🤖 自動生成於 2026-09-10 07:08"
+        },
+        {
+          "hash": "9e549958",
+          "time": "07:08",
+          "message": "docs: 每日工作紀錄 2026-09-09 (43 commits)",
+          "body": "🤖 自動生成於 2026-09-10 07:08"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 51,
+    "sideCommits": 2,
+    "totalCommits": 53
+  }
+}
