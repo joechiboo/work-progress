@@ -1,0 +1,319 @@
+{
+  "date": "2026-09-11",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "6bd72172",
+          "time": "12:56",
+          "message": "docs: 二進位檔被解析成幻影醫令的發現與修正紀錄",
+          "body": "批次 4 文件與作戰圖原本都寫「0466 的 .xls/.xlsx 出現在 quarantine 屬預期」，實測證明"
+        },
+        {
+          "hash": "baa56785",
+          "time": "12:54",
+          "message": "fix: Delimited adapter 擋二進位檔 — 真 Excel 被解析成 763 張幻影醫令",
+          "body": "⛔ 這是批次 4（9/15 切換）的必修項。"
+        },
+        {
+          "hash": "6da6b2c0",
+          "time": "12:45",
+          "message": "docs: 站台形態拍板——開新站，舊站 8989 先留著",
+          "body": "2026-09-11 決定：GUI 跟著 OrderInSql.Service 走（gate2025.ucl.com.tw:5177/alert），"
+        },
+        {
+          "hash": "df74ab9a",
+          "time": "12:35",
+          "message": "tools: 批次 2＋4 回放清理腳本 — 內建 §5.9 守門與分批刪除",
+          "body": "9/14 補跑回放前要清 WebOrder_Test 的本輪資料。原本 TODO 只寫「照 §5.9 以單位代碼為"
+        },
+        {
+          "hash": "df4f7071",
+          "time": "12:30",
+          "message": "docs: 批次 2 三處殘留已清 ＋ 帳本制清理順序鐵律",
+          "body": "9/10 中止切換留下的三個 0173 檔在三處各有一份，已全部移到 *_rolledback_20260910\\"
+        },
+        {
+          "hash": "5ce83aa3",
+          "time": "12:26",
+          "message": "docs: LIS 端 SSO 參數已寫入（停用中），記錄啟用方式與 callback 位址",
+          "body": "2026-09-11 於台北 LIS Oracle 寫入 OrderInSql_URL／_Issuer／_Audience／_JwtKey 四筆。"
+        },
+        {
+          "hash": "09390198",
+          "time": "12:16",
+          "message": "feat: 接 LISWeb SSO 登入（與分單系統同一套），GUI 與寫入 API 改為需登入",
+          "body": "docs/ELECTRONICALERT_INTEGRATION.md §8 的「認證」缺口。原規劃 Windows 驗證，改採"
+        },
+        {
+          "hash": "aed40fa2",
+          "time": "12:16",
+          "message": "docs: 9/11 12:09 第二次部署完成 — 原訂 9/14 提前到當天",
+          "body": "原本「共同前置：重新部署」排在 9/14（一），提前到 9/11 12:09 執行，用意是讓週末"
+        },
+        {
+          "hash": "a0b0e74d",
+          "time": "12:08",
+          "message": "fix: 更版腳本備份夾名帶時分 — 同日二次更版會混版",
+          "body": "原本備份夾名只到日期（app_bak_yyyyMMdd）。同一天更版第二次時，robocopy /E 會把"
+        },
+        {
+          "hash": "484270d9",
+          "time": "12:04",
+          "message": "fix: 舊碼頁編碼註冊順序 bug — Excel adapter 型別初始化競態",
+          "body": "ExcelOrderFileAdapter 在靜態建構式註冊 CodePagesEncodingProvider，但靜態欄位"
+        },
+        {
+          "hash": "5d66281a",
+          "time": "11:43",
+          "message": "feat: 收檔進度頁 /alert — 承接 ElectronicAlert 五色狀態＋inbox 欄＋手動轉入入口（P1/P2）",
+          "body": "docs/ELECTRONICALERT_INTEGRATION.md §5：GUI 第一頁。"
+        },
+        {
+          "hash": "ba4c2b03",
+          "time": "11:39",
+          "message": "docs: 缺口② 定案入檔 — 混合語意，非二選一",
+          "body": "轉移卡的「決策材料」改寫為定案紀錄：舊碼是混合語意（Id/IdInvno/SEQUENCE/SN"
+        },
+        {
+          "hash": "c7ffcd6f",
+          "time": "11:38",
+          "message": "fix: 缺口② 定案 — 主檔欄位是混合語意，非鍵欄位取末列",
+          "body": "昨天的決策材料卡在一個矛盾：舊碼結構看似「末列覆蓋」，但 0173 實測顯示"
+        },
+        {
+          "hash": "ef03150b",
+          "time": "11:36",
+          "message": "feat: 手動轉入 API — 時窗外明確回報、可強制略過、每線鎖、MessLog 稽核（P0）",
+          "body": "docs/ELECTRONICALERT_INTEGRATION.md §4：trigger 在 ProcessingWindow 外原本靜默回 Empty"
+        },
+        {
+          "hash": "ab056072",
+          "time": "11:18",
+          "message": "docs: ElectronicAlert 整併評估（GUI 第一頁）＋ 舊碼存檔",
+          "body": "- 承接 56.229:8989「查詢電子檔上傳進度」：五色狀態規則、UNITDATA 三欄、現況數字、已知問題"
+        },
+        {
+          "hash": "bb0d479a",
+          "time": "11:16",
+          "message": "docs: 清掉過期 TODO — 批次 1 收尾延到 9/15、刪 9/10 已發生條目、關閉 php 44 筆",
+          "body": "整份文件混著 9/8-9/11 三個時間點的內容，週一開工會難讀。這輪清理："
+        },
+        {
+          "hash": "e32115de",
+          "time": "11:11",
+          "message": "docs: 週一清單補「先重新部署」——線上版缺 Dept 修正",
+          "body": "9/11 07:38 部署的 binary 不含 ResolveDept（MR !110 於 09:05 合併，晚 1.5 小時）。"
+        },
+        {
+          "hash": "8a3eeaef",
+          "time": "09:33",
+          "message": "docs: 3a／3b 恢復週二節奏（9/22、9/29）",
+          "body": "原本為了搶回一週，把 3a 挪到 9/24 與批次 4 觀察期併行、3b 挪到 10/1 避開"
+        },
+        {
+          "hash": "a44c0ad9",
+          "time": "09:17",
+          "message": "docs: 作戰圖改寫成 9/11 15:00 實況 — 部署與兩批驗證已完成，只剩缺口②拍板",
+          "body": "三段過期內容一次改："
+        },
+        {
+          "hash": "824bad9a",
+          "time": "09:14",
+          "message": "docs: 批次 4 平行驗證通過 — 443 檔歸因後零未解釋差異，Dept 缺口已修",
+          "body": "第一輪（錯的單位設定＋多個孤兒程序互搶）作廢；以正式設定照抄、單一 detached"
+        },
+        {
+          "hash": "5a51ceba",
+          "time": "09:02",
+          "message": "docs: 本機回放的程序管理坑 — MSYS ps 看不到 Windows 程序、孤兒 exe 鎖 DLL",
+          "body": "2026-09-11 實踩：bash 的 ps/pgrep 查不到 OrderInSql.Service.exe，誤判服務已死而"
+        },
+        {
+          "hash": "7ed11434",
+          "time": "08:55",
+          "message": "fix: Cube 線 Dept 依舊碼規則從檔名推導（只有 0208 有值）",
+          "body": "2026-09-11 以 56.227 shadow 夾 443 個真實 Cube 檔做平行驗證，非鍵值欄比對抓到"
+        },
+        {
+          "hash": "eaa970e7",
+          "time": "08:44",
+          "message": "tools: 批次 4 產生器補 WriteProfile=Default 與守門（同步 56.227 實體檔）",
+          "body": "09-10 陣列合併事故後的新規則：單位設定一律明寫 WriteProfile，不依賴預設值。"
+        },
+        {
+          "hash": "4345a3bb",
+          "time": "08:36",
+          "message": "docs+tools: 9/11 平行驗證結果，補 TATUNG 的 ValidateIdFormat",
+          "body": "用 56.227 shadow 夾的 46 個真實檔跑「新版寫 WebOrder_Test vs 舊程式寫正式庫」，"
+        },
+        {
+          "hash": "414cd656",
+          "time": "07:53",
+          "message": "fix: 部署腳本的驗證改用 UTF8 讀 log、加逐檔雜湊比對",
+          "body": "2026-09-11 首次實跑抓到的兩個問題（部署本體是成功的，壞的是驗收步驟）："
+        }
+      ],
+      "count": 25
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "e2065325",
+          "time": "12:25",
+          "message": "feat(BT402): 地址條新增大字版，字級固定 16px 不再縮到 10px",
+          "body": "現場反映地址條字太小看不清楚。現行版面 (_AddressLabel) 的地址與抬頭是各自"
+        },
+        {
+          "hash": "069ff8ee",
+          "time": "10:30",
+          "message": "fix(BT201): 預開隔日單的送達時間改記存檔當下，不再沿用未來的開單日期",
+          "body": "送達時間(ID_SPL_RCVDT)為空時存檔，原本一律沿用開單日期(ID_TRX_DT)。"
+        },
+        {
+          "hash": "f37069d6",
+          "time": "09:01",
+          "message": "docs(報告PDF): 整合 LT274Pdf 跑版排查全貌——消費端地圖、分頁機制、診斷手冊、驗收清單",
+          "body": "2026-09-10～11 兩支修復（!1505 換 headless Edge、!1508 分頁改在圖片載入後）"
+        },
+        {
+          "hash": "70648f7e",
+          "time": "08:45",
+          "message": "fix(LT274): 分頁與列印改在圖片載入後才做，消除偶發多一張殘頁",
+          "body": "V2026.09.11.003 上台北後實測：同一張單 3070402037 走傳真參數"
+        },
+        {
+          "hash": "6f981f81",
+          "time": "07:14",
+          "message": "revert(HDPID): 移除跨單位提示，資料庫維持嚴格分單位",
+          "body": "行政 2026-09-11 明確不要跨單位：「我們不用知道他換單位。只要在這個單位他沒來過，"
+        },
+        {
+          "hash": "0fc4c0f3",
+          "time": "07:14",
+          "message": "revert(HDPID): 移除跨單位提示，資料庫維持嚴格分單位",
+          "body": "行政 2026-09-11 明確不要跨單位：「我們不用知道他換單位。只要在這個單位他沒來過，"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "77cc036b",
+          "time": "17:52",
+          "message": "監控來源：大門打卡機那顆已下架",
+          "body": "配合 Cerberus !46。表格那列改成「已下架」而不是刪掉——牆上少一塊磚跟一切正常"
+        },
+        {
+          "hash": "083e7b19",
+          "time": "16:31",
+          "message": "點唱機拿掉「撥不了的歌」清單，播過的改成播最多次的排前面",
+          "body": "「撥不了的歌」那塊是查詢用的附註，實際上沒人看——真正需要它的時機是"
+        },
+        {
+          "hash": "3adeab6c",
+          "time": "08:18",
+          "message": "點唱機清單按鈕移到歌名前面，整列加 hover",
+          "body": "歌名長度不一，按鈕跟在後面就每列都在不同位置，按下去不確定是哪一首。"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "f006f537",
+          "time": "17:51",
+          "message": "佈署紀錄補這次下架那一列",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "6287d318",
+          "time": "17:51",
+          "message": "下架大門打卡機那顆頭",
+          "body": "只看單一台門的判定時機太窄：平日只在 11 時與 18 時各判一次、週末完全不判，"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "90cf7109",
+          "time": "17:25",
+          "message": "fix(roster): 匯出名冊漏「工作人員」欄，會讓工作人員與住戶爭位",
+          "body": "household.工作人員 自 0010 就存在，registry.normalizeRow 會讀、distribute 靠它"
+        },
+        {
+          "hash": "464edef8",
+          "time": "17:21",
+          "message": "fix(csv): CLI 輸出的 CSV 補上 UTF-8 BOM，Excel 開不再亂碼",
+          "body": "export-roster / draw / make-test-roster 都以 UTF-8 無 BOM 寫檔，繁中 Windows 的"
+        },
+        {
+          "hash": "bfe975c0",
+          "time": "17:10",
+          "message": "feat(draw): 抽籤演練 CLI（唯讀，不動線上狀態）",
+          "body": "新增 scripts/draw.mjs：名冊 CSV → distribute + distribute-bikes → 配位結果 CSV，"
+        },
+        {
+          "hash": "5050b0a3",
+          "time": "16:54",
+          "message": "docs(24): 指令範例改 PowerShell，補跨機器執行條件",
+          "body": "原範例用 bash 的反斜線接續，在 Windows 預設的 PowerShell 與 cmd 都會噴語法錯誤。"
+        },
+        {
+          "hash": "e22c2446",
+          "time": "15:29",
+          "message": "fix(rules): 補提交 docs/01 —— /rules 線上內容被 build 打回舊版",
+          "body": "5057a48 提交了產生物 src/data/bylaw-content.js，但沒提交其來源 docs/01。"
+        },
+        {
+          "hash": "357f9db0",
+          "time": "15:16",
+          "message": "chore(docs): 公告 PDF 工具鏈——附件標籤、合併、docs/pdf 不進版控",
+          "body": "9/3 例會紀錄要合併成公告文件，經理要求各附件首頁左上角標示是第幾份附件。"
+        },
+        {
+          "hash": "5057a484",
+          "time": "15:16",
+          "message": "feat(rules): 住戶說明頁改為站內 /rules，內容自 docs/01 產生",
+          "body": "原本首頁那顆「住戶說明頁」指向手維護的 public/rules.html（6/25 寫的），"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "52523e3e",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-11",
+          "body": "🤖 自動生成於 2026-09-11 07:05"
+        },
+        {
+          "hash": "09a82a74",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-10 (53 commits)",
+          "body": "🤖 自動生成於 2026-09-11 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 36,
+    "sideCommits": 9,
+    "totalCommits": 45
+  }
+}
