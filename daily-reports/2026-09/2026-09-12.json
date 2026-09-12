@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-12",
+  "weekday": "六",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "96812b8f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-12",
+          "body": "🤖 自動生成於 2026-09-12 07:05"
+        },
+        {
+          "hash": "70d91c4c",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-11 (45 commits)",
+          "body": "🤖 自動生成於 2026-09-12 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "4914acd3",
+          "time": "11:36",
+          "message": "fix(pdf): 附件一標籤蓋掉提案單標題、合併版漏收附件一",
+          "body": "合併版 v1.1 送出後經理回報兩件事，同一組附件的兩個問題："
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 3,
+    "totalCommits": 3
+  }
+}
