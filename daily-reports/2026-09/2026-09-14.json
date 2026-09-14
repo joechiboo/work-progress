@@ -1,0 +1,481 @@
+{
+  "date": "2026-09-14",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "4797fea8",
+          "time": "10:05",
+          "message": "feat: 新增「線別與手動轉入」頁 — 手動轉入原本在介面上找不到",
+          "body": "回報：介面上看不到哪裡可以轉。實查確認**目前一顆按鈕都不會出現**——收檔進度頁的"
+        },
+        {
+          "hash": "8996004d",
+          "time": "09:11",
+          "message": "fix: 收檔進度頁的 inbox 歸戶改為對回 UNITDATA，修正重複前綴造成的幽靈單位",
+          "body": "上傳管道會加單位前綴，客戶檔名若已含代碼就重複一次（00330033-PHYSICIANORDER-*.xls，"
+        },
+        {
+          "hash": "fc73b5f0",
+          "time": "08:56",
+          "message": "docs: 修正 TxtTable 敘述（只有 ansn-ucl 是空的）＋批次 5 前置發現：UNIMAX 與長慎共用收檔夾",
+          "body": "- 原文「TxtTable 是空的」只對 ansn-ucl 成立（舊系統該目錄自 2020-05-04 起就是空的，"
+        },
+        {
+          "hash": "a99c966c",
+          "time": "08:50",
+          "message": "docs: 綁定模型實查 — 路由是「資料夾＋檔名」不經 DB，量化 45% 覆蓋缺口與 3 筆髒代碼",
+          "body": "使用者 2026-09-14 指出「好像不是 db binding，應該是 folder bind」。實查確認並量化。"
+        },
+        {
+          "hash": "ee4f95cb",
+          "time": "08:14",
+          "message": "docs: 9/15 換檔改兩段式 — 兩支 .CUTOVER 產生器互不知道對方",
+          "body": "9/14 08:12 兩支產生器重跑並逐項驗證（Auth 區塊帶入、頂層鍵相同、影子原封不動、"
+        },
+        {
+          "hash": "a3ab6f13",
+          "time": "08:06",
+          "message": "ui: 收檔進度頁首拿掉「健康檢查」「線別設定」兩個 JSON 端點連結",
+          "body": "兩者是給監控與維運看的原始 JSON（/healthz、/api/units），對值班同仁沒意義，"
+        },
+        {
+          "hash": "d3ffd6a6",
+          "time": "07:37",
+          "message": "docs: SSO Step 3 完成（5177 已開通、工作站驗證）；Step 4 選單需改 LISWeb 程式，不能只靠 SQL",
+          "body": "- Step 3 ✅：從 169 段工作站驗證 healthz 200、/alert 302→/sso/login→LISWeb SsoTo、/api 401。"
+        },
+        {
+          "hash": "743be3f6",
+          "time": "07:30",
+          "message": "docs: 9/14 週一前置全數完成 — 週末 43 檔真組態平行驗證零未解釋差異",
+          "body": "三件前置："
+        },
+        {
+          "hash": "e5407ea1",
+          "time": "07:24",
+          "message": "docs: 修正 SSO Step 1 段被跳脫字元吃掉的路徑",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "de5b030d",
+          "time": "07:23",
+          "message": "docs: SSO Step 1 完成（56.227 Local.json 加 Auth、07:20 重啟），callback 改 IP，附開埠指令",
+          "body": "- Step 1 ✅ 2026-09-14 07:19：純文字插入 Auth 段、Units／ConnectionStrings 逐項驗證不變、"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "672e958e",
+          "time": "12:30",
+          "message": "feat(BT402/BT403): 付款模式篩選新增「未設定」選項",
+          "body": "付款模式篩選是精確比對，沒設定付款模式的客戶在任何批次裡都看不到、沒人認領"
+        },
+        {
+          "hash": "0ffe8c5f",
+          "time": "12:12",
+          "message": "fix(BT403): 列印記錄月份改用起日、預設上個月、列印前提示已印單位、查詢提速",
+          "body": "0902 澎湖醫院(1115)八月帳單同日被兩人各印一次、重複寄出。根因："
+        },
+        {
+          "hash": "791b2407",
+          "time": "08:46",
+          "message": "docs(選單): 補「功能選單呈現機制」文檔",
+          "body": "原本只有 FunctionMenuEdit（選單資料怎麼維護）的文檔，「選單怎麼被畫出來」"
+        },
+        {
+          "hash": "a7bf357a",
+          "time": "08:15",
+          "message": "feat(選單): 關聯系統 > 分單系統 新增「收檔進度」外部連結",
+          "body": "在分單系統資料夾 (8062) 底下新增節點 FENDAN_ALERT「收檔進度」，"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "df609798",
+          "time": "07:48",
+          "message": "取消靜音不要整段播使徒：改成一聲短確認音",
+          "body": "按 🔊 音效（或解鎖）時原本是 beep('alert')，等於偷偷按了一次「▶ 試聽」——"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "laozi-reader",
+      "commits": [
+        {
+          "hash": "2aca7d3a",
+          "time": "16:07",
+          "message": "feat: 小考題庫鋪到第 30 章——新增 21–30 章 70 題，共 211 題",
+          "body": "出題仍扣著各章註解走，錯項多半是常見誤讀：21 章「其中有信」的信是誠信"
+        },
+        {
+          "hash": "e0f05fcd",
+          "time": "16:04",
+          "message": "feat: 成語出處——30 條，重點在今義與原文的落差",
+          "body": "新增 #/idioms：出自本書的成語 30 條，每條列原句、出處句 id、今義，以及"
+        },
+        {
+          "hash": "5dc866a4",
+          "time": "14:48",
+          "message": "feat: 原文難字可查讀音——60 字 88 處，點字看注音",
+          "body": "原文裡難唸的字（牝、籥、橐、轂、斲、兕、纇、琭珞……）加虛線底線，點一下"
+        },
+        {
+          "hash": "2c733513",
+          "time": "14:41",
+          "message": "feat: 小考題庫鋪到第 20 章——每章 7 題抽 5，共 141 題",
+          "body": "題庫規格定為每章 7 題、每次抽 5：這批新出第 11–20 章 70 題，並把第 2–10 章"
+        },
+        {
+          "hash": "d7314965",
+          "time": "14:33",
+          "message": "feat: 小考隨機抽題＋綜合測驗也有通過標記",
+          "body": "兩件事："
+        },
+        {
+          "hash": "98fbbd55",
+          "time": "12:52",
+          "message": "feat: 本章小考——每章五題，答對四題掛「考核通過 ✓」",
+          "body": "每章正文下方加一區五題是非題，答對 4 題即通過：章首掛徽章、側欄該格的圓點"
+        },
+        {
+          "hash": "d819838a",
+          "time": "12:40",
+          "message": "fix: 讀過標記看不出來——側欄加圓點與邊框，翻章列標 ✓",
+          "body": "原本只給已讀格子一層 accent-soft 底色，那個色跟紙色太接近，在小格子裡幾乎"
+        },
+        {
+          "hash": "f520133c",
+          "time": "12:32",
+          "message": "feat: 讀過標記——章首手動標／取消，側欄格子跟著上色",
+          "body": "章首右邊一顆「標記讀過」鈕，按下變「✓ 已讀」，再按取消。側欄該格填底色，"
+        },
+        {
+          "hash": "168b210c",
+          "time": "12:25",
+          "message": "feat: 小測驗——十題是非題，答完指回原文",
+          "body": "新增 #/quiz：十題是非題，挑的都是最容易讀反的地方（無為不是躺平、天地不仁"
+        },
+        {
+          "hash": "1bca6b5c",
+          "time": "12:19",
+          "message": "feat: 標題可收起——masthead 縮成一條細列",
+          "body": "右上角「收起 ︿」鈕把整個 masthead 縮成小字書名與切換鈕同列的細列，閱讀時"
+        },
+        {
+          "hash": "7dd9c611",
+          "time": "12:16",
+          "message": "refactor: 詞標拉齊為「只標概念義」；側欄改數字格子＋上一章下一章；精簡模式去掉逐句列表",
+          "body": "掃描 81 章後發現受控詞標得不一致：「有」「無」「知」「常」滿篇都是，先前"
+        },
+        {
+          "hash": "6c0a7c8f",
+          "time": "12:10",
+          "message": "feat: 最後八章——70、71、72、73、74、75、79、80，八十一章全數起草",
+          "body": "從 MVP 五章起，照互見一批批往外接，到此 81 章齊：355 句、436 註，每一條"
+        },
+        {
+          "hash": "5b5ea142",
+          "time": "12:04",
+          "message": "feat: 補九章（35、44、50、53、55、61、62、68、69）＋ 精簡閱讀模式",
+          "body": "談兵三章到此補齊，結論在 69 章收攏：31「殺人之眾，以悲哀泣之」、67「慈以"
+        },
+        {
+          "hash": "9ef0415f",
+          "time": "11:56",
+          "message": "feat: 一批補十章——13、15、17、26、27、30、31、34、49、65",
+          "body": "改成一次十章。這批把談兵的三章一起補齊：30「其事好還」（打出去的力量會"
+        },
+        {
+          "hash": "ab8d4ad2",
+          "time": "11:49",
+          "message": "feat: 再補 4 章——10 六問、23 希言自然、47 不出戶知天下、59 治人事天莫若嗇",
+          "body": "第 47 章「其出彌遠，其知彌少」最容易被讀成閉門造車，註裡把前提與代價都"
+        },
+        {
+          "hash": "74a917f0",
+          "time": "11:44",
+          "message": "feat: 再補 4 章——20 我獨異於人、18 大道廢有仁義、36 微明、58 禍福相倚",
+          "body": "第 36 章整章的性質取決於一個「固」字：讀「本來、必定」，四句就是 40 章"
+        },
+        {
+          "hash": "1441453e",
+          "time": "11:40",
+          "message": "feat: 再補 4 章——3 不尚賢、12 五色令人目盲、19 絕聖棄智、46 知足之足",
+          "body": "19 章記下全書分量最重的一條異文：郭店簡本三組作「絕智棄辯」「絕偽棄慮」"
+        },
+        {
+          "hash": "806c4dca",
+          "time": "11:36",
+          "message": "feat: 再補 4 章——7 後其身而身先、28 知雄守雌、54 修之於身、77 天之道張弓",
+          "body": "第 77 章是全書最尖銳的一句社會批評，而且直說不打比方：天之道損有餘補不足，"
+        },
+        {
+          "hash": "dbfdebe1",
+          "time": "11:29",
+          "message": "feat: 再補 4 章——14 道紀、21 孔德之容、52 守母見小、41 上士聞道",
+          "body": "14 與 21 是必須合讀的一組：14 章說道是「無狀之狀，無物之象，是謂惚恍」，"
+        },
+        {
+          "hash": "0c03a218",
+          "time": "11:24",
+          "message": "feat: 再補 4 章——29 天下神器、67 三寶、9 功遂身退、45 大成若缺",
+          "body": "第 67 章是全書唯一一處老子正面開列自己的主張：慈、儉、不敢為天下先。"
+        },
+        {
+          "hash": "b1fc22f7",
+          "time": "11:20",
+          "message": "feat: 再補 4 章——38 德經首章、16 致虛守靜、5 天地不仁、32 道常無名",
+          "body": "第 38 章是德經開篇，「失道而後德，失德而後仁，失仁而後義，失義而後禮」"
+        },
+        {
+          "hash": "372da851",
+          "time": "11:15",
+          "message": "feat: 再補 4 章——25 道法自然、11 無之以為用、64 輔萬物之自然、33 自知者明",
+          "body": "第 25 章明說「道」只是取的字、「大」是勉強加的名，正好回頭坐實第 1 章的"
+        },
+        {
+          "hash": "b853458d",
+          "time": "11:11",
+          "message": "feat: 再補 4 章——51 玄德、24 企者不立、43 至柔馳騁至堅、63 為無為",
+          "body": "第 51 章把「道生之，德畜之」這組分工說得最清楚——書名兩個字的關係就定在"
+        },
+        {
+          "hash": "dca41854",
+          "time": "11:06",
+          "message": "feat: 再補 4 章——2 有無相生、22 曲則全、37 道經收束、56 玄同",
+          "body": "一樣跟著互見走。這批補完後，前幾批只用散文提到的重出句也接成可點連結："
+        },
+        {
+          "hash": "2a33eb68",
+          "time": "11:01",
+          "message": "feat: 補 9 章把互見網接通——4、6、39、40、48、57、66、76、78",
+          "body": "選章跟著互見走，不照章次推：這 9 章正是既有 5 章的註已經指向、卻還沒建的"
+        },
+        {
+          "hash": "60307ccb",
+          "time": "10:48",
+          "message": "feat: 補完 MVP 五章——8 上善若水、60 治大國若烹小鮮、81 全書收束",
+          "body": "三章共 14 句 21 註。第 8 章記王弼「道無水有，故曰幾也」——道無形、水有形，"
+        },
+        {
+          "hash": "cf422a6b",
+          "time": "10:43",
+          "message": "style: 字放大——底字 18px，原文再加一級",
+          "body": "版面全用 rem，所以放大靠 html { font-size: 112.5% } 一行帶動整體；原文另外"
+        },
+        {
+          "hash": "0d2ff6be",
+          "time": "10:37",
+          "message": "feat: 第 42 章 + 受控詞表——關鍵詞開始真的跨章",
+          "body": "42 章六句十一註：一二三的兩路讀法（河上公拆陰陽清濁、王弼只說歸一）、"
+        },
+        {
+          "hash": "4fef9a2b",
+          "time": "10:19",
+          "message": "feat: 呈現層上線——原文白話等寬並列、關鍵詞跨章跳句",
+          "body": "單頁 + hash 路由：#/1 跳章、#/1.3 直接跳句。啟動只載 data/index.json"
+        },
+        {
+          "hash": "4ed92175",
+          "time": "10:11",
+          "message": "feat: 道德經閱讀器起手——schema 定稿、第一章資料、章資料檢查器",
+          "body": "資料層一章一筆 JSON，底本王弼本（公版）。斷句改成物件陣列當原文與白話的"
+        }
+      ],
+      "count": 30
+    },
+    {
+      "name": "soundstage",
+      "commits": [
+        {
+          "hash": "868c2b88",
+          "time": "09:59",
+          "message": "CI 修正：setup-uv 改用完整版號",
+          "body": "上一個 commit 把 setup-uv 寫成 @v10，三組 job 全部在 Set up job 階段就"
+        },
+        {
+          "hash": "a15d67aa",
+          "time": "09:57",
+          "message": "CI：升級 action 版本，清掉 Node.js 20 淘汰警告",
+          "body": "actions/checkout v4→v7、astral-sh/setup-uv v5→v10。原本兩個都還在"
+        },
+        {
+          "hash": "eb1d49d2",
+          "time": "09:55",
+          "message": "新增 GitHub Actions CI",
+          "body": "Ubuntu × Python 3.11／3.13 與 Windows × 3.13，三組都先裝 ffmpeg 再跑"
+        },
+        {
+          "hash": "ff791907",
+          "time": "09:51",
+          "message": "README 改寫成作品集能看的樣子",
+          "body": "repo 沒有網站可看，README 就是門面。主要新增："
+        },
+        {
+          "hash": "4f461540",
+          "time": "09:43",
+          "message": "TODO：upload 路徑首次實跑成功",
+          "body": "2026-09-14 傳出第一支影片 https://youtu.be/bbVbvxobK-s"
+        },
+        {
+          "hash": "b4c310f6",
+          "time": "09:41",
+          "message": "新增 docs/oauth-operations.md：OAuth 設定完成後的日常維運",
+          "body": "涵蓋設定完之後真正會遇到的事："
+        },
+        {
+          "hash": "61272791",
+          "time": "09:37",
+          "message": "setup 文件：用戶端類型改用介面實際用詞「電腦版應用程式」",
+          "body": "Google Auth Platform 的正體中文介面顯示的是「電腦版應用程式」，"
+        },
+        {
+          "hash": "e9d30acd",
+          "time": "09:36",
+          "message": "setup 文件：發布狀態改為建議留在「測試」",
+          "body": "原本建議發布成正式版以避開 refresh token 7 天失效，但實測發現「發布應用"
+        },
+        {
+          "hash": "4c3c1fde",
+          "time": "09:14",
+          "message": "setup 文件改寫成 Google Auth Platform 新版介面",
+          "body": "Google 把單一頁面「OAuth 同意畫面」拆成左側多個分頁，照舊文件會找不到"
+        },
+        {
+          "hash": "74b44176",
+          "time": "08:46",
+          "message": "新增 docs/youtube-setup.md：YouTube 上傳一次性設定流程",
+          "body": "六個步驟，每步附檢查點（用 soundstage auth --status 確認進度），"
+        },
+        {
+          "hash": "8e0c68c4",
+          "time": "08:31",
+          "message": "實作波形視覺化（VisualStyle.WAVEFORM）",
+          "body": "CLI 走 --visual waveform，render 與 publish 都吃得到。"
+        },
+        {
+          "hash": "b878e71a",
+          "time": "07:58",
+          "message": "修正 -shortest 溢出與參數驗證順序",
+          "body": "A：輸出的影像軌會比音訊長約 2 秒（兩支真實素材分別是 2.06s 與 2.28s），"
+        }
+      ],
+      "count": 12
+    },
+    {
+      "name": "taipeigolf\\TaipeiGolf",
+      "commits": [
+        {
+          "hash": "e3314a48",
+          "time": "11:41",
+          "message": "年度檢查表加入 10 月初的自動備份驗收項目",
+          "body": "排程首次執行在 10/1，屆時要確認：備份有產生、警告是否消失"
+        },
+        {
+          "hash": "cdf837ed",
+          "time": "11:40",
+          "message": "資安：清除其他子網域殘留的 webshell + 記錄 Plesk 備份設定",
+          "body": "Plesk 備份警告的 lstat() 失敗訊息揭露 knowdo.taipeigolf.org.tw 底下still"
+        },
+        {
+          "hash": "80deaf4b",
+          "time": "11:05",
+          "message": "修正全站快照的到期表述（6/29 起算半年＝2026/12，目前未逾期）",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "ca2f2d2e",
+          "time": "11:05",
+          "message": "新增年度維運檢查表（一年做一次的事情不再忘記）",
+          "body": "把散在各手冊的年度／半年度工作收斂成一頁目錄：時序表、各項入口、"
+        },
+        {
+          "hash": "a8cb7395",
+          "time": "11:01",
+          "message": "補充主機續約章節（含提前續約的驗證步驟）",
+          "body": "2026-09-14 提前續約完成：M-INV-475580，$190.80，已付到 2027/12/10。"
+        },
+        {
+          "hash": "8f744c56",
+          "time": "10:16",
+          "message": "還原演練實跑 + 例行健檢腳本",
+          "body": "- docs/維運與部署.md 第四節：2026-09-14 首次 DR drill 結果與踩雷"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "edd82b57",
+          "time": "12:16",
+          "message": "feat: laozi-reader 介紹文更新——81 章全數起草",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+        },
+        {
+          "hash": "835e265a",
+          "time": "10:19",
+          "message": "feat: laozi-reader 補上 demo 連結（Pages 已開）",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        },
+        {
+          "hash": "95185739",
+          "time": "10:11",
+          "message": "feat: 作品集加 laozi-reader 並置頂",
+          "body": "排序原本完全由 GitHub pushed_at 決定、沒有人工干預餘地，比照既有的 hidden"
+        },
+        {
+          "hash": "18104ca4",
+          "time": "10:05",
+          "message": "feat: 音樂作品補上曲名 - 久石讓 Summer（菊次郎的夏天）",
+          "body": "把先前的佔位文案換成實際曲目，i18n key 一併改名為 hisaishiSummer，"
+        },
+        {
+          "hash": "70f105a5",
+          "time": "10:02",
+          "message": "feat: 新增 soundstage 作品、封存 Boo Camp、音樂集加鋼琴演奏影片",
+          "body": "- 作品集新增 soundstage（id 41）：音檔合成影片並上傳 YouTube 的 Python CLI，"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "34006bd8",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-14",
+          "body": "🤖 自動生成於 2026-09-14 07:05"
+        },
+        {
+          "hash": "6a2e9213",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-13 (2 commits)",
+          "body": "🤖 自動生成於 2026-09-14 07:05"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 15,
+    "sideCommits": 55,
+    "totalCommits": 70
+  }
+}
