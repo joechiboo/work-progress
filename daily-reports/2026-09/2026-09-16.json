@@ -1,0 +1,343 @@
+{
+  "date": "2026-09-16",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "c7f10c01",
+          "time": "12:47",
+          "message": "docs: 訂正憑證那節 —— 不是「要唯讀帳號」，Parsing 直寫就需要寫入權限",
+          "body": "ORACLE_BOUNDARY §5 原本寫成「要一個唯讀帳號，①成立就不需要」。那是把 §4.2 還沒定案的"
+        },
+        {
+          "hash": "4a451291",
+          "time": "12:38",
+          "message": "docs: 2026-09-16 12:33 部署補登 —— 減量版上線，L2 改用「帳要平」的核對法",
+          "body": "第 12 列。內容：追查頁減量＋EVENT_TBL 訂正段③（B03/B04）＋SSO token 不進 log"
+        },
+        {
+          "hash": "70162b3a",
+          "time": "12:32",
+          "message": "fix: SSO token 不再進 log；段③ 接上了沒改成啟動時就看得見",
+          "body": "兩支都是 12:09 部署後驗收時發現的。"
+        },
+        {
+          "hash": "1d0d8fe5",
+          "time": "12:27",
+          "message": "fix: 追查頁減量，並用 EVENT_TBL 訂正段③ 漏掉的兩個事件碼",
+          "body": "使用者回饋「看起來 ok，有點資訊太多」，加上一個誤讀：單位欄的 placeholder 我填了"
+        },
+        {
+          "hash": "f90e05dd",
+          "time": "12:18",
+          "message": "docs: 2026-09-16 12:09 部署補登 —— /trace 上線，附 L2 歸因與兩個新發現",
+          "body": "第 11 列。內容：段① WebOrder＋段③ LIS Oracle＋唯讀帳號把關（da51a85）。"
+        },
+        {
+          "hash": "eb8bb2fc",
+          "time": "12:02",
+          "message": "docs: 6a 實作進度與待辦 —— 訂正「剩餘兩件半」，92% 是 Excel",
+          "body": "把 §0 改寫成「一眼看懂進度」的形狀，並訂正一個我一直在複述的低估。"
+        },
+        {
+          "hash": "bb47ec50",
+          "time": "11:56",
+          "message": "feat: 量出列級 gate 丟棄的規模 —— 8 列，全在 0376 的檔尾彙總區塊",
+          "body": "0536 那件事長出來的必要檢查（BATCH6A_PLAN §5.0）：FP 有一道三鍵 gate 會把某些"
+        },
+        {
+          "hash": "b38ded66",
+          "time": "11:54",
+          "message": "docs: 要 LIS 開哪些端點 —— 可直接交付的規格書",
+          "body": "ORACLE_BOUNDARY 定了方向（LIS 的業務規則不該複製到這個服務），這份是**交給 LIS 側動工的"
+        },
+        {
+          "hash": "46e2c876",
+          "time": "11:51",
+          "message": "docs: 訂正「四項決策全部結案」—— 決策 1 仍未定案",
+          "body": "我把「10/16 前沒有必須問 Spark 的硬門檻」過度收斂成「四項決策全部結案」，"
+        },
+        {
+          "hash": "0c61180e",
+          "time": "11:47",
+          "message": "docs: Oracle 邊界方向 —— 讀與寫同一個答案，走 LIS 的 API",
+          "body": "起因是兩件事同時發生：/trace 段③ 為了分辨手開單引入本專案**第一條** Oracle 相依"
+        },
+        {
+          "hash": "10d411ca",
+          "time": "11:41",
+          "message": "docs: 追蹤文件同步 —— L4 那列與待補清單都落後今天的進度",
+          "body": "今天早上「作戰圖好像沒動耶」是同一個毛病：做完的事沒有回頭改追蹤表。"
+        },
+        {
+          "hash": "6347aa46",
+          "time": "11:37",
+          "message": "docs: 6b 設計方向 —— 三段合成一次寫入，直接轉 Oracle 不經分單",
+          "body": "現行機制是三段、兩支程式、兩個排程，靠檔案搬移當交接。三個脆弱點："
+        },
+        {
+          "hash": "60481acb",
+          "time": "11:35",
+          "message": "fix: EVENTLOG 查詢的別名撞 Oracle 保留字 —— 順手把 0173 那題查到底",
+          "body": "實機第一次連 HCLAB（台北 168.225）就抓到一個真錯：EVENTLOG 那支查詢的別名叫 At 與"
+        },
+        {
+          "hash": "fcb39798",
+          "time": "11:27",
+          "message": "docs: 決策 1 重新框定 —— FP 根本不寫 WebOrder 醫令，1120 的缺口切換期間不修",
+          "body": "§5 原本把 A 案寫成「只吃解析 + WebOrder 寫入」，那個描述是錯的。"
+        },
+        {
+          "hash": "a044e961",
+          "time": "11:26",
+          "message": "feat: 追查頁段③ LIS —— 分辨手開單，並講清楚「補寄醫令救不回來」",
+          "body": "段① 只能說「我方有沒有這筆」。客服手上通常只有一個號，而在 Delimited／Keelung 家族，"
+        },
+        {
+          "hash": "4162f7dc",
+          "time": "11:15",
+          "message": "feat: 單筆追查頁 —— 客服拿一個條碼就能查「這一筆到哪裡了」",
+          "body": "2026-09-16 客服回報 0173 若瑟三管檢體沒報告，而那天收檔進度頁是**全綠**的：該單位"
+        },
+        {
+          "hash": "b5d30adc",
+          "time": "11:14",
+          "message": "feat: 0536 的病理委外清單要擋掉 —— FP 是歪打正著，我方沒有那道 gate",
+          "body": "使用者 2026-09-16 定案排除。"
+        },
+        {
+          "hash": "3455c0c5",
+          "time": "10:59",
+          "message": "docs: 決策 2 拍板結案 —— 10/16 的 Spark 死線取消",
+          "body": "使用者 2026-09-16 拍板："
+        },
+        {
+          "hash": "aaa15ab9",
+          "time": "10:50",
+          "message": "docs: 「Parsing」在現場指七樣東西，列表釐清",
+          "body": "本 session 一開頭就踩到：說「Parsing 那邊」時，聽的人分不出是批次 6 還是"
+        },
+        {
+          "hash": "5dd182ad",
+          "time": "10:22",
+          "message": "docs: WORKSTREAMS 同步新時程，並收斂「要問 Spark 幾題」的三方矛盾",
+          "body": "作戰圖（TODO）已經是新的，但姊妹文件還停在舊時程："
+        },
+        {
+          "hash": "bbfaa78f",
+          "time": "10:20",
+          "message": "docs: 9/17 執行表 —— 早上平行驗證、下午反向比對，兩件事別混為一談",
+          "body": "當天有兩件比對，方向相反、素材不同、時段不同："
+        },
+        {
+          "hash": "fb88d4b7",
+          "time": "10:19",
+          "message": "feat: 回放配對改用時間戳 —— 1,125 檔零差異，13 家全部 100%",
+          "body": "檔名配對前後踩了四次，每次都產生假差異，最後一種無解：0165 同一 base name"
+        },
+        {
+          "hash": "d882255b",
+          "time": "10:14",
+          "message": "docs: 明早平行驗證前置完成 —— 前置本身抓到三個會讓它白跑的問題",
+          "body": "孤兒程序 0、build 0 錯誤、連線明文指向 WebOrder_Test、素材 708 檔與卡片數字吻合。"
+        },
+        {
+          "hash": "a94ceef8",
+          "time": "10:12",
+          "message": "docs: 0173 若瑟三管 ESR 無報告 —— 查案結案，與轉移無關",
+          "body": "觀察期第 1 天首件客訴。客服給的 6091403152/53/54 是收件端條碼（ID_TNO"
+        },
+        {
+          "hash": "6f7112c1",
+          "time": "10:06",
+          "message": "docs: 訂正節點表 —— 10/6 那週是結案週，6a 第 1 梯移到 10/8",
+          "body": "使用者指出兩個漏洞，都成立。"
+        },
+        {
+          "hash": "18f687f4",
+          "time": "10:00",
+          "message": "docs: 9/16 反向比對零未解釋差異 —— 22 筆全是跨單位搬移，44 對只差 Cancel",
+          "body": "觀察期 day 2。今天疊了兩個變數（9/15 切換 ＋ 今早 07:14 換 binary），"
+        },
+        {
+          "hash": "d9cbbc0e",
+          "time": "09:49",
+          "message": "docs: 6a 切換日與第 1 梯人選拍板，同步改切換排序表",
+          "body": "使用者 2026-09-16 拍板，把兩件從「建議」升成定案："
+        },
+        {
+          "hash": "1c48944e",
+          "time": "09:47",
+          "message": "docs: 連假 9/25-28 定案不值守 —— 連帶把監控頭升格為連假前的必要條件",
+          "body": "使用者決定：中秋連假四天不值守，收假（9/29）再回頭看。四條線一致。"
+        },
+        {
+          "hash": "ca2cc245",
+          "time": "09:38",
+          "message": "docs: 作戰圖補上 6a 落點，排程盤點補上「最後剩什麼」",
+          "body": "排程盤點（實機清點，非推測）："
+        },
+        {
+          "hash": "74620fa5",
+          "time": "09:38",
+          "message": "feat: 9/23 觀察期要用的兩支反向比對腳本 ＋ 補上兩張卡都漏掉的監控頭",
+          "body": "tools/ 底下原本只有 reverse-compare-batch24.sql（批次 2／4 的 33 家寫死），"
+        },
+        {
+          "hash": "9d7208c9",
+          "time": "07:21",
+          "message": "docs: 2026-09-16 07:14 部署完成，補登紀錄表與驗收結果",
+          "body": "七項待部署變更全部上線（c31c036）。Core.dll 163,840 → 194,560 B，"
+        }
+      ],
+      "count": 31
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "c10b2307",
+          "time": "12:36",
+          "message": "feat: mp3 庫可維護（規模、排序、只看孤兒、刪除），待播籤也能按 ✕ 取消",
+          "body": "mp3 庫在這之前只能「排上電視／試聽」，快取資料夾的維護（哪支最肥、"
+        },
+        {
+          "hash": "860d7469",
+          "time": "12:18",
+          "message": "feat: 待播清單每列加 ✕ 取消（搬進已撥，不刪檔）",
+          "body": "點錯了、或那首卡住了（轉檔轉不出來、YouTube 一直連不上）擋在前面時，"
+        },
+        {
+          "hash": "8b8687f7",
+          "time": "08:41",
+          "message": "feat: 電視遙控器台↑台↓ 直接控制音樂",
+          "body": "台↑ 跳過這首、台↓ 從已撥隨機再來一首。"
+        },
+        {
+          "hash": "759a024d",
+          "time": "08:26",
+          "message": "feat: 再來一首指令、同仁安裝說明、封裝腳本",
+          "body": "## 再來一首"
+        },
+        {
+          "hash": "48da25f1",
+          "time": "07:39",
+          "message": "feat: ArgusVoice — 語音控制 Phase 0（跳過這首）",
+          "body": "評估文件（Docs/語音控制評估.md）說的 Phase 0：桌機上的最小版本，"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "819294ff",
+          "time": "10:17",
+          "message": "feat(DataImport2): 新增普城碳13版型, 支援一列多項與姓名核對",
+          "body": "高雄健仁醫院外送碳13呼氣檢查改由普城醫事檢驗所操作, Excel 格式與原"
+        },
+        {
+          "hash": "2e2338e2",
+          "time": "08:17",
+          "message": "docs(報告PDF): 補本機開發環境的兩個必踩點, 坑 7 加上「拒絕連線」死法",
+          "body": "同仁本機測 LT274Pdf 連撞兩個坑, 兩篇文檔都沒寫到, 補回去。"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "health-tracker",
+      "commits": [
+        {
+          "hash": "bc9194ca",
+          "time": "15:53",
+          "message": "手機版版面調整",
+          "body": "實測 390px 寬度後補上："
+        },
+        {
+          "hash": "b7f05c32",
+          "time": "15:45",
+          "message": "表單預填上一筆的數值，首次使用給預設值",
+          "body": "每天量出來的體重、晨跑的量都不會差多少，從空白重打很煩。"
+        },
+        {
+          "hash": "9ffaadef",
+          "time": "15:42",
+          "message": "Supabase 改用獨立 health schema，加連線煙霧測試腳本",
+          "body": "免費方案只給兩個專案，這個 App 要跟另一個專案共用同一個 Supabase，"
+        },
+        {
+          "hash": "169d5c8e",
+          "time": "15:29",
+          "message": "初版：體重與晨跑記錄，趨勢折線圖與相關性分析",
+          "body": "- Vue 3 + Vite + Chart.js，資料存 Supabase，未設定 .env 時退回 localStorage"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "1545b53f",
+          "time": "15:53",
+          "message": "refactor: 取消 laozi-reader 置頂，作品集回歸更新時間排序",
+          "body": "置頂機制與註解保留，之後要用再在該筆加 pinned: true。"
+        },
+        {
+          "hash": "96101832",
+          "time": "15:44",
+          "message": "feat: 作品集新增 Health Tracker 體重與晨跑追蹤",
+          "body": "id 43，分類 health，含 demo 與 GitHub 連結。"
+        },
+        {
+          "hash": "da20c200",
+          "time": "07:30",
+          "message": "refactor: 移除聯絡頁的小額捐款區塊",
+          "body": "LINE Pay 個人收款依附在一卡通電支帳戶上，iPASS MONEY 與 LINE Pay"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f1d3da65",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-16",
+          "body": "🤖 自動生成於 2026-09-16 07:05"
+        },
+        {
+          "hash": "80848eca",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-15 (101 commits)",
+          "body": "🤖 自動生成於 2026-09-16 07:05"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "c707403e",
+          "time": "08:42",
+          "message": "feat(personal): 第 3 次健檢併入＋修正推估的資料集出處，新增兩份 A4 執行文件",
+          "body": "健檢紀錄補上 2026-09-15（大安 B1200）第 3 次數據與家量血壓 123/86。"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 38,
+    "sideCommits": 10,
+    "totalCommits": 48
+  }
+}
