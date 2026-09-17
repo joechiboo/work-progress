@@ -1,0 +1,373 @@
+{
+  "generatedAt": "2026-09-17",
+  "source": "public/data/work-log-latest.json",
+  "dataRange": {
+    "start": "2025-05-05",
+    "end": "2026-09-16",
+    "days": 500
+  },
+  "assumptions": {
+    "usdTwd": 32.71,
+    "hourlyTwd": 500,
+    "note": "台幣金額為信用卡實際扣款（含約 1.5% 國外交易手續費）；2026/08、2026/09 帳單尚未列入季度報銷單，暫以定額 US$100 計"
+  },
+  "overall": {
+    "totalCost": 1337.81,
+    "totalCostTwd": 43760,
+    "aiDays": 430,
+    "aiCommits": 4800,
+    "aiWorkCommits": 2545,
+    "costPerCommit": 0.28,
+    "costPerCommitTwd": 9.1,
+    "dailyCostTwd": 101.8,
+    "monthlyCostTwd": 3271,
+    "breakEvenHours": 6.5
+  },
+  "periods": [
+    {
+      "id": "pre-claude",
+      "name": "使用前",
+      "start": "2025-05-05",
+      "end": "2025-07-13",
+      "plan": "無 AI 輔助",
+      "days": 70,
+      "cost": 0,
+      "costTwd": 0,
+      "totalCommits": 152,
+      "workCommits": 147,
+      "sideCommits": 5,
+      "projectCount": 9,
+      "activeDays": 43,
+      "activeRatio": 61.4,
+      "dailyAverage": 2.17,
+      "workDailyAverage": 2.1,
+      "sideDailyAverage": 0.07,
+      "perActiveDay": 3.53,
+      "costPerCommit": 0,
+      "workShare": 96.7,
+      "totalLift": null,
+      "workLift": null
+    },
+    {
+      "id": "claude-pro",
+      "name": "Claude Pro",
+      "start": "2025-07-14",
+      "end": "2025-09-10",
+      "plan": "Pro US$20/月",
+      "days": 59,
+      "cost": 40.0,
+      "costTwd": 1308,
+      "totalCommits": 423,
+      "workCommits": 314,
+      "sideCommits": 109,
+      "projectCount": 12,
+      "activeDays": 48,
+      "activeRatio": 81.4,
+      "dailyAverage": 7.17,
+      "workDailyAverage": 5.32,
+      "sideDailyAverage": 1.85,
+      "perActiveDay": 8.81,
+      "costPerCommit": 0.09,
+      "workShare": 74.2,
+      "totalLift": 230,
+      "workLift": 153
+    },
+    {
+      "id": "claude-max-1",
+      "name": "Claude Max 初期",
+      "start": "2025-09-11",
+      "end": "2025-12-31",
+      "plan": "Max 5x US$100/月",
+      "days": 112,
+      "cost": 397.81,
+      "costTwd": 13012,
+      "totalCommits": 1341,
+      "workCommits": 583,
+      "sideCommits": 758,
+      "projectCount": 37,
+      "activeDays": 102,
+      "activeRatio": 91.1,
+      "dailyAverage": 11.97,
+      "workDailyAverage": 5.21,
+      "sideDailyAverage": 6.77,
+      "perActiveDay": 13.15,
+      "costPerCommit": 0.3,
+      "workShare": 43.5,
+      "totalLift": 452,
+      "workLift": 148
+    },
+    {
+      "id": "claude-max-2",
+      "name": "Claude Max 長期",
+      "start": "2026-01-01",
+      "end": "2026-09-16",
+      "plan": "Max 5x US$100/月",
+      "days": 259,
+      "cost": 900.0,
+      "costTwd": 29439,
+      "totalCommits": 3036,
+      "workCommits": 1648,
+      "sideCommits": 1388,
+      "projectCount": 61,
+      "activeDays": 255,
+      "activeRatio": 98.5,
+      "dailyAverage": 11.72,
+      "workDailyAverage": 6.36,
+      "sideDailyAverage": 5.36,
+      "perActiveDay": 11.91,
+      "costPerCommit": 0.3,
+      "workShare": 54.3,
+      "totalLift": 440,
+      "workLift": 203
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2025-05",
+      "work": 53,
+      "side": 3,
+      "total": 56,
+      "days": 27,
+      "activeDays": 17,
+      "dailyAverage": 2.07,
+      "workDailyAverage": 1.96
+    },
+    {
+      "month": "2025-06",
+      "work": 64,
+      "side": 2,
+      "total": 66,
+      "days": 30,
+      "activeDays": 19,
+      "dailyAverage": 2.2,
+      "workDailyAverage": 2.13
+    },
+    {
+      "month": "2025-07",
+      "work": 45,
+      "side": 13,
+      "total": 58,
+      "days": 31,
+      "activeDays": 15,
+      "dailyAverage": 1.87,
+      "workDailyAverage": 1.45
+    },
+    {
+      "month": "2025-08",
+      "work": 231,
+      "side": 93,
+      "total": 324,
+      "days": 31,
+      "activeDays": 31,
+      "dailyAverage": 10.45,
+      "workDailyAverage": 7.45
+    },
+    {
+      "month": "2025-09",
+      "work": 170,
+      "side": 174,
+      "total": 344,
+      "days": 30,
+      "activeDays": 26,
+      "dailyAverage": 11.47,
+      "workDailyAverage": 5.67
+    },
+    {
+      "month": "2025-10",
+      "work": 217,
+      "side": 130,
+      "total": 347,
+      "days": 31,
+      "activeDays": 24,
+      "dailyAverage": 11.19,
+      "workDailyAverage": 7.0
+    },
+    {
+      "month": "2025-11",
+      "work": 101,
+      "side": 271,
+      "total": 372,
+      "days": 30,
+      "activeDays": 30,
+      "dailyAverage": 12.4,
+      "workDailyAverage": 3.37
+    },
+    {
+      "month": "2025-12",
+      "work": 163,
+      "side": 186,
+      "total": 349,
+      "days": 31,
+      "activeDays": 31,
+      "dailyAverage": 11.26,
+      "workDailyAverage": 5.26
+    },
+    {
+      "month": "2026-01",
+      "work": 227,
+      "side": 136,
+      "total": 363,
+      "days": 31,
+      "activeDays": 28,
+      "dailyAverage": 11.71,
+      "workDailyAverage": 7.32
+    },
+    {
+      "month": "2026-02",
+      "work": 81,
+      "side": 112,
+      "total": 193,
+      "days": 28,
+      "activeDays": 28,
+      "dailyAverage": 6.89,
+      "workDailyAverage": 2.89
+    },
+    {
+      "month": "2026-03",
+      "work": 100,
+      "side": 99,
+      "total": 199,
+      "days": 31,
+      "activeDays": 31,
+      "dailyAverage": 6.42,
+      "workDailyAverage": 3.23
+    },
+    {
+      "month": "2026-04",
+      "work": 99,
+      "side": 106,
+      "total": 205,
+      "days": 30,
+      "activeDays": 30,
+      "dailyAverage": 6.83,
+      "workDailyAverage": 3.3
+    },
+    {
+      "month": "2026-05",
+      "work": 97,
+      "side": 87,
+      "total": 184,
+      "days": 31,
+      "activeDays": 31,
+      "dailyAverage": 5.94,
+      "workDailyAverage": 3.13
+    },
+    {
+      "month": "2026-06",
+      "work": 241,
+      "side": 269,
+      "total": 510,
+      "days": 30,
+      "activeDays": 30,
+      "dailyAverage": 17.0,
+      "workDailyAverage": 8.03
+    },
+    {
+      "month": "2026-07",
+      "work": 220,
+      "side": 208,
+      "total": 428,
+      "days": 31,
+      "activeDays": 30,
+      "dailyAverage": 13.81,
+      "workDailyAverage": 7.1
+    },
+    {
+      "month": "2026-08",
+      "work": 165,
+      "side": 235,
+      "total": 400,
+      "days": 31,
+      "activeDays": 31,
+      "dailyAverage": 12.9,
+      "workDailyAverage": 5.32
+    },
+    {
+      "month": "2026-09",
+      "work": 418,
+      "side": 136,
+      "total": 554,
+      "days": 16,
+      "activeDays": 16,
+      "dailyAverage": 34.62,
+      "workDailyAverage": 26.12
+    }
+  ],
+  "billing": [
+    {
+      "date": "2025-07-14",
+      "amount": 20.0,
+      "plan": "Claude Pro"
+    },
+    {
+      "date": "2025-08-14",
+      "amount": 20.0,
+      "plan": "Claude Pro"
+    },
+    {
+      "date": "2025-09-11",
+      "amount": 97.81,
+      "plan": "Claude Max 5x（首月按比例）"
+    },
+    {
+      "date": "2025-10-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2025-11-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2025-12-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-01-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-02-10",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-03-10",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-04-10",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-05-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-06-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-07-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-08-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    },
+    {
+      "date": "2026-09-11",
+      "amount": 100.0,
+      "plan": "Claude Max 5x"
+    }
+  ]
+}

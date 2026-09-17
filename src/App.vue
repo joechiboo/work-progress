@@ -9,28 +9,55 @@
         >
           📊 工作進度追蹤系統
         </h1>
+
+        <!-- 分頁切換 -->
+        <div class="flex gap-2 mt-4">
+          <button
+            v-for="tab in TABS"
+            :key="tab.id"
+            @click="switchTab(tab.id)"
+            class="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+            :class="activeTab === tab.id
+              ? 'bg-blue-600 text-white shadow'
+              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'"
+          >
+            {{ tab.label }}
+          </button>
+        </div>
       </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-8">
-      <!-- 篩選區 -->
-      <div v-if="rawData" class="bg-white rounded-lg shadow p-6 mb-6">
+      <!-- 篩選區（工作紀錄／專案明細共用） -->
+      <div v-if="summaryData" v-show="activeTab !== 'benefit'" class="bg-white rounded-lg shadow p-6 mb-6">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-xl font-semibold">🔍 篩選設定</h2>
-          <!-- 快速篩選按鈕 -->
-          <div class="flex gap-3">
+          <button
+            @click="resetToDefault"
+            class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
+          >
+            🔄 還原
+          </button>
+        </div>
+
+        <!-- 快速區間 -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-3">快速區間</label>
+          <div class="flex flex-wrap gap-2">
             <button
-              @click="setYesterdayFilter"
-              class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+              v-for="r in QUICK_RANGES"
+              :key="r.id"
+              @click="applyQuickRange(r.id)"
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              :class="activeRange === r.id
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
             >
-              📅 昨日紀錄
+              {{ r.label }}
             </button>
-            <button
-              @click="resetToDefault"
-              class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
-            >
-              🔄 還原
-            </button>
+            <span v-if="activeRange === 'custom'" class="self-center text-sm text-gray-500 ml-1">
+              （自訂區間）
+            </span>
           </div>
         </div>
 
@@ -39,7 +66,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-3">專案類型</label>
           <div class="flex gap-3">
             <button
-              @click="showSideProjects = false; applyFilter()"
+              @click="showSideProjects = false"
               :class="[
                 'flex-1 px-4 py-3 rounded-lg font-medium transition-all',
                 !showSideProjects
@@ -53,7 +80,7 @@
               </div>
             </button>
             <button
-              @click="showSideProjects = true; applyFilter()"
+              @click="showSideProjects = true"
               :class="[
                 'flex-1 px-4 py-3 rounded-lg font-medium transition-all',
                 showSideProjects
@@ -78,7 +105,7 @@
               <input
                 type="date"
                 v-model="filterStart"
-                @change="applyFilter"
+                @change="activeRange = 'custom'"
                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -87,7 +114,7 @@
               <input
                 type="date"
                 v-model="filterEnd"
-                @change="applyFilter"
+                @change="activeRange = 'custom'"
                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -95,63 +122,85 @@
         </div>
       </div>
 
-      <!-- 資料總覽 -->
-      <div v-if="workData" class="space-y-6">
+      <!-- 工作紀錄分頁 -->
+      <div v-if="summaryData" v-show="activeTab === 'work'" class="space-y-6">
         <!-- 期間與作者 -->
         <div class="bg-white rounded-lg shadow p-6">
           <h2 class="text-2xl font-bold mb-4">
-            📈 您的工作成果（{{ workData.author }}）
+            📈 您的工作成果（{{ summaryData.author }}）
           </h2>
-          <p class="text-gray-600">{{ displayPeriod.start }} 至 {{ displayPeriod.end }}</p>
+          <p class="text-gray-600">{{ filterStart }} 至 {{ filterEnd }}</p>
           <p class="text-sm text-gray-500 mt-1">
-            共 {{ displayPeriod.days }} 天 ({{ displayPeriod.weeks }} 週)
+            共 {{ rangeDays }} 天 ({{ Math.ceil(rangeDays / 7) }} 週)
           </p>
         </div>
 
-        <!-- 統計卡片 -->
+        <!-- 統計卡片（附與前一個等長區間的對比） -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-white rounded-lg shadow p-6">
             <div class="text-gray-600 mb-2">總提交次數</div>
-            <div class="text-3xl font-bold text-blue-600">{{ displaySummary.totalCommits }}</div>
+            <div class="text-3xl font-bold text-blue-600">{{ stats.totalCommits }}</div>
+            <div class="text-xs mt-2" :class="deltaClass(delta.totalCommits)">
+              {{ deltaText(delta.totalCommits) }}
+              <span class="text-gray-400 font-normal">vs 前 {{ rangeDays }} 天</span>
+            </div>
           </div>
           <div class="bg-white rounded-lg shadow p-6">
             <div class="text-gray-600 mb-2">專案數量</div>
-            <div class="text-3xl font-bold text-green-600">{{ displaySummary.projectCount }}</div>
+            <div class="text-3xl font-bold text-green-600">{{ stats.projectCount }}</div>
+            <div class="text-xs mt-2" :class="deltaClass(delta.projectCount)">
+              {{ deltaText(delta.projectCount) }}
+              <span class="text-gray-400 font-normal">vs 前 {{ rangeDays }} 天</span>
+            </div>
           </div>
           <div class="bg-white rounded-lg shadow p-6">
             <div class="text-gray-600 mb-2">日均提交</div>
-            <div class="text-3xl font-bold text-purple-600">{{ displaySummary.dailyAverage }}</div>
+            <div class="text-3xl font-bold text-purple-600">{{ stats.dailyAverage }}</div>
+            <div class="text-xs mt-2" :class="deltaClass(delta.dailyAverage)">
+              {{ deltaText(delta.dailyAverage) }}
+              <span class="text-gray-400 font-normal">vs 前 {{ rangeDays }} 天</span>
+            </div>
           </div>
         </div>
 
-        <!-- 智能彙總報告 -->
-        <div v-for="project in analyzedProjects" :key="project.name" class="bg-white rounded-lg shadow p-6">
-          <h3 class="text-2xl font-bold mb-4">
-            🎯 {{ project.name}} 專案成果（{{ project.totalCommits }} commits）
-          </h3>
+        <!-- 提交趨勢 -->
+        <TrendChart
+          :daily="filteredDaily"
+          :range-start="filterStart"
+          :range-end="filterEnd"
+          :show-side-projects="showSideProjects"
+        />
 
-          <!-- 功能分組 -->
-          <div v-for="(feature, idx) in project.features" :key="idx" class="mb-6">
-            <h4 class="text-lg font-bold mb-3">
-              {{ idx + 1 }}. {{ feature.name }} {{ feature.icon }}
-              <span class="text-sm text-gray-500 font-normal">({{ feature.dateRange }})</span>
-            </h4>
-            <p class="text-sm text-gray-600 mb-3">{{ feature.totalCommits }} 次提交</p>
-
-            <!-- 子分組 -->
-            <div v-for="(subgroup, subIdx) in feature.subgroups" :key="subIdx" class="ml-4 mb-4">
-              <h5 class="font-semibold text-gray-800 mb-2">
-                {{ subgroup.name }}
-                <span class="text-xs text-gray-500">({{ subgroup.dateRange }})</span>
-              </h5>
-              <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-                <li v-for="(item, itemIdx) in subgroup.items" :key="itemIdx">
-                  {{ item }}
-                </li>
-                <li v-if="subgroup.moreCount > 0" class="text-gray-500">
-                  ... 以及其他 {{ subgroup.moreCount }} 項改進
-                </li>
-              </ul>
+        <!-- 專案排行 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold">🏆 專案排行</h3>
+            <button
+              @click="switchTab('detail')"
+              class="text-sm text-blue-600 hover:text-blue-800 font-medium"
+            >
+              看 commit 明細 →
+            </button>
+          </div>
+          <div v-if="!projectRanking.length" class="text-center text-gray-400 py-8">
+            這個區間沒有資料
+          </div>
+          <div v-else class="space-y-2">
+            <div v-for="p in projectRanking" :key="p.name" class="flex items-center gap-3">
+              <div class="w-56 shrink-0 text-sm text-gray-700 truncate" :title="p.name">{{ p.name }}</div>
+              <div class="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                <div
+                  class="h-full rounded-full"
+                  :style="{
+                    width: (p.count / projectRanking[0].count * 100) + '%',
+                    backgroundColor: p.type === 'side' ? SIDE_COLOR : WORK_COLOR
+                  }"
+                ></div>
+              </div>
+              <div class="w-20 text-right text-sm font-semibold text-gray-700">
+                {{ p.count }}
+                <span class="text-xs text-gray-400 font-normal">{{ p.percentage }}%</span>
+              </div>
             </div>
           </div>
         </div>
@@ -171,264 +220,24 @@
             </div>
           </div>
         </div>
-
-        <!-- Claude 效率對比 -->
-        <div v-if="efficiencyData" class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg p-6 border-2 border-blue-200">
-          <h3 class="text-2xl font-bold mb-6 text-gray-800">🚀 Claude AI 效率對比分析</h3>
-
-          <!-- 期間對比卡片 -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div
-              v-for="period in efficiencyData.periods"
-              :key="period.period.id"
-              class="bg-white rounded-lg p-5 shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div class="text-sm font-semibold text-gray-600 mb-2">{{ period.period.name }}</div>
-              <div class="text-3xl font-bold mb-1" :class="getPeriodColor(period.period.id)">
-                {{ period.summary.dailyAverage }}
-              </div>
-              <div class="text-xs text-gray-500">commits/day</div>
-              <div class="mt-3 pt-3 border-t border-gray-200 text-xs space-y-1">
-                <div class="flex justify-between">
-                  <span class="text-gray-600">總計</span>
-                  <span class="font-semibold">{{ period.summary.totalCommits }}</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-gray-600">天數</span>
-                  <span class="font-semibold">{{ period.period.days }}天</span>
-                </div>
-                <div v-if="period.period.cost > 0" class="flex justify-between">
-                  <span class="text-gray-600">成本</span>
-                  <span class="font-semibold">${{ period.period.cost }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 效率提升統計 -->
-          <div class="bg-white rounded-lg p-5 shadow-md">
-            <h4 class="font-bold text-gray-800 mb-4">📈 效率提升趨勢</h4>
-            <div class="space-y-3">
-              <!-- 使用前（基準線） -->
-              <div v-if="efficiencyData.periods.length > 0" class="flex items-center">
-                <div class="w-32 text-sm font-medium text-gray-700">{{ efficiencyData.periods[0].period.name }}</div>
-                <div class="flex-1 bg-gray-200 rounded-full h-6 relative overflow-hidden">
-                  <div
-                    class="h-full rounded-full flex items-center justify-end pr-2 bg-gray-400 text-white text-xs font-bold transition-all"
-                    :style="{ width: getEfficiencyPercentage(efficiencyData.periods[0]) + '%' }"
-                  >
-                    基準線
-                  </div>
-                </div>
-                <div class="w-24 text-right text-sm font-semibold text-gray-600">
-                  {{ efficiencyData.periods[0].summary.dailyAverage }} /天
-                </div>
-              </div>
-
-              <!-- 其他時期 -->
-              <div v-for="(period, idx) in efficiencyData.periods.slice(1)" :key="idx" class="flex items-center">
-                <div class="w-32 text-sm font-medium text-gray-700">{{ period.period.name }}</div>
-                <div class="flex-1 bg-gray-200 rounded-full h-6 relative overflow-hidden">
-                  <div
-                    class="h-full rounded-full flex items-center justify-end pr-2 text-white text-xs font-bold transition-all"
-                    :class="getEfficiencyBarColor(period.period.id)"
-                    :style="{ width: getEfficiencyPercentage(period) + '%' }"
-                  >
-                    {{ getEfficiencyChange(period) }}
-                  </div>
-                </div>
-                <div class="w-24 text-right text-sm font-semibold" :class="getPeriodColor(period.period.id)">
-                  {{ period.summary.dailyAverage }} /天
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Claude Max 完整效益報告 -->
-        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg shadow-lg p-8 border-2 border-purple-200">
-          <h3 class="text-3xl font-bold mb-6 text-gray-800 flex items-center gap-3">
-            <span>🔥</span>
-            <span>Claude Max 完整期間效益報告</span>
-          </h3>
-
-          <!-- 總覽數據卡片 -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white rounded-lg p-6 shadow-md">
-              <div class="text-sm text-gray-600 mb-2">使用期間</div>
-              <div class="text-2xl font-bold text-purple-600">75 天</div>
-              <div class="text-xs text-gray-500 mt-1">2025/09/11 - 11/24</div>
-            </div>
-            <div class="bg-white rounded-lg p-6 shadow-md">
-              <div class="text-sm text-gray-600 mb-2">總產出</div>
-              <div class="text-2xl font-bold text-blue-600">987 commits</div>
-              <div class="text-xs text-gray-500 mt-1">工作 40% | Side 60%</div>
-            </div>
-            <div class="bg-white rounded-lg p-6 shadow-md">
-              <div class="text-sm text-gray-600 mb-2">效率提升</div>
-              <div class="text-2xl font-bold text-green-600">+367%</div>
-              <div class="text-xs text-gray-500 mt-1">4.7倍生產力</div>
-            </div>
-            <div class="bg-white rounded-lg p-6 shadow-md">
-              <div class="text-sm text-gray-600 mb-2">投資回報</div>
-              <div class="text-2xl font-bold text-red-600">396x</div>
-              <div class="text-xs text-gray-500 mt-1">累積成本 $277.81</div>
-            </div>
-          </div>
-
-          <!-- 月度表現 -->
-          <div class="bg-white rounded-lg p-6 shadow-md mb-6">
-            <h4 class="font-bold text-gray-800 mb-4 text-lg">📊 月度表現細分</h4>
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="w-20 text-sm font-medium text-gray-700">9月</div>
-                <div class="flex-1">
-                  <div class="flex justify-between text-xs text-gray-600 mb-1">
-                    <span>9/11-9/30 (20天)</span>
-                    <span class="font-bold text-purple-600">16.80 commits/day</span>
-                  </div>
-                  <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 100%"></div>
-                  </div>
-                  <div class="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>工作: 102 | Side: 234</span>
-                    <span>總計: 336 commits</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <div class="w-20 text-sm font-medium text-gray-700">10月</div>
-                <div class="flex-1">
-                  <div class="flex justify-between text-xs text-gray-600 mb-1">
-                    <span>整月 (31天)</span>
-                    <span class="font-bold text-blue-600">10.39 commits/day</span>
-                  </div>
-                  <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="width: 61.8%"></div>
-                  </div>
-                  <div class="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>工作: 204 | Side: 118</span>
-                    <span>總計: 322 commits</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <div class="w-20 text-sm font-medium text-gray-700">11月</div>
-                <div class="flex-1">
-                  <div class="flex justify-between text-xs text-gray-600 mb-1">
-                    <span>11/1-11/24 (24天)</span>
-                    <span class="font-bold text-green-600">13.71 commits/day</span>
-                  </div>
-                  <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-green-500 to-green-600 rounded-full" style="width: 81.6%"></div>
-                  </div>
-                  <div class="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>工作: 91 | Side: 238</span>
-                    <span>總計: 329 commits</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ROI 分析 -->
-          <div class="bg-white rounded-lg p-6 shadow-md mb-6">
-            <h4 class="font-bold text-gray-800 mb-4 text-lg">💰 投資回報分析</h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <div class="text-sm text-gray-600 mb-3">時間價值</div>
-                <div class="space-y-2 text-sm">
-                  <div class="flex justify-between">
-                    <span class="text-gray-700">原始速度需時：</span>
-                    <span class="font-bold text-red-600">350 天</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-gray-700">實際使用時間：</span>
-                    <span class="font-bold text-green-600">75 天</span>
-                  </div>
-                  <div class="flex justify-between pt-2 border-t">
-                    <span class="text-gray-700 font-semibold">節省時間：</span>
-                    <span class="font-bold text-purple-600">275 天 (79%)</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-gray-700">節省工時：</span>
-                    <span class="font-bold">2,200 小時</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="text-sm text-gray-600 mb-3">成本效益</div>
-                <div class="space-y-2 text-sm">
-                  <div class="flex justify-between">
-                    <span class="text-gray-700">總投資：</span>
-                    <span class="font-bold">$277.81</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-gray-700">日均成本：</span>
-                    <span class="font-bold">$3.70</span>
-                  </div>
-                  <div class="flex justify-between pt-2 border-t">
-                    <span class="text-gray-700 font-semibold">時間價值：</span>
-                    <span class="font-bold text-green-600">$110,000</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-gray-700">投資回報率：</span>
-                    <span class="font-bold text-red-600 text-lg">396 倍</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 關鍵成就 -->
-          <div class="bg-white rounded-lg p-6 shadow-md">
-            <h4 class="font-bold text-gray-800 mb-4 text-lg">🏆 關鍵成就與洞察</h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">🚀</span>
-                <div>
-                  <div class="font-semibold text-gray-800 mb-1">極限生產力突破</div>
-                  <div class="text-sm text-gray-600">9月巔峰期日均 16.80 commits，相當於 6 個開發者的產出</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">⚖️</span>
-                <div>
-                  <div class="font-semibold text-gray-800 mb-1">完美工作生活平衡</div>
-                  <div class="text-sm text-gray-600">工作 40% vs Side Projects 60%，創造力完全解放</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">💪</span>
-                <div>
-                  <div class="font-semibold text-gray-800 mb-1">持續高效無疲勞</div>
-                  <div class="text-sm text-gray-600">75 天穩定維持 13+ commits/day，無明顯衰退期</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">✨</span>
-                <div>
-                  <div class="font-semibold text-gray-800 mb-1">創新專案爆發</div>
-                  <div class="text-sm text-gray-600">Side Projects 從 2% 提升到 60%（30倍成長）</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 結論 -->
-          <div class="mt-6 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-6 border-l-4 border-purple-500">
-            <p class="text-gray-800 font-medium italic">
-              💡 每月 $100 的投資，換來的不只是 4.7倍的生產力，更是職業生涯的加速器和創造力的解放者。這是我做過最值得的技術投資。
-            </p>
-          </div>
-        </div>
       </div>
 
       <!-- 載入中或無資料 -->
-      <div v-else class="text-center py-12">
+      <div v-else-if="activeTab === 'work'" class="text-center py-12">
         <p class="text-gray-500">載入資料中...</p>
+      </div>
+
+      <!-- 專案明細分頁（commit 明細檔按需載入） -->
+      <ProjectDetail
+        v-if="activeTab === 'detail'"
+        :projects="filteredDetailProjects"
+        :loading="detailLoading"
+        :error="detailError"
+      />
+
+      <!-- AI 效益分頁 -->
+      <div v-show="activeTab === 'benefit'">
+        <AiBenefit :data="benefitData" />
       </div>
     </main>
   </div>
@@ -437,179 +246,235 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
-import { groupCommitsByFeature, cleanCommitMessage } from './utils/analyzer.js'
+import AiBenefit from './components/AiBenefit.vue'
+import TrendChart from './components/TrendChart.vue'
+import ProjectDetail from './components/ProjectDetail.vue'
 
-const rawData = ref(null)
-const workData = ref(null)
+const TABS = [
+  { id: 'work', label: '📋 工作紀錄' },
+  { id: 'detail', label: '📝 專案明細' },
+  { id: 'benefit', label: '🚀 AI 效益' }
+]
+
+// 專案排行的長條顏色，與 TrendChart 的兩個系列一致
+const WORK_COLOR = '#2a78d6'
+const SIDE_COLOR = '#eb6834'
+
+const activeTab = ref('work')
+
+// 總覽只讀輕量摘要（~100 KB）；commit 明細（~1.5 MB）切到明細分頁才載入
+const summaryData = ref(null)
+const detailData = ref(null)
+const detailLoading = ref(false)
+const detailError = ref('')
+const benefitData = ref(null)
+
 const filterStart = ref('')
 const filterEnd = ref('')
 const showSideProjects = ref(false)
-const efficiencyData = ref(null)
 
-// 設定預設日期範圍
-const DEFAULT_START_DATE = '2026-02-05'
-const getDefaultEndDate = () => dayjs().subtract(1, 'day').format('YYYY-MM-DD')
+const DEFAULT_RANGE = '30d'
+const activeRange = ref(DEFAULT_RANGE)
+
+const QUICK_RANGES = [
+  { id: '1d', label: '昨日', days: 1 },
+  { id: '7d', label: '近 7 天', days: 7 },
+  { id: '30d', label: '近 30 天', days: 30 },
+  { id: '90d', label: '近 90 天', days: 90 },
+  { id: 'ytd', label: '今年' },
+  { id: 'all', label: '全部' }
+]
+
+// 資料最後一天（每日排程跑完是昨天），拿它當快速區間的錨點，
+// 這樣按「近 7 天」不會含進一段根本還沒收集的空白。
+const dataEnd = computed(
+  () => summaryData.value?.period?.end || dayjs().subtract(1, 'day').format('YYYY-MM-DD')
+)
+const dataStart = computed(() => summaryData.value?.period?.start || '2025-05-05')
+
+const applyQuickRange = (id) => {
+  activeRange.value = id
+  const end = dayjs(dataEnd.value)
+
+  if (id === 'all') {
+    filterStart.value = dataStart.value
+  } else if (id === 'ytd') {
+    filterStart.value = end.startOf('year').format('YYYY-MM-DD')
+  } else {
+    const days = QUICK_RANGES.find(r => r.id === id).days
+    filterStart.value = end.subtract(days - 1, 'day').format('YYYY-MM-DD')
+  }
+  filterEnd.value = dataEnd.value
+}
+
+const loadSummary = async (bust = false) => {
+  const q = bust ? `?t=${Date.now()}` : ''
+  const response = await fetch(import.meta.env.BASE_URL + 'data/work-log-summary.json' + q)
+  summaryData.value = await response.json()
+}
+
+const loadBenefit = async () => {
+  const response = await fetch(import.meta.env.BASE_URL + `data/ai-benefit-data.json?t=${Date.now()}`)
+  benefitData.value = await response.json()
+}
+
+// 明細檔只在使用者真的要看 commit 時才下載，而且整個 session 只下載一次
+const loadDetail = async () => {
+  if (detailData.value || detailLoading.value) return
+  detailLoading.value = true
+  detailError.value = ''
+  try {
+    const response = await fetch(import.meta.env.BASE_URL + 'data/work-log-latest.json')
+    detailData.value = await response.json()
+  } catch (error) {
+    console.error('載入明細失敗：', error)
+    detailError.value = String(error)
+  } finally {
+    detailLoading.value = false
+  }
+}
+
+const switchTab = (id) => {
+  activeTab.value = id
+  if (id === 'detail') loadDetail()
+}
 
 // 載入資料
 onMounted(async () => {
   try {
-    // 載入工作日誌
-    const response = await fetch(import.meta.env.BASE_URL + 'data/work-log-latest.json')
-    const data = await response.json()
-    rawData.value = data
-    workData.value = data
-
-    // 設定預設篩選範圍
-    filterStart.value = DEFAULT_START_DATE
-    filterEnd.value = getDefaultEndDate()
-
-    // 自動套用篩選
-    applyFilter()
-
-    // 載入效率對比數據（加上時間戳避免 cache）
-    const timestamp = new Date().getTime()
-    const effResponse = await fetch(import.meta.env.BASE_URL + `data/claude-efficiency-data.json?t=${timestamp}`)
-    const effData = await effResponse.json()
-    efficiencyData.value = effData
+    await loadSummary()
+    applyQuickRange(DEFAULT_RANGE)
+    await loadBenefit()
   } catch (error) {
     console.error('載入資料失敗：', error)
   }
 })
 
-// 設定昨日篩選
-const setYesterdayFilter = () => {
-  const yesterday = getDefaultEndDate()
-  filterStart.value = yesterday
-  filterEnd.value = yesterday
-  applyFilter()
-}
-
-// 還原到預設日期並重新載入數據
+// 還原到預設區間並重新載入數據
 const resetToDefault = async () => {
   try {
-    // 強制重新載入數據（加上時間戳避免 cache）
-    const timestamp = new Date().getTime()
-
-    // 重新載入工作日誌
-    const response = await fetch(import.meta.env.BASE_URL + `data/work-log-latest.json?t=${timestamp}`)
-    const data = await response.json()
-    rawData.value = data
-    workData.value = data
-
-    // 重新載入效率數據
-    const effResponse = await fetch(import.meta.env.BASE_URL + `data/claude-efficiency-data.json?t=${timestamp}`)
-    const effData = await effResponse.json()
-    efficiencyData.value = effData
-
-    // 重置篩選條件
-    filterStart.value = DEFAULT_START_DATE
-    filterEnd.value = getDefaultEndDate()
-    showSideProjects.value = false
-
-    // 套用篩選
-    applyFilter()
+    await loadSummary(true)
+    detailData.value = null
+    await loadBenefit()
   } catch (error) {
     console.error('重新載入資料失敗：', error)
-    // 如果載入失敗，至少還原篩選條件
-    filterStart.value = DEFAULT_START_DATE
-    filterEnd.value = getDefaultEndDate()
-    showSideProjects.value = false
-    applyFilter()
+  }
+  showSideProjects.value = false
+  applyQuickRange(DEFAULT_RANGE)
+  if (activeTab.value === 'detail') loadDetail()
+}
+
+// --- 以下統計全部由 summary 的每日計數算出，不需要 commit 明細 ---
+
+const rangeDays = computed(() => {
+  if (!filterStart.value || !filterEnd.value) return 1
+  return Math.max(1, dayjs(filterEnd.value).diff(dayjs(filterStart.value), 'day') + 1)
+})
+
+const sliceDaily = (start, end) => {
+  if (!summaryData.value) return []
+  return summaryData.value.daily.filter(d => d.date >= start && d.date <= end)
+}
+
+const filteredDaily = computed(() => sliceDaily(filterStart.value, filterEnd.value))
+
+// 往前推一個等長區間，用來算漲跌
+const previousDaily = computed(() => {
+  if (!filterStart.value) return []
+  const prevEnd = dayjs(filterStart.value).subtract(1, 'day')
+  const prevStart = prevEnd.subtract(rangeDays.value - 1, 'day')
+  return sliceDaily(prevStart.format('YYYY-MM-DD'), prevEnd.format('YYYY-MM-DD'))
+})
+
+const projectTypes = computed(() => {
+  const map = {}
+  for (const p of summaryData.value?.projects || []) map[p.name] = p.type
+  return map
+})
+
+const summarize = (daily, days) => {
+  let totalCommits = 0
+  const projects = {}
+  for (const d of daily) {
+    for (const [name, n] of Object.entries(d.projects)) {
+      if (!showSideProjects.value && projectTypes.value[name] === 'side') continue
+      projects[name] = (projects[name] || 0) + n
+      totalCommits += n
+    }
+  }
+  return {
+    totalCommits,
+    projectCount: Object.keys(projects).length,
+    dailyAverage: (totalCommits / Math.max(1, days)).toFixed(1),
+    projects
   }
 }
 
-// 套用篩選
-const applyFilter = () => {
-  if (!rawData.value) return
+const stats = computed(() => summarize(filteredDaily.value, rangeDays.value))
+const prevStats = computed(() => summarize(previousDaily.value, rangeDays.value))
 
-  const start = filterStart.value ? dayjs(filterStart.value) : null
-  const end = filterEnd.value ? dayjs(filterEnd.value) : null
+const delta = computed(() => {
+  const pct = (cur, prev) => (prev > 0 ? Math.round(((cur - prev) / prev) * 100) : null)
+  return {
+    totalCommits: pct(stats.value.totalCommits, prevStats.value.totalCommits),
+    projectCount: pct(stats.value.projectCount, prevStats.value.projectCount),
+    dailyAverage: pct(Number(stats.value.dailyAverage), Number(prevStats.value.dailyAverage))
+  }
+})
 
-  const filteredProjects = rawData.value.projects
-    .filter(project => {
-      // 篩選專案類型
-      if (!showSideProjects.value && project.type === 'side') {
-        return false
+const deltaText = (v) => {
+  if (v === null) return '無前期資料'
+  if (v > 0) return `▲ ${v}%`
+  if (v < 0) return `▼ ${Math.abs(v)}%`
+  return '持平'
+}
+
+const deltaClass = (v) => {
+  if (v === null) return 'text-gray-400'
+  if (v > 0) return 'text-green-600 font-semibold'
+  if (v < 0) return 'text-red-600 font-semibold'
+  return 'text-gray-500'
+}
+
+const projectRanking = computed(() => {
+  const total = stats.value.totalCommits
+  return Object.entries(stats.value.projects)
+    .map(([name, count]) => ({
+      name,
+      count,
+      type: projectTypes.value[name] || 'work',
+      percentage: total > 0 ? Math.round((count / total) * 100) : 0
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 15)
+})
+
+const categoryStats = computed(() => {
+  const types = showSideProjects.value ? ['work', 'side'] : ['work']
+  const out = {}
+  for (const d of filteredDaily.value) {
+    for (const t of types) {
+      for (const [cat, n] of Object.entries(d.categories[t] || {})) {
+        out[cat] = (out[cat] || 0) + n
       }
-      return true
-    })
-    .map(project => {
-      if (!project.commits) return project
+    }
+  }
+  return Object.fromEntries(Object.entries(out).sort((a, b) => b[1] - a[1]))
+})
 
-      const filteredCommits = project.commits.filter(commit => {
-        const commitDate = dayjs(commit.date)
-        if (start && commitDate.isBefore(start, 'day')) return false
-        if (end && commitDate.isAfter(end, 'day')) return false
-        return true
-      })
-
-      return {
-        ...project,
-        commits: filteredCommits,
-        totalCommits: filteredCommits.length
-      }
+// 明細分頁：把完整資料依同一組篩選條件裁切
+const filteredDetailProjects = computed(() => {
+  if (!detailData.value) return []
+  return detailData.value.projects
+    .filter(p => showSideProjects.value || p.type !== 'side')
+    .map(p => {
+      const commits = (p.commits || []).filter(
+        c => c.date >= filterStart.value && c.date <= filterEnd.value
+      )
+      return { ...p, commits, totalCommits: commits.length }
     })
     .filter(p => p.totalCommits > 0)
-
-  workData.value = {
-    ...rawData.value,
-    projects: filteredProjects
-  }
-}
-
-// 顯示期間
-const displayPeriod = computed(() => {
-  if (!workData.value) return { start: '', end: '', days: 0, weeks: 0 }
-
-  const start = filterStart.value || workData.value.period.start
-  const end = filterEnd.value || workData.value.period.end
-
-  const startDay = dayjs(start)
-  const endDay = dayjs(end)
-  const days = endDay.diff(startDay, 'day') + 1
-  const weeks = Math.ceil(days / 7)
-
-  return { start, end, days, weeks }
-})
-
-// 顯示統計
-const displaySummary = computed(() => {
-  if (!workData.value) return { totalCommits: 0, projectCount: 0, dailyAverage: 0 }
-
-  const totalCommits = workData.value.projects.reduce((sum, p) => sum + p.totalCommits, 0)
-  const projectCount = workData.value.projects.filter(p => p.totalCommits > 0).length
-
-  const days = displayPeriod.value.days || 1
-  const dailyAverage = (totalCommits / days).toFixed(1)
-
-  return { totalCommits, projectCount, dailyAverage }
-})
-
-// 顯示專案（計算百分比）
-const displayProjects = computed(() => {
-  if (!workData.value) return []
-
-  const total = displaySummary.value.totalCommits
-  return workData.value.projects.map(p => ({
-    ...p,
-    percentage: total > 0 ? Math.round((p.totalCommits / total) * 100) : 0
-  }))
-})
-
-// 分類統計
-const categoryStats = computed(() => {
-  if (!workData.value) return {}
-
-  const stats = {}
-  workData.value.projects.forEach(project => {
-    if (!project.commits) return
-    project.commits.forEach(commit => {
-      const cat = commit.category || '未分類'
-      stats[cat] = (stats[cat] || 0) + 1
-    })
-  })
-
-  return stats
+    .sort((a, b) => b.totalCommits - a.totalCommits)
 })
 
 // 分類顏色
@@ -624,140 +489,10 @@ const getCategoryColor = (category) => {
     '樣式': 'border-indigo-300 bg-indigo-50',
     '配置': 'border-gray-300 bg-gray-50',
     '部署': 'border-orange-300 bg-orange-50',
+    '合併MR': 'border-teal-300 bg-teal-50',
     '其他': 'border-gray-300 bg-gray-50',
     '未分類': 'border-gray-200 bg-gray-50'
   }
   return colors[category] || colors['未分類']
 }
-
-// 期間顏色
-const getPeriodColor = (periodId) => {
-  const colors = {
-    'pre-claude': 'text-gray-600',
-    'claude-standard': 'text-blue-600',
-    'claude-max': 'text-purple-600',
-    'claude-code': 'text-green-600'
-  }
-  return colors[periodId] || 'text-gray-600'
-}
-
-// 效率條顏色
-const getEfficiencyBarColor = (periodId) => {
-  const colors = {
-    'claude-standard': 'bg-blue-500',
-    'claude-max': 'bg-purple-500',
-    'claude-code': 'bg-green-500'
-  }
-  return colors[periodId] || 'bg-gray-500'
-}
-
-// 計算效率提升百分比（用於長條圖寬度，基於最大值）
-const getEfficiencyPercentage = (period) => {
-  if (!efficiencyData.value || !efficiencyData.value.periods.length) return 0
-
-  // 找出所有時期中日均最高的值
-  const maxDaily = Math.max(...efficiencyData.value.periods.map(p => p.summary.dailyAverage))
-
-  // 當前時期的日均值
-  const current = period.summary.dailyAverage
-
-  // 計算相對於最大值的百分比
-  return (current / maxDaily) * 100
-}
-
-// 效率變化文字
-const getEfficiencyChange = (period) => {
-  if (!efficiencyData.value || !efficiencyData.value.periods.length) return ''
-  const baseline = efficiencyData.value.periods[0].summary.dailyAverage
-  const current = period.summary.dailyAverage
-  const increase = Math.round(((current - baseline) / baseline) * 100)
-  return increase > 0 ? `+${increase}%` : `${increase}%`
-}
-
-// 智能分析專案
-const analyzedProjects = computed(() => {
-  if (!workData.value) return []
-
-  return workData.value.projects.map(project => {
-    if (!project.commits || project.commits.length === 0) return null
-
-    const { grouped, ungrouped } = groupCommitsByFeature(project.commits)
-
-    const features = Object.values(grouped).map(feature => {
-      const allCommits = [
-        ...feature.commits,
-        ...Object.values(feature.subgroups).flat()
-      ]
-
-      if (allCommits.length === 0) return null
-
-      // 計算日期範圍
-      const dates = allCommits.map(c => c.date).sort()
-      const dateRange = dates.length > 1
-        ? `${dates[0]} 至 ${dates[dates.length - 1]}`
-        : dates[0]
-
-      // 處理子分組
-      const subgroups = Object.entries(feature.subgroups)
-        .filter(([_, commits]) => commits.length > 0)
-        .map(([name, commits]) => {
-          const subDates = commits.map(c => c.date).sort()
-          const subDateRange = subDates.length > 1
-            ? `${subDates[0]} 至 ${subDates[subDates.length - 1]}`
-            : subDates[0]
-
-          const items = commits.map(c => cleanCommitMessage(c.message))
-          const moreCount = 0
-
-          return {
-            name,
-            dateRange: subDateRange,
-            items,
-            moreCount
-          }
-        })
-
-      return {
-        name: feature.name,
-        icon: feature.icon,
-        totalCommits: allCommits.length,
-        dateRange,
-        subgroups
-      }
-    }).filter(Boolean)
-
-    // 如果有未分組的 commits，一併顯示
-    if (ungrouped.length > 0) {
-      const dates = ungrouped.map(c => c.date).sort()
-      const dateRange = dates.length > 1
-        ? `${dates[0]} 至 ${dates[dates.length - 1]}`
-        : dates[0]
-
-      const items = ungrouped.map(c => ({
-        date: c.date,
-        message: cleanCommitMessage(c.message)
-      }))
-      const moreCount = 0
-
-      features.push({
-        name: features.length > 0 ? '其他變更' : '所有變更',
-        icon: '📝',
-        totalCommits: ungrouped.length,
-        dateRange,
-        subgroups: [{
-          name: '近期提交',
-          dateRange,
-          items: items.map(i => `[${i.date}] ${i.message}`),
-          moreCount
-        }]
-      })
-    }
-
-    return {
-      name: project.name,
-      totalCommits: project.totalCommits,
-      features
-    }
-  }).filter(Boolean)
-})
 </script>
