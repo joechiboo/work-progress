@@ -6,6 +6,20 @@
       "name": "OrderInSql",
       "commits": [
         {
+          "hash": "dbcd819d",
+          "time": "18:19",
+          "message": "合併 MR !273: docs: 9/17 18:17 收窗後自動檢查 —— 全部乾淨，§0 差異全歸搬移",
+          "body": "docs: 9/17 18:17 收窗後自動檢查 —— 全部乾淨，§0 差異全歸搬移\n\nSee merge request ucl/twowayconnection/orderinsql!273",
+          "category": "合併MR"
+        },
+        {
+          "hash": "bd513991",
+          "time": "18:18",
+          "message": "docs: 9/17 18:17 收窗後自動檢查 —— 四線 inbox/quarantine 0、驗證夾空、§0 949/904 全歸搬移",
+          "body": "使用者 16:00 下班後的 session 內排程檢查，全部唯讀：\n- 四條 Live 線 inbox／quarantine 皆 0\n- .227 三個驗證夾皆空，無 -N、無跨輪殘檔\n- §0 整日量級 33 家 TestM 949 / ProdM 904，不等的四家全是白名單③跨單位搬移\n  （0208→0357 ×12、0272→0854 ×26、2635→2636 ×5、2798→2797 ×2），反查後剩餘 0\n\n無需明早處理。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
           "hash": "a5ab3e2e",
           "time": "14:27",
           "message": "合併 MR !272: docs: Cerberus 無 OrderInSql 監控頭列 9/22 前必做；18:17 自動檢查；9/18 計畫",
@@ -209,7 +223,7 @@
           "category": "文檔"
         }
       ],
-      "count": 29
+      "count": 31
     },
     {
       "name": "Argus",
@@ -357,6 +371,61 @@
   ],
   "side_projects": [
     {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "5b6b0088",
+          "time": "15:27",
+          "message": "docs: 更新彙整資料 2026-09-17",
+          "body": "🤖 自動生成於 2026-09-17 15:27",
+          "category": "文檔"
+        },
+        {
+          "hash": "3493ac71",
+          "time": "15:27",
+          "message": "docs: 每日工作紀錄 2026-09-17 (58 commits)",
+          "body": "🤖 自動生成於 2026-09-17 15:27",
+          "category": "文檔"
+        },
+        {
+          "hash": "4dfaa765",
+          "time": "11:16",
+          "message": "docs(日報): 用新版產生器重跑 2026-09，並讓彙整沿用日報已存的分類",
+          "body": "重跑 09-01 ~ 09-16：573 → 610 commits。多出來的是原本被丟掉的\nMR merge（review → merge → 上版）與 ~/.claude 設定變更；時間也從\nUTC 修正為本地時間。\n\nmerge_to_public 原本一律用 categorize_commit 重新分類，會把\n「合併 MR !1522: fix(...)」判成錯誤修正，蓋掉日報存好的 合併MR。\n改成沿用 commit 既有的 category，前端分類統計才看得到這一類。\n\n註：09-11 少一筆（45 → 44）不是漏抓 —— 那是同一個 revert 在功能分支上的\n重複副本，該分支 merge 後已刪除，--all 不再可達；留下的是進 main 的那筆。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "fd101d28",
+          "time": "11:08",
+          "message": "feat(網頁): 拆明細與總覽資料、加快速區間與趨勢圖",
+          "body": "首頁原本一次載入 1.5 MB 的 work-log-latest.json，再把 86 個專案的\ncommit 明細全部展開；預設區間又寫死 2026-02-05 起算，日均變成攤平\n七個月的數字，看不出近期的變化。\n\n資料層：build_summary.py 從完整 log 萃出「每天 × 每專案 × 每分類」\n的計數（99 KB），總覽的統計、排行、分類、趨勢都由它算出，不需要\ncommit 本文；明細檔改成切到「專案明細」分頁時才下載，一個 session\n只下載一次。首屏少載 15 倍。auto-daily-report.py 每天一併產出。\n\n畫面：\n- 分頁拆成 工作紀錄 / 專案明細 / AI 效益，明細分頁一次只算一個專案\n- 快速區間 昨日 / 近 7 / 近 30 / 近 90 天 / 今年 / 全部，預設近 30 天，\n  錨點取資料最後一天，按「近 7 天」不會含進還沒收集的空白\n- 提交趨勢圖：工作／Side 堆疊長條 + 移動平均，區間長短自動切日/週/月，\n  沒提交的日子補 0 柱避免時間軸被壓縮\n- 統計卡加上與前一個等長區間的漲跌\n\n同時把 AI 效益分頁需要的 AiBenefit.vue 與 ai-benefit-data.json 一併\n納入，以及前一個 commit 已引用但漏掉的 build_summary.py。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "41ad7056",
+          "time": "10:26",
+          "message": "feat(日報): 補上 .claude 設定 repo 與自己按的 MR merge，並修時區/分類",
+          "body": "日報原本看不到兩類工作，work-recap 每次回顧都要另外補撈：\n- 掃描根只有 D:\\Gitlab 與 D:\\Personal\\Project，~/.claude 的 skill/runbook/\n  memory 變更完全不計 → 新增為工作專案「.claude (工具設定)」\n- 所有 Merge branch commit 一律 continue 掉，「review MR → merge → 上版」\n  這類工作整個隱形（lisweb 尤其明顯）→ 改成只丟掉本地 sync merge，\n  自己按的 MR merge 留下並改寫成「合併 MR !1522: <MR 標題>」\n\n順帶修掉三個問題：\n- %ai 是 author 時區，GitLab 網頁 merge 的 commit 是 UTC，會早 8 小時\n  → 改 %ad + --date=format-local\n- body 多行時，以換行切 git log 輸出會讓該筆 commit 整個被丟掉\n  → 改用 %x1e 當紀錄分隔\n- JSON 沒寫 category，但前端 App.vue 與 build_summary.py 都在讀\n  → 全部歸到「未分類」，現已寫入\n\n自己開自己 merge 的 repo（OrderInSql、Argus）會一件事出現兩次，\n故加 drop_redundant_merges：merge 標題與當天同 repo 已收錄的 commit\n重複就丟掉 merge，只留原始 commit。\n\n實測 2026-09-16：48 → 51 commits，多出的正是 lisweb 兩支 MR merge\n（時間也從誤判的 07:59 修正為 15:59），OrderInSql 31 筆無重複。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4c3f9697",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-17",
+          "body": "🤖 自動生成於 2026-09-17 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "aa7de2b9",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-16 (48 commits)",
+          "body": "🤖 自動生成於 2026-09-17 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 7
+    },
+    {
       "name": "ParkFee",
       "commits": [
         {
@@ -398,47 +467,6 @@
       "count": 5
     },
     {
-      "name": "work-progress",
-      "commits": [
-        {
-          "hash": "4dfaa765",
-          "time": "11:16",
-          "message": "docs(日報): 用新版產生器重跑 2026-09，並讓彙整沿用日報已存的分類",
-          "body": "重跑 09-01 ~ 09-16：573 → 610 commits。多出來的是原本被丟掉的\nMR merge（review → merge → 上版）與 ~/.claude 設定變更；時間也從\nUTC 修正為本地時間。\n\nmerge_to_public 原本一律用 categorize_commit 重新分類，會把\n「合併 MR !1522: fix(...)」判成錯誤修正，蓋掉日報存好的 合併MR。\n改成沿用 commit 既有的 category，前端分類統計才看得到這一類。\n\n註：09-11 少一筆（45 → 44）不是漏抓 —— 那是同一個 revert 在功能分支上的\n重複副本，該分支 merge 後已刪除，--all 不再可達；留下的是進 main 的那筆。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔"
-        },
-        {
-          "hash": "fd101d28",
-          "time": "11:08",
-          "message": "feat(網頁): 拆明細與總覽資料、加快速區間與趨勢圖",
-          "body": "首頁原本一次載入 1.5 MB 的 work-log-latest.json，再把 86 個專案的\ncommit 明細全部展開；預設區間又寫死 2026-02-05 起算，日均變成攤平\n七個月的數字，看不出近期的變化。\n\n資料層：build_summary.py 從完整 log 萃出「每天 × 每專案 × 每分類」\n的計數（99 KB），總覽的統計、排行、分類、趨勢都由它算出，不需要\ncommit 本文；明細檔改成切到「專案明細」分頁時才下載，一個 session\n只下載一次。首屏少載 15 倍。auto-daily-report.py 每天一併產出。\n\n畫面：\n- 分頁拆成 工作紀錄 / 專案明細 / AI 效益，明細分頁一次只算一個專案\n- 快速區間 昨日 / 近 7 / 近 30 / 近 90 天 / 今年 / 全部，預設近 30 天，\n  錨點取資料最後一天，按「近 7 天」不會含進還沒收集的空白\n- 提交趨勢圖：工作／Side 堆疊長條 + 移動平均，區間長短自動切日/週/月，\n  沒提交的日子補 0 柱避免時間軸被壓縮\n- 統計卡加上與前一個等長區間的漲跌\n\n同時把 AI 效益分頁需要的 AiBenefit.vue 與 ai-benefit-data.json 一併\n納入，以及前一個 commit 已引用但漏掉的 build_summary.py。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發"
-        },
-        {
-          "hash": "41ad7056",
-          "time": "10:26",
-          "message": "feat(日報): 補上 .claude 設定 repo 與自己按的 MR merge，並修時區/分類",
-          "body": "日報原本看不到兩類工作，work-recap 每次回顧都要另外補撈：\n- 掃描根只有 D:\\Gitlab 與 D:\\Personal\\Project，~/.claude 的 skill/runbook/\n  memory 變更完全不計 → 新增為工作專案「.claude (工具設定)」\n- 所有 Merge branch commit 一律 continue 掉，「review MR → merge → 上版」\n  這類工作整個隱形（lisweb 尤其明顯）→ 改成只丟掉本地 sync merge，\n  自己按的 MR merge 留下並改寫成「合併 MR !1522: <MR 標題>」\n\n順帶修掉三個問題：\n- %ai 是 author 時區，GitLab 網頁 merge 的 commit 是 UTC，會早 8 小時\n  → 改 %ad + --date=format-local\n- body 多行時，以換行切 git log 輸出會讓該筆 commit 整個被丟掉\n  → 改用 %x1e 當紀錄分隔\n- JSON 沒寫 category，但前端 App.vue 與 build_summary.py 都在讀\n  → 全部歸到「未分類」，現已寫入\n\n自己開自己 merge 的 repo（OrderInSql、Argus）會一件事出現兩次，\n故加 drop_redundant_merges：merge 標題與當天同 repo 已收錄的 commit\n重複就丟掉 merge，只留原始 commit。\n\n實測 2026-09-16：48 → 51 commits，多出的正是 lisweb 兩支 MR merge\n（時間也從誤判的 07:59 修正為 15:59），OrderInSql 31 筆無重複。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發"
-        },
-        {
-          "hash": "4c3f9697",
-          "time": "07:05",
-          "message": "docs: 更新彙整資料 2026-09-17",
-          "body": "🤖 自動生成於 2026-09-17 07:05",
-          "category": "文檔"
-        },
-        {
-          "hash": "aa7de2b9",
-          "time": "07:05",
-          "message": "docs: 每日工作紀錄 2026-09-16 (48 commits)",
-          "body": "🤖 自動生成於 2026-09-17 07:05",
-          "category": "文檔"
-        }
-      ],
-      "count": 5
-    },
-    {
       "name": "3d-modeling",
       "commits": [
         {
@@ -460,8 +488,8 @@
     }
   ],
   "summary": {
-    "workCommits": 46,
-    "sideCommits": 12,
-    "totalCommits": 58
+    "workCommits": 48,
+    "sideCommits": 14,
+    "totalCommits": 62
   }
 }
