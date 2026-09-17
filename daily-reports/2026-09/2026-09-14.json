@@ -9,61 +9,71 @@
           "hash": "4797fea8",
           "time": "10:05",
           "message": "feat: 新增「線別與手動轉入」頁 — 手動轉入原本在介面上找不到",
-          "body": "回報：介面上看不到哪裡可以轉。實查確認**目前一顆按鈕都不會出現**——收檔進度頁的"
+          "body": "回報：介面上看不到哪裡可以轉。實查確認**目前一顆按鈕都不會出現**——收檔進度頁的\n轉入鈕條件是「有待轉檔 AND 線別為 Live」，而現場唯一 Live 的 WEBORDER-XML 今天 0 檔，\n有檔的八條線全是 DryRun。功能做好了卻碰不到，等於沒有。\n\n- 新頁 /lines：列出全部線別（含 Disabled），每線顯示模式、格式、時窗與現在開/關、\n  待轉數、最早到檔、隔離數，任一非停用線都可開「手動轉入…」\n- 對話框分頁：待轉檔案（可勾選送出）／隔離區（先唯讀，重跑尚未做）\n- DryRun 線明確標示「只解析驗證，不寫入資料庫、不搬動檔案」，可安全試按\n- 時窗外沿用既有守門：跳警語、原因必填、二次確認\n- /api/units 補回 ProcessingWindow（原本只有 ProcessAfter，頁面看不到真正的時窗）\n- 授權改 AuthorizeFolder(\"/\")：涵蓋所有 Razor 頁，避免日後新頁忘了掛授權就對外開放\n- 兩頁互相加上導覽連結\n\n本機煙霧測試：/lines 200、/api/units 帶回 processingWindow、/alert 不受影響。182 測試全過。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "8996004d",
           "time": "09:11",
           "message": "fix: 收檔進度頁的 inbox 歸戶改為對回 UNITDATA，修正重複前綴造成的幽靈單位",
-          "body": "上傳管道會加單位前綴，客戶檔名若已含代碼就重複一次（00330033-PHYSICIANORDER-*.xls，"
+          "body": "上傳管道會加單位前綴，客戶檔名若已含代碼就重複一次（00330033-PHYSICIANORDER-*.xls，\nansn 線 8/31 起每日皆有）。頁面原本直接拿檔名第一段歸戶，於是多出一個不存在的\n00330033，真正的 0033 那列 inbox 欄反而空白。\n\n- AlertQuery.ResolveUnitCode：查得到就用整段；查不到再試前 4 碼；兩段都查無則原樣顯示\n- 刻意不無條件截 4 碼（會把 0208O014 這種帶 Dept 的單位截壞）\n- 查無時原樣顯示而不抹掉（實例 0673：PhysicianOrderM 有 23 張單但 UNITDATA 查無，\n  讓這種單位主檔缺漏看得見）\n\n⛔ 純顯示層，不碰轉檔：寫進 DB 的單位代碼仍由 adapter 決定（Delimited／Xml 用檔名整段、\nExcel／ansn 用檔案內容 B 欄）。查證舊碼三家族都取 Split('-')[0] 整段、**不截前 4 碼**，\n而 ansn 寫入取自檔案內容，所以正式庫 0033 一直是乾淨四碼（612 張）——原本就不是資料錯，\n只有這張表歸錯戶。故不加隔離守門，以免把現在轉得好好的檔擋掉並偏離舊行為。\n\n真實資料驗證（262 單位 × 九條線實際 inbox）：查無單位的代碼由 2 降為 1\n（00330033 → 0033，11 檔；0673 依設計保留可見）。8 個單元測試。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "fc73b5f0",
           "time": "08:56",
           "message": "docs: 修正 TxtTable 敘述（只有 ansn-ucl 是空的）＋批次 5 前置發現：UNIMAX 與長慎共用收檔夾",
-          "body": "- 原文「TxtTable 是空的」只對 ansn-ucl 成立（舊系統該目錄自 2020-05-04 起就是空的，"
+          "body": "- 原文「TxtTable 是空的」只對 ansn-ucl 成立（舊系統該目錄自 2020-05-04 起就是空的，\n  故 00330033 連對照表路徑都影響不到）。ansn-unimax 的 TxtTable 有 5 個檔、已從舊\n  chansnsn_0885 複製過來，補註避免被推廣誤讀\n- 新增 §3.4：UNIMAX_Files／_Backup_Files 同時是 OrderInSQL_UNIMAX 與 chansnsn_0885（長慎）\n  兩支舊程式的收檔夾，但設定不同（Version 1 vs 2、後者才有 TransferUCLCode／TextTableDir），\n  兩支 isAUTO 都是 1。現行 UNIMAX-SHADOW 採長慎那份，與排程名稱一致，看似刻意。\n  留兩項待確認給批次 5（10/6）：排程實際叫起哪支 exe、Version 1 vs 2 的主檔切分鍵差異\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "a99c966c",
           "time": "08:50",
           "message": "docs: 綁定模型實查 — 路由是「資料夾＋檔名」不經 DB，量化 45% 覆蓋缺口與 3 筆髒代碼",
-          "body": "使用者 2026-09-14 指出「好像不是 db binding，應該是 folder bind」。實查確認並量化。"
+          "body": "使用者 2026-09-14 指出「好像不是 db binding，應該是 folder bind」。實查確認並量化。\n\n- 兩層綁定：資料夾→線別（設定檔 InboxPath）、檔名前綴→單位（FromFile 取 '-' 第一段）。\n  DB 完全不參與路由；舊制的 UNITDATA.UploadFolder 是純備註，ElectronicAlert 從不讀\n- 覆蓋率：261 家單位，inbox 欄有值 141、空白 120（45%）。空白分不出「客戶沒傳」與\n  「不歸新服務管」，而那正是紅燈分流最需要的一格。另 5 家帶 Dept 後綴永遠對不上四碼前綴\n- 檔名解出 3 個查無此單位：\n  * 00330033 — 使用者判讀正確，0033 被加了兩次前綴（客戶檔名已含代碼、上傳管道又加一次），\n    ansn 線 11 檔、8/31–9/11 每日都有\n  * 0208 — 母代碼，頁面排除但檔案真的用它當前綴\n  * 0673 — UNITDATA 查無，但 PhysicianOrderM 有 23 張（最新 9/05），單位主檔缺一筆\n- 00330033 目前沒寫錯資料：Excel/ansn 的單位碼取自檔案內容 B 欄，不是檔名（正式庫 0033\n  612 張、四碼乾淨）。UnitCodeToken 在該線只用於 LoadTransferMap，而舊碼也是傳檔名前綴\n  （decompiled Form1.cs:104 傳 array3[0]），行為一致、非回歸\n  ⚠️ 但 Delimited／Xml 是 UnitCode = UnitCodeToken，檔名前綴直接成為 UTI_UNIT_CODE。\n  其餘 8 線今日均無重複前綴，是運氣不是防線 → 建議補「四碼且存在於 UNITDATA」守門\n- 順帶存證：PhysicianOrderM 已有 9 種非四碼單位代碼、271 張單／489 明細，無一取得 ID_TNO\n  （全數擱淺）。樣態是檔名被當成單位代碼，非本服務所寫，留給批次 6 一併看\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "ee4f95cb",
           "time": "08:14",
           "message": "docs: 9/15 換檔改兩段式 — 兩支 .CUTOVER 產生器互不知道對方",
-          "body": "9/14 08:12 兩支產生器重跑並逐項驗證（Auth 區塊帶入、頂層鍵相同、影子原封不動、"
+          "body": "9/14 08:12 兩支產生器重跑並逐項驗證（Auth 區塊帶入、頂層鍵相同、影子原封不動、\nLive 注入項正確）。但發現：各自從現行 Local.json 產出，.CUTOVER.TATUNG 裡 CUBE/CUBE2\n仍是影子、.CUTOVER.CUBE 裡 TATUNG 仍是影子。同日切兩批若先換 TATUNG 再直接換 CUBE，\nTATUNG 會被蓋回 DryRun。定案：先換 TATUNG 重啟，再重跑 cube 產生器（此時保留\nTATUNG=Live），再換 CUBE 重啟，最後才跑 GO-cutover。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "a3ab6f13",
           "time": "08:06",
           "message": "ui: 收檔進度頁首拿掉「健康檢查」「線別設定」兩個 JSON 端點連結",
-          "body": "兩者是給監控與維運看的原始 JSON（/healthz、/api/units），對值班同仁沒意義，"
+          "body": "兩者是給監控與維運看的原始 JSON（/healthz、/api/units），對值班同仁沒意義，\n2026-09-14 使用者反映後移除。端點本身保留不動。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "d3ffd6a6",
           "time": "07:37",
           "message": "docs: SSO Step 3 完成（5177 已開通、工作站驗證）；Step 4 選單需改 LISWeb 程式，不能只靠 SQL",
-          "body": "- Step 3 ✅：從 169 段工作站驗證 healthz 200、/alert 302→/sso/login→LISWeb SsoTo、/api 401。"
+          "body": "- Step 3 ✅：從 169 段工作站驗證 healthz 200、/alert 302→/sso/login→LISWeb SsoTo、/api 401。\n  註明在 56.227 本機打 localhost 不算證據\n- 現在登入 LISWeb 後直接開 Home/SsoTo?sys=OrderInSql 就能用\n- Step 4 讀碼結論：跨系統 SSO 文件寫的 LR131 指錯頁（那是工作站定義，維護頁是 FunctionMenuEdit）；\n  選單不存 URL，PN_PGID 是 30 字元的 action 名、href 由 Url.Action 現算，\n  故無法用 SQL 塞完整網址、PN_PGID='SsoTo' 也帶不了 sys 參數。\n  做法比照考核系統：HomeController 加三行轉跳 action OrderInSql()，PN_PGID 填 'OrderInSql'，\n  PROG_NODE + PERMISSION（含父資料夾）各分部各跑\n- ELECTRONICALERT §8 P3 改為完成\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "743be3f6",
           "time": "07:30",
           "message": "docs: 9/14 週一前置全數完成 — 週末 43 檔真組態平行驗證零未解釋差異",
-          "body": "三件前置："
+          "body": "三件前置：\n1. 部署：不需再做。雜湊驗證線上 Core.dll／Service.dll 與 HEAD 全新 publish 逐位元一致\n   （含二進位守門的版本已於 9/11 13:02 上線）。守門在線上影子實測生效：0466 的 xlsx\n   →「ZIP 容器」、xls →「OLE2 複合文件」，皆解析失敗、不再是幻影醫令。四天 ERR 0。\n2. 清測試庫：replay-cleanup-batch24.sql 執行，33 單位 7,596 主檔／21,030 明細刪除，\n   已切換單位 141→141 未動；對照表自正式庫重同步。\n3. 平行驗證：43 個週末 shadow 真實檔，單位設定＝正式影子 Options＋ValidateIdFormat=1\n   ＋WriteProfile=Default（首次以真正上線組態量測）。43/43 成功、隔離 0、ERR 0。\n   比對零未解釋差異：42 筆對不到＝修補層跨單位搬移（0272→0854／2635→2636／2798→2797，\n   文件已知）；主檔欄位差＝2635 NAME+ID_INVNO php 規則；明細差全為修補層指紋\n   （upd_user A246/A289、adjust=99）或 Cancel 下游翻旗；§6 為同代碼雙套組配對假象；\n   §7 跨檔併單 0。ValidateIdFormat 開啟後 0 警告。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e5407ea1",
           "time": "07:24",
           "message": "docs: 修正 SSO Step 1 段被跳脫字元吃掉的路徑",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "de5b030d",
           "time": "07:23",
           "message": "docs: SSO Step 1 完成（56.227 Local.json 加 Auth、07:20 重啟），callback 改 IP，附開埠指令",
-          "body": "- Step 1 ✅ 2026-09-14 07:19：純文字插入 Auth 段、Units／ConnectionStrings 逐項驗證不變、"
+          "body": "- Step 1 ✅ 2026-09-14 07:19：純文字插入 Auth 段、Units／ConnectionStrings 逐項驗證不變、\n  備份 appsettings.Local.json.bak_20260914_0719；07:20 重啟（時窗 09:00 才開，零中斷），\n  啟動 log「SSO 已啟用」。註明 Auth 走 IOptions、改了要重啟\n- Step 2 改寫：四筆已啟用（不再是停用中）；OrderInSql_URL 改用 IP 192.168.56.227，\n  理由：Kestrel 不比對主機標頭、分單系統既有四組全用 IP、少一個 DNS 依賴\n- Step 3 附可直接貼的 New-NetFirewallRule（只放 192.168.0.0/16）與回機驗證指令\n- ELECTRONICALERT §8 P3 改為「只剩開埠」\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
       "count": 10
@@ -75,25 +85,29 @@
           "hash": "672e958e",
           "time": "12:30",
           "message": "feat(BT402/BT403): 付款模式篩選新增「未設定」選項",
-          "body": "付款模式篩選是精確比對，沒設定付款模式的客戶在任何批次裡都看不到、沒人認領"
+          "body": "付款模式篩選是精確比對，沒設定付款模式的客戶在任何批次裡都看不到、沒人認領\n(台北月結帳 1224 家中 387 家未設定)，是漏寄的來源。\n\n- 下拉新增「未設定」(NONE)，只列 DEBTOR_DETAIL.PAYMENT_MODE 空白的客戶\n- 後端 ReportController.MatchPaymentMode 統一比對，BT402 匯出/列印/地址條、\n  BT403 匯出/列印全部改用；BT403 列印記錄 SQL 走 IS NULL\n- 前端顯示篩選 (BT402/BT403) 同步認 NONE\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "0ffe8c5f",
           "time": "12:12",
           "message": "fix(BT403): 列印記錄月份改用起日、預設上個月、列印前提示已印單位、查詢提速",
-          "body": "0902 澎湖醫院(1115)八月帳單同日被兩人各印一次、重複寄出。根因："
+          "body": "0902 澎湖醫院(1115)八月帳單同日被兩人各印一次、重複寄出。根因：\n「列印記錄」modal 的帳單月份跟著迄日(預設今天)走，九月初開起來查的是\n2026-09，八月印過的單位全部顯示「未印」；列印路徑本身也沒有任何已印提醒。\n\n- 列印 log 的 BILL_YYYYMM 改用「日期(起)」認定，不再用迄日\n  (08/01~09/02 跨月區間會把八月帳單記成 202609)\n- modal 預設月份跟起日；起日仍在本月(預設值)時改帶上個月，查本月時顯示 ⚠ 提醒，\n  月份欄位放大標紅\n- 按「列印」前以起日月份+客戶區間查 BILL_PRINT_LOG，已有紀錄的單位用 confirm 列出\n  (新增 Report/GetBillPrintedUnits；快取預抓，confirm 同步不脫離使用者手勢)\n- GetPrintStatus「本月有資料」由 correlated EXISTS 改 WITH … MATERIALIZE，\n  台北實測未列印查詢 16.6 秒 → 0.2 秒，結果一致\n- 文檔補「帳單列印記錄」一節與事故紀錄\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "791b2407",
           "time": "08:46",
           "message": "docs(選單): 補「功能選單呈現機制」文檔",
-          "body": "原本只有 FunctionMenuEdit（選單資料怎麼維護）的文檔，「選單怎麼被畫出來」"
+          "body": "原本只有 FunctionMenuEdit（選單資料怎麼維護）的文檔，「選單怎麼被畫出來」\n完全沒有記錄，這次加收檔進度節點時全靠讀 code 和查 DB 反推。補一份：\n\n- Menu(首頁, 只有常用磚) vs FunctionMenu(完整清單) 的分工 —— AI_EMAIL 上線時\n  找錯頁面踩過\n- 權限三層(父層/資料夾/程式的 MODULE_CD 都要 ACTIVE='Y')與 MODULE_CD =\n  PN_PGID = action 名的關係\n- href 怎麼組：8030 PHP / 8040 exe / 預設 Url.Action / 外部連結\n- 外部連結為何要短碼+對照表(PN_PGID 只有 VARCHAR2(30))、三個刻意的設計，\n  含「不逐節點查 SYS_PARAMETER」的理由(FunctionMenu 會 render 上百個節點)\n- 常用磚存 SQL Server BBS、1~40 筆才顯示，且**不做權限過濾**\n- 前端 deleteMenu / unFinishMenu / 富盈模式 / 「沒有孩子就隱藏父層」四道攔截\n- 新增節點完整檢查表 + 「加了節點但看不到」七步排查\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "a7bf357a",
           "time": "08:15",
           "message": "feat(選單): 關聯系統 > 分單系統 新增「收檔進度」外部連結",
-          "body": "在分單系統資料夾 (8062) 底下新增節點 FENDAN_ALERT「收檔進度」，"
+          "body": "在分單系統資料夾 (8062) 底下新增節點 FENDAN_ALERT「收檔進度」，\n連到 http://192.168.56.227:5177/alert，另開分頁。\n\n順手把原本只為 AI_EMAIL 寫的 if 特判改成 externalMenuUrls 對照表：\nPN_PGID / MODULE_CD 都只有 VARCHAR2(30) 存不下網址，所以預設網址仍寫在\ncshtml，但每一筆都可用 SYS_PARAMETER 覆寫（AI_EMAIL_MENU_URL 行為不變，\n新增 FENDAN_ALERT_MENU_URL）。日後再加外部連結只要在對照表補一行。\n仍刻意讀在 view 層，維持「只覆蓋 .cshtml 熱更新、不用重編 DLL」。\n\nDB 腳本 SchemaModify/FENDAN_ALERT_收檔進度_選單.sql（冪等，台北先行）：\n權限比照資料夾 8062 的群組清單複製，看得到分單系統的群組就看得到收檔進度\n（台北 = 1 SYSTEM / 52 行政部 / 110 分單系統）。\n\n⚠ 上版序：程式先部署再跑腳本，否則連結會被組成 /Home/FENDAN_ALERT → 404。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 4
@@ -105,7 +119,21 @@
           "hash": "df609798",
           "time": "07:48",
           "message": "取消靜音不要整段播使徒：改成一聲短確認音",
-          "body": "按 🔊 音效（或解鎖）時原本是 beep('alert')，等於偷偷按了一次「▶ 試聽」——"
+          "body": "按 🔊 音效（或解鎖）時原本是 beep('alert')，等於偷偷按了一次「▶ 試聽」——\n自訂紅燈音檔整段放出來，牆上卻沒有任何警報，走過的人以為出事了。\n新增 TONE.ok（0.12 秒上揚短音），開音效只回這一聲確認；\n要驗音檔放不放得出來仍然是「▶ 試聽」那顆按鈕的工作。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "66abff5c",
+          "time": "10:06",
+          "message": "備份：新增「要不要走 MR／PR」判準，以及累積的 memory",
+          "body": "CLAUDE.md 新增一節「要不要走 MR／PR」。原本 GitLab 慣例寫「即使 main\n沒保護也走 MR」，讀起來像絕對規則，但實際上已經有三個專案各自記了例外\n（TakoDoko 直接 merge、OrderInSql 開完直接 merge、NotificationPlatform\n絕不可自己 merge），規則散在各處。\n\n使用者提出的判準是：過去 commit 幾乎都是自己的個人專案就直接 push main；\n公司核心專案（lisweb）即使也幾乎都是自己寫，仍一律走 MR。理由是 MR 歷史\n的價值不在 review 把關，而在於出事時有可追溯紀錄、讓同事看得到變更。\n個別專案的 memory 優先於此通則。\n\n同時帶上這段期間累積的 memory：lisweb 七則、Argus 一則、\nVisionReportHub 一則、soundstage 兩則，以及 lisweb-deploy skill 的\nverify-site.ps1。\n\ncommit 前已依慣例掃過密碼樣式，命中的三處都是佔位符（<pwd>、\npassword=...）不是真憑證；session 逐字稿 .jsonl 由 .gitignore 的\n/projects/*/* 擋住，未進版控。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 1
@@ -119,181 +147,211 @@
           "hash": "2aca7d3a",
           "time": "16:07",
           "message": "feat: 小考題庫鋪到第 30 章——新增 21–30 章 70 題，共 211 題",
-          "body": "出題仍扣著各章註解走，錯項多半是常見誤讀：21 章「其中有信」的信是誠信"
+          "body": "出題仍扣著各章註解走，錯項多半是常見誤讀：21 章「其中有信」的信是誠信\n（錯，是憑據、驗證）、22 章「為天下式」的式是手段（錯，是可照著做的準則）、\n26 章「燕處超然」的燕是燕子（錯，燕是安）、29 章「吾見其不得已」讀成今語的\n迫不得已（錯，是「得不到罷了」，讀錯整句語氣會反）、30 章「不道早已」的已\n是已經（錯，是完、終了）。\n\n24 章那題點出它與 22 章是正反兩面、用詞一一對應；29 章末句「或載或隳」的\n各本歧異也做成題目，順便把待覆核的事情攤在讀者面前。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "e0f05fcd",
           "time": "16:04",
           "message": "feat: 成語出處——30 條，重點在今義與原文的落差",
-          "body": "新增 #/idioms：出自本書的成語 30 條，每條列原句、出處句 id、今義，以及"
+          "body": "新增 #/idioms：出自本書的成語 30 條，每條列原句、出處句 id、今義，以及\n「原文其實在說什麼」。落差大的才是這區的價值：天長地久與感情無關（講天地\n不自生）、金玉滿堂原是警告（重點在下半句莫之能守）、和光同塵原為正面、\n天網恢恢原文作「疏而不失」且講的是不用力的有效而非刑罰、千里之行始於足下\n在脈絡裡接近警語、大器晚成帛書可能作「大器免成」。\n\n章頁若有成語出處，章旨下方列出可點的 chip 連到該條。\n\nvalidate.py 一併檢查：ref 指得到句，且引的原句真的出現在那一章（去標點比對，\n允許「……」串接不相連的兩段各自驗）——建表當下就抓到 i19 把 46.2 與 46.3\n拼在一起卻沒標刪節號。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "5dc866a4",
           "time": "14:48",
           "message": "feat: 原文難字可查讀音——60 字 88 處，點字看注音",
-          "body": "原文裡難唸的字（牝、籥、橐、轂、斲、兕、纇、琭珞……）加虛線底線，點一下"
+          "body": "原文裡難唸的字（牝、籥、橐、轂、斲、兕、纇、琭珞……）加虛線底線，點一下\n底部跳出讀音列顯示注音與字義。顯示用注音；拼音留在 readings.json 裡備用，\n不上畫面。\n\n收字的界線是「讀音與上下文無關」：數（ㄕㄨㄛˋ）、施（ㄧˊ）、厭（ㄧㄚ）、\n見（通現）這類同字異讀的一律不收——這些字在別章要讀本音，標了會在別處標錯，\n比不標更糟，交給註解處理。validate.py 一併檢查表裡的字是否真的出現在原文。\n\n只標原文，不標白話與註解；標註實作成「只處理標籤外的文字」，所以與關鍵詞\n的 <mark> 標色可以並存不打架。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "2c733513",
           "time": "14:41",
           "message": "feat: 小考題庫鋪到第 20 章——每章 7 題抽 5，共 141 題",
-          "body": "題庫規格定為每章 7 題、每次抽 5：這批新出第 11–20 章 70 題，並把第 2–10 章"
+          "body": "題庫規格定為每章 7 題、每次抽 5：這批新出第 11–20 章 70 題，並把第 2–10 章\n各補 2 題補齊（第 1 章先前已是 8 題）。目前 20 章有小考。\n\n出題一律扣著該章的註解走，錯的選項多半就是常見的讀反：五味令人口爽的爽是\n爽快（錯，是敗壞）、復命是聽從命令（錯，是回到本然）、17 章四等是由壞排到\n好（錯，反過來）、19 章絕巧棄利的利是鋒利（錯，是貨利）。19 章那條郭店簡\n異文也做成題目——若從簡本，老子並未直接否定聖與仁義。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "d7314965",
           "time": "14:33",
           "message": "feat: 小考隨機抽題＋綜合測驗也有通過標記",
-          "body": "兩件事："
+          "body": "兩件事：\n\n一、題庫可以比考題數多，每次隨機抽五題（Fisher–Yates），「重做本章」會換\n一批。抽中的題號存進 localStorage，重新整理不會換題——免得答到一半題目變\n了。validate 從「必須五題」放寬成「至少五題」，第 1 章先擴到 8 題示範。\n\n二、綜合小測驗原本考完沒有任何標記。補上：十題答對八題即通過，標題那排的\n連結掛 ✓。通過狀態借用 passSet 的章號 0 記錄，不另開 key（本來就已經六把了）。\n兩邊的計分列也統一成「答滿才結算」的說法。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "98fbbd55",
           "time": "12:52",
           "message": "feat: 本章小考——每章五題，答對四題掛「考核通過 ✓」",
-          "body": "每章正文下方加一區五題是非題，答對 4 題即通過：章首掛徽章、側欄該格的圓點"
+          "body": "每章正文下方加一區五題是非題，答對 4 題即通過：章首掛徽章、側欄該格的圓點\n換成 ✓、進度列多一段「通過 N 章」。\n\n刻意與「讀過」分成兩個記號：讀過是自己按的（自我回報），通過是考出來的\n（沒有手動開關，答對數掉到 3 題以下記號自動收回）。答滿五題才結算，中途\n不先判不過；「重做本章」清空該章作答。\n\n題庫一章一檔 data/quiz/NNN.json，ref 必須指到本章的句——validate.py 連這條\n一起驗（跨章就不叫本章小考了）。哪些章有題庫寫進 index.json 的 quiz 旗標，\n前端據此決定畫不畫，不去 fetch 不存在的檔。\n\n本批先出第 1–10 章共 50 題，其餘 71 章分批補。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "d819838a",
           "time": "12:40",
           "message": "fix: 讀過標記看不出來——側欄加圓點與邊框，翻章列標 ✓",
-          "body": "原本只給已讀格子一層 accent-soft 底色，那個色跟紙色太接近，在小格子裡幾乎"
+          "body": "原本只給已讀格子一層 accent-soft 底色，那個色跟紙色太接近，在小格子裡幾乎\n看不出來。改成底色＋accent 邊框＋字色＋右上角一顆實心圓點（當前章是實心\naccent 時圓點改紙色，免得看不見）。\n\n另外翻到下一章時根本看不到側欄以外的線索，所以「← 第 N 章」「第 N 章 →」\n的鄰章若標過已讀就加一個 ✓——翻過去之前就知道讀過沒。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "f520133c",
           "time": "12:32",
           "message": "feat: 讀過標記——章首手動標／取消，側欄格子跟著上色",
-          "body": "章首右邊一顆「標記讀過」鈕，按下變「✓ 已讀」，再按取消。側欄該格填底色，"
+          "body": "章首右邊一顆「標記讀過」鈕，按下變「✓ 已讀」，再按取消。側欄該格填底色，\n進度列多一段「已讀 N 章」。存 laozi-reader:read（章號陣列），不上傳不跨裝置。\n\n刻意做成純手動：不做「捲到底自動標記」那種偵測——讀到哪算讀完是讀者自己\n的判斷，自動標只會讓這個記號失去意義。標記後只動那顆鈕、側欄該格與進度列，\n不重畫整章。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "168b210c",
           "time": "12:25",
           "message": "feat: 小測驗——十題是非題，答完指回原文",
-          "body": "新增 #/quiz：十題是非題，挑的都是最容易讀反的地方（無為不是躺平、天地不仁"
+          "body": "新增 #/quiz：十題是非題，挑的都是最容易讀反的地方（無為不是躺平、天地不仁\n不是冷血、道法自然上面沒有老闆、千里之行原本是警語不是勵志標語、大器晚成\n在帛書可能是大器免成）。真假各五題。\n\n做成閱讀器的一部分而不是外掛：每題掛一個句 id，答完才顯示解說並附連結指回\n原文那一句。因為題庫與章資料是分開的檔，validate.py 一併檢查每題的 ref 是否\n還指得到句——改了斷句之後題目變孤兒是這裡最容易發生的錯。\n\n作答存 localStorage（laozi-reader:quiz），離開再回來仍在，可一鍵清空；不上傳、\n不跨裝置。作答時只重畫那一題與計分列，不整頁重畫，免得捲動位置跳掉。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "1bca6b5c",
           "time": "12:19",
           "message": "feat: 標題可收起——masthead 縮成一條細列",
-          "body": "右上角「收起 ︿」鈕把整個 masthead 縮成小字書名與切換鈕同列的細列，閱讀時"
+          "body": "右上角「收起 ︿」鈕把整個 masthead 縮成小字書名與切換鈕同列的細列，閱讀時\n多出一截高度。做法同精簡模式：只切 body.compact 交給 CSS，狀態記 localStorage，\n換章與重新整理都保持。行動版細列允許換行免得擠。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "7dd9c611",
           "time": "12:16",
           "message": "refactor: 詞標拉齊為「只標概念義」；側欄改數字格子＋上一章下一章；精簡模式去掉逐句列表",
-          "body": "掃描 81 章後發現受控詞標得不一致：「有」「無」「知」「常」滿篇都是，先前"
+          "body": "掃描 81 章後發現受控詞標得不一致：「有」「無」「知」「常」滿篇都是，先前\n一部分語法義的（下知有之、有德司契、常使民、吾何以知）也標了進去。定為\n原則 6：只標概念義（有無相生、自知者明、知常曰明、常道常德），語法義一律\n不收——否則索引會退化成全文檢索。拿掉 24 處語法義標記，補上 8 處漏標的\n概念義（51.4 道生之德畜之、78.4 正言若反的反、57.4 民自樸……）。74、80 章\n因此沒有關鍵詞，比照 75 在 todo 註明。\n\n側欄 81 章的長清單換成 9×9 數字格子（道經／德經分組，章旨放 title），章首\n章尾加上一章／下一章，鍵盤 ← → 翻章。精簡模式原本只收白話，逐句列表與\n上方全章原文重複，改成整塊拿掉、全章原文放大一級。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "重構"
         },
         {
           "hash": "6c0a7c8f",
           "time": "12:10",
           "message": "feat: 最後八章——70、71、72、73、74、75、79、80，八十一章全數起草",
-          "body": "從 MVP 五章起，照互見一批批往外接，到此 81 章齊：355 句、436 註，每一條"
+          "body": "從 MVP 五章起，照互見一批批往外接，到此 81 章齊：355 句、436 註，每一條\n互見錨點都指得到句，每個關鍵詞都跨章連通。\n\n最後這批是德經末段的治理批評：72「民不畏威則大威至」、74「民不畏死，\n奈何以死懼之」、75 三句都把原因指向「其上」，一路推到 74 章那個全書最狠也\n最務實的比喻——代大匠斲者希有不傷其手：不說你不該殺，只說你手會受傷。\n\n80 章小國寡民是全書最受爭議的一章，註裡把話講清楚：老子確實主張縮小規模、\n減少交流，這不是誤讀；但他反對的舟車甲兵遠徙文字，在他眼裡都與爭奪擾動綁\n在一起，這一章是把前面所有主張推到底畫出來的樣子，同意與否是另一回事。\n\n75 章沒有受控詞表內的關鍵詞（「有為」是無為的反面用例，未立詞），已在該章\ntodo 註明，校稿時再決定是否立詞。冒煙測試的「缺章提示」項在 81 章齊之後\n改測「章號超出範圍退回第一章」。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "5b5ea142",
           "time": "12:04",
           "message": "feat: 補九章（35、44、50、53、55、61、62、68、69）＋ 精簡閱讀模式",
-          "body": "談兵三章到此補齊，結論在 69 章收攏：31「殺人之眾，以悲哀泣之」、67「慈以"
+          "body": "談兵三章到此補齊，結論在 69 章收攏：31「殺人之眾，以悲哀泣之」、67「慈以\n戰則勝」、69「抗兵相加，哀者勝矣」——能打的力量來自捨不得而不是狠，老子\n說了三次。69 章「吾寶」指的正是 67 章三寶，輕敵首先丟掉的是慈。\n\n53 章「朝甚除，田甚蕪，倉甚虛」是 77 章「損不足以奉有餘」的現場版，一個\n下判斷一個舉現場；50 與 55 是談生死最集中的兩章，結論一致：保得住命的不是\n保養，是不去招惹（無死地／赤子）。\n\n呈現層加「只看原文與通讀」切換鈕：只加一個 body.lean 讓 CSS 收起白話、註解\n與 todo，DOM 不動，切回去不必重載；狀態存 localStorage，換章與重新整理都\n保持。鈕放在 masthead 而不是 main 裡，所以換章重畫不會把它洗掉。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "9ef0415f",
           "time": "11:56",
           "message": "feat: 一批補十章——13、15、17、26、27、30、31、34、49、65",
-          "body": "改成一次十章。這批把談兵的三章一起補齊：30「其事好還」（打出去的力量會"
+          "body": "改成一次十章。這批把談兵的三章一起補齊：30「其事好還」（打出去的力量會\n照樣回來，是 40 章反者道之動用在戰爭上）、31「戰勝以喪禮處之」（全書最重\n的一句，無論哪邊贏死的都是人）、67 的慈以戰則勝則早已在庫。老子不絕對\n反戰，只把戰爭壓縮到「不得已」那一格，並且不准在裡面得意。\n\n65「將以愚之」與 3「使民無知無欲」是同一個爭議，註裡不打圓場：順老子\n用字，「愚」與「智多」相對指不機巧，20 章他也用這字自許；但那裡是自許、\n這裡是施之於民，分量不同，讀者該知道爭議在哪。49「孩之」的兩讀（待之如\n孩／使之如孩）正踩在同一條線上，一併標出。\n\n17「太上，下知有之」記下與「不知有之」的異文；15「蔽不新成」各本歧出、\n語意幾乎相反，一併列入待覆核。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "ab8d4ad2",
           "time": "11:49",
           "message": "feat: 再補 4 章——10 六問、23 希言自然、47 不出戶知天下、59 治人事天莫若嗇",
-          "body": "第 47 章「其出彌遠，其知彌少」最容易被讀成閉門造車，註裡把前提與代價都"
+          "body": "第 47 章「其出彌遠，其知彌少」最容易被讀成閉門造車，註裡把前提與代價都\n寫出來：他要知道的是貫穿一切的規律，那東西每處都在所以不必跑遠；但這句\n確實與經驗探求的態度相悖，成立與否取決於你要的是規律還是事實——不替他\n打圓場。\n\n第 10 章六個「能……乎」連問全書僅此一章，不是設問也不是反詰，是把功夫\n一項項擺出來問自己；「明白四達，能無知乎」正好說明老子的無知不是不懂，\n是通達之後仍不動機巧。\n\n第 59 章「長生久視」在本章脈絡裡主詞是國與治理者，講政權人事怎麼久，\n不是後世道教接去的肉身不死——與第 7 章「天地所以能長且久」同一種久。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "74a917f0",
           "time": "11:44",
           "message": "feat: 再補 4 章——20 我獨異於人、18 大道廢有仁義、36 微明、58 禍福相倚",
-          "body": "第 36 章整章的性質取決於一個「固」字：讀「本來、必定」，四句就是 40 章"
+          "body": "第 36 章整章的性質取決於一個「固」字：讀「本來、必定」，四句就是 40 章\n「反者道之動」的描述；讀「姑」（姑且），就成了操作指南——韓非以下讀成\n權術多半從這一讀來。兩讀之間差的是一部書的性質，n1 把話講明，n6 也不\n迴避這章確實留下了被當術用的空間。\n\n18 與 19 連讀才完整：18 診斷（仁義是大道廢的結果），19 開方（絕仁棄義，\n民復孝慈），38 則排成次序。18 章另記帛書多一「安」字，讀「案（乃）」\n與今本同，讀反詰則語意整個翻過來，已列入待覆核。\n\n20 章是全書唯一一次第一人稱自述，通篇自嘲愚頑鄙昏悶——不是謙辭也不是\n牢騷，是親自示範前面各章講的「守在不顯眼的那一邊」。\n\n「母」立為受控詞（1、20、25、52）。跨章檢查又抓到 36 章 n5 標互見卻漏填\nsee，以及 20 章兩條錨點沒指到引文所在句，一併補上。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "1441453e",
           "time": "11:40",
           "message": "feat: 再補 4 章——3 不尚賢、12 五色令人目盲、19 絕聖棄智、46 知足之足",
-          "body": "19 章記下全書分量最重的一條異文：郭店簡本三組作「絕智棄辯」「絕偽棄慮」"
+          "body": "19 章記下全書分量最重的一條異文：郭店簡本三組作「絕智棄辯」「絕偽棄慮」\n「絕巧棄利」，沒有「絕聖棄智」「絕仁棄義」。若從簡本，老子並未直接否定\n聖與仁義，後世據今本斷定儒道對立的說法就得重看。已列入待覆核。\n\n3 章「無知無欲」是全書最受爭議的一段，註裡不替老子遮掩：就他自己的用字看\n這個「知」指機巧（與下句「智者」相應），但這句確實把百姓放在被安排的位置\n上——讀者知道爭議在哪裡，比只讀一種說法好。\n\n「樸」立為受控詞，19、28、32、37 四章一起收。19 章另記今本 20 章首句\n「絕學無憂」在郭店簡與帛書中與本章相連的分章之異。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "806c4dca",
           "time": "11:36",
           "message": "feat: 再補 4 章——7 後其身而身先、28 知雄守雌、54 修之於身、77 天之道張弓",
-          "body": "第 77 章是全書最尖銳的一句社會批評，而且直說不打比方：天之道損有餘補不足，"
+          "body": "第 77 章是全書最尖銳的一句社會批評，而且直說不打比方：天之道損有餘補不足，\n人之道則反過來，損不足以奉有餘。損益這一對至此有了第三種用法——42 章是\n處世觀察、48 章是修為方法、這裡是衡量制度公不公的尺。\n\n第 28 章三段的關鍵在「知」與「守」的落差：不是不懂雄強明白榮耀的好處，\n是懂了之後仍守在另一邊。老子要的從來不是無知者的柔弱。另記「知其白，\n守其黑」段句式與前後不一致（無極與嬰兒、樸不同類），歷來有疑為後人增入者。\n\n第 7 章「無私故成其私」另立一註擋一個常見誤讀：這不是「無私是為了成私」\n的權術，動機若為成私，無私就不成立。\n\n第 54 章由身到天下的推擴與儒家修齊治平形式極近而根據不同——儒家推禮，\n老子推德，而德的內容由道決定、不另立規範。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "dbfdebe1",
           "time": "11:29",
           "message": "feat: 再補 4 章——14 道紀、21 孔德之容、52 守母見小、41 上士聞道",
-          "body": "14 與 21 是必須合讀的一組：14 章說道是「無狀之狀，無物之象，是謂惚恍」，"
+          "body": "14 與 21 是必須合讀的一組：14 章說道是「無狀之狀，無物之象，是謂惚恍」，\n講到抓不住就收了；21 章接著說「惚兮恍兮，其中有象」——恍惚不是空無，是\n看不清而已。兩章現在互指，這組的完整意思才出得來。\n\n21 章的「信」另立一註：此處是憑據、驗證之義（如符信），不是誠信，所以\nkeywords 用 sense 標明，免得跟 8「言善信」、81「信言不美」那條線混讀。\n\n41 章「建言有之」是老子第四次明講自己在引古語（另見 22「古之所謂」、\n42「人之所教」、57「聖人云」），四處現在串起來。「大器晚成」記下帛書\n「大器免成」異文：若從免成，與同段「大方無隅」「大象無形」的否定句式\n反而更整齊，今本的晚成則成了後世的勵志成語。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "0c03a218",
           "time": "11:24",
           "message": "feat: 再補 4 章——29 天下神器、67 三寶、9 功遂身退、45 大成若缺",
-          "body": "第 67 章是全書唯一一處老子正面開列自己的主張：慈、儉、不敢為天下先。"
+          "body": "第 67 章是全書唯一一處老子正面開列自己的主張：慈、儉、不敢為天下先。\n三條都不是能力而是節制，合起來就是不把自己放大；「慈故能勇」與「慈以戰\n則勝」則是他少數談兵而結論與常識相反的地方——敢拚的力量來自捨不得，\n不是來自不在乎。\n\n第 29 章「為者敗之，執者失之」與第 64 章重出，兩章現在互指。29 章那句\n「吾見其不得已」特別立註：此處不是今語的「迫不得已」，而是「得不到罷了」，\n讀成今語整句語氣會反過來。\n\n45 章五個「大某若某」是正言若反最密集的一段，與 22 章「曲則全」排比同型，\n「大盈若沖，其用不窮」幾乎是 4 章「道沖而用之或不盈」的翻版。\n\n跨章檢查的第三級（引文與錨點不同句）這次又幫上忙：64 章 n4 引的是 29.2、\n錨點卻只指 29.3，補成兩句都指。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "b1fc22f7",
           "time": "11:20",
           "message": "feat: 再補 4 章——38 德經首章、16 致虛守靜、5 天地不仁、32 道常無名",
-          "body": "第 38 章是德經開篇，「失道而後德，失德而後仁，失仁而後義，失義而後禮」"
+          "body": "第 38 章是德經開篇，「失道而後德，失德而後仁，失仁而後義，失義而後禮」\n是老子對儒家德目最正面的一次交代：仁義禮不是壞東西，是道失落後一級級的\n補救，每補一級就離本來更遠。另把「無以為」單獨立註——無為說行動，無以為\n說動機，這裡是全書把無為拆得最細的一處。\n\n第 5 章「天地不仁」不是冷酷而是不偏愛：對誰都不特別好，也就不對誰特別壞，\n與 38 章把仁排在道德之下同一個理由。橐籥則是「虛而有用」的第三個比喻，\n與 4 章道沖、11 章無之以為用接成一組。\n\n第 32 章首句「道常無名」正與 37 章那條帛書異文「道恆無名」同文，兩章一接，\n無名與無為在老子這裡本來就是一件事的兩面。\n\n30 章：道經 14、德經 16。天下與道各橫跨 15 章，萬物 14 章。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "372da851",
           "time": "11:15",
           "message": "feat: 再補 4 章——25 道法自然、11 無之以為用、64 輔萬物之自然、33 自知者明",
-          "body": "第 25 章明說「道」只是取的字、「大」是勉強加的名，正好回頭坐實第 1 章的"
+          "body": "第 25 章明說「道」只是取的字、「大」是勉強加的名，正好回頭坐實第 1 章的\n「名可名，非常名」——全書講道最坦白的一處。「道法自然」那條註特別點明\n不是道之上還有個叫自然的東西：王弼說道不違自然乃得其性，自然就是「自己\n本來如此」，所以這句是說道效法的就是它自己。\n\n第 11 章是有無唯一一次被講成看得見摸得著的事——車轂、器皿、房間，三個\n人造物證明空出來的部分才有用；與 1、2、40 章談本體的有無併看，落差很大。\n\n第 33 章的「強」是褒義（自勝者強），與 42「強梁者不得其死」、76「堅強者\n死之徒」的貶義正好相反，用 sense 欄標明，免得關鍵詞跳過去讀成同一件事。\n\n受控詞表新增反、知兩條，待確認清單因此清空。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "b853458d",
           "time": "11:11",
           "message": "feat: 再補 4 章——51 玄德、24 企者不立、43 至柔馳騁至堅、63 為無為",
-          "body": "第 51 章把「道生之，德畜之」這組分工說得最清楚——書名兩個字的關係就定在"
+          "body": "第 51 章把「道生之，德畜之」這組分工說得最清楚——書名兩個字的關係就定在\n那一句上；末段「生而不有，為而不恃」與第 2 章重出，那裡沒給名字，這裡補上\n「是謂玄德」，兩章一接，第 2 章的聖人其實就是在學道的做法。\n\n第 24 章是第 22 章的反面版，用詞一一對應（不自見故明 ↔ 自見者不明），老子\n把同一組判斷正反各說一次。第 43 章的「至柔」沒明說是什麼，靠第 78 章的水補\n完。第 63 章「報怨以德」與《論語》「以直報怨」對照，不判誰對誰錯，只指出\n兩家著眼點不同。\n\n受控詞表新增自然、信兩條。自然那條特別註明：老子的自然是「自己這樣」，\n不是山川草木，白話別寫成現代語感——這是校稿時最容易滑掉的一個詞。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "dca41854",
           "time": "11:06",
           "message": "feat: 再補 4 章——2 有無相生、22 曲則全、37 道經收束、56 玄同",
-          "body": "一樣跟著互見走。這批補完後，前幾批只用散文提到的重出句也接成可點連結："
+          "body": "一樣跟著互見走。這批補完後，前幾批只用散文提到的重出句也接成可點連結：\n第 4 章「挫其銳，解其紛，和其光，同其塵」與第 56 章原樣重出（一個描述道\n的樣子、一個要求人的修為），第 66 章末句與第 22 章「夫唯不爭，故天下莫能\n與之爭」幾乎同文——同一句話在 8、22、66、81 四章反覆出現。\n\n第 2 章那條註把有無關係的三種說法並起來：此處相生、第 1 章同出而異名、\n第 40 章有生於無。三處併看才知道不是前後矛盾，是同一組關係的三個面向。\n\n天下 11 章、萬物 9 章、道 9 章、聖人 7 章，不爭／和／善／無為各 4 章。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "2a33eb68",
           "time": "11:01",
           "message": "feat: 補 9 章把互見網接通——4、6、39、40、48、57、66、76、78",
-          "body": "選章跟著互見走，不照章次推：這 9 章正是既有 5 章的註已經指向、卻還沒建的"
+          "body": "選章跟著互見走，不照章次推：這 9 章正是既有 5 章的註已經指向、卻還沒建的\n那幾章。補完後每一條 see 錨點都指得到句，關鍵詞與互見連成一張網而不是一片\n斷頭連結。道橫跨 8 章，天下 7 章，萬物 7 章，聖人 5 章。\n\n補的過程發現兩個錨點是憑印象寫的：「玄牝之門」記成 6.3 實際落在 6.2，\n「堅強者死之徒」記成 76.4 實際落在 76.3。所以 validate.py 補上跨章檢查，\n分三級——see 指向已建的章卻沒那一句（擋）、指向還沒建的章（提醒）、註文\n「」引的句子與錨點不同句（疑慮，只提醒）。第三級才是抓得到上面那兩個錯的\n那條：前兩級對「存在但不對」的句號無能為力，而互見註幾乎都會把對方的句子\n引出來，拿引文回頭核對落點就抓得到。它上線後隨即抓出 39 章 n4 一筆，看過\n是誤判（註文同時提到孤寡與損益兩句），順手把錨點補成 42.3、42.4 兩句。\n\n受控詞表新增一、天地、弱、強、無為五條，並把原本掛「待確認」的兩題結掉：\n柔弱/剛強一律收單字（單字含在複詞裡，收單字才收得齊三章）；無為立為複詞\n（單字「為」是泛稱動詞，照原則 4 不收，不立複詞整條線都收不到）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "60307ccb",
           "time": "10:48",
           "message": "feat: 補完 MVP 五章——8 上善若水、60 治大國若烹小鮮、81 全書收束",
-          "body": "三章共 14 句 21 註。第 8 章記王弼「道無水有，故曰幾也」——道無形、水有形，"
+          "body": "三章共 14 句 21 註。第 8 章記王弼「道無水有，故曰幾也」——道無形、水有形，\n所以只能說「幾（接近）」不能說「是」，這個字拿捏了整章比喻的分寸；第 60 章\n用河上公的煎小魚（不去腸不去鱗不敢翻攪）點出全章其實只講「不擾動」，三句\n層層退讓的真正落點是「會傷人的不是鬼，是治理者自己」。\n\n第 81 章 n6 的互見錨點 8.2、8.4 指向已存在的章，是第一組真正可點的互見連結\n——「利而不害」就是第 8 章水的「善利萬物而不爭」，末章等於回頭認領了水的\n比喻。另記帛書德經在前，此章在帛書中並非末章，「收束全書」是就通行本次序\n而言。\n\n關鍵詞：道橫跨全部 5 章，萬物 3 章，不爭／善／聖人各 2 章。受控詞表新增\n水、善、不爭、聖人、天下、德六條，並把「知」列入待確認——現在收會變成\n一個到處都是、指不出重點的詞。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "cf422a6b",
           "time": "10:43",
           "message": "style: 字放大——底字 18px，原文再加一級",
-          "body": "版面全用 rem，所以放大靠 html { font-size: 112.5% } 一行帶動整體；原文另外"
+          "body": "版面全用 rem，所以放大靠 html { font-size: 112.5% } 一行帶動整體；原文另外\n從 1.22rem 提到 1.45rem，和白話拉開層次（並列時兩欄同大小會分不出主從）。\n行動版降回 106% 免得一行塞不下幾個字。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "0d2ff6be",
           "time": "10:37",
           "message": "feat: 第 42 章 + 受控詞表——關鍵詞開始真的跨章",
-          "body": "42 章六句十一註：一二三的兩路讀法（河上公拆陰陽清濁、王弼只說歸一）、"
+          "body": "42 章六句十一註：一二三的兩路讀法（河上公拆陰陽清濁、王弼只說歸一）、\n沖通盅（說文引老子正作「盅」）、帛書「中氣以為和」、孤寡不穀的謙稱，\n並把損益兩句點成全章樞紐——前半講生成、後半講處世，靠它接起來。\n\n第 1 章補標關鍵詞「萬物」（1.3「有名萬物之母」）。至此「道」與「萬物」\n各跨兩章，關鍵詞面板才真的有東西可跳——一章時點「道」只會跳回原句。\n\n新增 data/keywords.md 受控詞表：一個概念只准一種寫法，否則索引會散成兩堆。\n收詞原則寫了五條，其中「立萬物不立物」是因為「物或損之而益」的物是泛稱。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "4fef9a2b",
           "time": "10:19",
           "message": "feat: 呈現層上線——原文白話等寬並列、關鍵詞跨章跳句",
-          "body": "單頁 + hash 路由：#/1 跳章、#/1.3 直接跳句。啟動只載 data/index.json"
+          "body": "單頁 + hash 路由：#/1 跳章、#/1.3 直接跳句。啟動只載 data/index.json\n（build_index.py 產的章目錄與關鍵詞反向索引，幾 KB），點到哪一章才載該章\nJSON。點關鍵詞列出它在全書的落點、跳到第一處並在原文標色——落點是句不是\n章，這是關鍵詞掛在句上的理由。\n\n註解掛在所屬句底下，type 與 source 直接顯示；draft 章標「白話待校稿」並\n列出 meta.todo，校稿進度在頁面上看得見。\n\n部署照 bard-comics：Pages 直接發 main 根目錄，不走 Actions。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "4ed92175",
           "time": "10:11",
           "message": "feat: 道德經閱讀器起手——schema 定稿、第一章資料、章資料檢查器",
-          "body": "資料層一章一筆 JSON，底本王弼本（公版）。斷句改成物件陣列當原文與白話的"
+          "body": "資料層一章一筆 JSON，底本王弼本（公版）。斷句改成物件陣列當原文與白話的\n對位單位，句 id（1.3）同時是跨章互見、關鍵詞落點與網址錨點；關鍵詞掛在\n句上而非章上，點「道」能跳到該句而不是章首。\n\n第一章七句十註：白話是待校稿的起草稿（meta.status=draft），訓詁與異文已\n補齊，只引王弼注與帛書本等公版，現行譯註本一字不引。\n\nvalidate.py 除了 JSON Schema，另查 schema 表達不了的事——原文與斷句串接\n是否一致、句 id 是否連號、互見與關鍵詞是否指得到句、關鍵詞標的那一句原文\n裡是否真的有這個詞（這條在第一章就抓到「名」誤標在 1.1）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 30
@@ -305,73 +363,85 @@
           "hash": "868c2b88",
           "time": "09:59",
           "message": "CI 修正：setup-uv 改用完整版號",
-          "body": "上一個 commit 把 setup-uv 寫成 @v10，三組 job 全部在 Set up job 階段就"
+          "body": "上一個 commit 把 setup-uv 寫成 @v10，三組 job 全部在 Set up job 階段就\n失敗：Unable to resolve action `astral-sh/setup-uv@v10`, unable to find\nversion `v10`。\n\n原因是 astral-sh/setup-uv 的移動式 major 標籤只維護到 v7，最新發行版\n雖然是 v10.1.0 但沒有對應的 v10 標籤。gh api releases/latest 給的是完整\n版號，直接截成 major 就不存在了。\n\n改釘完整版號 v10.1.0（供應鏈安全上本來就比移動式標籤好）。\nactions/checkout@v7 有對應的 major 標籤，維持不變。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "a15d67aa",
           "time": "09:57",
           "message": "CI：升級 action 版本，清掉 Node.js 20 淘汰警告",
-          "body": "actions/checkout v4→v7、astral-sh/setup-uv v5→v10。原本兩個都還在"
+          "body": "actions/checkout v4→v7、astral-sh/setup-uv v5→v10。原本兩個都還在\ntargeting Node.js 20，runner 已強制改用 Node 24 並在每次執行留下淘汰\n警告的註解。\n\n首次執行結果（三組全綠）：\n  ubuntu-latest  py3.11  65 passed\n  ubuntu-latest  py3.13  65 passed\n  windows-latest py3.13  64 passed, 1 xfailed\n\nLinux 與 Windows 差的那一個正是 test_save_credentials_is_private——\n它在 POSIX 上真的通過，在 Windows 上如預期 xfail。這個斷言在開發機\n（Windows）上永遠驗不到，等於 CI 補上了本機的盲點。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "eb1d49d2",
           "time": "09:55",
           "message": "新增 GitHub Actions CI",
-          "body": "Ubuntu × Python 3.11／3.13 與 Windows × 3.13，三組都先裝 ffmpeg 再跑"
+          "body": "Ubuntu × Python 3.11／3.13 與 Windows × 3.13，三組都先裝 ffmpeg 再跑\npytest。\n\n裝 ffmpeg 不是為了好看：tests/ 裡有數個用 skipif(not HAS_FFMPEG) 擋住的\n整合測試（實際產出 mp4、用 ffprobe 驗串流長度、抽格驗畫面內容），本機\n順手跑 pytest 時常常整組被跳過。\n\n跑 Windows 也是刻意的。這個專案已經踩過兩個只在 Windows 出現的問題：\nchmod(0o600) 在 Windows 是無效操作、主控台 cp950 編碼撞到中日文。另外\ntest_save_credentials_is_private 標了 xfail(strict=True)，只有在 POSIX\n的 runner 上才會真的驗到那個斷言。\n\n用 --extra upload 安裝，OAuth 相關測試才不會被 skip。\nREADME 加上 CI badge。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "ff791907",
           "time": "09:51",
           "message": "README 改寫成作品集能看的樣子",
-          "body": "repo 沒有網站可看，README 就是門面。主要新增："
+          "body": "repo 沒有網站可看，README 就是門面。主要新增：\n\n- 兩張示意圖（波形樣式、靜態樣式），直接看得到產出長什麼樣\n- 開頭說明起因與一行指令的效果，取代原本乾巴巴的功能描述\n- 新增「工程筆記」一節，記錄這個專案真正有意思的部分：\n\n  * 包 ffmpeg 最難的不是組對指令，而是組錯時它不告訴你。開發過程踩到\n    四個 bug 全是同一類——退出碼 0、stderr 乾淨、終端印出成功，但輸出\n    是錯的。整理成對照表（症狀 / 根因 / 修法），全部只有拿真實檔案跑\n    才會浮現。\n  * 其中 -shortest 那個的反轉：-t 設成正好等於音訊長度會少掉最後一個\n    AAC frame，把 2 秒的溢出換成 64 毫秒的截斷，同樣靜默。\n  * 為什麼 ffmpeg.py 不執行 subprocess——一半的 bug 因此能用純函式測到。\n  * 為什麼波形用 showwavespic 而不是 showwaves。\n  * 為什麼參數驗證要排在外部相依檢查之前。\n\n- 補上 Windows 沒有 winget 時的 ffmpeg 來源\n- metadata 長度限制在本機先擋的說明\n- 註明只申請 youtube.upload 範圍，沒有讀取或修改既有影片的權限\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "4f461540",
           "time": "09:43",
           "message": "TODO：upload 路徑首次實跑成功",
-          "body": "2026-09-14 傳出第一支影片 https://youtu.be/bbVbvxobK-s"
+          "body": "2026-09-14 傳出第一支影片 https://youtu.be/bbVbvxobK-s\n（1.03 MB / 7 秒 / private），resumable upload 與 metadata 送出都正常。\n\n同時記錄一個驗證上的限制：只申請了 youtube.upload 範圍，沒有讀取權，\nvideos.list 會回 403 insufficientPermissions。這是正確的最小權限設計，\n但代表上傳結果只能去 YouTube Studio 人工確認，不能用 API 回查。\n\n剩餘未驗項目重新列過，並標註各自要等什麼條件才驗得到。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "b4c310f6",
           "time": "09:41",
           "message": "新增 docs/oauth-operations.md：OAuth 設定完成後的日常維運",
-          "body": "涵蓋設定完之後真正會遇到的事："
+          "body": "涵蓋設定完之後真正會遇到的事：\n\n- access token（1 小時）與 refresh token（測試模式 7 天）壽命不同，\n  搞混會誤判問題；每小時過期是無感的，7 天那個才會打擾到人\n- 重新授權是自動的。get_credentials() 三層處理會在 refresh 失敗時直接\n  開瀏覽器，upload / publish 都經過它，所以不需要先手動跑 auth，\n  指令會接續完成而不是中斷\n- 測試使用者的作用、上限 100、換帳號的步驟；不在名單上會看到\n  「存取遭到封鎖」而錯誤訊息不會說原因\n- 除了 7 天，改密碼 / 手動移除授權 / 改動 scope / 6 個月未使用也會失效\n- 什麼時候才值得脫離測試模式，以及代價\n\n順帶更新 TODO.md 的 C 項：OAuth 授權已實跑成功，但實際上傳一支影片\n仍未驗證，把待驗清單重新列過。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "61272791",
           "time": "09:37",
           "message": "setup 文件：用戶端類型改用介面實際用詞「電腦版應用程式」",
-          "body": "Google Auth Platform 的正體中文介面顯示的是「電腦版應用程式」，"
+          "body": "Google Auth Platform 的正體中文介面顯示的是「電腦版應用程式」，\n不是文件原本寫的「桌面應用程式」，照著找會對不上。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e9d30acd",
           "time": "09:36",
           "message": "setup 文件：發布狀態改為建議留在「測試」",
-          "body": "原本建議發布成正式版以避開 refresh token 7 天失效，但實測發現「發布應用"
+          "body": "原本建議發布成正式版以避開 refresh token 7 天失效，但實測發現「發布應用\n程式」按鈕是鎖住的：Google 要求先在品牌頁補齊應用程式首頁、隱私權政策、\n服務條款連結與已授權網域，而網域還要先在 Search Console 驗證。對自用的\nCLI 工具等於要為此架一個網站。\n\n以「練完一首傳一支、一年幾次」的使用情境，7 天失效的實際代價只是上傳前\n多跑一次 soundstage auth（約 20 秒），比架網站划算。文件改為說明這個取捨，\n並註明什麼時候才真的該去發布（無人值守的排程自動上傳）。\n\n疑難排解補上「發布應用程式按鈕是灰的」這條，標明是正常現象。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "4c3c1fde",
           "time": "09:14",
           "message": "setup 文件改寫成 Google Auth Platform 新版介面",
-          "body": "Google 把單一頁面「OAuth 同意畫面」拆成左側多個分頁，照舊文件會找不到"
+          "body": "Google 把單一頁面「OAuth 同意畫面」拆成左側多個分頁，照舊文件會找不到\n對應位置。補上新舊對照表，並把步驟重排成：\n\n  1 建專案+啟用 API / 2 品牌 / 3 資料存取權 / 4 目標對象\n  / 5 用戶端 / 6 放憑證 / 7 授權\n\n另外補一段：同意畫面是一個專案共用一份，開始設定前先看「用戶端」列表是否\n為空，確認沒有別的東西在用，再決定要不要另開專案。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "74b44176",
           "time": "08:46",
           "message": "新增 docs/youtube-setup.md：YouTube 上傳一次性設定流程",
-          "body": "六個步驟，每步附檢查點（用 soundstage auth --status 確認進度），"
+          "body": "六個步驟，每步附檢查點（用 soundstage auth --status 確認進度），\n並記錄三個實際會擋住人的地方：\n\n- OAuth 同意畫面沒把自己加進測試使用者，授權會被擋且錯誤訊息不會說原因\n- 發布狀態停在「測試中」的話 refresh token 只活 7 天，自動化免談；\n  自用改成正式版不需要送 Google 驗證，只是會看到未驗證警告畫面\n- 未通過 API 稽核的專案，上傳的影片會被強制鎖成 private，不管 meta.yaml\n  設什麼；繞法是事後到 YouTube Studio 手動改\n\n另附疑難排解對照表、配額說明，以及《菊次郎の夏》的 Content ID 提醒。\nREADME 與 TODO.md C 項改為指向這份文件。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "8e0c68c4",
           "time": "08:31",
           "message": "實作波形視覺化（VisualStyle.WAVEFORM）",
-          "body": "CLI 走 --visual waveform，render 與 publish 都吃得到。"
+          "body": "CLI 走 --visual waveform，render 與 publish 都吃得到。\n\n刻意用 showwavespic（整首一張靜態波形 + 移動播放頭）而不是 showwaves\n（示波器）：showwaves 每格只畫 1/fps 秒的音訊，16kHz 在 30fps 下只有\n533 個取樣要鋪滿 1920 像素，畫面填不滿；而且每格只看得到 33 毫秒，\n讀不出樂曲的強弱結構。整首波形加播放頭反而看得出分句。\n\n過程中踩到兩個 ffmpeg 不報錯的坑，都已寫成測試釘住：\n\n1. blend 必須在 RGB 平面上做。走預設的 YUV 時，screen 會被套到色度\n   平面上，整個畫面變成洋紅色，而 ffmpeg 完全不報錯、輸出照樣成功。\n   兩路輸入進 blend 前都要 format=gbrp。\n\n2. 播放頭只能用 overlay，不能用 drawbox。drawbox 的運算式裡 t 是\n   「線寬」不是時間，n 根本沒定義；拿 t 當時間會算出畫面外的座標，\n   box 就無聲無息地消失，同樣不報錯。overlay 才有時間變數，所以\n   播放頭是一路獨立的 lavfi 白色長條輸入。\n\nshowwavespic 的底色是黑的，screen 混合時黑色不改變背景，等於免費\n去背，不需要 colorkey。\n\n另外新增 meta.yaml：《菊次郎の夏》Part I 的上傳 metadata 草稿，已用\n專案自己的載入器驗過長度限制。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "b878e71a",
           "time": "07:58",
           "message": "修正 -shortest 溢出與參數驗證順序",
-          "body": "A：輸出的影像軌會比音訊長約 2 秒（兩支真實素材分別是 2.06s 與 2.28s），"
+          "body": "A：輸出的影像軌會比音訊長約 2 秒（兩支真實素材分別是 2.06s 與 2.28s），\n尾巴多一段無聲畫面而 ffmpeg 照樣回報成功——與先前的 -map bug 同型的\n靜默錯誤輸出。\n\n新增 render/probe.py 用 ffprobe 探測音訊長度，RenderSpec 帶 duration\n欄位，指令改用 -t。-fflags +shortest 在新版 ffmpeg 已移除，\n-shortest_buf_duration 實測無效。\n\n關鍵細節：-t 必須比音訊長度多一點（_DURATION_EPSILON = 0.25）。切在\n正好的長度上，音訊編碼器會少輸出最後一格——實測 16kHz 的 AAC 少 64ms，\n等於把 2 秒的溢出換成 64 毫秒的截斷。多出來的部分由 -shortest 收掉。\n實測兩支素材音訊皆完整，影像分別短 8ms / 19ms，不到一格。\n\n探測一律用音訊軌自己的 duration 而非容器的 format duration：影片檔的\n容器長度以較長的串流為準，實測差 31ms。\n\nB：renderer.py 的 ffmpeg 存在檢查排在 RenderSpec 尺寸驗證之前，導致\n沒裝 ffmpeg 的機器上 test_odd_dimensions_rejected 必定失敗，且使用者\n打錯解析度會先被叫去裝 ffmpeg、裝完才看到真正的問題。檢查移到 spec\n建好之後，並加了 monkeypatch shutil.which 的測試把順序釘死。\n驗證：把 ffmpeg 移出 PATH 跑整套 → 47 passed / 0 failed（修正前 2 failed）。\n\n另外記錄一個裝了 --extra upload 才浮現的問題：save_credentials() 宣稱把\ntoken 權限設為 0600，但 Windows 不實作 POSIX 權限位元，chmod 是無效\n操作，實測落地是 0666。該測試在 Windows 標 xfail(strict=True)，POSIX\n照常驗；README 與 TODO.md D 項記下真正的修法方向（icacls）。\n\n.gitignore 補上錄音檔副檔名，避免素材進版控。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         }
       ],
       "count": 12
@@ -383,37 +453,43 @@
           "hash": "e3314a48",
           "time": "11:41",
           "message": "年度檢查表加入 10 月初的自動備份驗收項目",
-          "body": "排程首次執行在 10/1，屆時要確認：備份有產生、警告是否消失"
+          "body": "排程首次執行在 10/1，屆時要確認：備份有產生、警告是否消失\n（可反證 9/14 webshell 清理成功）、體積、磁碟空間。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "cdf837ed",
           "time": "11:40",
           "message": "資安：清除其他子網域殘留的 webshell + 記錄 Plesk 備份設定",
-          "body": "Plesk 備份警告的 lstat() 失敗訊息揭露 knowdo.taipeigolf.org.tw 底下still"
+          "body": "Plesk 備份警告的 lstat() 失敗訊息揭露 knowdo.taipeigolf.org.tw 底下still\n留著兩個 webshell（nul.FQBXcss.asp / DEWcss.asp，與 7 月清掉的同一波攻擊）。\n2026-07 的修補只涵蓋 taipeigolf.org.tw，同訂閱的其他子網域從未檢查，\n而該子網域對外仍是活的。\n\n處置：移除 8 個失效站台 + 清空 .trash（Plesk 的 Remove 只是移到回收桶）\n+ 刪除 admin/asd 舊殘留。已驗證 .trash 為空、webshell 路徑消失、主站正常。\n\n年度檢查表補上：Plesk 排程備份設定、備份警告要看 log、Plesk 時間是\nPacific（比台灣慢 15h）、以及每年盤點站台的例行工作。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "80deaf4b",
           "time": "11:05",
           "message": "修正全站快照的到期表述（6/29 起算半年＝2026/12，目前未逾期）",
-          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "ca2f2d2e",
           "time": "11:05",
           "message": "新增年度維運檢查表（一年做一次的事情不再忘記）",
-          "body": "把散在各手冊的年度／半年度工作收斂成一頁目錄：時序表、各項入口、"
+          "body": "把散在各手冊的年度／半年度工作收斂成一頁目錄：時序表、各項入口、\n怎麼確認做對了、上次執行日期，細節連回原手冊。\n\n同時釐清「備份到底在哪」：本機 _archive（每日 bcp + 內容鏡像 + 半年快照）\n是主力並已演練過；Plesk 線上備份格式綁 Plesk、保留短，只當額外保險，\n且其備份範圍是整個訂閱（此帳號底下不只 taipeigolf 一站）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "a8cb7395",
           "time": "11:01",
           "message": "補充主機續約章節（含提前續約的驗證步驟）",
-          "body": "2026-09-14 提前續約完成：M-INV-475580，$190.80，已付到 2027/12/10。"
+          "body": "2026-09-14 提前續約完成：M-INV-475580，$190.80，已付到 2027/12/10。\n記錄 Early renewal 的正確做法：Issue next invoice 只產生發票不扣款，\n付款前先看 Items 的服務期間確認是從原到期日往後延、沒吃掉剩餘天數。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "8f744c56",
           "time": "10:16",
           "message": "還原演練實跑 + 例行健檢腳本",
-          "body": "- docs/維運與部署.md 第四節：2026-09-14 首次 DR drill 結果與踩雷"
+          "body": "- docs/維運與部署.md 第四節：2026-09-14 首次 DR drill 結果與踩雷\n  （.bak+bcp 還原路徑已驗證、checksum 對得起來、RPO 24h / RTO <5min；\n   時差 15h、.bak 還原單向、bcp 要走 PowerShell、sqlcmd -Q 中文會失真）\n- scripts/health-check.ps1：唯讀健檢（排程新鮮度 / 鏡像 vs 線上 / 前台 200 +\n  spam / 被引用檔案是否 404），排程表加入每月健檢與半年演練\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 6
@@ -425,31 +501,36 @@
           "hash": "edd82b57",
           "time": "12:16",
           "message": "feat: laozi-reader 介紹文更新——81 章全數起草",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "835e265a",
           "time": "10:19",
           "message": "feat: laozi-reader 補上 demo 連結（Pages 已開）",
-          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "95185739",
           "time": "10:11",
           "message": "feat: 作品集加 laozi-reader 並置頂",
-          "body": "排序原本完全由 GitHub pushed_at 決定、沒有人工干預餘地，比照既有的 hidden"
+          "body": "排序原本完全由 GitHub pushed_at 決定、沒有人工干預餘地，比照既有的 hidden\n旗標加一個 pinned：置頂作品排最前，其餘順序邏輯不動。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "18104ca4",
           "time": "10:05",
           "message": "feat: 音樂作品補上曲名 - 久石讓 Summer（菊次郎的夏天）",
-          "body": "把先前的佔位文案換成實際曲目，i18n key 一併改名為 hisaishiSummer，"
+          "body": "把先前的佔位文案換成實際曲目，i18n key 一併改名為 hisaishiSummer，\n與 chopinNocturne、rockRadish 等既有命名一致。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "70f105a5",
           "time": "10:02",
           "message": "feat: 新增 soundstage 作品、封存 Boo Camp、音樂集加鋼琴演奏影片",
-          "body": "- 作品集新增 soundstage（id 41）：音檔合成影片並上傳 YouTube 的 Python CLI，"
+          "body": "- 作品集新增 soundstage（id 41）：音檔合成影片並上傳 YouTube 的 Python CLI，\n  分類 tool、無 demo 僅 GitHub\n- Boo Camp（id 40）加 hidden: true 封存，資料保留可隨時恢復\n- 休閒音樂作品新增 YouTube 演奏影片 bbVbvxobK-s（曲名待補）\n- 中英 i18n 補 project41 與 pianoSolo2026 字串\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 5
@@ -461,21 +542,23 @@
           "hash": "34006bd8",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-14",
-          "body": "🤖 自動生成於 2026-09-14 07:05"
+          "body": "🤖 自動生成於 2026-09-14 07:05",
+          "category": "文檔"
         },
         {
           "hash": "6a2e9213",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-13 (2 commits)",
-          "body": "🤖 自動生成於 2026-09-14 07:05"
+          "body": "🤖 自動生成於 2026-09-14 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
     }
   ],
   "summary": {
-    "workCommits": 15,
+    "workCommits": 16,
     "sideCommits": 55,
-    "totalCommits": 70
+    "totalCommits": 71
   }
 }

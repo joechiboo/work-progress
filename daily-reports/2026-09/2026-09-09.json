@@ -9,160 +9,282 @@
           "hash": "f38ace49",
           "time": "15:58",
           "message": "﻿docs: 大同線回歸測試提前完成、零回歸",
-          "body": "用含三個修正（TextFieldParser／位元組截斷／身分證檢核）的新 binary"
+          "body": "用含三個修正（TextFieldParser／位元組截斷／身分證檢核）的新 binary\n跑 20 檔大同線基準素材：主檔 385 張未對齊 0、逐欄七項全 0、明細\nTestOnly/ProdOnly 皆 0。三個修正對大同線無副作用，部署步驟三可在\n批次 2 站穩後立即執行。\n\n教訓入檔：首跑 0173 全 99 筆未對齊實為測試設定抄錯（誤用 xevox 樣板的\nsectionNO/sectionTrim），回歸測試的單位設定必須取自權威來源。\n順帶核對 56.227 的 TATUNG-SHADOW 與 .227 逐項一致。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "049f9dad",
           "time": "15:30",
           "message": "﻿docs: 部署順序定案 — 新版 binary 不可搶在批次 2 切換前上",
-          "body": "實查確認身分證檢核對批次 2 是 no-op（0173 欄位本來就空白、3540 286/289"
+          "body": "實查確認身分證檢核對批次 2 是 no-op（0173 欄位本來就空白、3540 286/289\n都是合法格式），但 TextFieldParser 與位元組截斷動到所有分隔檔的解析，\n而批次 2 的回放（09-02）是用舊解析器做的。故順序固定為：\n① 9/10 用現行已烤機 binary 切換批次 2\n② 穩定後本地以新 binary 重回放大同基準線，證明零回歸\n③ 通過才部署，並補上 TATUNG 的 ValidateIdFormat\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "d5cf1b47",
           "time": "13:17",
           "message": "﻿docs: 批次 3 回放門檻結案 — 主檔與明細零未解釋差異",
-          "body": "明細層比對（第三輪資料）全數歸因："
+          "body": "明細層比對（第三輪資料）全數歸因：\n- ProdOnly 647：645 筆 adjust=99（分單人員 A3xx＋OrderCheckJob）＝修補層新增列\n- TestOnly 20：0438 三件套 12 筆是修補層把 UCL_CODE 改寫成 P228（此即先前\n  列為「最可疑」者，結案）；0032 2 筆為正式庫重複單造成的配對假象（兩庫\n  值與長度完全相同）；其餘 6 筆正式庫對應列全部帶 adjust=99\n- 明細數不同 328 張與 ProdOnly 645 筆修補層新增列一致\n\n至此主檔（未對齊 128 全為 php 署名的跨單位搬移、逐欄僅存姓名 488／\n病歷號 65 兩類修補層規則、SEQUENCE 為已驗證的回放假象）與明細都零未解釋\n差異，3a（9/22）與 3b（9/29）的共同硬門檻達成。\n\n⚠️ 剩餘部署動作已列 TODO：含三個修正的 binary 尚未上 56.227，\n批次 4（9/15）與 3a 切換前必須先部署。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "ad52d47a",
           "time": "13:07",
           "message": "﻿feat: 身分證格式檢核（Keelung 限定）＋ 批次 4 資產；批次 3 硬門檻達成",
-          "body": "第三個未移植行為：PhysicianOrderM_DML.PIDorCID 判定身分證格式不合"
+          "body": "第三個未移植行為：PhysicianOrderM_DML.PIDorCID 判定身分證格式不合\n就寫空字串（PID=1英文+9數字、CID=2英文+其餘數字且長度>=10）。\n0398 東元身分證欄放 8 碼病歷號、2681 台元填 00，正式庫因此 171/171、\n273/273 全空；我方原樣寫入 → 143 筆對不上。\n⚠️ decompile 實查：此檢核只存在於 Keelung 系，XML（已上線）與 ansn/\nUNIMAX 都沒有 → 做成 ValidateIdFormat 單位選項且預設關閉，測試釘死。\n\n第三輪回放結果：未對齊 529→284→128，剩下 128 筆全部是已歸因的跨單位\n搬移（0050→0074/0071、2471→0791、0884→0997，皆 php 明文規則）。\n主檔逐欄身分證/生日/性別/開立日/採檢日皆 0；僅存姓名 488、病歷號 65\n兩類修補層差異。SEQUENCE 差異經驗證為回放假象（內部序號連續無重複）。\n\n同時備妥批次 4（9/15）資產：兩份 .CUTOVER、四個驗證夾、units 夾、\ncutover-cube 七支腳本（產生器自帶逐項驗證，已試跑）、轉移卡。\n測試 96/96。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "36b8f0cc",
           "time": "12:56",
           "message": "docs: FlexibleParsing 產出契約 — 21 欄逐欄規格、valid 逐家切換機制",
-          "body": "批次 3a（9/22）兩條線的流量幾乎全是 FP 的 .txt 產出，但回放素材註解明寫"
+          "body": "批次 3a（9/22）兩條線的流量幾乎全是 FP 的 .txt 產出，但回放素材註解明寫\n「自動排除 FlexibleParsing 的產物」——基準不具代表性。9/9 連兩個 bug\n（引號逗號右移、生日 14 碼）都出在這批檔上，共通原因是我們一直靠回放\n反推格式而不是照規格。本次逐行讀 FlexibleParsing 原始碼把規格補上。\n\n新增 docs/FP_EXPORT_CONTRACT.md：\n- 物理格式：21 欄（Keelung 規格 23 欄，少兩欄）、UTF-8 BOM、行尾多餘分隔符\n- 逐欄契約表，含與我方 ColumnSchema 的三處錯位（idx11 是 ID_CLI_INFO、\n  REMARK 位移兩格、U 欄開時讀到越界）——3a 兩線各中一個，且都落在主檔切分鍵上\n- 欄位級加工：FilterString 刪引號換行、MinusZero 去前導零、\n  TransferGender 在 Transfer 模式回傳中文、DateTimeConvertDate 缺 case 10\n- 列級規則：三鍵全空丟棄、姓名/病歷號/性別跨檔沿用上一列、0699 橫向展開\n- 6a 砍掉中間檔後「哪些欄位的值會改變」清單\n\nFLEXIBLEPARSING_INTEGRATION.md：\n- §4.4 新增：Companys.valid 是逐家切換開關（只有 CompanyRepository.Get() 讀它、\n  worker 每輪重讀 DB ⇒ 一行 UPDATE 十分鐘內生效），含五個坑與回退 SQL\n- §5 收斂：Parsing.cs:267 的 gate 證明 Oracle 只涉及 mode=Parsing 5 家，非 32 家\n- §2.2 定編號約定：6a=Transfer 27 家、6b=Parsing 5 家（以 WORKSTREAMS §5 為準）\n- §6 補四項唯讀待查（含 .ods 疑似靜默掉單、0272 空病歷號靜默截斷）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1f49deff",
           "time": "12:50",
           "message": "docs: TODO 的 TFP 門檻同步為「第一輪已完成、卡第二輪」",
-          "body": "原句「但四線尚未重回放」已過期：第一輪 2026-09-09 跑完（DiffId=0、"
+          "body": "原句「但四線尚未重回放」已過期：第一輪 2026-09-09 跑完（DiffId=0、\n未對齊 529→284），欄位右移確認修掉；但暴露生日 176 筆空值，修正已併入\na381dda，故 9/22 批次 3a 的門檻現在是「帶截斷修正的第二輪」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "7bf30792",
           "time": "12:48",
           "message": "docs: WORKSTREAMS 補 TFP 全稱、L2 進度更新為第二輪重回放",
-          "body": "- 補上 TFP＝TextFieldParser 的定義與由來（縮寫在 TODO/TEST_PLAN 沿用已久，"
+          "body": "- 補上 TFP＝TextFieldParser 的定義與由來（縮寫在 TODO/TEST_PLAN 沿用已久，\n  但從未展開過，第一次讀看不懂）\n- L2 的「TFP 重回放四線」第一輪已於 2026-09-09 完成（DiffId=0、未對齊\n  529→284，並暴露生日 176 筆空值），故該線目前的第一件事是**第二輪**\n  （帶 a381dda 的位元組截斷修正），kickoff prompt 同步改寫\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1711d1ba",
           "time": "12:44",
           "message": "docs: 四條工作線分工 — 1-5 結案趕 10/14、批次 6 推到「只差切換」",
-          "body": "把「趕在 Spark 長假前（10/17）完成」拆成可平行推進的四條線，供多個"
+          "body": "把「趕在 Spark 長假前（10/17）完成」拆成可平行推進的四條線，供多個\nsession（各自 worktree）分頭跑：\n\n- L1 切換主線（前景）：9/15 批次 4 → 9/22 3a → 9/29 3b → 10/6 批次 5，\n  10/14 觀察期結案；獨佔 .227／56.227／正式庫，是唯一能做現場寫入的線\n- L2 回放·程式線：TFP 重回放四線（9/16，3a 硬門檻）→ TestOnly/ProdOnly\n  判讀 → after3pm 回放（9/26）；獨佔 WebOrder_Test\n- L3 基礎設施線：pull 收口（pull-all.ps1 + pull-lines.json），開發 9/26、\n  上線只在 10/2-10/3 的空檔\n- L4 批次 6 準備線（9/17 後開）：決策包給 Spark（10/16 前問完）、程式三處\n  接縫、Companys/FileFormat 轉換器、10/16 前開陪跑\n\n關鍵判斷：批次 6 的「切換」塞不進 10/17 前，但它的 DryRun 陪跑不碰 .229\n（影子來源是 \\ucl-web-tpe\\ExamOrder_Files，唯讀），可在 10/16 前開起來\n跨過封鎖窗自行累積證據，切換排 10/27（二）。⇒「Spark 出國前完成」＝\n批次 1-5 結案 ＋ 批次 6 就緒且已陪跑。\n\n另附各線 kickoff prompt 與獨佔資源規矩（TODO.md 只由 L1 維護、\nWebOrder_Test 同時只有一條線在寫、背景 session 一律唯讀現場），\n以及批次 6 再拆 6a（Transfer 27 家、零 Oracle）／6b（Parsing 5 家＋\nHCLAB＋PHP 鏈）的提案。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "d0ae6a24",
           "time": "12:39",
           "message": "﻿fix: 補上欄位位元組截斷 — 修 FP 上游檔 14 碼生日寫成空值",
-          "body": "TFP 重回放（328 檔零失敗）證實右移 bug 已修（DiffId=0、未對齊 529→284），"
+          "body": "TFP 重回放（328 檔零失敗）證實右移 bug 已修（DiffId=0、未對齊 529→284），\n但暴露新缺陷：FP 產出 .txt 生日為 14 碼 19720801000000，NormalizeDate\n只認 8 碼 → 寫空值（176 筆，0581/0576/0580）。舊程式靠 CsvHelper 依\nTransferFormat 的 CsvItem.Length 截斷位元組（出生日期=8）先截再 parse。\n六個 Keelung 變體長度表完全相同，照搬進 ColumnSchema.FieldMaxBytes。\n截斷用檔案實際編碼（BOM→UTF-8 否則設定值），與舊程式同語意。\n移除 Microsoft.VisualBasic 套件參照（TextFieldParser 已在執行階段內）。\n測試 84/84。\n\n另更正文件誤述：3a 兩夾無任何 mode=Parsing 單位、無需 FP 排除\n（Veterans 近 14 天 54 檔全部來自 FP Transfer 上游，排掉會零流量）；\nUCLFile 疑問結案（報告回傳檔，非醫令）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "2c2487a8",
           "time": "12:17",
           "message": "docs: 批次 4（Cube＋Cube2）單位轉移卡 — 9/15 切換",
-          "body": "照 batch2-tatung 樣板建卡，資料全部來自實測與既有文件："
+          "body": "照 batch2-tatung 樣板建卡，資料全部來自實測與既有文件：\n\n- 兩線基本資料：.job 實測觸發器（Cube 09:00-18:00、Cube2 09:31-15:31，\n  後者每 20 分是唯一非 10 分線）、收檔／備份夾、config 家族選項\n  （Version=4、sectionNO=0438,0501、sectionTrim=A1,B2，兩份逐鍵相同只差資料夾）\n- 兩支 bat 尾巴都呼叫 QFT php ⇒ 兩線都要 PostImportHookUrl\n- 三條紅線：前處理 PHP 絕不能停（近半數檔由它產出）、Keelung 不冪等、只動 05/05a\n- 前置清單點名 CollapseDoubledQuotesFilePrefix=0244（漏帶就回到引號 race）\n- 立即驗證加 0244 引號與 DaAn 民國日期兩項專驗，及「PHP 沒被 pull 餓死」確認\n- ⚠️ 記下待確認項：FileZilla 無帳號指向 Cube_Files／Cube2_Files，\n  上游管道（php sftp／小海豚／大鯨魚）與批次 1 同屬未確認\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "4fcf9c91",
           "time": "12:16",
           "message": "﻿docs: 9/9 最終時程定版 — 4→9/15、3a→9/22、3b→9/29、5→10/6",
-          "body": "納入中秋連假（9/25-28）與 Spark 長假封鎖窗（10/17-25）；pull 收口"
+          "body": "納入中秋連假（9/25-28）與 Spark 長假封鎖窗（10/17-25）；pull 收口\n重排到批次 3 全切完後。更正 3b 批次表的 pull 排除說法：只排 3 個\nPHP 輸入前綴（2798/0449/0546）＋Parsing_，FP 的 15 個 Transfer\n前綴是正式流量絕不能排（與 pull 規則區 9/7 定版一致；作戰圖同步更正）。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "bcfe5a3b",
           "time": "11:46",
           "message": "﻿fix: Delimited adapter 改用 TextFieldParser — 修引號內逗號右移 bug",
-          "body": "批次 3 回放歸因抓到真 bug：naive Split(',') 把 \"Cortisol (Blood, AM)\""
+          "body": "批次 3 回放歸因抓到真 bug：naive Split(',') 把 \"Cortisol (Blood, AM)\"\n的引號內逗號切開、後續欄位整排右移，病歷號滑進 ID 欄（~110 張單，\n0105 實檔逐列對質確認）。舊程式用 Microsoft.VisualBasic.FileIO.\nTextFieldParser（decompile CsvHelper.DeSerilize），改用同一類別：\n引號內分隔符不切、外引號自動剝（Unquote 移除）、\"\" 跳脫、\n未收斂跳脫擲 MalformedLineException（舊程式行為相同）。\n\n同輪完成 529 筆未對齊全數歸因（0088 INVNO 改寫、0050→0074/0071、\n2471→0791、0884→0997 皆 php 明文規則），全庫找無＝0。\n測試 82/82（+實案回歸；0244 兩案改為忠實例外語意）。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "8f932fb3",
           "time": "11:22",
           "message": "﻿docs: ORA-01830 決策 — 自家開發、併入批次 6 自修；清重複註解",
-          "body": "FlexibleParsing 為自家開發，非外部通報案。實證範圍限 1120"
+          "body": "FlexibleParsing 為自家開發，非外部通報案。實證範圍限 1120\n（缺 case 10；富盈等純 8 碼單位不受影響，三天日誌錯誤全集中\n1120 時段）。修法定案補 case 10；部署 .229 前知會 Spark。\n另清掉 IsWithinProcessingWindow 上一輪留下的重複 summary。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "7cfdb267",
           "time": "11:12",
           "message": "﻿feat: ProcessingWindow 多段窗 — after3pm 立人線的兩段觸發器",
-          "body": ".job 實測 03a 線有兩筆觸發器（07:00-12:00＋15:00-19:00），單段窗"
+          "body": ".job 實測 03a 線有兩筆觸發器（07:00-12:00＋15:00-19:00），單段窗\n會漏掉整個早上。改逗號分隔多段、任一段內放行；任一段格式壞掉整串\n視為無效放行（沿用原語意）。測試 81/81（+11 案例，含批次 2 的\n09:01-15:41 末班車邊界）。部署隨下次更版，批次 3 前必須在線上。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "f28b3f5b",
           "time": "10:19",
           "message": "﻿docs: 排程時間現況盤點 — .job 觸發器實測、各批次時窗權威來源",
-          "body": "新增 SCHEDULE_INVENTORY.md：.227 十條轉檔排程＋QFT＋前處理 PHP＋"
+          "body": "新增 SCHEDULE_INVENTORY.md：.227 十條轉檔排程＋QFT＋前處理 PHP＋\n2344書田＋.229＋56.227 全量實測（含量測方法與解析器驗證）。\n維護規則：備切換資產抄本表實測值，不抄排程名稱。\n順手更正 PREPROCESSOR：前處理 PHP 實為每 1 分鐘（原誤記每小時），\n0244/3540 就地清理 race 窗極小。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "330c34ff",
+          "time": "10:16",
+          "message": "合併 MR !69: fix/windows from job triggers",
+          "body": "fix/windows from job triggers\n\nSee merge request ucl/twowayconnection/orderinsql!69",
+          "category": "合併MR"
         },
         {
           "hash": "5047f203",
           "time": "10:16",
           "message": "﻿fix: 時窗改用 .job 觸發器實測值 — 排程名稱是誤導",
-          "body": "解析 .227 legacy .job 二進位觸發器（以批次1與 QFT 兩條已知排程驗證"
+          "body": "解析 .227 legacy .job 二進位觸發器（以批次1與 QFT 兩條已知排程驗證\n解析正確）：「to pm3」實際 09:01 起每 10 分持續 400 分＝末班 15:41。\n批次 2 產生器已從 09:00-15:00 更正為 09:01-15:41（56.227 現場已改）。\nrunbook 批次表全面換成實測窗；after3pm 立人實為 07:00-12:00＋\n15:00-19:00 兩段窗，多段窗支援列批次 3 前置；ansn 05:02 即開跑。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "1d98ba23",
           "time": "08:59",
           "message": "docs: pull 收口計畫 — 一支排程＋一張清單，批次 3 之前完成",
-          "body": "批次 2 切換前確認架構時發現：兩支 pull 的差異只有參數（來源/目的/引擎/門檻/排除），"
+          "body": "批次 2 切換前確認架構時發現：兩支 pull 的差異只有參數（來源/目的/引擎/門檻/排除），\n而 pull-settled.ps1 本來就寫成「各批次共用樣板」、參數齊全。收口不用寫新東西。\n\n排入 9/16（批次 2 觀察期滿）～9/29（批次 3）之間，因為批次 3 一次上 3 條線，\n不收口要建 6 支排程、收口後只是清單加 3 列。\n\n一併記下唯一真正的取捨（單線逾時，防 WS2003 SMB 卡住餓死後面的線），\n以及終點形態（pull 併進服務當 per-unit RemoteSource，穩態 0 支排程）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "bb5c7e78",
           "time": "08:29",
           "message": "﻿docs: 批次 2 提前至 9/10（四）— Spark 同意；修 TODO 曆法錯誤",
-          "body": "批次 1 首日全綠、資產經實戰補強、Spark（雙向連線負責人，本月週六班"
+          "body": "批次 1 首日全綠、資產經實戰補強、Spark（雙向連線負責人，本月週六班\n週一休）無意見。前提：9/9 反向比對持續乾淨。新版 binary（0244 修正）\n已於 9/9 08:30 部署烤機。TODO 的 9/12（五）為曆法錯誤（實為週六），\n批次 1 收尾改 ~9/11（五）且避開 9/14（一，Spark 休）。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
-      "count": 18
+      "count": 19
     },
     {
       "name": "lisweb",
       "commits": [
         {
+          "hash": "ce15da5e",
+          "time": "18:28",
+          "message": "合併 MR !1489: feat(tpfmapprove): 調整發行權限必選與終止上線紀錄歸屬",
+          "body": "feat(tpfmapprove): 調整發行權限必選與終止上線紀錄歸屬\n\nSee merge request ucl/lis/lisweb!1489",
+          "category": "合併MR"
+        },
+        {
+          "hash": "be3b8c67",
+          "time": "18:28",
+          "message": "合併 MR !1490: docs(rule-engine): 台中 Rule 9024 上線修正實測紀錄與誤加註解還原檔（補 !1484 未趕上的兩個 commit）",
+          "body": "docs(rule-engine): 台中 Rule 9024 上線修正實測紀錄與誤加註解還原檔（補 !1484 未趕上的兩個 commit）\n\nSee merge request ucl/lis/lisweb!1490",
+          "category": "合併MR"
+        },
+        {
+          "hash": "68eea48d",
+          "time": "18:27",
+          "message": "合併 MR !1494: feat:[用戶] 部門清單支援 Depfilter 與站別快取鍵",
+          "body": "feat:[用戶] 部門清單支援 Depfilter 與站別快取鍵\n\nSee merge request ucl/lis/lisweb!1494",
+          "category": "合併MR"
+        },
+        {
           "hash": "cb9ae03a",
           "time": "10:01",
           "message": "fix(LT302): 項目代碼查詢支援套檢子項 (TEST_PROFILE 反查父代碼)",
-          "body": "- 現象: 3531 + 9/5 查得到含 P016 的單, 但 3531 + 0258 + 9/5 查不到"
+          "body": "- 現象: 3531 + 9/5 查得到含 P016 的單, 但 3531 + 0258 + 9/5 查不到\n- 根因: P016 是套檢 (TEST_PROFILE, LR111 維護), 子項 0258 只存在 ORD_DTL;\n  原條件只展開 ITEM_MASTERH 比帳務項與 BLG_PKG_ITEM 套餐成員, 套檢展開兩邊都不寫\n- 修法: 沿用 4/21 IN+UNION 走索引的寫法, 再加兩支 UNION 分支從 TEST_PROFILE\n  以 TP_TI_CODE LIKE 反查 TP_CODE, 分別比帳務項與套餐成員\n- 刻意不用 WITH CTE 集中展開: 11g 會 materialize 失去索引驅動, 實測慢 10 倍\n- 台北實測: 3531+0258+9/5 命中 6090514534; 7 天無單位寬查詢 338ms→647ms,\n  執行計畫形狀不變 (FILTER + 索引 nested loop), 成本 15→30\n- 純後端 SQL 組字串, 前端/API 簽章/DB 皆不動\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "a4544611",
           "time": "09:20",
           "message": "docs(problems): 補「匯入檢驗值未套用 Output Mask 小數位」問題文檔",
-          "body": "客訴 6090510091（7432 PRA）報告顯示 1 而非 1.00。查台北正式庫確認："
+          "body": "客訴 6090510091（7432 PRA）報告顯示 1 而非 1.00。查台北正式庫確認：\n值由 PHP 外送匯入（TIPN_Data_Import.php）原字串直寫，AuthoriseQueue\n自動一審後由 LT270 批次二審放行，全程無人工介入，與 LT252/LT253 無關。\n\n根因為 TI_OUTPUT_MASK 補零只做在輸入層與顯示層，未做在寫入層；\nLISWeb DataImport V2 有同樣的洞。近 7 天台北 PHP 匯入 16,130 筆數值中\n137 筆位數與 mask 不符，且偏差含補零與四捨五入兩個方向。\n\n文檔含事件鏈判定依據、規模統計、a~e 修法評估（結論 a+c 改寫入端）、\n待辦（HORD_DTL 尚未同步、進位方向需檢驗端確認）與查證 SQL。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "75451d03",
           "time": "08:32",
           "message": "docs(rule-engine): 檢體延誤註解 hc010 端問題已開 Tickit #353 給 Mars",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e0e7d65c",
           "time": "08:04",
           "message": "docs(rule-engine): 記錄台中 Rule 9024 於 2026-09-09 08:02 重開與模擬驗證結果",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "58141734",
           "time": "08:01",
           "message": "fix(rule-engine): 台中上線修正實測 — v0.2 已部署、誤加註解已清、規則待重開",
-          "body": "正式庫（192.168.33.253）執行紀錄："
+          "body": "正式庫（192.168.33.253）執行紀錄：\n\n- COLDATE_DIFF v0.2 已部署，STATUS=VALID（規則當時為關閉狀態，無副作用）\n- 單元測試 9/9 通過：事故單×3、其他哨兵單、採檢日 NULL、真延誤 1 天×2、\n  當日採檢、查無單號\n- 誤加註解已用守衛式 UPDATE 清除 10 張，新增帶舊值還原檔\n\n實測新增三項發現（已補進評估文檔）：\n\n1. 哨兵值 1900-01-01 是新版 010 上線當天才出現的行為改變（09-06 前近乎為 0，\n   09-08 起 NULL 歸零全部變哨兵值）。BLG 端 ID_SPL_COLDT 仍為空，\n   不是資料流掉值，是 010 寫入表現形態改變 → 建議知會 Mars。\n2. 回放近 7 天真實單：哨兵值出現前 v0.1/v0.2 判斷完全一致（證明修正沒有\n   改變正常行為），出現後由「幾乎全標」（713/733）收斂到 59/733。\n3. 地雷② 得到實證：09-07 EVENTLOG 有 180 筆 GLOBAL_CMT_SET，但只有 10 張\n   ORD_HDR 還帶著註解，留存率 5.6% —— 其餘被 010 改單重送的 MERGE\n   WHEN MATCHED（硬寫 OH_PCMT=NULL）洗掉。即使判斷正確需求也只能達成一小部分，\n   需請 Mars 讓 MERGE 排除 OH_PCMT 欄。\n\n規則本身尚未重開（ADD_RULE + 補樹葉），等權限放行或人工執行。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "93c1b85c",
+          "time": "08:07",
+          "message": "合併 MR !1488: feat:[密碼] 新增大小寫規則",
+          "body": "feat:[密碼] 新增大小寫規則\n\nSee merge request ucl/lis/lisweb!1488",
+          "category": "合併MR"
         },
         {
           "hash": "229e14c4",
           "time": "08:04",
           "message": "docs(rule-engine): 記錄台中 Rule 9024 於 2026-09-09 08:02 重開與模擬驗證結果",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1dc07008",
           "time": "08:01",
           "message": "fix(rule-engine): 台中上線修正實測 — v0.2 已部署、誤加註解已清、規則待重開",
-          "body": "正式庫（192.168.33.253）執行紀錄："
+          "body": "正式庫（192.168.33.253）執行紀錄：\n\n- COLDATE_DIFF v0.2 已部署，STATUS=VALID（規則當時為關閉狀態，無副作用）\n- 單元測試 9/9 通過：事故單×3、其他哨兵單、採檢日 NULL、真延誤 1 天×2、\n  當日採檢、查無單號\n- 誤加註解已用守衛式 UPDATE 清除 10 張，新增帶舊值還原檔\n\n實測新增三項發現（已補進評估文檔）：\n\n1. 哨兵值 1900-01-01 是新版 010 上線當天才出現的行為改變（09-06 前近乎為 0，\n   09-08 起 NULL 歸零全部變哨兵值）。BLG 端 ID_SPL_COLDT 仍為空，\n   不是資料流掉值，是 010 寫入表現形態改變 → 建議知會 Mars。\n2. 回放近 7 天真實單：哨兵值出現前 v0.1/v0.2 判斷完全一致（證明修正沒有\n   改變正常行為），出現後由「幾乎全標」（713/733）收斂到 59/733。\n3. 地雷② 得到實證：09-07 EVENTLOG 有 180 筆 GLOBAL_CMT_SET，但只有 10 張\n   ORD_HDR 還帶著註解，留存率 5.6% —— 其餘被 010 改單重送的 MERGE\n   WHEN MATCHED（硬寫 OH_PCMT=NULL）洗掉。即使判斷正確需求也只能達成一小部分，\n   需請 Mars 讓 MERGE 排除 OH_PCMT 欄。\n\n規則本身尚未重開（ADD_RULE + 補樹葉），等權限放行或人工執行。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         }
       ],
-      "count": 7
+      "count": 11
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "35565767",
+          "time": "16:15",
+          "message": "合併 MR !16: docs(deploy): 釐清遠端操作的分界是通道不是機器（順修 Api 不必 RDP）",
+          "body": "docs(deploy): 釐清遠端操作的分界是通道不是機器（順修 Api 不必 RDP）\n\nSee merge request ucl/twowayconnection/visionreporthub!16",
+          "category": "合併MR"
+        },
+        {
+          "hash": "bdd0b236",
+          "time": "16:14",
+          "message": "docs(deploy): 釐清「能不能遠端做」看的是通道不是機器",
+          "body": "原本 G2 寫成「SMB 通不代表 IIS reset 通」＋「Api 永遠要 RDP」，方向是錯的：\n\n- 2026-09-09 實測同一個 shell 裡 `sc.exe \\56.231 stop` 通、\n  `schtasks /Query /S 56.231` 卻 Access denied。差別在 sc.exe 走 \\PIPE\\svcctl\n  掛在 SMB session 上（吃 net use 帶的 administrator），工作排程走 DCOM，\n  認的是呼叫端登入 token（ucl\\joechiboo 不是那台本機 admin）\n- 56.229 與 56.231 行為完全相同，不是特定機器的問題\n- Api 也不必 RDP —— 放 app_offline.htm 讓 ANCM 卸載就能蓋檔，跟 Dashboard 同套\n\n改成一張「操作 → 通道 → 吃不吃 net use 憑證」的表，結論收斂成：\n需要 RDP 的只有 iisreset 等級的 IIS 操作與改工作排程。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "780af3d9",
+          "time": "15:51",
+          "message": "合併 MR !15: docs(churi): 3520 切換完成紀錄與排程開窗的坑",
+          "body": "docs(churi): 3520 切換完成紀錄與排程開窗的坑\n\nSee merge request ucl/twowayconnection/visionreporthub!15",
+          "category": "合併MR"
+        },
+        {
+          "hash": "43a97244",
+          "time": "15:51",
+          "message": "docs(churi): 補 3520 切換完成紀錄與排程開窗的坑",
+          "body": "- 舊排程 2026-09-09 15:40 停用（RDP 手動，遠端 schtasks/COM 在 56.231 不通）\n- 15:48 自動排程實跑驗證通過：25 張單 / 573 列 / 73089 bytes，\n  TransferLogs 全 SendReport/Success/Auto，初日 FTP 上檔案大小相符\n- 戰情室確認不需改也不需重佈（矩陣與下次觸發時間都是讀 HisVendors 算的）\n- 台北部署狀態表更新到 2026-09-09\n- config-reference 補一條：ScheduledHours 的開窗長度是 IntervalMinutes 不是整小時，\n  臨時要觸發驗收得連 IntervalMinutes 一起放寬\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "aeee0756",
+          "time": "15:37",
+          "message": "合併 MR !14: fix(ftp): 上傳改用 NoCheck，drop folder 帳號沒有 DELETE 權限",
+          "body": "fix(ftp): 上傳改用 NoCheck，drop folder 帳號沒有 DELETE 權限\n\nSee merge request ucl/twowayconnection/visionreporthub!14",
+          "category": "合併MR"
+        },
+        {
+          "hash": "8d87d2a8",
+          "time": "15:37",
+          "message": "fix(ftp): 上傳改用 FtpRemoteExists.NoCheck，drop folder 帳號沒有 DELETE 權限",
+          "body": "初日 3520 第一次正式上傳就 550 Permission denied，堆疊指到\nFluentFTP 的 DeleteFile —— 預設的 FtpRemoteExists.Overwrite 會先刪再傳，\n但初日那組帳號只給寫入。改成 NoCheck 直接 STOR，與舊系統 WebClient.UploadFile\n一致；實測同名覆蓋是允許的，被擋的只有 DELETE。\n\n耀聖 Realsun 共用這支 service，檔名帶時間戳不會撞名，行為不受影響。\n\n改完重新部署後，2026-09-08 那批 6 張單傳輸成功，從初日 FTP 抓回來的檔與\n本地產的位元組完全相同。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "369732d1",
+          "time": "14:57",
+          "message": "合併 MR !13: 3520 廣川醫美中心併入大一統（初日 ChuRi adapter）",
+          "body": "3520 廣川醫美中心併入大一統（初日 ChuRi adapter）\n\nSee merge request ucl/twowayconnection/visionreporthub!13",
+          "category": "合併MR"
+        },
+        {
+          "hash": "3c616095",
+          "time": "14:54",
+          "message": "feat(churi): 3520 廣川醫美中心併入大一統，取代 56.231 的 PowerShell 排程",
+          "body": "廣川的檢驗值回傳目前靠 56.231 上一支 Task Scheduler 每天 07:00 跑的\nPowerShell：呼叫 LISWeb ExportUclReportValue 產 Big5 CSV，再 FTP 上傳到\n初日系統（35.221.157.244）。改成大一統的 ChuRi adapter 直接查 Oracle 產檔。\n\n換掉的三個問題：\n- LISWeb 查無資料回的是 200 + {\"message\":\"No data found\"}（不是 204），\n  舊腳本的 204 判斷不成立，那 37 bytes 的 JSON 每個沒資料的日子都被當\n  CSV 傳上去；現在沒報告就不產檔\n- 舊排程只查「昨天」的 PARTIAL_AUTH_DT，晚二審必漏，補傳要 RDP 上去改\n  腳本裡的日期常數；現在是 PreDay=7 滾動視窗 + TransferLogs 去重，晚二審\n  自動補送，人工補傳走既有的手動傳輸頁\n- 失敗只寫本機 log，Dashboard/Cerberus 都看不到；現在每張單一筆 TransferLog\n\n實作：\n- ChuRiAdapter (SupportsBatch)：一個 cycle 的合格報告併成一份 CSV、一次\n  FTP 連線，每張單各自回 TransferResult\n- ChuRiCsvBuilder：18 欄、Big5 無 BOM、CRLF、LISWeb EscapeCsvValue 等價\n  實作；檔名 Report_{最早二審日}~{最晚二審日}_3520.csv，正常情況與舊排程\n  同名，含補送時擴成區間（與人工補傳檔同格式）\n- ReportItem 新增 RawAbnormalFlag / RawReferenceRange / ValidateOn：\n  初日要送未加工的 OD_TR_FLAG 與 OD_TR_RANGE。共用的 AbnormalFlag 對片語型\n  會給 N/Y、ReferenceRange 會把 MRR 展開成說明文字，兩者初日都沒收過\n- 手動端點 (/api/manual/batch、resend、resend-by-tno) 補讀 IncludeHiddenItems，\n  之前只有 Worker 會讀，補傳檔會比自動排程少列\n- /api/test/churi-csv：dry-run 產檔不上傳，給驗收用\n\n驗收：scripts/tools/churi-parity-check.ps1 對 2026-08-01～09-08（24 個有\n資料的日子）跑 -Live 比對，內容不同 0、缺漏 0。已知可接受的差異（套餐標題\n列、TI_OUTPUT_MASK 補零、跨日二審整張重送）記在 docs/deploy/churi.md。\n\nDB 建置腳本 scripts/deploy/churi-3520-init.sql 建完 vendor 是關的，\n要先停 56.231 舊排程再開（同名檔會互相覆蓋，不能並行）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 8
     },
     {
       "name": "Argus",
@@ -171,70 +293,46 @@
           "hash": "5bc25216",
           "time": "16:17",
           "message": "把電視內建瀏覽器那條從推論換成實測，並把診斷工具寫進佈署指南",
-          "body": "設計準則 3 原本只寫「不要用電視內建瀏覽器：沒有 flag 可設、會自己休眠、"
+          "body": "設計準則 3 原本只寫「不要用電視內建瀏覽器：沒有 flag 可設、會自己休眠、\n韌體更新後常變樣」。2026-09-09 兌現了，而且比預期的硬——補上實測。\n\nTCL 的 Browser Here 接藍牙滑鼠：游標會動、頁面會捲，但所有按鈕都點不動。\n這個症狀很會騙人，看起來就像網頁的按鈕壞了，第一個假設（事件綁定、覆蓋層）全錯。\n游標會動是那個 app 自己畫的，頁面會捲是它自己合成的，兩件事都不代表\n事件有進到網頁。用 ?diag=1 量出來連 mousemove 都是 0。\n\n一併記下沿路排除掉的東西，讓下一個人不用再走一次：Auto clock display、\n「目標要先有焦點才吃得到點擊」、以及還沒試但值得試的有線 USB 滑鼠。\n也寫清楚換瀏覽器只解決點擊——休眠、韌體改版、autoplay 沒 flag 可下\n（＝紅燈很可能永遠不會響）三件事還在，所以小主機那條結論不變。\n\n佈署指南新增〈5. 電視上的診斷工具〉，把畫面內錯誤層與 ?diag=1 的判讀寫成表：\n一行都沒有＝裝置問題別改程式，打到的不是按鈕＝座標問題，打到就是按鈕＝才輪到程式。\n排錯表也補了兩列指向它。\n\n重點是那句「先量再改」。這次如果先量，可以省下三輪佈署。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "9f59f417",
           "time": "15:49",
           "message": "游標移到哪就把焦點給哪：補上 Google TV「目標要先有焦點才吃得到點擊」那個縫隙",
-          "body": "自動時鐘顯示關掉之後電視還是點不動，所以往下一個已知原因走。"
+          "body": "自動時鐘顯示關掉之後電視還是點不動，所以往下一個已知原因走。\n\nGoogle TV 上有一個回報得很清楚的行為：滑鼠點擊只有在目標「已經拿到焦點」時\n才吃得到，沒有焦點就整個被吞掉（2021 TCL Series 6 / Android 11，\nvirresh/matvt issue #28）。讓焦點跟著游標走，那個前提就自動成立，\n不必先用遙控器把黃框移過去再點。\n\n那台機器如果連移動事件都不送進頁面，這段永遠不會執行，也就沒有副作用——\n它只在「移動進得來、點擊進不來」的縫隙裡有用，而那正是現在卡住的地方。\n一般瀏覽器上的代價只是滑過按鈕會亮黃框，對一面牆來說無所謂。\n\n同時把探針補上移動事件計數（mousemove / pointermove / mouseover），\n因為上一版根本沒量這個，導致「滑鼠完全沒事件」這個結論其實只涵蓋點擊類。\n移動類不進滾動記錄，一秒上百次會把真正要看的東西沖掉，只記次數。\n重畫節流 200ms，並補一次收尾重畫——少了它，被節流吃掉的那幾次不會補畫，\n畫面停在過期數字，而這個診斷的全部價值就在那個數字對不對。\n\n用 CDP 實測過：只派送 mouseMoved、完全不按，activeElement 從 BODY\n變成 BUTTON#testBtn；計數器顯示 mousemove:5 pointermove:5 mouseover:1，\n跟派送次數對得起來。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "83617921",
           "time": "15:35",
           "message": "補上焦點框：電視上方向鍵是唯一可靠的操作路徑，沒有框等於瞎按",
-          "body": "滑鼠在電視內建瀏覽器上不一定管用（Browser Here 這類 WebView 殼可能自己吃掉"
+          "body": "滑鼠在電視內建瀏覽器上不一定管用（Browser Here 這類 WebView 殼可能自己吃掉\n指標事件、只把捲動轉發進頁面）。方向鍵往往才是可靠的那條路。\n\n按鈕本來就都是原生 button，方向鍵導覽本來就該能用——但整份樣式表裡\n一個 :focus 都沒有。瀏覽器預設的細框在這個深色背景上幾乎看不見，\n有些電視瀏覽器根本不畫。等於「其實能操作，但沒有人看得出來能操作」。\n\n畫一個從三公尺外看得到的黃框。\n\n刻意只寫 :focus、不寫 :focus-visible：後者在舊引擎是無效選擇器，\n而 CSS 的錯誤處理會把整條規則丟掉，不是只丟那一個選擇器——\n兩個寫在同一條，就會在最需要它的那些電視上完全失效。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "4cca4360",
           "time": "15:18",
           "message": "電視上點不動：加一個看得見的事件探針，別再用猜的",
-          "body": "上一版把 ES2020 語法拿掉之後電視還是點不動，代表原本的判斷不是全部原因。"
+          "body": "上一版把 ES2020 語法拿掉之後電視還是點不動，代表原本的判斷不是全部原因。\n電視沒有 DevTools，繼續猜下去只是輪流試修法，所以先把問題問清楚。\n\n網址加 ?diag=1 會在左上角長出一個面板，印出 UA、視窗與螢幕尺寸、\n以及每一個進到頁面的 pointerdown / mousedown / mouseup / click /\ntouchstart / touchend / keydown——附上事件座標，還有那個座標上\ndocument.elementFromPoint 實際打到誰。\n\n它回答三個互斥的問題，三個答案指向完全不同的修法：\n\n  一行都沒有            瀏覽器根本沒把點擊送進頁面（游標是純捲動模式），要改走方向鍵\n  有行、但打到的不是按鈕  座標對不上，畫游標的位置跟命中測試的位置差開了（viewport 縮放）\n  有行、打到的就是按鈕    事件到得了，問題在處理器那一側\n\n面板自己 pointer-events:none，不會變成新的兇手。\n\n另外用 eval 探測引擎吃不吃 ES2020 並印在面板上。不能直接寫進原始碼——\n直接寫的話舊引擎在解析階段就整支放棄，連這段探測都不會執行。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "8e724d7b",
           "time": "15:05",
           "message": "電視內建瀏覽器上按鈕全死：不是事件綁錯，是整支腳本沒被解析",
-          "body": "牆面的程式碼全在同一個 script 區塊裡。裡面用了 14 個 ?. 和 8 個 ??（ES2020），"
+          "body": "牆面的程式碼全在同一個 script 區塊裡。裡面用了 14 個 ?. 和 8 個 ??（ES2020），\n在 Chromium 79 以下的引擎（Tizen 6.0 以前、webOS 6 以前的電視內建瀏覽器）\n是解析階段的 SyntaxError——整支從第一行就不執行。\n\n於是畫面畫得出來（HTML/CSS 沒事）、滑鼠游標會動（那是瀏覽器的事），\n但沒有任何 addEventListener 掛上去，每一顆按鈕都沒反應，時鐘也不會跳。\n最糟的是電視沒有 DevTools，完全看不到那個錯誤。\n\n用 acorn 驗過：改之前 ecmaVersion 2019 在 esc() 那個 ?? 就掛掉，改之後 2017 就過得了。\n\n一併處理兩件同源的事：\n\n- 開頭加一段 window.onerror 覆蓋層，用最老的語法寫、放在所有腳本之前，\n  把錯誤直接印在畫面下緣。沒有它，下一次在電視上出事還是一樣瞎。\n  網址加 ?ua=1 會印出 userAgent，用來判斷電視引擎有多舊。\n\n- 音訊解鎖原本只聽 pointerdown。沒有 Pointer Events 的舊引擎上它永遠不觸發，\n  等於「怎麼點都解不了鎖，牆從此不會叫」——這正是這面牆最不該有的失敗。\n  改聽 pointerdown/click/keydown，並拿掉 { once: true }（舊引擎會把那個選項物件\n  當成 capture=true，handler 永遠拆不掉），自己拆。\n\n沒有改成 Pointer Events。按鈕本來就是原生 <button> 綁 click，click 是相容性最好的\n那一個；改用 pointerdown 反而會在更舊的電視上壞掉。overlay 與 pointer-events 也查過，\n.alarm 已經是 pointer-events:none，面板平常 display:none，都沒有擋到按鈕。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "97ed1f69",
           "time": "07:49",
           "message": "檔名含 ... 的歌不再從清單上消失：擋穿越的是分隔符號，不是兩個點",
-          "body": "IsSafeName 原本連「檔名含 ..」一起擋。那條防不到目錄穿越——穿越要靠 \\ 或 /"
+          "body": "IsSafeName 原本連「檔名含 ..」一起擋。那條防不到目錄穿越——穿越要靠 \\ 或 /\n才走得掉，而同一個判斷式裡的 name == Path.GetFileName(name) 已經把帶分隔符號\n和磁碟根的名字全擋掉了；它實際擋到的是正常的歌。\n\nYouTube 標題很愛用 ...，滾石給《浪人情歌》的官方標題就是\n「張震嶽 ayal komod【浪人的... Surfer's Love Story】Official Music Video」。\nEnqueueYoutubeAsync 只濾 Path.GetInvalidFileNameChars()，點不在裡面，所以\n檔案寫得進待撥、API 回報成功，然後被 IsSafeName 從清單上濾掉。\n\n失敗是全靜音的：檔案好端端躺在待撥、點歌面板說成功、清單上就是沒有它。\n點的人查不出任何線索，只會再點一次——2026-09-08 下午真的有人連點了四次，\n四份都躺在資料夾裡沒人看得到。\n\nIsSafeName 是九個入口的共同關卡（待播清單、已撥、撥不了、串流、搬檔、續攤），\n所以同一個檔名在重播面板和撥不了名單裡也一樣是隱形的，這次一起修掉。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 6
-    },
-    {
-      "name": "TwowayConnection\\VisionReportHub",
-      "commits": [
-        {
-          "hash": "bdd0b236",
-          "time": "16:14",
-          "message": "docs(deploy): 釐清「能不能遠端做」看的是通道不是機器",
-          "body": "原本 G2 寫成「SMB 通不代表 IIS reset 通」＋「Api 永遠要 RDP」，方向是錯的："
-        },
-        {
-          "hash": "43a97244",
-          "time": "15:51",
-          "message": "docs(churi): 補 3520 切換完成紀錄與排程開窗的坑",
-          "body": "- 舊排程 2026-09-09 15:40 停用（RDP 手動，遠端 schtasks/COM 在 56.231 不通）"
-        },
-        {
-          "hash": "8d87d2a8",
-          "time": "15:37",
-          "message": "fix(ftp): 上傳改用 FtpRemoteExists.NoCheck，drop folder 帳號沒有 DELETE 權限",
-          "body": "初日 3520 第一次正式上傳就 550 Permission denied，堆疊指到"
-        },
-        {
-          "hash": "3c616095",
-          "time": "14:54",
-          "message": "feat(churi): 3520 廣川醫美中心併入大一統，取代 56.231 的 PowerShell 排程",
-          "body": "廣川的檢驗值回傳目前靠 56.231 上一支 Task Scheduler 每天 07:00 跑的"
-        }
-      ],
-      "count": 4
     },
     {
       "name": "LIS\\Schedule\\AuthoriseQueue",
@@ -243,19 +341,22 @@
           "hash": "7cbff470",
           "time": "10:12",
           "message": "fix: 佇列 USER 欄加寬 10→15，補 AUTOAUTHORISE 記名的 DDL 與踩坑記錄",
-          "body": "WS76 自動二審上線後實測發現 AUTOAUTHORISE（13 碼）塞不進佇列表的 USER 欄，"
+          "body": "WS76 自動二審上線後實測發現 AUTOAUTHORISE（13 碼）塞不進佇列表的 USER 欄，\n串著炸了兩次，兩次都是整筆交易 rollback + 佇列列清不掉 + 每分鐘無限重試：\n\n1. Oracle AuthoriseQueue.USER 原 VARCHAR2(10) → ORA-12899 炸在 Release()\n   內排二審那步，把整筆一審一起 rollback，項目停在 OD_ACTION_FLAG='N'、\n   只有 L14 沒有 L06。\n2. 修掉第一顆後，SQL Server BBS.AuthoriseQueue_Log.[USER] 原 varchar(10)\n   在二審寫備份時截斷，_BackupQueueToBbs 會 throw，整筆二審 rollback、停在 L06。\n\n同庫 USER_ACCOUNT.USER_ID、EVENTLOG.EL_USERID、ORD_DTL.OD_UPDATE_BY 本來\n就都是 15，是這兩張佇列表當初開窄了。加寬 VARCHAR 是 metadata-only，不鎖表、\n不影響現有資料，舊版 exe 也不受影響。\n\n- 新增 SchemaModify/20260909_AuthoriseQueue_UserColumnWidth.sql：Oracle 與\n  SQL Server 兩段 DDL，比照 20260813 租約鎖那支的格式，註明佈新版 exe 前先執行。\n- README 第 3 節：兩張表補欄寬說明，並記備份寫失敗會連帶 rollback 整筆二審。\n- README 第 5 節：補「資訊部帳號都有 All 會走預設分支，用自己的帳號測永遠測不到\n  自動放行路徑，要用沒有二審站的行政帳號」。\n- 修改歷程補這次的事故經過與各分部執行狀態。\n\nOracle 側六分部＋測試機已全數執行；SQL Server 側目前只完成台北 BBS\n（192.168.56.191），其他分部若有各自的 BBS，推版前要比照加寬。\n\n驗證：TNO 6090929003 以 A257（歐陽萱，行政、無二審站）一審 WS76 的 9751，\nL06 記 A257、L20 記 AUTOAUTHORISE [Auto]，OD_UPDATE_BY=AUTOAUTHORISE，\n報告簽署人印陳明輝，佇列清空。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "f53f3537",
           "time": "08:34",
           "message": "docs: DEPLOY 備份清單補 ExcludeQueue.json，並記無 RDP 時的佈署做法",
-          "body": "2026-09-09 佈 WS76 自動二審時發現的兩個文件缺口："
+          "body": "2026-09-09 佈 WS76 自動二審時發現的兩個文件缺口：\n\n- 備份清單原本只列 4 個檔，漏了 ExcludeQueue.json。它是會隨版本改內容的\n  設定檔，rollback 時要和 exe 成對還原，否則新 exe 配舊 json（或反之）\n  雖然不會壞資料，但等於改動沒生效、又不易察覺。\n- 補記遠端能力邊界：d$ 讀寫可行，但 schtasks 遠端一律 Access denied，\n  停用/啟用排程只能 RDP。附上無法 RDP 時走每分鐘執行空檔覆蓋的做法與\n  中間狀態安全性分析。\n- rollback 範例日期改成這次的備份 20260909。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e2b7e8cd",
           "time": "08:09",
           "message": "feat: WS76 異常通知項目不看操作者權限自動二審，記名 AUTOAUTHORISE",
-          "body": "會議決議：行政審 WS76（異常通知時間）由系統自動二審，避免通知人員"
+          "body": "會議決議：行政審 WS76（異常通知時間）由系統自動二審，避免通知人員\n一審後等人補審造成報告延遲。\n\n- ExcludeQueue.json 新增 AutoAuthoriseWorkstations（WS76）與\n  AutoAuthoriseAccount（AUTOAUTHORISE，HCLAB 規則引擎自動二審用的既有系統帳號）\n- BuildDetailedMergeSql 新增選用參數 autoWorkstations，WS 條件多一段\n  OR wp.WP_CODE IN (:AUTO_WS_n)，自動放行站的項目不看操作者權限一律進二審佇列\n- _AddQueue：操作者沒二審站但有自動放行站時不再直接跳出；\n  佇列記名由 ResolveQueueUser 決定（有自己的二審站記操作者，否則記系統帳號）；\n  操作者沒二審站時 CTRLB 放寬不生效，維持原本範圍\n- 補 BuildMergeSqlTest 案例（SQL 產生 + 記名規則），19 tests pass\n- 台北庫實單 6090804314 唯讀模擬：無權限操作者只撈出 WS76 的 9751，\n  其餘 WS21/CL01/CTRLB 項目不夾帶\n\nAuthorise() 不查帳號權限，AUTOAUTHORISE 不需 WS_USERLIST 列。\n注意 AUTOAUTHORISE 在 USER_ACCOUNT 的 USER_NAME 為陳明輝，報告審核者會印此名。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 3
@@ -267,7 +368,21 @@
           "hash": "4299864a",
           "time": "07:53",
           "message": "冒煙紅燈先排除冷啟動誤報：受害的其實是每天第一個上班的人",
-          "body": "2026-09-05 嘉義那次 FAIL(CY) 不是站壞，是夜間閒置把 w3wp 殺掉、"
+          "body": "2026-09-05 嘉義那次 FAIL(CY) 不是站壞，是夜間閒置把 w3wp 殺掉、\n早上第一個敲門的人吃冷啟動。當天 Warmup 24.3 秒、登入後首頁 66.2 秒\n撞上 30 秒導頁逾時；07:58 重跑首頁 0.3 秒就過。\n\n手冊本來寫「通常是真的有問題，不是測試壞掉」，照著查會拿著截圖\n找一個不存在的功能 bug。補一節怎麼一分鐘判掉它：翻該站 IIS log\n看 /Home/Warmup 的 time-taken，兩萬多毫秒＝冷啟動，幾百毫秒＝真紅。\n\n更要緊的是這不只是監控的問題。09-09 早上 07:22 嘉義一台工作站\n登入等了 24.3 秒，是真的同仁在等；他把站暖起來之後 07:34 的冒煙\n只花 120 毫秒。09-05 會紅只是那天沒人比冒煙先進站——每天都有人\n在吃這個延遲，冒煙只是剛好把它照出來的探針。\n\n一併收進根治做法（高雄 09-01、嘉義 09-09 已套用）與各站 Web-AppInit\n現況。桃園與台中還沒裝：既代表它們每天仍在冷啟動，也代表發佈時若把\n帶 applicationInitialization 的 web.config 推過去會整站 500。\n\n集區名的陷阱也寫進去：嘉義 port 80 的站台掛在 LisWeb_Test，\n叫 LisWeb 的集區服務的是 18600 舊站，改錯會動到不相干的站。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "1b112e39",
+          "time": "07:55",
+          "message": "Cerberus memory：嘉義冒煙冷啟動查清並修好",
+          "body": "新增 cy-smoke-cold-start：09-05 FAIL(CY) 是冷啟動誤報，09-09 07:44\n已比照高雄套用 AppInit/idleTimeout=0/04:00 回收/preload，待 09-10 驗收。\n含集區名陷阱（正式站掛在 LisWeb_Test）與各站 AppInit 現況。\n\n一併收進另一個 session 留下的 oracle-hclab-0908 事故稿。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 1
@@ -281,13 +396,15 @@
           "hash": "768f282d",
           "time": "17:54",
           "message": "feat(fee): 社區幫費用匯入檔產製",
-          "body": "配位結果 → 社區幫可匯入的 Big5 CSV，收機車位年繳費（一般 1,200／重機 3,600／自行車 0）。"
+          "body": "配位結果 → 社區幫可匯入的 Big5 CSV，收機車位年繳費（一般 1,200／重機 3,600／自行車 0）。\n\n預設 standalone 模式：獨立出一張「116年度機車位清潔費」帳單，管理費／汽車清潔費／\n附加費用全掛 0，只列有金額的戶（模擬 244 戶／487,200 元）。繳費期限＝公告日 + 10 日，\n對齊辦法伍二（六）「逾公告後 10 日視同放棄」，使帳單到期日＝資格截止日。\n保留 --mode merge 併入物業月結檔，備物業要求一戶一月一張帳單時使用。\n\n不另建「戶號↔門牌對照表」——物業檔本身含全 655 戶門牌，執行時即時換算，\n無第二份檔案需同步。對照規則：社區幫 #A1-375＋樓層2 → 戶號 A2-1，\n兩邊中間數字意義相反（前者為單元、後者為樓層）；街號不參與對照（同單元不同樓層\n可能掛不同街號）。規則以 eTag 名冊 624 筆實際戶別交叉驗證，吻合 98.7%，\n未吻合的 8 筆全在 1 樓，屬社區幫將 1 樓歸入 S 店面門牌的編碼差異。\n\n另修正 docs/24：範本檔 656 資料列但只有 655 戶（#F1-321 2 樓被物業拆成管理費、\n汽車清潔費兩列），列數 ≠ 戶數；多列戶只填管理費 > 0 的主帳列，避免重複收費。\nBig5 編碼器由 TextDecoder 反推編碼表自建（Node 的 TextEncoder 只輸出 UTF-8），零依賴。\n\n新增 21 項測試。§4 待確認補三項：社區幫是否接受非管理費的收費類別（會決定\nstandalone 可否成立）、退費退給誰（帳單掛房東門牌但承諾書簽承租戶）、\n繳費與簽承諾書的先後趟數。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "c140b291",
           "time": "16:47",
           "message": "fix(fee): 工作人員費用改為比照住戶（9/3 例會否決免費案）",
-          "body": "匯出結果的「應繳金額」原本把工作人員零元化，而該匯出正是社區幫收費檔的"
+          "body": "匯出結果的「應繳金額」原本把工作人員零元化，而該匯出正是社區幫收費檔的\n上游 → 12/1 出帳會整批漏收；住戶頁（MeView/ResultView）未帶旗標顯示 1,200，\n系統內部已自相矛盾。\n\n- fee.js 移除 { 工作人員: true } → 0 分支；export/result.js 不再零元化\n- result.test.js 斷言 0 → 1,200\n- 文案一律改為「費用比照住戶（一般 1,200/年），讓出或離職按剩餘月份退費」\n  （附件一·六）：RegisterView、紙本登記表 md/html/doc、check-roster 提示\n- TODO：③ 標完成、附件五承諾書要點改為付費＋退費\n\n未動：docs/24 的出帳方式（員工-* 無門牌，待問物業）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+          "category": "錯誤修正"
         }
       ],
       "count": 2
@@ -299,21 +416,23 @@
           "hash": "5ba85d83",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-09",
-          "body": "🤖 自動生成於 2026-09-09 07:05"
+          "body": "🤖 自動生成於 2026-09-09 07:05",
+          "category": "文檔"
         },
         {
           "hash": "375a9269",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-08 (26 commits)",
-          "body": "🤖 自動生成於 2026-09-09 07:05"
+          "body": "🤖 自動生成於 2026-09-09 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
     }
   ],
   "summary": {
-    "workCommits": 39,
+    "workCommits": 49,
     "sideCommits": 4,
-    "totalCommits": 43
+    "totalCommits": 53
   }
 }

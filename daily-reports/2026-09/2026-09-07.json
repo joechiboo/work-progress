@@ -9,49 +9,57 @@
           "hash": "da1ec172",
           "time": "20:01",
           "message": "﻿docs: 時窗落地與批次 3/4 影子陪跑開啟 — 切換前夜收尾",
-          "body": "- 批次 1 轉移卡：.CUTOVER 已帶 ProcessingWindow 09:00-18:00（與舊排程"
+          "body": "- 批次 1 轉移卡：.CUTOVER 已帶 ProcessingWindow 09:00-18:00（與舊排程\n  07_orderinsql 時窗一致；同仁確認時窗是客戶端依賴的業務語意）\n- runbook 批次 2 前置從「時窗語意待決」改為已解，各線時窗對照舊排程名\n  載明（to pm3 / pm3-30 / pm3-35 / pm6）\n- 影子陪跑補齊批次 3/4 剩餘四線（XEVOX/XEVOX2/VETERANS/CUBE2），\n  九單位全綠；Xevox 影子同步帶 16 個 FlexibleParsing 單位前綴排除\n- 56.227 已更版為含 ProcessingWindow 的新 binary（self-contained SOP）；\n  加影子單位後同步重生 .CUTOVER，避免明天換檔洗掉新單位\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "9f64358c",
           "time": "19:56",
           "message": "﻿feat: ProcessingWindow 單位時窗 — 舊制「超過時窗隔天轉」是業務語意",
-          "body": "同仁 2026-09-07 確認：排程只轉到 15:00/15:30/18:00（依線別）不是實作"
+          "body": "同仁 2026-09-07 確認：排程只轉到 15:00/15:30/18:00（依線別）不是實作\n巧合，是客戶端依賴的語意 ——「顧客也知道這時上傳是隔天醫令，但就先\n上傳」。新服務全天輪詢會把「隔天醫令」提前成當天，Live 單位必須重現\n舊時窗。\n\n- 單位設定 ProcessingWindow=\"HH:mm-HH:mm\"（含頭含尾）；時窗外整個單位\n  跳過輪詢，檔案留在 inbox 等下個時窗（=舊制的「隔天再轉」）\n- 未設定＝全天（DryRun 影子不受影響）；格式不合法＝放行\n- 批次 1 的 .CUTOVER 將帶 09:00-18:00（07_orderinsql 舊排程時窗）；\n  批次 2+ 各線依其排程名（to pm3 / pm3-30 / pm3-35 / pm6）設定\n- 15:30 後的「手動轉」需求：現有 API 手動觸發端點可用（未來 P3 GUI）\n  —— 手動觸發不受時窗限制的設計留待 GUI 實作時定案\n\n9 項時窗測試 + 1 項整單位跳過測試，共 63 項全過。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "ec37f5e4",
           "time": "19:37",
           "message": "﻿docs: 批次 2 新前置 — 15:30 時窗語意（同仁 2026-09-07 提出）",
-          "body": "查證結果：15:30 條件不在程式裡，在排程時窗（排程名即載明 to pm3 /"
+          "body": "查證結果：15:30 條件不在程式裡，在排程時窗（排程名即載明 to pm3 /\npm3-30 / pm3-35；after3pm 變體 15:00 起接手）。衛生所 XML 是 09:00-18:00\n且實測近 14 天到檔全落在 07:00-15:00，批次 1 不受影響。\n\n但對 Keelung 各線是真議題：Delivers_DT=處理日，15:00 後到檔隔天處理\n= 送驗日隔天。新服務 24/7 輪詢會改變此語意。批次 2 前須決定：\n加單位級 ProcessingWindow 重現舊時窗，或與檢驗流程確認改即到即轉。\n\n順帶驗掉一個整合風險：修補層部分規則帶 cre_user='UCL' 過濾 ——\n確認我方寫入值與舊程式一致（XML 取自檔內、Keelung 寫死 UCL），\n修補層對新服務寫的列會照常命中。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "c15ad989",
           "time": "08:37",
           "message": "test: 批次 3/4 剩餘四線首輪回放 — 328 檔全過、零程式錯誤證據",
-          "body": "Xevox/Xevox2/Veterans/Cube2 四線一次回放（素材以「正式庫明細有該"
+          "body": "Xevox/Xevox2/Veterans/Cube2 四線一次回放（素材以「正式庫明細有該\nfilename」篩選）：328 檔全數解析成功、0 隔離，寫入 8,363 張主檔、80 單位。\n新增 tools/parallel-compare-k3.sql（單位清單動態產生、一開始就只取\n一對一映射 —— 前兩輪教訓內建）。\n\n方法發現：filename-in-prod 篩選擋不掉 FlexibleParsing 檔 ——\nAutoDeliver 也寫 filename 進明細，且富盈的三個資料夾就是\nTaTung_Xevox_Backup_Files。本輪混入 16 個 FP 單位 1,728 張，已隔離；\n批次 3 的素材與影子篩選必須額外排除 FP 單位清單。\n\n排除 FP 後（6,635 張）逐類歸因，全部落在修補層：\n- NAME 298：PHP 明寫 NAME=NAME+ID_INVNO IN ('0774','0027','0555','1020','2635')\n- ANAMNESIS_NO 65（全 0884）：PHP「病歷號後加 ID_CLI_INFO」規則\n- 未對齊 529 之 232：換鍵重對全數命中、prod 的 ID_INVNO 確被改寫\n  （ID_INVNO 在 Keelung 比對鍵裡，被修補層改寫即鍵失效）\n- 0088×218：PHP L2816 2026/04/29 新規則「改用院內檢體標示」，待換鍵確認\n- 明細 ProdOnly 1,979：adjust='99' 指紋（OrderCheckJob 1,365＋分單 A3xx）\n- BIRTHDAY/SEX/Looks/Picks 零差異\n\n尚待收尾：未對齊尾數 ~79、TestOnly 28、UCL 無指紋 20、after3pm 變體\n另測。首輪結論：批次 3 的主要工作量是逐單位識別修補層規則，\n比對邏輯與程式本身目前零錯誤證據。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "668dad27",
           "time": "08:30",
           "message": "docs: 上游對齊清單 — 收檔管道與檔名前綴規則待談",
-          "body": "批次 1 切換不需上游配合，但 .227 退役時 FTP 落點要搬到 56.227，"
+          "body": "批次 1 切換不需上游配合，但 .227 退役時 FTP 落點要搬到 56.227，\n屆時三條上傳管道（php sftp／小海豚／大鯨魚）與 FileZilla 14 個帳號\n都要改落地路徑。檔名契約目前只隱含在程式碼裡（首段＝單位代碼），\n沒有任何一方寫下來。\n\n已知小海豚會加單位前綴（2026-09-07 使用者告知），另兩條未確認。\n這也可能解釋 TEST_PLAN 觀察到的 1120-1120- / 00330033- 雙前綴。\n\n新增 UPSTREAM_ALIGNMENT.md：待確認事實 7 項（含單位→管道對照表、\n衛生所 XML 走哪條、雙前綴成因）、檔名契約草案、新單位開通流程、\n前處理 PHP 歸屬、分工時程表、談話重點一頁版。答覆填回後 §2 可抽成\nFILE_NAMING.md。\n\nREADME 與 MIGRATION_RUNBOOK 加上互連。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "931ce3f8",
           "time": "08:19",
           "message": "docs: 批次 2（TaTung）切換資產備妥 — 轉移卡＋伺服器端腳本",
-          "body": "實機資產（已部署，不進 repo）："
+          "body": "實機資產（已部署，不進 repo）：\n- .227：Verify_TaTung_Files/_Backup_ 驗證夾；OrderInSQL_Keelung.exe.config\n  .CUTOVER（收檔夾→Verify、兩條連線字串都→WebOrder_Test，已驗證）\n- 56.227：units\\tatung\\{inbox,archive,quarantine}；cutover-tatung\\ 五支腳本\n  - pull 帶 /XF *.tmp *Parsing_*（前處理 PHP 與合併檔守門）\n  - make-cutover-config.ps1：切換日從「當下的」Local.json 產生\n    .CUTOVER.TATUNG，自帶兩道守門（連線密文必須是正式庫、\n    TATUNG-SHADOW 區塊必須是預期樣貌）。不預寫整份檔，因批次 1 之後\n    Local.json 會變，以現行檔定點替換才不會蓋壞其他單位\n  - GO 不動影子同步；ROLLBACK 載明不冪等鐵律（archive 不可重餵）\n\nrepo：docs/migrations/batch2-tatung.md 轉移卡。與批次 1 卡的差異重點：\n- 三條紅線多了「不冪等：不要保險起見重跑」\n- 步驟 9 Keelung 首次 Live 特別驗證（UCL 展開、SEQUENCE 續號）\n- 回退明確區分 inbox（可搬回）與 archive（絕不可重餵）\n\n現役單位實測：0173 若瑟（14 天 42 檔）、3540 台南市立（12 檔）。\n切換日暫定 9/15，以批次 1 觀察期結果為準。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "b11ea1b6",
           "time": "07:58",
           "message": "docs: 切換日 56.227 端改為換檔制 — 並修掉一個會靜默寫錯庫的陷阱",
-          "body": "預備 9/8 切換時發現：56.227 服務的連線字串密文解開是 WebOrder_Test"
+          "body": "預備 9/8 切換時發現：56.227 服務的連線字串密文解開是 WebOrder_Test\n（DryRun 期間本該如此）。若切換日只把 Mode 改 Live、不換連線，新服務\n會把正式醫令寫進測試庫，且 MessLog／log 全部看起來正常，只有「正式庫\n沒資料、下游領不到單」才會暴露。\n\n處置：預先做好 appsettings.Local.json.CUTOVER 放在 56.227（與 .227 端\n的 OrderInSQL.exe.config.CUTOVER 同一套換檔模式）：\n\n- 連線密文換為正式 WebOrder（ucl-cipher 產生，已驗證回解為\n  Database=WebOrder@56.191；密文一致性已比對）\n- WEBORDER-XML → Mode=Live、InboxPath/Archive/Quarantine 指向 units\\ 路徑\n- 其餘四個影子單位維持 DryRun 不動\n- JSON 已驗證合法\n\n轉移卡步驟 3 從「手改 JSON」改為「備份＋copy .CUTOVER」，並載明連線\n字串陷阱。切換日 56.227 端縮為：換檔 → 重啟 → 跑 GO 腳本。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "6c186245",
           "time": "07:28",
           "message": "docs: 前處理 PHP 逐塊核對定版 — 修正輸入夾錯誤、給出各批次 pull 排除規則",
-          "body": "初版表用「區塊位置」推輸入夾，但 $dir 會在程式中途重設，逐塊讀碼後修正："
+          "body": "初版表用「區塊位置」推輸入夾，但 $dir 會在程式中途重設，逐塊讀碼後修正：\n\n- 0244：輸入是 Cube_Files「就地」清理（\"\" → \"，雙引號跳脫），不搬檔\n  —— 正是 Keelung 回放抓到的「CSV 引號污染」的上游清理\n- 3540：輸入是 TaTung_Files（批次 2 收檔夾！），僅處理 .tmp 錯誤檔\n- 0886：整塊已註解停用（註明改用 API 傳輸），移出清單\n- 7011/0848/7015：輸入 ExamOrder_Files，轉出 Cube/TaTung_Xevox\n- SDS_FTP_Root\\Order：冠 1400- 前綴轉進 ExamOrder_Files（創源生技線）\n\n呼叫端結案：共兩個 —— .227 本機每小時排程（2020/11 起）＋ .229 Paring.bat\n每 10 分鐘。即使 .229 停了 .227 自己仍會跑，切換期間有基本韌性。\n\n各批次 pull 排除規則定版（入 runbook ④）：\n- 批次 2：/XF *.tmp\n- 批次 3：/XF 2798-* 0449-* 0546-*，且不可用 /E（子目錄是 PHP 工作區）\n- 批次 4：無需排除；唯 0244 有就地清理 race，切換前需回放一支未清理的\n  原始檔驗證 adapter 去引號能吃 \"\" 跳脫（Keelung 輪的修正是拿清理後的檔驗的）\n- 批次 5：無需排除\n\n另：168.139 定案 —— WebOrder_Data.MDF 最後寫入 2021-04-06，凍結五年的\n舊庫；AutuParsing 指向死庫，再證其已停用（入 FLEXIBLEPARSING §6）。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         }
       ],
       "count": 8
@@ -63,43 +71,50 @@
           "hash": "df39b048",
           "time": "13:04",
           "message": "docs(002C): 台中停用自建清理封存排程，記錄 HCLAB.AORD 孤兒表",
-          "body": "同仁接手傳統 HCINI.002C，台中 DB 自建的四支排程全部 DISABLE："
+          "body": "同仁接手傳統 HCINI.002C，台中 DB 自建的四支排程全部 DISABLE：\nJOB_ARCHIVE_HORD_3AM、DAILY_ORD_CLEANUP_JOB、\nJOB_DAILY_ONLINE_LOG_CLEANUP、WEEKLY_MAINTENANCE_JOB\n（JOB_CLEAN_HDR_NO_DTL 早已 DISABLED）。\n\n停用前實測：封存那支近 30 天 30 次全 FAILED，\n根因 ARCHIVE_HORD_BY_PREFIX 為 INVALID（ORA-00913 值太多），\n保留期內從未成功；其餘三支正常。\n\n交接遺留（交給 002C）：HORD 積壓 379,007 筆逾 2 年未封存，\nHCLABA.AORD 停在 2023-12-23，需觀察是否往 2024 推進。\n\n連帶問題：HCLAB.AORD_* 四張表成為孤兒（無人寫也無人讀，\n與 HCLABA.AORD 筆數完全一致，佔約 9.8 GB），另立 Problem 文件記錄，\n含 drop 前必須確認的欄位差異與觀察指標。\n\n含停用腳本與還原腳本（還原腳本刻意不啟用壞掉的封存 job）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "b0401e92",
           "time": "12:39",
           "message": "revert(deploy): 拿掉 csproj StampVersionNumber, 版號由 CI 寫進 production 分支即可",
-          "body": ".gitlab-ci.yml 在 tag 時已用 xmlstarlet 把 Web.config VersionNumber 改成 tag 並 merge 進 production,"
+          "body": ".gitlab-ci.yml 在 tag 時已用 xmlstarlet 把 Web.config VersionNumber 改成 tag 並 merge 進 production,\n發佈來源用 production 就有正確版號, 不需要 build 時再蓋一次;\n而且 production HEAD 是 merge commit 不在 tag 上, git describe fallback 會產生 V…-2-g<sha> 反而蓋錯。\n保留 Warmup ver= 與冒煙版號確認。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "84c37e0e",
           "time": "12:35",
           "message": "feat(HDPID): 已有ID的單先過檢查碼並標示結果；第二輪回饋",
-          "body": "- 已有 ID 的單先驗身分證檢查碼：不對的列為 ID格式錯，不做資料庫核對、"
+          "body": "- 已有 ID 的單先驗身分證檢查碼：不對的列為 ID格式錯，不做資料庫核對、\n  不給任何按鈕（只能回 BT201 更正）；通過的在說明欄標「LIS 的 ID 檢查碼正確」，\n  需求方要求人工審閱時能一眼看到。\n- ID姓名不符 的說明補上 LIS 姓名，並註明含冠夫姓等差異一律列出人工判斷。\n  姓名比對本來就是去空白轉大寫後完全相等，沒有模糊比對，這點不變。\n- 頁面：已有 ID 但檢查碼錯的列不再出現輸入框與匯入鈕，改顯示「請至 BT201 更正」。\n- 文件補第二輪回饋處理紀錄（含權限群組 114 行政部-電腦組 的建立紀錄）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "5feb3ed0",
           "time": "12:33",
           "message": "fix(BT201): 處方案件檢核排除不申報單與 00 佔位ID",
-          "body": "上線首日(V2026.09.07.001)實際誤報回報 6090502004 -> 6090502003:"
+          "body": "上線首日(V2026.09.07.001)實際誤報回報 6090502004 -> 6090502003:\n兩張單都無健保申報項目, 且對方ID當下還是佔位值 00(行政先建單後補ID),\n屬鍵入順序造成的暫時狀態, 不是資料錯誤。\n\n兩處修正:\n1. 整張單畫面上沒有任何 ITD_INSURANCE='Y' 就不檢核也不打API\n   不申報的單, 處方案件串到哪都不影響申報\n   讀畫面值而非DB(存檔前DB仍是舊狀態); 之後若改成申報Y, 存檔會重新檢核\n2. '00' 視同空白不比對, 原本只擋本單那邊, 漏了處方案件那邊\n\n台北 2026-08 回測: 會提示 275 -> 64 (無申報項205筆/對方ID=00共38筆),\n約每工作日 3 次。冠礽反映的 6060404846、6062201203~1205 仍全數攔得到。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "6ddeb515",
           "time": "12:27",
           "message": "feat(deploy): 發佈時把 git tag 蓋進 VersionNumber, Warmup 回 ver=, 冒煙加版號確認",
-          "body": "- csproj 新增 StampVersionNumber target (AfterTargets=TransformWebConfig, DeployOnBuild 時才跑):"
+          "body": "- csproj 新增 StampVersionNumber target (AfterTargets=TransformWebConfig, DeployOnBuild 時才跑):\n  /p:VersionNumber=<tag> 明確指定, 未指定退回 git describe (在 tag 上=純 tag, 否則帶 -N-g<sha>/-dirty),\n  沒 git 只警告不中斷; 只改 obj 底下 transform 後的 Web.config, 來源檔不動\n- /Home/Warmup 回應加 ver=<VersionNumber>, 部署腳本/冒煙不用登入就能核對版號\n- 冒煙 smoke/probe 第 0 步打 Warmup 比對 ver=: 有設 SMOKE_EXPECT_VERSION 必須相等,\n  沒設只驗 tag 格式, 站台還沒回 ver= 則略過 (舊站不會全紅)\n\n背景: 頁尾「當前版本」讀的是 Web.config 寫死的 2024.08.02.001, 從來沒跟 tag 連動,\n上版後無法從站台本身確認新版真的有上去。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "ea19aa5e",
           "time": "07:55",
           "message": "docs(HDPID): 記錄 H 槽 Excel 退場決定，Phase 2 一次性匯入取消",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "a7f1acea",
           "time": "07:47",
           "message": "feat(HDPID): 已有ID的單改跟資料庫雙向核對，可加入資料庫；上線第一輪回饋",
-          "body": "電腦組 2026-09-07 回了四點："
+          "body": "電腦組 2026-09-07 回了四點：\n\n1. 送檢單位下拉拿掉星號與最後匯入日，改純代號由小到大排序。\n2. 不列出項目再加 9525、P305（程式預設值與 Web.config 同步）。\n3. 已有 ID 的單第一版整包藏起來，漏掉 H 槽 Excel 本來在做的兩件事：\n   抓「LIS 輸的 ID 跟資料庫此人不同」，以及把新病人加進資料庫。\n   改成拿 ARC_PATIENTS 雙向核對，拆成四種狀態：\n   - HAS_ID 一致 → 仍只計數不列出\n   - ID_DIFF 資料庫此姓名對到別的 ID → 「資料庫改用 LIS 的 ID」\n   - ID_NAME_MISMATCH 此 ID 在資料庫是別的姓名 → 「資料庫改用 LIS 的姓名」\n   - NOT_IN_DB 資料庫沒這個人 → 「加入資料庫」，另有一鍵全部加入\n   三個操作走新端點 POST api/HDPID/UpdateArc，後端重讀 BLG_TX_HDR\n   取單位、姓名、ID，檢查碼不對就拒絕。\n   核對只用 ARC_PATIENTS 不用歷史單，否則那張單自己就在歷史裡永遠對得上。\n   頁面最上方加一行說明「資料庫」是什麼。\n4. 權限：台北沒有叫電腦組的群，最接近是 113 資訊室，在 SU102 勾即可。\n\n台北實測（唯讀）2026-08 全部流程單位：資料庫ID不同 21、ID姓名不符 1、\n資料庫無此人 11；payload 仍在 360 KB 上下。\n測試機 56.225 驗過三條路徑各自的偵測與寫入，測後已還原。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 7
@@ -111,43 +126,50 @@
           "hash": "33ac37e0",
           "time": "20:03",
           "message": "docs/deploy: 台中 WebOrder_Test 改為測試「資料庫」— 還原腳本、測試站 config 指測試庫、Oracle 待決",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "34fdf04e",
           "time": "19:58",
           "message": "docs/deploy: 台中加常設測試站 /WebOrder_Test（獨立資料夾＋SsoSys=FenDanTCTest，同一把 JwtKey）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e982edd1",
           "time": "19:57",
           "message": "docs: 台中換版改為「新版直接上 /WebOrder、舊版退到 /WebOrder2」＋ SysMenu 相對路徑腳本",
-          "body": "- URL 由 IIS app 虛擬路徑決定，切換日只改 /WebOrder 與 /WebOrder2 的實體路徑與 pool，"
+          "body": "- URL 由 IIS app 虛擬路徑決定，切換日只改 /WebOrder 與 /WebOrder2 的實體路徑與 pool，\n  同仁網址/書籤/LisWeb 入口不變；回復是同兩行反做\n- 新增 docs/sql/tc_sysmenu_relative_url.sql：台中 SysMenu 寫死 /WebOrder/xxx，改成台北式相對路徑，\n  新舊兩站才各自正確（可重複執行、附還原）\n- FenDanTC_URL 改為 /WebOrder/SSOLogin.aspx；步驟表補 appcmd 指令、回復步驟與並存注意點\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "2bc060cb",
           "time": "13:03",
           "message": "docs/deploy: 台中現役站定位完成（33.228 HCLAB:8080 /WebOrder → D:\\WebOrder）＋ WebOrder3 新站材料",
-          "body": "- 33.228（TCWEBEXTRA）實查：現役 = HCLAB 站台 8080 的 /WebOrder → D:\\WebOrder（DLL 2023-08-29，"
+          "body": "- 33.228（TCWEBEXTRA）實查：現役 = HCLAB 站台 8080 的 /WebOrder → D:\\WebOrder（DLL 2023-08-29，\n  pool HCLAB CLR4 32-bit，9/5 有 246 次 DISTRIBUTE 流量）；/WebOrder2 為 2024-01 build 無流量\n- 現役資料夾內 37 個 .cs 與 repo 基線 4f74dca 逐檔 0 差異、DLL 反組譯無台中獨有邏輯、標記檔只差\n  基線新增的兩欄 → 「台中專屬邏輯」風險正式排除\n- 現役 D:\\WebOrder 與 WebOrder2 已備份至 \\192.168.33.229\\d$\\backup\\TC228_*_20260907\n- 新增 deploy/configs/Web.TC-WebOrder3.config（台北 9.02 結構 + 台中現役值，密碼/JwtKey 佔位）\n- 新增 docs/sql/tc_sys_parameter_fendan.sql（台中 Oracle SYS_PARAMETER FenDanTC_* 四筆，可重複執行）\n- 新增 deploy/Inspect-FenDanHost.ps1（在分部主機本機跑的盤點＋備份腳本，UTF-8 BOM）\n- 換版步驟改為：HCLAB 站下新增 app /WebOrder3 → D:\\WebOrder3、新 pool WebOrder3（32-bit）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1be5fc98",
           "time": "12:33",
           "message": "docs: 更正台中現況 — 現役站在 33.228（TCWEBEXTRA），33.229 是死站；DB 前置 4/5 已跑",
-          "body": "- 33.227 dm_exec_sessions 證實連 WebOrder 的 .NET 程式來自 TCWEBEXTRA（1.228=33.228）"
+          "body": "- 33.227 dm_exec_sessions 證實連 WebOrder 的 .NET 程式來自 TCWEBEXTRA（1.228=33.228）\n- 33.229 的 WebOrder/WebOrder2：port 81、IIS log 止於 2023-09-01、config 指向高雄 139.x → 死站，\n  先前的備份與反組譯比對對象是死站，標記為待用 33.228 現役 DLL 重做\n- 33.227 已跑 UNITPrintSetting / UNITDATA.prePrintLableOrnot / DistAuditLog / IX 索引（驗證通過），\n  SysMenu 腳本留到切換日\n- 補記台中轉檔為 OrderInSQL_keelung，每 10 分鐘噴 .lnk 解析與字串截斷錯誤（交 OrderInSql）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "9c4154e0",
           "time": "08:39",
           "message": "docs: 台中反組譯比對結論、WebOrder2 備份完成、補 UNITDATA.prePrintLableOrnot 前置腳本",
-          "body": "- 台中 WebOrder2 的 UCLWeb.dll 與 repo 基線 4f74dca 編出的 DLL 同用 ilspycmd 反組譯比對："
+          "body": "- 台中 WebOrder2 的 UCLWeb.dll 與 repo 基線 4f74dca 編出的 DLL 同用 ilspycmd 反組譯比對：\n  54 檔一對一、無台中獨有方法/SQL → 台中是同血脈較舊快照，「含台中專屬邏輯」風險排除\n- WebOrder2 已 robocopy 到 \\192.168.33.229\\d$\\backup\\WebOrder2_20260907（185 檔）\n- 比對抓到台中 UNITDATA 缺 prePrintLableOrnot 欄（新版選單位會例外），新增\n  docs/sql/alter_UNITDATA_prePrintLableOrnot.sql（可重複執行），DB 前置由 4 項改 5 項\n- 指紋 SQL 加 has_preprint_col\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "d8ed4027",
           "time": "08:28",
           "message": "docs: 各分部發佈狀況盤點 — 台中自成一套（33.229 舊站 2023 build、33.227 DB）與換版方案",
-          "body": "- 新增 docs/各分部發佈狀況.md：各分部站台/DB/版本總表、台中站台與 DB 物件比對、"
+          "body": "- 新增 docs/各分部發佈狀況.md：各分部站台/DB/版本總表、台中站台與 DB 物件比對、\n  升級風險表、「舊站保留、另建新站」換版步驟、下次盤點用的指令與 SQL\n- deployment-info.md 開頭加連結，註明台中不是 56.228 環境\n- 起因：1062 皓生同人合併需求查證時發現台中 WebOrder 不在台北 56.191\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
       "count": 7
@@ -159,16 +181,31 @@
           "hash": "7ffee3f5",
           "time": "07:54",
           "message": "點唱機的音量落差修在檔案上：全域那顆旋鈕修不掉它",
-          "body": "「有些音訊比較大有些比較少」的來源是每首歌自己被錄／被壓成什麼響度。"
+          "body": "「有些音訊比較大有些比較少」的來源是每首歌自己被錄／被壓成什麼響度。\nMusic:Volume 是一顆全域旋鈕，同時乘在所有歌上——它能決定整體多大聲，\n但拉不掉歌與歌之間的落差。唯一改得動的地方是檔案本身。\n\n每首歌進來時用 ffmpeg 的 EBU R128（loudnorm，兩趟：先量再做線性增益）\n壓到 -16 LUFS。YouTube 的在剛轉好、還在暫存區時就處理掉，所以快取裡的每一首\n從落地的第一秒就是齊的；待撥裡的 mp3 就地換掉（原子替換，成功才換）。\n\n- 做過的留記號在 mp3 的 comment 標籤，記號跟著檔案走（搬進已撥、之後重播都算數），\n  同一首只會重壓一次——重複轉檔就是重複折損音質\n- 超過 10 分鐘的不做：那是電台節目／合輯，重壓吃掉好幾分鐘 CPU，\n  而「整段拉到同一個響度」對那種內容本來就不對（快取裡現在就有兩支 100 MB 以上的）\n- 舊曲庫背景慢慢補，沒歌等著轉的時候一輪一首，ffmpeg 跑在 BelowNormal——\n  這台機器的第一身分是監控牆\n- 正在播的檔案被作業系統咬住，開不成獨佔就跳過，下一輪再說\n- ffmpeg 不在、量不出來、壓壞了、產出小得不像話——一律當作沒發生，原檔一個位元都不動。\n  大小聲不一致比放不出來好得多\n\n單趟 loudnorm 比較省，但它是動態的（邊播邊壓，起伏會被壓平），那不是音量一致、\n是把歌壓壞。多花的那一趟只是解碼。\n\n實測（56.229 上那支 ffmpeg，4.5 分鐘的歌）：-22.8 → -16.0 LUFS，約 40 秒，\n244 kb/s（V0，跟 yt-dlp 抓下來同一級），取樣率維持原檔的 48 kHz。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "5a7f2556",
           "time": "07:21",
           "message": "牆角落顯示磁碟用量：60% 轉琥珀、80% 轉紅",
-          "body": "同仁擔心點唱機吃空間那次，我們是連進伺服器手動量的。量完發現當下沒問題，"
+          "body": "同仁擔心點唱機吃空間那次，我們是連進伺服器手動量的。量完發現當下沒問題，\n但「要有人想到去量」本身就是這面牆該解決的事——牆上看得到就不用再問一次。\n\n版號旁邊多一行 `D: 54%`，滑過去有詳細（剩幾 GB／共幾 GB）。\n門檻在 appsettings 的 Wall:Disk（WarnPercent 60、HighPercent 80，\nPath 留空＝Argus 自己那顆磁碟）。\n\n**刻意只顯示、不會叫**：超過門檻只換那行字的顏色，不讓整面牆變色、\n不觸發警報音、也不做成一顆磚。磁碟慢慢變滿是「這週找時間清一下」，\n而紅燈與警報聲是留給「現在放下手邊的事」的。做成會響的東西，\n結果會是牆上多一顆永遠紅著、但誰也不會為它跑起來的磚——\n那正是讓所有紅燈一起貶值的東西。\n\n量不到就整格空白（UNC 的 DriveInfo 不吃、磁碟不在、權限不足），\n不顯示「--%」。ReadDisk 整包 try/catch 吞掉：牆上少一行字沒關係，\n這一格壞掉害整個 feed 不更新才是問題。\n\n驗過（實跑 /api/snapshot）：\n- 預設 60/80 → C: 38% green\n- WarnPercent=1 → yellow；HighPercent=1 → red；兩者 0 → green\n- Path=Z:\\nope → disk 是 null，畫面整格不出現\n- node --check 過（第一次撞到 `d` 變數重複宣告，已改名）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 2
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "956157e8",
+          "time": "07:33",
+          "message": "docs(lisweb-tag): 版號日期規則與中文 tag message 寫法",
+          "body": "- 日期預設仍為明天（發佈日），明訂使用者可要求改今天\n- 同一輪對話接著要跑 lisweb-deploy 時一律用今天\n- 步驟 2 呈現 MR 清單時一併講明預設日期，讓使用者當場可改\n- 中文 tag message 改用 Bash heredoc 寫檔 + git tag -F，避開 PS 5.1\n  傳非 ASCII 給原生 git 的編碼風險；打完以 git show 驗證\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
     }
   ],
   "side_projects": [
@@ -179,13 +216,15 @@
           "hash": "debbdcef",
           "time": "17:55",
           "message": "feat(sci): SCI 改稿開工 — 教授影音逐字稿、Zotero 文獻庫、JISE 工作稿第一章",
-          "body": "- 教授影音/：8 支影音轉逐字稿（faster-whisper large-v3-turbo）＋ index README，"
+          "body": "- 教授影音/：8 支影音轉逐字稿（faster-whisper large-v3-turbo）＋ index README，\n  檔名改 YYYYMMDD_重點；影音原檔不進 git（.gitignore 補音訊副檔名）。\n  關鍵定案出處入檔：SR 先不放（9/1）、同信往返送翻譯流程（9/3）\n- references/thesis_36refs.ris：36 筆文獻 Zotero 匯入檔（DOI 走 doi.org 官方 RIS；\n  [26] ATP III 碩論 DOI 404，更正為 10.1161/circ.106.25.3143）\n- JISE_manuscript_working.docx：7 章結構定位（補 3. PROBLEM DEFINITION、7. CONCLUSION）、\n  頁首 running head、作者區雙掛格式、1.1 三子標題＋1.1-1.3 中文草稿\n  （1.3 標註待教授手寫版核對、1.4 待紙本 key 入）\n- TODO.md：F10 結案（照教授版章名）、新增 E10 MathType、E11 引用轉欄位時點\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "5ae6d226",
           "time": "17:55",
           "message": "docs(archive): 隨身碟獨有檔案回收進 repo — 定稿III_裝訂、Turnitin 報告、離校文件",
-          "body": "與 F:\\ 隨身碟全量 hash 比對後（100 同名檔 97 一致），取回本地缺少的："
+          "body": "與 F:\\ 隨身碟全量 hash 比對後（100 同名檔 97 一致），取回本地缺少的：\n定稿III_裝訂/、初稿III 與初稿VII 的 Turnitin 比對、定稿II archive、\n早期拆稿三檔、填寫版修正確認書、7/29 版聲明書（蓋掉 7/23 舊版）、審定書_橫。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
       "count": 2
@@ -197,13 +236,15 @@
           "hash": "74eb0a51",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-07",
-          "body": "🤖 自動生成於 2026-09-07 07:05"
+          "body": "🤖 自動生成於 2026-09-07 07:05",
+          "category": "文檔"
         },
         {
           "hash": "aa66dec8",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-06 (2 commits)",
-          "body": "🤖 自動生成於 2026-09-07 07:05"
+          "body": "🤖 自動生成於 2026-09-07 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
@@ -215,7 +256,8 @@
           "hash": "b1bcff39",
           "time": "17:11",
           "message": "建立 HRM 文件骨架",
-          "body": "以文件形式經營家庭關係，不含程式碼。"
+          "body": "以文件形式經營家庭關係，不含程式碼。\n\n- README.md：結構說明與兩條規矩（log 不當證據、永遠 private）\n- playbook.md：底線與四個卡點的可執行句型\n- insights.md：P-01～P-05 模式觀察，區分「觀察」與「假設」\n- log/：三件代表性事件建檔（日期待補）+ 範本\n- contacts/：核心四人各一檔 + 延伸家人名冊\n- family-tree.md：mermaid 關係圖譜\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
       "count": 1
@@ -227,15 +269,16 @@
           "hash": "00eaa78f",
           "time": "19:50",
           "message": "docs: 9/3 例會會議紀錄、辦法草案依決議修正、住戶實施細則初稿",
-          "body": "- 新增 docs/會議紀錄.md（11 題＋辦法 13 項逐條表，供主委/經理核對）"
+          "body": "- 新增 docs/會議紀錄.md（11 題＋辦法 13 項逐條表，供主委/經理核對）\n- 草案第 7 條（工作人員免費）與第 8 條（維護清潔費）撤回；新增附件一「承租合約書→使用承諾書」；標紅版與 web 產物重建\n- 鎖定車位更正為 46 格四類（原「物業保留 20 格」實為轉角格；198-199 會後補列）\n- docs/01 改寫為「車位使用實施細則」（住戶版，待審）\n- 新增 docs/27 例會主持稿\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         }
       ],
       "count": 1
     }
   ],
   "summary": {
-    "workCommits": 24,
+    "workCommits": 25,
     "sideCommits": 6,
-    "totalCommits": 30
+    "totalCommits": 31
   }
 }

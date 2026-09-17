@@ -9,118 +9,81 @@
           "hash": "5846ce14",
           "time": "18:02",
           "message": "﻿docs: FP 上游檔對帳 — 單數 10/10 吻合，明細差是 DryRun 口徑非缺陷",
-          "body": "以 filename 對帳正式庫實際寫入量：10 個 FP 上游檔單數全中。"
+          "body": "以 filename 對帳正式庫實際寫入量：10 個 FP 上游檔單數全中。\n明細數陪跑少 2~15 筆，因 DryRun 記解析後筆數、正式庫是 UCL 對照\n展開後筆數（ProcessFileAsync 明載 DryRun 不進展開路徑）。\n同時抽驗 8 個非 FP 單位呈現相同模式，證實行為一致。\n非逐欄驗證，完整結論仍待批次 3 回放納入這批單位。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "d3be380e",
           "time": "17:24",
           "message": "﻿feat: pull 加寫入完成門檻 — 保護不冪等家族免於半截檔",
-          "body": "我們每 2 分鐘拉檔、舊程式 10 分鐘一次，抓到 FTP 上傳中或前處理 PHP"
+          "body": "我們每 2 分鐘拉檔、舊程式 10 分鐘一次，抓到 FTP 上傳中或前處理 PHP\n就地改寫中的半截檔機率高約 5 倍。Keelung/ansn 不冪等：半截檔匯入後\n再匯入完整檔＝無法重跑修正的重複單。robocopy 無秒級年齡選項，故自寫。\n\n門檻兩道：>=60 秒未修改 ＋ 未被寫入端鎖住（FileShare.None 試開）。\n只掃頂層（PHP 工作區子夾不碰）。六情境實測通過，並以與正式 bat 相同\n的呼叫方式複驗。批次 2 已換用，3/4/5 沿用。\n\n踩坑記錄：powershell -File 傳參數是字面字串，-ExcludeLike \"a\",\"b\" 會\n綁成單一元素 a,b 使排除靜默失效；改收逗號字串並在 log 印出生效樣式數。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "a5661353",
           "time": "17:02",
           "message": "﻿docs: 批次3補洞驗證 — FP 上游檔全數解析成功，兩層排除都要改",
-          "body": "排除是兩層的（robocopy ＋ 單位設定 FileNameExcluded），只改一層檔案會"
+          "body": "排除是兩層的（robocopy ＋ 單位設定 FileNameExcluded），只改一層檔案會\n進 inbox 卻被默默略過。兩層都修並重啟後：略過 25→1、成功 246、失敗 0。\n\n順帶排除假警報：FP 產出是 UTF-8 with BOM 而設定寫 big5，但\nFile.ReadLines 預設偵測 BOM，兩種編碼都正確——此設定不可「修正」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "b00fc49b",
           "time": "16:49",
           "message": "﻿docs: 推翻假設 — FlexibleParsing 是批次 3/4/5 的上游，非平行系統",
-          "body": "Companys.mode=Transfer（27 家）把醫院格式轉標準格式後丟進我們的收檔夾，"
+          "body": "Companys.mode=Transfer（27 家）把醫院格式轉標準格式後丟進我們的收檔夾，\n由舊 OrderInSQL 匯入；只有 mode=Parsing（5 家）才是平行系統。\n三重證據：ThrowFolder 全表、現場接力（0581 xls 進備份/txt 進源夾）、\n正式庫指紋（cre_user=UCL、DataSource=0、filename 為 .txt）。\n\n實害：sync-shadow 09-07 以「屬批次 6」整批排除 16 前綴，把批次 3 最活躍\n單位的流量（≈7 檔/日）排除在 DryRun 之外，而批次 3 預定 9/29 切換。\n已改依副檔名排除 FP 原始輸入（*.xls/*.xlsx/*.ods）＋僅留 0705-*。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e4c89fd6",
           "time": "16:36",
           "message": "﻿feat: 0244 雙引號跳脫收斂 — 解批次 4 就地清理 race",
-          "body": ".227 前處理 PHP 對 0244-* 逐行 \"\"→\"（史例 \"\"Atypical pANCA\"\"），"
+          "body": ".227 前處理 PHP 對 0244-* 逐行 \"\"→\"（史例 \"\"Atypical pANCA\"\"），\n新服務 pull 每 2 分可能搶先拿到原始檔。adapter 新增\nCollapseDoubledQuotesFilePrefix 選項重現 PHP 收斂，raw/cleaned\n兩路徑落庫等值；未點名檔案維持原行為。測試 70/70（+3）。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "730967d5",
           "time": "10:05",
           "message": "﻿docs: feed 重餵 bug — /XO 對會被搬走的目的夾無效，改帳本制",
-          "body": "批次 1 實戰發現每檔被影子重複處理 5 次（XML 冪等故無損）。"
+          "body": "批次 1 實戰發現每檔被影子重複處理 5 次（XML 冪等故無損）。\n兩批 feed-verify.bat 已改 fed\\ 帳本制（56.227 現場已更新）；\nKeelung 不冪等，此修正是批次 2 必要前置。反向比對判讀注意\nWebOrder_Test 的 upd_date churn 屬已解釋差異。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "fc755f77",
           "time": "09:25",
           "message": "﻿docs: 批次2產生器補強 — TATUNG Live 注入時窗與 QFT hook",
-          "body": "09-07 備的 make-cutover-config.ps1 早於 hook 定案，缺 ProcessingWindow"
+          "body": "09-07 備的 make-cutover-config.ps1 早於 hook 定案，缺 ProcessingWindow\n（09:00-15:00＝舊排程 to pm3）與 PostImportHookUrl。已補（56.227 現場\n腳本已更新並試跑通過），卡片同步記錄。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "d00ac846",
           "time": "09:19",
           "message": "﻿docs: 批次1開球事故記錄 — 髒 staging SqlClient DLL、更版 SOP 補強",
-          "body": "09:00 三檔炸 PlatformNotSupportedException（09-04 staging 被鎖檔留下"
+          "body": "09:00 三檔炸 PlatformNotSupportedException（09-04 staging 被鎖檔留下\nportable 版 Microsoft.Data.SqlClient.dll；DryRun 不開 SQL 連線故四天測不到）。\n乾淨重建部署後 09:13 補轉成功、hook HTTP 200、資料零損失延遲 13 分。\nSOP 新增：publish 一律用全新資料夾；部署後驗根目錄 SqlClient ≈1.85MB。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "f1208944",
           "time": "08:22",
           "message": "﻿docs: hook 決策反轉記錄 — 修補層維持舊流程，新服務以 hook 重現 bat 語意",
-          "body": "POST_IMPORT_FIXUPS 原結論「新服務不需要加 post-import hook」於 2026-09-08"
+          "body": "POST_IMPORT_FIXUPS 原結論「新服務不需要加 post-import hook」於 2026-09-08\n反轉：同仁定調修補層近期不重構、批次 7 不優先（或由同仁重構），故新服務\n實作 PostImportHookUrl 重現舊 bat「exe 跑完立即叫 QFT php」的語意。\n獨立排程（每 3 分鐘）仍為後盾。原兩個但書（QFT 排程不可停、07:00 前\n時窗縫隙）仍成立。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "7a38e4a9",
           "time": "08:16",
           "message": "﻿feat: PostImportHookUrl 轉入後處理 hook — 維持舊 bat「exe→php」語意",
-          "body": "同仁 2026-09-08 定調：QFT 修補層近期不重構、走舊流程。舊制 11 支排程"
+          "body": "同仁 2026-09-08 定調：QFT 修補層近期不重構、走舊流程。舊制 11 支排程\nbat 全部是「exe 跑完 → 立刻 php -f QFT」（實查確認 11/11 都只叫這一支；\n前處理 parsing_order_files 有自己的排程，與 OrderInSQL 執行無關）。\n\n實作：單位設定 PostImportHookUrl。每輪輪詢結束後，對「有成功寫入的\nLive 單位」設定的 hook URL 各呼叫一次（同 URL 去重；手動觸發 API 亦同）。\n呼叫失敗僅記警告不中斷 —— .227 獨立排程每 3 分鐘全域掃描是永遠在場的\n後盾，hook 只是把修補延遲從 ≤3 分鐘壓回即時。\n\nHTTP 觸發已實測：GET http://.227/HCLAB2/WebOrder_QFT_...php → 200、6 秒\n（與 .229 對 parsing php 的既有做法相同機制）。DryRun 不觸發（不寫庫\n無修補可做）。Service 專案補 InternalsVisibleTo 供測試。\n\n4 項觸發條件測試，共 67 項全過。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "28524c72",
           "time": "07:22",
           "message": "﻿docs: TODO.md — 切換期間的人工動作清單",
-          "body": "批次 1 已於 2026-09-08 07:17 切換完成（.227 舊排程未停、轉為影子），"
+          "body": "批次 1 已於 2026-09-08 07:17 切換完成（.227 舊排程未停、轉為影子），\n把後續「要人動手」的事集中一份：觀察期滿的停排程三步（只停\n07_orderinsql、QFT 紅線）、各批切換日、轉移卡空格、公告發布、\nORA-01830 通報、批次 3/4 驗證尾巴、批次 6 決策與收尾清單。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
       "count": 11
-    },
-    {
-      "name": "TwowayConnection\\分單系統",
-      "commits": [
-        {
-          "hash": "f6b8fe12",
-          "time": "15:29",
-          "message": "docs: 台中 9.08 SSO profile「tp」已上線（2026-09-08 下午）— 台北資訊室經 33.228 走台北 lisweb 登入",
-          "body": "- 各分部發佈狀況：台中列改 9.08、現役資料夾 D:\\WebOrder3；步驟表加第 9 步（部署內容、備份位置、"
-        },
-        {
-          "hash": "78979bb3",
-          "time": "13:44",
-          "message": "feat: v9.08 SSO profile — 台中站同時接台中 LisWeb 與台北 lisweb(台北資訊室經 33.228 進站可登入)",
-          "body": "台北資訊室開 http://192.168.33.228:8080/WebOrder/ 會被導去台中 LisWeb 1.229(台北連不到)，"
-        },
-        {
-          "hash": "233b30fa",
-          "time": "08:30",
-          "message": "ops: 新增台中上線後健康檢查腳本 Watch-FenDanTC.ps1",
-          "body": "唯讀、可重複跑，一次看完："
-        },
-        {
-          "hash": "621aa887",
-          "time": "08:14",
-          "message": "docs: 台中 9.02 已上線（2026-09-08）— /WebOrder 換新版、舊版 1.1 留在 /WebOrder2",
-          "body": "切換結果："
-        },
-        {
-          "hash": "7b48edff",
-          "time": "08:00",
-          "message": "docs: 台中新版已推到 D:\\WebOrder3；切換簡化為兩行 appcmd（沿用現役 pool）",
-          "body": "- 步驟 3 完成：repo main 的 build 推到 33.228 D:\\WebOrder3（56 檔、18 aspx、9 dll），"
-        },
-        {
-          "hash": "443c4cf8",
-          "time": "07:52",
-          "message": "test: 台中測試庫 smoke test 6/6 PASS，順修 smoke test 兩個時序/預期 bug",
-          "body": "實測（開發機 9.02 + 台中測試庫 33.227 WebOrder_Test，單位 1062 皓生 2026/09/07）："
-        },
-        {
-          "hash": "4cae81db",
-          "time": "07:26",
-          "message": "test: 台中測試庫 WebOrder_Test 建好，開發機改對台中真實資料驗新版",
-          "body": "- 33.227 還原 WebOrder_Test（用 9/8 凌晨正式庫備份；134,952 筆主檔一致、4 項前置物件與"
-        }
-      ],
-      "count": 7
     },
     {
       "name": "lisweb",
@@ -129,40 +92,142 @@
           "hash": "a80806ba",
           "time": "16:46",
           "message": "feat(HDPID): LIS 輸錯的 ID 可一鍵改成資料庫的 ID；單位預設改「資料庫有建檔」不再掃 EVENTLOG；第三輪回饋",
-          "body": "電腦組 2026-09-08 回了三點："
+          "body": "電腦組 2026-09-08 回了三點：\n\n1. LIS 輸的 ID 檢查碼錯時，直接顯示資料庫的正確 ID，並給按鈕更正。\n   - ID格式錯 的列也查資料庫此姓名，有唯一 ID 就帶到「建議 ID」，\n     並給「LIS 改用資料庫的 ID」；資料庫ID不同 也加同一顆。\n   - 新端點 POST api/HDPID/FixLisPid，走匯入的寫入路徑但允許覆蓋既有 ID。\n     這是本案第一次允許覆蓋 LIS 既有 ID，後端限制新 ID 必須是資料庫\n     此單位此姓名對到的 ID（正規化姓名比對），任意值一律拒絕；\n     EVENTLOG 註記 fix old=舊ID 以便追溯。\n   - 一般匯入仍維持已有 ID 不覆蓋。\n2. 為什麼有些新病人沒顯示：除了 !1477 才列出「資料庫無此人」之外，\n   第一版預設「近三個月有匯入紀錄」的單位範圍也會漏掉新單位。\n3. 拿掉「全部流程單位（近三個月有匯入紀錄）」，開頁很卡。\n   - 那個選項靠掃 EVENTLOG（兩千萬列）判斷單位，是卡的主因。拿掉。\n   - 單位清單改為 洗腎室 ∪ 資料庫（ARC_PATIENTS）有建檔 的單位，不碰 EVENTLOG，\n     並加 10 分鐘 MemoryCache（快取後 0.03 秒）。\n   - 預設改「資料庫有建檔的單位」。實測若預設「全部洗腎單位」會把從不走這流程、\n     自己就會輸 ID 的單位撈進來：一週找不到 477、資料庫無此人 1,042；\n     改「資料庫有建檔」後為 110 / 225、4.9 秒，與第一版接近但不用 EVENTLOG。\n     全部洗腎單位保留為選項，資料庫未建檔的單位在下拉裡標示。\n\n台北實測（唯讀）一週有 35 筆 LIS 已輸的 ID 檢查碼錯，其中 31 筆資料庫有\n正確 ID，新按鈕一鍵可改對。\n\n測試機 56.225 驗過：檢查碼錯 → 改用資料庫 ID → 六張表與 EVENTLOG 正確；\n改成資料庫沒有的 ID 被拒；一般匯入對已有 ID 仍拒絕覆蓋。測後已還原。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "819205ff",
+          "time": "16:20",
+          "message": "合併 MR !1481: fix:[BT201] F5複製單號資料單純化，ALT+F5 保留不清空申報資料(以便補檢)",
+          "body": "fix:[BT201] F5複製單號資料單純化，ALT+F5 保留不清空申報資料(以便補檢)\n\nSee merge request ucl/lis/lisweb!1481",
+          "category": "合併MR"
         },
         {
           "hash": "d1d33fda",
           "time": "12:53",
           "message": "docs(LT252): 補 F5 審後修改的 EVENTLOG 機制說明",
-          "body": "- LT252 頁面文檔新增「業務規則 9. 審後修改歷程」：L25/L09 判定、EL_COMMENT 格式、"
+          "body": "- LT252 頁面文檔新增「業務規則 9. 審後修改歷程」：L25/L09 判定、EL_COMMENT 格式、\n  值沒變不寫、FTEXT 路徑寫 log 失敗不擋存檔、14 天保留與 SU202/SQL 查詢方式\n- 審核後修改流程圖補上 HDR/DTL/HORD_DTL → EVENTLOG → PLOG 順序\n- 日誌機制文檔補 Examine 系列事件代碼表（L06/L09/L11/L14/L23/L25）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "0d863ef2",
           "time": "08:54",
           "message": "chore(config): 移除 HCLAB 測試機連線字串後方的行尾註解",
-          "body": "該註解接在被註解掉的 connectionString 之後，同一行放兩段內容，"
+          "body": "該註解接在被註解掉的 connectionString 之後，同一行放兩段內容，\n容易讓 hard code 對照連線字串的同仁誤讀，直接移除。\n上方「【HCLAB切換】」的切換說明註解保留。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "4737cdde",
           "time": "08:52",
           "message": "fix(rule-engine): 台中檢體延誤註解誤判 — 排除哨兵採檢日 1900-01-01",
-          "body": "台中 010 補上規則呼叫後，Rule 9024 於 2026-09-07 生效當天即誤判"
+          "body": "台中 010 補上規則呼叫後，Rule 9024 於 2026-09-07 生效當天即誤判\n（10 張單被誤加註），15:45 由台中手動關閉。\n\n根因：採檢日「無值」在本系統是哨兵日期 1900-01-01 而非 NULL。\nCOLDATE_DIFF v0.1 只防 NULL（IS NOT NULL + MIN 皆不略過哨兵值），\ndiff 算出 46,270 天恆 >= 1 → 凡是沒填採檢日的單只要含 P80x 就無條件加註。\n測試庫當初測了 NULL 與真延誤，唯獨沒測哨兵值，故三層測試全綠仍上線即爆。\n\n修法：COLDATE_DIFF v0.2 改用合理區間夾擊取代 NULL 檢查，\n一次擋掉哨兵值、TNO 十年回收撈到的舊檢體、誤填的未來日；\n語意回到原設計本意「採檢日不明＝不判定＝不加註」。\n\n- 新增 修正哨兵採檢日_20260908.sql：釐清查詢、v0.2 函式、含哨兵案例的\n  單元驗證、守衛式清理 09-07 誤加的 10 筆、重開流程（⛔ 等操作者確認後才執行）\n- 部署_20260821.sql 標註 v0.1 已淘汰勿再執行\n- 評估文檔補「六、上線首日誤判與修正」，含未解的混合單誤判與待確認的\n  哨兵值來源（若 BLG 有值而 ORD_SPL 是 1900 則為 HC010 資料流 bug，另開案）\n- 新增ConditionFunction指南：worked example 換成 v0.2，\n  要點 3 補「null-safe ≠ safe」與日期類函式必測案例清單\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "73863364",
+          "time": "07:59",
+          "message": "合併 MR !1483: docs(rule-engine): 超出線性值未標旗 — 問題查證與通解建議",
+          "body": "docs(rule-engine): 超出線性值未標旗 — 問題查證與通解建議\n\nSee merge request ucl/lis/lisweb!1483",
+          "category": "合併MR"
         },
         {
           "hash": "1cba0076",
           "time": "07:55",
           "message": "docs(rule-engine): 補「超出線性值未標旗」問題文檔與旗標判定陷阱",
-          "body": "ACCESS2 9111/2061/2361 線性上限隨校正液批號變動，儀器直接送 \">459.00\""
+          "body": "ACCESS2 9111/2061/2361 線性上限隨校正液批號變動，儀器直接送 \">459.00\"\n這類字串，現行以 RL001 rule 276/277/278 正向列舉每個已知線性值處理。\n查台北正式庫確認列舉法的實際缺口與可行的通解，整理成文檔。\n\n- Documents/Problems/超出線性值未標旗.md（新增）\n  - 實測數據：換批約 2-3 個月一次，補規則時差 47~66 天，\n    近一年約 101 筆帶 \">\" 值無旗標發出；影響面另涵蓋 6253/8824/2325 等 10 個項目\n  - 根因：PKG_HCL_TR.GET_TR_FLAG（body L454-519）to_number 失敗即放棄整段判定\n  - PKG_RULE 早有正規化（body L688-704，\"<\"/\">\" 開頭一律轉 999999），\n    院內先例 HCL253 已用 result()=999999\n  - 建議：rule 條件改 resultstr('x') like '>%' 一行化（已用\n    PKG_RULE.RE_VALIDATE_RULE_STMT 驗過語法），再修審後修改洗掉旗標，\n    中期收斂到 GET_TR_FLAG；不等新 interface server / DMS\n  - 附查證用 SQL\n\n- 開發常見陷阱與注意事項.md：新增第 10 節（旗標判定散在四處）\n- RuleEngine_規則開發與測試實戰.md：常見陷阱新增「條件別用正向列舉」\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "ffc75c47",
           "time": "07:27",
           "message": "chore(smoke): 補 sync-sources.ps1 並更正部署文件的排程實體",
-          "body": "冒煙測試的每日 07:30 排程 2026-08-31 起跑在 56.231，但文件的「發佈／更新"
+          "body": "冒煙測試的每日 07:30 排程 2026-08-31 起跑在 56.231，但文件的「發佈／更新\n程序」仍寫 56.210 是現行位置、表格把已停跑的 C:\\Tools\\smoke 當排程實體，\n於是改完測試碼沒人知道要同步 56.231。2026-09-07 的版號確認功能就這樣卡在\nrepo，排程整整一天跑的還是 8/31 的舊碼，而且不會有任何徵兆。\n\n- 新增 sync-sources.ps1：套件沒變時只搬原始碼（package.json/lock 一有差異\n  就拒絕並要求整包重打）；擋掉 07:25~07:45 免得複製到跑一半被咬住的檔案；\n  複製完逐檔比 hash 才算成功，並重寫 BUILD-INFO.txt。\n- 部署與使用說明.md：A-2 改列四份實體與各自角色，56.231 標為每日排程且\n  Argus 讀它的 log；分成「只改測試碼」與「套件有異動」兩條路徑；補上\n  Bash 跑 robocopy 會吃掉 UNC 反斜線、看似有跑其實零複製的踩雷。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
-      "count": 6
+      "count": 8
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "f6b8fe12",
+          "time": "15:29",
+          "message": "docs: 台中 9.08 SSO profile「tp」已上線（2026-09-08 下午）— 台北資訊室經 33.228 走台北 lisweb 登入",
+          "body": "- 各分部發佈狀況：台中列改 9.08、現役資料夾 D:\\WebOrder3；步驟表加第 9 步（部署內容、備份位置、\n  台北 Oracle FenDanTC_TP_* 四筆、Playwright 端對端結果、回復方式）\n- Watch-FenDanTC.ps1 標籤 9.02 → 9.08\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "78979bb3",
+          "time": "13:44",
+          "message": "feat: v9.08 SSO profile — 台中站同時接台中 LisWeb 與台北 lisweb(台北資訊室經 33.228 進站可登入)",
+          "body": "台北資訊室開 http://192.168.33.228:8080/WebOrder/ 會被導去台中 LisWeb 1.229(台北連不到)，\n手改網址走 33.229 也因台北帳號不在台中 Oracle 而登不進去。\n\n- SessionList: 新增 SSO profile。決定順序 ?sso=<name>(寫 cookie；?sso= 清除) → cookie →\n  SsoProfileHosts 依 Host 前綴自動判定 → 預設。appSettings 先找 <key>.<profile>，沒設定退回原 key，\n  既有站台不加新 key 行為不變。未定義的 profile 一律忽略(cookie/query 不可信)。同請求只解析一次。\n- JwtVerifier: JwtIssuer 可用 ; 或 , 列多個 issuer，任一相符即通過(金鑰同一把)。\n- SSOLogin / MenuControl 登出 / CheckSession / Default 全部改走 GetSsoSetting。\n- 台中 config: JwtIssuer 加 https://lisweb.ucl.com.tw；SsoProfileHosts=tp=192.168.33.；\n  SsoSys.tp=FenDanTC_TP、LisSsoUrl.tp/LisLogoutUrl.tp 指台北 lisweb。\n- 台北 Oracle 前置: docs/sql/tp_sys_parameter_fendan_tc_tp.sql(FenDanTC_TP_* 四筆，回呼 33.228)。\n- 版號 9.02 → 9.08；版本更新記錄補 9.08。\n\n已驗證: Release 編譯通過；JwtVerifier 多 issuer 5 案例 PASS；本機 IIS Express 對\nquery/cookie/Host/清除/未定義 profile/CheckSession 7 條路徑 redirect 與 Set-Cookie 全部符合預期。\n台北四站 config 不需改動。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "233b30fa",
+          "time": "08:30",
+          "message": "ops: 新增台中上線後健康檢查腳本 Watch-FenDanTC.ps1",
+          "body": "唯讀、可重複跑，一次看完：\n- 兩個站台 HTTP（新版 /WebOrder 應 302 導 SSO、舊版 /WebOrder2 應 200）\n- Error_Log 新錯（可調回看分鐘數）\n- 近一週分單／轉入量（量突然掉下來就是警訊）\n- DistAuditLog 改號／刪除\n- 今日 10 碼單號重複（撞號徵兆）\n- IIS log 5xx\n\n2026-09-08 08:30 基準全綠。腳本必須存成 UTF-8 with BOM，否則 PS 5.1 會讀成 ANSI 導致語法錯誤。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "621aa887",
+          "time": "08:14",
+          "message": "docs: 台中 9.02 已上線（2026-09-08）— /WebOrder 換新版、舊版 1.1 留在 /WebOrder2",
+          "body": "切換結果：\n- /WebOrder  -> D:\\WebOrder3（新版 9.02，沿用 pool HCLAB）\n- /WebOrder2 -> D:\\WebOrder （舊版 1.1，pool WebOrder2）\n- tc_sysmenu_relative_url.sql 已跑（11 筆絕對路徑改相對）\n- 驗證：SSOLogin 回呼成功、DISTRIBUTE 連續 200、舊站仍可進、Error_Log 兩小時 0 筆\n\n兩個踩雷點寫進文檔：\n- 台中 Oracle 原本沒有任何 FenDan* 參數 → 「登入後回不來」的元凶；LisWeb 參數有 5 分鐘快取\n- appcmd 不在 PATH 且 /[path='/'] 在 PowerShell 會被解析掉 → 改用 WebAdministration 的 Set-ItemProperty\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7b48edff",
+          "time": "08:00",
+          "message": "docs: 台中新版已推到 D:\\WebOrder3；切換簡化為兩行 appcmd（沿用現役 pool）",
+          "body": "- 步驟 3 完成：repo main 的 build 推到 33.228 D:\\WebOrder3（56 檔、18 aspx、9 dll），\n  Web.config 在目標機以現役 D:\\WebOrder\\Web.config 的值產生，只有 SSO 六項是新的；\n  JwtKey 現產、不進 repo。未掛 IIS，現役站未受影響。\n- 步驟 4 取消建新 App Pool：實查 pool HCLAB（v4.0 / x86=true / ApplicationPoolIdentity）\n  只服務 /WebOrder 一個應用程式，切換時沿用即可 → 身分、ACL、位元數不變，也省掉 H: 槽權限風險。\n- 步驟 6/7 改成兩行 appcmd（只改 physicalPath）與對應回復指令。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "443c4cf8",
+          "time": "07:52",
+          "message": "test: 台中測試庫 smoke test 6/6 PASS，順修 smoke test 兩個時序/預期 bug",
+          "body": "實測（開發機 9.02 + 台中測試庫 33.227 WebOrder_Test，單位 1062 皓生 2026/09/07）：\n配號→轉入 LIS→取消轉入→取消分單 全數通過，新版吃台中真實規則（246 條 DivideTNORule、\n台中單位/項目對照）沒問題。\n\nsmoke test 修正：\n- queryGrid()：txtTestDay 是 AutoPostBack=\"True\"，填完日期後直接點「查詢」會被 blur 觸發的\n  postback 吃掉（__EVENTTARGET=txtTestDay），回 200 但 btnQuery_Click 從沒執行、grid 空的。\n  改成先等日期的 postback 完成再點。\n- TNO10：10 碼的日期段來自轉入當下（HCLAB_ID_DateRule(DateTime.Now)），不是送檢日期；\n  原本寫死用 FENDAN_DATE，測舊批次一定失敗。改用今天，可用 FENDAN_TNO_DATE 覆蓋。\n- README 補「對分部測試庫跑」的完整指令與三個踩雷點。\n\n順帶實證兩件事（已寫進 docs/各分部發佈狀況.md）：\n- 32 位元是硬需求：64 位元 IIS Express 直接 BadImageFormatException（Oracle.DataAccess 是 x86）\n  → 台中新站 App Pool 必須開 32-bit\n- 台中 SysMenu 的絕對路徑 /WebOrder/xxx 在別的路徑下全部連不到 → 切換日必跑 tc_sysmenu_relative_url.sql\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "85f0071a",
+          "time": "07:32",
+          "message": "合併 MR !15: docs/test: 台中換版策略定案（新版上 /WebOrder、舊版退 /WebOrder2）＋ 測試庫 WebOrder_Test",
+          "body": "docs/test: 台中換版策略定案（新版上 /WebOrder、舊版退 /WebOrder2）＋ 測試庫 WebOrder_Test\n\nSee merge request ucl/twowayconnection/uclweborder!15",
+          "category": "合併MR"
+        },
+        {
+          "hash": "4cae81db",
+          "time": "07:26",
+          "message": "test: 台中測試庫 WebOrder_Test 建好，開發機改對台中真實資料驗新版",
+          "body": "- 33.227 還原 WebOrder_Test（用 9/8 凌晨正式庫備份；134,952 筆主檔一致、4 項前置物件與\n  246 條 DivideTNORule 都在），正式庫 WebOrder 未動\n- 開發機 UCLWeb/Web.config 的 DEV 連線改指 33.227 / WebOrder_Test（該檔為 skip-worktree、\n  本機專用不進版控，文檔已註明各機自行修改）；Oracle 仍是台北測試 56.225，轉入只寫測試 LIS\n- tests/smoke/helpers/db.js 支援 FENDAN_SQL_USER/PASS 走 SQL 驗證（跨網域測試庫用），\n  playwright.config.js 補環境變數說明\n- 新增 tests/tc_reset_for_test.sql：把指定單位+送檢日還原成未分單（擋非 WebOrder_Test 執行），\n  已對 1062 / 2026-09-07 跑過（21 人 30 筆，看得到 5 個人各被拆成 2 張單）\n- 新增 docs/sql/tc_sys_parameter_fendan_local.sql（選配：讓開發機走台中 LisWeb SSO）\n- 文檔步驟 5 改為「開發機 + 測試庫」，並列出留到切換日才驗的三項\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "4c315368",
+          "time": "15:30",
+          "message": "memory: 分單 9.08 台中 tp SSO profile、prod-write 權限心得；lisweb/OrderInSql 記憶更新",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "adcb5c87",
+          "time": "07:40",
+          "message": "docs: 備份 2026-09-07~09-08 的 memory 與發佈 skill 更新",
+          "body": "skills:\n- lisweb-deploy：build 來源改為 origin/production（從 main build 會把 Web.config\n  寫死的舊版號發上去，2026-09-07 台北實例）；Warmup 驗收加 ver= 比對；\n  冒煙一定帶 SMOKE_EXPECT_VERSION\n- lisweb-tag：補 tag 推上去後 CI 會開 release 分支改版號並 merge 進 production，\n  發佈前要等它\n\nmemory：\n- lisweb：新增 deploy_source_production_branch、ps1_chinese_needs_bom、\n  tc_002c_selfbuilt_jobs_disabled；smoke_test_tool 改寫（56.231 才是每日排程實體、\n  sync-sources.ps1 同步工具）；bt201_same_tno_check、hd_pid_import_page 進度更新\n- 其他專案：OrderInSql、TwowayConnection、ParkFee、RiskPrediction-3H 各補新筆記\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
     }
   ],
   "side_projects": [
@@ -173,21 +238,23 @@
           "hash": "73e052f9",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-08",
-          "body": "🤖 自動生成於 2026-09-08 07:05"
+          "body": "🤖 自動生成於 2026-09-08 07:05",
+          "category": "文檔"
         },
         {
           "hash": "e6e5ddd0",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-07 (30 commits)",
-          "body": "🤖 自動生成於 2026-09-08 07:05"
+          "body": "🤖 自動生成於 2026-09-08 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
     }
   ],
   "summary": {
-    "workCommits": 24,
+    "workCommits": 29,
     "sideCommits": 2,
-    "totalCommits": 26
+    "totalCommits": 31
   }
 }

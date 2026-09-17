@@ -6,133 +6,140 @@
       "name": "OrderInSql",
       "commits": [
         {
-          "hash": "6dfa566b",
-          "time": "15:44",
-          "message": "Merge origin/main into feat/p2-excel-adapter — 解衝突",
-          "body": "- SqlOrderRepository.UpsertOrderAsync：Ansn profile 分流與 V4 大包寫入順序並存"
+          "hash": "2c64b516",
+          "time": "12:42",
+          "message": "合併 MR !31: docs: 修補層定案、FlexibleParsing 定位、流量基線、專案說明頁",
+          "body": "docs: 修補層定案、FlexibleParsing 定位、流量基線、專案說明頁\n\nSee merge request ucl/twowayconnection/orderinsql!31",
+          "category": "合併MR"
         },
         {
           "hash": "aab74bf8",
           "time": "12:39",
           "message": "docs: 流量基線 — XML 現役 5 家日均 10.5 檔、全家族 170 檔/日；查詢腳本入 tools",
-          "body": "- docs/TRAFFIC_BASELINE.md：兩種口徑（MessLog vs 明細 filename）、各家族單位數與日均、"
+          "body": "- docs/TRAFFIC_BASELINE.md：兩種口徑（MessLog vs 明細 filename）、各家族單位數與日均、\n  0163 毒檔重試風暴（5 檔各重試約千次無告警，P2 quarantine 實證）、登記 vs 現役落差待辦\n- tools/traffic-stats.sql：可重跑（唯讀），檔頭記三個坑：ProgCode 分不出變體、\n  ntext 要 CAST、檔數只算 isSucc=1\n- README 文檔列與 MIGRATION_RUNBOOK 批次表補交叉連結\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "138b1ca4",
           "time": "12:39",
           "message": "docs: 一頁式專案說明頁（docs/index.html）",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1a2a23ef",
           "time": "12:39",
           "message": "docs: FlexibleParsing 實機定位 — AutoDeliver @168.229「自動剪圖」排程、與批次7 PHP 同鏈",
-          "body": "- 部署主機找到了：168.229 D:\\Schedule\\AutoDeliver\\，排程名「自動剪圖(剪格式)」每 10 分鐘"
+          "body": "- 部署主機找到了：168.229 D:\\Schedule\\AutoDeliver\\，排程名「自動剪圖(剪格式)」每 10 分鐘\n- Paring.bat 先打 .227 的 parsing_order_files.php 再啟動 AutoDeliver，批次 6/7 無法獨立切換\n- AutuParsing 查無部署，推測已由 PHP 取代；批次 6 切換要動 exe.config 連線 + Parsing DB 兩處\n- README / MIGRATION_RUNBOOK 批次表同步更新\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "3b058290",
           "time": "12:16",
           "message": "docs: OrderCheckJob 定案 — 11 筆 Cancel 歸因更正、Cancel 退出逐欄比對",
-          "body": "對 56.191 正式庫實查（唯讀）+ 讀完 PHP 尾段，三個定案："
+          "body": "對 56.191 正式庫實查（唯讀）+ 讀完 PHP 尾段，三個定案：\n\n1. 尾段藏著全域醫令檢查引擎 OrderCheckJob：每輪處理當天所有未標記\n   （adjust<>'99'）的 SN，對每筆明細重寫 Cancel（字尾T隱藏、force_hide\n   單位清單、母項顯示/細項隱藏、同碼同日去重、全單皆隱藏則重開）。\n   實查近 7 天 adjust='99' 覆蓋率約 95%、近 30 天 12 萬列/160 單位\n   → 正式庫明細的 Cancel 是修補層的輸出，不是舊轉檔程式的輸出\n\n2. 主版回放的「Cancel 11 筆」歸因更正：2150 恰好 11 筆、全數\n   upd_user='OrderCheckJob'，抽單驗證成因是「母項展開細項隱藏」\n   （單內 C756/P801 母項 → 9025/9026 細項被隱藏）。原「NOTRAN 時間差」\n   歸因錯誤；「非新程式 bug」的判定不變\n\n3. 比對方法調整：明細逐欄 EXCEPT 移除 Cancel（4 處），新增 4.5) Cancel\n   專段 —— 列不一致列並帶 adjust/upd_user 指紋自動判「修補層輸出（預期）\n   /需人工判讀」。php-fixup-detect.sql 改以 adjust='99' 為主指紋\n   （upd_user 會被下游覆寫：實查 9/1 adjust99=13,137 vs 標記殘存 4,559）\n\n附帶：P315 規則2語法錯誤實害驗證 = 近 30 天 0 筆卡死列，嚴重度降級為\n非急件；force_hide 名單含 0501/0506/0272/0854 等回放會用到的單位；\n檔案最後修改 2026-08-10 = 0208/0357 P833/P811 兼容調整，時間戳吻合。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "d07a2652",
           "time": "09:21",
           "message": "docs: 修補層深查 — 兩條全域 Cancel 規則、upd_user 指紋、規則2語法錯誤",
-          "body": "接續前一版盤點，細讀後三項修正與新發現："
+          "body": "接續前一版盤點，細讀後三項修正與新發現：\n\n修正自己前一版的錯誤：\n- 行數 3,210 → 3,709（前一版把排除空行的數字當成總行數）\n- UPDATE 量改以「78 條針對 PhysicianOrderM/D 的敘述」表述\n\n推翻「PHP 與主版那 11 筆 Cancel 無關」的初步結論：\n78 條 UPDATE 有 76 條帶 UTI_UNIT_CODE 條件（都不含回放單位），\n但 P315 細項隱藏那組共 2 條「不分單位」，主版單位一樣會被掃到\n→ PHP 仍是那 11 筆的候選原因，不能排除\n\n新發現 upd_user 指紋（本次最實用的產出）：\n27 條 UPDATE 會蓋 PHP / BATCH / PHP_ALL_CANCEL / PHP_NULL /\nOrderCheckJob 標記 → 可直接查出被修補的列。新增診斷腳本\ntools/php-fixup-detect.sql。但指紋只覆蓋約三分之一的 UPDATE，\n且現行 TEST_PLAN 白名單把 upd_user 排除比對，等於把指紋濾掉，\n已在 TEST_PLAN 註明應改為「先用標記篩出、再排除時間戳」\n\n附帶發現舊系統既有 bug（不在本次範圍，應轉告維護者）：\nP315 規則 2「沒有 P315 就取消隱藏」的子查詢少一個單引號，\n展開後 SQL 語法錯誤且 query() 未檢查回傳值 → 靜默失敗。\n推論細項一旦被隱藏就不會自動還原。結論來自靜態閱讀，需實測確認。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "492e957f",
           "time": "08:59",
           "message": "docs: 轉檔後修補層盤點 — QFT PHP 判定翻案，比對對照組帶修補",
-          "body": "登入 .227 取回 WebOrder_QFT_change_Delivers_DT.php 實際查證，三個發現："
-        },
-        {
-          "hash": "98d9ed50",
-          "time": "08:48",
-          "message": "WIP on main: 5facbb7 Merge branch 'feat/cutover-assets' into 'main'",
-          "body": ""
-        },
-        {
-          "hash": "d9af7171",
-          "time": "08:48",
-          "message": "index on main: 5facbb7 Merge branch 'feat/cutover-assets' into 'main'",
-          "body": ""
+          "body": "登入 .227 取回 WebOrder_QFT_change_Delivers_DT.php 實際查證，三個發現：\n\n1. 計畫裡「❌ 停用」的判定是錯的 —— 又踩到「只在失敗時寫 log」的陷阱\n   （同 OrderInSQL_Common）。實際：檔案 2026-08-10 才改過、獨立排程每 3\n   分鐘跑一次、上次結果正常\n2. 它不是「QFT 改隔日」的小腳本，是 3,210 行、觸及 125 個單位的轉檔後\n   修補層：46 處改 UCL_CODE、31 處改 Cancel、14 處改 UTI_UNIT_CODE，\n   還有病歷號改民國年生日、健保申報改 Y 等六年累積的客製規則\n3. 回放比對的對照組（正式庫）帶著這層修補、測試庫沒有，而 PHP 改的欄位\n   正好都在比對範圍內 → 判讀方法論有盲點\n\n處置：\n- 新服務「不需要」加 post-import hook（獨立排程每 3 分鐘全域掃描已涵蓋，\n  bat 尾巴那次只是把延遲從 3 分鐘縮到即時）→ 批次 1 不再被此項阻塞\n- 但停舊排程時 [WebOrder]QFT 那條列為紅線不可停用，寫進 Runbook\n- ansn 排程 05:02 起跑、早於掃描窗口 07:00，切換前要確認早班領單時間\n- 批次 7 份量重估：屬獨立專案量級，不綁進本次重構的完成定義\n- TEST_PLAN 加判讀規則；主版那輪的 Cancel 11 筆歸因列為待查證\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "ffb78ded",
           "time": "08:42",
           "message": "fix: V4 大包（套組）明細 — Keelung 家族結案，明細零未解釋差異",
-          "body": "全量稽核（tools/keelung-detail-audit.sql）揪出抽樣看不到的真缺口："
+          "body": "全量稽核（tools/keelung-detail-audit.sql）揪出抽樣看不到的真缺口：\n- 移植 PhysicianOrderD_DML.CheckPackage：套組代碼本身為 UNIT_TEST_ITEM 獨立項目時，\n  須依對照表額外寫一筆套組明細（UCL=NA 者 Cancel=1）；缺項 16 張 → 1 張\n- 修正寫入順序：舊程式先 CheckPackage 再寫明細；顛倒會在「套組代碼==檢驗代碼」\n  （W1880）時讓 NOT EXISTS 誤判漏寫 → 缺項歸零\n- 結果：明細代碼組合 TestOnly 0 / ProdOnly 0；明細數差僅 4 張正式庫歷史重複\n- TEST_PLAN 記錄結案數據與「TOP 50 截斷會製造差異很少假象」的教訓\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "a951d1fc",
           "time": "08:39",
           "message": "feat: ansn Live 寫入語意 — 內容鍵 upsert、DB 端重算 SEQUENCE、明細防重",
-          "body": "ansn 的 upsert 規則與主版/Keelung 是真的不同，無法用欄位對應收斂，"
+          "body": "ansn 的 upsert 規則與主版/Keelung 是真的不同，無法用欄位對應收斂，\n故以單位設定 WriteProfile 分流（Default / Ansn），移植 decompiled\nOrderInSQL_ansn_1_0_0_0 的 PhysicianOrderM_DML / PhysicianOrderD_DML：\n\n- 主檔以「內容鍵」查既有列（檔內 SN 欄每次轉檔都是新值、不可信）：\n  V1 = 單位+姓名+身分證+病歷號+開立日+採檢日；\n  V2 另 join 明細比對 ID_CLI_INFO，並容忍 Picks_DT 為 NULL\n  （少了這條會把空採檢日的單重複開，舊版特別處理過）\n- 主檔 INSERT 的 SEQUENCE 由 DB 依「該單位當日送驗單數 +1」重算，\n  不採用檔案內的值；UPDATE 不動 SEQUENCE 與 cre_*\n- 明細 insert-if-not-exists（單位+代碼+UCL+送驗日+單號+SN）防重；\n  只 INSERT 不 UPDATE/DELETE，故不需 Default 路徑的已配號保護\n- UCL_CODE 先查 UNIT_TEST_ITEM 取第一筆、查無退回檔內值\n  （一對一取代，與 Keelung 的展開成多筆不同）\n- REMARK 寫入主檔；ID_INVNO / ID_TNO 非空才含入欄位清單（沿用舊版）\n\nappsettings 補 0939 安慎單位設定範例。SQL 語意本身需真 DB，\n留待回放/平行比對階段驗證；本 MR 的測試涵蓋 profile 解析與\n「單位設定 → repository 收到正確 profile」的連線。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "976f7392",
           "time": "08:28",
           "message": "docs: FlexibleParsing 列為第四家族並排入 P2.5 — 評估結論不需大重構",
-          "body": "盤點後確認 FlexibleParsing（ASP.NET MVC + AutuParsing/AutoTransfer/AutoDeliver"
+          "body": "盤點後確認 FlexibleParsing（ASP.NET MVC + AutuParsing/AutoTransfer/AutoDeliver\n三支 worker，設定存 Parsing DB @ 168.229）與本專案是同一設計思路的兩套實作，\n原本只在計畫裡被提及為「未來整併對象」，未進任何階段或切換批次，補上位置。\n\n評估結論：不需要大重構。\n- Format 模型（每個 WebOrder 欄位存來源欄 index）與 ColumnSchema.Map 同構，\n  設定匯入是純資料轉換；Companys 的收檔夾/skipheader/big5 等落進 UnitSettings.Options\n- ImportPipeline、IOrderFileAdapter、三支 adapter、SqlOrderRepository 都不用動\n- 要改的只有：檔名解析從固定慣例改為單位可設定策略（大安 preset 的\n  Options[\"FileNaming\"] 已開此先例）、ColumnSchema 從 hardcode switch 改為可載入\n\n真正的變數是範圍不是架構，兩個阻塞項未結案前不排期：\n- worker 部署主機未知（不在 .227，切換 runbook 套不上）\n- Oracle（HCLAB）下游要不要吃：A 案（不吃，量級同 Keelung enrichment）\n  vs B 案（吃，System.Data.OracleClient 在 .NET 10 不存在，是重寫不是移植）\n\n另查到 AutoTransfer 零 DB 連線、memo 說是收檢溫度記錄的檔案歸類，\n疑似不在醫令範圍 —— 確認為否可直接砍掉三分之一工作量。\n\n變更：\n- 新增 docs/FLEXIBLEPARSING_INTEGRATION.md（評估專題，含決策紀錄表）\n- REFACTORING_PLAN：新增 P2.5 階段、待確認事項標為阻塞項並附量級盤點 SQL\n- MIGRATION_RUNBOOK：新增切換批次 6（原生態系收尾順延為 7），\n  註明該批不適用以 .227 為前提的標準流程\n- README：盤點段補註第四個整併對象\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "重構"
         },
         {
           "hash": "ac8f9e08",
           "time": "08:26",
           "message": "feat: 檔名守門 + Keelung 回放結案（主檔零差異）",
-          "body": "- ImportPipeline 新增 FileNameIncluded/FileNameExcluded 守門：擋掉他系統產出的"
+          "body": "- ImportPipeline 新增 FileNameIncluded/FileNameExcluded 守門：擋掉他系統產出的\n  多單位合併檔（實測 Cube 備份夾 1747 個 Parsing_* 檔，誤處理會把單寫錯單位）\n- Keelung 第四輪回放：未對齊主檔 163→0、主檔逐欄 0 差異；明細差異全數歸因\n- 發現並修正 runbook 錯誤敘述：Keelung/ansn 家族重跑不冪等（SN 為新發 GUID）\n- 測試 25/25 通過\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "7c008b29",
           "time": "08:17",
           "message": "feat: 外送大安 preset — 表頭偵測、民國日期、同資料夾多格式自動切換",
-          "body": "- ColumnSchema.DaAn：16 欄含中文表頭的現役子格式（Cube 資料夾內混入，單位 0078/1068）"
+          "body": "- ColumnSchema.DaAn：16 欄含中文表頭的現役子格式（Cube 資料夾內混入，單位 0078/1068）\n- HeaderMarker + SchemaPresetByHeader：依首列表頭關鍵字自動切 preset 並跳過表頭列\n- NormalizeDate/NormalizeDateTime 支援民國格式（035/03/31 → 1946/03/31）\n- 實測 0078 欄位與正式庫完全一致；TEST_PLAN 更新待查清單（2 項結案）\n- 測試 23/23 通過\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "97d67da3",
           "time": "08:11",
           "message": "fix: Excel 讀取層換 ExcelDataReader — 真實檔驗證抓到 NPOI 開不了 BIFF5",
-          "body": "archive 真實 ansn 檔煙霧測試發現兩個合成測試抓不到的問題："
+          "body": "archive 真實 ansn 檔煙霧測試發現兩個合成測試抓不到的問題：\n1. 真實檔是 BIFF5（Excel 5.0/95）格式，NPOI HSSF 只支援 BIFF8 直接開檔失敗\n2. 0702 的檔是 xlsx 內容但副檔名 .xls，依副檔名選 reader 會炸\n\n改用 ExcelDataReader（MIT）：依檔案內容自動判 BIFF5/BIFF8/OpenXml，\n不看副檔名；NPOI 退到測試專案（2.7.4，Apache-2.0）只產測試檔，\nCore 的 ImageSharp 弱點警告一併消失。\n\n真實檔驗證 6/6 通過（0939/0926/0702）：BIFF5、xlsx偽xls、空 Picks_DT、\nREMARK 轉入、採檢時分秒都正確；一代 25 欄無真實檔存檔、僅合成測試覆蓋。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "5ff45eec",
           "time": "08:10",
           "message": "feat: Keelung 回放第一輪 — FileNaming 慣例、CSV 引號剝除、V4 取消條件",
-          "body": "- OrderFileContext 新增 FileNaming=UnitPrefixed（Keelung 檔名無類型標記，首段=單位）"
+          "body": "- OrderFileContext 新增 FileNaming=UnitPrefixed（Keelung 檔名無類型標記，首段=單位）\n- Delimited adapter Unquote：剝除欄位外包引號（真檔實測 163 張主檔因引號污染對不上）\n- 取消判定補 V4 套組條件；tools/parallel-compare-keelung.sql（內容鍵對齊版比對）\n- TEST_PLAN 記錄兩輪結果：主檔逐欄 0 差異；待查清單 4 項\n- 測試 22/22 通過\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "d5784048",
           "time": "08:02",
           "message": "feat: P2 Excel adapter — ansn 安慎家族三世代（25/27/28 欄）",
-          "body": "以第三代（v1.20.0103）為行為基準，NPOI 讀 .xls/.xlsx（鎖 2.7.4，"
+          "body": "以第三代（v1.20.0103）為行為基準，NPOI 讀 .xls/.xlsx（鎖 2.7.4，\n2.8 起改 OSMF 授權）：\n\n- 世代判別沿用舊碼：表頭第 25 欄有無值 → ansn 版位（27/28 欄）或一代 25 欄\n- Version 1/2 主檔切分鍵（2 加 SEQUENCE）；ID_INVNO 取欄依 Version 分流\n- isAnsnFormat=1 病歷號去前導 0（新竹安慎）\n- TransferUCLCode=1：ID_INVNO→單位代碼對照檔換單位 +\n  SplitIdTno/GetNearYear 從 ID_TNO 前 5 碼推算配號日（民國/西元末碼歧義照舊）\n- Master 增 Remark 欄位（三代第 28 欄）；repository 寫入留待 ansn Live 階段\n- 讀值用 NPOI DataFormatter，對應舊 Interop Range.Text 顯示文字語意\n\nansn 特有 Live 寫入語意（內容鍵找主檔、DB 端重算 SEQUENCE、明細防重、\nUCL_CODE 對照優先）比照 Keelung enrichment 拆下一條 MR；DryRun 驗解析已可用。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "f654d295",
           "time": "07:53",
           "message": "feat: 衛生所切換日資產備妥 — pull/feed/GO/ROLLBACK 範本與操作順序",
-          "body": "- 實體腳本已部署 56.227 cutover-weborder-xml/（含帳密，不進 git）"
+          "body": "- 實體腳本已部署 56.227 cutover-weborder-xml/（含帳密，不進 git）\n- .227 舊程式切換版設定 OrderInSQL.exe.config.CUTOVER 已就位（兩個 copy 即生效）\n- repo 收去敏範本（<ADMIN_PASSWORD> 佔位）供其他單位套用；runbook ④ 註記資產位置",
+          "category": "功能開發"
         },
         {
           "hash": "39e7ef31",
           "time": "07:47",
           "message": "docs: 切換窗口改為反向平行設計 — 新服務寫正式、舊程式改吃副本寫測試庫當驗證影子",
-          "body": "- pull 任務(/MOV)接管檔案流、feed 任務餵舊程式副本，無搶檔競態"
+          "body": "- pull 任務(/MOV)接管檔案流、feed 任務餵舊程式副本，無搶檔競態\n- 舊 config 先備份 .bak（回退生命線）；觀察期每日反向比對\n- 回退：停 pull + 還原 .bak，堆積檔由舊程式接手，分鐘級",
+          "category": "文檔"
         },
         {
           "hash": "070a4380",
           "time": "07:30",
           "message": "docs: DryRun 陪跑補影子同步機制 + FTP 落點待確認",
-          "body": "- 56.227 排程 robocopy 鏡像 .227 備份資料夾（唯讀零干擾），DryRun 盯影子夾全自動陪跑"
+          "body": "- 56.227 排程 robocopy 鏡像 .227 備份資料夾（唯讀零干擾），DryRun 盯影子夾全自動陪跑\n- 階段 0 新增：確認上游 FTP server 位置，決定切換時檔案流向",
+          "category": "文檔"
         },
         {
           "hash": "f46b926f",
           "time": "07:23",
           "message": "feat: Keelung DB enrichment — UCL 對照展開 + SEQUENCE 續號",
-          "body": "- Repository：GetUclCodes（移植 Xerox_Barcode 版查詢：精準比對→放寬→濾 NA/distinct）、"
+          "body": "- Repository：GetUclCodes（移植 Xerox_Barcode 版查詢：精準比對→放寬→濾 NA/distinct）、\n  GetTodayMaxSequence（當日最大序號，非數字回退筆數）\n- DbOrderEnricher：明細依對照展開為 1..N 筆 UCL 明細（查無對照略過並記 log）、\n  主檔序號自 DB 續號；Live 限定，單位設定 EnrichUclFromUnitTestItem=1 啟用\n- 明細 INSERT 補 UTI_TEST_KIND/UTI_TEST_NAME/UTI_PROFILE_CODE/Dept（空值 NULL，與舊行為一致）\n- 部署修正：Serilog 路徑改以程式目錄為基準（Windows Service CWD 是 System32）；publish/ 進 gitignore\n- 測試 20/20 通過\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
-      "count": 21
+      "count": 19
     },
     {
       "name": "Argus",
@@ -141,64 +148,149 @@
           "hash": "beb072f5",
           "time": "18:44",
           "message": "點唱機說明獨立成一頁，工具列多「♪ 點歌」入口；點歌列加「✕ 清除」",
-          "body": "原本點歌列藏在「怎麼讀這面牆」最底下，想點歌的人要先翻過整頁燈號說明。"
+          "body": "原本點歌列藏在「怎麼讀這面牆」最底下，想點歌的人要先翻過整頁燈號說明。\n現在拆成兩個浮層：「？」只講牆，「♪ 點歌」直接開點唱機（伺服器有開才出現），\n音樂列的「？」也改開點唱機頁。兩頁共用同一套開關（一次只開一個、60 秒自動收、Esc）。\n\n順手：開機一律抓一次待播清單，用來判斷「♪ 點歌」要不要亮；\n「⚡ 插播」旁加「✕ 清除」，清輸入框與結果訊息。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "ad54e11d",
           "time": "18:36",
           "message": "點不了的歌當場講：瀏覽器端試放預檢＋音樂列報跳過原因",
-          "body": "〈相見恨晚〉事件的修法：官方 MV 常關嵌入，歌排進去被電視無聲跳過，"
+          "body": "〈相見恨晚〉事件的修法：官方 MV 常關嵌入，歌排進去被電視無聲跳過，\n點的人只能來問「我的歌怎麼沒播」。\n\n伺服器端查不了——實測過的死路都記在 MusicStore 的註解裡：\nembed 頁的 previewPlayabilityStatus 不管好壞片都回 ERROR（假訊號，\n第一版靠它上線前就在冒煙被抓到誤殺 Me at the zoo）；innertube 的\nWEB／TVHTML5／ANDROID client 全被反機器人擋。那是一場軍備競賽，收手。\n\n真實答案在點歌人的瀏覽器裡：牆頁點歌時開一個隱形靜音播放器試放\n兩三秒，播放器回報 101/150 就是版權擋嵌入——跟電視上會發生的事\n一模一樣。擋下就不排入，當場告訴點的人換個上傳來源。\n判不出來（沒外網、autoplay 被擋、逾時）一律放行，電視端自癒兜底。\n\n自癒也升級：某首被跳過時，音樂列掛 45 秒「⚠ 播不了（原因），已跳過」\n——版權限制、影片不存在、mp3 壞檔、拖錯的連結各自講清楚。\n直接打 API 點歌的（跳過牆頁）沒有預檢，靠這層兜底。\n\n順手把 IFrame API 載入抽成共用的 ytLoadApi()，主播放器與預檢共用。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "6b368ed5",
           "time": "18:25",
           "message": "點唱機插播：排到最前面、電視立刻切過去，原本那首播完插播後接回續播",
-          "body": "入口三個：說明面板的「⚡ 插播」鈕、API 加 ?cutIn=1、JSON 寫 \"cutIn\":true。"
+          "body": "入口三個：說明面板的「⚡ 插播」鈕、API 加 ?cutIn=1、JSON 寫 \"cutIn\":true。\n順序仍靠 CreationTime（撥到清單所有檔案之前，重啟、重掃都不掉），唯一\n在記憶體的是「要不要打斷現在這首」的旗標——重啟掉了頂多變成排第一等播完。\n被打斷的那首不算播完、記住播到哪，插播完接回去；插播不打斷插播。\n點歌／插播都經 SignalR 通知電視立刻重抓清單，不必等 30 秒輪詢。\n撥不到最前面（共用資料夾不給改時間）時歌照排、回應 cutIn=false，面板講出來。\n\n順便把說明面板的點歌列拆成兩列：YouTube 連結＋排入／插播一列，mp3 上傳自己一列。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "6e804468",
           "time": "18:02",
           "message": ".claude/ 是本機 session 設定，不進 repo",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "ffd3a42a",
           "time": "18:02",
           "message": "牆上直接點歌：說明面板放輸入框，貼連結就排入，同仁不用任何權限",
-          "body": "「說明檔應該按一個按鈕會打開」＋「讓同仁也會操作」的答案合在一起："
+          "body": "「說明檔應該按一個按鈕會打開」＋「讓同仁也會操作」的答案合在一起：\n- 說明面板的點唱機那段放一個點歌列：貼 YouTube 連結按排入、或選\n  mp3 檔上傳。不用進資料夾、不用會 curl，權限一個都不用\n- 歌名伺服器自己去 oEmbed 查（3 秒查不到就用影片 ID——標題只是\n  好看，不值得讓點歌的人等，也不值得讓沒外網的環境失敗）\n- 音樂列尾端加「？」直達說明；點唱機那段改成對**所有人**顯示\n  （只要伺服器有開這功能）——最需要看說明的是在座位上開牆想點歌\n  的同仁，不是帶著 ?music=1 的電視\n- 點歌列會吃輸入，擋掉說明面板「點任一處關閉」，並重置自動收起\n\nDocs/點唱機.md 同步改寫：牆上點歌變成第一推薦，資料夾與 API 降為\n進階方式。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "98ddab16",
           "time": "17:55",
           "message": "README 點唱機段落連到操作說明",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "f9dca9e2",
           "time": "17:54",
           "message": "點唱機使用說明：給同仁的版本",
-          "body": "README 那段是設計理由，這份是操作手冊：怎麼點歌（拖 YouTube 連結"
+          "body": "README 那段是設計理由，這份是操作手冊：怎麼點歌（拖 YouTube 連結\n／丟 mp3／API）、怎麼管理清單（檔案總管就是後台）、在哪裡聽得到\n（?music=1 開在哪台、哪台就唱——今天實際踩到的困惑，寫進 FAQ）、\n丟了歌沒聲音的四步排查。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "9dbff0d0",
           "time": "17:42",
           "message": "左下角加版號：建置時間自己蓋章，佈署完一眼分辨換版了沒",
-          "body": "「以為部了新版、其實線上還是舊的」發生過不只一次——瀏覽器快取、"
+          "body": "「以為部了新版、其實線上還是舊的」發生過不只一次——瀏覽器快取、\nrobocopy 沒跑、分頁沒重載，症狀全長一樣。這次又中一次：\n牆上找不到待播清單，查了半天其實是新版根本沒上去。\n\n版號＝Argus.Wall.dll 的檔案時間（建置自動蓋的章）。刻意不用組件\n版本號——沒有人記得改它，而忘記改的版號比沒有版號更會騙人。\nfeed 與 /healthz 都帶，畫面左下角極淡地顯示（給佈署的人看的，\n不是給看牆的人看的），curl /healthz 也對得出來。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "5bf1f3b2",
           "time": "17:26",
           "message": "點唱機加 YouTube 音源：連結拖進資料夾就是點歌",
-          "body": "延續「清單＝資料夾」的哲學，YouTube 曲目也是一個檔案："
+          "body": "延續「清單＝資料夾」的哲學，YouTube 曲目也是一個檔案：\n從瀏覽器把影片連結直接拖進「待撥」，Windows 自動生成 .url 捷徑檔\n（檔名就是影片標題），排隊、播完搬「已撥」、跳過、抽歌全部跟 mp3\n同一套；檔案總管雙擊 .url 還能直接開影片驗證點的是哪首。\nAPI 也多一種吃法：POST JSON {url:https://youtu.be/…,title:歌名}，\n伺服器代寫 .url 檔，跟 multipart 丟 mp3 落進同一個資料夾。\n\n播放端用 IFrame API，pause／續播／搬已撥與 mp3 共用同一套規則\n（全綠才播、紅琥珀失聯靜音一律暫停）。播放器 iframe 刻意可見——\n藏起來違反 YouTube 條款——做成左下角小視窗：全綠時那一角本來就\n只有大勾，不擋監控資訊；紅燈時跟音樂列一起消失。\n\n跟 mp3 唯一的本質差異是它依賴外網，所以失敗方向多鋪一層：\n- iframe API 載不進來（斷網、防火牆）→ 整批跳過 YT 曲目只播 mp3，\n  .url 留在待撥，網路回來就輪得到；音樂列會講出原因\n- 影片被刪、地區限制、不給嵌入（101/150）→ 跟壞掉的 mp3 同一種\n  處置，搬進已撥不卡隊伍\n- 拖錯的非 YouTube 網址（videoId 解不出來）→ 同上搬走\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "095fcc67",
           "time": "17:18",
           "message": "點唱機：牆順便當辦公室音樂播放器，但警報永遠優先",
-          "body": "同仁提議的背景音樂功能。兩種點歌方式殊途同歸："
+          "body": "同仁提議的背景音樂功能。兩種點歌方式殊途同歸：\n把 .mp3 丟進「待撥」資料夾，或 curl -F 打 /api/music/enqueue，\n先進先播，播完自動搬進「已撥」——清單就是資料夾內容，\n沒有資料庫、沒有管理介面，同仁用檔案總管就能插播抽歌。\n\n三條鐵律，全部從「牆的第一身分是監控」推出來：\n- opt-in：?music=1 才啟動，只有電視該帶。做在預設行為裡的話，\n  每個開瀏覽器看牆的人的電腦都會同時放歌\n- 只在全綠時播：紅、琥珀、失聯、靜音中一律自動暫停、解除自動續播。\n  使徒來襲的時候，辦公室該安靜下來聽警報\n- 任何失敗都只是沒音樂：NAS 斷線、檔案播壞、清單拿不到，\n  最壞是安靜，牆照常叫\n\n細節上的取捨：\n- 播放順序用 CreationTime——複製進資料夾才會拿到新時間，\n  LastWriteTime 保留的是原檔的舊時鐘，那是錯的鐘\n- 播壞的檔案（decode error）也搬進已撥，留在待撥會把整條隊伍卡死；\n  但網路斷（network error）不搬——檔案是無辜的\n- 音量預設 0.7：警報音效永遠要比音樂大聲\n- PendingFolder 留空＝整個功能關閉（預設），佈署時才決定資料夾放哪\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 10
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "a28f8e09",
+          "time": "18:45",
+          "message": "memory：Argus 佈署捷徑（排除 appsettings、worktree 發佈）、OrderInSql／TwowayConnection 筆記；新增 project-onepager skill",
+          "body": "",
+          "category": "功能開發"
+        },
+        {
+          "hash": "f75bbba9",
+          "time": "17:38",
+          "message": "docs(lisweb-tag): 打 annotated tag，message 放 MR 清單",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "bc68b42b",
+          "time": "17:34",
+          "message": "docs(lisweb-tag): tag 日期預設用明天（發佈日），撞號自動順延流水號",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4b71777f",
+          "time": "08:02",
+          "message": "docs: README 補換機遷移 SOP 與納入/排除原則",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8a52ae70",
+          "time": "07:58",
+          "message": "docs: CLAUDE.md 記錄 claude-config 備份 repo 慣例",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c61da8f1",
+          "time": "07:57",
+          "message": "init: Claude Code 個人設定資產（skills/runbooks/agents/memory）",
+          "body": "白名單策略：只納入知識資產，reference/(帳密)、settings*.json、\n含帳密 memory 單檔一律排除。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a78b6c58",
+          "time": "15:38",
+          "message": "合併 MR !1465: fix(hdord): 排除洗後醫令重複檢查",
+          "body": "fix(hdord): 排除洗後醫令重複檢查\n\nSee merge request ucl/lis/lisweb!1465",
+          "category": "合併MR"
+        },
+        {
+          "hash": "7d1e1917",
+          "time": "15:38",
+          "message": "合併 MR !1464: fix(lt255): 修正多工作站儀器備註顯示",
+          "body": "fix(lt255): 修正多工作站儀器備註顯示\n\nSee merge request ucl/lis/lisweb!1464",
+          "category": "合併MR"
+        },
+        {
+          "hash": "b6a6e6a0",
+          "time": "15:37",
+          "message": "合併 MR !1463: fix(devtool): 修正同步檔案路徑顯示與 QM 例外",
+          "body": "fix(devtool): 修正同步檔案路徑顯示與 QM 例外\n\nSee merge request ucl/lis/lisweb!1463",
+          "category": "合併MR"
+        }
+      ],
+      "count": 3
     },
     {
       "name": "TwowayConnection\\分單系統",
@@ -207,13 +299,15 @@
           "hash": "e569db84",
           "time": "07:59",
           "message": "fix: 頁首版號更新 9.02(9.02 上版時漏改 MenuControl.ascx)",
-          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "4261c2f6",
           "time": "07:44",
           "message": "fix: 重疊提示查詢死結修正(CheckTransferOverlap 反覆失敗)",
-          "body": "- CheckTransferOverlap 查詢加 WITH (NOLOCK)：純提示性檢查不拿 S 鎖，"
+          "body": "- CheckTransferOverlap 查詢加 WITH (NOLOCK)：純提示性檢查不拿 S 鎖，\n  不再與 PHP 清理排程互卡成死結犧牲者\n- SQLToolkit.getDataTable(paraC) throw 保留 inner exception，\n  Error_Log 才看得到真正原因(死結/逾時)而非只有 SQL 本文\n- docs/sql 補覆蓋索引腳本(已於 9/2 在 PRD 建立，查詢 8s→30ms)\n- 版本更新記錄 9.02\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         }
       ],
       "count": 2
@@ -227,49 +321,57 @@
           "hash": "50dd75f0",
           "time": "19:58",
           "message": "docs(26): 追加階段 6.5「一戶多車」測試（混合車種共用志願、三輪配位）",
-          "body": "一戶多車是常態，且志願清單為戶層級共用 —— 同一格會被不同車以不同方式取用"
+          "body": "一戶多車是常態，且志願清單為戶層級共用 —— 同一格會被不同車以不同方式取用\n（一般車當單格、重機當起始格），是目前最容易出事也最少覆蓋的路徑。\n其結果將直接回答「重機鄰格不可預期」這個未決設計題。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "9e6067d2",
           "time": "19:55",
           "message": "docs(26): 加進度書籤——階段 1-5 通過，明天從階段 6 抽籤續測",
-          "body": "記錄今天修的兩項（重機志願序、鄰格預覽撤回）與未決的重機選位設計題。"
+          "body": "記錄今天修的兩項（重機志願序、鄰格預覽撤回）與未決的重機選位設計題。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "79aff611",
           "time": "19:54",
           "message": "Revert \"feat(select): 重機選位顯示「自動帶入的鄰格」\"",
-          "body": "This reverts commit 47995ad1b9a9ccbcfc67fcd4cfd58b080ca4ef72."
+          "body": "This reverts commit 47995ad1b9a9ccbcfc67fcd4cfd58b080ca4ef72.",
+          "category": "功能開發"
         },
         {
           "hash": "47995ad1",
           "time": "19:50",
           "message": "feat(select): 重機選位顯示「自動帶入的鄰格」",
-          "body": "重機一台占相鄰兩格，但選位圖只標了點選的那一格 —— 住戶看不出系統會搭哪一格，"
+          "body": "重機一台占相鄰兩格，但選位圖只標了點選的那一格 —— 住戶看不出系統會搭哪一格，\n也看不出哪些格子根本湊不成對（2026-09-02 手動實測發現）。\n\n- 選中格的鄰格以淺紅顯示、標同一個志願序號；規則與引擎 takeHeavy 的 partnerOf 一致\n  （可用鄰居優先取編號較大者），並排除已鎖定與已選格\n- 志願清單每筆加「＋<鄰格>」\n- 圖例加「自動帶入的鄰格」，並註明此為預覽：抽籤當下鄰格若已被取走會改配下一志願\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "da034949",
           "time": "19:44",
           "message": "fix(distribute): 重機取位改為嚴格依志願序，無障礙位不再插隊",
-          "body": "2026-09-02 正式站台手動實測抓到：takeHeavy 原本先掃「志願中有沒有無障礙位」"
+          "body": "2026-09-02 正式站台手動實測抓到：takeHeavy 原本先掃「志願中有沒有無障礙位」\n（takeSingle(wishList)）再看相鄰配對，導致排最後的無障礙位贏過排第一的大位。\n實例 S1-991 志願 207、262、190、189、197 → 配到 197（第 5 志願），而 207 全程可用。\n\n無障礙位是重機「可選的取位方式」（該型較寬、單格即足），不是優先權。\n改為依志願序逐一嘗試、先中者勝：該志願是無障礙→取單格；是一般位→取它＋可用鄰格。\n志願全落空與湊不到對的 fallback 順序不變。\n\n修正後同案例配到 207、208（第 1 志願＋鄰格）。+2 回歸測試（198 全綠）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "eea7517b",
           "time": "19:14",
           "message": "docs(26): B 段改為逐步手動測試流程（7 階段、25 步，含每步預期與判讀）",
-          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "48b1d6c8",
           "time": "19:10",
           "message": "docs(26): 加 B 段回填表與測試資料清除 SQL（驗收留存）",
-          "body": ""
+          "body": "",
+          "category": "文檔"
         },
         {
           "hash": "ddd647a0",
           "time": "19:05",
           "message": "test(e2e): A 段自動測試計畫與結果（全數通過）",
-          "body": "A1 單元 196＋build｜A2 引擎全鏈（不變量三項皆 0）｜A3 重機實體相鄰 18 台零假相鄰"
+          "body": "A1 單元 196＋build｜A2 引擎全鏈（不變量三項皆 0）｜A3 重機實體相鄰 18 台零假相鄰\nA4 健檢 13 項全觸發｜A5 六支 API 403＋三張敏感表 42501｜A6 戶層級旗標零不一致\n\nB 段（瀏覽器 UI）待手動執行。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 8
@@ -281,21 +383,23 @@
           "hash": "030f6886",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-02",
-          "body": "🤖 自動生成於 2026-09-02 07:05"
+          "body": "🤖 自動生成於 2026-09-02 07:05",
+          "category": "文檔"
         },
         {
           "hash": "835c21c9",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-01 (34 commits)",
-          "body": "🤖 自動生成於 2026-09-02 07:05"
+          "body": "🤖 自動生成於 2026-09-02 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
     }
   ],
   "summary": {
-    "workCommits": 33,
+    "workCommits": 40,
     "sideCommits": 10,
-    "totalCommits": 43
+    "totalCommits": 50
   }
 }

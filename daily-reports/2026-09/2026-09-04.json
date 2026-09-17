@@ -9,67 +9,78 @@
           "hash": "64894ba4",
           "time": "17:26",
           "message": "docs: 訂正 ORA-01830 的判定 — 只影響病患主檔，醫令正常寫入",
-          "body": "前一版（MR !46）推論「1120 的醫令可能沒有進入任何系統」是錯的。原因是"
+          "body": "前一版（MR !46）推論「1120 的醫令可能沒有進入任何系統」是錯的。原因是\n只讀了 BLGTXRepostiroy，沒追資料進入前的正規化。\n\n完整讀完呼叫鏈後：FilterStr.DateTimeConvertDate 的 switch 沒有 case 10，\n1120 的 2004-02-10 走 default → Convert.ToDateTime → 20040210000000（14 碼）。\n接著兩支寫入方法處理不一致：\n\n- CreateBlgTxHdr()：依長度選格式，14 碼命中 YYYYMMDDHH24MISS → 正常寫入\n- Register()：格式寫死 YYYYMMDD → 收到 14 碼必炸\n\n所以 ORA-01830 只出自 Register()（病患主檔 CUST_MASTER），醫令表頭/表身\n不受影響。且該 SQL 帶 WHERE NOT EXISTS，只有新病患會走到失敗路徑 ——\n這也解釋了錯誤數 90 遠少於該檔張數 325。\n\n嚴重度從「掉單」降為「新病患在 HCLAB 沒有主檔」，仍是現場問題但不緊急。\n\n教訓已寫進文件：讀 repository 判斷資料正確性時，必須把上游的正規化一起\n讀完，否則會把「上游已處理好」誤判成「下游沒處理」。\n\nA/B 案結論不變（仍建議 A），但補上 B 案的前置條件：需先取得 HCLAB 唯讀\n查詢權限，否則連驗證都做不到。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "78117219",
           "time": "16:30",
           "message": "﻿docs: 查證 ORA-00001 時發現現場問題 — 1120 的 Oracle 寫入每天靜默失敗",
-          "body": "原本要釐清「ORA-00001 是設計還是掉單」以定案 Oracle A/B 案。讀"
+          "body": "原本要釐清「ORA-00001 是設計還是掉單」以定案 Oracle A/B 案。讀\nBLGTXRepostiroy 原碼＋三天日誌後，ORA-00001 確認無害（該筆已存在），\n但查到另一個沒被發現、更嚴重的錯誤：\n\nORA-01830（日期轉換失敗）09-01 有 85 筆、09-02 有 118 筆、09-03 有 90 筆，\n三天全部集中在單一時間點，緊接著就是單位 1120 檔案的「轉檔成功」。\n\n成因：Register() 的 TO_DATE 格式寫死 YYYYMMDD，CreateBlgTxHdr() 只用字串\n長度分 8/14 兩種格式；而 1120 檔案的 BIRTHDAY 實測是 2004-02-10（10 碼\n含連字號），1,393 列全部同一格式 → TO_DATE 必炸，且 catch 只記 log 不\n中斷，最後仍輸出「轉檔成功」。\n\n合併既有事實（1120 在 WebOrder PhysicianOrderM 從無資料），該單位的醫令\n可能沒有進入任何系統。⚠️ 未經證實的部分已標明：無 HCLAB 查詢權限，無法\n驗證 BLG_TX_HDR 是否真缺；且 90 筆 < 該檔 325 張單，不能斷言全部遺失。\n精確結論：每天有數十筆 HCLAB 寫入因系統性日期格式問題被靜默丟棄。\n\n這是現場問題不是移轉問題，建議獨立通報維護者。\n\n對 A/B 案：更強烈建議 A 案，但理由改變 —— 原本顧慮是「寫入語意未明」，\n現在是「它有 bug」；B 案等於接手一個正在掉資料的介面。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "3baff865",
           "time": "16:24",
           "message": "﻿fix: 健檢腳本讀日誌要指定 UTF8，否則靜默回報 OK",
-          "body": "首版部署後回報「預期失敗 0 筆」，但當天實際有 24 筆 —— Serilog 寫 UTF-8，"
+          "body": "首版部署後回報「預期失敗 0 筆」，但當天實際有 24 筆 —— Serilog 寫 UTF-8，\nPowerShell 5.1 的 Get-Content 預設用 cp950 讀，中文變亂碼後所有比對\n（解析失敗／DryRun 摘要）全部失效。這種假 OK 比沒有監控更危險。\n\n- 讀日誌加 -Encoding UTF8、寫 log 加 -Encoding UTF8\n- 新增自我檢查：有日誌卻抓不到任何輪詢摘要就報 ALERT，\n  避免同類「比對失效 → 靜默 OK」再發生\n- 部署腳本本身也必須存成 UTF-8 with BOM，否則 PS 5.1 會用 cp950\n  解讀中文註解、吃掉換行導致腳本解析失敗（首版即因此完全沒執行）\n\n修正後實測：OK 預期失敗 29 筆（ITEMNAME）｜五單位輪詢數齊全\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "acdd9282",
           "time": "15:58",
           "message": "feat: DryRun 陪跑每日健檢；REFACTORING_PLAN 過期阻塞項更正",
-          "body": "tools/shadow-health-check.ps1：每天一行 OK/ALERT 寫進"
+          "body": "tools/shadow-health-check.ps1：每天一行 OK/ALERT 寫進\nD:\\OrderInSql\\shadow-health.log，檢查六件事——服務 RUNNING、今日有日誌、\n非預期解析失敗（ITEMNAME 那批視為預期）、隔離區為空、影子同步 6 小時內\n有更新、各單位最新輪詢摘要。\n\n⚠️ 遠端 schtasks 對 56.227 回 request is not supported，無法直接建排程，\n故掛在既有的 sync-shadow.bat（每 10 分鐘）上，腳本自帶每日一次守衛。\n副作用是好的：同步斷了健檢也會跟著停，不會出現「同步早就掛了但健檢天天報 OK」。\n\nREFACTORING_PLAN §2 待確認事項更正（原本停留在 08-28 的認知）：\n- FlexibleParsing 部署主機、量級、實際在跑的 worker 都已定案，改打勾\n- 表名更正 Format → FileFormat\n- parsing_order_files.php 從「與 FlexibleParsing 無關、歸批次 7」更正為\n  批次 3/4/5 的上游相依\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "dadfad74",
           "time": "15:44",
           "message": "docs: 批次 1 單位轉移卡（9/8 切換當天的單一參照）",
-          "body": "docs/migrations/batch1-weborder-xml.md —— 把當天要做的事收斂到一頁："
+          "body": "docs/migrations/batch1-weborder-xml.md —— 把當天要做的事收斂到一頁：\n\n- 基本資料：5 家現役單位、日均 10.5 檔（週日全休）、排程名與 bat 內容、\n  新舊資料夾與 config 路徑\n- 兩條紅線：只停 07_orderinsql（QFT 修補層不能停）、不要停影子同步\n  （它現在餵 5 個單位，批次 2/4/5 還在陪跑）\n- 切換步驟拆成 .227 端（RDP 備份+套 CUTOVER config）與 56.227 端\n  （改 Live + 重啟 + GO 腳本），後接三項立即驗證\n- 回退步驟，並註明 XML 家族回退安全（SN 來自檔案內容，重跑是 update）\n- 觀察期每日檢查，含「判讀前先查修補層」的提醒\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e13407c5",
           "time": "15:36",
           "message": "docs: 上游收檔管道盤點 — 階段 0 最後兩個未結項結案",
-          "body": "1. .227 排程停用權限：joechiboo 可 RDP 自行操作（使用者確認）"
+          "body": "1. .227 排程停用權限：joechiboo 可 RDP 自行操作（使用者確認）\n2. 上游 FTP：實查確認 FileZilla Server 就跑在 .227 本機（MSFtpsvc 已停用），\n   14 個帳號的家目錄直接對應各家族收檔夾，對照表入 runbook：\n   ftpuser→UCLOrder_Files、tatung_ftpuser→TaTung_Files、\n   xevox_ftpuser→TaTung_Xevox_Files（也是前處理 PHP 的輸入夾）、\n   unimax_ftpuser→UNIMAX_Files、sds_ftpuser→SDS_FTP_Root（PHP \\Order 來源）\n\n⚠️ 批次 1（衛生所 XML）不走 FileZilla —— 無帳號指向 WebOrder_XML_Files，\n排程也查無寫入者。客戶端上傳有三種管道（php sftp／小海豚／大鯨魚），\nXML 走哪一種待確認。不擋 9/8：舊程式的暴露面與我方 pull 相同，且\nrobocopy 對鎖住的檔會跳過重試。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "4f2b9248",
           "time": "15:32",
           "message": "docs: 批次 1 切換日定 2026-09-08；切換資產複查修正兩處",
-          "body": "批次表更新：批次 1 標定切換日 9/8（週二）；批次 2-5 狀態改為反映"
+          "body": "批次表更新：批次 1 標定切換日 9/8（週二）；批次 2-5 狀態改為反映\n回放與陪跑實況。\n\n09-04 複查 09-02 備妥的切換資產，抓到兩個會在切換日出事的地方：\n\n1. GO-cutover.ps1 會停用整個影子同步排程 —— 但 sync-shadow.bat 現在\n   同時餵 5 個單位（XML/TaTung/Cube/ansn 兩線），批次 2/4/5 都還在\n   DryRun 觀察期，停掉會把它們一起弄停。已移除該行並改為註解說明。\n2. D:\\OrderInSqlData\\units\\weborder-xml 只有 inbox，缺 archive 與\n   quarantine —— 會在第一個檔處理完要歸檔時才炸。已補建。\n\n另複查 .227 的 OrderInSQL.exe.config.CUTOVER：收檔夾→Verify_*、\n連線→WebOrder_Test，兩處都正確。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "920cd83f",
           "time": "12:58",
           "message": "docs: 未結項盤點 — 補打已完成的驗收/階段0 項目，標註實際驗證方式",
-          "body": "- TEST_PLAN §6：三家族回放全數完成（ansn 09-03 補上）；線上平行改記"
+          "body": "- TEST_PLAN §6：三家族回放全數完成（ansn 09-03 補上）；線上平行改記\n  DryRun 陪跑進度（XML/TaTung/Cube 自 09-02、ansn 兩線自 09-04）\n- RUNBOOK 階段 0：密文設定、服務啟動、煙霧測試、對照表同步四項補打勾\n- healthz 5177 對外有防火牆，外部打不到 —— 驗證方式改記為「服務 RUNNING\n  ＋ logs 有新一輪輪詢」，要驗 healthz 需在 56.227 本機打 localhost\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "3e762203",
           "time": "12:43",
           "message": "docs: 轉檔前處理層盤點 — parsing_order_files.php 是批次 3/4/5 的上游相依",
-          "body": "原本 runbook 把它列在批次 7「逐一盤點後決定移植或退役」。實查 1,263 行"
+          "body": "原本 runbook 把它列在批次 7「逐一盤點後決定移植或退役」。實查 1,263 行\n後要改判：它是轉檔「前」的格式前處理器，15 個單位靠它供料。\n\n資料流：\n- TaTung_Xevox_Files ─[PHP]→ Cube_Files（批次 4）\n  ⚠️ TaTung_Xevox_Files 同時是批次 3 Xevox 的收檔夾\n- ExamOrder_Files ─[PHP]→ UNIMAX_Files（批次 5 長慎）／Cube_Files\n  ⚠️ ExamOrder_Files 同時是 FlexibleParsing 的 CatchFolder\n\n三個切換風險（已寫進 runbook）：\n1. 批次 3 的 pull 用 /MOV 會搶走 PHP 的輸入 → 0078/0244/0449/0466/1068/2798\n   等單位靜默斷料（近 7 天實測 30 檔走這條路）→ 該批 pull 必須排除這些前綴\n2. 批次 4/5 切走後 PHP 仍須繼續跑（它們的收檔夾就是 PHP 的產出夾）\n3. 停排程第二條紅線：這支 PHP 不能停\n\n順帶解開 ansn 回放的 @@ 之謎：PHP 對 0014/0017/0580 做\nJ欄 = SEQUENCE + @@ + ID_INVNO，然後修補層再把前綴切掉。\n完整路徑「前處理加 @@ → ansn 原樣寫入 → 修補層切掉」已補進 TEST_PLAN。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "6a29511c",
           "time": "08:54",
           "message": "docs: ansn 影子陪跑上線 — 預期失敗清單與判讀標準",
-          "body": "2026-09-04 ansn 兩條線影子陪跑於 56.227 開啟："
+          "body": "2026-09-04 ansn 兩條線影子陪跑於 56.227 開啟：\n\n- sync-shadow.bat 加 UCLOrder/UNIMAX 兩條 robocopy（/XF 1120-* 0539-*\n  同步端先擋一層），單位設定 ANSN-SHADOW/UNIMAX-SHADOW 帶 FileNameExcluded\n- 首輪：ANSN-SHADOW 115 檔（91 成功/24 失敗）、UNIMAX-SHADOW 35 檔全過\n- 24 個失敗全部是 ITEMNAME 表頭錯 —— 0026/3528/0743/0452/0069/3549\n  六單位每天收到 FlexibleParsing 版面檔，新舊程式都拒收（舊程式在正式庫\n  MessLog 每 30 分鐘報同一錯誤至今）→ 列為「預期失敗」，不擋切換\n- 判讀標準改為「零非預期解析錯誤」；不可把這六個單位前綴加進\n  FileNameExcluded（同單位也有合法檔）；切換後這批檔會進 quarantine\n  （舊程式是留在收檔夾重試），值班判讀說明已載明\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "c68693c1",
           "time": "08:39",
           "message": "docs: 56.227 更版 SOP — self-contained 部署實錄與踩坑",
-          "body": "2026-09-04 首次更版（含 ansn 三修正）實踩記錄："
+          "body": "2026-09-04 首次更版（含 ansn 三修正）實踩記錄：\n\n- 56.227 未裝機器級 .NET 10 runtime，原始部署是 self-contained；\n  用 framework-dependent 版覆蓋會 StartService FAILED 1053\n  （runtimeconfig.json 從 includedFrameworks 變 frameworks 即為徵兆）\n- publish 產出含本機 appsettings.Local.json，直接整包覆蓋會把遠端的\n  影子 DryRun 設定（正式密文連線＋三個影子單位）蓋掉，staging 必須先刪\n- 更版四步：staging 清 Local 設定 → 備份 app_bak_yyyymmdd → 停服務\n  robocopy → 啟服務驗 RUNNING + logs 新輪詢（5177 對外有防火牆）\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
       "count": 11
@@ -81,58 +92,74 @@
           "hash": "5864b377",
           "time": "17:03",
           "message": "「播過的歌」搬出點歌面板，自己一頁",
-          "body": "點新歌跟翻舊歌是兩件事，擠在同一個面板的結果是兩邊都難用："
+          "body": "點新歌跟翻舊歌是兩件事，擠在同一個面板的結果是兩邊都難用：\n點歌的人要捲過一長串播放歷史，翻歷史的人要先看完整張點歌表單。\n加上前一版新增的「已經轉好的 mp3」，那一頁已經有四塊。\n\n工具列多一顆「🔁 重播」開自己的面板，裡面放「播過的歌」與\n「🎲 從已撥再來幾首」——兩個都是從已撥撈東西，本來就該在一起。\n點歌面板原本那顆 🎲 換成「🔁 翻播過的歌」，直接切過去。\n\n訊息列兩邊都寫（orderMsg 同時更新 #orderMsg 與 #replayMsg）：\n「♪ 排入」兩個面板都有，只寫一邊會變成有時候按下去完全沒反應。\n\n沒有動任何 API 與後端，純前端搬家。\n\n驗過：node --check 過（1661 行 inline JS）；publish 出來實跑，\n頁面含 replayHelp／replayBtn／replayOpenBtn／replayMsg，\n且 playedBox 確實落在 replayHelp 之內。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "d3e30c7c",
           "time": "16:33",
           "message": "快取補上窗口與節制：看得見裡面有什麼，也不會把鄰居的磁碟吃光",
-          "body": "兩件事一起送，因為它們動到同一支 YoutubeCache 與同一份使用說明，按檔案分不開。"
+          "body": "兩件事一起送，因為它們動到同一支 YoutubeCache 與同一份使用說明，按檔案分不開。\n\n## 一、曲庫窗口：快取是整個點唱機唯一沒有介面的地方\n\n待撥／已撥／撥不了 都能用檔案總管管，只有快取不行——檔名是影片 ID，\n人看不懂。歌名靠那三個資料夾裡的 .url 反查，而**反查不到的那些才是重點**：\n捷徑檔早被刪掉、mp3 還躺在快取裡，除了這份清單沒有任何地方找得到它們。\n\n- GET /api/music/cache 列出來（沒開轉檔時 enabled=false，面板整塊不出現）\n- GET /api/music/cache/{videoId} 直接串那份 mp3、支援 Range，給「🎧 試聽」用\n- 試聽只有按的人自己聽得到，電視照播它的；要上電視仍然只有 enqueue 一條路\n\n刻意跟 /api/music/file 分兩支：那支的名字來自待播清單（電視在播的那首），\n這支的名字是影片 ID（面板在試聽的那首）。合成一支就得讓清單以外的檔名也串得出來。\n\n## 二、容量治理：起因是同仁擔心存一堆 mp3 佔空間\n\n先量再說。56.229 實際數字：快取 413 MB／13 檔，已撥 3.4 MB（30 個 .url 捷徑\n＋1 個真 mp3），整個 D:\\Argus 628 MB，D 槽 100 GB 剩 46.5 GB。\n所以「存了一堆歌」存的其實是一堆捷徑，當下完全不是問題。\n\n但量的過程翻出三件該改的：\n\n**淘汰順序改成大的先走。** 快取裡有兩支一小時的長節目（211 MB、126 MB），\n兩支就吃掉上限 17%。純 FIFO 為了騰出那 200 MB 會刪掉 30 首大家常點的歌，\n卻把只播過一次的長節目留著。快取的價值是「手上現成有幾首歌」不是「留了幾 MB」。\n代價寫進註解了：長節目每次第一個被刪，重播要重抓——它本來就是用一首歌的名義\n佔了 30 首的位置。\n\n**上限 2 GB → 5 GB。** 天天在刪的快取等於天天在重抓，這個值該抓成「一年份的\n曲庫」而不是「省一點空間」。5 GB 約 500 首正常歌，目的是讓刪除幾乎不必發生。\n\n**新增 Music:MinFreeMb（磁碟可用空間下限，預設 5 GB）。** 查 D 槽時發現\n56.229 不是 Argus 專屬機——同一顆磁碟還住著 LISWeb、OPD_FilesUpload、SNP_PDF、\nMail_Attachments、SampleCheck_IN、Schedule 等三十幾個目錄，好幾個會自己長大。\n那 46.5 GB 是大家共用的餘裕，不是 Argus 的額度。\n\nCacheMaxMb 只管快取自己多大，管不到磁碟還剩多少：「音樂只佔 5 GB」在磁碟剩\n500 MB 的那天依然是 5 GB，而那天壞掉的是別人的檔案落地，不是音樂。所以低於\n下限時上限自動讓步，差多少扣多少，必要時扣到 0（待撥清單上用得到的仍不刪）。\n方向刻意是**音樂先讓路**：點唱機在這台是搭便車的，該第一個吐空間出來。\n\n縮的時候記一筆 warning 並指名「這是磁碟本身的問題，不是點唱機造成的」——\n否則下次查「歌怎麼都不見了」會查錯方向，而真正長爆的那個目錄沒人看見。\n量不到可用空間（快取放 UNC，DriveInfo 不吃）就當沒這條規則：不知道還剩多少，\n不構成刪掉大家的歌的理由，那只是把一個不確定換成一個確定的損失。\n\n## 驗過\n\n跑真的 binary，不是推論：\n\n- 下限會觸發：MinFreeMb=99999999 指到 9 MB 的暫存快取 → 上限降到 0、三個檔全刪，\n  warning 措辭正確（「快取全刪光也只騰得出 9 MB」）\n- 空間正常時下限不介入，且順序真的變了：放 1 MB(最舊)/5 MB/2 MB 共 7.6 MB、上限 6 MB\n  → 只刪 5 MB 那一個（舊 FIFO 會刪掉兩個），沒有出現下限 warning\n- 合起來 build 0 警告 0 錯誤；index.html 呼叫的 11 支端點 Program.cs 全都有\n\n以今天的狀況（剩 46.5 GB、下限 5 GB）這條完全不會觸發，它是純粹的保險。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "761982c5",
           "time": "16:17",
           "message": "插播等 mp3 這件事只做了一半：轉好了沒人通知電視，而且常常根本沒在等",
-          "body": "插播的設計是「現在這首照播，插播的歌轉好那一秒才讓位」——讓位換來十幾秒安靜"
+          "body": "插播的設計是「現在這首照播，插播的歌轉好那一秒才讓位」——讓位換來十幾秒安靜\n不是插播。播放端那半（musicCutInCheck 用 mPlayable 過濾）本來就對，\n伺服器這半有兩個洞：\n\n1. YoutubeCache 轉好一首之後沒推 SignalR。清單內容確實沒變（還是那個 .url），\n   變的是它終於放得出聲音了，而那正是要切過去的那一刻。電視只好等下一次\n   30 秒輪詢——按下插播到真的切過去，轉檔十幾秒之外再加平均 15 秒。\n\n2. Converting 的 5 分鐘寬限期算的是檔案的 CreationTime，而插播為了排到最前面\n   會把 CreationTime 故意撥老（撥到清單最早那個 -1 秒）。於是待撥裡只要有一首\n   躺超過 5 分鐘的舊歌，插播進來的新歌一出生就「過期」→ Converting=false →\n   電視當場用 iframe 播掉（有廣告），正在轉的 mp3 白轉一場。\n   待撥空的時候才會照設計等——也就是這個功能在最常見的情境下是關著的。\n\n改法：MusicFetcher 轉成功推一次 music 事件（推不出去只記 warning，\n不影響轉檔迴圈；轉失敗不推，清單上什麼都沒變）；_cutIns 從 HashSet 換成\nDictionary<string, DateTime> 一併記下真正的插播時刻，新的 MusicStore.ArrivedUtc\n有記錄就用它、沒有就退回 CreationTime。排序照舊吃被撥老的 CreationTime——\n那個謊是講給排序聽的，不該讓寬限期也信。\n\n行為變化：待撥有舊歌時，插播從「秒切、有廣告」變成「十幾秒後切、無廣告」。\n這是原本就寫在 README 的設計，不是新規則。\n\n伺服器重啟後名單掉了、檔案的 CreationTime 還是老的，那首於是照舊走 iframe。\n可以接受：重啟時它本來就已經在資料夾裡躺著了。\n\n只做了編譯驗證，實際切歌要在 56.229 上點一首才看得到。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "75da89ec",
           "time": "15:55",
           "message": "版號改成「這包最後被動過的時間」：只看 dll 對設定和牆面是瞎的",
-          "body": "版號存在的理由是 README 寫的那句：「以為部了新版、其實線上還是舊的」發生過不只一次。"
+          "body": "版號存在的理由是 README 寫的那句：「以為部了新版、其實線上還是舊的」發生過不只一次。\n但它只讀 Argus.Wall.dll 的檔案時間，而 wwwroot/index.html 與 appsettings.json\n都能在 dll 沒變的情況下被單獨佈上去——那兩種佈署版號完全不動。\n\n今天就發生了一次：08:12 只換 appsettings.json（失聯指引的巡守間隔 10 分 → 2 分），\n線上確實生效，但版號停在 07:52。我最後是 curl 下來 grep 內容才敢說它佈成功了。\n而那正是這個版號要擋的事——**分不出「沒佈成功」還是「佈了但版號不動」**。\n\n改成三個檔取最新：dll、appsettings.json、wwwroot/index.html。\n語意從「程式是哪一版」變成「線上這包是不是我剛佈的那包」——前者 git commit\n才答得準，後者才是站在牆前面的人真正要問的。\n\n實測三種情境版號都跟著動（只碰 dll 15:53、只碰設定 16:30、只碰前端 17:45）。\n\nFile.Exists 先問一次是必要的：不存在的檔 GetLastWriteTime 會回 1601-01-01\n而不是丟例外，安靜地混進來不會有人發現版號是假的。\n單一檔讀不到就跳過、剩下的照算，版號壞掉不值得讓牆壞掉。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "cb2d1fa5",
           "time": "15:44",
           "message": "設定漂移：線上有、repo 沒有的設定就是下一次發佈的地雷",
-          "body": "佈署是 `robocopy publish ... /E`，整份 appsettings.json 會被蓋掉。"
+          "body": "佈署是 `robocopy publish ... /E`，整份 appsettings.json 會被蓋掉。\n所以其餘所有設定的正式值本來就寫在 repo 裡（ProductionHost、LostRunbook、\nTimelineWindows…），覆蓋過去等於維持原狀——只有 TokenEnc 與 App_Data 要另外處理。\n\n對帳時抓到一顆漏網的：線上 Music:PendingFolder 設著 D:/Argus/Music/待撥，\nrepo 裡卻是空字串。發佈一次點唱機就會無聲關掉——PendingFolder 空＝功能關閉，\n「♪ 點歌」鈕消失、沒有音樂，跟「今天沒人點歌」長得一模一樣。這顆跟這次的新功能\n無關，是既有的；上一支 commit 加的 ToolsFolder 只是會踩到同一顆。\n\n兩格一起補進 repo（PendingFolder / ToolsFolder），佈署就不用手動再調一次。\n代價是開發機 dotnet run 會在 D 槽底下建出那幾個空資料夾；沒有 D 槽也只是\n音樂列寫「資料夾讀不到」，監控不受影響。\n\n佈署指南補上這條規矩：改線上設定的當下就把同一份改進 repo，別只改伺服器。\n\n驗過：用 repo 的 appsettings 直接開機，JSON 解得動、/healthz 回 200、\n啟動 log 出現「YouTube 轉 mp3 已啟用：工具 D:/Argus/tools…」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "fd15506e",
           "time": "15:35",
           "message": "點唱機：YouTube 先在伺服器轉成 mp3 再播（預設關閉）",
-          "body": "設了 Music:ToolsFolder 之後，背景工照播放順序把待撥裡的 .url 交給"
+          "body": "設了 Music:ToolsFolder 之後，背景工照播放順序把待撥裡的 .url 交給\nyt-dlp＋ffmpeg 抓成 mp3 存進快取，電視改串那份 mp3 而不是開 iframe：\n沒有廣告、電視那端不需要外網、版權方不給站外嵌入的也放得出聲音。\n\n快取是旁路，不是主路——待撥資料夾一個檔案都不動。清單的單位仍然是\n那個 .url，順序、插播、播完搬已撥、撥不了名單全部照舊；快取只回答\n「這支影片我手上有沒有 mp3」，有就報成 mp3 曲目，沒有就照舊報 youtube。\n所以工具不在、外網斷了、影片抓不下來，全部自動退回改版前那條路，\n沒有一條新的失敗路徑會讓歌消失。\n\n「轉好再播」是這件事的重點，不是附加的：不等的話電視會在 SignalR\n一推的一秒內先用 iframe 把剛點的歌播掉（有廣告的那個版本），而轉檔\n要十幾秒——轉好的 mp3 於是永遠只有第二次點同一首時才吃得到，等於\n整個功能對點歌的人不存在。所以還在轉的曲目帶 Converting 旗標、\n播放端跳過它留在原位等，音樂列寫「♪ 轉檔中…」。等待有兩個出口：\n轉成功，或放棄（轉失敗、或超過 5 分鐘沒等到，退回 iframe）——\n等不到 mp3 的時候，有廣告的音樂還是勝過安靜。\n\n連帶一個語意變化：開了轉檔之後「撥不了/版權擋播」不再擋點歌\n（伺服器端與點歌面板同一條規矩）。那筆紀錄講的是 iframe 播不了\n（101/150），而現在聲音不是從 iframe 來的；不放行的話，最需要這個\n功能的那批歌反而永遠點不進來。影片不存在照擋。\n\n⚠️ 這一段的成本不是技術性的：把 YouTube 的音訊抓下來存在公司伺服器、\n在訪客聽得到的辦公室公開播放，違反 YouTube 服務條款，也繞過了版權方\n「不准站外播」的意思表示。功能預設關閉（ToolsFolder 留空），開它是\n設定者的決定。根本解仍是辦公室本來就該有的公播授權（MÜST／ARCO，\n或訂閱商用背景音樂服務），那會連同仁自己丟進來的 mp3 一起解決。\n\n實測：轉檔工還沒動手時清單回 converting=true（歌被擋著不播），\n20 秒後轉檔失敗改回 false（放行給 iframe）；快取命中時 .url 曲目\n翻成 type=mp3、串得到檔、播完照樣搬進已撥。yt-dlp 真的跑一次沒驗過\n——工具在 56.229，開發機沒有。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "13164030",
           "time": "08:47",
           "message": "README 準則第 4 條跟線上牴觸了：主機位址現在是刻意顯示的",
-          "body": "原本寫「畫面上不出現 server IP」，但 !31 上線後紅磚會直接印出主機與排程路徑。"
+          "body": "原本寫「畫面上不出現 server IP」，但 !31 上線後紅磚會直接印出主機與排程路徑。\n文件跟實作打架比兩邊都沒寫更糟——照著讀的人會以為那是 bug。\n\n把 2026-09-03 那次權衡寫進去：紅燈亮著卻要人回座位翻手冊才知道去哪台，\n那幾分鐘比「訪客瞄到一個內網 IP」貴得多。客戶名稱與病人資料的禁止不變。\n\n帳密那條反而寫得更硬：永遠不上牆，只寫去哪裡拿。理由補上一個原本沒講的——\nGET /api/snapshot 沒有驗證，這一頁對整個內網是公開的，不只是訪客看得到。\n\n順手加〈處置指引〉一節：四個欄位、三條規矩（只畫最上面那張且 ≤4 張、\n不知道就標不知道、只在紅／黃時送），以及為什麼失聯那一格的指引只能放在 Argus。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "81c4581e",
           "time": "08:46",
           "message": "怎麼測這面牆、以及它多久才會叫（另一個 session 的未提交稿，原樣收進來）",
-          "body": "這批不是我寫的，內容一字未改，只是它在工作目錄裡躺了大半天沒進版控，"
+          "body": "這批不是我寫的，內容一字未改，只是它在工作目錄裡躺了大半天沒進版控，\n今天要在 README 上補〈處置指引〉一節，先把它落地免得被壓掉或混在一起。\n\n新增 Docs/測牆與告警時序.md：三種測法由輕到重（試聽按鈕／加假頭／test-howl）、\n從「東西壞了」到「牆上叫」各段門檻要多久、以及一條紅線——別為了測牆去停用生產排程\n（停用再啟用不會恢復重複鏈，2026-09-03 台北 FalconCopy 就是這樣退化成 18 分鐘一輪）。\nREADME 同步補上指路與一個已知鈍角（失聯只叫一次，紅燈有 120 秒重叫）。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "9ad4f0bc",
           "time": "08:10",
           "message": "失聯指引寫錯巡守間隔：10 分 → 2 分",
-          "body": "排程 2026-08-31 就從 PT10M 改成 PT2M 了（見 Cerberus Docs/佈署指南.md"
+          "body": "排程 2026-08-31 就從 PT10M 改成 PT2M 了（見 Cerberus Docs/佈署指南.md\n佈署紀錄），LostRunbook 照舊文抄成「每 10 分無限重複」。\n\n這正是這個功能自己要擋的那種錯：站在失聯畫面前的人會照著等 10 分鐘，\n而實際上連漏兩輪（4 分鐘）就該當成出事了。指到錯誤節奏的指引比沒有指引更花時間。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6dc9324d",
+          "time": "07:15",
+          "message": "合併 MR !31: 告警指引上牆：磚上直接寫出去哪台、看哪個檔、下哪一行指令",
+          "body": "告警指引上牆：磚上直接寫出去哪台、看哪個檔、下哪一行指令\n\nSee merge request ucl/ops/argus!31",
+          "category": "合併MR"
         }
       ],
-      "count": 9
+      "count": 10
     },
     {
       "name": "Cerberus",
@@ -141,34 +168,60 @@
           "hash": "df27488b",
           "time": "12:50",
           "message": "佇列頭第一步少了 net use：同仁照著跑會直接被拒",
-          "body": "2026-09-04 用 is1 實測整條路徑，抓到兩件事。"
+          "body": "2026-09-04 用 is1 實測整條路徑，抓到兩件事。\n\n一、磚上第一步直接叫人跑 Get-ChildItem 讀 \\192.168.168.221\\queue，\n但一般網域帳號沒有 session 時直接 Permission denied——同仁照著做會撞牆，\n而且看起來像資料夾掛了，往錯的方向查。補上 net use 當第一步。\n\n二、帳密指路本來寫「TakoDoko 搜 192.168.168.221」，但大章魚裡根本沒有那台物件\n（其他五個分部都有 HCINI，就台北沒有）。已建「[台北] InterFaceServer(221)」\n並掛上 is1 憑證，指路改成連物件名一起寫，搜到之後不用再猜是哪一筆。\nHC010 的指路同步改成兩個物件都指明（DB 在 168.225、機器在 221）。\n\n順帶把 Path 的括號補完整：「只看第一層；子資料夾是墳場，不算積壓」——\n實查兩個佇列第一層都只有 PRIORITY／error／tmp 這些子資料夾，\n第一次看的人容易以為佇列裡有東西。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "dd6b0a81",
+          "time": "12:27",
+          "message": "合併 MR !34: 手冊補上 HC010 在哪、怎麼重啟（那段「待補」終於可以刪了）",
+          "body": "手冊補上 HC010 在哪、怎麼重啟（那段「待補」終於可以刪了）\n\nSee merge request ucl/ops/cerberus!34",
+          "category": "合併MR"
         },
         {
           "hash": "2d591462",
           "time": "08:45",
           "message": "手冊補上 HC010 在哪、怎麼重啟；佈署指南補上 09-04 三次佈署",
-          "body": "告警回應手冊那段「⚠️ 待補：HC010 跑在哪台機器、服務名是什麼、怎麼安全重啟」"
+          "body": "告警回應手冊那段「⚠️ 待補：HC010 跑在哪台機器、服務名是什麼、怎麼安全重啟」\n掛了很久，2026-09-04 實機查證了：\n\n    RDP 192.168.168.221 → 桌面 TaskLoader → 勾「HC010 產生醫令資料」→ Stop 再 Start\n\n同一支 TaskLoader 底下還有 HC001O（醫令產生）與 HC001R（檢驗結果收接），\n正好是儀器醫令／結果佇列那兩顆頭盯的東西，一起列成表。\n\n刻意保留一條警告，而且寫得比原本更明確：**知道在哪 ≠ 可以自己動**。\n它是 HCINI 的程式，重啟安不安全、會不會漏掉處理到一半的那批都還沒人驗證過。\n這一段補的是「不用再花時間找它在哪」，不是授權自己按下去——\n所以 appsettings 那顆頭的 Bite 仍然是 null。\n\n也提醒別照抄別顆頭的 Start-ScheduledTask：221 這三個是 TaskLoader 裡的任務，\n不是 Windows 排程也不是服務，那個指令對它們沒有意義。\n\n佈署指南補上 09-04 三次佈署，含這次的教訓：沒權限停排程時改成「先送 code、\n後送 config」兩趟，最壞情況降級成「新 code 配舊 config」（指引不出現），\n不會重演 08-31 那次六顆頭同時誤報。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "949a9e7e",
           "time": "08:44",
           "message": "FalconCopy 重複鏈斷掉的判讀與修法（另一個 session 的未提交稿，原樣收進來）",
-          "body": "這批不是我寫的，內容一字未改，只是它在工作目錄裡躺了大半天沒進版控，"
+          "body": "這批不是我寫的，內容一字未改，只是它在工作目錄裡躺了大半天沒進版控，\n今天要在同兩個檔上補 HC010 的查證結果，先把它落地免得被壓掉或混在一起。\n\n內容：告警回應手冊新增〈FalconCopy 專屬：每 18 分鐘規律叫一次＝重複鏈斷了〉，\n教人認出「黃報→綠報成對、每 17~18 分鐘一次」這個簽名；佈署指南補上 2026-09-03\n觸發器重錨定的紀錄，以及「停用→啟用不會恢復重複鏈」這個坑。\n順手把 SOP 裡的巡守間隔從 10 分改成 2 分（排程 08-31 就改了）。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6e2db9ed",
+          "time": "08:37",
+          "message": "合併 MR !33: 指引補到「照著就能動手」：佇列頭改以資料夾為起點，報告回傳補上 SQL",
+          "body": "指引補到「照著就能動手」：佇列頭改以資料夾為起點，報告回傳補上 SQL\n\nSee merge request ucl/ops/cerberus!33",
+          "category": "合併MR"
         },
         {
           "hash": "3e38bfcb",
           "time": "08:36",
           "message": "221 實機確認：三顆頭的主機與重啟位置都查到了，待查證記號全部拿掉",
-          "body": "使用者 RDP 上 192.168.168.221，桌面 TaskLoader UCL 的任務清單直接給出答案："
+          "body": "使用者 RDP 上 192.168.168.221，桌面 TaskLoader UCL 的任務清單直接給出答案：\n\n  HC001O  醫令產生        Started\n  HC001R  檢驗結果收接    Started\n  HC010   產生醫令資料    Started\n\n三顆頭盯的東西全部掛在 221 的 TaskLoader 底下，連「怎麼重啟」都一併解決了——\n不是排程、不是服務，是那支 TaskLoader 的 Start/Stop。\n\n所以：\n- HC010 的 Host 從「? 疑似 221，未證實」變成確認，並註明它讀的 DB 仍在 168.225\n- 兩顆佇列頭的 Host 補上實際任務代號（HC001O／HC001R，不是先前簡寫的 001O／001R）\n- 三顆頭的第三步都改成具體位置：RDP 221 → 桌面 TaskLoader → 勾該任務 Stop 再 Start\n\n三個 ? 記號拿掉。理由是語意：? 代表「這行還沒查證」，位置現在查證了，\n剩下的「該不該動」是 HCINI 負責人的判斷，不是未知——留著 ? 會讓那個記號\n從「不知道」滑成「要小心」，兩種意思混在一起，記號就不可信了。\n「動之前先問 HCINI 負責人」改用一般文字寫在同一步裡。\n\n12 顆頭現在全部答得出：哪台主機／看哪裡／照著就能動手／帳密去哪拿。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "e78fa4a5",
           "time": "08:34",
           "message": "指引補到「照著就能動手」：兩顆佇列頭改以資料夾為起點，六站報告回傳補上 SQL",
-          "body": "上線後逐顆對同仁的要求（哪台主機／詳細資訊／指引）掃一遍，12 顆只有 3 顆完全"
+          "body": "上線後逐顆對同仁的要求（哪台主機／詳細資訊／指引）掃一遍，12 顆只有 3 顆完全\n達標。這次補掉其中 8 顆。\n\n儀器醫令／結果佇列：原本 Host 寫「? 001O 跑在哪台還沒查證」，但這兩顆頭的處置\n起點根本不是那台機器——它看的是 \\192.168.168.221 上的交換資料夾，走 SMB 直接\n看就好。改寫成以資料夾為起點，Steps 給可直接複製的 Get-ChildItem，「誰去重啟\n001O/001R」才留 ? 記號。\n\n報告回傳六站：原本只說「近 60 分依 HisVendorId 分組，找 Success=0 的那家」，\n沒給 SQL——而這顆頭的價值全在「是哪一家廠商」，沒 SQL 等於還是要回座位查。\n補上可直接貼進去跑的查詢，第二步接上判讀。\n\nHC010：補上「疑似 192.168.168.221」這條線索，但仍標 ? 未證實。221 開了 445/135/\n3389、1521 沒開（Oracle 確實在 168.225），與「HCINI 介接主機」一致，但沒有登入\n證實過。不知道就標不知道。\n\n兩顆佇列頭的帳密指路寫明「一般帳號直讀會被拒」——2026-09-04 實測 Permission\ndenied。少了這句，看牆的人會以為是資料夾掛了。\n\n⚠️ 改法留給後人：這兩顆佇列頭的步驟原本逐字相同，字串 replace 會同時改到兩邊\n（今天踩過）。要動 Runbook 請逐顆頭定位後整塊重寫。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "deb62e7e",
+          "time": "07:15",
+          "message": "合併 MR !31: 告警指引上牆：紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令",
+          "body": "告警指引上牆：紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令\n\nSee merge request ucl/ops/cerberus!31",
+          "category": "合併MR"
         }
       ],
-      "count": 5
+      "count": 8
     },
     {
       "name": "lisweb",
@@ -177,28 +230,66 @@
           "hash": "62026b6c",
           "time": "18:17",
           "message": "docs: 各站部署版本紀錄 — 桃園換版與渲染分流實錄",
-          "body": "程式沒有版本號（csproj 未設 Version、assembly 恆為 1.0.0.0），各站跑哪一版"
+          "body": "程式沒有版本號（csproj 未設 Version、assembly 恆為 1.0.0.0），各站跑哪一版\n先前只能靠翻對話與檔案日期猜。比照隔壁 FalconCopy repo 的做法建一份集中表。\n\ndocs/6（新增）：\n- 各站現況：台北 7/21、台中 7/03、新竹 8/26、桃園 8/27（本次補上 8 版）；\n  嘉義 192.168.0.229 另有一套從未盤點的部署，先列進表待查\n- 版本尺：9 個有實質程式變更的 commit 由新到舊編號，「落後幾版」照此計數\n- 認版本的三招：檔案大小指紋、.bak_<時間戳>、行為特徵\n- 桃園 8/25 雙排程事件量測結論：輪數確實砍半（576→288/日），但基數極小\n  （全日最多 1,168 張、一天只佔渲染站 20~25 分鐘），渲染耗時 0.15~0.27 秒\n  全程無惡化 → htmlConverter 不是 BT201 緩慢的原因\n- 桃園去重效益實測 = 0（倍率 1.00，一張單就是一列）——別把台北的效益套到別站\n- 換版後實得：user-select 禁止複製 CSS 不再寫入（新舊各抽 3 筆對照）\n- 渲染分流切換與驗法：token = Base64(order_no) 可手動比對新舊主機（MD5 相同）、\n  新主機冷啟動 18.7 秒、改打新站後用渲染站 IIS log 反證（batch log 不記 URL）\n\ndocs/1：\n- 修正桃園路徑（實際是 ReportHtmlSync，不是 ReportHtmlConverter）、補打包方式\n  與 DB（HCLABxOracle，同機另有空的 HCLABx）、渲染目標改 192.168.1.231\n- 站台表加註嘉義未盤點，並連向 docs/6\n\n.gitignore：排除 _deploy_*/ 與 _prod_backup_full/（單檔 exe 約 147MB）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "75fc337e",
           "time": "16:14",
           "message": "fix(CodeMap): 未簽收單被當成已刪單濾掉, 改用簽收狀態欄+逾期收合",
-          "body": "ID_TRX_DT = 9999-12-31 是「尚未簽收」的預設值 (CheckRepository 簽收時"
+          "body": "ID_TRX_DT = 9999-12-31 是「尚未簽收」的預設值 (CheckRepository 簽收時\n改成 SYSDATE、取消簽收再改回 9999), 不是「已被 API 刪除」。\n2026-07-20 的 GetDeletedOrders 誤把它當刪單旗標整列濾掉, 導致所有還沒\n簽收的單都不會出現在代碼對應頁 —— 而那正是最該補代碼的時間點。\nV2026.07.21.001 起壞了六週, 現在 32 張未對應單有 18 張 (56%) 看不到。\n\n同一個誤判也讓 GetUnknowOrders 的 `< 9000` 條件回傳空集合: 全庫 162 張\nBLG_TX_DTL 還殘留 UNKNOW 的單全部都是未簽收, 等於「殘留 UNKNOW 一律\n顯示」這個功能自 7/21 起就是死的。\n\n改法 (不隱藏, 改成揭露 + 可收合):\n- 移除 GetDeletedOrders 與 GetUnknowOrders 的 9000 濾網\n- 新增 FillReceiveStatus: 回填 Received / ReceiveDate / PendingDays\n- 前端加「簽收狀態」欄 (已簽收日 / 未簽收 N 天 / 查無單號)\n- 前端加 checkbox「隱藏 30 天以上未簽收」預設勾選, 收合檢體不會再送來的\n  殭屍單 (全庫 43,326 張未簽收有 94% 超過 90 天), 取消勾選即可全部列出\n- GetUnknowOrders 的三個月窗對未簽收單改用 ID_UPDATE_ON 計算, 否則\n  ID_TRX_DT 停在 9999 會讓該條件永遠成立, 2019 年的殭屍單全部湧入\n\n順手修的既有問題:\n- 「隱藏測試單位」初次載入不生效 (只在 checkbox 被點時才套用)\n- 「只看最近三個月」改了沒反應 (該條件是後端 SQL 濾的, 要重撈)\n- trggerBLGSave 的 `< 9000` 條件其實是對的 (只對已簽收的單重 trigger),\n  補上正確註解避免下次又被誤讀\n\n案例: 享悅診所 2416 / 30522 幽門桿菌糞便抗原 (TNO 6090281508)\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "02124889",
           "time": "17:44",
           "message": "fix(BT201): 處方案件檢核改為空白不算不符",
-          "body": "實測台北 2026-07 有串接的單 3857 筆, 原規則會提示 629 筆(16%),"
+          "body": "實測台北 2026-07 有串接的單 3857 筆, 原規則會提示 629 筆(16%),\n其中 F類247筆是同人同日同院所只有一邊沒 key 卡號、\nB類272筆是處方案件單根本沒有 ORD_DECLARE 列導致醫事代碼/卡號變成空白比有值,\n都不是重複申報, 純誤報。\n\n改為任一邊空白就略過該項比對後降到 210 筆(5.4%),\n冠礽反映的 6060404846、6062201203~1205 仍全數攔得到。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "673ee441",
           "time": "16:40",
           "message": "feat(BT201): 申報處方案件編號串接檢核",
-          "body": "按申報資料 OK 或存檔時，檢查處方案件(DE_SAME_TNO)串到的那張單"
+          "body": "按申報資料 OK 或存檔時，檢查處方案件(DE_SAME_TNO)串到的那張單\n是否為 同醫事代碼 + 同ID + 同就醫日 + 同卡號。\n\n任一項不符或查無該編號，跳出確認視窗提示，行政可選返回修改或仍要繼續，\n選擇結果一併寫入 Seq (BT201處方案件串接異常) 方便事後追查。\n\n- 新增 API GET api/TAX/CheckSameTNO 與 SameTNOCheckResult\n- 檢核條件與 getSameTNO_Data 自動帶入的規則一致\n- 送檢單位不同僅列為附註，不觸發提示\n- 資料不完整(無ID/ID=00)或 API 異常時不擋，避免影響作業\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "1fd97da5",
+          "time": "07:42",
+          "message": "合併 MR !1473: fix:[LT274] 修正生日與病床號表頭及分頁預留高度判斷",
+          "body": "fix:[LT274] 修正生日與病床號表頭及分頁預留高度判斷\n\nSee merge request ucl/lis/lisweb!1473",
+          "category": "合併MR"
+        },
+        {
+          "hash": "b7900132",
+          "time": "07:15",
+          "message": "合併 MR !1472: fix(faxreport): 修正 NETFAX 單位下拉選取",
+          "body": "fix(faxreport): 修正 NETFAX 單位下拉選取\n\nSee merge request ucl/lis/lisweb!1472",
+          "category": "合併MR"
         }
       ],
-      "count": 4
+      "count": 6
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "50b6d0f6",
+          "time": "18:19",
+          "message": "chore: 新增桃園2(TY2)發佈站點 + 累積的 memory",
+          "body": "- lisweb-deploy skill: 加入桃園2(192.168.22.231, IIS站台LISWEB, TY_UCL)\n  - 用途是給 converter 打的報告渲染節點, 非使用者站台\n  - 230/231 版本必須一致, 桃園滾版兩台一起滾\n  - db=ok 不代表站台可用(view首編), 新機驗證要跑到綠為止\n  - TY2 借 TY 帳號換網址跑零寫入 probe 的指令\n- 其餘為各專案累積的 memory 更新\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e2c453bd",
+          "time": "10:43",
+          "message": "tako runbook：搜尋不比對 internalUrl，拿 IP 當指路前先補關鍵字；帳密要看物件自帶＋掛載兩層",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
     },
     {
       "name": "OnlineReport\\ReportHtmlSync",
@@ -207,7 +298,8 @@
           "hash": "62026b6c",
           "time": "18:17",
           "message": "docs: 各站部署版本紀錄 — 桃園換版與渲染分流實錄",
-          "body": "程式沒有版本號（csproj 未設 Version、assembly 恆為 1.0.0.0），各站跑哪一版"
+          "body": "程式沒有版本號（csproj 未設 Version、assembly 恆為 1.0.0.0），各站跑哪一版\n先前只能靠翻對話與檔案日期猜。比照隔壁 FalconCopy repo 的做法建一份集中表。\n\ndocs/6（新增）：\n- 各站現況：台北 7/21、台中 7/03、新竹 8/26、桃園 8/27（本次補上 8 版）；\n  嘉義 192.168.0.229 另有一套從未盤點的部署，先列進表待查\n- 版本尺：9 個有實質程式變更的 commit 由新到舊編號，「落後幾版」照此計數\n- 認版本的三招：檔案大小指紋、.bak_<時間戳>、行為特徵\n- 桃園 8/25 雙排程事件量測結論：輪數確實砍半（576→288/日），但基數極小\n  （全日最多 1,168 張、一天只佔渲染站 20~25 分鐘），渲染耗時 0.15~0.27 秒\n  全程無惡化 → htmlConverter 不是 BT201 緩慢的原因\n- 桃園去重效益實測 = 0（倍率 1.00，一張單就是一列）——別把台北的效益套到別站\n- 換版後實得：user-select 禁止複製 CSS 不再寫入（新舊各抽 3 筆對照）\n- 渲染分流切換與驗法：token = Base64(order_no) 可手動比對新舊主機（MD5 相同）、\n  新主機冷啟動 18.7 秒、改打新站後用渲染站 IIS log 反證（batch log 不記 URL）\n\ndocs/1：\n- 修正桃園路徑（實際是 ReportHtmlSync，不是 ReportHtmlConverter）、補打包方式\n  與 DB（HCLABxOracle，同機另有空的 HCLABx）、渲染目標改 192.168.1.231\n- 站台表加註嘉義未盤點，並連向 docs/6\n\n.gitignore：排除 _deploy_*/ 與 _prod_backup_full/（單檔 exe 約 147MB）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
       "count": 1
@@ -221,21 +313,23 @@
           "hash": "bcbdb98c",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-04",
-          "body": "🤖 自動生成於 2026-09-04 07:05"
+          "body": "🤖 自動生成於 2026-09-04 07:05",
+          "category": "文檔"
         },
         {
           "hash": "70ea0f91",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-03 (20 commits)",
-          "body": "🤖 自動生成於 2026-09-04 07:05"
+          "body": "🤖 自動生成於 2026-09-04 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
     }
   ],
   "summary": {
-    "workCommits": 30,
+    "workCommits": 38,
     "sideCommits": 2,
-    "totalCommits": 32
+    "totalCommits": 40
   }
 }

@@ -487,7 +487,7 @@ def merge_to_public():
                     'date': daily['date'],
                     'message': commit['message'],
                     'body': commit.get('body', ''),
-                    'category': categorize_commit(commit['message']),
+                    'category': commit.get('category') or categorize_commit(commit['message']),
                     'tags': []
                 })
                 work_projects_map[proj_name]['totalCommits'] += 1
@@ -509,7 +509,7 @@ def merge_to_public():
                     'date': daily['date'],
                     'message': commit['message'],
                     'body': commit.get('body', ''),
-                    'category': categorize_commit(commit['message']),
+                    'category': commit.get('category') or categorize_commit(commit['message']),
                     'tags': []
                 })
                 side_projects_map[proj_name]['totalCommits'] += 1

@@ -3,85 +3,104 @@
   "weekday": "四",
   "work_projects": [
     {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "9989a782",
+          "time": "18:26",
+          "message": "合併 MR !36: feat/ansn file gating",
+          "body": "feat/ansn file gating\n\nSee merge request ucl/twowayconnection/orderinsql!36",
+          "category": "合併MR"
+        },
+        {
+          "hash": "ad0c8a96",
+          "time": "18:25",
+          "message": "feat: ansn 影子夾守門 — 排除 FlexibleParsing 產出的 1120/0539 檔",
+          "body": "用正式庫明細的 filename 欄反推守門範圍：近 7 天備份夾 225 檔、正式庫\n有紀錄 212 檔，未匯入 13 檔逐一歸因後只有一類是真的：\n\n- 1120-*（8 檔，含 1120-1120- 雙前綴與單前綴）= FlexibleParsing 產出，\n  該單位在正式庫 PhysicianOrderM 從無任何資料\n- 0936-...-2-1.xls 是假象（舊程式搬備份時同名加 -1，正式庫記原名）\n- 0925/0049 該單位資料充足，屬個別檔案問題非系統性\n\n守門範圍 = 1120- 與 0539-（兩者正式庫皆零筆）。不可用「FlexibleParsing\n單位一律排除」：同為 mode=Parsing 的 0705 在正式庫有 9,885 張且今天仍在\n寫入；00330033- 那種雙前綴檔名也正常。\n\n影響範圍：1120 的檔不會進正式收檔夾（否則舊程式早就寫進 WebOrder 了），\nFlexibleParsing 是直接寫進共用的備份夾。故 ④ 正式切換不受影響，\n受影響的是 ③ DryRun 影子同步（來源=備份夾）與回放素材取樣。\n\n- appsettings.json ansn 範例單位帶 FileNameExcluded 並註明原因\n- MIGRATION_RUNBOOK ③ 加 ansn 專屬警語與檢查項\n- ImportPipelineFileFilterTests 補一條（單/雙前綴都要擋）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "87782e63",
+          "time": "18:00",
+          "message": "docs: ansn 家族結案 — 最後 2 筆歸因為修補層跨單位搬單",
+          "body": "0005 潘曼玲/劉明美「我方有、正式庫 0005 無」的兩張主檔，跨單位反查後\n發現她們在正式庫掛單位 0875，且 filename 就是本輪回放的同一支檔。\n修補層 PHP L2439 註解寫明：「0005 診所 若有FOBT(9134) 移到0875」，\nL2454/2462 改 UTI_UNIT_CODE、L2692-2726 重編 SEQUENCE 與 id_invno。\n\n⇒ 舊程式與我方一樣寫進 0005，是修補層事後搬走。轉檔層行為一致，非差異。\n\nansn 家族結案：主檔逐欄 0 差異、明細缺項/多項 0/0，殘留差異全數歸因於\n修補層或下游。三大家族回放全部通過，批次 5 程式面前置完成。\n\nPOST_IMPORT_FIXUPS 新增 §2.8（修補層會跨單位搬單，UTI_UNIT_CODE 被 SET\n共 14 次），並記下歸因順序：先跨單位反查 → 看 filename → 再懷疑轉檔層。\n一天之內同一陷阱踩三次（Cancel/ID_INVNO/搬單位）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a711186d",
+          "time": "17:52",
+          "message": "docs: ansn 全量稽核結案 — 明細零未解釋差異，僅餘 2 張主檔待查",
+          "body": "新增 tools/ansn-detail-audit.sql（比照 keelung 版，只取一對一映射）。\n先前 parallel-compare 報的 ProdOnly 1,478 幾乎全是「同病患同日多張單」\n造成的笛卡爾積假象，改用唯一配對後：\n\n- 明細數差異 1 張，且為正式庫重複、內容相同 → 測試缺項目 0、多項目 0\n- 明細代碼組合 TestOnly 13 / ProdOnly 13 = 同 13 筆 UCL_CODE 被改寫，\n  全部 adjust='99'、upd_user 為 OrderCheckJob(6) 或 A309(7)\n- 其中 2983 的 09134C1 (9134→9334) 正是修補層 PHP L220-232 的規則，\n  且該規則靠 WHERE ID_INVNO='01' 命中 —— 在本輪資料上實際觸發，\n  反證了撤回 IdInvnoSource 的決定正確\n\n已歸因並列入白名單：\n- REMARK 2 筆：#IsPrinted／尿量登記是下游回填（upd_user=UCL）\n- 未對齊 1 筆（0674）：正式庫 ID 存成 5.85E+08 —— 舊程式 Interop\n  Range.Text 取顯示文字，欄寬不足時身分證號被存成科學記號。我方值正確，\n  歸類「舊版 bug 不相容照舊」，不修但需知會窗口\n\n⛔ 唯一未結案：0005 兩張主檔我方有、正式庫全庫無（方向是多寫非漏寫）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "39fd30ca",
+          "time": "17:32",
+          "message": "fix: ansn 回放續查 — ID_INVNO 翻案為修補層擁有，列入白名單",
+          "body": "追查 378 筆 ID_INVNO 差異，一度加了 IdInvnoSource 選項讓長慎線改取\nSEQUENCE 欄（378→334）。查修補層 PHP 後確認該修正是錯的，已撤回：\n\n- L3118/3140/3162：單位 0014 切掉 ID_INVNO 的 `@@` 前綴。實測該單位檔案\n  SEQUENCE 欄確實是 `1509010979@@150901E195`，舊程式原樣寫入、修補層事後\n  切掉，我方寫的原值才是對的\n- L2677/2716：單位 0005 以 ID_TNO 覆寫；L2819：以明細 ID_CLI_INFO 回填\n- L226/243/261：**單位 2983 的 UCL_CODE 改寫規則以 `WHERE ID_INVNO='01'`\n  比對轉檔層寫入的原值** —— 轉檔層若寫成修補後的值，該規則永遠命不中、\n  該單位客製改寫整片失效\n\n⇒ ID_INVNO 與 Cancel 同類：修補層擁有，轉檔層必須原樣寫入。已加入比對\n白名單，並在 adapter／比對腳本／POST_IMPORT_FIXUPS §2.7 就地註記。\n\n回放最終狀態（1,906 張測試主檔）：姓名／性別／生日／採檢日 0 差異；\n未對齊 3；REMARK 2；明細 ProdOnly 1,478 與同鍵多筆 327 待唯一配對稽核。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "ace75935",
+          "time": "14:12",
+          "message": "fix: ansn 回放揪出兩個真 bug — 表頭全欄驗證、BIFF5 Big5 亂碼",
+          "body": "第一輪 ansn 回放（安慎 20 檔 + 長慎 12 檔，對 WebOrder_Test）抓到：\n\n1. 表頭驗證漏放行 CLI_INFO 欄：移植時比照 Branch 變體豁免該欄不驗，\n   但部署版是全欄檢查、只跳過空白表頭。實測 0026/3528 三檔第 26 欄為\n   ITEMNAME，舊程式拒收（正式庫 MessLog 每 30 分鐘重複同一錯誤至今），\n   我方卻照收並寫入。修正後三檔正確隔離。\n\n2. BIFF5 中文姓名亂碼 435 筆：舊檔 CODEPAGE 宣告 cp1252、內容卻是 Big5\n   位元組，ExcelDataReader 依宣告解碼即亂碼；舊程式走 Interop 跟隨系統\n   中文設定等價於 Big5。FallbackEncoding 無效（僅未宣告碼頁時作用），\n   改為還原位元組再以 Big5 解碼。修正後 DiffName 435 → 0。\n\n另附 tools/parallel-compare-ansn.sql（內容鍵對齊）與 TEST_PLAN 執行紀錄。\n\n⛔ 批次 5 尚未過關，未結案項目見 TEST_PLAN：\n- ID_INVNO 378 筆差異（TransferUCLCode 開啟時取值來源移植錯誤）\n- 明細 ProdOnly 1,464 待歸因\n- ansn 備份夾與 FlexibleParsing 共用，回放素材會被污染（1120 在正式庫\n  從無資料，我方首輪誤寫 325 張）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "d84e95fd",
+          "time": "12:22",
+          "message": "docs: 專案說明頁更新至 2026-09-03 實況",
+          "body": "- P2 改完成（含 ansn Live 語意、外送大安、V4 大包）；P5 補 Keelung 回放結案\n- Hero stat 換流量實查數字（~180 檔/日、170+ 現役單位）\n- 新增：轉檔後修補層一節、流量實查（登記 vs 現役）、毒檔重試實證\n- 風險新增「停舊排程紅線 [WebOrder]QFT」卡；批次表更新狀態與量級\n- Footer 補流量基線／修補層／FlexibleParsing 連結\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 7
+    },
+    {
       "name": "Argus",
       "commits": [
         {
           "hash": "b03aef14",
           "time": "18:02",
           "message": "磚上直接寫出去哪台、看哪個檔、下哪一行指令",
-          "body": "紅燈亮著的時候，人需要的下一個資訊是「去哪台、看哪個檔、下哪一行指令」。"
+          "body": "紅燈亮著的時候，人需要的下一個資訊是「去哪台、看哪個檔、下哪一行指令」。\n那些字寫在 Cerberus repo 的告警回應手冊裡——完整，但沒有人會在事故當下\n先 clone 一份下來翻。\n\n磚上多一區處置指引（主機／位置／①②③／帳密），壓得比 detail 還小、還暗：\n從走廊掃過來時該被讀到的仍然是右邊那個大 headline，指引是走近了才要讀的。\n\n三件事：\n\n1. 指引只畫在最上面那一張，而且只有同時亮起 ≤4 張時。一次處理一件事，\n   第二件在你修完第一件、它升到最上面時自然會出現。更實際的理由是量出來的：\n   每張磚都掛指引的話，三張紅就把最下面那張推出畫面、跟底部時間軸疊在一起，\n   看起來就是「牆壞了」，比沒有指引更糟。\n\n2. 不放帳密，只寫去哪裡拿。這一頁是公開的（GET /api/snapshot 不驗證），\n   電視又掛在訪客看得到的地方。主機與排程路徑則是刻意放上去的——\n   牆面頁頂端那份設計準則摘要的第 6 條同步改寫，把這次的權衡寫進去。\n   （README 那一份還沒改：目前有別人未提交的修改在同一個檔裡。）\n\n3. 快照沒帶指引的磚，用本地 Wall:Runbooks 依名字補上，快照優先。\n   牆上的磚不保證都來自 Cerberus；而且臨時要改一句指引可以只重啟 Argus。\n   不就地改寫 SnapshotStore 保管的那一份——那會讓設定檔的內容混進\n   「Cerberus 送來的原始快照」，日後對帳分不清誰寫的。\n\n另外補了 Wall:LostRunbook：「地獄犬失聯」那一格的指引只能放這邊，\n畫面轉灰正是因為那一端不講話了，等它送指引過來等於永遠沒有指引。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "6a53420b",
           "time": "08:11",
           "message": "播過的歌按一下就再點：點歌面板列出已撥清單，「♪ 排入」「⚡ 插播」搬回待撥",
-          "body": "「重播＝把檔案從已撥搬回待撥」本來要開檔案總管，現在面板上就有：已撥清單"
+          "body": "「重播＝把檔案從已撥搬回待撥」本來要開檔案總管，現在面板上就有：已撥清單\n最近點的在前、同一首點過幾次併成一列標 ×N、有找歌名的框。跟續攤（🎲 隨機撈）\n互補——那個是隨機，這個是點名。\n\nGET /api/music/played 列清單（YouTube 用影片 ID 合併、mp3 用去時間戳的檔名合併）；\nPOST /api/music/requeue 指名搬回，跟續攤同一套規矩：搬回前過撥不了名單、已在排隊的\n擋掉、到達時間蓋成現在免得插隊，cutIn 走現成的 CutInFront。\n\n音樂列與撥不了清單的標題一併去掉重複點歌補的時間戳。文件修掉「按右下角？」那句，\n並補〈試過但不做：yt-dlp 抓音檔〉memo——驗證結果、工具位置、為什麼不做。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "9d5f4a87",
           "time": "07:48",
           "message": "清單空了一鍵續攤：從已撥隨機撈幾首回來接著播",
-          "body": "待播空了音樂就停，而「已撥」正是驗證過能播的歌單庫——"
+          "body": "待播空了音樂就停，而「已撥」正是驗證過能播的歌單庫——\nPOST /api/music/replay 隨機撈 N 首（預設 3）搬回待撥。\n電視音樂列的空清單狀態多一顆「🎲 再來幾首」、點歌面板同款。\n\n兩條規矩（argus-07 在交接時提的，都對）：\n- 來源只掃「已撥」，「撥不了」絕不碰——那裡的歌搬回去只會再無聲跳過一次\n- 就算在已撥，搬回前也逐首再過一次撥不了名單（比影片 ID）——\n  有的歌是播成功之後版權才被鎖的，不驗會白撈\n\n搬回的檔案把到達時間蓋成「現在」：清單順序就是 CreationTime，\n已撥裡的檔帶著上次點歌的舊時間，不蓋會插到現在排隊的歌前面\n（插播是刻意撥早，這裡正好相反）。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "442cb020",
           "time": "07:42",
           "message": "撥不了的歌自成一格：按原因隔離、點歌當下就擋、面板看得到為什麼",
-          "body": "「我那首怎麼一直沒播」的根治。播不出聲音的歌原本混在「已撥」裡，"
+          "body": "「我那首怎麼一直沒播」的根治。播不出聲音的歌原本混在「已撥」裡，\n「播過了」跟「根本播不了」長一樣，同一支被版權擋的影片會被一點再點。\n\n- 播放端回報 done 時帶失敗種類（blocked／gone／broken），伺服器改搬進\n  「撥不了/<原因>」子資料夾（版權擋播／影片不存在／檔案壞了／其他）。\n  子資料夾名走白名單，不吃瀏覽器字串——不然任何人都能在磁碟上開資料夾\n- 點歌時先比對撥不了清單的影片 ID：牆上真的試過放不出來的，當場擋下\n  ——這是唯一伺服器端有把握的答案，不是猜的，是電視上試過了。\n  mp3 同檔名也提醒（只比檔名，換名重傳進得來：這是提醒不是封鎖）\n- 點歌面板列出撥不了的歌與原因，回答「怎麼沒播」不用來問人\n- 想讓某首重新可點：把檔案從「撥不了」資料夾刪掉即可\n\n（本包由平行 session 實作並端到端測試，本 session 依使用者指示代為\nreview 與 commit。）\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "3d9b5821",
           "time": "07:20",
           "message": "卡住的那首在自己座位就能跳過：點歌面板加「⏭ 跳過現在這首」",
-          "body": "音樂列的 ⏭ 只有電視按得到，可是最常遇到「這首卡住了／點錯了」的，"
+          "body": "音樂列的 ⏭ 只有電視按得到，可是最常遇到「這首卡住了／點錯了」的，\n是在自己座位開牆的同仁——只能走到電視前面按，或等它自己壞完。\n\n伺服器只記一個一次性旗標，不猜歌名：現在播的是哪一首、播到哪，只有電視\n知道（YouTube 連不上時它會跳著挑 mp3、插播時清單第一首也不是正在播的那首），\n猜錯就是把還沒播的歌搬進已撥。旗標由電視拿清單時領走並消耗掉（?player=1），\n真正的跳過動作跟音樂列的 ⏭ 走同一條路；SignalR 推一下，通常一秒內就換。\n\n沒歌在播就不會發生任何事：待撥空的當場回「現在沒歌在播」，電視關著時按的\n旗標 60 秒後過期——不然會在幾小時後電視一開就吃掉一首沒人想跳的歌。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "5233f15c",
           "time": "07:09",
           "message": "音樂列上的「？」拿掉：跟工具列的「♪ 點歌」是同一個入口，電視上兩顆並排",
-          "body": "說明頁拆開後，點唱機面板已經有「♪ 點歌」這顆常駐入口（所有畫面都有），"
-        }
-      ],
-      "count": 6
-    },
-    {
-      "name": "OrderInSql",
-      "commits": [
-        {
-          "hash": "ad0c8a96",
-          "time": "18:25",
-          "message": "feat: ansn 影子夾守門 — 排除 FlexibleParsing 產出的 1120/0539 檔",
-          "body": "用正式庫明細的 filename 欄反推守門範圍：近 7 天備份夾 225 檔、正式庫"
-        },
-        {
-          "hash": "87782e63",
-          "time": "18:00",
-          "message": "docs: ansn 家族結案 — 最後 2 筆歸因為修補層跨單位搬單",
-          "body": "0005 潘曼玲/劉明美「我方有、正式庫 0005 無」的兩張主檔，跨單位反查後"
-        },
-        {
-          "hash": "a711186d",
-          "time": "17:52",
-          "message": "docs: ansn 全量稽核結案 — 明細零未解釋差異，僅餘 2 張主檔待查",
-          "body": "新增 tools/ansn-detail-audit.sql（比照 keelung 版，只取一對一映射）。"
-        },
-        {
-          "hash": "39fd30ca",
-          "time": "17:32",
-          "message": "fix: ansn 回放續查 — ID_INVNO 翻案為修補層擁有，列入白名單",
-          "body": "追查 378 筆 ID_INVNO 差異，一度加了 IdInvnoSource 選項讓長慎線改取"
-        },
-        {
-          "hash": "ace75935",
-          "time": "14:12",
-          "message": "fix: ansn 回放揪出兩個真 bug — 表頭全欄驗證、BIFF5 Big5 亂碼",
-          "body": "第一輪 ansn 回放（安慎 20 檔 + 長慎 12 檔，對 WebOrder_Test）抓到："
-        },
-        {
-          "hash": "d84e95fd",
-          "time": "12:22",
-          "message": "docs: 專案說明頁更新至 2026-09-03 實況",
-          "body": "- P2 改完成（含 ansn Live 語意、外送大安、V4 大包）；P5 補 Keelung 回放結案"
+          "body": "說明頁拆開後，點唱機面板已經有「♪ 點歌」這顆常駐入口（所有畫面都有），\n音樂列尾巴那顆「？」變成重複的——只在電視上出現、開的又是同一頁。留一顆就好。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 6
@@ -93,34 +112,46 @@
           "hash": "241d727f",
           "time": "17:59",
           "message": "refactor(HDPID): UPDATE 參數改成名稱值成對傳入，並清除查詢間殘留狀態",
-          "body": "自我 review 抓到兩點，都是會誤導維護者的寫法："
+          "body": "自我 review 抓到兩點，都是會誤導維護者的寫法：\n\n- Exec 舊簽章是 (sql, tno, pid, user) 固定三個值，但更新 CUST_MASTER 時\n  是把身分證塞進 tno 這個位置、性別塞進 pid，語意完全對不上。改成\n  params「名稱, 值」成對傳入，呼叫端一眼看得出哪個值綁到哪個參數，\n  並把性別的參數名從 :pid 正名為 :sex。\n- _nameKeys 是 repository 的欄位卻不清空，同一個實例跑第二次查詢會殘留\n  上一次的姓名對照。改在 Query 進入時清空。\n\n行為不變。重構後在測試機 56.225 重跑端對端匯入，六張表加 EVENTLOG 與\nARC 的寫入結果與重構前完全一致，重複匯入、覆蓋已有 ID、檢查碼錯誤三種\n防護也都照樣擋下。測試資料已還原。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "重構"
+        },
+        {
+          "hash": "4bbf41ad",
+          "time": "17:57",
+          "message": "合併 MR !1467: feat:[LT274] 新增病例號、生日[暫限高雄]",
+          "body": "feat:[LT274] 新增病例號、生日[暫限高雄]\n\nSee merge request ucl/lis/lisweb!1467",
+          "category": "合併MR"
         },
         {
           "hash": "9c78246a",
           "time": "14:09",
           "message": "perf(HDPID): 查詢預設不回傳「已有ID」的列，payload 降為 1/14",
-          "body": "實測整月加全部流程單位（電腦組每月的實際工作量）：台北 71 個單位"
+          "body": "實測整月加全部流程單位（電腦組每月的實際工作量）：台北 71 個單位\n15,649 筆，其中 14,795 筆是已有 ID，而畫面預設本來就不顯示它們。\n全部回傳是 5.0 MB，瀏覽器要 parse 並持有一萬五千列。\n\n改為伺服器端就濾掉那些列，只在摘要計數：\n- 回傳列數 15,649 → 854，payload 5.0 MB → 357 KB，暖機耗時約 10 秒 → 5 秒\n- 新增 includeDone 參數（預設 false）；勾「一併列出已有ID」或點摘要的\n  已有ID會帶 includeDone=true 重查\n- 新增 TOTAL_COUNT 回傳查到的總筆數，說明列標示未列出的筆數\n- SUMMARY 一律涵蓋全部列，統計數字不受影響\n\n「ID姓名不符」的列不受影響，仍會回傳，那是需要人工核對的例外。\n\n同步更新頁面說明與設計文件的效能章節。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "5238b037",
           "time": "13:25",
           "message": "docs(HDPID): 補頁面說明文件",
-          "body": "比照 Documents/Pages 其他頁面的格式，補上 HDPID 的頁面說明："
+          "body": "比照 Documents/Pages 其他頁面的格式，補上 HDPID 的頁面說明：\n取代的舊流程、操作、API、單位來源、剔除規則、比對邏輯、狀態一覽、\n匯入寫入範圍、設定項、上版順序與維護注意事項。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "087bcbef",
           "time": "12:34",
           "message": "feat(HDPID): 新增洗腎檔案製作頁，整合身分證比對與匯入",
-          "body": "把洗腎檔（腎臟醫學會檔案）原本的三段流程整合成單一頁面："
+          "body": "把洗腎檔（腎臟醫學會檔案）原本的三段流程整合成單一頁面：\nLT279 匯出 → H 槽 \\ucl-vcares\\VCARESAPP\\身份證\\<單位>資料.XLS 比對\n→ HCLAB_web Update_PID.php 上傳，改為在 LISWeb 一頁完成。\n\n比對來源改用 DB，不讀共用槽：ARC_PATIENTS + HORD_HDR/ORD_HDR 近 12 個月\n歷史單，同單位加姓名正規化後比對。台北實測對每月要匯入的活躍病人，\nARC_PATIENTS 與 H 槽等價（PHP 6~8 月匯入 4192 筆命中 99.8%）。\n\n匯入邏輯等價 HCLAB_web 的 UpdatePID / UpdateSexRef / UpdateBirthDate：\n- 只在 ID_PID='00' 且姓名一致、檢查碼正確時才寫入，已有 ID 不覆蓋\n- 交易內寫 BLG_TX_HDR / ORD_HDR / HORD_HDR / EVENTLOG(B02)，\n  CUST_MASTER 不存在時新增，並 MERGE ARC_PATIENTS 供下次比對\n- commit 後同步網路報告 HCLABx 與重算參考區間，失敗只列警告不回滾\n- 後端逐筆重新讀 DB 重驗，不信任前端狀態\n- ID_UPDATE_BY 記登入帳號（原 PHP 固定寫 BATCH）\n\n剔除規則與員工員眷關鍵字放 Web.config，不用改程式即可調整。\n另補上 PHP 沒做、但 H 槽公式在做的「已有 ID 但姓名不符」一致性檢查。\n\n驗證：msbuild 含 MvcBuildViews 通過；查詢在台北正式庫唯讀實測；\n匯入與選單 SQL 在測試機 56.225 實測後已還原。\n\n上版序：程式先部署，再跑 SchemaModify/HDPID_洗腎檔案製作_選單.sql。台北先行。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "583ffdf1",
           "time": "08:07",
           "message": "feat(BT403): 列印記錄只列 BT101 帳別為「月結帳」的單位",
-          "body": "- 列印記錄 modal 母集合加 DEBTOR.DBBILLTYPE='0' (BT101 帳別=月結帳) 條件"
+          "body": "- 列印記錄 modal 母集合加 DEBTOR.DBBILLTYPE='0' (BT101 帳別=月結帳) 條件\n- 現金/短期應收/特殊分帳客戶不寄月結帳單，原本混在未列印名單裡是噪音\n  (台北 2026-08 未列印 43 家 → 10 家，排除現金 29、短期應收 4)\n- 與既有「帳別」多選 (交易明細 ITD_BILLCODE) 是不同欄位，兩者並存\n- 套用篩選摘要與按鈕 tooltip 標示此固定條件\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
-      "count": 5
+      "count": 6
     },
     {
       "name": "Cerberus",
@@ -129,7 +160,21 @@
           "hash": "cba4a083",
           "time": "18:02",
           "message": "紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令",
-          "body": "告警回應手冊寫得很完整，但它躺在 repo 裡——紅燈亮著的時候沒有人會先"
+          "body": "告警回應手冊寫得很完整，但它躺在 repo 裡——紅燈亮著的時候沒有人會先\nclone 一份下來翻。指引要長在事故旁邊才算存在。\n\n每顆頭加 Runbook（Host／Path／Steps／Credential），跟 Rerun 一樣只在紅／黃\n時附進快照；checker 自己炸掉的「檢查失敗」也給，那種紅更需要知道它在看哪台。\n\n三條規矩：\n- 不放帳密。牆是公開頁面又掛在訪客看得到的地方，Credential 只寫去哪裡拿。\n  主機與排程路徑則是刻意放上去的，那幾分鐘比「訪客瞄到一個內網 IP」貴。\n- 不知道就標不知道：開頭寫 ? 的行牆上標黃寫「待查證」。HC010 與兩顆儀器\n  佇列的頭跑在哪台、怎麼安全重啟都還沒查證，照抄別顆頭的指令會把人送錯機器。\n- 綠燈不送：快照每輪都送、牆每 15 秒 polling，替一排綠燈附上沒人會讀的\n  步驟只是讓電視那條線白扛流量。\n\nHeadRunbook 用 set 不用 init：它跟同檔案其他契約不一樣，是從 appsettings\n綁進來的。設定綁定失敗是無聲的，結果會是牆上那塊磚沒有指引而沒人發現。\n\n12 顆頭全部填好，六站報告回傳連 DB 主機一起寫上——分部佈署時同一份設定\n就看得出各站在哪台。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "2cae51fa",
+          "time": "10:36",
+          "message": "feat(work-recap): 工作回顧 skill；CLAUDE.md 定義 skill/runbook 分界",
+          "body": "work-recap 以既有自動日報（work-progress 排程 07:00 產出）為底稿，\n補三個日報看不到的缺口：~/.claude 不在掃描根目錄、Merge branch commit\n被程式排除（review+merge+打 tag 整類工作隱形）、git 之外的事。\n另記 GitLab merge commit 是 UTC 的時區坑。\n\nCLAUDE.md 新增判準：有明確產出→skill，查表型→runbook，\n內容長→skill 薄入口＋runbook 細節。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 1
@@ -143,21 +188,23 @@
           "hash": "753eefd1",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-03",
-          "body": "🤖 自動生成於 2026-09-03 07:05"
+          "body": "🤖 自動生成於 2026-09-03 07:05",
+          "category": "文檔"
         },
         {
           "hash": "d791ac76",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-02 (43 commits)",
-          "body": "🤖 自動生成於 2026-09-03 07:05"
+          "body": "🤖 自動生成於 2026-09-03 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
     }
   ],
   "summary": {
-    "workCommits": 18,
+    "workCommits": 21,
     "sideCommits": 2,
-    "totalCommits": 20
+    "totalCommits": 23
   }
 }

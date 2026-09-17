@@ -9,187 +9,218 @@
           "hash": "c7f10c01",
           "time": "12:47",
           "message": "docs: 訂正憑證那節 —— 不是「要唯讀帳號」，Parsing 直寫就需要寫入權限",
-          "body": "ORACLE_BOUNDARY §5 原本寫成「要一個唯讀帳號，①成立就不需要」。那是把 §4.2 還沒定案的"
+          "body": "ORACLE_BOUNDARY §5 原本寫成「要一個唯讀帳號，①成立就不需要」。那是把 §4.2 還沒定案的\n結論當成前提：**6b 若走 B 案－直寫，就是需要寫入權限的，唯讀根本不夠。**\n\n改成依「6b 方案 × 段③ 走 API 或直連」列組合：\n\n  A 案      × ① API   → 0 個\n  B案-透過API × ① API   → 0 個\n  A 案      × 直連     → 1 個唯讀（只需到 ① 上線前）\n  B案-直寫   × ① API   → 1 個寫入，範圍限那幾張表\n  B案-直寫   × 直連     → 2 個（唯讀＋寫入），⛔ 不可共用同一把\n\n而真正該堅持的不是「唯讀」，是兩件跟 6b 怎麼走**無關**、現在就能定的事：\n\n1. **不要再用 schema owner** —— 我方現在用的 HCLAB/HCLAB 是全公司工具共用、含 DDL，\n   權限遠超任何一種用途所需\n2. **診斷與寫入不可共用同一把** —— 客服每天在用的頁面不該有能力開委託單。\n   「反正都要寫入帳號了，讀也用同一把」是錯的省事\n\n另補上寫入帳號真要開時的範圍（以分單系統 轉入HCLAB 實際碰到的為準）：\nBLG_TX_HDR／blg_tx_dtl／BLG_PKG_ITEM／HCLITF.ORD_DECLARE／EVENTLOG／CUST_MASTER\n的 INSERT/UPDATE ＋ 若干對照表 SELECT。精確清單要等 6b 定案，但「不是 schema owner」\n這點不用等。\n\nLIS_API_REQUEST §7 與 TODO 的對應條目同步改掉。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "4a451291",
           "time": "12:38",
           "message": "docs: 2026-09-16 12:33 部署補登 —— 減量版上線，L2 改用「帳要平」的核對法",
-          "body": "第 12 列。內容：追查頁減量＋EVENT_TBL 訂正段③（B03/B04）＋SSO token 不進 log"
+          "body": "第 12 列。內容：追查頁減量＋EVENT_TBL 訂正段③（B03/B04）＋SSO token 不進 log\n＋段③ 啟動訊息。匯入路徑同樣零變更。\n\nL1 兩件都在線上確認了：\n- 新增的啟動行出現：「追查頁段③（LIS）：已設定，目標 192.168.168.225 1521 HCLAB；\n  連線一開即 SET TRANSACTION READ ONLY。」\n- token 濾除生效：12:33 之後含 token= 的行 0\n\nL2 這次改用更好的核對法並記進文件：**inbox 總檔數 ＝ 成功＋失敗＋略過**，逐線核對，\n五條線全部完全相等（xevox 868、xevox2 83、veterans 21、ansn-ucl 503、ansn-unimax 166）。\n比「跟部署前相同」好用——影子線整天都在進新檔，數字本來就會變大，重點是帳要平。\n12:09 那次是靠「+1/+2 看起來合理」推斷的，這次是算出來的。\n\n另記一件刻意不做的事：舊 log 裡還有 8 行部署前留下的完整 JWT。Serilog 對該檔持有\n寫入句柄，改寫可能弄壞或掉行；而那些 token 早已過期（10 分鐘效期），殘餘風險只剩\nsub／name，那兩個值我方自己的稽核行本來就有 ⇒ 等 90 天保留期自然滾掉。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "70162b3a",
           "time": "12:32",
           "message": "fix: SSO token 不再進 log；段③ 接上了沒改成啟動時就看得見",
-          "body": "兩支都是 12:09 部署後驗收時發現的。"
+          "body": "兩支都是 12:09 部署後驗收時發現的。\n\n**一、憑證進了 log。** `/sso/callback?token=<JWT>` 的 token 在查詢字串裡，而框架的請求\n日誌（Hosting.Diagnostics 的 Request starting／finished）會把整個 URL **連簽章**一起寫進\n檔案，而檔案保留 90 天 —— 等於每次登入都在磁碟上留下一張可重放的憑證，加上 sub／name\n（LIS 帳號與姓名）。token 10 分鐘過期、重放窗口有限，但那不是理由。\n\n規則抽成 LogRedaction.CarriesCredential（純函式）而不是塞在 Program.cs 的 lambda 裡，\n因為它是安全規則、該有測試守著：8 個案例，含「濾太寬會把稽核紀錄一起吃掉」那一條\n——我方自己那行「SSO 登入成功：帳號（姓名），來源 IP」沒有憑證，必須留下來，否則濾掉\n框架那行之後就完全沒有登入紀錄了。除 token= 之外也擋 access_token=／id_token=／code=。\n\n本機實測：打一個假 token 進去，log 裡含 token= 的行數 0、SHOULD_NOT_APPEAR 0，\n而對照的 /api/trace 請求行仍有 4 行 —— 濾得準、沒有濾過頭。\n\n⚠️ 既有 log 檔裡還有歷史 token（保留 90 天），要不要清另議，已記在 TODO。\n\n**二、段③ 接上了沒，只有登入開頁才知道。** 啟動時補一行，比照「SSO 已啟用」那行：\n\n  追查頁段③（LIS）：已設定，目標 192.168.168.225 1521 HCLAB；連線一開即 SET TRANSACTION READ ONLY。\n\n未設定時印對應的另一句。⛔ 只從連線字串取 HOST／PORT／SID，不印 User Id／Password。\n\n364 測試（新增 8），全綠。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "1d0d8fe5",
           "time": "12:27",
           "message": "fix: 追查頁減量，並用 EVENT_TBL 訂正段③ 漏掉的兩個事件碼",
-          "body": "使用者回饋「看起來 ok，有點資訊太多」，加上一個誤讀：單位欄的 placeholder 我填了"
+          "body": "使用者回饋「看起來 ok，有點資訊太多」，加上一個誤讀：單位欄的 placeholder 我填了\n真實代碼 `0173`，看起來像已經填好了（其實它是選填、查詢確實跑「全部」）。\n\n**減量**（沒有刪掉任何資訊，只是別一次全攤開）：\n- 頂部說明與底部「判讀說明」都收進 <details>，預設收起（後者標題帶條數）\n- 單位 placeholder 改「選填」\n- 「寫入時間」→「寫入日」：這幾條線的 cre_date 是 date-only，時刻恆為 00:00:00＝純噪音\n- 明細改依進度排序（已轉入 → 已分單 → 未分單 → 已取消）：客服要看的那一筆原本被埋在中間\n- 未分單基線只在結果真的有未分單時才顯示，否則會冒出「0 筆（0%）也是未分單」這種怪話\n\n**「已取消」不再畫成紅色。** 使用者那張 0173 的單 9 筆明細有 8 筆紅色「已取消」，看起來\n像災難，實際查是常態：母項 12073C/P829 未取消且已配號，另外 8 筆 12073A* 子項全部\n`upd_user=OrderCheckJob` —— 修補層把套組子項隱藏起來。POST_IMPORT_FIXUPS §2.5 實測\n每天約 95% 的明細列都被它重寫過 Cancel，所以正式庫的 Cancel 根本不是轉檔程式的輸出。\n改成中性灰，`upd_user` 放進「修補層動過」badge 的 title（不新增欄位，符合減量）。\n這是跟「未分單」同一型的坑：把常態畫成異常。\n\n**⛔ 順手抓到段③ 一個真 bug。** 使用者提醒 HCLAB 有一張事件碼對照表，查到是\n`EVENT_TBL`（EV_CODE/EV_DESC，lisweb 的 OrderManagementRepository.cs:508 本來就在 join）。\n實查該表後發現原本只認 B01/B02 有兩個缺口：\n\n  B04  NEW ORDER by SYSTEM  ← 也是建單！漏掉 ⇒ 系統建的單被判「來源不明」，\n                               客服會誤以為是 EVENTLOG 過了三個月保留期\n  B03  DELETE ORDER         ← 單被刪除過是「客戶沒收到報告」的直接原因，原本完全看不見\n\n已改：撈 B01/B02/B03/B04，建單優先序 B01 → B04 → B02；B03 在單上另標\n「⚠ 這張單被刪除過」；事件說明改用 EV_DESC 而不是我方硬編——少抄一條 LIS 規則，\n方向同 ORACLE_BOUNDARY。順帶訂正一份 lisweb 文件的說法：B02 是 AMEND ORDER（修改），\n不是「批次簽收」。\n\nLIS_API_REQUEST 的 §2.4 SQL 與回應欄位同步更新（加 deleted、EV_DESC 由 LIS 給、\n代碼清單改成四個），並登記還沒處理的 L07 REJECT SPECIMEN（檢體退件，同型原因）。\n\n356 測試（新增 3），全綠。另以真資料重跑煙霧測試：EVENT_TBL join 正常，\n0173 那三個號的判別結果不變（人工開單）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "f90e05dd",
           "time": "12:18",
           "message": "docs: 2026-09-16 12:09 部署補登 —— /trace 上線，附 L2 歸因與兩個新發現",
-          "body": "第 11 列。內容：段① WebOrder＋段③ LIS Oracle＋唯讀帳號把關（da51a85）。"
+          "body": "第 11 列。內容：段① WebOrder＋段③ LIS Oracle＋唯讀帳號把關（da51a85）。\nCore.dll 194,560 → 262,656 B，增量主要是首次引入的 Oracle.ManagedDataAccess.Core。\n\n⚠️ 本次**現場設定有變**（前幾次都沒有）：`ConnectionStrings:Hclab` 新增，DES 密文、\n備份在 appsettings.Local.json.bak_20260916_hclab。順帶查證 cutover-0922 的產生器是對\n現行檔做字串手術（$cut.Replace），新鍵會被原樣帶過去 ⇒ 9/22 切批次 5 時不會掉，\n腳本結尾提示的「產生器重跑」本次不需要。\n\n**整包置換的範圍寫進文件**：app\\ 是一份 self-contained publish，沒有「只部署某一頁」\n這個選項，所以逐筆查了 07:14 之後進 main 的 24 個 commit——動到 src/ 的只有我那三支；\n平行 session 的 b5d30ad／bb47ec5／fb88d4b 只改 docs／tests／tools。特別確認\nb5d30ad「0536 病理委外清單要擋掉」只是加測試把「我方沒有那道 gate」的現況釘住，\n沒有改 ImportPipeline。⇒ 匯入路徑零變更，這是 L2 判準成立的原因。\n\nL2 五條 DryRun 線：失敗數全部不變（XEVOX 恆為 1、其餘 0）。XEVOX 成功 +1、\nVETERANS +2 都歸因到新到檔——veterans inbox 正好 21 檔、xevox 共 860 檔 ＝ 858+1+1，\n三項之和完全對得上。\n⚠️ 順手記一條判讀陷阱：**不要用 inbox 的 mtime 對時間**，pull 用 robocopy 保留來源\n時間戳，所以 xevox 最新 mtime（11:52）早於基準時刻也照樣是新到檔；要用總檔數對三項之和。\n\n兩件這次才發現、還沒處理的事（已登記 TODO）：\n\n1. ⛔ **SSO token 被完整寫進 log**：請求日誌含查詢字串，所以\n   GET /sso/callback?token=eyJ... 連簽章一起進 logs/（保留 90 天），sub／name 每次登入\n   都外洩一次。token 10 分鐘過期、重放窗口有限，但憑證不該進 log。\n   修法：Serilog request logging 對該路徑濾掉 query string。\n2. **沒有任何 log 行能確認段③ 接上了沒**：Hclab 設了沒設從 log 看不出來，\n   只有登入開頁才知道。該比照「SSO 已啟用」在啟動時印一行。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "eb8bb2fc",
           "time": "12:02",
           "message": "docs: 6a 實作進度與待辦 —— 訂正「剩餘兩件半」，92% 是 Excel",
-          "body": "把 §0 改寫成「一眼看懂進度」的形狀，並訂正一個我一直在複述的低估。"
+          "body": "把 §0 改寫成「一眼看懂進度」的形狀，並訂正一個我一直在複述的低估。\n\n一句話現況：「證明可行」完成了（1,125 檔逐行零差異），「能實際跑」一行都\n還沒有 —— 三個已完成元件沒有一個在正式寫入路徑上：\n- FpFileFormatConverter 在 Core，但沒有任何生產程式呼叫\n- FpTxtProjector 是驗證工具（重建 FP 的 .txt），不是寫入路徑\n- FpSourceReader 刻意留在測試專案（Core 用 ExcelDataReader，換讀取器就換一套\n  字串化規則）\n\n訂正「剩餘兩件半（Resolve 可注入 + 0775 小改）」：那個描述假設走 Delimited。\n實測 13 家素材 1,068/1,162 = 92% 是 Excel，CSV 只有 0576 一家。而能吃\nColumnSchema 的正是 Delimited 那條；ExcelOrderFileAdapter 是為 ansn 家族寫的，\n欄位位置寫死，而 6a 有 18 種版位。\n\n列出七項待辦與相依順序。其中 #2「值層取捨規格」需要拍板 —— FP_EXPORT_CONTRACT\n§6 是差異清單不是規格，七條性質不同：沿用上一列要保留（來源檔真的有空白續列）、\n14 碼生日要修掉、ID_CLI_INFO→BarCodeSeq 會改變切單結果。\n\n另記陪跑目的已縮小：有了離線逐檔驗證後，陪跑剩下的價值是端到端與抓新樣態，\n不是證明解析對不對。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "bb47ec50",
           "time": "11:56",
           "message": "feat: 量出列級 gate 丟棄的規模 —— 8 列，全在 0376 的檔尾彙總區塊",
-          "body": "0536 那件事長出來的必要檢查（BATCH6A_PLAN §5.0）：FP 有一道三鍵 gate 會把某些"
+          "body": "0536 那件事長出來的必要檢查（BATCH6A_PLAN §5.0）：FP 有一道三鍵 gate 會把某些\n列整列丟掉，我方切換後沒有那道 gate，那些列會變成新的單。而逐檔回放看不到它\n——投影器忠實實作了那道 gate，兩邊都丟，逐行比對是 0。\n\n近 90 天、13 家、63,804 列：\n- 整列全空 11,102 列 —— 不是差異。Excel 檔尾空白列，FP 的讀取迴圈同樣會做成\n  空 DataRow 再被 gate 丟掉\n- 有內容但三鍵空 8 列（0.01%）—— 才是切換後會多寫出來的\n\n⚠️ 這道區分是必要的：不分開的話指標會顯示 17.41%，給出完全錯誤的規模感。\n\n那 8 列全在 0376 奇美柳營的同一個檔，內容是檔尾的彙總區塊（「共20支／黃頭7／\n深藍紅標6／冷凍3」），不是醫令。\n\n結論：把三鍵 gate 原樣移植進正式寫入路徑，不要發明新機制 —— 它已在 1,125 個\n真實檔上證明與 FP 一致，且同時擋掉空白列與彙總區塊。\n\n第 1 梯無影響：0680 與 1020 都是 0；0376 屬第 2 梯。\n仍待確認：0376 檔尾是否一直都有這種彙總區塊。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "b38ded66",
           "time": "11:54",
           "message": "docs: 要 LIS 開哪些端點 —— 可直接交付的規格書",
-          "body": "ORACLE_BOUNDARY 定了方向（LIS 的業務規則不該複製到這個服務），這份是**交給 LIS 側動工的"
+          "body": "ORACLE_BOUNDARY 定了方向（LIS 的業務規則不該複製到這個服務），這份是**交給 LIS 側動工的\n規格**：認證方案、兩支端點的契約、驗收方式、待他們回答的問題。\n\n⭐ 寫的過程有一個意外發現，它大幅改變了「端點② 建委託單」的成本評估：\n\n**那支端點已經存在了。** lisweb 的 `POST api/Signin/CMVCreateTNO`\n（SignInController.cs:171-201）做的正是端點② 要的事：收 (單位, 檢體標示, 操作者) →\n去重 → 從 WebOrder 電子醫令組 BLG_TX_HDR → 寫 Oracle → 回傳 TNO。\n\n而且**我在 ORACLE_BOUNDARY 裡當成硬前置的「冪等」它已經有了**，鍵正是我猜的\n(檢體標示, 單位)：\n\n    var checkResult = _service.CheckTnoSignin_CMV(invno, unit, \"\");\n    if (string.IsNullOrEmpty(checkResult.ID_TNO))  → 開單\n    else                                            → 回 \"Exist_\" + 既有 TNO\n\n⇒ 端點② 的工作量是「推廣 ＋ 把契約收乾淨」，不是「從零寫一支建單 API」。\n這也讓「B 案－透過 API」從紙上選項變成實際可行的那一個。\n\n要改的三件事（都有具體位置）：\n- 解除 CMV 特化：`switch (unit_code)` 寫死 1932/1933、0034/1936 的分組；\n  `ID_CLI_INFO LIKE '%…%'` 子字串比對會誤判（123 命中 1234），對 6b 要精確比對；\n  `ID_UPDATE_BY NOT IN ('BATCH','SYSTEM')` 對 6b 應該要算——分單系統建的單也是「已開過」\n- 契約要能給機器消費：現在回傳是 string、三種結果靠字串前綴分辨，**失敗也回 HTTP 200**。\n  我方失敗處理是「隔離、修好重跑」，得靠狀態碼分辨「已存在」與「失敗」，分不開就會\n  要嘛長出重複單、要嘛卡死\n- 操作者不可由呼叫端自稱：現在未登入時 query string 的 user 直接生效（可冒名），\n  建議從 JWT 的 sub 取\n\n其餘內容：\n\n**認證**（現在真的沒有這個機制）——LISWeb 的 api/* 一律靠使用者 session，沒有任何 M2M\n驗證；`/api/lis/updateLabNo` 不是先例（那是 LISWeb 打出去的，方向相反）。建議把兩邊\n**已經共用的那把 HS256 金鑰反向用**，iss/aud 互換即天然隔離，不用新增祕密管理。\n⛔ 另註明一個沒人驗過的前提：56.227 → LISWeb 的伺服器對伺服器連通性。\n現行 SSO 是瀏覽器居中的，那條通不代表服務直連通。\n\n**端點①（唯讀 trace）**附上我方 2026-09-16 對台北正式庫實測通過的四支 SQL，\n直接貼過去即可，只差把 origin 的判斷搬到他們那側——而那正是要開這支的理由。\n連踩過的坑都寫進去了（別名不可叫 At／Comment，都是 Oracle 保留字，炸 ORA-00923\n且訊息指不到原因）。\n\n**驗收**寫成可執行的：拿 0173 那三個號打，要回三張 origin=ManualEntry（我方已知正確答案，\n可逐欄對）；同一個 (unitCode, invno) 連打三次只能有一張 BLG_TX_HDR。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "46e2c876",
           "time": "11:51",
           "message": "docs: 訂正「四項決策全部結案」—— 決策 1 仍未定案",
-          "body": "我把「10/16 前沒有必須問 Spark 的硬門檻」過度收斂成「四項決策全部結案」，"
+          "body": "我把「10/16 前沒有必須問 Spark 的硬門檻」過度收斂成「四項決策全部結案」，\n那是錯的。實際只有 2、3、4 已結；決策 1（Oracle A/B）在 2026-09-16 只是被\n重新框定，沒有拍板。\n\n新增 §6.2 寫清楚它現在的樣子：\n- A 案原本的描述不成立（WebOrderRepository 只有 LogPass，FP 從不寫 WebOrder 醫令）\n- 6b 實際只剩 0705／1120 兩家是活的\n- 0705 的 WebOrder 隨批次 3b（9/29）就切過來了\n- 問題從「要不要多做一件事」變成「要不要把那三段修成一段」\n\n並列出兩個選項的對價：接 = 拿掉兩個時序漏洞＋一個靜默失敗點＋補上 1120，\n代價是一個 Oracle repository 與釐清 ORA-00001；不接 = 零成本，但 AutoDeliver\n與 .229 那支排程永遠留著，.229 的最終數字是 1 不是 0。\n\n不急（6b 在封鎖窗之後），但它是終局狀態的定義。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "0c61180e",
           "time": "11:47",
           "message": "docs: Oracle 邊界方向 —— 讀與寫同一個答案，走 LIS 的 API",
-          "body": "起因是兩件事同時發生：/trace 段③ 為了分辨手開單引入本專案**第一條** Oracle 相依"
+          "body": "起因是兩件事同時發生：/trace 段③ 為了分辨手開單引入本專案**第一條** Oracle 相依\n（在那之前只有反編譯舊碼裡一個沒被用到的 System.Data.OracleClient），而批次 6b 又規劃\n接手 FlexibleParsing 對 HCLAB 的寫入。一件一件加會加到說不清為什麼，所以先把判準寫下來。\n\n判準不是「要不要連 Oracle」，是**這段程式碼裡的知識屬於誰**：\n\n- 我方的（檔案怎麼解析、寫哪些欄位、失敗怎麼看得見、怎麼重跑）→ 自己做，連哪個 DB 都行\n- LIS 的（單的狀態怎麼判、報告審到哪、來源怎麼分、價格怎麼算、單怎麼拆）→ 不要抄過來\n\n第二條才是重點：**危險的不是 SQL，是業務語意的複製。** 壞掉的查詢會噴 ORA-00904（今天實機\n第一次連線就是這樣被抓到的），但「LIS 改了狀態碼、我們還照舊翻譯」的頁面會一路正常運作\n並給出錯的結論——而那個結論是客服直接唸給客戶聽的。\n\n套進去的結果：\n\n**§4.1 段③（讀）違反判準** —— EVENTLOG 前綴語意、OH_ORD_STATUS 代碼、審核旗標、封存分層\n都已經抄進 LisOrigin / OracleHclabTraceRepository。方向是 LIS 開一支唯讀 API、`origin` 由它判，\n我們只收結論。介面已為此留好（IHclabTraceRepository ＋ 選用注入），換手＝加一個實作、\n改一處註冊，TraceQuery 與頁面都不用動。端點規格與回傳形狀已寫在文件裡（＝現有 LisOrder）。\n過渡期維持直連，不要為了等 API 讓客服繼續開 SSMS。\n\n**§4.2 6b（寫）同一個判準，而且理由更強** ——⚠️ 這節我第一版寫錯並已訂正：原本說「寫入不要\n走 API，隔一層會把失敗可見、可重跑的收穫還回去」。那不成立，同步呼叫一樣是「一次嘗試、\n失敗進隔離區」，三段併一段的好處完全保留，因為那三個缺陷（跨日 regex、無狀態的檔案交接、\nLogPass 靜默標 0 列）是**時序**問題，跟 Oracle 用什麼方式寫無關。\n\n於是 A／B 案其實是三個選項，第三個原本不在文件裡：\n\n  A 案         不碰，AutoDeliver 繼續跑        規則在 LIS   .229 不退役  現有缺陷留著\n  B 案－直寫    自己算價拆單＋直寫 Oracle       ⛔ 規則複製過來  .229 退役   最高：帳務算錯不報錯\n  B 案－透過API 呼叫 LIS 建委託單（新增）        ✅ 規則留 LIS   .229 退役   中：需端點且必須冪等\n\n那 ~900 行（BLGTXRepostiroy 474 + PricingRepository 188 + Parsing.cs 238）裡含 0939 P914\n拆單、價格與加項展開、簽收哨兵值 —— 那是計價與拆單，不是欄位對應。⇒ 寫入側才是這個判準\n真正咬人的地方，因為後果是帳務而不是一句話術。\n\n⛔ 寫入 API 有硬前置：**冪等**。我方失敗處理是「隔離、修好重跑」，而 BLG_TX_HDR 今天沒有\n「已存在就 UPDATE」分支，重複 insert 就是 ORA-00001。這跟 0173 客訴暴露的是同一個缺口\n（補寄醫令長出第二張委託單，全系統沒有併單／去重）。鍵可用 (單位, 檢體標示)，那正是洗腎\n流程回填 TO_ORA 用的配對鍵，概念在 LIS 側已經存在。\n要不到冪等就不走這條，此時 A 案比 B 案－直寫誠實——.229 退役不值得用帳務風險換。\n\n§6 三個要拍板的點是同一題的三個面（唯讀 trace API／建委託單 API＋冪等／HCLAB 唯讀帳號），\n別各自推進：①成立就不需要③，②也成立就連寫入憑證都不需要。建議先推 ① 試水溫。\n\n順手：在 OracleHclabTraceRepository 的類別註解標明「這是過渡實作」與換手方式；\nREADME、ELECTRONICALERT §5.3、FLEXIBLEPARSING 的 6b 方向段落都加了指路。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "10d411ca",
           "time": "11:41",
           "message": "docs: 追蹤文件同步 —— L4 那列與待補清單都落後今天的進度",
-          "body": "今天早上「作戰圖好像沒動耶」是同一個毛病：做完的事沒有回頭改追蹤表。"
+          "body": "今天早上「作戰圖好像沒動耶」是同一個毛病：做完的事沒有回頭改追蹤表。\n\nWORKSTREAMS 的 L4 列還寫著「決策包收斂到只剩 1 題」「最後 1 題 10/16 前問完\nSpark」「剩餘 ① FileFormat → ColumnSchema 轉換器 … ④ 27 家回放」——四項今天\n全部做完或作廢。改成實況：決策四項全結、轉換器與值層已完成、回放 1,125 檔\n逐行零差異 13 家 100%；剩 Resolve 可注入、0775 子目錄、量 gate 丟棄列數、\n開陪跑、0699。\n\nFLEXIBLEPARSING 的待補清單勾掉四項（PHP 鏈拆解已拍板、AutuParsing 為何沒部署\n已答、onlyParsingTodayFiles 已查、AutoTransfer 已答），並把「AutoDeliver 的\nOracle 寫入邏輯」改寫成 BLGTXRepostiroy 的 ORA-00001 去重語意 —— 那才是 6b\n的前置；順帶標明 WebOrderRepository 只有 LogPass、FP 不寫 WebOrder 醫令。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "6347aa46",
           "time": "11:37",
           "message": "docs: 6b 設計方向 —— 三段合成一次寫入，直接轉 Oracle 不經分單",
-          "body": "現行機制是三段、兩支程式、兩個排程，靠檔案搬移當交接。三個脆弱點："
+          "body": "現行機制是三段、兩支程式、兩個排程，靠檔案搬移當交接。三個脆弱點：\n\n① 兩處綁「今天」：FP 的比對字串是 regexStr + 今天日期（0705 是全表唯一開\n   onlyParsingTodayFiles 的），LogPass 又有 ID_CLI_INFO like 今天格式。\n   檔案若在 Xevox 時窗 15:40 後才進 inbox、隔天才被搬進備份夾，FP 就永遠\n   看不到它。實測近 90 天跨日 0 次、TO_ORA 53,848 筆無一漏標 —— 目前是\n   時機剛好，不是設計保證\n② 交接沒有狀態：沒有地方記著「該寫 Oracle 但還沒寫」\n③ 標記是事後 UPDATE，且只在 effectOfRecords > 0 時記 log ⇒ 標 0 列是靜默的，\n   1120 就是這樣斷了很久沒人發現\n\n6b 方向：解析一次 → 寫 WebOrder（TO_ORA 寫入時就設）→ 直接寫 Oracle →\n失敗進隔離區。1120 走同一條路，缺口自然補上。\n\n✅ 直接轉 Oracle、不經分單系統（使用者確認）：一般單位要經分單（人工介入）\n才拋轉 HCLAB，FP 對這幾家是直接寫。這是要保留的特性，替這幾家省掉一個\n人工程序。\n\n⚠️ 順序建議維持「WebOrder 先、Oracle 後」：失敗時留下 TO_ORA 未設的單\n（看得見、可重跑），反過來會留下看不見的孤兒 —— 那正是 1120 現在的樣子。\n\n⇒ 決策 1 重新框定：不是「要不要多做一件事」，而是「要不要把這三段修成一段」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "60481acb",
           "time": "11:35",
           "message": "fix: EVENTLOG 查詢的別名撞 Oracle 保留字 —— 順手把 0173 那題查到底",
-          "body": "實機第一次連 HCLAB（台北 168.225）就抓到一個真錯：EVENTLOG 那支查詢的別名叫 At 與"
+          "body": "實機第一次連 HCLAB（台北 168.225）就抓到一個真錯：EVENTLOG 那支查詢的別名叫 At 與\nComment，兩個都是 Oracle 保留字（AT TIME ZONE、COMMENT ON），在 SELECT 清單就炸成\nORA-00923「在應出現的位置找不到 FROM 關鍵字」——訊息完全指不到真正的原因。改成\nEventAt／EventComment。其餘四支（ORD_HDR／ORD_DTL／DEBTOR／BLG_TX_HDR）一次通過。\n\n這就是那支可選煙霧測試要抓的東西，它抓到了。\n\n⭐ 修好之後三個條碼查出來的結果，把 0173 那題整個結掉：\n\n  6091403152 黃詩萍 病歷 0974634\n  6091403153 劉小清 病歷 410452\n  6091403154 王花   病歷 411230\n\n三張都在 0173 名下、都是 2026-09-14 17:33 由 A343 **人工開單**（EL_COMMENT 前綴 [W]，\n不是 [分單]）、單項 8005（ESR）、狀態已完成、有值、已審、**已列印**。\n\n⇒ 原本 §4 只能說「電子醫令未產生／未送出」，現在知道後續發生了什麼：檢體到了、UCL 人工\n開了單、報告做完也印了，但**回不進若瑟自己的系統**——UCL 的三個報告出口都以 TNO 為鍵、\n不需要電子醫令，而回進客戶 HIS 那一段靠的是電子醫令帶的客戶端識別。\n\n⛔ 因此客服原本的處置「請客戶寄 SUPPORT 補單」**救不回這三張**：補寄的會被分單系統當成\n新單（資格條件是 LEN(ID_TNO) <> 10 而不是 IS NULL）、配新號、在 Oracle 長出第二張\nBLG_TX_HDR。正確處置是人工把報告送給客戶，並請客戶端查為什麼沒產生電子醫令。\n案卡已補 §8 記錄實況，並在收尾動作留一條「回頭更正給客服的指示」。\n\n順手修一個顯示問題：判定文字裡的 **重點** 標記原本會被原樣印出（頁面一律 esc）。\n改成先 esc 再把 **…** 換成 <b>，注入不可能發生，而那幾句是客服會照著唸的，重點字必須跳出來。\n\n353 測試全綠。端到端實測：/api/trace?q=6091403152 → 段① 全庫查無、段③ 人工開單，\n判定 severity=stop 並吐出上面那段話術。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "fcb39798",
           "time": "11:27",
           "message": "docs: 決策 1 重新框定 —— FP 根本不寫 WebOrder 醫令，1120 的缺口切換期間不修",
-          "body": "§5 原本把 A 案寫成「只吃解析 + WebOrder 寫入」，那個描述是錯的。"
+          "body": "§5 原本把 A 案寫成「只吃解析 + WebOrder 寫入」，那個描述是錯的。\nWebOrderRepository 只有 LogPass／GetDivideItems 兩個方法，沒有任何\nPhysicianOrderM/D 的 INSERT；LogPass 是 UPDATE，把已存在的明細標成\nTO_ORA=1 並補 ID_TNO，直接改 PhysicianOrderD、繞過分單系統。\n\n五家的實際狀態（查正式庫＋Companys 設定）：\n- 0705 富盈：近 90 天 106 檔、WebOrder 10,090 筆。三個資料夾指同一個地方且\n  不搬檔 ⇒ FP 是從 Xevox 線的備份夾讀檔，順序其實是「OrderInSql 先寫\n  WebOrder → FP 再寫 Oracle → LogPass 標記」。⇒ 0705 的 WebOrder 那一半\n  隨批次 3b（9/29）就切過來了，不必等 6b\n- 1120 禾瑞印象：近 90 天 81 檔、WebOrder 0 筆。ThrowFolder 指著 ansn 線的\n  收檔夾，意圖就是要寫 WebOrder，但 mode=Parsing 根本不呼叫 Export.Txt\n  ⇒ ThrowFolder 是死設定；isBackupFile=1 又把原檔搬進備份夾，ansn 程式\n  永遠看不到。FP 每天對它跑一個永遠影響 0 列的 UPDATE，且只在 >0 時記 log\n- 0235 35 筆歷史殘留、0539 與 0705_NEW 皆 0\n\n判定：1120 是缺陷（應該要寫），但那份資料沒有下游在用，所以斷很久沒人發現。\n⛔ 切換期間不修 —— 現在兩層排除是對的；補寫會讓反向比對出現不是回歸的差異，\n而觀察期正是為了偵測「多出不該有的單」而存在。列為已知缺陷、與遷移無關。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "a044e961",
           "time": "11:26",
           "message": "feat: 追查頁段③ LIS —— 分辨手開單，並講清楚「補寄醫令救不回來」",
-          "body": "段① 只能說「我方有沒有這筆」。客服手上通常只有一個號，而在 Delimited／Keelung 家族，"
+          "body": "段① 只能說「我方有沒有這筆」。客服手上通常只有一個號，而在 Delimited／Keelung 家族，\n那個號在**來源檔裡根本不存在**（ID_TNO 是分單時才給的）⇒ 醫令庫查無之後就走不下去了。\nOracle 是唯一能把「號」換成「病人」的資料源，也是唯一能回答「這張單是誰開的」。\n\n段③ 用號碼查 BLG_TX_HDR（ID_TNO／ID_INVNO）與 ORD_HDR（OH_TNO／OH_SNO），帶出單位、病人、\n報告進度（明細／有值／已審／列印傳真 Email），最重要的是**來源判別**：EVENTLOG 的\nEL_COMMENT 前綴 [分單]＝電子醫令轉入、[W]＝BT201 人工開單。\n\n⭐ 於是那個會給錯指示的組合終於看得見了：**醫令庫查無 ＋ LIS 有單且是人工開的**。\n報告在 UCL 這邊出得來（網路報告／傳真／列印三個出口都以 TNO 為鍵、不需要電子醫令），\n但回不進客戶自己的系統（那段靠電子醫令帶的客戶端識別）。而且**補寄醫令救不回這一張**——\n補寄的會被分單系統當成新單、配新號，在 Oracle 長出第二張 BLG_TX_HDR\n（資格條件是 ISNULL(LEN(ID_TNO),0) <> 10，DISTRIBUTE.aspx.cs:468-473；全系統沒有併單／去重）。\n頁面把這句話直接寫給客服看，severity=stop。\n\n四個刻意的約束：\n\n- **沒設 ConnectionStrings:Hclab 就不註冊**，畫面寫「未設定，這一段沒有查」。⛔ 與「查了沒有」\n  分開呈現——混掉會讓客服以為檢體根本沒到 UCL。有測試守這條。\n- **唯讀在 DB 端強制**：公司只有 schema owner 帳號（HCLAB/HCLAB，全工具共用），所以每個連線\n  一開就 SET TRANSACTION READ ONLY，程式寫錯也寫不進去。要專用唯讀帳號已登記 TODO。\n- **每支查詢各自容錯**：欄位名抄自 lisweb 的 資料庫_核心Table欄位參考.md，開發機沒有 Oracle\n  連線、我無法自驗 ⇒ 任一支失敗只在 notes 留 ORA 訊息、不讓整段消失。一個能說「表頭查到了、\n  EVENTLOG 那支報 ORA-00904」的畫面，遠比整段紅字有用。\n- 附一支**可選的煙霧測試** HclabTraceSmokeTests：設 HCLAB_TRACE_CONN 才跑（同 FpReplayDiffTests\n  的作法），任務就是把「欄位名打錯」變成一條看得懂的訊息。⚠️ **段③ 的欄位名尚未實機驗證**，\n  已登記 TODO；跑法寫在測試檔開頭。\n\n來源判別（LisOrigin）是純函式、有 15 個案例守著，不需要 Oracle 就測得到——包括\n[B][W] 與 [W][K] 都含 [W] 必須先比長的、洗腎批次靠 EL_USERID=BATCH 分辨、\n結論取建單那筆（B01 優先於 B02），以及 ⛔ **沒有紀錄是「來源不明」而不是「不是手開」**\n（EVENTLOG 只保留約 3 個月）。\n\n353 測試（新增 21），全綠。本機實測未設定 Oracle 時的降級路徑：段③ 回 configured=false\n並附說明，判定仍是「還不能下結論」而不是誤稱 LIS 沒單。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "4162f7dc",
           "time": "11:15",
           "message": "feat: 單筆追查頁 —— 客服拿一個條碼就能查「這一筆到哪裡了」",
-          "body": "2026-09-16 客服回報 0173 若瑟三管檢體沒報告，而那天收檔進度頁是**全綠**的：該單位"
+          "body": "2026-09-16 客服回報 0173 若瑟三管檢體沒報告，而那天收檔進度頁是**全綠**的：該單位\n三檔全部正常轉入。五色只回答「這個單位今天有沒有單」，回答不了「這一筆到哪裡了」，\n所以這類客訴在現行 GUI 結構下看不見，查案全程只能開 SSMS 下五段 SQL。\n\n新增 /trace：輸入條碼／病歷號／姓名／身分證，列出單與明細、每筆的進度、命中哪個欄位，\n並自動附上案卡 §6 ④⑤ 那兩個檢查（重複單、小海豚前綴寫錯單位）。段① WebOrder 完成；\n段②（檔案端）與段③（LIS Oracle）另案。\n\n做的時候查證出三件推翻原本假設的事，都寫進註解與 §5.3：\n\n1. ID_TNO 有**三態**不是兩態。分單系統分兩階段寫：分單只寫 5 碼裸流水號\n   （update_ID_TNO_INFO），轉入 HCLAB 才補成 10 碼並設 TO_ORA=1（UpdateIDTNO_transfered）。\n   正式庫實測（9/14 起）5 碼態 48 列、10 碼態 17,701 列。⇒ 只比 10 碼會漏掉「已分單未轉入」，\n   案卡 §6 ① 的 SQL 有此缺口，順手訂正。\n\n2. 客服口中的**條碼通常是「檢體標示」**（Oracle BLG_TX_HDR.ID_INVNO ← PhysicianOrderM.ID_INVNO），\n   不是我方配號。覆蓋率實測：ID_CLI_INFO 96%、ID_INVNO 99%，而 ID_TNO 有 42% 是空的。\n   ⇒ 條碼一律查三欄並回報命中哪一欄（命中哪欄本身就是診斷）。\n\n3. **條碼與病歷號分不出來**：實測長度分布，ANAMNESIS_NO 落在 3–16 碼、ID_INVNO 落在\n   2–16 碼，兩者都在 10 碼達峰（6,687 vs 5,550）——沒有任何長度切得開。⇒ 數字型輸入\n   不猜，四欄全比（AnyNumber）。先猜再回「查無」會生出假的查無，而客服會照著回客戶。\n\n⛔ 兩條刻意的紀律：\n\n- **「未分單」不是異常**。依 Delivers_DT 分組實測，它長期穩定在 25–30%（連一週前的 9/08\n  都還有 4,559/15,940）。頁面只陳述事實並附同單位基線，不上紅燈——同 LineActivityTracker\n  那條教訓：沒有基線的數字會被讀錯。\n- 段② 上線前，「查無」一律寫成「**待查檔案端**」而不是「客戶沒送，請補寄」。那個結論要等\n  一次乾淨的檔案掃描才成立，說早了錯誤會直接傳到客戶端。\n\n權限（本頁唯一的新風險）：這頁是給客服用的，而 LISWeb 的 JWT 沒有 role claim ⇒ 客服能登入\n就什麼都按得下去。加 Auth:ReadOnlyAccounts（deny list，**留空＝行為完全不變**）＋一支掛在\n通道上的中介層：非 GET 在唯讀帳號下回 403，日後新增的寫入端點自動涵蓋（同\nAuthorizeFolder(\"/\") 的 fail-closed 本能）。語意與 RequeueAccounts（allow list）相反，\n故 IsReadOnly(null) 必須回 false，否則 RequireSso=false 的 Development 會整站變唯讀。\n\n稽核記 operator＋型別＋命中數到 Serilog，不記原始姓名／身分證；⛔ 不寫 MessLog——\nTRAFFIC_BASELINE §1 拿 isSucc='1' 的列數當檔數，稽核列會污染流量基線。\n\n順手：preview 端點的 source 支援 archive（客訴多半隔天才來，那時檔案早歸檔了）；\nMaskId 改 public 以免兩份遮蔽實作走偏；ELECTRONICALERT §5.1 的頁面編號訂正（實際上線的\n第四頁是「生效設定」，原表把 ④ 給了還沒做的「單位設定維護」）。\n\n另訂正一個全專案的誤解：**「配號批次 13:15–13:20」不是排程**。UCLWeb_分單系統 與\nWinFormOrder_自動配號 兩個專案裡都沒有排程器，分單與轉入 HCLAB 是 DISTRIBUTE.aspx 上的\n人工按鈕，那個時段是同仁的固定作業時間。措辭一律改成「還沒分單」。\n\n332 測試（新增 47），全綠。本機連 WebOrder_Test 起服務實測四條路徑：條碼命中\nID_CLI_INFO、數字命中病歷號、病歷號去零兩個方向、以及 0173 那三個號的「全庫查無」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "b5d30adc",
           "time": "11:14",
           "message": "feat: 0536 的病理委外清單要擋掉 —— FP 是歪打正著，我方沒有那道 gate",
-          "body": "使用者 2026-09-16 定案排除。"
+          "body": "使用者 2026-09-16 定案排除。\n\n事證：0536 在 9/4 送來一份 EXMC0S0_病理委外清單（同日重複三次，其中一份前綴\n被加了兩次），7 筆全是 Surgical pathology Level IV(YS)、送檢院所寫「北榮病理」、\n工作號全空。對照該家每天送的 EXMC0S0_委外清單：送檢院所是大安聯合、工作號有值。\n近 90 天 83 個檔裡病理那種只出現過這一次。\n\n為什麼非擋不可：FP 是靠列級過濾（單號三鍵至少一個有值）把它整份丟掉的，而 0536\n的 TICKET 與 ID_CLI_INFO 都對映到第 3 欄（工作號）—— 那是歪打正著，用「工作號空」\n代理了「收件對象不是我們」。6a 之後我方直讀原始檔、沒有那道 gate，同樣的檔會被\n寫成 7 張沒有單號的單。\n\ntoken 取「病理委外清單」不取「病理」：0392（近 90 天 192 檔）與 0048（175 檔）\n每天都在送「台北病理中心」的檔，那是正常流量，不可誤傷。\n\n連帶記下一條通則：FP 的列級過濾可能在別家也擋掉了本來就不該收的檔，切每一梯\n之前值得先量該家有多少列會被 gate 丟掉。0536 是因為整份被丟、產出 0 筆才被抓到；\n若某家只有部分列被丟，現行回放不會顯示成差異。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "3455c0c5",
           "time": "10:59",
           "message": "docs: 決策 2 拍板結案 —— 10/16 的 Spark 死線取消",
-          "body": "使用者 2026-09-16 拍板："
+          "body": "使用者 2026-09-16 拍板：\n① Paring.bat 暫時不動\n② PHP 移植等 OrderInSql 全案處理完才開始，不與批次 6 交錯\n\n⇒ 四項決策全部結案，10/16 前已無必須問 Spark 的硬門檻。那條死線本來是\n整個 10 月時程的收斂點之一，現在可以拿掉。\n\n為什麼「不動」對 6a 沒有副作用：CompanyRepository.Get() 的 SQL 是\nwhere valid = 1，valid=0 的公司 AutoDeliver 整個不會迭代到，檔案自然留在\nCatchFolder 給我方的服務收，兩邊不會搶同一個檔 —— 這正是切換機制成立的原因。\n\n連帶得到一個更自然的拆解點：實測 .227 自己的排程每 1 分鐘就跑一次那支 PHP\n（10:49:05 跑過，量測時 10:49:34），所以 Paring.bat 第一行只是把供料延遲從\n最多 60 秒縮到幾乎 0 秒，它不是那支 PHP 的唯一觸發來源。6b 切完後 AutoDeliver\n會處理 0 家，那支排程退化成「只為了多打一次已經每分鐘在跑的 PHP」——\n那時整支排程一起停，比現在拆一行乾淨。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "aaa15ab9",
           "time": "10:50",
           "message": "docs: 「Parsing」在現場指七樣東西，列表釐清",
-          "body": "本 session 一開頭就踩到：說「Parsing 那邊」時，聽的人分不出是批次 6 還是"
+          "body": "本 session 一開頭就踩到：說「Parsing 那邊」時，聽的人分不出是批次 6 還是\n.227 那支 PHP。逐一列出並實機確認拼法。\n\n三個會咬人的：\n- mode=Parsing 只等於 6b 的 5 家，6a 的 27 家是 mode=Transfer\n- parsing_order_files.php 是批次 7，與 FlexibleParsing 無關，只是被 Paring.bat\n  串在同一條鏈上\n- Paring.bat 少一個 s、AutuParsing 是 Autu 不是 Auto\n\n另查證 IGRAParsing 純屬撞名，確認不在範圍：它讀 QFT/DHT/DR-70 三台儀器的\n結果、只連 HCLAB Oracle、寫到 Result\\Queue\\IGRA，碰不到 PhysicianOrderM/D\n也碰不到我們任何資料夾。\n\n連帶記一條通則：.229 上排程名稱與實際執行內容普遍對不起來（都包一層 bat），\n清點時一律要讀到 bat 裡面。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "5dd182ad",
           "time": "10:22",
           "message": "docs: WORKSTREAMS 同步新時程，並收斂「要問 Spark 幾題」的三方矛盾",
-          "body": "作戰圖（TODO）已經是新的，但姊妹文件還停在舊時程："
+          "body": "作戰圖（TODO）已經是新的，但姊妹文件還停在舊時程：\n- §0 還寫「批次 1-5 在 10/14 結案、批次 6 塞不進 10/17 前」\n- §2 時間軸還寫「10/6 批次 5」「pull 上線 10/2-10/3」「10/27 批次 6 切換」\n\n§0 的「批次 6 塞不進 10/17 前」改判為做得到：原本的三個理由都消失了——決策從\n三項收斂到一項、對映層+值層已逐檔驗證（1,125 檔零差異）、批次 1-5 提前結案\n空出 10/8。§2 時間軸整段重寫，含連假不值守、觀察期重疊、以及 pull 上線\n10/2-10/3 已失效（那兩天現在落在觀察期裡）。\n\n另收斂一個三方矛盾：BATCH6A_PLAN 第 19 行寫「只剩 1 題」、§6 結尾寫「決策 1、2」、\nTODO 與 MIGRATION_RUNBOOK 寫「兩題」。定案是 1 題——決策 1（Oracle A/B）已於\n09-10 重新框定為 6b 的前置，而 6b 在封鎖窗之後，不必趕 10/16。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "bbfaa78f",
           "time": "10:20",
           "message": "docs: 9/17 執行表 —— 早上平行驗證、下午反向比對，兩件事別混為一談",
-          "body": "當天有兩件比對，方向相反、素材不同、時段不同："
+          "body": "當天有兩件比對，方向相反、素材不同、時段不同：\n- 平行驗證（06:30-08:30、閘門①④⑦）：我方寫 WebOrder_Test、舊程式寫正式庫，\n  對象是 9/22 要切的四條線 708 檔\n- 反向比對（收盤前、觀察期 day 3）：我方寫正式庫、影子寫 WebOrder_Test，\n  對象是已切換的批次 2／4 的 33 家\n\n兩者不會互相污染（單位清單零重疊），但順序不能反：TRUNCATE UNIT_TEST_ITEM\n若落在 09:00 之後，撞上影子匯入會讓它「查無對照、明細略過」，\n當天的反向比對基準被靜默弄髒。\n\n執行表含：啟用四個回放單位後必須 rebuild（9/16 實證，不重編 log 會印單位數 8）、\n兩支腳本預期答案相反（Keelung 兩側都該有值 vs ansn 兩側都該 NULL）、\n閘門⑦ 的最終驗收條件（六家都有資料 ＋ 1120/0539 仍是 0）、\n08:30 未跑完即停手、以及跑完把回放單位改回 Disabled。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "fb88d4b7",
           "time": "10:19",
           "message": "feat: 回放配對改用時間戳 —— 1,125 檔零差異，13 家全部 100%",
-          "body": "檔名配對前後踩了四次，每次都產生假差異，最後一種無解：0165 同一 base name"
+          "body": "檔名配對前後踩了四次，每次都產生假差異，最後一種無解：0165 同一 base name\n配三種副檔名，_removeSubname 全折成同一個 .txt，-N 序號在輸入端與產出端各走\n各的——名字裡就是沒有足夠資訊。\n\n改法：依 stem 把輸入與產出各自分組，兩邊各自按備份時間排序後對位。依據是 FP\n逐檔循序處理（處理完先寫 .txt 再把原檔搬進備份夾），所以同一群組裡第 k 個進\n備份夾的輸入，對應第 k 個進備份夾的產出。只在兩邊數量相同時才對位；不同就整組\n排除——少一個產出代表某次解析出 0 筆，對位會整組錯開一格，比不比更糟。\n\n結果：1,058 → 1,125 檔逐行零差異，13 家全部 100%，0165 由 28/84 升到 63/63。\n\n備料端改輸出 pairs.json，回放端只吃這份配對表、不再從檔名推。四次假差異全部\n來自「用檔名推配對」，把這條路關掉。\n\n⚠️ 訂正昨天的決策理由：第 1 梯把 0165 換成 1020 的原始理由是「覆蓋率只有\n三分之一」，時間戳配對上線後這個理由不成立。換人的結論維持，但改站在另一個\n理由上——0165 是 13 家裡最雜的一家（.ods／.xlt／同名配三種副檔名／瀏覽器\n重複下載計數），試切要驗的是機制，拿最雜的當白老鼠會分不清成因。\n0165 不必再等配對問題，改排第 2 梯。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "d882255b",
           "time": "10:14",
           "message": "docs: 明早平行驗證前置完成 —— 前置本身抓到三個會讓它白跑的問題",
-          "body": "孤兒程序 0、build 0 錯誤、連線明文指向 WebOrder_Test、素材 708 檔與卡片數字吻合。"
+          "body": "孤兒程序 0、build 0 錯誤、連線明文指向 WebOrder_Test、素材 708 檔與卡片數字吻合。\n但備前置的過程比預期有料，三個地雷任一個都會讓明早的結論失去意義：\n\n① 回放單位的 InboxPath 指向已經吃光的舊素材夾（replay-k3，四個 inbox 都是 0 檔）。\n   直接啟用會處理 0 個檔，而比對腳本跑出空結果長得跟「零差異」一模一樣\n   —— 與「沒有 BOM ⇒ 輸出 0 行」同一種假陽性。已改指 parallel-0915。\n② REPLAY-VETERANS／REPLAY-XEVOX2 都沒有明寫 WriteProfile（欄位根本不存在），\n   違反 CLAUDE.md 的紅線，正是 09-10 事故的成因形態。已補 Default。\n③ ansn／UNIMAX 根本沒有回放單位 —— 本機 8 個單位全是 Keelung 家族，\n   批次 5 那半（581 檔、34 家、閘門④＋⑦）一個設定都沒有。\n   已新增兩個，Options 逐項照抄 56.227 的 ANSN-SHADOW／UNIMAX-SHADOW ＋ 明寫\n   WriteProfile=Ansn；ansn 側刻意不加 ValidateIdFormat（只有 Keelung 側該有）。\n\n另外實證一條：改 src 的設定後不 rebuild 不會生效 —— 第一次煙霧測試設定已是 10 個單位、\nlog 卻印「單位數 8」，因為 exe 讀 bin\\Release 裡 build 時複製的那份。重編後才變 10。\n\n四個回放單位刻意維持 Disabled，不預先武裝過夜（照 9/15「.CUTOVER.ALL 當場刪除」\n的同一條紀律）。明早唯一要手動改的是把這四個改成 Live，然後 rebuild。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "a94ceef8",
           "time": "10:12",
           "message": "docs: 0173 若瑟三管 ESR 無報告 —— 查案結案，與轉移無關",
-          "body": "觀察期第 1 天首件客訴。客服給的 6091403152/53/54 是收件端條碼（ID_TNO"
+          "body": "觀察期第 1 天首件客訴。客服給的 6091403152/53/54 是收件端條碼（ID_TNO\n格式 6+MMDD+5 碼），PhysicianOrderD 全庫查無；9/14 低號段 6091400000-\n6091403999 是跨單位共用池，而 0173 當日真正配號範圍是 6091414066-\n6091414086。⇒ 這三管檢體從頭就沒有電子醫令。\n\n當日 0173 收檔與寫入全部正常：3 檔／6 主檔／26 明細、UCL_CODE 空 0 筆、\n56.227 inbox 與隔離區皆空。今天確實來了兩張單項 ESR 補單，但兩位病人\n9/1 以來無其他 ESR 單 ⇒ 沒有重複單。\n\n順帶記下兩件事：\n- 重複醫令不冪等是新舊一致（舊碼 Form1.cs L225/L365 同樣只用單位+SN\n  判存在、SN 為現生 GUID），非回歸，可直接這樣回客服\n- 小海豚前綴 × Delimited 線是唯一真正對得上「沒收到報告」的機轉：\n  UTI_UNIT_CODE 直接取檔名第一段，重複前綴會寫成八碼且無守門。\n  現況乾淨（0173 非四碼 0 筆）；守門已登記進 TODO「不挑日期，但別忘」\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "6f7112c1",
           "time": "10:06",
           "message": "docs: 訂正節點表 —— 10/6 那週是結案週，6a 第 1 梯移到 10/8",
-          "body": "使用者指出兩個漏洞，都成立。"
+          "body": "使用者指出兩個漏洞，都成立。\n\n一、批次 5 已合進 9/22，但我排 6a 時沒把它提前後的觀察期算進去：\n批次 5 觀察期跨連假拉到 10/3、10/6 前後才結案，3b 觀察期也在同一段\n⇒ 10/6 那週是「批次 1-5 全案結案週」，塞不下一次切換。\n6a 第 1 梯改排 10/8（四），觀察期 10/9 + 10/12-10/16 共 6 個工作日，\n比原本的 3 天寬裕，且仍在封鎖窗前收乾淨。\n\n二、56.227 的程序架構沒調整：\n- 盤點表的現況還停在 5 列（實際 9 支），補成實機清點的版本\n- 節點表加一欄「56.227 程序架構」：每切一條線 +1 對 Pull/Feed，\n  9/29 之後若不收口就是 1 服務 + 21 支排程 —— 這才是 pull 收口急迫性的來源\n- ⚠️ pull 收口原訂 10/2-10/3 上線，理由是「3b 觀察期後、批次 5 前」；\n  批次 5 提前後，那兩天正好落在 3b 與批次 5 的觀察期內，與「不在任何觀察期內\n  動線上」直接衝突。最早的乾淨窗口是 10/7 之後\n- 封鎖窗其實是 pull 收口的候選窗口（它不切換、不動 .229），但屆時 6a 第 1 梯\n  已 Live 且 inbox 就是 FP 的 CatchFolder，pull 改動會碰到那條線 ⇒ 列為待定\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "18f687f4",
           "time": "10:00",
           "message": "docs: 9/16 反向比對零未解釋差異 —— 22 筆全是跨單位搬移，44 對只差 Cancel",
-          "body": "觀察期 day 2。今天疊了兩個變數（9/15 切換 ＋ 今早 07:14 換 binary），"
+          "body": "觀察期 day 2。今天疊了兩個變數（9/15 切換 ＋ 今早 07:14 換 binary），\n三類差異全部歸到既有白名單，沒有一條指向這兩個變數：\n\n- §1 對不到我方 22 筆 → 100% 修補層跨單位搬移（0208→0357 ×20、2798→2797 ×2）。\n  以 (ID_INVNO, ID) 跨單位重查，搬移後剩餘 0 筆 ＝ 沒有真漏單\n- §3 明細數差 1 筆 → 該筆 X2710 在 UNIT_TEST_ITEM 查無 0208 的對照列，\n  我方略過整列並寫 WRN、影子寫一列 UCL 空。白名單①\n- §4/§5 的 45/44 → 扣掉上面那筆，其餘 44 對是同一列只差 Cancel；\n  我方側 Cancel=1 的列 100% 帶下游指紋（OrderCheckJob+adjust=99 173 筆、UCL 57 筆）\n- §6 四欄 0、§7 跨檔併單 0（09-10 事故的兩個症狀都乾淨）\n\n順帶兩個要記下來的：\n\n① 白名單①的敘述太窄。原文是「該 (單位,代碼) 的 UTI_UCL='NA'」，今天這筆是\n   對照表裡根本沒有那一列。我方行為相同，判讀規則應為「UCL 為空，且該代碼\n   查無對照或對照為 NA」。\n\n② 量級比較只能整日對整日。這幾條線的 cre_date 是 date-only（時刻恆為 00:00:00），\n   9/05 起逐日皆然、切換前後都一樣、不是我們造成的。想拿「今天到目前為止 vs\n   前幾天同時段」會看到假的腰斬（10:05 實測 325/13 vs 9/15 全日 815/32）。\n   reverse-compare-batch5.sql 的 §9 同樣受影響，已在腳本裡標明收盤後才有意義。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "d9cbbc0e",
           "time": "09:49",
           "message": "docs: 6a 切換日與第 1 梯人選拍板，同步改切換排序表",
-          "body": "使用者 2026-09-16 拍板，把兩件從「建議」升成定案："
+          "body": "使用者 2026-09-16 拍板，把兩件從「建議」升成定案：\n- 6a 第 1 梯排 10/6 那週，觀察期 10/13-10/16 走完，不併 9/22 也不併 9/29\n- 第 1 梯 0165 → 1020，0165 押後\n\nBATCH6A_PLAN §5.2 的切換排序表同步改掉（原本只改 TODO，兩份會不一致），\n並補上換人的理由：0165 同一 base name 配三種副檔名，_removeSubname 全折成\n同一個 .txt，84 個候選只驗得到 28 個；1020 是 70/70。\n\n這不是 0165 的資料有問題，是我們驗不到 —— 試切的用意是驗機制，挑一家驗證\n覆蓋率只有三分之一的家當白老鼠，等於自己把訊號調暗。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1c48944e",
           "time": "09:47",
           "message": "docs: 連假 9/25-28 定案不值守 —— 連帶把監控頭升格為連假前的必要條件",
-          "body": "使用者決定：中秋連假四天不值守，收假（9/29）再回頭看。四條線一致。"
+          "body": "使用者決定：中秋連假四天不值守，收假（9/29）再回頭看。四條線一致。\n\n把這個決定的邊界寫清楚，免得日後誤會告警的涵蓋範圍：\n\n| 連假期間會被發現嗎 | 靠什麼 |\n| 流程停擺（服務掛、檔卡 inbox、隔離累積） | ✅ Cerberus 頭 → Discord |\n| 資料寫錯但流程順暢                        | ❌ 只有反向比對，那四天不跑 |\n\n第二列正是 09-10 事故的形態（零錯誤、零隔離、log 乾淨，只有比對看得出來），\n暴露期是 9/24 收盤到 9/29 早上最多五天。\n\n⇒ 兩個連帶結論：\n① 9/22 切換步驟 13「重跑 Cerberus 監控頭」從「該做」升格為**連假前的必要條件**\n   ——不做就等於那四天既無人也無告警\n② 9/29 的兩份積壓比對不是可順延的例行工作，是那四天唯一的資料正確性檢查\n   （@day = '2026-09-25'，3b 開球前跑完出檔）\n\n風險可接受的兩個理由只對批次 5 成立（本家族冪等、連假送檔量低），\n3a 與 3b 不冪等 —— archive 裡的檔不可重餵，已在 3a 卡標明別套用。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "ca2cc245",
           "time": "09:38",
           "message": "docs: 作戰圖補上 6a 落點，排程盤點補上「最後剩什麼」",
-          "body": "排程盤點（實機清點，非推測）："
+          "body": "排程盤點（實機清點，非推測）：\n- ⛔ 訂正 .229 排程名稱：是「自動轉檔(轉格式)」不是「自動剪圖(剪格式)」，\n  而且它在 System32\\Tasks\\自訂排程\\ 子資料夾裡，只列根目錄會誤判成「沒有排程」\n- 新增「最終狀態」章節：.227 共 33 支 job 我們只有 13 支、.229 自訂排程 8 支\n  我們只有 1 支 ⇒ **兩台都不會因為本專案退役**，我們只是把一個理由拿掉\n- 三台的最終數字：.227 13→1（不可停的 QFT）、.229 1→0、56.227 9→2\n\n作戰圖：\n- 標題與節點表改成 9/22 3a+5 → 9/29 3b → 10/6 那週 6a 第 1 梯 → 10/17 封鎖窗\n- 6a 不併進 9/22 也不併進 9/29，三條理由。關鍵是第 2 條：6a 與 3a/3b 正交\n  （前者拿掉上游中間層、後者切下游消費端），不是「同一家切兩次」，\n  併進去只是把兩個獨立風險綁成一個；以及第 3 條：6a 的回退要動 .229，\n  而封鎖窗的規則正是不動 .229 ⇒ 切在 10/16 前後是最糟的位置\n- 第 1 梯人選要改：0165 的檔名配對本質上不可靠（同 base name 配三種副檔名），\n  84 個候選只有 28 個驗得到 ⇒ 改成 0680 + 1020，0165 押後等時間戳配對\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "74620fa5",
           "time": "09:38",
           "message": "feat: 9/23 觀察期要用的兩支反向比對腳本 ＋ 補上兩張卡都漏掉的監控頭",
-          "body": "tools/ 底下原本只有 reverse-compare-batch24.sql（批次 2／4 的 33 家寫死），"
+          "body": "tools/ 底下原本只有 reverse-compare-batch24.sql（批次 2／4 的 33 家寫死），\n9/22 切的四條線一支都沒有。照 9/15 的前例，這種腳本臨到頭才寫會帶三個 bug\n（沒 BOM → sqlcmd 當 Big5 解、輸出 0 行看起來就像零差異；四欄沒比 → 驗不出\n09-10 事故復發；沒限測試側日期 → 平行驗證殘留全變成假警報），所以先做起來。\n\n- reverse-compare-3a.sql（Veterans＋Xevox2，11 家）：Keelung 家族鍵\n  (UNIT, ID_INVNO, ID)；§6 四欄兩側都該有值、§7 跨檔併單應為 0\n- reverse-compare-batch5.sql（ansn＋UNIMAX，37 個代碼）：內容鍵\n  (UNIT, ID, ANAMNESIS_NO, Looks_DT)；本家族與 Keelung 相反的三點寫在開頭\n  —— 四欄兩側都該 NULL、跨檔併單是正常語意（改比兩側對稱性）、ID_INVNO\n  差異固定出現在我方那側（修補層只跑正式庫）\n  另含兩個 Keelung 版沒有的段：§8 1120／0539 必須是 0（紅線 3 兩層防線的體檢）、\n  §9 單位級掉單偵測（今天我方的量 vs 舊程式近 14 天平均）\n\n§9 是這次新增的東西裡最要緊的一段：整家單位被拒收時**不會產生任何差異**——\n影子吃的是我方處理過的副本，我方沒收的檔影子也永遠看不到，§1 反而是乾淨的。\n表頭 27 欄阻擋項（六家、17.3% 的檔）就是這一型，比對腳本問不出來。\n\n兩支都已對正式庫實跑（唯讀、只用暫存表），語法與欄位全通、BOM 已加。\n\n順帶：兩張 9/22 的卡都沒寫「切換後重跑 Cerberus 監控頭」，而 MONITORING.md\n明文要求每批切換後做一次，否則剛切換、最脆弱的那幾條線反而是唯一沒被監控的。\n兩張卡都補進立即驗證清單。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "9d7208c9",
           "time": "07:21",
           "message": "docs: 2026-09-16 07:14 部署完成，補登紀錄表與驗收結果",
-          "body": "七項待部署變更全部上線（c31c036）。Core.dll 163,840 → 194,560 B，"
+          "body": "七項待部署變更全部上線（c31c036）。Core.dll 163,840 → 194,560 B，\n回退目標 app_bak_20260916_0714。\n\n驗收全過，兩個修正各自的歸零指標都驗到了：\n- 欄位[26]應為CLI_INFO：2 → 0 ⇒ 485bf57 確實進了 binary（9/15 才踩過「文件寫成\n  已修、實作沒進程式碼」，所以這項一定要單獨看）\n- encoding 1252 維持 0；本次重啟在 07:17，落在所有 Delimited 時窗之外，\n  正是 9/15 那個 bug 的發作條件 ⇒ 這次重啟本身就是 b22cf8b 的實地驗證\n\n⚠️ 唯一的非零項 XEVOX-SHADOW 失敗 1 不是回歸，而是 b985a3a 生效的證據：\n失敗檔 0576-202609100002.csv-1 是 -N 同名副本（副檔名變 .csv-1，adapter 依副檔名\n選分隔符時選不到逗號）。它一直在失敗，只是部署前摘要因快取 bug 顯示「797 成功、\n0 失敗」把它蓋掉。部署後第一次被誠實數出來。正式收檔夾不會有 -N，故不追。\n\n腳本結尾的兩件人工事項本次不適用：Local.json 未變動、Live 線時窗尚未開啟。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
       "count": 31
@@ -201,52 +232,80 @@
           "hash": "c10b2307",
           "time": "12:36",
           "message": "feat: mp3 庫可維護（規模、排序、只看孤兒、刪除），待播籤也能按 ✕ 取消",
-          "body": "mp3 庫在這之前只能「排上電視／試聽」，快取資料夾的維護（哪支最肥、"
+          "body": "mp3 庫在這之前只能「排上電視／試聽」，快取資料夾的維護（哪支最肥、\n哪些是孤兒、這支我就是不想留）只能開伺服器的檔案總管處理。\n\n- 新增 POST /api/music/cache/delete：真的刪掉快取那份 mp3。待撥清單上\n  用得到的一律擋下（刪了電視會拿到 404、把那首當檔案壞了搬進撥不了），\n  面板上還要按兩下才算數（六秒沒有第二下就縮回去）\n- GET /api/music/cache 一併回規模：幾首、佔多少、上限、磁碟剩多少。\n  可用空間低於下限時面板直接講出來——「歌怎麼自己不見了」的答案\n  在這之前只在伺服器的 log 裡\n- mp3 庫多了排序（新到舊／大到小，跟自動清理的刪除順序一致）與\n  「只看孤兒」，列超過 60 首會講還有幾首沒列出來\n- 「♪ 音樂 → 待播」籤每列也加 ✕：走跟電視那面同一支 api/music/remove，\n  所以在自己座位按，電視一秒內跟著少一首。這份清單含正在播的那首\n  （哪首在播只有電視知道），所以清單底下講明要停它請用 ⏭\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "860d7469",
           "time": "12:18",
           "message": "feat: 待播清單每列加 ✕ 取消（搬進已撥，不刪檔）",
-          "body": "點錯了、或那首卡住了（轉檔轉不出來、YouTube 一直連不上）擋在前面時，"
+          "body": "點錯了、或那首卡住了（轉檔轉不出來、YouTube 一直連不上）擋在前面時，\n在這之前唯一的辦法是去伺服器上開資料夾把檔案拖走。\n\n- 新增 POST /api/music/remove：走既有 MarkPlayed(name, null)，\n  檔案搬進「已撥」而不是刪掉——按錯的人從「♪ 點歌 → 播過」點得回來\n- 待播清單每列 ⤒▲▼ 後面多一顆紅色 ✕，跟搬位子那三顆隔開\n- 前端流程跟拖曳排序共用：先在本地拿掉、再送伺服器、成功失敗都重抓\n\n正在播的那首不在這份清單上，要停它仍是 ⏭（哪首在播只有電視知道）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "8b8687f7",
           "time": "08:41",
           "message": "feat: 電視遙控器台↑台↓ 直接控制音樂",
-          "body": "台↑ 跳過這首、台↓ 從已撥隨機再來一首。"
+          "body": "台↑ 跳過這首、台↓ 從已撥隨機再來一首。\n\n## 為什麼是這兩顆\n\n2026-09-09 的探針量到：藍牙滑鼠的事件一個都進不了頁面，遙控器的進得來\n（README 設計準則 3）。實測電視遙控器的台↑台↓送的是 PageUp(33)／PageDown(34)，\n進得到頁面。\n\n方向鍵走到 ⏭ 再按 OK 也做得到同一件事，但要按好幾下。這條是「按一下就到」，\n給站在電視前面的人用 —— 那正是滑鼠點不動、語音也還沒有著落的那個位置。\n\n## 只在 ?music=1 那台生效\n\n桌機瀏覽器上 PageUp/PageDown 是捲頁，綁過去會變成「看牆的人不小心跳掉別人的歌」，\n而且他完全不會知道是自己做的。\n\n另外兩個不搶鍵的情況：游標在輸入框裡（點歌貼網址、搜歌名），\n以及面板開著的時候（那時這兩顆是捲那一面的內容，而且使用者看得到它在捲，\n不是無聲失效）。\n\n## 其他\n\n- musicReplay 加了 count 參數，不填仍是 3（🎲「再來幾首」原本的語意），\n  遙控器那條路傳 1\n- 沒歌在播時按台↑ 會在音樂列寫「現在沒歌在播」。按了完全沒反應的話，\n  下一步一定是再按五下\n- Docs/點唱機.md 補了給同仁看的說明\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "759a024d",
           "time": "08:26",
           "message": "feat: 再來一首指令、同仁安裝說明、封裝腳本",
-          "body": "## 再來一首"
+          "body": "## 再來一首\n\n打 /api/music/replay（count:1），從已撥過的歌隨機撈一首排進待播。\n講法：再来一首／再一首／来一首／放音乐／随便放／放歌（都 --check 驗過）。\n\n撈回來的歌名會印在畫面上 —— 不說是哪首的話，電視上突然冒出一首沒人點的歌，\n看起來就跟誤觸一樣。\n\n## 拿掉喚醒詞（使用者的選擇）\n\nWakeWord 改成空字串，直接講指令就會動作；MinConfidence 從 0.6 提到 0.8，\n因為它變成唯一的守門員（實測真的喊指令是 0.91~1.00，環境音多在 0.6 以下）。\n\n跳歌的誤觸成本很低，這個取捨合理。但設定檔和 README 都寫明了：\nPhase 1 接上「重跑」「靜音」時，那兩個指令必須自己要求喚醒詞。\n\n## 卡歌\n\n加了「卡 歌」的講法，但實測不會中：卡 這個短音節在聲學上打不贏 [unk]，\n辨識結果是「[unk] 歌」。刻意不為它放寬比對 —— 那等於「任何一聲＋歌」都跳歌，\n而現在沒有喚醒詞擋著。留在設定檔裡當紀錄，建議改用「換歌」。\n\n## 封裝與同仁安裝說明\n\npack.ps1 產出 self-contained 的 zip（約 88MB），放進牆的 wwwroot 就能從\nhttp://192.168.56.229:9200/ArgusVoice.zip 下載，不用開任何新服務或權限。\n\n一定要 self-contained：同仁的電腦不會有 .NET 10，framework-dependent 的包\n點下去只會跳「找不到執行階段」，訊息看起來像程式壞了。\n\n相依從 NAudio 換成 NAudio.WinMM：前者會把 WinForms/WPF 整組拖進來，\nself-contained 從 189MB 變 230MB，而我們只用到 WaveInEvent。\n\nDocs/語音控制.md 是給同仁的版本，含 SmartScreen 與麥克風權限這兩個\n第一次一定會遇到的彈窗、隱私說明，以及「你可能不需要裝這個」那張表。\n\n## 新增一個坑到 README\n\n程式執行中 dotnet build 會把 exe 截成 0 bytes，之後執行回 Access is denied；\n而且 MSBuild 會把 0 bytes 當成最新產出而跳過重建，要先 rm 掉。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "48da25f1",
           "time": "07:39",
           "message": "feat: ArgusVoice — 語音控制 Phase 0（跳過這首）",
-          "body": "評估文件（Docs/語音控制評估.md）說的 Phase 0：桌機上的最小版本，"
+          "body": "評估文件（Docs/語音控制評估.md）說的 Phase 0：桌機上的最小版本，\n用來量「誤觸率」和「音樂放著時聽不聽得懂」這兩個決定生死的數字。\n\n獨立 exe，跟 Argus.Wall 拆開 —— 語音掛了不該影響牆。收音、辨識全程離線\n（Vosk vosk-model-small-cn-0.22），沒有任何音訊離開本機，log 只記文字。\n麥克風插哪台就在哪台跑，將來搬去電視旁小主機不用改 code。\n\n## 三個會無聲失效的坑（都修掉並留了註解）\n\n症狀完全一樣：程式照常啟動、沒有紅字，只是永遠聽不到指令。\n\n1. JsonSerializer 預設把中文 escape 成 \\uXXXX，Vosk 拿字面上的字串去查字典\n   → 每個中文詞都「不認得」。改用 JavaScriptEncoder.Create(UnicodeRanges.All)\n2. Vosk 的 P/Invoke 走 ANSI 編組，繁中 Windows 是 cp950，簡體字（过、电、监）\n   在 cp950 不存在 → 變成 '?' 送進去。加 app.manifest 把行程代碼頁設成 UTF-8\n3. 往 model/graph/ 塞外來的 words.txt 會被 Vosk 當符號表，整個字典錯位\n\n一眼判斷法：--check 會讓 Vosk 把實際收到的語法原樣印出來，\n那行看到 \\uXXXX 或 ? 就是編碼問題，不是模型問題。\n\n## 設計上的一個修正\n\n原本想自己做中文斷詞，錯的：模型的符號表是「詞」不是「字」。\n改成設定檔直接寫模型自己的分詞（--free 看它怎麼吐就怎麼抄），\n我們只原封不動轉交，再用 --check 讓 Vosk 自己說認不認得。\n\n## 實測結果\n\n- 喚醒詞「阿格斯」不在模型字典裡，改用「小助手」（可用的還有 助手／管家／\n  巨人／监控／电视）\n- 指令講法 跳过／跳过这首／下一首／换一首／换歌 都驗過\n\n## 還沒驗的\n\n這支程式還沒真的聽過聲音 —— 開發機上沒有錄音裝置。設定檔到語法送進 Vosk\n這段驗過了，麥克風進來之後那段沒有。README 寫了插上麥克風後的驗證順序。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "5457816b",
+          "time": "07:17",
+          "message": "合併 MR !60: docs: 語音控制評估",
+          "body": "docs: 語音控制評估\n\nSee merge request ucl/ops/argus!60",
+          "category": "合併MR"
         }
       ],
-      "count": 5
+      "count": 6
     },
     {
       "name": "lisweb",
       "commits": [
         {
+          "hash": "95ff2828",
+          "time": "15:59",
+          "message": "合併 MR !1522: fix(rl001): 修正 PL/SQL 型別宣告誤判為函式",
+          "body": "fix(rl001): 修正 PL/SQL 型別宣告誤判為函式\n\nSee merge request ucl/lis/lisweb!1522",
+          "category": "合併MR"
+        },
+        {
+          "hash": "9b19ebdd",
+          "time": "15:59",
+          "message": "合併 MR !1523: add/DOCS開啟新版列印功能",
+          "body": "add/DOCS開啟新版列印功能\n\nSee merge request ucl/lis/lisweb!1523",
+          "category": "合併MR"
+        },
+        {
           "hash": "819294ff",
           "time": "10:17",
           "message": "feat(DataImport2): 新增普城碳13版型, 支援一列多項與姓名核對",
-          "body": "高雄健仁醫院外送碳13呼氣檢查改由普城醫事檢驗所操作, Excel 格式與原"
+          "body": "高雄健仁醫院外送碳13呼氣檢查改由普城醫事檢驗所操作, Excel 格式與原\n艾所版不同: 一位病人一列, 同列含三個結果欄, 各自對應一個項目代號。\n\n引擎擴充「一列多項」(ImportTemplateDefinition.Items):\n- 同列多個數值欄各展開成一筆結果, 共用 TNO 與姓名\n- 每項可設 DecimalPlaces 與 CommentColumnIndex (項目備註只掛指定項目)\n- 該項該列無值就不產生該筆; 整列皆無值則保留一列標紅, 避免無聲消失\n- 未宣告 Items 的版型 (聯合/艾所) 行為完全不變\n\n新增 pucheng-c13 版型:\n- 來源病歷→OD_TNO, 病人姓名→顯示欄\n- C-Urea服藥前→3120, C-Urea服藥後→3121, Heli-P→3119\n- 結果(陰性/陽性)→3119 的 OD_TR_COMMENT\n- 來源檔 .xls 儲存格為文字型, 無浮點雜訊, 不設捨入\n\n比對醫令加姓名核對:\n- MatchOrders 一併撈 ORD_HDR.OH_LAST_NAME 與檔案姓名對照 (去空白後比)\n- 不符標「姓名不符」黃字警告, 摘要列可點擊篩選\n- 只示警不擋轉入; 任一方無姓名則不比對\n\n驗證: node harness 抽 cshtml 真碼 + 真實 .xls 範本跑 29 項斷言全過\n(含聯合/艾所回歸與版型互不誤判); MSBuild 本機編譯通過。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "2e2338e2",
           "time": "08:17",
           "message": "docs(報告PDF): 補本機開發環境的兩個必踩點, 坑 7 加上「拒絕連線」死法",
-          "body": "同仁本機測 LT274Pdf 連撞兩個坑, 兩篇文檔都沒寫到, 補回去。"
+          "body": "同仁本機測 LT274Pdf 連撞兩個坑, 兩篇文檔都沒寫到, 補回去。\n\n一、PdfSelfBaseUrl 無埠 (坑 7 的開發機變體)\n基底預設 http://localhost 不帶埠, 而 Rebase() 是整個 authority 換掉只留\nPathAndQuery, 所以 IIS Express 的 localhost:64627 會被改寫成 port 80。\n開發機 port 80 沒站台 -> 拿到 ERR_CONNECTION_REFUSED 頁被無聲轉成 PDF;\n有裝 IIS 的機器更陰, 會打到 port 80 那份已部署的 LISWeb, 回 200 給你一份\n看起來正常、但不是剛編出來的報告。\n\n這跟 2026-07-21 台北傳真白紙是同一個坑 7, 只是死法不同 (那次是有人聽但沒\nbinding 認得 -> 404), 所以寫進判別法清單而不另開一節, 避免同一件事兩處記載。\n本機正解是設空值 (Rebase 原樣返回、沿用呼叫端 Host), 別寫死自己的埠。\n\n二、geratePdfTo 不自建目錄\ndownload=false 時寫 C:\\PDF\\{單位代碼}\\{TNO}.pdf, 而 File.WriteAllBytes 不會\n建目錄 -> 本機必噴 DirectoryNotFoundException。測版面一律帶 download=true。\n\n驗證: 本機 PdfSelfBaseUrl 設空值後重打 TNO 6091500554 (A4/isFax=Y),\n得到 493KB / 2 頁 / 內嵌標楷體+TimesNewRoman 的真報告 (錯誤頁是 1 頁、\n無標楷體)。修改前後對照確認診斷成立: port 80 實測無 listener。\n\n純文檔, 未動任何程式。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
-      "count": 2
+      "count": 4
     }
   ],
   "side_projects": [
@@ -257,25 +316,29 @@
           "hash": "bc9194ca",
           "time": "15:53",
           "message": "手機版版面調整",
-          "body": "實測 390px 寬度後補上："
+          "body": "實測 390px 寬度後補上：\n- flex item 加 min-width:0，輸入框不再撐爆整列\n- 輸入框字級提到 16px，iOS Safari 一 focus 就放大整頁的老問題\n- 欄位多的表格改在自己的容器內橫向捲動，不把頁面撐寬\n- 560px 以下：儲存鍵獨佔一行、分頁鈕均分寬度、圖表降到 260px、統計卡兩欄\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "b7f05c32",
           "time": "15:45",
           "message": "表單預填上一筆的數值，首次使用給預設值",
-          "body": "每天量出來的體重、晨跑的量都不會差多少，從空白重打很煩。"
+          "body": "每天量出來的體重、晨跑的量都不會差多少，從空白重打很煩。\n改成預填最近一筆記錄，沒有記錄時體重 87 kg、晨跑 2 km / 20 min。\n使用者一動輸入框就停止覆蓋，免得資料非同步載回來時蓋掉正在打的字。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "9ffaadef",
           "time": "15:42",
           "message": "Supabase 改用獨立 health schema，加連線煙霧測試腳本",
-          "body": "免費方案只給兩個專案，這個 App 要跟另一個專案共用同一個 Supabase，"
+          "body": "免費方案只給兩個專案，這個 App 要跟另一個專案共用同一個 Supabase，\n把表移出 public 以免 weights/runs 這種通用表名撞到。\n\n- schema.sql 改建在 health schema，補 anon/authenticated 的 grant\n- client 加 db.schema = 'health'\n- 新增 npm run check:supabase：寫入哨兵資料→讀回→刪除的三段驗證，\n  schema 沒 expose、RLS 沒開時會指出是哪一種\n- README 補上 Exposed schemas 與 reload schema 這兩個必踩的坑\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "169d5c8e",
           "time": "15:29",
           "message": "初版：體重與晨跑記錄，趨勢折線圖與相關性分析",
-          "body": "- Vue 3 + Vite + Chart.js，資料存 Supabase，未設定 .env 時退回 localStorage"
+          "body": "- Vue 3 + Vite + Chart.js，資料存 Supabase，未設定 .env 時退回 localStorage\n- 體重／晨跑兩張表各自 CRUD，一天一筆（同日 upsert 覆蓋），皆可匯出 CSV\n- 趨勢圖：體重日線 + 7 日平均、每日跑量長條，上下兩張共用時間軸，可匯出 PNG\n- 相關性：近 7 日跑量 vs 當期體重、vs 之後 7 天體重變化的 Pearson r\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 4
@@ -287,19 +350,22 @@
           "hash": "1545b53f",
           "time": "15:53",
           "message": "refactor: 取消 laozi-reader 置頂，作品集回歸更新時間排序",
-          "body": "置頂機制與註解保留，之後要用再在該筆加 pinned: true。"
+          "body": "置頂機制與註解保留，之後要用再在該筆加 pinned: true。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "重構"
         },
         {
           "hash": "96101832",
           "time": "15:44",
           "message": "feat: 作品集新增 Health Tracker 體重與晨跑追蹤",
-          "body": "id 43，分類 health，含 demo 與 GitHub 連結。"
+          "body": "id 43，分類 health，含 demo 與 GitHub 連結。\n文案帶出共用時間軸的雙圖設計、CSV/PNG 匯出、兩組 Pearson 相關係數，\n以及 Supabase health schema 與 localStorage 離線退回。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "da20c200",
           "time": "07:30",
           "message": "refactor: 移除聯絡頁的小額捐款區塊",
-          "body": "LINE Pay 個人收款依附在一卡通電支帳戶上，iPASS MONEY 與 LINE Pay"
+          "body": "LINE Pay 個人收款依附在一卡通電支帳戶上，iPASS MONEY 與 LINE Pay\n分家後這張 QR 已名實不符；加上上線至今零轉換，直接整塊移除而非修補。\n\n- Contact.vue: 刪 linepay-section、對應 CSS 與 media query 規則\n- useLanguage.js: 刪中英各 13 個 i18n key\n- 刪 public/img/linePay.png\n\n燈箱與 LINE/微信 QR 不受影響。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "重構"
         }
       ],
       "count": 3
@@ -311,13 +377,15 @@
           "hash": "f1d3da65",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-16",
-          "body": "🤖 自動生成於 2026-09-16 07:05"
+          "body": "🤖 自動生成於 2026-09-16 07:05",
+          "category": "文檔"
         },
         {
           "hash": "80848eca",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-15 (101 commits)",
-          "body": "🤖 自動生成於 2026-09-16 07:05"
+          "body": "🤖 自動生成於 2026-09-16 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
@@ -329,15 +397,16 @@
           "hash": "c707403e",
           "time": "08:42",
           "message": "feat(personal): 第 3 次健檢併入＋修正推估的資料集出處，新增兩份 A4 執行文件",
-          "body": "健檢紀錄補上 2026-09-15（大安 B1200）第 3 次數據與家量血壓 123/86。"
+          "body": "健檢紀錄補上 2026-09-15（大安 B1200）第 3 次數據與家量血壓 123/86。\n三次趨勢下來有三項在動：TG 104→147→191（首次跨 150，已符合高血脂定義）、\nUA 8.3→7.7→8.7（三次新高）、DBP 三次都卡 86-90 沒動過。\n新增項目 HOMA-IR 1.7 落在早期胰島素阻抗區間、Vitamin D 29.3 不足、AFP 8.4 待複驗。\n\n重現性問題：2026-04-08 的推估只記「LR + 全資料訓練」，沒寫資料集。\n用 wide format 跑 24 種設定組合全部對不上舊數字，改用滑動窗口一次完全命中\n（37.2/2.7/12.6）。兩個資料集同輸入差距不小 —— 高血壓 39.9% vs 56.6%（16.6 pp）。\n設定與教訓固化進 scripts/predict_personal_risk.py 檔頭。\n\n新推估（滑動窗口，間隔 12 個月 vs 模型設計 24 個月，僅供定性參考）：\n高血壓 39.9%、高血糖 6.2%（×2.3）、高血脂 22.6%（×1.8）。\n高血脂那項模型嚴重低估 —— 它的血脂特徵只有 TC，看不到真正跨線的 TG。\n\n兩份 A4 HTML：\n- 健檢行動表 —— 8 項判讀、優先處理三項（依回饋速度排序非嚴重度）、追蹤時程、回診訊號\n- 減重計畫 —— 16 週 −5 kg，四階段累加式。排 16 週而非 11 週是安全需求：\n  快速減重產生的酮體與尿酸競爭腎小管排泄，UA 8.7 下會誘發痛風發作\n\n兩份文件從 90_archive_碩論/09_personal/ 移出到 docs/09_personal/，\n它們會持續更新，不是碩論封存品。INDEX 補上現役區塊。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 1
     }
   ],
   "summary": {
-    "workCommits": 38,
+    "workCommits": 41,
     "sideCommits": 10,
-    "totalCommits": 48
+    "totalCommits": 51
   }
 }

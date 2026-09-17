@@ -9,502 +9,696 @@
           "hash": "75a19106",
           "time": "16:18",
           "message": "docs: 9/22 換檔提前到 9/21 晚上 —— 05:02 是真的有流量，但換檔不必在清晨",
-          "body": "查正式庫近 28 天 ansn 兩線的 cre_date：05 點那小時 29 天全中、2,142 張（日均 ~74、"
+          "body": "查正式庫近 28 天 ansn 兩線的 cre_date：05 點那小時 29 天全中、2,142 張（日均 ~74、\n全線 ~4.8%）。檔案半夜就躺在 H:\\UCLOrder_Files，05:02 第一輪一次吸乾。\n0506 671 張 100% 在 05:02、3528 851/909 在早班——而 3528 正是表頭 27 欄修正要驗的\n六家之一。⇒ 05:02 開窗不可以往後挪，我方 ProcessingWindow 起點也不可以。\n\n但被綁死的只有「換檔＋重啟不能撞到任何時窗」，9/21（一）19:10 之後同樣滿足\n（ansn 19:02 收窗、UNIMAX 17:00、Veterans 15:41、Xevox2 15:45，已切換各線最晚 18:00），\n一樣是一次換檔、一次重啟，且不必清晨作業。使用者 9/21 會待比較晚。\n代價是 05:02 第一輪無人看顧 —— 本線冪等，隔天 07:00 進來看、出事可重餵。\n\n⚠️ 這不解除 !156（ModuleInitializer 編碼修正）這個前提：19:10 重啟同樣落在所有\nDelimited 時窗之外，正是那個 bug 發作的條件。\n\n順手修掉三個文件落差：\n- 3a 卡切換步驟還寫「跑兩支產生器 → 合併」，實際只能跑 cutover-0922 那一支\n  （兩線版已在 56.227 改名 .SUPERSEDED_BY_cutover-0922）；GO 建的是八支不是四支\n- UNIMAX 的 PostImportHookUrl 仍列「待決」，但產生器早就四線都注入且會擋缺失 ⇒ 定案\n- TODO 9/22 條同時寫著 45 家與 42 家，訂正為 45（批次 5 實測 34 ＋ 3a 11）\n\nGO-cutover.ps1 只改開頭註解的執行時點，指令一行沒動；56.227 上那份因此會與 repo\n差一個 commit，已記在轉移卡 ⑨，9/21 動手前重新複製即可。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "0f772cad",
           "time": "16:06",
           "message": "docs: 上版交接 — 大同線隔夜檔會是新版 binary 的第一批 Live 處理對象",
-          "body": "9/16 部署排在 09:00 前、TATUNG 時窗 09:01 才開，兩者的時序有個執行者需要知道的交互作用。"
+          "body": "9/16 部署排在 09:00 前、TATUNG 時窗 09:01 才開，兩者的時序有個執行者需要知道的交互作用。\n\n0173 近 30 天有 9 個檔（10%）在 17-18 點才到，落在時窗外，會留在 units\\tatung\\inbox\n到隔天 09:01 才處理（正式庫佐證：檔名時間戳 16 點後的檔，9 例中 8 例隔天才寫入）。\n舊程式時窗相同，屬沿用行為。\n\n對上版的兩個影響：\n1. 停服務前的基準要含 inbox 檔數，不只各線解析數。09:00 停服務時 tatung\\inbox 若有檔，\n   那是昨晚留下的、不是部署造成的堆積——先記檔名，部署後確認同一批被正常處理。\n2. 新版的第一次 Live 寫入發生在 09:01 而非部署當下（四條線時窗都還沒開）。驗收「服務起得來、\n   log 無 ERR」之後還要在 09:05 左右回看該批檔是否正常轉入、隔離區是否仍為 0。\n\n⛔ 不要為了讓部署前 inbox 淨空而手動搬動或補跑那些檔：Keelung 不冪等，同一檔處理兩次會\n產生完整重複單且無法用重跑修正。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "ac8e3a4c",
           "time": "14:46",
           "message": "docs: 9/16 驗收補上查法、兩修正各自的歸零指標、Live 路徑 diff",
-          "body": "接著另一 session 寫的「Excel 兩線判準要反過來」那節往下補四件它沒有的："
+          "body": "接著另一 session 寫的「Excel 兩線判準要反過來」那節往下補四件它沒有的：\n\n1. 實際查法，含 PS 5.1 的坑：log 是無 BOM 的 UTF-8，不帶 -Encoding UTF8 會被當\n   Big5 讀成亂碼，四條比對會全部落空（看起來像「都是 0」＝驗收假通過）。\n\n2. ⛔ 編碼與表頭兩個修正各自有獨立的歸零指標，不會互相遮蔽：\n   9/15 全日 589 筆 encoding 1252 發生在 07:19-09:00，那時檔案根本走不到表頭檢查；\n   09:00 後 Delimited 開窗把 provider 註冊好，才有 7 個檔走到第 26 欄那關。\n   所以「欄位[26]應為CLI_INFO」歸零是 485bf57 的**獨立**證據——這很重要，\n   因為 9/15 才發生過「註解與文件寫成已修、實作沒進程式碼」。\n\n3. shadow-health-check.ps1 的註解部署後會過時：它寫那六家「新舊程式都拒收」，\n   485bf57 之後我方會收下。健檢數失敗數、變少不會誤報，但說明該更新，\n   否則下一個看健檢的人會以為出事。\n\n4. Live 路徑三個檔的 diff 結論，以及本批唯一會外溢到我方系統之外的變更：\n   失敗路徑的 MessLog 訊息尾端多了「（失敗前已寫入 N 張單）」。我方消費者都沒事\n   （流量統計是對收檔資料夾做 LIKE），但外部若有精確比對就會受影響。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "307d79b5",
+          "time": "14:46",
+          "message": "合併 MR !211: docs: 9/16 計畫補充 —— Excel 兩線的 L2 判準要反過來",
+          "body": "docs: 9/16 計畫補充 —— Excel 兩線的 L2 判準要反過來\n\nSee merge request ucl/twowayconnection/orderinsql!211",
+          "category": "合併MR"
         },
         {
           "hash": "e371b467",
           "time": "14:45",
           "message": "docs: 9/16 計畫補充 —— Excel 兩線的 L2 判準要反過來，部署前基準取不到",
-          "body": "計畫本身很完整，補三處會誤判的地方。"
+          "body": "計畫本身很完整，補三處會誤判的地方。\n\n一、L2 的「② Excel 線單獨驗 ⇒ 與部署前相同」是錯的判準。HeaderAlternatives 上\n線後，0026/0069/0452/0743/3528/3549 六家的 27 欄變體會從拒收變成收得進來 ——\n實查 shadow\\ansn-ucl\\inbox 470 檔中有 90 檔屬這六家（0743 24／3528 24／0452 14\n／0069 13／0026 13／3549 2）。這 90 檔會從失敗變成功，照「與部署前相同」判會把\n修正生效誤判成回歸。\n\n二、Excel 線的部署前基準實際上取不到有意義的值。!149 未上線前命中快取一律回\ntrue，第二輪起「失敗 0」恆成立（今天 00:00:25 那輪 ANSN-SHADOW 成功 438、失敗\n0，那是快取不是事實）；而重啟後首輪又被編碼 bug 汙染（07:19：ANSN 0/442、\nUNIMAX 0/147）。兩種取法都不可信 ⇒ 判準改用絕對值。\n\n三、預測值（今天以含修正的組件對現行 shadow inbox 實跑）：ANSN-SHADOW ~470/0、\nUNIMAX-SHADOW ~155/0。檔數到明早會再長，看失敗數就好，應為 0。\n\n這兩個數字同時是 !156（編碼）與 485bf57（表頭）的行為證明，比查 DLL 字串更硬：\n仍出現 encoding 1252 ⇒ !156 沒進 binary；仍出現「欄位[26]應為CLI_INFO」⇒\n485bf57 沒進 binary。後者一定要看 —— 9/15 才發生過「註解與文件寫成已修、實作沒\n進程式碼」。\n\n另補：三條 Delimited 影子線首輪也應為失敗 0（9/15 已把 xevox2/veterans inbox 裡\n50 個 FP 原始 Excel 移走，就是為了讓這個訊號乾淨）。並訂正「八條線」——現行是 9\n個單位＝4 Live ＋ 5 DryRun，只有 5 條 DryRun 會在 log 報解析數。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "83ed80c4",
           "time": "14:39",
           "message": "docs: 兩張卡寫明 9/17 要用哪支比對腳本、以及各自的預期答案",
-          "body": "3a 用 parallel-compare-k3.sql，不是 parallel-compare-keelung.sql —— 後者的單位"
+          "body": "3a 用 parallel-compare-k3.sql，不是 parallel-compare-keelung.sql —— 後者的單位\n清單寫死著 TATUNG/Cube 的 16 家，完全沒有 veterans/xevox2，照跑等於比對不到本\n批任何一家。k3 版的清單是動態產生的。\n\n批次 5 用 parallel-compare-ansn.sql。\n\n兩支今天都修過（各自的問題記在卡裡），重點是把「預期答案」先寫下來，因為兩個家\n族的答案是相反的，很容易記混：\n\n  Keelung（3a）  四欄兩側都該有值。測試側全 NULL ＝ WriteProfile 又被餵成 Ansn，\n                 那是 09-10 事故的指紋，直接停。\n  ansn（批次5）  四欄兩側都該是 NULL，應為 0 差異。舊程式實測 3,305 筆全 NULL、\n                 零空字串，我方 Ansn 路徑本來就不寫這四欄。跑出差異反而要先確認\n                 WriteProfile 是不是被改成 Default。\n\n先寫下預期答案的用意：跑出來的數字要能立刻判斷是對是錯，而不是當場才開始推論。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "783403e3",
           "time": "14:38",
           "message": "docs: 9/16 上版計畫整併成一份（兩條工作線的變更本來就會一起走）",
-          "body": "這裡只有一份 binary、一個服務，所以不存在「兩邊各上各的」——任何一次部署都是把"
-        },
-        {
-          "hash": "568cd7fb",
-          "time": "14:38",
-          "message": "Merge remote-tracking branch 'origin/main' into feat/0915-fp-replay-diff",
-          "body": ""
+          "body": "這裡只有一份 binary、一個服務，所以不存在「兩邊各上各的」——任何一次部署都是把\nmain 當下的完整狀態推上去。真正的風險是兩個 session 各跑一次腳本：兩次重啟、兩個\n備份夾，且第二次若用了不是當下重建的 staging 就會倒退版本。⇒ 一次部署、一個執行者。\n\n把實際要上的東西算準（線上是 4797fea，之後 66 個 commit 有 12 個動到 src/），\n依執行期風險分四層：\n\n  ① 匯入路徑修正（DryRun 摘要、編碼 ModuleInitializer）——修既有 bug，減少失敗\n  ② Excel 解析行為（HeaderAlternatives 實作）——⚠️ 本批唯一會改變解析結果的變更\n  ③ GUI／觀測六支——不碰匯入語意（唯一例外是 catch 區加計數）\n  ④ 批次 6a 的 Fp* 三個新檔——實查過沒有任何生產程式碼引用，執行期零影響\n\n驗收因此可以分層，而且 L2「八條線解析數逐一相同」若不成立，範圍已先被縮到 ②，\n直接往 ExcelOrderFileAdapter 查，不用大海撈針。\n\n另補：部署前基準要在停服務**之前**記，否則沒得比；回退會一併退掉 ① 的兩個修正，\n其中 ModuleInitializer 一退，重啟落在 Delimited 時窗外時 Excel 線會再度全掛。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1d3c1cbf",
           "time": "14:37",
           "message": "feat: 6a 逐檔回放跑出數字 —— 1,058 檔逐行零差異",
-          "body": "平行測試第三塊，接上前兩塊就跑得出數字了：備料 → 用 FP 的讀法讀原始檔 →"
+          "body": "平行測試第三塊，接上前兩塊就跑得出數字了：備料 → 用 FP 的讀法讀原始檔 →\n投影成 .txt → 逐行對真實基準。全程離線、不碰 DB。\n\n近 90 天、13 家、1,058 組可靠配對，**逐行完全相同、零差異、零讀不到**。\n\nFpSourceReader（測試專案內）：ImportExcel.GetExcelDataTable 的移植。刻意用 NPOI\n而不是 Core 的 ExcelDataReader——FP 的 GetCellValue 對 Numeric 回傳 ICell.ToString()，\n那是 NPOI 的格式化語意，換讀取器就換一套字串化規則，基準就對不起來。放測試專案是\n因為它是驗證工具，不該把 NPOI 帶進 Core 的正式相依。\n\nFpReplayDiffTests：靠 FP_REPLAY_DIR 環境變數啟動，沒設就略過（素材含病患資料，\n不可能進版控，CI 永遠 skip）。目前不是閘門，是量測；差異收斂後再改成守門。\n\n備料腳本修了四個配對錯誤，每一個都產生過假差異：\n1. 複製時沿用備份夾的名字 ⇒ xxx.xls-1 的副檔名認不得，整檔讀成 0 列（2 檔）\n2. 同名重送去重留錯份 ⇒ 拿 9/11 的輸入對 9/10 的基準（1 檔）\n3. 產出檔名沒照 _removeSubname ⇒ 它只剝 .xls/.xlsx/.csv，X.ods 的產出是\n   X.ods.txt；我拿 .ods 的輸入去對 .xls 的基準（14 檔）\n4. 0165 同一 base name 配三種副檔名，-N 序號在輸入端與產出端各走各的\n   ⇒ 檔名配對對它本質上不可靠，改成偵測撞名並排除（87 檔），不硬配\n\n第 4 點要記住：硬配出來的「差異」是假的，會掩蓋真差異。要救得改用時間戳配對。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "dc00ebf0",
           "time": "14:37",
           "message": "fix: k3 比對腳本補四欄與 BOM —— 3a 閘門① 原本驗不出 09-10 事故的復發",
-          "body": "9/17 要用這支跑 3a 的平行驗證（閘門①）。它是批次 3/4 四線專用、單位清單動態產"
+          "body": "9/17 要用這支跑 3a 的平行驗證（閘門①）。它是批次 3/4 四線專用、單位清單動態產\n生（比寫死的好），但有三個問題。\n\n一、沒有 BOM。sqlcmd -i 會把它當 Big5 解、輸出 0 行 —— 跟 parallel-compare-ansn\n同一個坑。用 sqlcmd 跑會得到「零輸出」而不是「零差異」。\n\n二、四欄一個都沒有。2026-09-10 併單事故的症狀之一就是明細四欄全 NULL（TATUNG\n誤吃到 WriteProfile=Ansn，而 Ansn 路徑不寫這四欄）。keelung 版補了、k3 版沒補\n—— 沒有這一段，3a 的閘門① 驗不出那個事故復發。已補，並在註解寫明預期答案與\nansn 家族相反：Keelung 兩側都該有值，測試側全 NULL 就是 WriteProfile 又被餵成\nAnsn，直接停。\n\n另加 NULL/空字串分布段：上面的比對兩側都套 ISNULL(...,'')，「一邊 NULL 一邊空字\n串」比不出來。以 9/14 的影子時段實跑，這段立刻照出 Dept 測試側 2016 筆全 NULL\n對正式側 1666 筆空字串 —— 正是 CLAUDE.md 記的已知盲區，本身不是缺陷但一直看不\n到。\n\n三、@testFrom 原本是 CAST(GETDATE() AS date)，即今日 00:00。WebOrder_Test 不是回\n放專用的庫，切換後 .227 舊程式整天往裡面寫，用「今日」當下界會把別條線的資料撈\n進來 —— 而本腳本的單位清單是動態產生的，等於把別條線的單位也納入比對。改成起訖\n時刻並加上界。\n\n驗證：未來時段跑全 0（語法過）；換成 9/14 影子時段，四欄段跑出 PROFILE 6 筆、\nKIND 2 筆，與文件記載的 9/14 結果同量級。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "77c40852",
           "time": "14:34",
           "message": "fix: ansn 比對腳本補四欄、重建單位清單、加 BOM —— 閘門④ 原本驗不出東西",
-          "body": "9/17 要用這支跑批次 5 的平行驗證（閘門④）。查下來它有四個問題，每一個都會讓"
+          "body": "9/17 要用這支跑批次 5 的平行驗證（閘門④）。查下來它有四個問題，每一個都會讓\n「零未解釋差異」變成沒有意義的結論。\n\n一、沒有 BOM，sqlcmd -i 讀不了。其他兩支 SQL（keelung、reverse-compare-batch24）\n都有 BOM，只有這支沒有，git HEAD 版本就沒有 —— 不是這次編輯造成的。用 sqlcmd\n跑會被當 Big5 解、整支變註解，輸出 0 行。09-03 那次應該是貼進 SSMS 跑的，改用\nsqlcmd 會直接得到「零輸出」而不是「零差異」。已補 BOM 並實跑驗證。\n\n二、缺四欄比對。keelung 版早就有（09-10 事故的症狀之一就是四欄全 NULL），這支\n一直沒有。已補 §6，並先查好預期答案寫進註解：舊 ansn 程式四欄全寫 NULL（實測\n6 個單位 3,305 筆，NULL 3305／空字串 0），我方 Ansn 路徑本來就不寫這四欄 ⇒ 兩\n側都該是 NULL、本段應為 0 差異。這與 Keelung 家族相反，那邊全 NULL 才是事故。\n另加 §6b 攤開 NULL/空字串分布 —— §6 兩側都套 ISNULL 會遮住這個差異。\n\n三、單位清單帶著兩個錯誤的排除：\n\n  0026/3528「新舊程式皆拒收、無資料可比」—— 錯的。舊程式的表頭迴圈是 break 不\n  是 return，從不拒收。正式庫實據：0026 自 9/1 起 232 張、3528 452 張，到 9/15\n  都還在寫。照原清單跑會剛好跳過表頭修正要救的那六家。\n\n  0618/1021「測試庫已有同檔前次處理結果」—— 那是 09-03 素材殘留，不是這兩家的\n  性質。新一輪測試庫會先清乾淨。\n\n清單改以正式庫實據重建（37 個代碼），並保留唯一仍成立的排除 1120/0539。也記下\nTransferUCLCode 會依 ID_INVNO 逐列把 0511/0519/0520 改寫成 25xx，兩種代碼都會落\n到正式庫（實測 0511 302 張／2511 315 張），所以兩種都要列。\n\n四、加 §7 安全網：列出「測試庫有資料但不在 #units 清單」的單位。寫死的清單會過\n期，而清單漏一家、那家就永遠是零差異 —— 這正是 09-03 差點發生的事。\n\n連帶把 @testFrom 從日期改成回放的起訖時刻並加上界：WebOrder_Test 不是這輪專用的\n庫，切換後 .227 舊程式持續往裡面寫，用日期當下界會讓 §7 列出上百家變成噪音（實\n測 111 家，收緊時段後 0 家）。\n\n驗證：以 09-03 那輪的時段實跑，§6 零差異、§6b 兩側皆全 NULL、§7 零家，與預測完\n全一致。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "ff33cec0",
           "time": "14:32",
           "message": "docs: pull 副檔名排除規則依家族而異 ＋ 訂正 0068 的錯誤推論",
-          "body": "① 新規則入 CLAUDE.md：「pull 排除 *.xls/*.xlsx/*.ods」只對 Delimited（Keelung）家族成立，"
+          "body": "① 新規則入 CLAUDE.md：「pull 排除 *.xls/*.xlsx/*.ods」只對 Delimited（Keelung）家族成立，\n複製到 ansn 家族會把每一張醫令漏掉——對 ansn 線 .xls 就是正式醫令輸入格式。\n實證：Cube/Cube2 線 31 單位近三個月 0 個 Excel 副檔名的檔產出過醫令（排除安全）；\nansn 家族則大量單位的醫令檔就是 .xls（0926 24,408 張、0047 16,179、0925 12,748…）。\nxevox 線的 0536/0030 兩個管道都有同名 .xls，但 xevox 夾裡那些是真 OLE2 二進位\n（d0cf11e0，檔名如「委外清單」「複本…外送」）＝FP 原始輸入，其真正醫令走 ansn 管道，\n所以 xevox 排除正確。附「加任何 pull 排除前先跑」的查證 SQL 與檔頭驗法\n（含 2026-09-11 在 xevox2 踩過的「副檔名騙人的文字檔」反例）。\n\n② 訂正 batch4 卡片：我先前寫 0068「分布至 14:00 僅走完 64%、仍可能下午到」是錯的推論——\n只看到檔時間分布、沒查該單位近日是否還在送檔。另一 session 14:15 查明它自 9/11 12:45\n之後就沒再送過任何檔（四處實查一致、停止前量已遞減），今天不會到且與切換無關。\n結論寫「Cube2 線首日未驗證（單位無送檔）」、不可記成切換造成，並標記要有人去問單位。\n教訓：判斷「還沒到」與「不會到」要查送檔紀錄，不是看時段分布。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "b8c5c7f7",
           "time": "14:26",
           "message": "docs: 15:00 複驗清單整理成可接手的形式，交給另一個 session 執行",
-          "body": "原本這段是「四項待驗」的原始清單，但其中兩項今天已經查結案了，資訊散在段落各"
+          "body": "原本這段是「四項待驗」的原始清單，但其中兩項今天已經查結案了，資訊散在段落各\n處，接手的人要自己判斷哪些還要做。改寫成三塊：\n\n- 還要驗的兩項（3540、外送大安子格式）—— 只剩這些\n- 已結案的兩項，連同結論要怎麼寫（0068 驗不到但與切換無關；0466 本項作廢）\n- 判讀時的背景（下午班的九個單位、0208 的量能）\n\n並把複驗指令完整寫進去（含 -i 要用 Windows 反斜線路徑那個坑），照著跑就好。\n\n段首標明由另一個 session 執行，避免兩邊重複做同一件事。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "f90812e9",
           "time": "14:17",
           "message": "docs: Cube2 線首日驗不到 —— 單位自 9/11 起就沒送檔，與切換無關",
-          "body": "15:00 複驗清單第 2 項原本是「0068（Cube2，中位數 13:05）上午該線 0 輪次、整條"
+          "body": "15:00 複驗清單第 2 項原本是「0068（Cube2，中位數 13:05）上午該線 0 輪次、整條\n線未驗」。14:15 查了，今天驗不到，而且原因不在我們。\n\n0068 自 2026-09-11 12:45 之後沒再送過任何檔 —— 9/12(六)、9/14(一)、9/15 全空\n白，而它先前是每天送、連週六都送。四處實查一致：.227 的 Cube2_Files 與\nCube2_Backup_Files 今日 0 檔（最新仍是 9/11 12:45）、我方 units\\cube2\\archive\n0 檔、正式庫 PhysicianOrderM 的 0068 在 9/11 之後也是 0 筆。\n\n切換日是 9/15，空窗 9/12 就開始了。量在停止前已明顯遞減：9/3 63 張 → 9/4 13\n→ 9/7 1 → 9/10 1 → 9/11 1 → 停。\n\n兩個待辦寫進清單：結論要明寫「Cube2 線首日未驗證（單位無送檔）」不要含混、也\n不要記成切換造成；以及要有人去問單位到底是停用、改管道還是他們出問題 —— 與切\n換無關但不追就會一直掛在未驗證狀態。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1dcd40ab",
           "time": "14:15",
           "message": "docs: cutover-0922 已佈署到 56.227，批次 5 前置只剩平行驗證",
-          "body": "佈署內容：D:\\OrderInSql\\cutover-0922\\，7 個檔逐檔 SHA256 相符、pull-settled.ps1"
+          "body": "佈署內容：D:\\OrderInSql\\cutover-0922\\，7 個檔逐檔 SHA256 相符、pull-settled.ps1\n已複製、13 處佔位符全換且掃描無殘留（兩個值都在伺服器端就地抽出）。units\\ansn\n與 units\\unimax 四個目錄已建，UNIMAX 的 5 個 TxtTable 對映檔已複製且逐檔雜湊與\n.227 相符，ansn 側維持空目錄。\n\n已從佈署位置實跑產生器（不只本機驗）：四線輸出全對、diff 56 行 0 空白行。產出\n的 .CUTOVER.ALL 當場刪除 —— 9/16 部署、9/19 收尾都會動 Local.json，留過期產出\n在 app\\ 旁邊，切換當天有人直接套用就會把退役的影子線帶回來。\n\n同時把 cutover-batch3a\\ 的三支兩線版腳本改名加 .SUPERSEDED_BY_cutover-0922：\nmake-cutover-config.ps1、GO-cutover.ps1、ROLLBACK.ps1。三支跑錯都不會報錯 ——\n產生器會讓 ansn/UNIMAX 留在 DryRun、GO 只建 4 支排程（漏掉 ansn/UNIMAX）、\nROLLBACK 只停 4 支。\n\n⚠️ 該目錄的 pull/feed 四支 .bat 留著沒動：cutover-0922 的 GO 會直接引用它們，\n不重複一份是為了避免「改了一份忘了另一份」。\n\n⇒ 批次 5 九項前置完成八項，只剩⑥平行驗證實跑（卡在 09:00 前／18:00 後的時窗）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "44da1e96",
           "time": "14:15",
           "message": "docs: 9/15 14:12 下午複驗 — 零未解釋差異，跨單位搬移驗算差額全 0",
-          "body": "第二輪反向比對涵蓋整個上午＋下午單位（影子 673 主檔／25 單位，含 3540 的 102 張；"
+          "body": "第二輪反向比對涵蓋整個上午＋下午單位（影子 673 主檔／25 單位，含 3540 的 102 張；\n驗證夾已清空＝影子鏈完全跟上）。§7 跨檔併單仍為 0，三線 ERR 0、隔離區 0、52 檔成功。\n\n§0 共 34 單位，30 個兩側完全相同；4 個不同全為修補層跨單位搬移，加回目的單位後差額\n皆為 0（0208→0357 161=146+15、0272→0854 73=45+28、2635→2636 33=20+13、\n2798→2797 16=14+2）。§1「對不到」58 筆 = 15+28+13+2，全為搬移產物、非漏單。\n\n其餘各段逐一歸屬既有白名單：§2 的 21 列全為 2635 的 php NAME=NAME+ID_INVNO；\n§3 的 64 列為白名單①（UTI_UCL='NA' 略過）；§4/§5 為下游 Cancel 翻旗＋白名單①；\n§6 的 7 列為白名單②配對假象。\n\n新增一條白名單：0449/115E603649/14005A 兩側都有 P411 與 4469 兩列，差別只是 Cancel\n落在哪一列，且正式庫兩列都帶修補層指紋（adjust=99、OrderCheckJob/A363）⇒ 下游決定\n哪個套組作廢，與轉檔層無關。\n\n尚未驗到兩項改為明列：CUBE2 整條線（0068 未到，其分布至 14:00 累計僅 64%）、外送大安\n子格式（0078/1068/0466 近兩週有量僅 1/6/2 天）。若收盤前仍未到，結論要明寫「該路徑\n首日未驗證」並順延觀察期次日補驗。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "05ba4e78",
           "time": "13:07",
           "message": "feat: 9/22 四線切換資產 —— 一支產生器處理 3a ＋ 批次 5",
-          "body": "批次 5 提前併進 9/22 後，當天是四條線（Veterans／Xevox2／ansn／UNIMAX），而"
+          "body": "批次 5 提前併進 9/22 後，當天是四條線（Veterans／Xevox2／ansn／UNIMAX），而\nansn 05:02 開窗 ⇒ 05:00 前只有一次重啟的機會。靠「跑兩支產生器再合併」絕對不\n行 —— 那正是 9/15 當天靠臨時合併才過關的做法。新目錄 cutover-0922 一次處理四\n線。\n\n3a 的兩線版產生器標記為已取代、9/22 不可用，並在 README 寫明佈署時要把 56.227\n上那份移走：跑錯它不會報錯，產出的設定裡 ansn／UNIMAX 仍是 DryRun。\n\n四條線分屬兩個家族，不可套同一組規則：\n\n  VETERANS/XEVOX2  Delimited、WriteProfile 明寫 Default、ValidateIdFormat=1、\n                   版位 Version/ProcessColumnL/U 釘死\n  ANSN/UNIMAX      Excel、WriteProfile=Ansn（影子設定帶來的，保留不動）、\n                   TextTableDir 改指 units\\、FileNameExcluded 保留、\n                   且不可帶 ValidateIdFormat\n\n驗證：\n\n- 對 56.227 真實現行設定實跑通過，四線輸出全對，diff 56 行、0 空白行，九個單位\n  狀態正確（四條已切換的仍 Live、XEVOX-SHADOW 仍 DryRun）\n- 四道守門各做負向測試：連線非正式密文／CUBE 被回退成 DryRun／ANSN-SHADOW 已是\n  Live／UNIMAX-SHADOW 被改名 —— 全部正確中止\n- 三支 .ps1 換掉佔位符後語法零錯誤；.bat 純 ASCII、無 BOM、UNC 路徑完好\n\n首版踩到兩個實作坑，已修並寫進 README：Options 注入用 here-string 內插一個可能\n為空的變數會留下空行；$inject 結尾多加一個換行也會（$anchor 本身沒有結尾換行）。\n兩者都不影響 JSON 合法性，但會讓日後的錨點替換變脆弱 —— diff 從 60 行降到 56 行\n才是對的。\n\nVeterans/Xevox2 的 pull/feed 沿用 9/15 已佈署並驗過雜湊的 cutover-batch3a\\，本\n目錄不重複一份 —— 重複才會有「改了一份忘了另一份」的問題。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "a0672988",
           "time": "13:01",
           "message": "feat: FP 值層移植 —— 把原始列重建成 FP 的 .txt，供逐檔回放",
-          "body": "平行測試的第二塊。有了它就能拿 fp-replay-prep 備好的 1,151 組配對做逐檔"
+          "body": "平行測試的第二塊。有了它就能拿 fp-replay-prep 備好的 1,151 組配對做逐檔\ndiff，全程離線、不碰 DB——能重現，才代表對映層與值層都對。\n正式寫入路徑不會用它（那是直接寫 WebOrder）。\n\nFpFieldFilters：Filter.cs 的忠實移植。FilterString／MinusZero／TransferGender／\nGetGenderFromID／DateTimeConvertDate。目標是重現不是修正：\n- ConvertDate 少的 case 10 照樣缺 ⇒ 2004-02-10 變 14 碼。這是 ORA-01830 與\n  我方生日寫空值的共同源頭，補了就對不上基準，測試明寫這點\n- Transfer 模式性別回傳中文（男/女），與 Parsing 模式的 1/2 不同\n- 文化相依的 DateTime.Parse 一律釘死 zh-TW（.229 的環境），不隨執行環境飄\n\nFpTxtProjector：Export.Txt 的 21 欄順序、行尾多一個分隔符（split 得 22 格）、\n病歷號／姓名／性別三欄沿用上一列（性別多一條「本列為 0 且已有上一列值」）、\n三鍵全空的列級過濾、細項代碼以減號串進檢驗代碼、檢驗代碼為空時用\nCompanys.UTI_TEST_CODE。沿用狀態跨整個檔案累積，一個實例只能用於一個檔。\n\n未實作 0699 的橫向展開：近 90 天零流量、備份夾也沒有歷史檔，沒素材可驗，\n硬寫等於寫一段沒人驗過的碼。切 0699 前必須補。\n\n測試全用合成資料（真實素材含姓名身分證病歷號，不進版控）。279 測試綠。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "d1a87370",
           "time": "12:48",
           "message": "docs: 11 個缺產出判讀完畢 —— 10 個不是掉單，訂正上一則的過早結論",
-          "body": "MR !196 把這 11 個一律稱為「靜默掉單」，查證後不成立。"
+          "body": "MR !196 把這 11 個一律稱為「靜默掉單」，查證後不成立。\n「FP 解析出 0 筆」是事實，「醫令沒進來」不是，兩者要分開。\n\n- 0165 的 .ods（95 筆明細）：95 組（病歷號＋檢驗碼）95/95 都在正式庫\n  9/4-9/5 的 0165 底下找得到。檔名的 (1) 是重複上傳副本 ⇒ 不是掉單\n- 0581 的 7 個 xlsx：只有 4-5 欄的「加做項目核對表」，與 FileFormat 對映的\n  3-18 欄完全不符 ⇒ 不是醫令檔，舊新系統都不會處理\n- 0536 病理委外清單：第 3 欄「工作號」全空，而 TICKET 與 ID_CLI_INFO 都映到\n  第 3 欄 ⇒ 列級 gate 把每列都丟掉。這 7 筆在正式庫 9/3-9/6 查無\n  ⇒ 唯一存疑，但病理委外是否本來就不走這條線要問業務端\n\n偵測指紋本身有效：它把「FP 對這個檔產出 0 筆」變成看得見的事，\n在此之前只留下一行「轉檔成功」。\n\n對 6a 的意義：0536 那類切換後會被我方解析出來（我方沒有三鍵 gate），\n是 §6「三鍵全空的列：已被丟棄 → 會出現」的第一個具體實例。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "3c28a0e9",
           "time": "12:42",
           "message": "docs: 批次 5 的 .227 兩份 .CUTOVER 與四個驗證夾已就位",
-          "body": "走 SMB 免 RDP，做法同 3a：讀原檔位元組、只替換必要處、寫回。BOM 保留、CRLF 數"
+          "body": "走 SMB 免 RDP，做法同 3a：讀原檔位元組、只替換必要處、寫回。BOM 保留、CRLF 數\n不變、非 ASCII 位元組數不變。ansn 2135→2154（+19）、unimax 2066→2090（+24），\n與逐項預期完全相符。\n\n先逐檔驗錨點才發現兩份的連線結構不同，不能共用一套替換規則：ansn 只有一條\nBaseConn（server=/database= 形式），UNIMAX 有兩條（BaseConn 用 Initial Catalog=、\nUCLMSSqlConn 用 database=）。\n\n更要緊的是 ansn 那份還有兩行被註解掉的舊連線（ucl51/uclWebOrder、\n192.168.168.139/WebOrder），裡面含 Initial Catalog=WebOrder。替換規則若含\nInitial Catalog= 就會動到註解內容 —— ansn 的規則因此刻意只針對 database=，\n產出後實查那兩行原封不動。\n\nTextTableDir / Version / TransferUCLCode / isAnsnFormat 全未更動。\n\n⇒ 9/17 中止點的兩個條件（轉移卡、兩份 .CUTOVER）今天都達成了。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "a353ff1e",
           "time": "12:39",
           "message": "feat: 6a 回放備料腳本，首跑就證實了 FP 的靜默掉單",
-          "body": "平行測試的第一塊：把「FP 實際處理過的客戶原始檔」與「FP 對應產出的 .txt」"
+          "body": "平行測試的第一塊：把「FP 實際處理過的客戶原始檔」與「FP 對應產出的 .txt」\n成對撈出來當素材與基準。唯讀，只讀 .229 的 Parsing DB 與 .227 的備份夾。\n\n為什麼要白名單：*_Backup_Files 混著 FP 的輸入與我方收檔夾的備份，副檔名重疊\n（都有 .csv）分不出來。按前綴數會把 0272 算成近 90 天 139 檔，但那些是我方\n自己的輸入；FP 給 0272 的輸入 2024 年就停了。唯一可靠的分法是拿\nExecuteLog.filename 當白名單。\n\n配對規則（讀碼＋實檔驗證）：輸入 <名稱>.<副檔名> → 產出 <名稱>.txt，同在\nBackupFolder。備份撞名會改成 <原名>-<N>，而 <原名> 含副檔名，故有 .csv-1\n這種名字，比對時剝掉尾碼。\n\n首跑（近 90 天、13 家、1,162 個輸入）：1,151 個配到基準，11 個沒有。\n那 11 個不是備料瑕疵——Export.Txt 是 FileMode.Create、空結果也會產生 0-byte 檔，\n所以「完全沒有 .txt」代表它沒被呼叫到：resultBody 空 ⇒ UNIT_CODE_ARRAY 空 ⇒\nCount()==1 不成立 ⇒ 落到 else 的 foreach ⇒ 一次都不跑。而原檔照樣進備份夾、\n照樣記「轉檔成功」。\n\n⇒ 這修正了 FP_EXPORT_CONTRACT §7 原本的驗證法（找 0-byte 或 *.ods.txt），\n實際上根本不會產生檔。正確指紋是「ExecuteLog 有 + 原檔在 + 無同名 .txt」。\n實例：0581 七個 .xlsx、0536 三個、0165 一個 38KB 的 .ods。三家都屬批次 3b。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "9e9204d7",
           "time": "12:35",
           "message": "docs: 批次 5 轉移卡（ansn ＋ UNIMAX）",
-          "body": "照 3a 那張卡的結構建，基本資料全部取實據，不抄舊文件。"
+          "body": "照 3a 那張卡的結構建，基本資料全部取實據，不抄舊文件。\n\n時窗以 .job 二進位實測：ansn 05:02-19:02、UNIMAX 09:00-17:00，都是每 10 分。\n解析器先用五條已知時窗自驗（TATUNG/Veterans/Xevox2/Cube/Cube2），全部與文件吻\n合才拿來量這兩條。\n\n流量與家數實測訂正：近 28 天 ansn 26 家/日均 ~29.3、UNIMAX 8 家/日均 ~9.9，合\n計 34 家/~39 檔（原文件記 31 家/~41）。週六照送、週日幾乎全休。\n\n四條紅線：05:00 前換檔（全案最早守點）、只停 02/06、pull 必須排除 1120-/0539-\n（那是 1120 的唯一防線，表頭檢查不擋它）、TextTableDir 要指到有內容的目錄。\n\n與 Keelung 家族的三個關鍵差異單獨列一節，最重要的是冪等性相反：ansn 走內容鍵\nupsert ＋ 明細 NOT EXISTS ⇒ 可以重餵，回退比 Keelung 安全。但 SEQUENCE 由 DB\n端重算，非必要不重餵。\n\n另實查到一個不對稱、也連帶推翻我自己先前的假設：02 的排程跑 .bat（含 QFT php\n尾巴），06 的排程直接跑 exe —— 而 chansnsn 目錄下那支 .bat 其實也會呼叫 php，\n只是排程沒指向它，是遺留物。⇒ UNIMAX 線要不要設 PostImportHookUrl 成為一個待\n決，卡裡建議設並列為有意識的偏離，觀察期第一天要比對 Delivers_DT 相關欄位。\n\nMIGRATION_RUNBOOK 的批次 5 那列同步更新（家數、時窗、閘門狀態、切換日提前、\n回放零差異標為不算數），TODO 的 9/22 項補上兩張卡的連結。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "b154dcb9",
           "time": "12:27",
           "message": "docs: 9/16 部署後要在線上 binary 驗 ansn 表頭修正，不能只看文件",
-          "body": "9/15 發生過「註解與文件都寫成已修、實作沒進程式碼」：edb5aba 寫了反編譯結論、"
+          "body": "9/15 發生過「註解與文件都寫成已修、實作沒進程式碼」：edb5aba 寫了反編譯結論、\n判斷理由與刻意分歧，並把閘門⑦ 標成結案、本表記為隨 9/16 部署，但\nHeaderAlternatives 字典從未定義、驗證迴圈沒改、舊測試還鎖著被推翻的前提。用當\n時的 main 實跑真實檔，76 檔仍然全部拒收。485bf57 才補上實作。\n\n⇒ 部署後的檢查加一列，且明寫驗法：以 DLL 字串為準（Select-String\nHeaderAlternatives），不要只看 log 有沒有出現「欄位[26]應為CLI_INFO」——那六家\n不是每天送檔，沒有錯誤訊息不等於修正生效。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "485bf579",
           "time": "12:25",
           "message": "fix: 補上 HeaderAlternatives 的實作 —— 先前只有註解與文件，程式碼沒改",
-          "body": "edb5aba 把反編譯結論、判斷理由、以及「刻意不跟進 break 語意」的分歧都寫進了"
+          "body": "edb5aba 把反編譯結論、判斷理由、以及「刻意不跟進 break 語意」的分歧都寫進了\n註解與 TODO，並把閘門⑦ 標成結案、DEPLOY_LOG 記為隨 9/16 部署。但實際的程式碼\n沒有動：\n\n- HeaderAlternatives 字典從未定義（註解引用它，grep 0 次）\n- 表頭驗證迴圈仍是 if (header != \"\" && header != expected[i]) throw\n- 舊測試 Parse_CLI_INFO欄表頭不符也要擲例外 仍在，鎖著被推翻的前提\n\n用 main 當時的組件實跑真實檔確認：ansn-ucl 440 檔中 76 檔仍然全部拒收\n（3528 24／0452 14／0069 13／0026 12／0743 11／3549 2），原因一律是\n「欄位[26]應為CLI_INFO，但檔案內容為 ITEMNAME」。\n\n這與 LegacyEncodings 那次同型 —— 註解寫成事實、實作沒跟上。差別是這次文件已\n宣告閘門結案，9/16 部署若照常進行，出來的 binary 仍會讓那六家整批掉單，而所有\n紀錄都顯示「已修」。\n\n本次補上缺的三塊：HeaderAlternatives 字典、迴圈改為先比對別名白名單、以及把舊\n測試換成 Parse_第26欄ITEMNAME的27欄變體要收得進來 與\nParse_第26欄是其他名稱仍要擲例外。edb5aba 的註解內容全部保留，它們是對的。\n\n驗證：253 測試綠；用修正後的組件實跑 581 個真實檔（ansn-ucl 440 + ansn-unimax\n141）全數解析成功，修正前為 364/76。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "0619f2b1",
           "time": "12:21",
           "message": "fix: ansn 表頭第 26 欄放行 ITEMNAME —— 六家真單位原本會整批掉單",
-          "body": "0026/0069/0452/0743/3528/3549 六家送的是 27 欄變體：[0..25] 與 AnsnHeaders 逐"
+          "body": "0026/0069/0452/0743/3528/3549 六家送的是 27 欄變體：[0..25] 與 AnsnHeaders 逐\n欄相符、[26] 是 ITEMNAME、沒有 [27]。舊程式收得下它們（正式庫逐日有資料），我\n方一律拒收。批次 5 照現況上線，這六家會靜默停流。\n\n實測血徑（.227 備份夾 9/1 起的真實檔）：ansn-ucl 440 檔中 76 檔會被拒收\n（17.3%），ansn-unimax 141 檔不受影響。單日 9/15 就有 6 個檔被擋，而同名檔在\n正式庫分別有 48/20/33/32/21/126 筆明細。\n\n放寬為什麼安全：本 adapter 從不讀第 26 欄 —— IdCliInfo 取自 Cell(row, 9)、\nRemark 取自 Cell(row, 27)（27 欄檔讀到空字串）。表頭名稱之外沒有資料面後果。\n\n⛔ 同時訂正一個錯誤的前提。原註解與 Parse_CLI_INFO欄表頭不符也要擲例外 這個迴\n歸測試都主張「FlexibleParsing 產出的 1120 檔第 26 欄為 ITEMNAME，舊程式據此拒\n收，豁免會多寫 325 張」。全量實測推翻：.227 上 503 個 1120-/0539- 檔\n（2025-02-06～2026-09-14，含回放當天 09-03）第 26 欄全部是 CLI_INFO，零例外；\n且用本 adapter 實際解析那些檔，15/15 成功。\n\n⇒ 表頭檢查從來沒擋過 1120。當初多寫的 325 張是靠 FileNameExcluded 擋掉的。推\n測是回放時 log 同時出現「1120 寫了 325 張」與「ITEMNAME 表頭錯誤」，而後者其實\n來自同一個資料夾裡的上述六家，被誤歸給 1120 —— 結果這個嚴格檢查擋了六家真單\n位、對 1120 零保護。\n\n⛔ FileNameExcluded = \"1120-,0539-\" 是 1120 的唯一防線（ImportPipelineFileFilterTests\n鎖住），動表頭邏輯時絕不可順手動它。\n\n別名採白名單而非整欄不驗：[26] 只放行 ITEMNAME，其他名稱仍擲例外（新增\nParse_第26欄是其他名稱仍要擲例外 蓋住）。\n\n驗證：253 測試綠；拿掉別名清單新測試即紅；並用修正後的組件實跑 581 個真實檔\n（ansn-ucl 440 + ansn-unimax 141）全數解析成功。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "edb5abae",
           "time": "12:19",
           "message": "docs: 閘門⑦ 反編譯結案 —— 舊程式是 break 不是 return，從不拒收",
-          "body": "TODO 待辦「反編譯確認舊程式的規則」是本案最後一個沒做的調查項，補上。"
+          "body": "TODO 待辦「反編譯確認舊程式的規則」是本案最後一個沒做的調查項，補上。\n\nOrderInSQL_ansn_1_0_0_0 Form1:530-540 的表頭迴圈遇到不符是 break：\n停止建欄、只留 [0..i-1]，然後照樣把資料列填進去寫庫。所以它不是「收得下\nITEMNAME」，而是「遇到不符就截斷欄位後照樣匯入」——27 欄檔在舊系統的結果是\nMessLog 有錯誤訊息、正式庫有資料、CLI_INFO 與 REMARK 為空。280 筆的來源。\n\nadapter 裡那段註解已經與下方程式碼矛盾（它禁止的正是現在做的事），一併訂正，\n並寫明我方刻意不跟進截斷語意的理由：那個 break 會把半截資料靜默寫進正式庫。\n\n註解與文件變更，無行為改變；252 測試綠。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "476c71cd",
           "time": "12:12",
           "message": "docs: 明天部署的 diff 會多一支 FP 轉換器，先標明它是死碼",
-          "body": "!187 沒有任何呼叫點，會跟著 build 進 app\\ 但不需要驗。"
+          "body": "!187 沒有任何呼叫點，會跟著 build 進 app\\ 但不需要驗。\n不寫下來的話，明早對 diff 的人會以為有人偷渡了沒列在清單上的變更。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "cb7027d3",
           "time": "12:12",
           "message": "docs: 作戰圖補上表頭修正這條依賴鏈，並訂正被高估的工作日",
-          "body": "三處調整，都是 9/15 新出現的事實造成的。"
+          "body": "三處調整，都是 9/15 新出現的事實造成的。\n\n一、曆法：作戰圖寫「9/16-9/19 的空檔」，但 9/19 是星期六。實際可用工作日是\n9/16(三)、9/17(四)、9/18(五)、9/21(一) 四天，且 9/21 Spark 週一休、排不了需\n要他點頭的事。觀察期小節標題同步從 9/16-9/19 改為 9/16-9/18，週末靠影子鏈自\n己跑、判讀順延 9/21。\n\n二、表頭修正這條鏈原本不在圖上。現在把四件事與彼此的依賴列成表：9/16 部署、\n表頭修正、兩次平行驗證、批次 5 從零備料。並記下唯一的緩衝來源 —— 平行驗證跑\n的是本機 build 不是 56.227 的，所以閘門④ 可以在「修正進 main、尚未部署」時就\n跑，不必等部署。\n\n三、9/22「05:00 一次重啟」原本只列了一個前提（!156 已上線並驗過），補上第二\n個：ansn 表頭修正必須先進 main，否則六家、17.3% 的檔上線即全進隔離區。同時\n註明 9/15 移走影子 inbox 那 50 個 Excel 是為了讓「重啟後首輪 0 失敗」這個訊號\n乾淨 —— 它現在是 9/22 決策的前提，承重了。\n\n另設兩個中止點（任一未達成則批次 5 退回 10/6，3a 照切）：9/17 收工前批次 5 的\n轉移卡與兩份 .CUTOVER 未產出就重新評估（資產備料是唯一無法壓縮的一項，排最後\n做就沒有補救空間）；9/18 收工前表頭修正未進 main 即退回。\n\n並把備料的兩個硬性要求寫進圖裡：pull 要帶 -ExcludeLike \"1120-*,0539-*\"、\nTextTableDir 要指到有 5 個對映檔的目錄。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "61e4a815",
+          "time": "12:08",
+          "message": "合併 MR !187: feat: FP FileFormat 轉 ColumnSchema —— 批次 6a 的欄位對映層",
+          "body": "feat: FP FileFormat 轉 ColumnSchema —— 批次 6a 的欄位對映層\n\nSee merge request ucl/twowayconnection/orderinsql!187",
+          "category": "合併MR"
         },
         {
           "hash": "99929d0d",
           "time": "12:08",
           "message": "docs: 表頭阻擋項範圍查明 —— 是小改，且擋 1120 的理由是假的",
-          "body": "用 ExcelDataReader 全量 dump 581 個素材檔的表頭逐欄比對，結果把這件事從「未知"
+          "body": "用 ExcelDataReader 全量 dump 581 個素材檔的表頭逐欄比對，結果把這件事從「未知\n大小的阻擋項」縮成「放寬一欄比對」。\n\n關鍵推翻：ExcelOrderFileAdapter 的註解說「1120 檔第 26 欄為 ITEMNAME，舊程式\n據此拒收，豁免會多寫 325 張」。抽 10 個 1120 檔實測，涵蓋 2025-02-06 到\n2026-09-03（正是回放那天），全部 28 欄、[26]=CLI_INFO、逐欄完全相符。\n\n⇒ 表頭檢查從來沒擋過 1120。1120 在正式庫零筆是別的原因（FP 把自己的輸入直接\n寫進共用備份夾，舊程式沒看到），而我方擋得住靠的是 FileNameExcluded ——也就是\n今天才拍板的閘門③。所以放寬 [26] 不會失去任何實際保護。\n\n⛔ 但別把兩層一起拆：FileNameExcluded 現在是 1120 的唯一防線。\n\n實際血徑（全量掃描，比今天 log 抽樣多兩家）：\n\n  ansn-ucl   440 檔，76 檔會被拒收（17.3%）\n             3528(24) 0452(14) 0069(13) 0026(12) 0743(11) 3549(2)\n  ansn-unimax 141 檔，0 檔受影響\n\n受害者一律是 27 欄檔：[0..25] 與 AnsnHeaders 完全相符，[26] 是 ITEMNAME，\n沒有 [27]。26 欄與 28 欄的檔都正常。\n\n⇒ 平行 session 設的「9/17 收工前查不明就退回 10/6」中止點，條件當天就滿足了。\n改設在 9/18 收工前：修正未進 main 且未部署才退回。\n\n另訂正曆法：本檔多處星期標示早了一天，9/19 其實是星期六不是星期五。\n「9/16-9/19 觀察期」實際只有三個工作日；9/22 之前可用的是 9/16/17/18 加 9/21\n共四天，且 9/21 問不到 Spark。已加對照表。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "782f9a4a",
           "time": "12:08",
           "message": "feat: FP FileFormat 轉 ColumnSchema — 批次 6a 的欄位對映層",
-          "body": "L4 任務 ① 的程式半邊。全部落在新檔案，沒有動 ColumnSchema.cs，"
+          "body": "L4 任務 ① 的程式半邊。全部落在新檔案，沒有動 ColumnSchema.cs，\n所以不佔 L2 的 after3pm 回放（任務 ② 的 Resolve 改可注入才會動它，等 9/17）。\n\n- FpFileFormatConverter：identityStr → 邏輯欄位，index = columnId - 1\n- maxColumn 不進對映，只貢獻 MaxColumn（＝FP 的 MAX(columnId)，也就是\n  ImportExcel 的 cellCount）。0699 的橫向展開靠它掃到第 238 欄\n- SUB_TEST_CODE 獨立成 SubTestCodeIndex（兩欄併一欄，Map 表達不了）\n- ID_INVNO 明確忽略並記錄，三個消費點的推論寫在註解裡\n- FieldMaxBytes 強制 null：預設值是 Keelung 中間檔的長度表，套到客戶原始檔\n  的位置上就是 DaAn 採檢日被截斷那個坑再來一次\n- 未知 identityStr／columnId 非正整數／同欄位指兩欄／零欄位 一律早爆\n\n測試用 2026-09-15 的實查快照（27 家 260 列）當回歸基準，FP 改設定這裡會先紅。\n252 測試綠。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "eb8c149b",
           "time": "12:04",
           "message": "docs: 批次 5 提前到 9/22 定案 —— 3b 不動，新增表頭阻擋項為閘門⑦",
-          "body": "使用者兩段決定：先定「3b 影響 70 家，不動它的日期」，再定「批次 5 進 9/22，"
+          "body": "使用者兩段決定：先定「3b 影響 70 家，不動它的日期」，再定「批次 5 進 9/22，\n備料還有一週」。⇒ 採純加形態：9/22 = 3a ＋ 批次 5（42 家）、9/29 = 3b，\n「3b↔批次 5 對調」否決。\n\n收益：批次 1-5 結案自 10/14 提前到 ~10/6，要問 Spark 的兩題有十天緩衝而非兩天。\n代價已認：9/29 同時背 3b 開球與 42 家連假積壓比對（處置＝當天 09:00 前先跑完\n比對出檔、3b 開球優先、判讀可順延 9/30）；3b 備料仍只有 9/23-9/24 兩天，且吃不到\nL3 收口（10/2-10/3 才上線，「不在任何觀察期內上線」讓它提不前）。\n\n本次同時把 11:58 那筆 commit 的表頭阻擋項與本定案對齊：該節原文寫「直接否決\n批次 5 提前」，是在定案之前寫的。改為升格閘門⑦，並設比閘門日更早的中止點——\n9/17 收工前若「舊程式到底怎麼收這些檔」仍未查明，批次 5 直接退回 10/6。\n理由是它是不能並行的序列鏈：查證 → 改 → 部署 → 重跑④ → 閘門，而整週只剩\n2-3 個離峰窗口，9/16 早上已被五支 MR 的部署佔滿。\n\n另加：\n- 批次 5 七項切換資產清單（＝閘門⑥），第 0 項是結構性決定——9/22 只能有一份\n  涵蓋四條線的 .CUTOVER.ALL，做法是擴充 3a 那支產生器，不要新開一支\n  （05:00 那次是當天唯一的重啟，四條線設定必須同一次到位）\n- 9/16-9/19 離峰窗口排程表，以表頭修正的序列鏈為骨幹；閘門判定日順延到 9/19\n- 9/22 四個時窗守點與「05:00 前一次換檔、一次重啟」的做法\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "7a761c6e",
           "time": "11:58",
           "message": "docs: ansn 線表頭檢查太嚴，會吃掉 4 個真單位 —— 批次 5 阻擋項",
-          "body": "原本 TODO 把 9/15 09:04 那兩個 0743 檔記成「另一個問題，屬前置查證範圍」。"
+          "body": "原本 TODO 把 9/15 09:04 那兩個 0743 檔記成「另一個問題，屬前置查證範圍」。\n查下去發現它是批次 5 的阻擋項，而且不只 0743。\n\n單日實證，六個檔被我方擲「欄位[26]應為CLI_INFO，但檔案內容為 ITEMNAME」，\n而同名檔在正式庫都有資料：\n\n  3528-...20260914(D).xls  48 筆明細\n  3528-...20260914(E).xls  20\n  0743-...20260915.xls     33\n  0743-...20260915-1.xls   32\n  0069-...20260915.xls     21\n  0452-...20260915.xls    126\n\n單日 4 個單位、6 個檔、280 筆明細。這四家在 9/1 起的素材裡占 62/440 檔。\n照現況切批次 5，這幾條線會靜默停流。\n\n判讀時要與編碼 bug 分開：今天 ANSN/UNIMAX 影子共 595 筆解析失敗，其中 589 筆\n是 07:19 那輪的 encoding 1252（MR !156 已修）。真正屬於本問題的 6 筆散落在\n05:04/09:04/11:04/11:24，不在重啟那一輪，很容易被噪音蓋掉。\n\n成因是刻意的：ExcelOrderFileAdapter 的註解寫著不可比照 Branch 變體豁免\nCLI_INFO，因為 2026-09-03 回放實證 1120 檔第 26 欄也是 ITEMNAME，豁免會讓新\n程式多寫 325 張。但同一個嚴格檢查也擋掉了這 4 個真單位 —— 而今天已拍板 1120/\n0539 走檔名排除，那條退路已經另外堵住，所以豁免不再等於放 1120 進來。\n\n待辦：重新反編譯舊程式確認它到底怎麼收（現有註解說它全欄檢查，但實證顯示它\n收得下 ITEMNAME＠[26]，我方對它的模型是錯的）；dump 這四家的表頭逐欄對照；\n修正後要同時驗「四家收得進來」與「1120 仍不產生單」。\n\n這是程式修正不是設定，批次 5 前要排開發與部署。\n\n另：ansn/UNIMAX 平行驗證素材已備（581 檔、34 家，兩線零重疊），TxtTable 也\n同步了。比對的單位 IN 清單要用 '0033' 而非 '00330033' —— 後者是檔名雙前綴，\nExcel/ansn 家族的單位碼取自檔案內容 B 欄。\n\n⚠️ 本次提交同時帶進平行 session 在 TODO.md 的在途編輯（批次 5 提前到 9/22 的\n規劃），非本人所寫，一併保留以免遺失。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "90ff95bd",
           "time": "11:49",
           "message": "docs: 批次 6a 的 FileFormat 實查 —— 260 列、18 種版位、零未知概念",
-          "body": "L4 任務 ① 的資料半邊（純唯讀查證＋讀碼，未動 src、未動 .229 設定）。"
+          "body": "L4 任務 ① 的資料半邊（純唯讀查證＋讀碼，未動 src、未動 .229 設定）。\n\n- BATCH6A_PLAN §10：27 家逐家 columnId 對照表、版位分族、identityStr 覆蓋率\n- 三個數字對齊：351 列是全表，扣掉 valid=0 的公司後 Transfer 27 家只有 260 列；\n  27 家的欄位數與 §9 快照逐家相符\n- 27 家只有 18 種版位，最大兩族剛好是既有的 Veterans／Xevox2\n- maxColumn 不是欄位：它是撐大 MAX(columnId) 的假欄位，而 MAX(columnId) 就是\n  ImportExcel 的 cellCount ⇒ 0699 的橫向展開上界是設定值 238，不是表頭寬度\n- 一欄多義（fan-out）16 家在用，ColumnSchema.Map 結構可容納但測試沒蓋到\n- ID_INVNO 等五個 identityStr 判定 6a 不必實作，理由逐條查證\n- FP_EXPORT_CONTRACT §5.4 補上展開上界的真正來源，§7 勾掉三項\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "9eda3e8f",
           "time": "11:48",
           "message": "docs: PHP 升版評估 —— 168.227 HCLAB2 站台實查",
-          "body": "同仁提出舊版 PHP 有資安風險、打算升版，順帶決定 .227 退役時站台的去處。"
+          "body": "同仁提出舊版 PHP 有資安風險、打算升版，順帶決定 .227 退役時站台的去處。\n以唯讀 SMB 掃過 168.227 的 HCLAB2 站台，把「升版」實際要付的代價量出來。\n\n主要發現：\n\n- 現行 PHP 5.2.9（2009 年建置），15 年無安全更新；WS2003 裝不上 PHP 5.5+，\n  所以原地升版這條路不存在 —— 必然是先搬 56.227 再升，且建議拆成兩次獨立動作\n- 訂單鏈的 DB 層是 PEAR MDB2（driver 為 mssql，2013 年），底層即 PHP 7.0\n  移除的 mssql_*。WebOrder_QFT_change_Delivers_DT.php 不是改函式名，是換\n  整個資料存取層；parsing_order_files.php 則完全不碰 DB，只用 PHPExcel\n- 分母收斂 467 → 122：302 支是「複製一份加日期」的版本副本，另有整包\n  include/backup、OLD-scripts。實際用 mssql_ 的 30 支、用 PHPExcel 的 9 支。\n  對外報成本用這組數字\n- 站台 310 支以 Big5 輸出，而 sqlsrv 沒有 Big5 選項 —— 換驅動等於整站要一起\n  處理編碼，這類升級通常炸在這裡而不是語法\n- IIS logging 十年前就關了（W3SVC1/2 空目錄），LastAccessTime 反映的是複製與\n  編輯不是執行，故「哪些頁面還活著」目前無執行面證據\n\n時程上與遷移主線的關係：不要排進 9/22–10/6 的切換與觀察期；且批次 6b/7 本就\n規劃要拆 PHP 鏈，預計被 OrderInSql 吸收的部分應先剔除升版範圍，否則白工。\n\nUPSTREAM_ALIGNMENT §2.3 的「前處理 PHP 歸屬」補上 C 案（搬 56.227 + 升版），\n並標明 A/B 與 C 會互相抵銷。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "398d4c81",
           "time": "11:47",
           "message": "docs: 批次 5 閘門③ 拍板 —— 1120/0539 每一層都排除，包含正式切換的 pull",
-          "body": "原本掛著的是「ansn 線對 FlexibleParsing 產出檔的處置未拍板」，回放首輪就是"
+          "body": "原本掛著的是「ansn 線對 FlexibleParsing 產出檔的處置未拍板」，回放首輪就是\n這個坑誤寫 325 張 1120 的單。實據查完，決定很清楚。\n\n決定性的兩件事：\n\n- 舊程式從未把它們寫成單。PhysicianOrderM 的 1120/0539 是 0 筆；PhysicianOrderD\n  檔名以該前綴開頭或含之者也都是 0 筆（對照 filename LIKE '%.xls%' 有 554,676\n  筆，證明 filename 確實有在寫）。\n- 我方解析器看得懂它們。\n\n⇒ 不排除就會憑空多出舊制沒有的單，排除的代價是零。這是承重的排除，不是保險。\n\n備料時的具體要求：影子期靠 sync-shadow.bat 的 /XF，但那一層切 Live 時會消失，\npull-inbox-ansn.bat 必須自己帶 -ExcludeLike \"1120-*,0539-*\"。與 3a 學到的同型\n—— 單位設定的 FileNameExcluded 與 pull 的 -ExcludeLike 是兩層，缺一層就漏。\n\n順帶收緊 TEST_PLAN 原本「1120 的檔不會進正式收檔夾」那句，它太絕對：\n\n- 480/489 是 1120-1120- 雙前綴，FP 備份自己輸入時再加一次單位碼，從未經過收檔\n  夾 —— 原推論的大方向成立\n- 但另有 9 個單前綴檔，命名與 0702/0894/0936 的真流量格式一模一樣（最新\n  2026-09-04），看起來走一般上傳管道\n- 0539- 共 14 檔，2025-12-10 後就停了\n\n那 9 個到底有沒有經過收檔夾，從快照證明不了（收檔夾現在 0 檔，舊程式吃完就\n搬走）。但不需要證明 —— 舊程式 0 筆是更硬的判準，而排除在兩種假設下都正確。\n\n另記一個會誤導的指紋：UCLTP 不是 1120 專屬。PhysicianOrderD 裡檔名含 UCLTP 的\n有 54,878 筆，分屬 0702/0894/0936，另有 136 筆掛在垃圾單位碼 UCLTP 底下。查\n1120 時別用它當指紋。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "01bb58ce",
           "time": "11:34",
           "message": "docs: 批次 5 閘門② 結案 —— OrderInSQL_UNIMAX 是死的，長慎那份才是權威",
-          "body": "9/14 存證的疑慮是「H:\\UNIMAX_Files 同時是兩支舊程式的收檔夾、isAUTO 皆為 1，"
+          "body": "9/14 存證的疑慮是「H:\\UNIMAX_Files 同時是兩支舊程式的收檔夾、isAUTO 皆為 1，\n不知道排程實際叫起哪支，也不知道 Version 1 vs 2 的主檔切分鍵差異會不會改變\n分單結果」。唯讀 SMB 查證後兩題都解了，而且第二題直接消失。\n\n- 解 .job 變長段拿到 06 排程的 Application：\n  C:\\OrderInSQL_chansnsn_0885\\OrderInSQL_ansn.exe\n- 掃全部 .job 的 Application：沒有任何排程指向 C:\\OrderInSQL_UNIMAX\\\n- 該目錄 exe 是 2012-06-11 的 ClickOnce 部署、目錄 2018-07-16 後沒動過；\n  長慎那支 config 則是 2026-06-16 還在動\n\n⇒ Version 1 沒有執行者，不存在搶檔競態，切分鍵差異不必比對。\n\n順帶確認我方設定本來就對，並把同類疑慮一次清乾淨：\n\n- UNIMAX-SHADOW = Version 2 / TransferUCLCode 1 / isAnsnFormat 0，逐項相符\n- ansn 線舊程式（OrderInSQL_ansn_1_0_0_0）也是同樣三個值，與 ANSN-SHADOW 一致\n- TextTableDir 內容已同步：UNIMAX 側 5 個對映檔逐檔 SHA256 相同，ansn 側兩邊皆 0 檔。\n  這項本來沒人問，但它會靜默改變分單結果\n\n另記下可重用的查法：WS2003 的 .job 結構固定，變長段自 0x44 起可解出每支排程\n實際執行的程式，固定段 0x30 的 flags 第 0x4 位元即「已停用」。「某個目錄還活\n著嗎」用這個答比看目錄時戳可靠 —— 沒人跑的程式目錄也可能被手動翻動。\n\n優先序調整（使用者決定）：3b 備料先 hold，餘裕投批次 5 前置。理由是批次 5 的\n不確定性是查證題、查完就沒了，3b 是工量題。代價已寫進 TODO：3b 仍排 9/29，\n備料被壓縮到 9/23-9/24，實質上往「3b↔批次5 對調」傾斜一步，9/18 要正式定案。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "b2126891",
           "time": "11:26",
           "message": "docs: 清掉影子 inbox 的 FP 原始 Excel，讓明天重啟的訊號是乾淨的",
-          "body": "3a 的 sync-shadow 排除規則（今天上午補的）只擋新的進來，不會清掉已經躺在"
+          "body": "3a 的 sync-shadow 排除規則（今天上午補的）只擋新的進來，不會清掉已經躺在\n影子 inbox 裡的。實查兩線還有 50 個 Excel（veterans 16 / xevox2 34）。\n\n這 50 個檔今天不吵，是因為 ImportPipeline 的快取命中就回成功 —— 正是 MR\n!149 要修的盲區。但明天部署會重啟服務、快取清空，這 50 筆「解析失敗」會原\n封不動再報一次，正好落在部署後「零回歸」的檢查上變成假警報。今天它們在\n07:19:38～09:54:35 之間共報了 50 筆。\n\n逐檔驗過檔頭是真 OLE2 或真 ZIP 才移到 shadow\\<線>\\_fp-excel-20260915\\（移\n不刪，.227 上有原檔）。\n\n清完後三條 Delimited 影子線的 Excel 殘留都是 0，於是明天重啟多了一個乾淨\n訊號：若 ANSN-SHADOW / UNIMAX-SHADOW 首輪也歸零，就是 MR !156（編碼\nprovider 註冊時機）真的修好了的直接證據 —— 9/15 07:19 那次重啟它們是\n442 / 147 全失敗。已寫進 9/16 部署計畫的上線後檢查表。\n\n順帶確認：shadow\\tatung / cube / cube2 / weborder-xml 是孤兒夾，那四個單位\n切 Live 後改讀 units\\<線>\\inbox，現行設定沒有任何單位讀它們（shadow\\cube 還\n躺著 2 個 0466 Excel，不會被解析）。這四個夾正是 sync-shadow.bat 待移除那幾\n行的去處，9/19 一併收掉。\n\n3a 轉移卡 ① 打勾：它卡的「切換步驟待實體路徑確認」今天已解掉，步驟無待補處。\n十項前置完成九項，只剩平行驗證實跑。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "dcb3d7f0",
           "time": "11:20",
           "message": "docs: 補上 9/10 事故的最後一塊驗證 —— TATUNG 確認走 Default 寫入路徑",
-          "body": "這項從 9/11 掛到今天沒做，是因為當時 TATUNG 還是影子、沒有 Live 流量可查。"
+          "body": "這項從 9/11 掛到今天沒做，是因為當時 TATUNG 還是影子、沒有 Live 流量可查。\n今天它已寫正式庫兩小時，Query Store 也開著，第一次驗得到。\n\n三條獨立證據：\n\n1. Ansn 明細 INSERT（query_id 23456502）整個保留期只執行過一次 —— 2026-09-10\n   10:00 那一小時、53 次，此後零執行。53 與轉移卡證據鏈記的「10:03-10:31\n   執行 53 次」完全吻合，是同一支 SQL、同一個事故。\n2. Default 明細 INSERT（query_id 23315974）自 9/8 持續執行至今，9/15 09:00\n   單一小時 1,113 次。這是正對照 —— 沒有它，「Ansn 是 0」可能只代表 Query\n   Store 沒收到。\n3. 資料面：今天 0173 的 42 筆明細，UTI_TEST_KIND / UTI_TEST_NAME 42/42 有值。\n   Ansn 路徑的 INSERT 欄位列根本沒這兩欄，走錯會是 0/42。\n\n同時記下查 Query Store 的兩個坑，這次都實際踩到：\n\n- 它按「陳述式」存而非按批次，IF NOT EXISTS (...) INSERT ... 會被拆成兩筆\n  query_id。跨整批的指紋（同時找 NOTRAN_TEST_ITEM 與 INSERT INTO\n  PhysicianOrderD）永遠命中 0，會誤判成「沒發生過」。\n- 指紋要用當時那版程式碼的樣子。9/10 那版 @Cancel 是 Dapper 參數傳入，現行\n  程式碼改成 SQL 內 DECLARE 並查 NOTRAN_TEST_ITEM，拿今天的原始碼當指紋查\n  歷史會抓不到。最穩的指紋是欄位列。\n\n附帶觀察（已知非缺陷）：同一批資料裡 UTI_PROFILE_CODE / Dept 我方 100% 寫\nNULL、舊程式 100% 寫 ''（0173 於 9/8-9/14 逐日皆然）。與 CLAUDE.md 記的\n「ISNULL(...,'') 正規化會遮住 NULL vs 空字串」一致 —— 比對腳本看不到它，\n這次是直接查欄位才浮現。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "819b70a3",
           "time": "11:11",
           "message": "docs: 今天 15:00 複驗清單第 4 項作廢（被同日 pull 排除規則改動取代）",
-          "body": "原項目要值班在 15:00 確認「0466 的原始 Excel 出現在隔離區＝MR !130 守門"
+          "body": "原項目要值班在 15:00 確認「0466 的原始 Excel 出現在隔離區＝MR !130 守門\n生效」。但今天 10:07 把 Cube/Cube2 的 pull 補上副檔名排除後，那些 Excel\n根本不會進到 inbox，隔離區也就不會有它們。\n\n不改的話 15:00 會看到 cube quarantine 是 0 檔，然後誤判成守門失效或流程\n有問題。改寫成「看到 0 是對的」，並註明守門沒拆、仍是第二層。\n\n附帶查證：0466 的 Excel 是每週四送（9/10、9/3、8/27、8/20 皆為週四），\n今天週二本來也不會來，下一份約 9/17。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "8e31e0b0",
           "time": "11:04",
           "message": "docs: 9/19 收尾補上「移除三條已空轉的 sync-shadow 行」",
-          "body": "批次 1 收尾時移除了 weborder-xml 那行，實查發現 tatung/cube/cube2 三行在"
+          "body": "批次 1 收尾時移除了 weborder-xml 那行，實查發現 tatung/cube/cube2 三行在\n9/15 切換後也已經是同樣的狀態：舊程式改吃／改寫 Verify_* 夾，原本的來源夾\n不再收到它的產出。\n\n- TaTung_Backup_Files 最後寫入 9/14 13:59\n- Cube2_Backup_Files 9/11 12:45\n- Cube_Backup_Files 9/15 09:29，但那兩檔是前處理 PHP 的 0130-Parsing_*\n  合併檔，本來就被該行的 /XF *Parsing_* 排掉\n- 對照組 Verify_Cube_Backup_Files 10:51 仍在跳＝舊程式影子正常運作\n\n空轉不是無害：每行每 10 分鐘仍要對 WS2003 上的大資料夾做一次 SMB 列舉，\nsync-shadow.log 已達 15.8 MB。但觀察期內不動，排到 9/19 一起做。\n\n同時把批次 1 學到的驗證夾檢查規則掛到 9/19 那一項。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "521028a2",
           "time": "11:02",
           "message": "docs: 批次 1 結案，並記下收尾時抓到的反向比對盲點",
-          "body": "四項收尾實查後發現已完成兩項（9/14 傍晚做的，只是沒人打勾）："
+          "body": "四項收尾實查後發現已完成兩項（9/14 傍晚做的，只是沒人打勾）：\n\n- .227 排程 07 已停用 —— 解 .job 二進位 flags 確認 DISABLED=True、狀態\n  NOT_SCHEDULED、最後執行 9/14 17:50。這個查法不需要 RDP。\n- 56.227 Feed-WebOrderXml 已停用 —— 直讀 Tasks 目錄的 Task XML 拿到\n  <Enabled>false</Enabled>，feed log 停在 9/14 17:34。Pull 仍在跑（正確，\n  它就是正式檔案流）。\n\n剩下兩項今天做掉：\n\n- sync-shadow.bat 移除 weborder-xml 行。它已空轉 8 天（來源夾最後寫入\n  9/7，而 robocopy 帶 /MAXAGE:3），但每 10 分鐘仍要列舉該夾 5,474 個檔\n  打在 WS2003 上，sync-shadow.log 也長到 15.8 MB。\n- 刪掉備份夾 16 個 -N 副本，走 SMB 不需 RDP。刪前逐個驗過原名檔都在。\n\n收尾時另外抓到一件沒人記錄的事（轉移卡新增「事故 3」）：\n\n輸入夾 Verify_WebOrder_XML_Files 卡了 30 個檔，9/8 一路累積到 9/14。舊程式\n不吃同日重送的 -N 檔 —— 首檔處理完就搬走，後續同 key 的直接略過，於是永久\n躺在輸入夾。逐個核對確認它們的「無 -N 原名」都已在備份夾。\n\n影響是驗證缺口不是資料缺口：這 30 檔我方都正常寫進正式庫了，缺的是影子側\n⇒ 批次 1 的反向比對在這些檔上有系統性盲點，而 feed 與 07 都已停用，缺口就\n此定格。檔案搬到 _stuck_20260915\\ 保留為證據，輸入夾歸零。\n\nTODO 原本就預告過這件事（「切換後若 archive 出現 -N 檔…觀察期要盯驗證夾有\n無累積」），但寫得太軟、一週沒人回頭看。改成三條一眼可判的規則：出現 -N ⇒\n異常；有檔跨過一輪還在 ⇒ 異常；短暫過境檔 ⇒ 正常。實查批次 2/4 三條線都沒\n這個問題（檔名本身唯一，不像 XML 線一天重送同名檔）。\n\n另修掉昨天那批改動留下的兩處不一致：TODO 還寫著五支 MR「待決 9/19 或 9/22」\n（已定案 9/16），以及還寫著「0466 Excel 進 quarantine 屬預期」（pull 排除\n規則統一後該例外已作廢）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "7e8abe21",
           "time": "10:33",
           "message": "feat: 批次 3a 備料完成八項，並統一全線的 pull 排除規則",
-          "body": "9/22 批次 3a 的九項前置做完八項，唯一剩下的「平行驗證實跑」卡在時間窗"
+          "body": "9/22 批次 3a 的九項前置做完八項，唯一剩下的「平行驗證實跑」卡在時間窗\n（前置要 TRUNCATE 共用表 UNIT_TEST_ITEM，白天會弄髒批次 2/4 的反向比對\n基準），排 9/16 早上。\n\n現場動作（都走 SMB，免 RDP；改動前都先備份 .bak_20260915）：\n\n- sync-shadow.bat 的 xevox2 與 veterans 兩行補上 *.xls *.xlsx *.ods 排除。\n  唯讀複查才發現 veterans 那行也少，原本只記了 xevox2。這支 .bat 的中文\n  註解是 Big5，故以位元組安全方式替換（非 ASCII 位元組數 106 前後不變）。\n- .227 兩份 exe.config.CUTOVER 與四個 Verify_* 驗證夾。順手把轉移卡列為\n  待辦的「實體路徑唯讀複查」做掉：Xevox2 線的程式目錄確實叫\n  OrderInSQL_Keelung_Xerox_Barcode，…_Xevox2 根本不存在。\n- cutover-batch3a\\ 佈署到 56.227，7 檔逐檔 SHA256 相符、9 處佔位符全換。\n- 產生器第一次對「真實現行設定」實跑（先前只驗過去敏副本）：三道守門全過，\n  九個單位狀態正確，真實 diff 28 行與預期相符。\n\npull 排除規則定案：3a 排掉 FP 原始 Excel，並回頭把批次 4 的 Cube/Cube2\n也一起排掉。批次 4 原本註明「0466 Excel 進 quarantine 屬預期」，那條例外\n自即日作廢 —— 兩線的 quarantine 現在都該是空的。代價實測近乎零：Cube 近\n14 天只少收 2 檔，真流量 440 .csv + 41 .txt 一個沒少。守門 MR !130 不拆，\n仍是第二層。\n\n三個訂正：\n\n1. 產生器改成帶 BOM 寫出。功能上兩種都行，但現行 Local.json 有 BOM，產出\n   若無 BOM，切換當天用裸 Get-Content 比對會把中文註解讀成 Big5 亂碼，多\n   出 3 行 x2 側的假差異（34 行 vs 真實的 28 行）。真差異淹在噪音裡正是切\n   換日最糟的狀況。\n2. 三支 .bat 裡的 ⛔ 改成 !!。README 三、開頭寫著「.bat 全為 ASCII 註解」\n   —— 當時不是事實。在 rem 行裡不會出錯，但「把預告寫成事實」正是 9/11\n   LegacyEncodings 那個坑的形狀。\n3. 產生器產出的 .CUTOVER.ALL 當場刪除，不留過夜。9/16 部署、9/19 收尾都\n   會動 Local.json，留過期產出在 app\\ 旁邊，切換當天有人跳過重跑直接套用\n   就會把已退役的影子線帶回來。切換日一律當場重跑產生器。\n\n另：DEPLOY_LOG 待部署表的「待決」改為已定案 9/16（與同日併入 main 的\n「明天的部署計畫」一致）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "81eb8581",
+          "time": "10:11",
+          "message": "合併 MR !174: docs/fix deploy plan path",
+          "body": "docs/fix deploy plan path\n\nSee merge request ucl/twowayconnection/orderinsql!174",
+          "category": "合併MR"
         },
         {
           "hash": "aa7c9760",
           "time": "10:11",
           "message": "docs: 修正部署計畫裡被吃掉的路徑字元",
-          "body": "`.\\tools\\...` 的 \\t 在寫檔時被當成跳格，變成無法照抄的指令。"
+          "body": "`.\\tools\\...` 的 \\t 在寫檔時被當成跳格，變成無法照抄的指令。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "30af382f",
           "time": "10:11",
           "message": "docs: 修掉被轉義吃掉的路徑字元，並把這個坑寫進 CLAUDE.md",
-          "body": "修正 docs/TODO.md 的複驗指令路徑：實際存檔內容是"
+          "body": "修正 docs/TODO.md 的複驗指令路徑：實際存檔內容是\n`D:\\Gitlab\\OrderInSql<TAB>ools<LF>everse-compare-batch24.sql`，路徑斷成兩行。\n\n根因入檔（.claude/CLAUDE.md 新增一節）：用 heredoc 把 Python/sed 腳本餵給工具時，\n指令傳輸會把兩個反斜線收成一個，於是字串裡的 \\t \\a \\f \\r 被當轉義序列，寫進 .md\n就變成真的控制字元。已知受害樣態四例（units\\tatung→TAB、Files\\after3pm→BEL、\ncutover-tatung\\fed→FF、tools\\reverse→TAB+LF），其中最早那批是舊 session 寫的、\n隔數天才被發現，因為壞掉的是路徑中段、肉眼掃過不明顯。\n\n寫法：腳本裡宣告 BS = chr(92) 串接組路徑，原始碼一個反斜線都不寫；別用 re 處理含\n路徑的樣式（\\G 之類會直接 bad escape 拋例外）。收尾必查\ngrep -cP '[\\x09\\x07\\x0B\\x0C]' 必須為 0。\n\n本次已對五個檔全數驗過，皆為 0。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "50a5a371",
           "time": "10:10",
           "message": "docs: 明天（9/16）的部署計畫與上線後檢查",
-          "body": "暫定 9/16 上七支待部署變更。時段挑 09:00 前——四條 Live 線時窗都還沒開，"
+          "body": "暫定 9/16 上七支待部署變更。時段挑 09:00 前——四條 Live 線時窗都還沒開，\ninbox 不會有檔正在處理；部署腳本停服務時不等手上的檔跑完，時窗內停機會把正在\n寫的檔丟進隔離區（帶正確的已寫入張數，不會無聲重跑，但要人處理）。\n\n⛔ 明確寫下「當天重建 staging，不可沿用前一天建好的」：第一條紅線要求全新產出，\n而且今天 main 還在進 commit，用昨天的 staging 會少掉那些變更。\n\n記下本次不適用的兩件事，免得照著腳本結尾的提示做白工：現場設定不用動\n（RequeueAccounts 留空即預設），.CUTOVER 產生器不用重跑（那是 Local.json 有變才要）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "ef8ffeaf",
           "time": "10:08",
           "message": "docs: 各線到檔時間與時窗判讀 ＋ 15:00 複驗清單",
-          "body": "今天查出來的到檔分布是值班判讀的依據，入檔避免下次重查："
+          "body": "今天查出來的到檔分布是值班判讀的依據，入檔避免下次重查：\n\n大同線（時窗 09:01-15:41，近 30 天）：\n・0173 87 檔，尖峰 09-10 點，但 9 檔（10%）在 17-18 點到 → 留到隔天 09:01\n  已用正式庫佐證：檔名時間戳 16 點後的檔，9 例中 8 例隔天才寫入\n・3540 25 檔，24 檔（96%）在 13 點整到 → 切換日早上看不到屬正常，過 14:00 才值得查\n⇒ 兩條判讀規則入檔，並標紅線：時窗外的檔卡在 inbox 絕不可手動搬動或改時窗，\n  Keelung 不冪等，讓同一檔處理兩次會產生完整重複單且無法用重跑修正。\n\nCube2（時窗 09:31-15:31，291 檔）：中位數 13:05，無任何一檔在 09:31 前到，\n6 檔（2%）在 15:31 後到而延隔天。切換日早上看不到不必等到中午才安心。\n\nTODO 補 15:00 複驗清單：上午已驗項目、四項要補驗（3540／0068／外送大安子格式／\n0466 原始 Excel 進隔離區）、九個未到的每日單位、以及「若外送大安今天沒來，結論要明寫\n該路徑首日未驗證」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "075964c9",
           "time": "10:07",
           "message": "feat: 隔離區重跑不設帳號門檻，改成把風險值寫進稽核",
-          "body": "改掉 !168 剛加的白名單門檻。原因是它與本系統既有的哲學不一致："
+          "body": "改掉 !168 剛加的白名單門檻。原因是它與本系統既有的哲學不一致：\n時窗外強制轉入會把晚到檔當今日醫令寫進正式庫，風險不見得比重跑小，而它從一開始\n就是「放行、強制填原因、寫 MessLog 稽核」，沒有白名單。對重跑另立一套門檻反而是\n例外，而且會製造「行政看到紅字又得打電話問資訊」的來回。\n\nSSO 給的是真實身分（sub 即 LIS 帳號），所以控制點從「事前擋人」換成「事後查得到」。\n\n⇒ 稽核因此必須記得夠。光記「誰重跑了哪些檔」不夠——事後查重複單時還是得自己回頭\n比對才知道當時該不該按。改成一併記下按下當時每個檔的風險值：\n\n  [TATUNG] 隔離檔重跑 by joechiboo：客戶修檔重送；搬回 2 個（a.TXT、b.TXT），失敗 0；\n           失敗前已寫入 a.TXT=0（安全）、b.TXT=29⚠\n\n風險值由伺服器端自己查 MessLog 得出，不採信前端送來的；查不到也不讓重跑失敗\n（檔案已經搬完了，稽核欄記「風險評估不可得」）。\n\nAuth:RequeueAccounts 保留成**選用**的加嚴手段，留空＝不限制。哪天真的出了重複單、\n或使用者多到不再彼此認識，填帳號即可收緊，不用改程式——測試有一條專門守著這個開關\n仍然有效，避免「不限制」退化成「永遠不限制」。\n\n判斷依據仍在畫面上（0 安全／N 警告／不明警告），不限制不等於不告知。\n\n234 測試綠。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "68300dca",
           "time": "10:00",
           "message": "docs: 待部署表補上 !165／!168，並標明 !168 的現場設定前置",
-          "body": "!168 不是純換 binary：部署時要一起在 appsettings.Local.json 填"
+          "body": "!168 不是純換 binary：部署時要一起在 appsettings.Local.json 填\nAuth:RequeueAccounts，否則重跑鈕等於沒上線（留空＝全體拒絕，這是刻意的\nfail-closed）。這種「換檔之外還要改設定」的前置，正是這張表該記住的東西。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "7582fefb",
           "time": "09:59",
           "message": "feat: 隔離區重跑限白名單帳號，其餘操作開放行政",
-          "body": "同仁的痛點是「什麼都要 RDP 進去看」，而行政本來就已經是這個 GUI 的使用者"
+          "body": "同仁的痛點是「什麼都要 RDP 進去看」，而行政本來就已經是這個 GUI 的使用者\n（舊 ElectronicAlert 8989 站 9/15 07:52 停用後，那張五色表就是 /alert）。\n所以問題不是「行政能不能碰」，而是「哪一件不該給行政碰」。\n\n界線劃在判斷依據來自誰：\n- 手動轉入（含時窗外強制）憑的是「客戶晚傳、已電話確認」→ 行政的資訊，不擋\n- 改單位預期收檔時間 → 舊站本來就是行政在維護，不擋\n- 隔離區重跑 → 要先看懂「失敗前已寫入 N 張單」才能決定，按錯會在 Keelung／\n  ansn 家族（SN 是現生 GUID）長出完整重複單。技術判斷，擋\n\n⛔ Auth:RequeueAccounts 留空＝**所有人都不能重跑**，不是所有人都可以。對一個\n可能產生重複單的動作，設定漏了就全開是不能接受的預設值。未設定時啟動記警告；\n退化後等同該功能未上線（回到 RDP 手搬），不是資料風險。\n\n用帳號白名單而不是角色，因為 LISWeb 發的 JWT 只帶 sub／name，沒有 role claim；\n要 role 就得改 LIS 程式，而 SSO 整合的前提是 LIS 端只加 SYS_PARAMETER、不動程式。\n\n前端靠 /api/me 的 canRequeue 把按鈕鎖起來並說明原因（且講明檢視不受影響），\n但真正的把關在端點（403）。Development 關閉認證時一併放行，與 GuiPolicy 的退化一致。\n\n趁這支還沒部署就把界線劃下來，成本最低。233 測試綠（新增 8）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "98530d43",
           "time": "09:53",
           "message": "docs: 補「為什麼聯合要吃立人的格式」＋修掉路徑被轉義吃掉的字元",
-          "body": "同仁補充：0068 的送檢項目大部分送立人、少部分送聯合，但四方那套系統的送檢清單電子格式"
+          "body": "同仁補充：0068 的送檢項目大部分送立人、少部分送聯合，但四方那套系統的送檢清單電子格式\n只有一種、不易請四方另做一版，所以聯合被迫吃立人的格式。這是 Cube2 存在的真正原因——\n不是另一個業務來源，而是同一家診所的檔案以立人版位送到聯合，我方只能照收。\n\n記下三個可操作的推論：不要把「請上游調整格式」當解法（優先在 adapter 想辦法，如 Cube 線\n0244 的 CollapseDoubledQuotesFilePrefix）；量小是結構性的，突然變大要問立人端分流規則是否\n改了；格式變動的動機來自立人端、我方可能無事前通知，值班先比對表頭版位再找四方。\n\n同時修掉上一個 commit 裡 `H:\\TaTung_Xevox_Files\\after3pm\\` 的 \\a 被當轉義序列變成 BEL\n（0x07）的問題，現已為字面反斜線，全檔控制字元 0。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "29fe74b8",
           "time": "09:52",
           "message": "docs: Cube2 的來歷（四方送立人）＋ 釐清立人的兩種指涉",
-          "body": "同仁補充：Cube2 是「四方送立人」的格式，即四方系統部署在立人時產出的版位——這是 05a"
+          "body": "同仁補充：Cube2 是「四方送立人」的格式，即四方系統部署在立人時產出的版位——這是 05a\n作業名寫「四方系統-新轉檔程式Version4」的由來。\n\n一併查證並記下「格式來歷 ≠ 實際流量」，避免排 3b 時混淆：\n・Cube2 線實際流量只有 0068 杏保醫網信康診所\n・立人本身是單位 0035 立人醫事檢驗所\n・0035 的檔案走 TaTung_Xevox_Backup_Files（350 檔），Cube2/Cube/TaTung 三個備份夾各 0 檔\n・0035 屬批次 3b 的 03a after3pm-立人 線（收檔夾 TaTung_Xevox_Files\\after3pm\\），不走 Cube2\n\n另記一條架構事實：Cube／Cube2／大同線三個資料夾的 OrderInSQL_Keelung.exe sha256 完全相同\n（93,696 bytes、2022-06-17），差別全在各自的 exe.config。這正是我方能用單一\nDelimitedOrderFileAdapter 配不同 Options 接掉三條線的原因；Cube 與 Cube2 的 Options 只差\n四項，解析核心完全一致。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "6b077ba8",
           "time": "09:45",
           "message": "fix: 編碼註冊測試改成斷言「Core 載入後」，它原本紅在 main 上",
-          "body": "!156 的兩個行為測試什麼都不做就直接驗，於是 main 上一直紅："
+          "body": "!156 的兩個行為測試什麼都不做就直接驗，於是 main 上一直紅：\n  System.NotSupportedException : No data is available for encoding 1252\n     at ExcelDataReader.ExcelReaderConfiguration..ctor()\n\n原因不是修正失效，是測試斷言了一件不可能成立的事。[ModuleInitializer] 掛在\nOrderInSql.Core，而 module initializer 要等**該組件被載入**才會跑；那兩個方法\n只碰 ExcelDataReader 與 Encoding，完全沒碰 Core，Core 於是從未載入。\n（先前看起來會過，是因為同類別的結構性測試先跑、順手載入了 Core——正是那份\n註解自己警告過的執行順序依賴。）\n\n正式環境不同：Program.cs 在 DI 註冊時就建構三個 adapter，Core 早就載入了。\n所以該斷言的是「**Core 組件載入後**，第三方 ctor 不需要我方再呼叫\nLegacyEncodings」——那才是 !156 真正買到的保證；「什麼都不做也能用」本來就不成立。\n\n改用 RunModuleConstructor 明確做出「組件被載入」這件事（冪等、一次都沒碰\nLegacyEncodings，所以不是舊語意的「暖機」），兩個行為測試因此也不再靠執行順序。\n\n把關強度有實測，不是改成恆綠：拿掉 [ModuleInitializer] 後三個測試全紅，\n放回去全綠；完整回合連跑三輪 225 全綠。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "ede47298",
+          "time": "09:41",
+          "message": "合併 MR !165: feat/parse preview",
+          "body": "feat/parse preview\n\nSee merge request ucl/twowayconnection/orderinsql!165",
+          "category": "合併MR"
         },
         {
           "hash": "54eacbdf",
           "time": "09:40",
           "message": "feat: 轉入前試解析（唯讀看這個檔會被解析成什麼）",
-          "body": "DryRun 只證明沒拋例外，不證明解析結果有意義。2026-09-14 在影子環境抓到的"
+          "body": "DryRun 只證明沒拋例外，不證明解析結果有意義。2026-09-14 在影子環境抓到的\n0466-高榮-…xls 是真正的 OLE2 二進位檔，TextFieldParser 把位元組當分隔文字讀完，\n回報「解析成功：763 張單」，輪詢摘要「失敗 0」全綠。MR !130 之後 ZIP／OLE2 會\n被檔頭守門擋下，但「解析得動、卻解析錯」這一類只有把內容攤開給人看才抓得到。\n\n/lines 每個檔案列多一個「試解析」：列出解析出幾張單、幾筆明細，攤開前 10 張的\n主檔欄位與明細（檢驗碼／UCL／KIND／名稱／套組／Dept／送驗日）。inbox 與隔離區\n都能用——隔離檔按下去會直接看到它為什麼解析失敗。\n\n⛔ 唯讀：不寫 DB、不搬檔、不記 MessLog，有測試守著（預覽後檔案時間戳不變、\narchive／quarantine 不會被建出來）。也不做 DB 對照展開，所以 Keelung 家族的 UCL\n代碼與 SEQUENCE 在這裡還沒有值——這點寫進畫面的說明，否則會被誤讀成「漏寫」。\n\n身分證遮蔽中段但保留長度：長度本身有診斷價值，2026-09-11 平行驗證就是靠長度發現\n3540 有 9 碼身分證。\n\n端點只收單純檔名，擋路徑穿越（它會讀檔並把內容回傳）。\n\n寫測試時實際踩到一件值得記的事：adapter 依**副檔名**選分隔符，.csv 一律逗號、\n其餘才用設定值。原本把 pipe 資料寫進 .csv，整列變一格、解析出一張所有欄位皆空的\n單卻計為成功——正好是本功能要抓的那一類，已在測試裡註明。\n\n225 測試（新增 11）；唯一的紅是既有的 LegacyEncodingsRegistrationTests，與本次無關。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "94ff7f60",
           "time": "09:37",
           "message": "docs: 更正批次 4 家數 — Cube 30 家、Cube2 僅 0068 一家",
-          "body": "原卡片記「合計 20 家（17＋3）」與實況不符。依實際流量清點：Cube 線 30 家、Cube2 線只有"
+          "body": "原卡片記「合計 20 家（17＋3）」與實況不符。依實際流量清點：Cube 線 30 家、Cube2 線只有\n0068 一家（舊備份夾 297 檔中 291 檔為 0068、2023 年度夾亦僅 0068，另 1 檔 0208 屬誤入）。\n兩線合計 31，正好對上 reverse-compare-batch24.sql／replay-cleanup-batch24.sql 的 31 單位\n清單（那份清單是照實際流量建的，所以是對的）。\n\n順帶記一條值班判讀：Cube2 每日僅約 1 檔、1–6 張單，切換日到中午仍無檔屬正常，\n不要誤判成 pull 故障。9/15 當天 09:31 開窗後即為此情形。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e3ed59bf",
           "time": "09:33",
           "message": "docs: 9/15 首日反向比對結果與四條已知白名單",
-          "body": "首日（09:15–09:30，三線 Live）主檔逐線精準吻合，跨單位搬移加回原單位後："
+          "body": "首日（09:15–09:30，三線 Live）主檔逐線精準吻合，跨單位搬移加回原單位後：\n0208 161=146+0357 15、2798 16=14+2797 2、0193 33、0961 28、0560 9、1110 6、0131 3、0173 5。\n⛔ §7 跨檔合併主檔 = 0，9/10 事故主症狀未再現。三線 ERR 0、隔離區 0、hook 全 200。\n\n明細差 46 筆已歸因：對照表 UTI_UCL='NA' 的代碼（0193 B0007/I0006、0208 X2022…），\nFilterUclCodes 依舊程式語意濾掉 NA 後無有效代碼 → 我方略過整列，舊程式寫一列 UCL 空明細。\n不是漏單的依據是同側比較（都經過修補層）：0208 明細 9/08-9/14 舊程式 403–570（UCL 空 0–14、\nDept 空 30–57），9/15 我方 431（UCL 空 0、Dept 空 35），落在同一區間。差異只在影子那側，\n因為 WebOrder_Test 是沒經過修補層的原始轉檔輸出。\n\nreverse-compare-batch24.sql 開頭補四條白名單判讀規則（NA 略過、雙套組配對假象、\n跨單位搬移的加回對帳法、ISNULL 遮蔽 NULL vs 空字串），觀察期逐日判讀直接照表走。\n\nCLAUDE.md 補一節：比對腳本的 ISNULL 正規化會遮住 NULL vs '' 的差異。已查證舊程式歷史上\n兩種都寫（PROFILE 645 NULL／2,100 ''），非缺陷；但本腳本不會示警，日後若有只認一種的\n下游，得拿掉 ISNULL 再跑。同一個教訓：零未解釋差異只代表我們沒問那個問題。\n\n腳本改後已實跑驗證：222 行輸出、0 錯誤、BOM 保留。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "71d2aa57",
           "time": "09:33",
           "message": "docs: 待部署表補上累積的三支 GUI 變更",
-          "body": "這張表的存在意義就是「部署的事實不能只活在備份夾名裡」，累了幾支沒登記等於"
+          "body": "這張表的存在意義就是「部署的事實不能只活在備份夾名裡」，累了幾支沒登記等於\n在重演它要解決的問題。\n\n同時標註哪一支碰到匯入路徑（!158 在 catch 區補記已寫入張數，成功路徑只多一個\nwritten++），出問題時知道優先看誰；以及哪些變更根本不需要部署（!155／!159 是\n工具與文件，不進 app\\）。\n\n各支都附「上線後要確認什麼」——!158 看第一個真實隔離檔的張數對不對，\n!161 看 /config 是否顯示「沒有跨檔案合併的鍵」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "96389260",
           "time": "09:25",
           "message": "feat: 生效設定唯讀檢視（每個值從哪個檔案來的）",
-          "body": "2026-09-10 批次 2 事故的本質是「設定檔看起來乾淨、grep 也查不到，但執行期就"
+          "body": "2026-09-10 批次 2 事故的本質是「設定檔看起來乾淨、grep 也查不到，但執行期就\n是拿到了別人的值」——Units 陣列依索引合併，TATUNG 排在索引 1，吃到範例 ansn\n單位的 WriteProfile=Ansn，於是靜默併單、明細漏寫四欄，全程零錯誤零隔離。\n\n那是一個只有執行期看得見的問題，所以只能由執行期自己說出來。\nUnitSettingsValidator 擋的是已知的互斥組合（第 2 層防線）；這一頁補的是第 0\n層：讓「這個值到底哪來的」變成看一眼就知道的事。\n\n每個單位列出索引（合併是依索引做的，索引本身就是線索）、UnitCode 由哪個檔案\n定義、以及每個鍵的生效值與來源檔；來源與 UnitCode 不同的鍵標紅並自動展開。\n\n⚠️ 來源用 provider 的**實例**比對而不是顯示名稱——兩個來源可能同型別甚至同\n檔名，用名稱比會把「來自不同檔案」誤判成同一個，正好漏掉這頁要抓的東西。\n（寫測試時實際踩到：兩個 InMemory provider 一律顯示 Memory，標記全失效。）\n\n⛔ 唯讀，且只吐 Units 底下的鍵——連線字串與 SSO 金鑰同在設定樹裡，有測試守著\n不外洩；鍵名含 password/key/secret/token 之類字樣的值另外遮蔽。\n\n現場驗證：56.227 的 appsettings.json 用的是 _UnitsSample、沒有名為 Units 的\n陣列，所以這頁會顯示「沒有跨檔案合併的鍵」——是證明，不是主張。哪天有人把它\n改回 Units，這頁立刻紅。\n\n211 測試綠（新增 7 個，用事故本身的形狀重現）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "544e6ab7",
+          "time": "09:20",
+          "message": "合併 MR !160: 3a 交叉連結補齊，並攤開 pull 排除與批次 4 的分歧",
+          "body": "3a 交叉連結補齊，並攤開 pull 排除與批次 4 的分歧\n\nSee merge request ucl/twowayconnection/orderinsql!160",
+          "category": "合併MR"
+        },
+        {
+          "hash": "b0312dbb",
+          "time": "09:19",
+          "message": "合併 MR !159: feat/quarantine requeue",
+          "body": "feat/quarantine requeue\n\nSee merge request ucl/twowayconnection/orderinsql!159",
+          "category": "合併MR"
         },
         {
           "hash": "09a3ab37",
           "time": "09:19",
           "message": "docs: 3a 交叉連結補齊，並攤開 pull 排除與批次 4 的分歧",
-          "body": "3a 的資產原本只有 TODO 和卡片自己連得到，從批次表或 tools 目錄都找不到。"
+          "body": "3a 的資產原本只有 TODO 和卡片自己連得到，從批次表或 tools 目錄都找不到。\n\n- MIGRATION_RUNBOOK 批次表 3a 那列：補轉移卡與切換資產連結、備料進度、\n  以及 9/15 對「無需 pull 排除」的訂正（其他批次那幾列本來就有連卡片）\n- tools/cutover-templates/README.md：原本只講批次 1 的範本，加上四個批次的\n  目錄索引，並註明 batch3a 與 batch2/4 性質相反（先寫、尚未佈署），\n  以及 .gitattributes 與 BOM 規則不要動\n- 修掉卡片與 TODO 開頭摘要裡「無需 pull 排除」的舊說法\n\n⚠️ 順帶攤開一件事：我給 3a 的建議（pull 排掉 *.xls/*.xlsx/*.ods）與批次 4\n既有的決定不一致——Cube 線是讓 0466 的 Excel 進 quarantine、並在觀察期\n規則裡註明屬預期。兩種都行得通，取捨是「quarantine 空這條規則保不保得住」\nvs「少改一次 pull 設定」。卡片建議排掉（例外清單會隨批次累積，而「空」是\n唯一不需要記憶的判準），但標成**切換前待確認**，不自己決定；若決定與批次 4\n對齊，觀察期規則要同步改，並考慮回頭把 Cube 線也一起排掉以統一。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "399093ab",
           "time": "09:19",
           "message": "feat: 監控產生器可加隔離區的頭（-IncludeQuarantine）",
-          "body": "隔離檔是「進來了、確定沒轉入、而且不會自己好」的那一類，本來就該被監控，"
+          "body": "隔離檔是「進來了、確定沒轉入、而且不會自己好」的那一類，本來就該被監控，\n先前卡在沒有人能清它——要重跑得 RDP 上 56.227 手搬檔。隔離區重跑按鈕做出來\n之後（!158）這顆頭才有意義。\n\n門檻用「最舊隔離檔放多久」1440 分＝該被分流掉的期限，而不是檔數：檔數門檻不\n會告訴你那個檔躺了多久。靜默窗沿用該線的時窗補集，只在有人上班的時段叫。\n\n預設關閉：不修好也不刪掉就會每天叫，那是刻意的施壓，但會實際改變告警量，\n要先講好再開。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "e983669c",
           "time": "09:17",
           "message": "feat: 隔離區看得到原因、也按得下重跑",
-          "body": "隔離區原本只列得出檔名與大小，「為什麼被隔離」只存在服務 log 裡——看到隔離"
+          "body": "隔離區原本只列得出檔名與大小，「為什麼被隔離」只存在服務 log 裡——看到隔離\n數也不知道要不要理它；要重跑則得 RDP 上 56.227 手搬檔。\n\n原因其實早就寫進 MessLog 了（處理[醫令檔]發生錯誤,<路徑>;<訊息>），只是沒人\n讀。加 IMessLogQuery 把它讀回來貼在清單上。刻意與 IMessLog 分開：管線只寫、\nGUI 只讀，合成一個介面會逼每個只想寫的測試替身去實作查詢。\n\n⛔ 重跑的安全性取決於一個原本無法得知的數字：交易是「一張單」一個而不是一整\n檔，所以 50 張單的檔可能在第 30 張才失敗、前 29 張已經在庫裡；Keelung／ansn\n家族的 SN 是現生 GUID，重跑那種檔會長出完整重複單，而例外訊息本身完全看不出\n寫到哪裡。故在失敗訊息尾端補記「失敗前已寫入 N 張單」，GUI 據此分三種呈現：\n\n  0    → 綠字「重跑安全」（解析階段就失敗的檔都是這類，也是絕大多數）\n  N>0  → 紅字警告可能產生重複單\n  不明 → 舊版紀錄沒記這個數字，與 0 意義相反，不可當成安全\n\n重跑只把檔搬回 inbox，之後走一般流程（含時窗）；原因必填、寫 MessLog 稽核。\n同名檔已在 inbox 時拒絕而不是自動加 -N：加了會改變檔名分段，而多個家族靠分段\n取單位碼／Dept（0208 的 Dept 取自檔名第二段前 4 碼）。API 只收檔名，擋路徑穿越。\n\n查隔離原因失敗不影響清單回傳——「看得到有幾個隔離檔」比「知道為什麼」更基本。\n\n204 測試綠（新增 11 個，含中途失敗記下實際張數、解析階段失敗記 0、舊版紀錄回\n「不明」而不是 0）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "651748e1",
+          "time": "09:11",
+          "message": "合併 MR !157: 待部署清單補 MR !156（編碼 provider 註冊時機）",
+          "body": "待部署清單補 MR !156（編碼 provider 註冊時機）\n\nSee merge request ucl/twowayconnection/orderinsql!157",
+          "category": "合併MR"
         },
         {
           "hash": "056e87c8",
           "time": "09:11",
           "message": "docs: 待部署清單補 MR !156（編碼 provider 註冊時機）",
-          "body": "批次 5（10/6）前必須上線：ansn 時窗 05:02-19:02，換檔得在清晨 5 點前，"
+          "body": "批次 5（10/6）前必須上線：ansn 時窗 05:02-19:02，換檔得在清晨 5 點前，\n屆時重啟必然落在所有 Delimited 時窗之外，正是這個 bug 發作的條件。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5dcf2d01",
+          "time": "09:10",
+          "message": "合併 MR !156: 修 Excel 線在重啟時全數解析失敗（cp1252 provider 註冊時機）",
+          "body": "修 Excel 線在重啟時全數解析失敗（cp1252 provider 註冊時機）\n\nSee merge request ucl/twowayconnection/orderinsql!156",
+          "category": "合併MR"
         },
         {
           "hash": "b22cf8b9",
           "time": "09:10",
           "message": "fix: 舊碼頁 provider 改由 ModuleInitializer 註冊 — Excel 線在重啟時全掛",
-          "body": "2026-09-15 07:19 重啟後，ANSN-SHADOW 442 檔＋UNIMAX-SHADOW 147 檔全數"
+          "body": "2026-09-15 07:19 重啟後，ANSN-SHADOW 442 檔＋UNIMAX-SHADOW 147 檔全數\nNotSupportedException: No data is available for encoding 1252，堆疊指向\nExcelDataReader.ExcelReaderConfiguration..ctor() —— 是第三方程式庫自己\n叫 GetEncoding，不經過 LegacyEncodings。\n\nnew ExcelReaderConfiguration { FallbackEncoding = Big5 } 看起來會先碰到\nBig5，其實不會：C# 物件初始設定式是「先跑建構式、再指派屬性」，而型別是\nbeforefieldinit，ctor 執行時靜態初始化還沒發生。\n\n在此之前沒爆純屬僥倖：每次重啟總有某個 Delimited 單位先解析 big5 檔、\n順手註冊好 provider。今天切換後 Delimited 的 Live 線全被時窗擋住\n（09:00 才開窗），Excel 單位成了第一個解析的，僥倖就用完了。\n\n⚠️ 這是批次 5 的定時炸彈：ansn 時窗 05:02-19:02，換檔得在清晨 5 點前做，\n屆時重啟同樣落在所有 Delimited 時窗之外 ⇒ 上線第一天整條線全進隔離區。\n（今天沒有正式庫影響：出事的兩條都還是 DryRun，Live 四條線不走 Excel。）\n\n修法：LegacyEncodings 補上真正的 [ModuleInitializer]，組件載入即註冊，\n與呼叫順序、DI 順序、時窗、單位排列全無關；Get() 的 Lazy 留作第二道保險。\n⚠️ ExcelOrderFileAdapter 的註解本來就寫著「由 LegacyEncodings 的\nModuleInitializer 註冊」——那句當時是預告不是事實，一併訂正。\n\n測試 LegacyEncodingsRegistrationTests 三個案例（拿掉屬性單獨跑三個全紅；\n註解裡寫清楚哪個是結構性斷言、哪些會被暖機而恆綠）。187 測試全綠。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "5f92e337",
+          "time": "08:57",
+          "message": "合併 MR !155: feat/cerberus inbox backlog",
+          "body": "feat/cerberus inbox backlog\n\nSee merge request ucl/twowayconnection/orderinsql!155",
+          "category": "合併MR"
         },
         {
           "hash": "f444c8a0",
           "time": "08:57",
           "message": "feat: 產生 Cerberus 的 inbox 積壓監控頭（檔案進來但沒轉入）",
-          "body": "監控目標收斂成一句：inbox 積壓＝我們的錯；沒檔進來＝客戶的事（後者由收檔"
+          "body": "監控目標收斂成一句：inbox 積壓＝我們的錯；沒檔進來＝客戶的事（後者由收檔\n進度頁的五色表管）。每單位「通常幾點傳檔」刻意不做自動監控，各單位作息差\n異大，做成告警只會製造雜訊。\n\n不寫在 OrderInSql 裡：看門狗必須在被監控對象之外，「服務根本沒在跑」正是\n最該告警的情況，那時內建的自我監控也一起沉默。附帶好處是零 binary 變更，\n不受觀察期部署凍結影響。\n\n黃燈 StaleAfterMinutes=20（Discord）／紅燈 EscalateAfterMinutes=60（Email）。\n\n⛔ 兩個會讓這顆頭變廢的坑，產生器都處理掉了：\n\n1. 時窗外到的檔本來就該等下一個時窗，不是故障。QuietWindows 必須是\n   ProcessingWindow 的補集，且開窗後再留 20 分寬限給服務消化隔夜積壓。\n   2026-09-15 08:55 實測：四條 Live 線時窗都還沒開，CUBE 最舊檔已 507 分鐘，\n   行為完全正確——沒有靜默窗的話此刻三條線會同時誤報。\n2. DryRun 不搬檔，inbox 永遠不會清空，掛上去第一天就紅到底。一律略過。\n\n時窗是 OrderInSql 的設定、靜默窗是 Cerberus 的設定，手抄必定漂移，所以用\n產生的；-CompareWith 可反向查漂移，-SelfTest 驗補集算法（含尚未切換的\nansn 凌晨窗與 after3pm 兩段窗）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a7c8df74",
+          "time": "08:56",
+          "message": "合併 MR !154: 觀察期每日反向比對腳本（並補測試側日期過濾）",
+          "body": "觀察期每日反向比對腳本（並補測試側日期過濾）\n\nSee merge request ucl/twowayconnection/orderinsql!154",
+          "category": "合併MR"
         },
         {
           "hash": "7089149f",
           "time": "08:56",
           "message": "tools: 觀察期每日反向比對腳本 — 並補上原腳本缺的測試側日期過濾",
-          "body": "切換後方向反過來（我方寫正式庫、影子寫 WebOrder_Test），照"
+          "body": "切換後方向反過來（我方寫正式庫、影子寫 WebOrder_Test），照\nMIGRATION_RUNBOOK 的慣例是把 parallel-compare-keelung.sql「角色互換\n使用」。這支把每天都要手改的三件事內建好：33 個單位、@prodFrom、\n以及讀結果時兩側對調的對照表（寫在檔頭，免得每次重新推一遍）。\n\n⛔ 過程中發現原腳本有個切換後才會咬人的地方：它只限正式側日期，\n測試側是全量。切換前那樣是對的——測試側只有本輪回放；切換後不成立，\nWebOrder_Test 裡還躺著 9/14 平行驗證留下的 630 筆（那輪 07:20-07:45\n跑完沒清，當天的 cleanup 是 07:16 跑的，在它之前）。不補過濾的話，\n這 630 筆今天會全部變成 §1「影子有、我方沒有」的假警報。\n\n已補兩處測試側過濾（#map 與 §0 的 TestM）。補完實跑：#map 0 筆、\n全部 0，基線乾淨。§7 本來就有當天過濾，不用動。\n\n另記一條：-i 要給 Windows 反斜線路徑，MSYS 路徑會被 sqlcmd 當成\n磁碟代號 D: 而開檔失敗。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "554bb001",
           "time": "08:33",
           "message": "feat: GUI 顯示每線「最後成功轉入／上輪結果」",
-          "body": "ImportWorker 每輪的 ImportReport 只進 Serilog，於是「這條線最後一次成功"
+          "body": "ImportWorker 每輪的 ImportReport 只進 Serilog，於是「這條線最後一次成功\n轉入是什麼時候」只能 RDP 上 56.227 翻 log——而那正是\nELECTRONICALERT_INTEGRATION §5.1 規畫收檔進度頁要有的欄位。\n\n加一個記憶體環形緩衝（每線 20 輪），排程輪詢與手動轉入都記，整輪拋例外\n也記（否則 GUI 只看得到「最後成功」停住，看不出來每輪都在炸）。\n\n只留有意義的輪次：時窗外與空 inbox 的 0/0/0 不記，每 30 秒一輪會在 20 格\n內把有意義的擠光；但 LastPollAt 每輪都更新，用來證明輪詢還活著。\n\n⛔ 記憶體狀態、重啟歸零，所以對外一律附 ActivitySince，GUI 把空值寫成\n「啟動後尚無」而不是留白——留白會被讀成「這條線沒在收檔」。這是 9/15\nDryRun 摘要事故的同一個教訓：歸零的計數器不會自己說明它是沒事發生還是\n剛忘記，得由旁邊的時間戳來說。跨重啟的事實仍以 MessLog 為準。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "33c4c169",
+          "time": "08:33",
+          "message": "合併 MR !152: 批次 3a 切換資產：產生器＋pull/feed/GO/ROLLBACK（本機驗完）",
+          "body": "批次 3a 切換資產：產生器＋pull/feed/GO/ROLLBACK（本機驗完）\n\nSee merge request ucl/twowayconnection/orderinsql!152",
+          "category": "合併MR"
         },
         {
           "hash": "acb5aace",
           "time": "08:30",
           "message": "docs: 3a 轉移卡與 TODO 同步 ⑥⑦ 完成，並訂正 pull 排除規則那條紅線",
-          "body": "紅線 3 原本寫「3a 不需要任何 pull 排除規則」，只對了一半：不需要的是"
+          "body": "紅線 3 原本寫「3a 不需要任何 pull 排除規則」，只對了一半：不需要的是\n「單位前綴」排除（照抄 3b 的會讓 Veterans 零流量），但需要「副檔名」\n排除。實測 .227 兩個收檔夾 9/1 起，FP 的原始 Excel 與真流量是成對出現的：\n- Veterans 27 個 .txt 旁邊就有 27 個真 OLE2 .XLS\n- Xevox2 的 51 csv + 49 txt 旁邊有 37 xlsx + 12 xls\n不排的話那些檔每天都會被二進位守門丟進 quarantine——擋是擋住了，但\n觀察期「quarantine 必須是空的」第一天就破功，等於把警報弄成常態噪音。\n\n另：⑤ 的目錄結構從兩個改成一個（cutover-batch3a\\），並把「佈署到 56.227」\n拆成獨立的 ⑧，原本它隱含在 ⑤ 裡，現在腳本已在版控、只差複製過去。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "bf36fb80",
           "time": "08:26",
           "message": "feat: 批次 3a 切換資產（產生器＋pull/feed/GO/ROLLBACK），本機驗完",
-          "body": "9/22 七項資產的 ⑥⑦ —— 這兩項不用碰現場，先在本機寫完驗完，"
+          "body": "9/22 七項資產的 ⑥⑦ —— 這兩項不用碰現場，先在本機寫完驗完，\n切換日只剩複製過去。\n\n與 batch2/batch4 的差別：做成「一個目錄、一支產生器、一份 .CUTOVER.ALL」。\n批次 2／4 是兩支產生器各自從現行 Local.json 產出、互不知道對方，\n先換 A 再換 B 會把 A 蓋回 DryRun，9/15 當天是靠臨時合併才只重啟一次。\n本批兩線同日切，直接把那個坑從結構上移除。\n\n產生器三道守門，都做了負向測試（改壞輸入確認會中止而不是產半套設定）：\n① 連線不是正式密文 → 擋\n② WEBORDER-XML/TATUNG/CUBE/CUBE2 任一不是 Live → 擋（防拿到舊備份或某線被回退）\n③ 兩個 -SHADOW 錨點區塊不見 → 擋\n產出端再驗一次已切換的線仍 Live、未切的線仍 DryRun。\n\n以 56.227 現行設定的去敏副本實跑：diff 只有兩條線各 8 行，其餘一字未動；\n九個單位狀態全部正確。版位也釘死在驗證裡（Veterans V1/L1,U1 vs\nXevox2 V3/L1,U2 長得像但不一樣，是最容易抄錯的地方）。\n\npull 的排除規則寫成「兩種、不要混為一談」：*Parsing_* 是合併檔，\n*.xls/*.xlsx/*.ods 是 FP 原始輸入。⛔ 絕不可抄 3b 的單位前綴排除——\nVeterans 全部流量都是 0550/0680 兩家 FP Transfer 單位，排掉就零流量。\n\n另外兩件：\n- 加 tools/cutover-templates/.gitattributes（* -text）。repo 的 autocrlf=true\n  會把 LF 轉 CRLF，而產生器的 here-string 錨點必須跟 Local.json 的 LF 一致。\n  batch4 的 README 是用文字提醒「重建時記得轉回 LF」，改成讓 git 別動它。\n- .ps1 一律 UTF-8 with BOM（第一版沒加，PS 5.1 當 Big5 讀，整支 parse error，\n  實際踩了一次）；.bat 反之不加，cmd 會把 BOM 當命令的一部分。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "68536287",
           "time": "08:16",
           "message": "docs: 3a 平行驗證素材已備（11 家 127 檔），並記下「白天不能跑」的原因",
-          "body": "素材：D:\\OrderInSqlData\\parallel-0915\\，來源是 .227 兩個備份夾 9/1 起的檔"
+          "body": "素材：D:\\OrderInSqlData\\parallel-0915\\，來源是 .227 兩個備份夾 9/1 起的檔\n（比 56.227 的 shadow 夾多，shadow 留不住那麼久）。\n- veterans 27 個 .txt（0550×23、0680×4）\n- xevox2 100 檔（51 csv + 49 txt，9 家）\n合計 11 家，與轉移卡「基本資料」的家數吻合。\nFP 的原始 Excel 與 -N 同名副本共 76 個已分流到 skipped\\（-N 會讓副檔名\n變成 .csv-1、adapter 選錯分隔符），inbox 逐檔驗過檔頭、二進位殘留 0。\n\n⛔ 但今天白天不能跑：回放前置第 ① 步是\nTRUNCATE WebOrder_Test.dbo.UNIT_TEST_ITEM 再自正式庫重灌，那是共用表，\n而批次 2／4 的影子鏈整個白天都在寫同一個庫。truncate 的那幾秒若撞上\n影子匯入，影子會得到「查無對照、明細略過」，當天的反向比對基準就被\n靜默弄髒了。同型前例是 09-10 的大筆 DELETE 與批次 1 匯入互鎖。\n⇒ 09:00 前或 18:00 後跑，最近的窗口是 9/16 早上。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "8350767a",
           "time": "08:12",
           "message": "docs: 補 56.227 部署紀錄 — 9/14 那三次沒人記，只能從備份夾反推",
-          "body": "deploy-56227.ps1 會先把 app\\ 備份成 app_bak_<時刻> 再覆蓋，所以備份夾名"
+          "body": "deploy-56227.ps1 會先把 app\\ 備份成 app_bak_<時刻> 再覆蓋，所以備份夾名\n＝部署時刻、夾內 DLL 時間戳＝上一版建置時刻。整條鏈可以這樣反推，\n但那是考古不是紀錄——9/11 就曾因為「線上 DLL 到底含不含 ResolveDept」\n差點用錯版本切批次 4。\n\n查證結果：9/14 的三次部署（08:07／09:15／10:06）一對一對應三個\n收檔進度頁的 UI/alert commit（a3ab6f1／8996004／4797fea），沒有動到\n匯入語意，所以 9/15 批次 2＋4 切換的結論不受影響。已用字串實查確認\n線上組件：AssertNotBinary／ZIP 容器／OLE2、ResolveDept／LegacyEncodings、\n線別與手動轉入／UNITDATA 都在，被拿掉的「健康檢查」字串已不在。\n\nMIGRATION_RUNBOOK 階段 0 的更版 SOP 加一條：跑完補一列。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "b985a3ad",
           "time": "08:04",
           "message": "fix: DryRun 摘要要記住首輪結果——「失敗 0」原本自重啟後永遠成立",
-          "body": "ImportPipeline 用「路徑+最後修改時間」記住已驗證過的檔避免每輪洗版，"
+          "body": "ImportPipeline 用「路徑+最後修改時間」記住已驗證過的檔避免每輪洗版，\n但命中快取時一律 return true（＝計為成功），於是首輪失敗的檔從第二輪\n起被算成功，摘要的「失敗 N」只有重啟後第一輪有意義。\n兩條 DryRun 路徑（醫令檔、UNIT_TEST_ITEM 對照檔）各有一份同樣的寫法。\n\n2026-09-15 在 56.227 實測到：\n- 07:19:41 VETERANS-SHADOW 成功 15、失敗 15（15 個真 OLE2 .XLS 被\n  MR !130 的二進位守門正確擋下）\n- 07:42 起每輪都是「成功 30、失敗 0」，那 15 個檔今天在 log 裡只出現過一次\n- XEVOX2 同型：首輪 65/33 → 之後 98/0\n\n與 9/14 的 Excel 幻影醫令同一類盲區：「沒有紅字」不等於「沒有問題」，\n而這個數字正是觀察期每天在看的。\n\n改成記住首輪結果；檔案被改動會讓快取鍵改變、下一輪重新解析（新增測試\n涵蓋這條，避免修正變成「壞檔永遠壞」）。DryRunSummaryTests 兩個案例，\n拿掉修正即紅；184 測試全綠。\n\n⚠️ 尚未部署——觀察期中途不換 binary，上線時機記在 TODO 待決。\n\nTODO 另補：sync-shadow.bat 的排除規則 veterans 那行也缺（原本只記了\nxevox2）。實查影子 inbox 檔頭：veterans 15 個真 OLE2 .XLS、xevox2 25 個\n真 ZIP .xlsx ＋ 8 個真 OLE2 .xls，都是 FlexibleParsing 的原始輸入。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "31d6748b",
           "time": "07:57",
           "message": "docs: 舊站 ElectronicAlert (8989) 2026-09-15 停用，記錄證據與收尾待辦",
-          "body": "以 app_offline.htm 卸載 56.229 的 ElectronicAlert 應用程式，三條路徑"
+          "body": "以 app_offline.htm 卸載 56.229 的 ElectronicAlert 應用程式，三條路徑\n(首頁 / api/Data / Home/Edit) 皆回 503，實質攻擊面移除。\n\n停站依據：\n- 2025-10-24 那 36,613 筆流量的 User-Agent 是 OpenVAS-VT 23.23.1，\n  確認為資安弱掃而非使用者或 API 消費者；IIS 只在當天有請求時才產生\n  log 檔,故 10.5 個月是零請求(含 API)。\n- 全 repo grep 確認 api/Data 的呼叫者只有舊站自己的前端與比對腳本,\n  新站 /api/alert 不需相容。\n- 五色分支最後一條 escapeDay 以 @@DATEFIRST 查證結案(wo 登入 DATEFIRST=7,\n  DATEPART(weekday)-1 與 .NET DayOfWeek 相同),對照組無剩餘價值,\n  故不等原訂的「連跑一週」。\n\n同時更正：停的是應用程式,IIS 站台仍 Started、8989 仍在聽。真正 Stop\n需 RDP(WinRM/DCOM 皆不可用,sc.exe 停 W3SVC 會波及同機其他站),列為待辦。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "c350b1ce",
           "time": "07:56",
           "message": "docs: 批次 3a 轉移卡（Veterans＋Xevox2）— 9/22 七項資產的第 1 項",
-          "body": "從 archive/ 的兩份舊 exe.config 取到實據，不靠推測："
+          "body": "從 archive/ 的兩份舊 exe.config 取到實據，不靠推測：\n- Veterans：H:\\Taichung_Veterans_Files\\、Version 1、L1/U1、09:01-15:41\n- Xevox2：H:\\TaTung_Xevox2_Files\\、Version 3、L1/U2、09:05-15:45\n\n⚠️ 順手抓到一個會咬人的：Xevox2 的程式目錄是\nC:\\OrderInSQL_Keelung_Xerox_Barcode\\，不是 …_Xevox2。換檔腳本路徑\n寫錯會靜默改到別條線的設定。\n\n另確認兩件事、寫進卡片免得之後再查：\n- 九條線的 .bat 尾巴都會再跑一次 WebOrder_QFT_change_Delivers_DT.php，\n  而該 php 另有 [WebOrder]QFT 獨立排程，停 03/04 不會讓它斷（非風險）\n- 3a 兩線都不是前處理 PHP 的輸入夾 ⇒ pull 不需排除；且絕不可照抄 3b 的\n  排除清單，Veterans 近 14 天 54 檔全是 FP Transfer 上游單位，誤排＝零流量\n\n切換步驟沿用 9/15 實戰：.227 走 SMB 免 RDP、56.227 用合併版 .CUTOVER.ALL\n一次換檔（不走兩段式）。觀察期被中秋連假切斷的排法也寫在卡上。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "a0a1481c",
           "time": "07:50",
           "message": "docs: 批次 5 改為 9/18 閘門條件式評估（原「已否決」過於絕對）",
-          "body": "用實績檢驗前一版的否決理由：9/1 起 130 個 MR／11 個工作日，尖峰 9/9-9/11 每日"
+          "body": "用實績檢驗前一版的否決理由：9/1 起 130 個 MR／11 個工作日，尖峰 9/9-9/11 每日\n39-49 commits，排程移動全是提前（部署 9/14→9/11、批次 4 從 9/24→9/15），\n9/15 三線切換 13 分鐘。⇒ 理由 1（四天備不完）與 2（三件未定案）站不住，\n後者是查證題不是工程題。理由 3、4 維持——曆法不因開發速度改變。\n\n改動：\n- 9/22 段標題 ⛔已否決 → ⏸待 9/18 依進度重評，四點理由標註哪兩點已被打掉\n- 新增五項閘門判準（3a 資產＋驗證／UNIMAX exe 歸屬／ansn FP 檔處置／\n  ansn+UNIMAX 四欄腳本重驗／批次 2-4 觀察期零異常），任一未過照原案 10/6\n- 新增待評估選項：3b ↔ 批次 5 對調（9/22 加批次 5、3b 退 10/6），\n  把全案最大的線移離連假後積壓日並讓它吃到 L3 pull 收口；代價與 Spark 窗風險同列\n- 9/16-9/19 觀察期段加 9/18 閘門判定的日期觸發條目\n- 記入反向訊號：9/10 根因與 9/14 幻影醫令都是「順手看一眼」抓到的，\n  餘裕本身是產能的一部分\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "4c414e9e",
           "time": "07:39",
           "message": "docs: 9/22 格記入「已評估並否決把批次 5 併進來」及餘裕的改投方向",
-          "body": "起因是「下週二計畫看起來太少」。切換動作確實小（9/15 三線 22 家只花 13 分鐘），"
+          "body": "起因是「下週二計畫看起來太少」。切換動作確實小（9/15 三線 22 家只花 13 分鐘），\n但批次 5 的成本不在切換日，四點否決理由入檔：\n\n- 3a 資產從零開始，7 項全擠在 9/16-9/19，那四天還有觀察期比對／停排程／批次 1 收尾\n- 批次 5 有三件未定案（UNIMAX 收檔夾跑哪支 exe、ansn 的 FP 檔處置、\n  舊腳本跑的「零差異」依重驗規則不算數）——是查證不是備料\n- ansn 是全案唯一真 WriteProfile=Ansn 的線，且時窗 05:02 起，與 3a 共三個守點\n- 觀察期會被中秋連假壓縮到 2 天並全部疊上 9/29（3b 開球日），變成一天比對 3 批 112 家\n\n餘裕改投 3b 備料、批次 5 前置查證（把 10/6 變純執行日）、L3 pull 收口提前。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "2efaaaa9",
           "time": "07:36",
           "message": "docs: 把 9/15 切換結果同步到分工、批次表與兩張轉移卡",
-          "body": "WORKSTREAMS：加 2026-09-15 現況行；L1 改成「9/8 批次 1 → 9/15 批次 2＋4 →"
+          "body": "WORKSTREAMS：加 2026-09-15 現況行；L1 改成「9/8 批次 1 → 9/15 批次 2＋4 →\n9/22 3a」；L2 的批次 4 項目（⑤⑥⑦⑧）全數結案（9/11 改以 443 個 shadow 真實檔\n平行驗證取代 350 檔回放，同輪修掉 Dept 與 Excel 幻影醫令），死線欄的\n「9/15 退 9/17」已失效，剩 after3pm 9/26；9/9–9/16 時間軸改寫成實際發生的事。\n\nMIGRATION_RUNBOOK 批次表：批次 1／2／4 狀態由「🗓 切換日」改為「✅ 已切換」，\n批次 2 註記 9/10 首日回退的根因與兩輪平行驗證結果。\n\n兩張轉移卡的記錄表 ④ 切換填上 2026-09-15 07:16–07:22 與三處實際做法\n（SMB 免 RDP、合併版 .CUTOVER.ALL 只重啟一次、排程須先 /ENABLE）；\n立即驗證維持未打勾，待各線開窗後補。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "04ed6cd4",
           "time": "07:32",
           "message": "docs: 作戰圖滾到 9/22 — 9/15 切換打勾，補開窗後／觀察期／3a 備料三段",
-          "body": "9/15 07:24 三條線切換完成，作戰圖標題與前言改成「9/15 已切換 → 9/16-9/19"
+          "body": "9/15 07:24 三條線切換完成，作戰圖標題與前言改成「9/15 已切換 → 9/16-9/19\n觀察期 → 9/22 3a」，並記下與計畫不同的兩處做法（.227 走 SMB 免 RDP、\n56.227 合併版 .CUTOVER.ALL 一次換檔）以及停用中排程要先 /ENABLE 的坑。\n\n新增三段：今天開窗後剩下的事（三線首檔驗證、首日反向比對、批次 1 收尾、\n公告與通知）、9/16-9/19 觀察期每日項目與 9/19 停舊排程、9/22 批次 3a。\n\n3a 的資產是從零開始（無轉移卡、無 .CUTOVER、無 cutover 腳本），清單照\n批次 4 的前置狀態逐項對應，明寫要在觀察期空檔備好、別擠到 9/21 週一。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "1a6eed28",
           "time": "07:25",
           "message": "docs: 9/15 批次 2＋4 切換時間線（07:11–07:24）",
-          "body": ".227 三份 config 走 SMB 備份＋套用並逐 byte 驗證；56.227 以合併版 .CUTOVER.ALL 一次"
+          "body": ".227 三份 config 走 SMB 備份＋套用並逐 byte 驗證；56.227 以合併版 .CUTOVER.ALL 一次\n換檔（以 .CUTOVER.CUBE 為底、TATUNG 單位取自 .CUTOVER.TATUNG，驗證影子與批次 1 原封\n不動、Auth 保留），取代原訂兩段式；07:19 重啟 9 單位 ERR 0；07:22 八支排程就位；\n07:22:43 Cube 首輪 pull 搬入 0193 檔待 09:00 開窗。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
         }
       ],
-      "count": 76
+      "count": 86
     },
     {
       "name": "lisweb",
       "commits": [
         {
+          "hash": "3a936bfb",
+          "time": "14:29",
+          "message": "合併 MR !1519: feat(rl001): 新增規則函式即時驗證與巢狀函式檢查",
+          "body": "feat(rl001): 新增規則函式即時驗證與巢狀函式檢查\n\nSee merge request ucl/lis/lisweb!1519",
+          "category": "合併MR"
+        },
+        {
+          "hash": "48f81db9",
+          "time": "14:29",
+          "message": "合併 MR !1518: feat(hdcreate): CBC獨立簽收時補入洗前套檢零元糖化血色素",
+          "body": "feat(hdcreate): CBC獨立簽收時補入洗前套檢零元糖化血色素\n\nSee merge request ucl/lis/lisweb!1518",
+          "category": "合併MR"
+        },
+        {
+          "hash": "c66af293",
+          "time": "11:36",
+          "message": "docs: 高雄檔位收工後已還原為內建預設",
+          "body": "9/15 09:18 為加速 9 月重轉臨時把 Schedule 加大（Heavy 600/Medium 200/\nLight 150，併發維持 2），11:35 全部收工後還原 —— 平常進單約 343/天用不到\n大批次，縮小批次可把單輪 ERROR 覆寫的爆炸半徑從 200 筆降回 50 筆。\n\n- 高雄列：改記「無 Schedule 區塊 → 走內建預設」（同桃園），並註明加大版\n  另存為 appsettings.json.bigtiers_20260915_113518，日後大批 backfill 可\n  直接套回、做完再還原（同台中慣例）\n- 換版歷史同步註明臨時加大與還原\n\n驗證：11:35 那輪已回到 batch=50/併發2、成功率 100%，九月佇列 0。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e2935d11",
+          "time": "11:06",
+          "message": "docs: 清舊報告改以 SQL REPLACE 為首選 — 高雄實測 8.4 分鐘搞定 17.7 萬筆",
+          "body": "原本把「重轉」當作修既存 htmlContent 的預設路徑，高雄實測後證明多數情況\n該用 SQL REPLACE：176,993 筆（2023-11~2026-07）8.4 分鐘清完、零渲染負載、\n沒有 ERROR 覆寫風險；同一批用重轉要約 2 天。\n\n新增「清舊報告：先想 REPLACE，重轉是例外」一節：\n- 兩法對照（速率 350 筆/秒 vs 2,400 筆/hr）與各自代價\n- REPLACE 修不了的三件事（異體字已存成 ?、細菌報告多份、渲染層改進）\n  → 慣例改為「近期用重轉拿完整修正，歷史資料用 REPLACE 快速止血」\n- 執行要點：務必分月跑（不分月的 LOB 掃描實測 2 分鐘 timeout）、\n  REPLACE 巢狀順序、殘留空 body{} 無害\n- ⚠ 絕對不要用 order_no 前綴圈範圍：高雄/新竹無分部前綴，且實測單號\n  6050405079(前綴 605) 的 trx_dt 落在 8 月，前綴與日期不對應\n- 驗收不能只看 user-select：onselectstart/oncontextmenu/oncopy/unselectable\n  也要查，最後仍要人眼開一張\n\n待辦同步更新：高雄 9 月以前標記完成；桃園那條改指向本節（先前寫的\n「全表 8GB、要排離峰」是不分月的估法）；補上高雄 2023-10 以前 3,938 筆\n從未轉過待決。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
           "hash": "313e7480",
           "time": "10:20",
           "message": "feat(功能選單): 改成手風琴, 一次只開一組",
-          "body": "原本可以同時展開多組, 開個兩三組清單就又變長, 失去摺疊的意義。改成開新的一組"
+          "body": "原本可以同時展開多組, 開個兩三組清單就又變長, 失去摺疊的意義。改成開新的一組\n就把別組收掉:\n\n- 點標題展開 → 只留這一組; 點已經開著的標題仍是收起來\n- 方向鍵走進收合的群組時同樣只留該組\n- 「全部展開」是刻意保留的例外, 偶爾要總覽時可以全看\n\n方向鍵只在「真的走進收合群組」時才動摺疊 (判斷 $target.is(\":hidden\")) ——\n在已經展開的清單裡上下走不該一直去收別組, 否則按了「全部展開」後一動方向鍵\n就全縮回去。\n\n驗證: harness 42 項全過, 含「走出去後前一組會收起來」「全部展開後用方向鍵走\n不會把別組收掉」。台北實機連按 ↓ 九次/十三次, expanded 全程維持單一組\n(前一版同樣操作會累積成 30/80/90), 右側程式跟著換, 無 JS error。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "bca87ddc",
           "time": "10:16",
           "message": "fix(功能選單): 方向鍵要能走進收合的 module",
-          "body": "上一版把方向鍵改成只走 :visible 項目, 結果收合起來的 module 用鍵盤永遠進不去"
+          "body": "上一版把方向鍵改成只走 :visible 項目, 結果收合起來的 module 用鍵盤永遠進不去\n(整組被跳過), 等於鍵盤操作的人只剩第一組能用。\n\n改回走全部項目 (leftItems(false)), 並在走到的項目上把它所屬的群組展開,\n讓使用者看得到自己選在哪。這個展開刻意不寫回 localStorage —— 它是「走過去\n順手掀開」, 不是使用者按下的摺疊決定, 重新整理後仍照他自己收好的狀態。\n\n驗證: harness 測試補到 38 項全過, 含「全收合後 ↓ 仍走得到項目並展開該組」;\n台北實機從只有 30 展開的狀態連按 ↓ 九次, 確實走完該組後自動展開並進入 80/90,\n右側程式跟著換, 無 JS error。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "b64e6c38",
           "time": "10:12",
           "message": "feat(功能選單): 首次進站改為展開第一個大類",
-          "body": "原本是展開預設選取項 (3045 帳務系統) 所在的那一組。改成展開第一個「看得到的」"
+          "body": "原本是展開預設選取項 (3045 帳務系統) 所在的那一組。改成展開第一個「看得到的」\n大類: 空模組前面已經藏掉, 而各人權限不同第一個是誰也不一樣, 這樣至少一定有\n一組是開的 (原寫法在使用者對 3045 沒權限時會全部收合)。\n\n台北兩者結果相同 — 3045 本來就掛在第一個大類「檢驗室管理」(FD_CODE=30) 底下。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "fe43c415",
           "time": "10:05",
           "message": "fix(功能選單): 子功能都沒權限時, 母模組一併隱藏",
-          "body": "把「空的節點不要顯示」寫成明確的一條規則: 底下沒有任何叫得出來的程式,"
+          "body": "把「空的節點不要顯示」寫成明確的一條規則: 底下沒有任何叫得出來的程式,\n這個節點就不該出現。FOLDER_NODE / PROG_NODE 各自對 PERMISSION 授權,\nModel 已依權限過濾, 所以「沒權限」在 view 層等同「li 沒被 render 出來」。\n\n- 第二層資料夾底下沒程式 → 藏資料夾 (原有邏輯, 條件由 fd_code.length == 4\n  改成 .not(\".head\"), 免得哪一站第一層代碼剛好 4 碼被誤判)\n- 資料夾全被上一步關掉 → 連大類標題一起藏\n\n台北實測會收掉的: 群組 1/52/61 的「病人檔案總管」(FD_CODE=95, 底下連第二層\n資料夾都沒有, 三支 PM101/102/103 直接掛在第一層且無 Controller/View),\n以及群組 26/29/37/52/53/61/65 的「聯合生技」(FD_CODE=60)。這些現在都是\n點開什麼都沒有的空標題。\n\n刻意不連帶移除「父層看不到的程式」: 台北有 16 筆程式有權限但資料夾沒權限\n(例: 行政部-新進的 LT201/202/203、細菌室與資訊室的 ChatRoom), 它們目前\n只剩搜尋這條路叫得出來, 一起砍會讓這些人連搜尋都找不到。\n\n驗證: harness 補上「60 型」(有第二層但底下沒程式) 與「95 型」(連第二層都\n沒有, 程式直接掛第一層) 兩種真實形態, Playwright 32 項斷言全過, 含\n「母模組藏起來後底下的程式仍搜尋得到」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "e5ab57e0",
           "time": "09:55",
           "message": "feat(功能選單): Module 大類可摺疊, 收合狀態記在 localStorage",
-          "body": "左側 Module 清單項目太多, 一次全攤開不好找。改成大類 (li.head) 可收合:"
+          "body": "左側 Module 清單項目太多, 一次全攤開不好找。改成大類 (li.head) 可收合:\n\n- 大類標題前加 ▾/▸ 箭頭, 點標題摺疊/展開; 另提供「全部展開 | 全部收合」\n- 收合狀態存 localStorage, 下次進站沿用; 首次進站預設全收合,\n  只留預設選取項 (3045) 所在那組展開\n- 子項全被 deleteMenu/無子項邏輯關掉的大類, 整組隱藏,\n  否則收合後會多出點開是空的標題\n\n箭頭用純 CSS 三角形, 不吃 glyphicon/bootstrap-icons (本站 BS3 與 BS5.3 並存)。\n\n配合摺疊調整既有邏輯:\n\n- 摺疊只綁 li.head 自己的 .checkbox (子項的在巢狀 ul 裡), 並 stopPropagation,\n  否則點子項會冒泡到標題把自己那組收掉\n- 方向鍵原本走全部子項且位置記在固定的 leftIndex, 收合後項目數量會變動導致錯位;\n  改成只走 :visible 項目, 位置由目前 .active 反推\n- 預設選取原本用 :visible 找 3045, 收合後會找不到而 fallback 到 .eq(0) (是 head,\n  點了沒反應, 右側開場空白); 新增 leftItems(onlyVisible) 區分「被 hide 掉」\n  與「收在摺疊裡」兩種看不見\n\n驗證: 從本檔抽出真正的 style/script 配假資料組 harness, 以 Playwright 跑 29 項\n斷言全過且無 JS error, 涵蓋首載狀態、點標題切換、點子項不誤觸父層、reload 保留\n狀態、方向鍵跳過收合組、全展開/全收合, 以及原有的搜尋 + Enter 開啟不受影響。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8d18a05f",
+          "time": "09:24",
+          "message": "docs: 高雄補 Schedule 檔位，重轉範圍定為只做 9 月",
+          "body": "- 高雄列：appsettings 從「未動」改為記錄 09:18 補上的 Schedule 區塊\n  （Heavy 600 / Medium 200 / Light 150，全時段併發維持 2）。只放大批次不動\n  併發紅線 —— 高雄渲染 0.15 秒/張，Heavy 一輪約 45 秒遠在 5 分鐘窗內。\n  備份 appsettings.json.bak_20260915_091842\n- 換版歷史補上檔位調整與實際重轉範圍\n- 待辦：記下 2026-09-15 決議只重轉 9 月、9 月以前 161,122 筆暫緩，\n  並寫明理由（ERROR 覆寫風險 + 2 天曝險窗，參考 8/31 台北 2 萬筆前例）\n  與日後逐月執行的做法\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "08cb0fd7",
+          "time": "09:08",
+          "message": "docs: 高雄盤點修正與換版紀錄 — 原記「無部署」有誤",
+          "body": "高雄反應報告無法複製。查出高雄一直有一套 htmlConverter 在跑，版本停在\n2025-11-03 `7497ccb`（全站最舊，落後 20+ 個 commit），缺 `61e0232`(user-select)\n與 `05f0794`(window.print)，已於 2026-09-15 換版並重轉 9 月 5,448 筆。\n\n- 第 1 節高雄列：由「無部署跡象」改為實測結果（139.229 與 LIS 同機、FDD、\n  DB 139.227/HCLABx、渲染打自己、備份資料夾）\n- 新增「高雄盤點修正」：記下推論錯誤的教訓 —— 別拿 FalconCopy 的部署紀錄\n  反推本程式；辨識舊版的特徵（仍寫 batch_execution.log、startup_error.log\n  是啟動追蹤不是錯誤）；⚠ 高雄同新竹**無分部前綴**，609=2026年9月，\n  清理 SQL 一律用 trx_dt 圈範圍\n- 新增「重轉整段期間的零停機做法」：撥回 CreateTime 觸發\n  `trx_dt > CreateTime` 重轉，舊 HTML 原地保留可看，取代清成 NULL 的做法\n  （5,448 筆消化數小時，清 NULL 等於半天查無報告）\n- 待辦補：高雄 9 月以前尚有 161,122 筆舊版產物待決定是否往前重轉\n- 修正上個 MR 帶進來的錯字：IIS log 範例的 UNC 路徑少一個反斜線\n- docs/1 站台表補高雄列\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "6839867a",
           "time": "08:01",
           "message": "docs(BT403): 新增帳單列印記錄月份錯位盤查 SQL",
-          "body": "MR!1513 把列印 log 的 BILL_YYYYMM 改用「日期(起)」認定，源頭已止血；"
+          "body": "MR!1513 把列印 log 的 BILL_YYYYMM 改用「日期(起)」認定，源頭已止血；\n本檔用來盤查改版前殘留的錯位紀錄，建議每月做上個月帳單前跑一次對照。\n\n- §1 錯位指紋掃描：log 掛在 M 月但該單位 M 月無資料、M-1 月有資料且無 log\n  (台北 202604 起實測 7 筆，全在 5~7 月，八月無錯位)\n- §2 單一單位列印歷程，查個案客訴用\n- §3 回填範本，預設不執行；附「先問帳務、先備份外部保管、逐筆 COMMIT」規矩\n\n盲點寫在檔內：只抓得到該月完全沒資料的乾淨案例，兩個月都有資料的看不出來。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
-      "count": 6
+      "count": 12
     },
     {
       "name": "Argus",
@@ -513,25 +707,29 @@
           "hash": "277cdf09",
           "time": "14:30",
           "message": "docs: 語音控制評估",
-          "body": "評估在監控牆上加語音控制的可行性，結論是先花一天在桌機做最小版驗證，"
+          "body": "評估在監控牆上加語音控制的可行性，結論是先花一天在桌機做最小版驗證，\n再決定要不要為此買硬體。\n\n要點：\n\n- 麥克風不能插電視。電視上跑的是別人的瀏覽器 app，我們只有一個網頁，\n  收音要過三關（secure context、app 肯不肯轉交、韌體肯不肯分配 USB 麥克風），\n  任一關過不了就沒了，而且死法是「沒反應、查不出為什麼」\n- 不走 Web Speech API：要 HTTPS，而且辨識是送去 Google 做的，\n  踩到「電視端不需要對外網路」\n- 走 Vosk 離線辨識 + 語法模式（只認固定那幾句），小模型才支援語法模式\n- 指令集限定封閉詞彙；「放某首歌」刻意不做，一個爛指令會拖垮五個好指令\n- 語音版靜音必須沿用現有 15 分鐘自動恢復，不開後門\n- 決策點寫死：一週誤觸超過 1 次就停損\n\n順帶查出的現況問題：音量是 appsettings 的 Music:Volume，改了要重啟服務。\n語音要做音量本來就得加端點，等於順手解掉這個痛點。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "c8695f00",
           "time": "12:54",
           "message": "待播清單：底改成半透明＋模糊，而且不自己收起來",
-          "body": "兩件實際用起來才看得出來的事："
+          "body": "兩件實際用起來才看得出來的事：\n\n1. **卡片不透光** —— 為了擋掉牆上大字透上來跟歌名打架，前一版把卡片做成\n   實心的，結果連牆都看不見了。改成底 .62 黑、卡片半透明加 backdrop-filter\n   模糊：牆的顏色與輪廓透得出來（開著清單也察覺得到狀況），大字被模糊掉、\n   不會疊在清單上。引擎不支援 backdrop-filter（電視內建瀏覽器有機會）就退回\n   幾乎不透明的底——寧可擋住牆，也不要給一份讀不了的清單。\n\n2. **60 秒自動收起來** —— 那是給另外兩個說明浮層的規則（看完就走，放著會蓋住牆）。\n   待播清單是拿來盯著看的：進度條、下一首、正在排的順序，60 秒剛好是看得正起勁\n   的時候。這一面不套那個計時器。紅燈仍然把整面讓給警報（CSS），警報解除自己回來。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "5341681d",
           "time": "12:32",
           "message": "點唱機：音樂列點得開，展開成待播清單",
-          "body": "牆底那條音樂列只有一行，答得了「現在播誰」，答不了最常被問的另外三件事："
+          "body": "牆底那條音樂列只有一行，答得了「現在播誰」，答不了最常被問的另外三件事：\n這首還要多久、我點的排第幾、能不能把它提前。列維持窄（牆的主角不是音樂），\n右端加一句「清單 ▸」，整條點得開。\n\n展開的那一面：\n- 現在這首的縮圖、進度條、`1:13 / 3:34` 與剩餘時間；暫停時轉灰並寫出原因\n  （沿用 musicPauseReason，跟音樂列同一套說法）\n- 待播每一首的來歷：YouTube／mp3／轉檔中／⚡插播／檔案大小，YT 曲目帶縮圖\n  （沒外網抓不到就換回 ♪ 方塊，不留破圖）\n- 第一首「播得動」的標「接下來就是它」——轉檔中的、YT 連不上時的 YT 曲目\n  播放端會先跳過，標在它們身上就是騙人\n\n順序改得動，而且改的是伺服器不是畫面：新增 POST /api/music/reorder，\n照新順序把待撥檔案的 CreationTime 重寫一遍，跟插播 CutInFront 同一招，\n不必為了排序多養一份順序檔。名單以外的檔案（送出到收到之間剛點進來的）\n插播排最前、其餘排最後；正在播的那首永遠送在第一個，怎麼拖都掉不了。\n\n拖曳用 Pointer Events（電視內建瀏覽器多半不吃 HTML5 drag），\n每一列另外給 ▲▼⤒ ——遙控器推游標拖不動時的同一條路。\n\n進度只有播放端算得出來（播到第幾秒在 <audio>／YouTube 播放器身上，\n伺服器沒有也不需要這份資料），所以這一面只在 ?music=1 的電視打得開；\n別台瀏覽器看清單還是走「♪ 音樂」面板的待播籤。紅燈時整面讓給警報。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "95e0da96",
           "time": "10:21",
           "message": "點唱機：同一首歌不要播兩次",
-          "body": "兩個成因，各修一邊。"
+          "body": "兩個成因，各修一邊。\n\n播放端的競態：musicDone 一開頭就把 mCurrent 清掉，然後才 POST 回報＋重抓\n清單，這兩步走 NAS 要一兩秒；而 musicTick 每秒都在挑下一首，於是拿那份還沒\n更新的清單又挑到剛播完的那首。改成先就本地清單把它劃掉，再加一個世代號讓\n「回報播完之前送出的查詢」晚一步回話時被丟掉（別人按的跳過旗標仍轉移過去，\n不會被吞）。\n\n伺服器端的重複排入：貼連結點歌完全沒查重，檔名撞到就補時間戳變成第二個\n.url，兩個人點同一首就接連播兩遍。改成以影片 ID 查待撥（換個網址寫法也擋\n得住），已在排隊就回「這首已經在排隊了」；要插播的不拒絕，把排隊中的那首\n撥到最前面。「已撥再點」「續攤」本來就有這道檢查，貼連結是唯一的漏網。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 4
@@ -543,25 +741,29 @@
           "hash": "c66af293",
           "time": "11:36",
           "message": "docs: 高雄檔位收工後已還原為內建預設",
-          "body": "9/15 09:18 為加速 9 月重轉臨時把 Schedule 加大（Heavy 600/Medium 200/"
+          "body": "9/15 09:18 為加速 9 月重轉臨時把 Schedule 加大（Heavy 600/Medium 200/\nLight 150，併發維持 2），11:35 全部收工後還原 —— 平常進單約 343/天用不到\n大批次，縮小批次可把單輪 ERROR 覆寫的爆炸半徑從 200 筆降回 50 筆。\n\n- 高雄列：改記「無 Schedule 區塊 → 走內建預設」（同桃園），並註明加大版\n  另存為 appsettings.json.bigtiers_20260915_113518，日後大批 backfill 可\n  直接套回、做完再還原（同台中慣例）\n- 換版歷史同步註明臨時加大與還原\n\n驗證：11:35 那輪已回到 batch=50/併發2、成功率 100%，九月佇列 0。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "e2935d11",
           "time": "11:06",
           "message": "docs: 清舊報告改以 SQL REPLACE 為首選 — 高雄實測 8.4 分鐘搞定 17.7 萬筆",
-          "body": "原本把「重轉」當作修既存 htmlContent 的預設路徑，高雄實測後證明多數情況"
+          "body": "原本把「重轉」當作修既存 htmlContent 的預設路徑，高雄實測後證明多數情況\n該用 SQL REPLACE：176,993 筆（2023-11~2026-07）8.4 分鐘清完、零渲染負載、\n沒有 ERROR 覆寫風險；同一批用重轉要約 2 天。\n\n新增「清舊報告：先想 REPLACE，重轉是例外」一節：\n- 兩法對照（速率 350 筆/秒 vs 2,400 筆/hr）與各自代價\n- REPLACE 修不了的三件事（異體字已存成 ?、細菌報告多份、渲染層改進）\n  → 慣例改為「近期用重轉拿完整修正，歷史資料用 REPLACE 快速止血」\n- 執行要點：務必分月跑（不分月的 LOB 掃描實測 2 分鐘 timeout）、\n  REPLACE 巢狀順序、殘留空 body{} 無害\n- ⚠ 絕對不要用 order_no 前綴圈範圍：高雄/新竹無分部前綴，且實測單號\n  6050405079(前綴 605) 的 trx_dt 落在 8 月，前綴與日期不對應\n- 驗收不能只看 user-select：onselectstart/oncontextmenu/oncopy/unselectable\n  也要查，最後仍要人眼開一張\n\n待辦同步更新：高雄 9 月以前標記完成；桃園那條改指向本節（先前寫的\n「全表 8GB、要排離峰」是不分月的估法）；補上高雄 2023-10 以前 3,938 筆\n從未轉過待決。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "8d18a05f",
           "time": "09:24",
           "message": "docs: 高雄補 Schedule 檔位，重轉範圍定為只做 9 月",
-          "body": "- 高雄列：appsettings 從「未動」改為記錄 09:18 補上的 Schedule 區塊"
+          "body": "- 高雄列：appsettings 從「未動」改為記錄 09:18 補上的 Schedule 區塊\n  （Heavy 600 / Medium 200 / Light 150，全時段併發維持 2）。只放大批次不動\n  併發紅線 —— 高雄渲染 0.15 秒/張，Heavy 一輪約 45 秒遠在 5 分鐘窗內。\n  備份 appsettings.json.bak_20260915_091842\n- 換版歷史補上檔位調整與實際重轉範圍\n- 待辦：記下 2026-09-15 決議只重轉 9 月、9 月以前 161,122 筆暫緩，\n  並寫明理由（ERROR 覆寫風險 + 2 天曝險窗，參考 8/31 台北 2 萬筆前例）\n  與日後逐月執行的做法\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "08cb0fd7",
           "time": "09:08",
           "message": "docs: 高雄盤點修正與換版紀錄 — 原記「無部署」有誤",
-          "body": "高雄反應報告無法複製。查出高雄一直有一套 htmlConverter 在跑，版本停在"
+          "body": "高雄反應報告無法複製。查出高雄一直有一套 htmlConverter 在跑，版本停在\n2025-11-03 `7497ccb`（全站最舊，落後 20+ 個 commit），缺 `61e0232`(user-select)\n與 `05f0794`(window.print)，已於 2026-09-15 換版並重轉 9 月 5,448 筆。\n\n- 第 1 節高雄列：由「無部署跡象」改為實測結果（139.229 與 LIS 同機、FDD、\n  DB 139.227/HCLABx、渲染打自己、備份資料夾）\n- 新增「高雄盤點修正」：記下推論錯誤的教訓 —— 別拿 FalconCopy 的部署紀錄\n  反推本程式；辨識舊版的特徵（仍寫 batch_execution.log、startup_error.log\n  是啟動追蹤不是錯誤）；⚠ 高雄同新竹**無分部前綴**，609=2026年9月，\n  清理 SQL 一律用 trx_dt 圈範圍\n- 新增「重轉整段期間的零停機做法」：撥回 CreateTime 觸發\n  `trx_dt > CreateTime` 重轉，舊 HTML 原地保留可看，取代清成 NULL 的做法\n  （5,448 筆消化數小時，清 NULL 等於半天查無報告）\n- 待辦補：高雄 9 月以前尚有 161,122 筆舊版產物待決定是否往前重轉\n- 修正上個 MR 帶進來的錯字：IIS log 範例的 UNC 路徑少一個反斜線\n- docs/1 站台表補高雄列\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         }
       ],
       "count": 4
@@ -575,49 +777,57 @@
           "hash": "31a3bdeb",
           "time": "07:43",
           "message": "docs: 待辦寫成 TODO.md",
-          "body": "先前待辦散在三個地方：對話（session 結束就沒了）、各章 meta.todo、README"
+          "body": "先前待辦散在三個地方：對話（session 結束就沒了）、各章 meta.todo、README\n現況表。收成一份檔案，分三類：只有人能做的、可做但沒人急的、已經決定不做的。\n\n第三類是刻意寫的：冒煙測試不進 repo、localStorage 不收攏、74/75/80 不立詞、\n讀過標記不自動化——這些都討論過並做了決定，寫下來免得下次又被當成漏掉的事\n重新提一遍。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "677707a4",
           "time": "07:41",
           "message": "chore: 74/75/80 的 todo 改寫成決定",
-          "body": "那三條的擔憂是「這章找不到」，全文搜尋上線後已經解決。與其繼續掛在待辦裡"
+          "body": "那三條的擔憂是「這章找不到」，全文搜尋上線後已經解決。與其繼續掛在待辦裡\n等人回頭處理，不如寫明是刻意的：受控詞都是語法義照原則不標，可搜尋涵蓋。\n非樣板 todo 因此從 14 條降為 11 條，而且全部是同一類——帛書／郭店異文覆核。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "d316c7b6",
           "time": "07:39",
           "message": "feat: 全文搜尋——原文、白話、註解三處，順便補上關鍵詞索引的缺口",
-          "body": "左側加搜尋框（#/s/<關鍵字>），搜原文、白話與註解。build_index.py 一併產"
+          "body": "左側加搜尋框（#/s/<關鍵字>），搜原文、白話與註解。build_index.py 一併產\ndata/search.json（355 句、含白話與註解、154 KB），只在第一次搜尋時才載，\n不拖慢開站。比對就是子字串比對——中文沒有斷詞問題，355 句也不需要任何\n索引結構，寫一個倒排索引只是徒增維護面。\n\n這同時解掉了先前列在 todo 的第 74、75、80 章：它們因為原文裡的受控詞都是\n語法義（照「只標概念義」那條原則不標）而不在關鍵詞索引裡。與其為了補洞\n破壞收詞原則，不如給一條真正通用的路——現在搜「大匠」「食稅」「雞犬」\n都找得到。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "1e440e3f",
           "time": "07:31",
           "message": "feat: 小考題庫補完 81 章（568 題）＋ 修正「一路猜是就能過」的缺陷",
-          "body": "最後一批 71–81 共 77 題，81 章全備。"
+          "body": "最後一批 71–81 共 77 題，81 章全備。\n\n補完後自查發現一個我造成的缺陷：全題庫「是」佔 66%，44 章是 5是2否、5 章\n是 6是1否。算過通過率——一路猜「是」，5是2否的章有 52% 會過，6是1否的章\n100% 會過。那個「考核通過 ✓」等於不值錢。\n\n兩手修正：\n一、資料面：把 5 章 6是1否 各改寫一題成常見誤讀型的否定題（34 不辭、36 利器\n讀成農具、55 精讀成精神、58 方而不割讀成拿去裁切別人、69 進寸退尺讀反）。\n現在分布是 32 章 4是3否、49 章 5是2否。\n二、機制面：抽題改成分層抽樣——抽出的五題裡是與否各至少 2 題。這樣一路猜\n「是」最多拿 3/5，必定不過（猜「否」同理）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "45d8a5d0",
           "time": "07:25",
           "message": "feat: 小考題庫鋪到第 70 章——新增 61–70 章 70 題，共 491 題",
-          "body": "錯項：61 章靜之所以能勝是因為主動出擊（錯，是處下不動等對方來）、62 章"
+          "body": "錯項：61 章靜之所以能勝是因為主動出擊（錯，是處下不動等對方來）、62 章\n「求以得，有罪以免」讀成買赦免（錯，講的是道的效用不是交易）、64 章千里\n之行是勵志語（錯，脈絡裡接近警語）、65 章「智多」的智讀成真知（錯，是機巧\n算計）、67 章「不肖」讀成不賢（錯，是不像任何具體東西）、70 章「自己的道理\n很難懂所以沒人懂」（錯，他說甚易知甚易行，難的是做）。\n\n61 章那題順便把「牝」的注音放進題目與解說（ㄆㄧㄣˋ／牡 ㄇㄨˇ），與難字\n讀音表互相呼應。65 章「將以愚之」與第 20 章自許「我愚人之心」的分量差別\n也做成兩題，爭議攤在讀者面前。\n\n矛盾掃描 0 筆新增。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "e20aa407",
           "time": "07:22",
           "message": "feat: 小考題庫鋪到第 60 章——新增 51–60 章 70 題，共 421 題",
-          "body": "錯項：51 章「亭之毒之」的毒讀成毒害（錯，是養護的動作）、53 章「朝甚除」"
+          "body": "錯項：51 章「亭之毒之」的毒讀成毒害（錯，是養護的動作）、53 章「朝甚除」\n讀成朝廷荒廢（錯，是打掃得乾乾淨淨——正因如此才刺眼）、55 章「益生曰祥」\n的祥讀成吉祥（錯，此處作不祥）、56 章「玄同」讀成同流合污（錯，是不再以\n自己為突出的對象）、59 章「深根固柢」的柢讀成花蒂（錯，是樹根；今天寫成\n根深蒂固是後來的訛變）、60 章「治大國若烹小鮮」讀成要非常小心（錯，重點\n是不要一再翻動）。\n\n60 章另出一題問三句層層退讓的落點：不是「鬼傷不了人」，是「會傷人的從來\n不是鬼，是治理者自己」。\n\n這批的矛盾掃描 0 筆新增；兩筆絕對斷言是前幾批已複查過的。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "0e672ba3",
           "time": "07:19",
           "message": "feat: 小考題庫鋪到第 50 章——新增 41–50 章 70 題，共 351 題",
-          "body": "錯項：41 章「大音希聲」的希讀成稀少（錯，是微到聽不見）、43 章「馳騁」讀成"
+          "body": "錯項：41 章「大音希聲」的希讀成稀少（錯，是微到聽不見）、43 章「馳騁」讀成\n硬碰硬攻破（錯，是來去自如）、46 章「戎馬生於郊」讀成戰馬在郊外吃草（錯，\n是母馬被徵去只能在郊野生產）、49 章「聖人無常心」讀成沒有心（錯，是沒有\n固定不變的主張）、50 章「以其無死地」讀成刀槍不入（錯，是不走到有死的\n那塊地）。\n\n47 章出了兩題正面處理它的爭議：不出戶知天下不是說能知道事實細節，以及\n「本章主張與經驗探求完全相容」答否——確實有衝突，不替老子打圓場。\n\n又抓到一筆與上批同型的錯：42 章 q7「教父是宗教稱謂」答案標「是」，解說卻\n說是施教的根本——已改為「否」並補寫解說。這次用更精準的規則掃全部題庫\n（答「是」但解說寫「不是Ｘ」而Ｘ在題目裡出現過），0 筆可疑。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "e35f16b6",
           "time": "07:15",
           "message": "feat: 小考題庫鋪到第 40 章——新增 31–40 章 70 題，共 281 題",
-          "body": "這批的錯項：31 章「不得已而用之」讀成絕對反戰（錯，是壓縮到沒有別的辦法"
+          "body": "這批的錯項：31 章「不得已而用之」讀成絕對反戰（錯，是壓縮到沒有別的辦法\n那一格）、32 章「莫之令而自均」讀成要下令平均分配（錯，正好相反）、35 章\n「執大象」的大象讀成動物（錯，是第 41 章大象無形的大象）、37 章「鎮之以\n無名之樸」的鎮讀成禁止（錯，是壓住、安定）、40 章「反者道之動」只有相反\n一義（錯，還有通「返」那一層）。\n\n寫完自掃時抓到一筆自相矛盾：40 章 q3 答案標「是」，解說卻寫「不完全一樣」\n——已改為「否」。順手掃過全部題庫裡含「完全一樣／只有一種／沒有爭議」這\n類絕對斷言的 14 題，其餘 13 題都正確（兩筆答「是」的分別是 31 章確與 24.4\n一字不差、綜合測驗 q1 的斷言本身就是否定句）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 8
@@ -629,13 +839,15 @@
           "hash": "0bb1f0dc",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-15",
-          "body": "🤖 自動生成於 2026-09-15 07:05"
+          "body": "🤖 自動生成於 2026-09-15 07:05",
+          "category": "文檔"
         },
         {
           "hash": "e8cbd5d8",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-09-14 (70 commits)",
-          "body": "🤖 自動生成於 2026-09-15 07:05"
+          "body": "🤖 自動生成於 2026-09-15 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
@@ -647,15 +859,16 @@
           "hash": "b66e00de",
           "time": "14:18",
           "message": "docs: 新增六大面向評分條件（1-5 分判準）",
-          "body": "把「印象分數」變成講得出理由的東西 — 每個面向寫出 1-5 分的具體條件，"
+          "body": "把「印象分數」變成講得出理由的東西 — 每個面向寫出 1-5 分的具體條件，\n面談可直接引用，明年也守得住同一把尺。\n\n主要決定：\n- 取消角色差異化權重。三種角色的權重差異實務上只有 MIS 一組，\n  徒增操作成本；角色差異改寫進各面向的判準附註處理。\n- 變更單不比張數。全員都在 24 張/年基準附近，量沒有鑑別度，\n  只當「有沒有依規定填」的門檻，改比內容難度與影響範圍。\n- 技術成長以 AI 技能為主軸（最能區分主動與被動），\n  其他專長可等價換算但須註明換算依據。\n- 日常維運以電話量為依據，並註明同一數字有兩種相反解讀，\n  4 分以上的門檻綁在「接完之後同類電話有沒有變少」。\n\n.gitignore 補上 *年度績效* — 實際名單與分數不進版控。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 1
     }
   ],
   "summary": {
-    "workCommits": 90,
+    "workCommits": 106,
     "sideCommits": 11,
-    "totalCommits": 101
+    "totalCommits": 117
   }
 }

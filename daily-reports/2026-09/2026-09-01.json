@@ -9,37 +9,43 @@
           "hash": "47b46384",
           "time": "19:42",
           "message": "多分部設計：六站上牆之前，先承認「一份快照就是全部真相」是個假設",
-          "body": "現在的形狀有三個「一」——一份快照、一個新鮮度、一張重跑單。六個分部會同時撞上"
+          "body": "現在的形狀有三個「一」——一份快照、一個新鮮度、一張重跑單。六個分部會同時撞上\n這三個，而最危險的不是吞吐，是新鮮度：沒有已知來源清單的話，「桃園那支 Cerberus\n從來沒佈起來」和「桃園一切正常」在牆上長得一模一樣，而五個綠分部會讓人以為整面\n牆是活的。這是〈設計準則 1〉假綠在分部層級的翻版。\n\n效能那節刻意先算給自己看：72 顆頭、每 20 秒一次 POST、十個瀏覽器 = 15 KB/s。\nArgus 不是瓶頸，別為它做設計。真正會壞的是 Cerberus 跨 WAN 的單輪耗時（爆表的\n症狀是牆上顯示失聯，指向錯誤的方向）、SnapshotStore 鎖內同步寫檔、以及電視端那\n台小主機每 20 秒重畫 72 項。\n\n兩件事明確標為未解決，不假裝有答案：台北總覽牆上「紅燈是誰的責任」，以及混合視\n圖的音效策略。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "10f84a04",
           "time": "18:37",
           "message": "README：監控來源表跟上現實——牆上早就有 12 顆頭，表裡還寫著待做",
-          "body": "儀器佇列、報告回傳六站上線都沒回來更新這張表；"
+          "body": "儀器佇列、報告回傳六站上線都沒回來更新這張表；\n下一個想接入的人會以為 hcini 還沒人做。順手補上接入指南的入口。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "935fa7c8",
           "time": "08:58",
           "message": "佈署指南：那段注入 TokenEnc 的指令自己會把設定檔弄壞",
-          "body": "2026-09-01 佈署重跑按鈕時，照這份文件寫的 PowerShell 注入 TokenEnc，"
+          "body": "2026-09-01 佈署重跑按鈕時，照這份文件寫的 PowerShell 注入 TokenEnc，\n結果服務起不來、牆停了 8 分鐘。\n\nappsettings.json 是 UTF-8 無 BOM，而 PowerShell 5.1 的 Get-Content -Raw\n在沒有 BOM 時用系統 ANSI 碼頁（cp950）解碼。中文註解的 UTF-8 位元組被\n當成 cp950 雙位元組字，而 cp950 的前導位元組會把後面那個 ASCII 位元組\n一起吃掉——某個引號就這樣被併掉，JSON 不再合法。\n\n最難查的地方是症狀：sc.exe start 回 1053「服務沒有及時回應」，跟這份\n文件另一處講的「程式沒支援服務模式」的 1053 一模一樣，會把人帶往完全\n錯的方向。真正的原因是 host 讀設定時就丟例外，根本沒機會回應 SCM。\n\n改成 git bash 的 sed（走 bytes，不解碼），並補上兩條驗證：改完要驗\nJSON 解析得過（註解要用 CommentHandling=Skip，ConvertFrom-Json 在 5.1\n不吃註解），以及推上去之前先在開發機直接跑一次 publish 出來的 exe。\n最後那一步 30 秒，擋得住這整類問題——這次就是漏了它。",
+          "category": "其他"
         },
         {
           "hash": "07526aa1",
           "time": "08:13",
           "message": "牆面：紅磚上的重跑按鈕，讓修好的東西能當天恢復成綠",
-          "body": "牆本來是唯讀的。開這個例外只為了一種情況：磚上顯示的東西已經修好"
+          "body": "牆本來是唯讀的。開這個例外只為了一種情況：磚上顯示的東西已經修好\n了，但那顆頭要等下一次執行才會知道。冒煙測試就是這樣——某站早上掛\n了、中午修好，那格仍會紅到午夜，因為它看的是「今天最後一次跑的結\n果」，而今天不會再跑了。紅著不放不是誠實，是過期：牆這時候顯示的\n不是「現在有事」而是「早上有過事」，跟假綠是同一個病的兩面。\n\n指令搭快照回應的便車回去（Cerberus 每輪 POST，Argus 在回應裡夾一張\n單子）。不新增網路方向、不新增憑證，而且拿得到指令的一定是當下真的\n在巡守的那個 process。領走就標記成已交付（at-most-once）——重送的代\n價是在正式站多開一張測試單，漏送的代價是人再按一次，所以失敗方向\n選擇漏送。\n\nRerunStore 刻意只放記憶體：快照落地是為了重開不白閃一次失聯，而一\n張還沒領走的重跑單在 Argus 重開後應該消失。服務起來就跑去正式站開\n一張測試單，是最糟的驚喜。\n\n按鈕只長在紅／黃的磚上，而且要重跑什麼是 Cerberus 決定的——牆不該\n知道「FAIL(KH) 代表高雄那站掛了」，也沒立場決定什麼是合法目標。\n\n三個死法各配一條規矩：\n- 按到綠為止 → 重跑那筆在 log 行尾註記今日稍早的失敗，轉綠後仍看得出\n- 訪客誤按 → 兩段式確認，六秒沒動作自己解除\n- 按了沒反應就連按 → 送出後立刻換成進度文字，伺服器端一次只收一張\n\n/api/rerun 刻意不驗密鑰（牆面頁是公開的，放密鑰進去等於沒有密鑰），\n它只驗「合不合理」：目標必須是當下這份快照裡那塊磚自己提供的選項，\n且該磚是紅或黃。真正的檢查哨在 Cerberus 的 RerunRunner。",
+          "category": "其他"
         },
         {
           "hash": "77b6f3e3",
           "time": "07:52",
           "message": "佈署指南：修好被吃掉的路徑，照抄那段會失敗",
-          "body": "〈更新版本時每次都會踩的兩個坑〉那段 PowerShell 的路徑在檔案裡是壞的："
+          "body": "〈更新版本時每次都會踩的兩個坑〉那段 PowerShell 的路徑在檔案裡是壞的：\n`\\\\` 被收成 `\\`，而 `\\appsettings.json` 的 `\\a` 變成了字面上的 BEL 控制字元\n(0x07)，於是變成 `\\Argusppsettings.json`、`publishppsettings.json`。\n\n照抄的後果正好是這份文件在防的事：TokenEnc 注入那步會靜靜失敗，\n接著把空字串的 appsettings 覆蓋上正式機——密鑰被洗掉、牆照常顯示、\n沒有任何人看得出不對。\n\n順手把 UNC 路徑改成單引號：'d$' 的 $ 在雙引號字串裡會被當成變數開頭。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "72bc326d",
           "time": "07:44",
           "message": "牆面：按靜音要立刻收聲，不是等這一輪播完",
-          "body": "beep() 開頭的 soundOn 檢查只擋得住「不再播下一次」，擋不住已經在播的那一份。"
+          "body": "beep() 開頭的 soundOn 檢查只擋得住「不再播下一次」，擋不住已經在播的那一份。\n自訂音檔可能長達一兩分鐘，於是按下靜音後喇叭還在響，按鈕寫著 🔇 卻仍有聲音——\n人的下一步就是去關電視喇叭，然後這面牆從此是啞的。\n\n加一個 stopSound()，三個地方呼叫：\n- 🔇 靜音關掉時\n- 🔕 暫時靜音按下時（按的人要的是「現在別吵」，不是「下一次別吵」）\n- 狀態離開紅/黃時（事情修好了喇叭還在叫，是在教人不要相信這個聲音）\n\n合成音最長 1.4 秒，不為它記一堆 oscillator 節點。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 6
@@ -51,37 +57,43 @@
           "hash": "5289f700",
           "time": "09:48",
           "message": "docs: 轉移流程 Runbook — 單一入口 SOP",
-          "body": "- 階段 0 環境準備（56.227 部署/煙霧測試/測試庫對照表同步）"
+          "body": "- 階段 0 環境準備（56.227 部署/煙霧測試/測試庫對照表同步）\n- 每單位六步驟：建檔→回放驗證→DryRun 陪跑→切換窗口→觀察期→結案，附檢查表模板\n- 批次順序表（衛生所已具備切換資格）、分鐘級回退程序、全數完成後收尾清單",
+          "category": "文檔"
         },
         {
           "hash": "4cb063b0",
           "time": "09:38",
           "message": "fix: 平行比對抓到的兩個 bug + 比對工具與執行紀錄",
-          "body": "- 主檔 INSERT 申報欄位改為一律寫入（含空字串），對齊舊版行為；UPDATE 維持非空才更新"
+          "body": "- 主檔 INSERT 申報欄位改為一律寫入（含空字串），對齊舊版行為；UPDATE 維持非空才更新\n  → 修正後主檔 349 張逐欄與正式庫全一致\n- 連線字串密文偵測改以 ; 判斷（Base64 padding 的 = 曾被誤判為明文）\n- tools/parallel-compare.sql：逐欄比對腳本（範圍鎖定回放單位、下游覆寫欄位白名單）\n- TEST_PLAN 新增 §5.1 執行紀錄：衛生所家族第一輪回放比對零未解釋差異\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "b0bbd161",
           "time": "08:59",
           "message": "chore: gitignore 執行期 logs/ 目錄",
-          "body": ""
+          "body": "",
+          "category": "其他"
         },
         {
           "hash": "353a4aaa",
           "time": "08:59",
           "message": "feat: 連線字串支援 UCL 共用 DES 加解密（相容 LISWeb Cipher）",
-          "body": "- UclCipher：MD5(keyString+UCL)→DES-CBC/PKCS7/Base64，與 Models/Cipher.cs 同演算法"
+          "body": "- UclCipher：MD5(keyString+UCL)→DES-CBC/PKCS7/Base64，與 Models/Cipher.cs 同演算法\n- Program 啟動時判斷：含 = 視為明文，否則以 USERKEY 解密（金鑰可覆寫）\n- 跨工具測試：解開公司 ucl-cipher.ps1 產出的密文並比對內容，證明互通\n- appsettings.Local.json（gitignore）改存密文示範；測試 17/17 通過\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "dd095d19",
           "time": "08:50",
           "message": "feat: P2 第一階段 — mapping 引擎 + Delimited adapter（Keelung 家族）",
-          "body": "- ColumnSchema：邏輯欄位→來源欄 index，preset KeelungStandard(V1-3)/Cube(V4)"
+          "body": "- ColumnSchema：邏輯欄位→來源欄 index，preset KeelungStandard(V1-3)/Cube(V4)\n- 解開舊碼 V4 鍵的具名欄位陷阱：欄名綁標準版位位置，實際鍵為病患層級欄位\n- DelimitedOrderFileAdapter：主檔切分鍵、性別/日期正規化（含哨兵值與時分秒）、\n  sectionTrim 去前綴、V1 重複項目切單、CancelMark 略過、Big5/csv 強制逗號\n- UCL_CODE 展開與 SEQUENCE 續號屬 DB enrichment 留待 Live 前；DryRun 驗解析已可用\n- 測試 14/14 通過\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "59fb3155",
           "time": "08:29",
           "message": "feat: UNIT_TEST_ITEM 同步 — P1 收尾，主版兩種檔型全支援",
-          "body": "- XmlOrderFileAdapter 實作 IUnitTestItemFileParser（8 位置欄位，沿用舊版 dr[0..7] 取值）"
+          "body": "- XmlOrderFileAdapter 實作 IUnitTestItemFileParser（8 位置欄位，沿用舊版 dr[0..7] 取值）\n- Repository upsert 移植 UNIT_TEST_ITEM_DML（鍵 UTI_UNIT_CODE+UTI_TEST_CODE）\n- Pipeline 依 FileTypeToken 分流，含 DryRun 與歸檔/隔離；MessLog 訊息沿用舊版文字\n- 測試 7/7 通過\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 6
@@ -93,31 +105,36 @@
           "hash": "a253255c",
           "time": "16:23",
           "message": "佈署指南：補 2026-09-01 儀器佇列兩顆頭上線紀錄",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "ac8a4f7c",
           "time": "16:17",
           "message": "儀器佇列兩顆頭補 221 帳密與實查結果：pattern 限縮、門檻確認百倍餘裕",
-          "body": "2026-09-01 16:15 一次性 SYSTEM 排程在 56.231 實查：SYSTEM 直讀 221 被拒，"
+          "body": "2026-09-01 16:15 一次性 SYSTEM 排程在 56.231 實查：SYSTEM 直讀 221 被拒，\n改帶 is1 帳密（密文）；兩佇列皆秒級消化、第一層無陳年檔案，\n墳場（error/tmp/PRIORITY）都在子資料夾、不會被掃進去。\nWatchPattern 依實際檔名限縮成 *.ord / *.res。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "a406a4e7",
           "time": "15:53",
           "message": "第四種頭型別 FolderBacklog：盯住檔案交換佇列的消化，首例 HCINI 儀器醫令/結果",
-          "body": "跟 DbBacklog 問同一個問題——「該被消化的東西有沒有卡住」——只是佇列長在"
+          "body": "跟 DbBacklog 問同一個問題——「該被消化的東西有沒有卡住」——只是佇列長在\n資料夾不在資料表。掃第一層符合 WatchPattern 的檔案，看「最舊一個檔案等多久」\n（超過 StaleAfterMinutes 告警）與檔數（MaxBacklog，預設不看）；清空＝最健康。\n\n刻意設計（細節見 Docs/架構與擴充.md §5）：\n- 只掃第一層：error/backup 子資料夾放的是永遠不會被消化的檔案，掃進去紅到底\n- LastWriteTime 不用 CreationTime（file tunneling）；時鐘偏移吃進年齡，門檻要分鐘級\n- 掃描包在帶逾時的 Task（ScanTimeoutSeconds）：SMB 無回應不能拖垮整輪 fire-and-exit\n- 選配 ShareUserEnc/SharePasswordEnc（Utils/NetworkShare，WNetAddConnection2）：\n  SYSTEM 讀 UNC 的身分是機器帳號，對方共用沒開給它時帶帳密連，用完即斷、1219 沿用\n\n首兩顆頭：\\\\192.168.168.221\\queue 的 order\\IS1（DMS 醫令→HCINI 001O→IS1）與\nresult（儀器 RES→HCINI 001R→LIS）。⚠️ 佈署前置寫在 appsettings 註解：\n先驗 56.231 SYSTEM 讀不讀得到 221（2026-09-01 開發機網域帳號已確認被拒）、\n尖峰取樣校準門檻、清查陳年卡住的檔案。\n\n本機沙盒實測：空佇列/新鮮檔/pattern 排除半成品/45 分舊檔轉紅/子資料夾死檔\n被忽略/檔數超限轉紅/目錄不存在轉紅/漏設 WatchDir 轉紅，全數符合預期；\n真設定乾跑（拔告警管道）既有 10 顆頭全綠不受影響。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他"
         },
         {
           "hash": "ca735216",
           "time": "08:57",
           "message": "佈署指南：補上 2026-09-01 重跑按鈕那次的佈署紀錄",
-          "body": "順帶記下一個反直覺的觀察：這次 robocopy 只複製 6 個檔 315KB，"
+          "body": "順帶記下一個反直覺的觀察：這次 robocopy 只複製 6 個檔 315KB，\n其餘 234 個 framework DLL 因為沒變而被跳過，所以沒有撞上 2 分鐘\n那一輪——上一次的事故（config 先到 code 後到）是因為整包 94MB\n都在複製。改動小的版本其實比想像中安全，但那不是可以依賴的性質，\n先停排程仍然是正解。",
+          "category": "其他"
         },
         {
           "hash": "2b56b3be",
           "time": "08:02",
           "message": "牆上的重跑按鈕：接下指令、驗過、交給排程",
-          "body": "Argus 那面牆現在會在紅磚上畫「↻ 重跑 KH」。這一端負責把按下去的"
+          "body": "Argus 那面牆現在會在紅磚上畫「↻ 重跑 KH」。這一端負責把按下去的\n那張單子接下來、驗過，再交給工作排程器。\n\n指令走「快照回應」而不是讓 Argus 打進來：那會多一個網路方向、多一\n條防火牆規則、多一組憑證，而 Cerberus 是 fire-and-exit，根本沒有在\n聽的東西。回應這條路已經通、已經驗過共用密鑰，方向也天生正確——\n拿得到指令的一定是當下真的在巡守的那個 process。代價是延遲最多一\n輪，對一件要跑 5~9 分鐘的事情可以接受。\n\n執行透過 schtasks 而不是直接開 process：巡守幾秒後就結束，冒煙要跑\n5~9 分鐘。站別走 rerun-target.txt 不走命令列，因為 schtasks /Run 不\n能帶參數。\n\nRerunRunner 是整條鏈唯一的檢查哨——牆上那顆按鈕沒有任何驗證（牆面\n頁是公開的，放密鑰進去等於沒有密鑰），所以 target 一律當成「內網上\n任何人都能送的字串」：頭要存在且有開放、形狀要像代號、要在白名單\n內。觸發失敗會把 rerun-target.txt 刪掉，否則那個排程之後不管為什麼\n被叫起來，都會拿過期的單子去正式站開測試單。\n\n按鈕只長在紅／黃的磚上。綠的沒有理由重跑；灰的（未到期、靜默窗）根\n本還沒判定，這時候給按鈕等於邀請人把「還沒到時間」跑成綠的。\n\n不受 Pack.BiteEnabled 管：那個 kill-switch 管的是看門狗自己動手，重\n跑是人明確按下去的。要關掉就把該顆頭的 Rerun 設回 null。\n\n順手修掉告警回應手冊裡的地雷：它叫人用 smoke.cmd TY 重跑，而那條路\n徑不寫 smoke-history.log——站修好了牆還是紅的。",
+          "category": "其他"
         }
       ],
       "count": 5
@@ -129,13 +146,15 @@
           "hash": "9e19c355",
           "time": "15:32",
           "message": "docs(HCLAB_web): OL_DTL 路線首次實戰交付記錄（明志科大 RDW-SD 二批）",
-          "body": "- 25 筆全走 DB 一句 SQL 交付，7 天內走 DB 的決策規則實戰成立"
+          "body": "- 25 筆全走 DB 一句 SQL 交付，7 天內走 DB 的決策規則實戰成立\n- 澄清 DB 同檢體也會有多個 logno（複驗/重傳），只是不保證比 .res 齊全\n- 補明志科大重複性需求的交付慣例（格式、Excel、TNO 推日期）\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "35431849",
           "time": "07:53",
           "message": "冒煙：單站重跑也寫進 smoke-history.log，監控牆才可能恢復",
-          "body": "某站早上掛掉、修好之後，牆上那格還是紅的——因為 Cerberus 的"
+          "body": "某站早上掛掉、修好之後，牆上那格還是紅的——因為 Cerberus 的\n「冒煙測試六站」頭只讀 logs\\smoke-history.log 今天最後一筆，\n而手冊叫人重跑的 smoke.cmd KH 走的是 run-smoke.cmd，那條路徑\n從頭到尾沒有寫過那個 log。站修好了牆不會恢復，而沒有人會把\n這兩件事聯想在一起，只會覺得牆壞了。\n\nrun-smoke-scheduled.ps1（唯一會寫 log 的那支）加 -Sites：\n  -Sites KH   只跑高雄\n  -Sites ALL  照 .env 那組跑（「該跑沒跑」時一鍵補跑）\n\n重跑那筆會在行尾註記今天稍早的結果：\n\n  PASS(1/1)  KH:PASS  (手動重跑；今日稍早 07:35 FAIL(KH))\n\n註記是刻意的：重跑成功會把今天的紅線抹平，沒有它就看不出早上\n曾經掛過，而「按到綠為止」正是重跑手段最容易養出來的壞習慣。\n放行尾不放行首，因為牆上的大字取的是時間戳後第一個詞。\n\n另外產一支 smoke-rerun.cmd 給工作排程器用：站別走 rerun-target.txt\n而不是命令列，因為 schtasks /Run 不能帶參數。它在執行前先把該檔\n刪掉（消費掉請求），否則這個排程之後每次被觸發都會再去正式站開\n一張真的測試單；站別不在白名單就什麼都不做。這條鏈的起點是\nArgus 牆上一顆沒有驗證的按鈕，所以每一段都自己驗一次。",
+          "category": "其他"
         }
       ],
       "count": 2
@@ -147,7 +166,8 @@
           "hash": "c4ef9649",
           "time": "08:38",
           "message": "HIV ICT 4850 陰性/無法判定 自動加做 NAT 4649 (台北 0319 新北市衛生局檢驗科)",
-          "body": "客戶需求: HIV ICT (4850) 結果陰性時, 加做 NAT (4649)。"
+          "body": "客戶需求: HIV ICT (4850) 結果陰性時, 加做 NAT (4649)。\n\n新增 isActiveHIVNAT 旗標與 HIVNATreflexTestingUnits 單位名單, 走既有的\n「找單號 -> 加帳 -> triggerBlgToOrd -> 寫 EventLog」四步流程:\n\n- GetHIVICTReflexTNOs(): HowManyLastday 天內、單位在名單中、有 4850 且\n  OD_TR_VAL in ('NEG','IND')、且尚無 4649 的單號\n- AddHIVNATBLG(): insert 4649, NOT EXISTS 擋單項與套餐兩種重複\n\nIND 一併觸發: IND 多為空窗期早期感染, 正是 NAT 該補的時機; 同 codebase\n既有先例 — 0765 松仁 Geenius 判 IND 也自動加做 HIV combo 4449。\n此項超出客戶白紙黑字的需求, 需另行知會客戶。\n\n計價改用 LISWeb PriceService.GetPrice 的完整優先序(特價表 > 全自費 >\n健保價*健保折數)。既有的 AddHCVBLG / AddHIVBLG 只 LEFT JOIN splist_dtl\n取 SPD_CURR_PRICE, 單位沒設特價表時價格會是 NULL — 0319 正是這種單位,\n照抄會出錯。實測 IMH_CURR_P1 4000 * DBDISCOUNT 60% = 2400, 與人工開單一致。\n\n台北正式庫實測 (2026-09-01, 56.231):\n- 6090129001 4850=NEG -> 自動加 4649 價格 2400, ORD_DTL 醫令產生, EventLog B02\n- 6090129002 4850=POS -> 正確不觸發\n\ndocs/SERVERS.md 一併更新: 修正台北排程機為 56.231 (56.229 已停用、\n168.229 已停用)、補上台北現場 config 與 repo 模板的差異與更版注意事項、\n記錄加項計價規則供後續新功能參照。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
         }
       ],
       "count": 1
@@ -161,61 +181,71 @@
           "hash": "3b7ec3c8",
           "time": "19:59",
           "message": "docs(14): 名冊取得順序對調——Dashboard 產 CSV 為正案、一鍵載入為備案",
-          "body": "理由是可事後驗算：CSV 是固定快照，抽籤前可給委員過目、抽完連同種子存證，"
+          "body": "理由是可事後驗算：CSV 是固定快照，抽籤前可給委員過目、抽完連同種子存證，\n日後能用「同名冊＋同種子」原樣重跑；一鍵載入即時撈 DB，跑完無從還原當時名冊，\n登記資料若之後有異動更無法對照。方便但證據力較弱，故列備案。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "6214688c",
           "time": "19:58",
           "message": "docs(14): 名冊取得改列三條路（一鍵載入為正常做法）；備案 SQL 補回缺的四欄",
-          "body": "原附錄的 SQL 缺 社宅／工作人員／車位編號／已繳費 —— 照舊版匯入會讓社宅戶與"
+          "body": "原附錄的 SQL 缺 社宅／工作人員／車位編號／已繳費 —— 照舊版匯入會讓社宅戶與\n工作人員的分流失效、且已指派的位子被重複配出。另標明路徑 1 不回傳電話、\n路徑 2/3 產出的 CSV 含個資須妥善保管。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "b4d4b990",
           "time": "19:50",
           "message": "fix(security): list-roster 預設不回傳聯絡電話（最小化）",
-          "body": "配位引擎與結果匯出都不需要電話（distribute.js／export/result.js 皆無此欄），"
+          "body": "配位引擎與結果匯出都不需要電話（distribute.js／export/result.js 皆無此欄），\n但原本一律隨名冊送出全社區約 400 筆 → 管理員密碼若外流，洩漏面含電話。\n改為預設不送，需聯絡住戶的場合才帶 含電話:true 明確索取。\n身障／社宅屬敏感類別但配位必需（決定輪次與可用車位），無法省略。\n\n已部署；未授權呼叫仍 403。前端未傳該參數，自動套用不送電話。\nTODO 另記稽核 log 的評估結果（該記什麼、不該記什麼、共用密碼的歸責限制）。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "a6d61f3f",
           "time": "19:34",
           "message": "docs(todo): 0012 已套用並驗過（三項 PASS），該條結案",
-          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "744662f2",
           "time": "19:29",
           "message": "fix(distribute): 重機改用「實體相鄰」配對，不再只看編號連號",
-          "body": "辦法肆五要求「相鄰之兩個機車位」，但引擎原本用編號 n/n+1 判斷 —— 實測 654 對"
+          "body": "辦法肆五要求「相鄰之兩個機車位」，但引擎原本用編號 n/n+1 判斷 —— 實測 654 對\n編號連號中有 71 對其實隔著走道、轉角或跨排（最遠 276-277 相距 667 單位，橫跨\n整個地下室）。照編號配，車主會拿到兩個現場停不了的格子。\n\n- 新增 scripts/build-seat-adjacency.mjs：依座標算實體相鄰（同排/同列對齊、\n  距離以「每格自身最近鄰距×1.35」為準——各區間距不同故不用全域門檻、\n  中間不得夾其他格），輸出 src/map/seat-adjacency.json（655 格 601 對、無孤立格）\n- takeHeavy 改吃相鄰表；一格有多個鄰居時優先取編號較大者（志願格當起點、結果可重現）\n- adjacency 參數可注入：單元測試的合成車位 id 與真實地圖撞號但幾何無關，需自帶\n- check-roster 補驗物業已指派的重機雙位（不經引擎，原本無人把關）\n- +3 測試（假相鄰不配、非連號但相鄰照配、兩小位可配）\n\n驗證：627 格一般大/小位全部至少有一個可配對鄰格，無死角。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "a4def497",
           "time": "19:28",
           "message": "docs(13): 回填 8 月已結案決議（Q6/Q7/Q11/Q13/Q14/Q15），待決項改列現況",
-          "body": "原本 Q5–Q15 一整排都掛在「等管委會」，其中六題 8/16–8/19 已決並實作完，"
+          "body": "原本 Q5–Q15 一整排都掛在「等管委會」，其中六題 8/16–8/19 已決並實作完，\n看文件會誤以為還卡著。依 docs/10 逐題核對後回填結論，並把真正仍待決的\n（Q5 收款管道、Q10、Q12、Q17、Q19–Q23）獨立列出、指向 9 月例會提案單。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "eea7aa29",
           "time": "19:26",
           "message": "fix(db): 編輯登記不再清掉配位結果、移除車輛一併釋放車位鎖",
-          "body": "app_update_household 是「整批刪除該戶車輛再插回」，插回時只帶登記欄位："
+          "body": "app_update_household 是「整批刪除該戶車輛再插回」，插回時只帶登記欄位：\n\n① 連沒被動到的車，車位編號/車位類型/配位狀態/簽約期限/已繳費 都被清成\n   預設值 —— 11/1-15 物業指派小位＋收費之後，住戶（或物業代改）一改登記\n   繳費記錄就沒了，而且畫面看不出來。TODO 原本只記到 ②，這條更嚴重。\n② 被移除的車若原本有位，locked_seat 沒人清 → 該位變孤鎖，選位頁不可選、\n   抽籤也配不出去。\n\n0012：刪除前先快照配位欄位，插回後依車號還原；被移除且原本有位者一併刪\nlocked_seat（重機「150、151」以「、」展開逐位刪）。Edge Function 不用改。\n\n取捨（寫在 migration 註解）：改車號視為換車 → 舊位釋放、須物業重新指派；\n自行車合成鍵在刪車後重排 → 後車會繼承前車的位（免費、隨機配位，不另偵測）。\n\n驗證腳本附在 migration 檔尾（begin…rollback，三個 PASS：留下的車保住車位與\n繳費／移除的重機兩格鎖都釋放／沒誤刪還在用的與無關的鎖）。\n尚未套用 —— 本機 .env 無 service_role 與 DB 密碼，待貼進 Dashboard SQL Editor。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
         },
         {
           "hash": "f6ac7607",
           "time": "19:21",
           "message": "feat(allocate): 一鍵從 Supabase 載入真實名冊（新增 list-roster Edge Function）",
-          "body": "原本要用真實名冊得「export-roster.mjs 產 CSV → /dev 匯入」兩步，且需 service_role"
+          "body": "原本要用真實名冊得「export-roster.mjs 產 CSV → /dev 匯入」兩步，且需 service_role\n（上帝權限，不該在抽籤日帶出門）。改為管理員密碼即可的 Edge Function：\n\n- supabase/functions/list-roster：verifyAdmin 後回傳 registry schema 的 rows，\n  與 export-roster.mjs 產的 CSV 同構，前端可直接餵 buildRoster()\n- db.listRoster() facade + supabase/local 兩個 backend 實作\n- /allocate 範例 demo 橫幅加「⬇ 載入真實名冊」鈕（僅管理員可見），\n  載入後清空前次結果避免對照到舊資料\n\n已部署，三條負面路徑（無憑證／錯密碼／冒充戶號）皆 403。\n連帶解掉 ExportView 缺的「管理員撈全部」資料線。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         },
         {
           "hash": "4ea180d9",
           "time": "19:17",
           "message": "docs(todo): 靠近棟別查證（大位已完成、小位未做但非阻塞）；標出已逾期項目",
-          "body": ""
+          "body": "",
+          "category": "文檔"
         },
         {
           "hash": "515f9642",
           "time": "19:16",
           "message": "feat(select): 工作人員不得選公益位與無障礙位",
-          "body": "引擎的工作人員輪本就只配一般剩餘位（ok＝!public && type!=='無障礙'），"
+          "body": "引擎的工作人員輪本就只配一般剩餘位（ok＝!public && type!=='無障礙'），\n但選位頁沒擋 → 他把這些位排進志願只是白填、抽完才發現全落空\n（與 8/27 模擬那 84 筆「填了卻配不到」同一類問題）。\n\n- selectable 加工作人員分支；圖例依身分切換（可選/不可選兩區）\n- 頁首標明「配位排全體住戶之後、住戶未配完時暫緩」，避免誤解為與住戶同等權利\n\n工作人員整條線至此完成：登記→登入→選志願→配位→公告隱藏→健檢比對名單。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 10
@@ -227,13 +257,15 @@
           "hash": "3d61d72f",
           "time": "17:27",
           "message": "docs(meeting30): 補頁次規劃與 Slide 5／7／8／9，原 Slide 4 移到第 9 頁",
-          "body": "由平行 session／本人編輯寫成，非本 session 產出，此處僅一併提交避免留在工作區。"
+          "body": "由平行 session／本人編輯寫成，非本 session 產出，此處僅一併提交避免留在工作區。\n\n- 新增「頁次規劃（目標 10 頁）」，確立一頁一個決策\n- Slide 5 符號回歸重跑：「退化成常數解」無法重現、真兇是 model_selection='best'、\n  P6 選穩定不選最高，含 60 秒講稿\n- Slide 7 外部驗證三世代：CHARLS 讓核心設計首次在獨立世代重現，含收案對齊與誠實邊界\n- Slide 8 可重現性：固定 random_state 不夠（版本會改變折疊 ＋ SR 以時間預算終止）\n- 原 Slide 4「三篇 JISE 實刊校準」移為 Slide 9\n\n尚待寫：Slide 4／6／10。其中 Slide 6（SR 定位）已由 B8 解鎖，\n數字見 docs/12_SCI/外部驗證總覽.md §3.4。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
         },
         {
           "hash": "31461342",
           "time": "17:27",
           "message": "feat(sr): B8 — SR 公式的外部驗證，公式可移植但 max 詮釋作廢",
-          "body": "把 A2 正式版 P6@600s 的 15 條高血壓公式常數凍結搬到 CHARLS，"
+          "body": "把 A2 正式版 P6@600s 的 15 條高血壓公式常數凍結搬到 CHARLS，\n評估世代與設定 A 逐列相同（n=5,226），可與 6 模型的外部 AUC 並排。\n\n三個結論：\n\n1. 公式跨世代不退化 —— 13/15 條可外測（2 條用到 CHARLS 沒有的\n   Delta_GFR），外部 AUC 全部 0.757-0.771，中位 0.7644；全距從\n   內部的 0.0335 收斂到 0.0128。SR 的賣點從「可讀」升級成\n   「可讀且可移植」。\n\n2. max(SBP_T1, SBP_T2) 的臨床詮釋作廢 —— 配對 bootstrap 顯示\n   SUA 上 max 顯著勝 mean（+0.017/+0.032），CHARLS 上反轉為顯著\n   較差（-0.008，CI [-0.015, -0.001]）。轉移的是「量兩次比量一次\n   好」（+0.020~+0.043），不是「取較差的那次」。\n   SR_POC_結果.md §7 已加作廢橫幅：不可再寫「模型重現了醫師看\n   最差那次的臨床慣例」。\n\n3. 順帶測出 F2 主線最強的一筆 —— mean(SBP_T1,SBP_T2) 零參數\n   外部 0.7715，與 11 特徵 LR（0.7650）配對檢定打平（+0.007，\n   CI 跨 0），且顯著勝過同吃 11 特徵的 RF/XGB（+0.024~+0.026）。\n   高血糖端「單一 FBG」＋高血壓端「同一標記量兩次」＝兩個目標、\n   三個世代指向同一條最小充分資訊主線。\n   ⚠️ 對 LR 只能寫打平，不可寫勝過。\n\n誠實邊界已寫進外部驗證總覽 §3.4：外部 AUC 高於內部不等於「更好」\n（世代/盛行率/血壓量測方式皆不同）；只有高血壓可驗，高血糖與高血脂\n結構上做不到（拿 W1,W3 當輸入就沒有第四波當 outcome）；2/15 條無法\n外測；折疊還原依賴 sklearn 版本（同 X3）。\n\nTODO：B8 結案，F2/F5 更新，Slide 6 從「等 B8」改為可寫。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
         }
       ],
       "count": 2
@@ -245,13 +277,15 @@
           "hash": "d30766de",
           "time": "07:05",
           "message": "docs: 更新彙整資料 2026-09-01",
-          "body": "🤖 自動生成於 2026-09-01 07:05"
+          "body": "🤖 自動生成於 2026-09-01 07:05",
+          "category": "文檔"
         },
         {
           "hash": "119a45d5",
           "time": "07:05",
           "message": "docs: 每日工作紀錄 2026-08-31 (49 commits)",
-          "body": "🤖 自動生成於 2026-09-01 07:05"
+          "body": "🤖 自動生成於 2026-09-01 07:05",
+          "category": "文檔"
         }
       ],
       "count": 2
