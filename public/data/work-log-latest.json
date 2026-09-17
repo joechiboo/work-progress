@@ -7,7 +7,7 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 5066,
+    "totalCommits": 5070,
     "projectCount": 88,
     "dailyAverage": 10.1
   },
@@ -10709,7 +10709,7 @@
     },
     {
       "name": "OrderInSql",
-      "totalCommits": 304,
+      "totalCommits": 306,
       "commits": [
         {
           "hash": "13ace8da",
@@ -12908,6 +12908,22 @@
           "date": "2026-09-16",
           "message": "docs: 2026-09-16 07:14 部署完成，補登紀錄表與驗收結果",
           "body": "七項待部署變更全部上線（c31c036）。Core.dll 163,840 → 194,560 B，\n回退目標 app_bak_20260916_0714。\n\n驗收全過，兩個修正各自的歸零指標都驗到了：\n- 欄位[26]應為CLI_INFO：2 → 0 ⇒ 485bf57 確實進了 binary（9/15 才踩過「文件寫成\n  已修、實作沒進程式碼」，所以這項一定要單獨看）\n- encoding 1252 維持 0；本次重啟在 07:17，落在所有 Delimited 時窗之外，\n  正是 9/15 那個 bug 的發作條件 ⇒ 這次重啟本身就是 b22cf8b 的實地驗證\n\n⚠️ 唯一的非零項 XEVOX-SHADOW 失敗 1 不是回歸，而是 b985a3a 生效的證據：\n失敗檔 0576-202609100002.csv-1 是 -N 同名副本（副檔名變 .csv-1，adapter 依副檔名\n選分隔符時選不到逗號）。它一直在失敗，只是部署前摘要因快取 bug 顯示「797 成功、\n0 失敗」把它蓋掉。部署後第一次被誠實數出來。正式收檔夾不會有 -N，故不追。\n\n腳本結尾的兩件人工事項本次不適用：Local.json 未變動、Live 線時窗尚未開啟。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "dbcd819d",
+          "date": "2026-09-17",
+          "message": "合併 MR !273: docs: 9/17 18:17 收窗後自動檢查 —— 全部乾淨，§0 差異全歸搬移",
+          "body": "docs: 9/17 18:17 收窗後自動檢查 —— 全部乾淨，§0 差異全歸搬移\n\nSee merge request ucl/twowayconnection/orderinsql!273",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "bd513991",
+          "date": "2026-09-17",
+          "message": "docs: 9/17 18:17 收窗後自動檢查 —— 四線 inbox/quarantine 0、驗證夾空、§0 949/904 全歸搬移",
+          "body": "使用者 16:00 下班後的 session 內排程檢查，全部唯讀：\n- 四條 Live 線 inbox／quarantine 皆 0\n- .227 三個驗證夾皆空，無 -N、無跨輪殘檔\n- §0 整日量級 33 家 TestM 949 / ProdM 904，不等的四家全是白名單③跨單位搬移\n  （0208→0357 ×12、0272→0854 ×26、2635→2636 ×5、2798→2797 ×2），反查後剩餘 0\n\n無需明早處理。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
         },
@@ -22660,7 +22676,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 699,
+      "totalCommits": 701,
       "commits": [
         {
           "hash": "4bdff543",
@@ -28211,6 +28227,22 @@
           "date": "2026-09-16",
           "message": "docs: 每日工作紀錄 2026-09-15 (101 commits)",
           "body": "🤖 自動生成於 2026-09-16 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5b6b0088",
+          "date": "2026-09-17",
+          "message": "docs: 更新彙整資料 2026-09-17",
+          "body": "🤖 自動生成於 2026-09-17 15:27",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "3493ac71",
+          "date": "2026-09-17",
+          "message": "docs: 每日工作紀錄 2026-09-17 (58 commits)",
+          "body": "🤖 自動生成於 2026-09-17 15:27",
           "category": "文檔",
           "tags": []
         },
