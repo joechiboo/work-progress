@@ -2,6 +2,7 @@
 每日自動工作紀錄生成器
 在每天早上 07:00 執行，自動整理昨天的工作紀錄
 """
+import re
 import subprocess
 import os
 import json
@@ -32,7 +33,51 @@ else:
     PERSONAL_PATH = "C:\\Personal\\Project"
     WORK_PROGRESS_PATH = "C:\\Personal\\Project\\work-progress\\work-progress-ssh"
 
+# Claude 設定 repo（skills / runbooks / memory），不在上面兩個掃描根底下
+CLAUDE_PATH = os.path.join(os.path.expanduser("~"), ".claude")
+
+MERGE_CATEGORY = '合併MR'
+
 AUTHOR = "UCL\\joechiboo"
+
+def summarize_merge(message, body):
+    """GitLab MR merge -> (可讀訊息, 分類)；本地 sync merge -> None（雜訊，丟棄）
+
+    merge commit 的 subject 是 "Merge branch 'x' into 'main'"，看不出做了什麼；
+    真正的內容在 body 第一行，MR 編號在 "See merge request <group>!<n>" 那行。
+    """
+    mr_no = None
+    title_lines = []
+    for line in body.split('\n'):
+        line = line.strip()
+        if not line:
+            continue
+        m = re.search(r'See merge request \S+!(\d+)', line)
+        if m:
+            mr_no = m.group(1)
+        else:
+            title_lines.append(line)
+
+    if mr_no is None:
+        return None  # 沒有 MR 編號 = 本地 sync merge，不是工作
+
+    title = title_lines[0] if title_lines else message
+    return ('合併 MR !%s: %s' % (mr_no, title), MERGE_CATEGORY, title)
+
+def drop_redundant_merges(commits):
+    """自己開自己 merge 的 repo，每件事會出現兩次（原始 commit ＋ merge commit）。
+    merge 標題和當天同 repo 已收錄的 commit 重複時丟掉 merge，只留原始 commit；
+    留下來的是「原始 commit 當天看不到」的 merge（別人的分支、跨日的分支），
+    那正是 review -> merge -> 上版 這類在日報裡原本隱形的工作。
+    """
+    plain = set(c["message"].strip() for c in commits if not c.get("_merge_title"))
+    kept = []
+    for c in commits:
+        title = c.pop("_merge_title", None)
+        if title and title.strip() in plain:
+            continue
+        kept.append(c)
+    return kept
 
 def get_git_repos(base_path, max_depth=4):
     """遞迴尋找所有 Git repositories"""
@@ -60,12 +105,15 @@ def get_commits_for_date(repo_path, author, date_str):
     """取得特定日期的 commits"""
     try:
         # 先抓全部 commits，包含 author name (包含所有分支)
+        # %ad + format-local: GitLab 網頁按 merge 產生的 commit 是 UTC，用 %ai 會早 8 小時
+        # %x1e 當紀錄分隔: body 可能多行，用換行切會把多行 body 的 commit 整筆漏掉
         cmd = [
             'git', '-C', repo_path, 'log',
             '--all',
             f'--since={date_str} 00:00',
             f'--until={date_str} 23:59',
-            '--format=%an|||%H|||%ai|||%s|||%b',
+            '--date=format-local:%Y-%m-%d %H:%M:%S',
+            '--format=%an|||%H|||%ad|||%s|||%b%x1e',
         ]
         result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8')
 
@@ -74,24 +122,41 @@ def get_commits_for_date(repo_path, author, date_str):
             return []
 
         commits = []
-        for line in result.stdout.strip().split('\n'):
-            if not line:
+        for record in result.stdout.split('\x1e'):
+            record = record.strip()
+            if not record:
                 continue
-            parts = line.split('|||')
+            parts = record.split('|||')
             if len(parts) >= 4:
                 author_name = parts[0].strip()
                 # 只保留 UCL\joechiboo、joechiboo、紀伯喬 或 Claude 的 commits
-                # 排除 Merge branch commit（GitLab MR 自動產生）
-                commit_msg = parts[3].strip()
-                if commit_msg.startswith('Merge branch'):
+                if not (author in author_name or author_name == 'joechiboo'
+                        or author_name == '紀伯喬' or author_name == 'Claude'):
                     continue
-                if author in author_name or author_name == 'joechiboo' or author_name == '紀伯喬' or author_name == 'Claude':
-                    commits.append({
-                        "hash": parts[1].strip()[:8],
-                        "time": parts[2].strip()[11:16],
-                        "message": parts[3].strip(),
-                        "body": parts[4].strip() if len(parts) > 4 else ""
-                    })
+
+                commit_msg = parts[3].strip()
+                commit_body = parts[4].strip() if len(parts) > 4 else ""
+                category = None
+                merge_title = None
+
+                if commit_msg.startswith('Merge '):
+                    # 自己按下的 MR merge 是工作（review -> merge -> 上版），要留下來；
+                    # 本地 sync 用的 merge 沒有 See merge request，那才是雜訊
+                    merged = summarize_merge(commit_msg, commit_body)
+                    if merged is None:
+                        continue
+                    commit_msg, category, merge_title = merged
+
+                commits.append({
+                    "hash": parts[1].strip()[:8],
+                    "time": parts[2].strip()[11:16],
+                    "message": commit_msg,
+                    "body": commit_body,
+                    "category": category or categorize_commit(commit_msg),
+                    "_merge_title": merge_title
+                })
+
+        commits = drop_redundant_merges(commits)
 
         if commits:
             logging.info(f"  ✓ {os.path.basename(repo_path)}: {len(commits)} commits")
@@ -148,6 +213,17 @@ def generate_daily_report(date_str):
             })
             report["summary"]["workCommits"] += len(commits)
 
+    # Claude 設定 repo（skills / runbooks / memory）算工作專案
+    if os.path.exists(os.path.join(CLAUDE_PATH, ".git")):
+        claude_commits = get_commits_for_date(CLAUDE_PATH, AUTHOR, date_str)
+        if claude_commits:
+            report["work_projects"].append({
+                "name": ".claude (工具設定)",
+                "commits": claude_commits,
+                "count": len(claude_commits)
+            })
+            report["summary"]["workCommits"] += len(claude_commits)
+
     # 收集個人專案（含 uclcloud）
     for repo in personal_repos:
         proj_name = repo.replace(PERSONAL_PATH + "\\", "")
@@ -203,7 +279,7 @@ def generate_markdown(report):
         for proj in report["work_projects"]:
             md += f"### {proj['name']} ({proj['count']} commits)\n\n"
             for commit in proj["commits"]:
-                category = categorize_commit(commit["message"])
+                category = commit.get("category") or categorize_commit(commit["message"])
                 md += f"- **{commit['time']}** [{category}] {commit['message']}\n"
             md += "\n"
 
@@ -213,7 +289,7 @@ def generate_markdown(report):
         for proj in report["side_projects"]:
             md += f"### {proj['name']} ({proj['count']} commits)\n\n"
             for commit in proj["commits"]:
-                category = categorize_commit(commit["message"])
+                category = commit.get("category") or categorize_commit(commit["message"])
                 md += f"- **{commit['time']}** [{category}] {commit['message']}\n"
             md += "\n"
 
@@ -475,14 +551,20 @@ def merge_to_public():
     with open(dated_file, 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    # 儲存固定檔名（供網頁使用）
+    # 儲存固定檔名（供網頁「專案明細」分頁按需載入）
     latest_file = os.path.join(public_data_path, "work-log-latest.json")
     with open(latest_file, 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
+    # 產生輕量摘要（供網頁「總覽」與趨勢圖，不含 commit 明細）
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from build_summary import write_summary
+    summary_file = write_summary(public_data_path, output)
+
     logging.info(f"已儲存:")
     logging.info(f"  - {dated_file} (備份)")
-    logging.info(f"  - {latest_file} (網頁使用)")
+    logging.info(f"  - {latest_file} (明細，按需載入)")
+    logging.info(f"  - {summary_file} (總覽，{os.path.getsize(summary_file) // 1024} KB)")
     logging.info(f"統計: {total_commits} commits / {len(projects_list)} 專案 / 日均 {output['summary']['dailyAverage']}")
 
     return latest_file
