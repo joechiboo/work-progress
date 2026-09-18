@@ -7,14 +7,14 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 5105,
+    "totalCommits": 5119,
     "projectCount": 88,
     "dailyAverage": 10.2
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1342,
+      "totalCommits": 1343,
       "commits": [
         {
           "hash": "a207ff46",
@@ -10705,6 +10705,14 @@
           "tags": []
         },
         {
+          "hash": "dbd12ff1",
+          "date": "2026-09-18",
+          "message": "docs(OrderInSql): 新增端點②評估文檔, 記錄冪等唯一約束加不上去的實查證據",
+          "body": "端點② (POST /api/lis/orders, 給批次 6b 建委託單) 尚未實作。0918 評估「要不要趁沒人\ncall 先做」時實查台北正式庫, 發現整支端點的核心承諾做不到, 寫成文檔避免下次重推一遍:\n\n- BLG_TX_HDR 全表 (ID_SOURCE_CODE, ID_INVNO) 重複 424,619 組 / 1,736,081 列,\n  最糟一組 70,159 (SRC=2983 INVNO='01') —— ID_INVNO 在很多單位只是兩碼管號不是檢體標示\n- 6b 五家自己也有 2,991 組重複, CMV 現行四家 538 組\n  ⇒ 全域唯一與單位範圍唯一都加不上去; 對方 §3.1「連冪等都已經做好了、鍵正是\n    (檢體標示, 單位)」的前提不成立\n- 0235/0539 幾乎不填 invno (20456/21710、288/295 為空), 冪等鍵在它們身上懸空\n- 兩個可行替代: function-based unique index 只涵蓋②建的單 (Oracle 不索引 NULL 鍵,\n  歷史資料自動豁免, 不用建表) / 獨立冪等表\n- 另記: 「沒人 call 就沒風險」對 API 表面成立, 但約束加在每個開單系統都在寫的共用表上、\n  拔 CMV 特化要改簽收頁正在用的 live code —— 兩者都與有沒有呼叫端無關\n- 加 mermaid 圖畫現在的失效長相 (check-then-act 無鎖 + 配號先於建單會燒號)\n- 端點①文檔加交叉連結\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
           "hash": "b7584649",
           "date": "2026-09-18",
           "message": "docs(建單路徑): 新增跨系統的委託單來源判定文檔, 收斂三處互相矛盾的前綴說明",
@@ -10757,7 +10765,7 @@
     },
     {
       "name": "OrderInSql",
-      "totalCommits": 324,
+      "totalCommits": 328,
       "commits": [
         {
           "hash": "13ace8da",
@@ -13204,6 +13212,38 @@
           "date": "2026-09-17",
           "message": "docs: 9/17 平行驗證結果 —— 閘門⑦ 過、閘門① 未過，並暴露腳本第三個假陰性",
           "body": "執行 07:19:47-07:40:23：708 檔全數歸檔、四線 quarantine 皆 0、[ERR] 0、失敗 0。\n前置對照表重同步（60,028 → 60,084）、48 家 3,233 筆殘留清空（已驗證與 41 個\n已切換單位零重疊，已切換單位資料完好）。\n\n✅ 閘門⑦ 通過：ansn 440/440 成功、quarantine 0（修正前 76 檔 17.3% 會整批拒收），\n   六家都有資料，1120/0539 零筆。⚠️ 但 FileNameExcluded 那層本輪沒驗到\n   —— 那些檔在素材備製時就分流到 skipped，根本沒餵進來。\n\n🟡 閘門④ 核心指標過：§6 四欄 0 差異、兩側全 NULL（與轉移卡預期一致，\n   WriteProfile=Ansn 首次被驗證覆蓋）；未對齊 27 筆（3528 身分證空白）。\n   但統計口徑要重算，見下。\n\n⛔ 閘門① 未過，兩項真差異：\n   ① NAME 不一致 413 筆（0555 365／1020 48）：正式庫 NAME ＝ 我方 NAME ＋ ID_INVNO，\n      形態一致（pLen=17／tLen=3）。來源是 FP 產出的 .txt，要判定哪側忠實。\n   ② 0088 561 筆完全對不到（佔 3a 主檔 24%）：兩側 ID_INVNO 格式不同\n      （我方 60800452＝MMDDnnnn，正式 E115007511）。不限日期重查仍 0 筆匹配。\n      需查是修補層改寫，還是該單位的正式庫資料根本由第三方系統寫入\n      —— 後者的話切換後我方會與它重複寫單。\n\n⛔ 兩個腳本設計缺陷（今天現場暴露）：\n   ① cre_date 不能當本輪篩選鍵。Keelung 家族是 date-only（恆 00:00:00），\n      時刻窗永遠撈不到 ⇒ k3 回傳 0 行，而 0 行看起來就是「零差異」；\n      ansn 部分 cre_date 取自檔案開單日（1021 的單是 9/09-9/14），落在窗外\n      ⇒ 1021 被誤報成「我方 0 張、正式庫 1,001 張」的假掉單（實為 938 vs 927）。\n      正確的範圍鍵是 filename。這是同一支腳本家族的第三個假陰性。\n   ② k3 的單位清單是動態產生的，兩批合跑時會吸進 ansn 單位（第一次跑抓到 35 家、\n      含 UNIMAX 的 0005），再用 Keelung 的鍵去比 → 整份無效。\n      兩張卡建議的「合成一次跑」與動態清單互相衝突，必須擇一。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "880d5f91",
+          "date": "2026-09-18",
+          "message": "docs: 落單監控暫緩 —— 記下理由與三個重新評估的觸發條件",
+          "body": "使用者 2026-09-18 定案暫緩。文件原本把它寫成「A 案的代價要另補，不能只是維持\n現狀」，直接不做會變成一個沒兌現的承諾，所以把暫緩的理由與復活條件寫進去。\n\n暫緩理由不是「不重要」，是它要抓的失效目前沒發生過 —— 2026-09-16 實測 0705 的\nTO_ORA 53,848 筆全部 = 1、無一漏標；跨日競態（檔案在 Xevox 時窗 15:40 後才進\ninbox、隔天才被搬進備份夾 ⇒ FP 的 regex 已換日期看不到它）近 90 天 0 次。\n\n⚠️ 但「沒發生過」的原因是兩個時窗剛好錯開，不是設計保證。記下三個重新評估的\n觸發條件：① 任一邊排程時窗被調整；② 0705 或 1120 送檔時間明顯變晚；\n③ 出現第一筆 TO_ORA=0 且已過夜的明細。\n\n並釐清它的性質：偵測的是「醫令進了 WebOrder 但沒拋到 LIS」—— 檢驗室不知道有這\n張單、檢驗不會被執行，是病人面的失效不是機器面的。暫緩的是實作，不是這個判斷。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b529e1df",
+          "date": "2026-09-18",
+          "message": "docs: 給同仁的系統說明與原檔位置，並訂正排程成長數字",
+          "body": "平行 session 今天寫好但未提交的一批，接手收尾（檢查過：0 控制字元、兩份新檔\n結尾完整、index.html 標籤配對平衡 8/8 sections、110/110 divs、6/6 tables）。\n\n- SYSTEM_OVERVIEW.md：給不必懂程式的同仁，講「醫令電子檔現在怎麼跑」。\n  核心是回答「為什麼覺得 folder 架構沒動」——對客戶端確實沒動，FTP 入口、\n  上傳帳號、收檔資料夾名稱全在舊機且原封不動；動的是收進來之後那一段\n- FILE_LOCATIONS.md：給需要調原檔重轉或確認內容的同仁與行政。已切換的線原檔在\n  GATE2025，對外分享沿用與舊制一致的名稱\n- index.html：補上架構調整、目標架構、切換時程、三段驗證等章節\n- README：加一行指向 index.html\n- SCHEDULE_INVENTORY 訂正：排程成長原寫「15 支」，是把「每切一條線 +1 對」\n  誤算成「+1 支」。正確是 9/22 後 17 支、9/29 後 21 支（9 + 6 條線 × 2）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4b3ece6f",
+          "date": "2026-09-18",
+          "message": "docs: 6a 計畫補上平行驗證 —— 它一直沒被列，卻是 10/8 的前提",
+          "body": "BATCH6A_PLAN 從頭到尾沒出現過「平行驗證」四個字。我把「驗證」等同於逐檔回放了，\n那是錯的：\n\n- 1,125 檔逐行零差異，比的是「我方重建的 .txt vs FP 的 .txt」\n- 正式路徑對 1,047 個真實 Excel 檔，比的是明細數\n- 兩者都止於解析層\n\n寫入層完全沒驗過：切分成幾張單、WriteProfile 語意、UCL_CODE 對照、Dept 解析、\n套組展開、ValidateIdFormat。而 2026-09-10 那次事故正是寫入層的問題，解析完全正常、\nlog 完全乾淨 —— 沒有平行驗證就切 6a 等於只驗了一半。\n\n並寫明相依：平行驗證要等 9/22 之後才做得成。第 1 梯兩家的下游都是批次 3a，\n9/22 之前正式庫是舊 Keelung 程式寫的，拿它當基準會比出一堆假差異。\n\n順帶：\n- 待辦 #2「值層的取捨規格」標成已完成（9/17 七條全部拍板並實作）\n- 轉移卡「① 回放：逐欄比對零未解釋差異」補註是 DB 層而非 .txt 層 —— 那行原本會被\n  讀成逐檔回放，而真正該擋的是平行驗證\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d424d829",
+          "date": "2026-09-18",
+          "message": "docs: TODO 整合端點 ② —— 兩條過期、一條矛盾、缺一張追蹤卡",
+          "body": "9/17 的三題定案（① 做、② 不在 10/27 前、6b 走 A 案）只寫進了\nLIS_API_REQUEST §7.7 的內文，TODO 沒跟上，於是：\n\n- 「② 不是新功能、CMVCreateTNO 連冪等都做好了」還掛著 —— 冪等那半句\n  已被 LIS 側查證推翻（check-then-act 無鎖、唯一鍵只有 ID_TNO、\n  IDX_BLG_TX_HDR_INVNO_SRC 為 NONUNIQUE ⇒ 並發兩張單），\n  留著會讓下一個讀的人低估工作量\n- 「6b 走哪個方案」仍是待決，實際已定案 A 案 ⇒ 關閉\n- 時間軸「10/27 之後 6a 梯次 2-5 → 6b → 批次 7」與 §7.7 的\n  「6b 移出排期」直接矛盾 ⇒ 訂正\n- ⛔ 缺的那條：「等 ②」本身沒有卡，TODO 上點不到\n\n新增追蹤卡，判準寫成三件可驗的事（唯一約束／狀態碼契約／解除 7569\n特化），並點名長桿是 schema 變更要六站同步 —— 下次對焦要問的是\n「唯一約束排到什麼時候」，不是「② 做了沒」。\n另註記 MR !1525 是匿名開單洞的獨立修補，不是 ② 開工。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
         },
@@ -20545,7 +20585,7 @@
     },
     {
       "name": "OfficialWebsites\\ucl-admin",
-      "totalCommits": 20,
+      "totalCommits": 21,
       "commits": [
         {
           "hash": "45b8f623",
@@ -20697,6 +20737,14 @@
           "message": "新增各公司基本資料管理 (Company_Data CRUD)",
           "body": "- Entity/DTO/Service/Controller + 前端列表與 6 區塊 CKEditor 表單",
           "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ba927608",
+          "date": "2026-09-18",
+          "message": "文檔：記載電子目錄產生功能與不做成後台下載的理由",
+          "body": "- README 加入「產生電子目錄」章節與專案結構的 tools/\n- 分析文件補上第七節：技術上主體可搬進後台但整本不行（頁碼需要排版引擎、\n  Word COM 不該放 IIS），流程上則因受控文件的版本管控刻意不開放隨時下載\n- 一併更新實作後才確認的內容：512 頁、附件目錄頁碼是純文字非欄位、\n  掃描附件有浮動圖形那批、已換 6 份原檔\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
           "tags": []
         },
         {
@@ -22940,7 +22988,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 703,
+      "totalCommits": 705,
       "commits": [
         {
           "hash": "4bdff543",
@@ -28551,6 +28599,22 @@
           "tags": []
         },
         {
+          "hash": "81e25d6b",
+          "date": "2026-09-18",
+          "message": "docs: 更新彙整資料 2026-09-18",
+          "body": "🤖 自動生成於 2026-09-18 14:18",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b69a2c17",
+          "date": "2026-09-18",
+          "message": "docs: 每日工作紀錄 2026-09-18 (35 commits)",
+          "body": "🤖 自動生成於 2026-09-18 14:18",
+          "category": "文檔",
+          "tags": []
+        },
+        {
           "hash": "553b0034",
           "date": "2026-09-18",
           "message": "docs: 更新彙整資料 2026-09-18",
@@ -31346,7 +31410,7 @@
     },
     {
       "name": "ParkFee",
-      "totalCommits": 304,
+      "totalCommits": 310,
       "commits": [
         {
           "hash": "caa33437",
@@ -33778,6 +33842,54 @@
           "message": "fix(fee): 立帳通知日期改用匯出當日；社區幫收費類別經實測確認可用",
           "body": "立帳日原本取公告日，但社區幫的「立帳」指帳單建立那天，與抽籤公告日無關 ——\n公告後可能隔數日才產檔上傳，用公告日會讓帳單顯示的立帳日早於實際建帳日\n（2026-09-17 實測發現）。改為預設匯出當日，--bill-date 可指定。\n繳費期限仍錨定公告日 + 10 日（辦法伍二（六）放棄線），不受影響。\n\n另加防呆：立帳日晚於繳費期限時擋下 —— 帳單一建立就逾期，必定是參數給錯。\n\ndocs/24 依 2026-09-17 實測結果更新：\n- §4 第 2 項結案：**社區幫接受非管理費的收費類別**（原列為「唯一會讓方向翻掉的未知」），\n  standalone 模式定案，--mode merge 降為備援。\n- 新增 §5 社區幫平台設定：⚠️ 系統預設「禁止跨月繳費」會擋住新增的機車位清潔費，\n  **上線前須請物業關閉**；另記錄最高權限管理者可增刪、社區報修功能可關閉（例會已通過）。\n\n+1 測試（todayStr）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
           "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0394e675",
+          "date": "2026-09-18",
+          "message": "docs(26): 測試身分總表——補建七戶，涵蓋至今沒走過的規則路徑",
+          "body": "盤點發現兩條路徑從未有真實帳號測過（9/18 log 印著「R0 無障礙：登記 0」）：\nR0 無障礙輪、志願小位免抽依序選位。另補社宅×身障的例外、社宅重機吃兩格\n公益位、純自行車戶（無車牌不能線上登入）。\n\n原有三戶保留續用；電腦選號關閉、志願指鎖定位/公益位改以既有帳號的屬性覆蓋，\n不另開帳號。全部留到 11 月抽籤前一次清除。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d360d3a1",
+          "date": "2026-09-18",
+          "message": "docs: 下週複測計畫（不從頭）＋11 月清場條目寫清楚",
+          "body": "複測分三段：A 回歸煙霧（重點是「同名冊同種子必得同結果」的可重現性）、\nB 補齊沒驗過的（一戶多車、工作人員 1,200 元、稽核四動作）、C 收尾還原。\n測試身分一律留到 11 月一次清，不逐次重建。\n\n11 月清場條目補上三類測試資料的實際特徵與清除 SQL；\n並註明 /dev「清除測試資料」只涵蓋 9xx 戶號，另兩類仍須跑 SQL。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "0f1e4cba",
+          "date": "2026-09-18",
+          "message": "docs(26): 更新進度書籤——9/18 正式站台跑完階段 1-7 主線",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "0eb8aebb",
+          "date": "2026-09-18",
+          "message": "fix(audit): 補 grant —— 漏了授權導致稽核靜默失敗",
+          "body": "0007_keepalive.sql 早有註解警告「此專案新表不會自動 GRANT，漏掉會 permission\ndenied」，household/vehicle/locked_seat/staff_roster 四張表也都有那行，\n0013 卻漏了 → Edge Function 以 service_role 也寫不進 audit_log。\n又因 audit() 刻意不拋錯（稽核失敗不該讓使用者操作跟著失敗），成了靜默失敗：\n表在、RLS 對，但一筆紀錄都沒有，2026-09-18 首次驗證才發現。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1241608b",
+          "date": "2026-09-18",
+          "message": "feat(audit): 稽核流水帳——記下動到錢或個資的管理員動作",
+          "body": "先前系統幾乎無稽核能力：Edge Function 只有 console.error（僅記錯誤、平台 log\n約 7 天），DB 無稽核表 → 住戶爭執「我明明繳了費」、某格被誰解鎖、名冊被誰撈走，\n事後一概查不出來。\n\n- migrations/0013_audit_log.sql：表＋兩索引＋RLS deny-all（僅 service_role）\n- _shared/http.ts 加 audit()：**永不拋錯**，稽核寫不進去不該讓使用者操作失敗\n- 接四個動作並部署：roster.list（只記筆數）／seat.assign（含繳費狀態、是否強制）\n  ／seat.unlock／result.publish（送出、寫入、查無車號筆數）\n\n⚠️ detail 不放個資（寫名冊內容等於在 DB 再複製一份）；表建立前 audit 靜默失敗。\n⚠️ 管理員為單一共用密碼 → actor 只能記到 password／戶號，要可歸責需分帳號。\n\n三支函式已部署，負面路徑仍 403；221 測試綠。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "da2ee131",
+          "date": "2026-09-18",
+          "message": "docs(forms): 附件一正名為「使用承諾書」（9/3 例會決議，表單檔先前未跟上）",
+          "body": "檔名、<title>、<h1>、內文與 docs/00 一併更新。docs/05 正文與 docs/19 對照欄\n維持「承租合約書」——前者待例會通過後才改、後者是新舊對照的現行欄。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
           "tags": []
         }
       ],
