@@ -1,0 +1,318 @@
+{
+  "date": "2026-09-21",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fb610dbf",
+          "time": "19:48",
+          "message": "feat(LT274): 附件報告名單改為可分站設定, 高雄加入 H003",
+          "body": "高雄要把「60項特異性過敏原檢測」(H003) 列為附件報告。但 H003 是\nITEM_MASTERH 各站自建的客戶套餐, 同一組代碼各站不同義:\n\n  高雄     H003 = 60項特異性過敏原檢測 (15 子項, 有獨立報告版式)\n  台北/新竹 H003 = 嘉榮 Panel C (6 項一般過敏原)\n  台中     H003 = 敦仁醫院11項生化\n\nFYISettings.json 是六站共用一份, 直接加進 PkgCodes 會讓台北/新竹/台中\n那三個無關的套餐也變成附件報告 —— 整張單從「不含附件報告」消失, 單上\n其他一般項目跟著漏印。\n\n作法是在設定檔加一層 Sites, key 用 LabUniform(統編), 本站命中的區塊\n併入共用清單(不取代), 讓只屬於某一站的代碼有地方放。\n\n順手把 WpCodes 的 WS43 歸位到台北。WS43 是電泳工作站(67 項), 逐站查過\n只有台北建了這個工作站, 其餘五站 WS_PFTEST 查無資料, 放在共用清單等於\n空跑 —— 行為不變, 但意圖變清楚。\n\n共用清單其餘代碼逐站對過名稱, 確認全站同義, 維持放在共用區:\nTEST_ITEM 的數字代碼與 ITEM_MASTERH 的 P/T 開頭代碼是六站共用主檔。\n\n文件補上共用 vs 分站的判斷表、各站 LabUniform 對照, 並改掉原本\n「直接在 TestCodes 或 PkgCodes 加入新代碼即可」這句會踩雷的指引;\n另補記兩件容易誤會的既有行為: 判定是整張單而非單項、兩個 Exclude\n欄位的生效條件很窄(ExcludePkgCodes 比的是 OD_ORDER_TI 不是\nOD_PKG_ORDER)。\n\nH001/H002 (過敏檢測套組 Panel 1/2) 維持常規報告, 不需設定 —— 沒進\n白名單本來就落在「不含附件報告」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "272269e3",
+          "time": "13:04",
+          "message": "docs(功能選單): 補上常用磚的代號規則,與外部系統的第二條接法",
+          "body": "- 外部網站連結:補「PN_PGID 直接是會跳轉的 action」這條路(MS_AssesSys / SsoTo),\n  以及兩條路的取捨(要另開分頁用對照表、要免登入直達用 action)\n- 首頁常用磚:新增「功能代號是代號不是網址」一節 —— 填網址會死、填錯代號無聲失敗,\n  以及這次加的 datalist 候選清單與「黃底只提醒不擋存檔」的理由\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "96770ba2",
+          "time": "13:04",
+          "message": "feat(常用磚): CustomizeP 的功能代號給候選清單,打錯代號當場看得出來",
+          "body": "「功能代號」欄是自由輸入的 PN_PGID,填錯不會有任何錯誤訊息 —— 存檔照樣成功、\n磚照樣出現在首頁,要點下去才發現 href 被 Url.Action 組成 /Home/<打錯的字> 的 404。\n2026-09-21 就有人把 AI Email 的代號打成 AI(正確是 AI_EMAIL)這樣中招。\n\n- 功能代號欄掛 <datalist>,來源 = Model.program(使用者權限內的程式),打字即過濾\n- 選到代號後,功能名稱還空著就自動帶入\n- 代號不在候選清單內 → 欄位標黃底\n- 欄位標題補一行說明:這欄是代號不是網址,外部系統也用代號(AI_EMAIL / MS_AssesSys)\n\n黃底刻意只提醒、不擋存檔:候選清單來自 PROG_NODE,但全庫 170 個在用的代號裡有 16 個\n不在 PROG_NODE,其中 TPFMApprove、BT201/FOBT、TPFileList 等是真的在用的,擋下去會誤傷。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "fabf16f5",
+          "time": "12:38",
+          "message": "fix(BT403): 移除列印前的「已列印過」確認提示",
+          "body": "MR!1513 除了修正帳單月份認定，還在按「列印」時加了 confirm 列出本月已印\n單位，當作澎湖醫院(1115)重複寄帳單事故的第二道保險。上線後實際狀況是單一\n客戶補印、重印本來就很頻繁(例: 0472 一個月印 17 次)，只要當月對任何一家印\n過，之後每次按列印都會跳，出帳同仁每印一張就多按一次「確定」，訊號被雜訊\n蓋掉、防呆效果等於零。\n\n事故的真正解法是月份認定修正(帳單月份改用起日 + modal 預設上個月)，那部分\n保留不動 —— 「列印記錄 → 未列印」名單正確了，同仁照名單作業即可，不需要在\n列印當下被攔。\n\n移除範圍:\n- BT403.cshtml: 已印單位預抓快取、confirmIfAlreadyPrinted、#Print 的呼叫\n- ReportController.GetBillPrintedUnits (只服務這個提示)\n- BillPrintLogRepository.GetPrintedUnits (同上)\n\n保留: 列印記錄 modal (GetPrintStatus)、BILL_PRINT_LOG 寫入、月份認定與預設\n上個月的邏輯。文檔同步更新。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8ccfc4cb",
+          "time": "07:25",
+          "message": "fix(CodeMap): UpsertUnitTestItem 的 @@ROWCOUNT 先存變數再判斷",
+          "body": "IF @@ROWCOUNT = 0 AND NOT EXISTS (...) 有求值順序的隱患:\nT-SQL 不保證 AND 兩側的順序, 讓 NOT EXISTS 的子查詢先跑就會把 @@ROWCOUNT\n蓋成子查詢的筆數, 變成該 INSERT 的時候沒 INSERT。\n實測這台是左到右求值所以沒踩到, 但那不是可以依賴的行為。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "93ccddd1",
+          "time": "07:25",
+          "message": "fix(CodeMap): UpsertUnitTestItem 的 @@ROWCOUNT 先存變數再判斷",
+          "body": "IF @@ROWCOUNT = 0 AND NOT EXISTS (...) 有求值順序的隱患:\nT-SQL 不保證 AND 兩側的順序, 讓 NOT EXISTS 的子查詢先跑就會把 @@ROWCOUNT\n蓋成子查詢的筆數, 變成該 INSERT 的時候沒 INSERT。\n實測這台是左到右求值所以沒踩到, 但那不是可以依賴的行為。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "774274ad",
+          "time": "07:15",
+          "message": "fix(危險數據清單): 電話通報標記在檢體沒有 PLOG 主紀錄時會失敗",
+          "body": "UpdatePhonedFlag 補寫 WKSTN_PLOG 的 INSERT 只給了\n(PL_LAB_TNO, PL_SOURCE, PL_PHONED_FLAG) 三個欄位，漏了 NOT NULL\n主鍵 PL_LOGNO。此表沒有 trigger 也沒有 default，所以只要該檢體\n還沒有 PL_SOURCE='ALL' 那列，就固定 ORA-01400，前端跳「更新失敗\n／無法更新電話通報標記」，怎麼點都標不起來。\n\n已有 ALL 列的檢體因為 NOT EXISTS 擋住不會真的執行 INSERT，所以\n表面上多數情況正常，只有缺 ALL 列的檢體會中招（台北近一週每天\n約 200~400 支檢體處於缺 ALL 狀態）。\n\n修正內容：\n- INSERT 欄位比照 NSlistController / ExamineRepository 既有寫法，\n  補上 PL_LOGNO.NEXTVAL、PL_WS_CODE='LABSEC'、PL_OL_LOGNO=0、\n  PL_PRINT_ON=SYSDATE、PL_PRINT_FLAG='N'\n- PL_PRINT_FLAG 用 'N' 而非 'U'，避免補出來的列被列印／傳真／\n  Email 排程撈去誤發\n- 拆掉沒必要的 anonymous PL/SQL block，改用單一 command 重複綁值\n- 三個 OracleCommand 補上 BindByName = true\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "dc5ff586",
+          "time": "07:11",
+          "message": "合併 MR !1531: docs(OrderInSql): 新增端點②評估文檔, 記錄冪等唯一約束加不上去的實查證據",
+          "body": "docs(OrderInSql): 新增端點②評估文檔, 記錄冪等唯一約束加不上去的實查證據\n\nSee merge request ucl/lis/lisweb!1531",
+          "category": "合併MR"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "Management\\DutySchedule",
+      "commits": [
+        {
+          "hash": "f09fd102",
+          "time": "17:37",
+          "message": "docs: data-sources 對齊全量掃描結果",
+          "body": "d539c7c 的全量掃描推翻了資料來源 A 的兩項描述：排班分頁是 202201-202612\n共 60 個（非 202608-202612），且版面有新舊兩種。一併把版面與語彙的權威\n來源指向 source-analysis.md，試算表 ID 的待辦編號改為 §7 #3。\n\n飛騰那一節改為反映 spec §6 已改寫的現況，延伸待確認項對應到 spec §7 的\n編號，避免兩份文件各自記一套。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3629039c",
+          "time": "17:36",
+          "message": "docs: 新增資料來源索引，串接飛騰人事系統文件",
+          "body": "盤點兩個排班相關資料來源：Google Sheets 排班表，以及飛騰雲端人事系統\n（SQL Server 192.168.56.209 / SCS001）。後者的資料表結構文件在姊妹專案\nOverTimePrompt，本文整理 9 組概念對應（出勤、排班、請假、班別、國定假日\n等）與存取方式。\n\n飛騰有 FT_AttEmpShift 月排班表，spec §6「請勿假設飛騰格式」一節需要\n連帶檢討，已列為待確認。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "fe95885c",
+          "time": "17:35",
+          "message": "docs: 新增平台決策提案（Flutter App 改為 Web/PWA）",
+          "body": "在動工前回頭檢視「Flutter App、Android 優先」這個前提，比較 Web 與 App\n兩案並建議改以 PWA 實作。含連帶須修改的文件清單與五項待確認。\n\n尚未定案，供討論。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "d539c7cc",
+          "time": "16:59",
+          "message": "全量掃描來源試算表，修正錯誤的解析假設",
+          "body": "下載完整試算表在本機掃描 60 個排班分頁、18372 格，結果寫進 source-analysis.md。\n三項發現直接推翻既有設計：\n\n1. 版面有兩種。202201-202512 沒有班別欄、A 欄即姓名；班別欄是 202601 才加的。\n   截圖看到的版面只涵蓋不到 1/5 的資料。\n2. 「週六欄非空白即輪值」不成立。週六欄還會出現整欄的國定假日、外出據點，\n   以及 160 次意義未明的 X。照原規則首頁會把放假和出差的人列成值班。\n   改採正規化後的白名單判定。\n3. 2026 年分頁有 68 格含 U+200B 零寬空格，看似空白但不等於空字串。\n\n另記錄：150+ 種儲存格值中有 57 種只出現 1-2 次，佐證「無法辨識的值要記錄\n而非忽略」是必要設計；人員名單四年間異動 17 次，不可有全域固定名單。\n\n.gitignore 增擋 xlsx/csv，並加 .env.example 放試算表 ID 的佔位。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "af6b0d57",
+          "time": "16:43",
+          "message": "補上實際表格結構與 App 呈現設計",
+          "body": "依 202609 分頁實況修正規格 §2.1：月份是一個分頁一個月（YYYYMM）而非\n同分頁多區塊，A 欄為班別、B 欄才是姓名，且試算表混有大量非排班分頁。\n\n新增 ui-design.md：四個畫面的版面設計。核心主張是只呈現偏離常態的部分，\n因為「抽7」佔了絕大多數格子，原樣搬進手機沒有價值。\n\n待確認事項增列空白格語意、抽7 與 0730 的定義、事件註記的揭露範圍。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4ae9c62b",
+          "time": "16:38",
+          "message": "初始化專案：需求規格與版控設定",
+          "body": "排班查詢工具第一階段規格。確立多來源資料架構（ScheduleSource 介面）、\nGoogle Sheets 為首個實作，以及服務帳戶 + 自建後端 API 的憑證方案。\n\n.gitignore 明確排除各類憑證檔案。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "c7972a52",
+          "time": "07:53",
+          "message": "docs(smoke): 記錄 9.22 實跑結果與本機 DbOnlineReservation 副本建法",
+          "body": "順帶標註 login.js 寫死的預設密碼已過期 —— 一定要用環境變數帶，\nLIS 登入頁會累計錯誤次數鎖帳號，別盲試。密碼放個人 reference 不進 repo。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "95d3efe4",
+          "time": "07:50",
+          "message": "fix: 轉入前 confirm 的 postback 引數沒註冊 event validation",
+          "body": "把重疊提示的引數從 confirmOverlap 改名成 confirmTransfer 時，漏了同步更新\nRender() 裡的 RegisterForEventValidation。DISTRIBUTE.aspx 有\nEnableEventValidation=\"true\"，未註冊的引數會被擋成\n「無效的回傳或回呼引數」(ArgumentException) —— 使用者按下確定後整頁 500，\n轉入完全不會發生。\n\nsmoke test 實跑抓到：測試批次有未對應項目 → 跳 confirm → 按確定 → 500，\nTO_ORA 停在 0。原本的 confirmOverlap 是有註冊的，是這次改名改歪。\n\n改法：抽成 CONFIRM_TRANSFER_ARG 常數，Render() 與 btnHCLAB_Click 共用同一個\n字串，杜絕兩邊再寫歪。\n\n順帶修 smoke helper：登記表那顆 DB 通常跟 WebOrder 不同台(例如 WebOrder 在\n分部測試庫、登記表在本機)，驗證方式要能各自指定，原本共用一組帳密是寫漏的。\n新增 FENDAN_DBONLINE_USER / FENDAN_DBONLINE_PASS，沒給就走 Windows 驗證。\n\n實跑結果：台中測試庫 1062 + 本機 DbOnlineReservation 副本，7/7 PASS。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "26c0662c",
+          "time": "07:25",
+          "message": "fix: 未對應登記的 @@ROWCOUNT 先存變數再判斷",
+          "body": "IF @@ROWCOUNT = 0 AND NOT EXISTS (...) 有求值順序的隱患:\nT-SQL 不保證 AND 兩側的順序, 讓 NOT EXISTS 的子查詢先跑就會把 @@ROWCOUNT\n蓋成子查詢的筆數, 變成該 INSERT 的時候沒 INSERT。\n實測這台是左到右求值所以沒踩到, 但那不是可以依賴的行為。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "0d2b9dc3",
+          "time": "07:25",
+          "message": "fix: 未對應登記的 @@ROWCOUNT 先存變數再判斷",
+          "body": "IF @@ROWCOUNT = 0 AND NOT EXISTS (...) 有求值順序的隱患:\nT-SQL 不保證 AND 兩側的順序, 讓 NOT EXISTS 的子查詢先跑就會把 @@ROWCOUNT\n蓋成子查詢的筆數, 變成該 INSERT 的時候沒 INSERT。\n實測這台是左到右求值所以沒踩到, 但那不是可以依賴的行為。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "OfficialWebsites\\ucl-admin",
+      "commits": [
+        {
+          "hash": "acc52a5a",
+          "time": "08:58",
+          "message": "新增改版差異比對 (diff-edition) 與圖片張數檢查",
+          "body": "verify 回答的是「排版程式有沒有把資料弄丟」，但校對真正要看的是\n「這一版跟上一版差在哪」。diff-edition 拿現在的資料庫對上一版紙本，\n只列變動過的項目：新增 30、不再收錄 27、實質變更 303、微幅差異 52、沒動 50。\n\n差異按幅度分兩段 —— 「少了一個句號」和「整段改寫」混在一起會無從看起。\n改過名的項目會用包含關係再配對一次，否則 Allergen：108 Food Allergy IgG\n改名成 108 Food Allergy IgG 會變成一筆新增加一筆移除。\n\nverify 補上圖片張數比對：先前只比文字，後台換掉或刪掉一張圖完全看不出來。\n補上後 435 個項目仍是零差異，98 張圖也對得上。\n\n註：AllGoods_Contain 沒有「最後修改時間」欄位，只有建立日與公告日，\n所以「誰改了什麼」無法從資料庫查，只能靠整本比對還原。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "37d3e556",
+          "time": "08:50",
+          "message": "新增內容比對驗證與缺圖提示",
+          "body": "verify：把產出的 docx 讀回來，跟資料庫逐項逐欄比對，差異寫成 Markdown 報告，\n差異的字標紅、前後文照原樣留著，有差異時回傳結束碼 2。\n對 512 頁完整版的結果是 435 個項目逐欄完全一致；拿上一版對現在的資料庫跑\n會得到 529 筆差異，確認工具真的在比對而不是永遠回報一致。\n\n比對前拿掉所有空白並做 NFKC 正規化 —— 資料庫裡有 CJK 相容表意文字與全形英數，\nWord 轉換時會換成標準字元，不做正規化會冒出 28 筆「看起來一樣卻判為不同」的假差異。\n配對用順序不用名稱，因為資料庫裡有英文名完全相同的項目。\n\nextract-figures：記下上一版紙本每個項目有幾張圖。有些圖當年直接貼進 Word、\n沒上傳後台（108 Food Allergy IgG 等 3 個項目），只看資料庫永遠不會發現少了東西。\nbuild 時會在這些項目底下加一列紅字提示，供校對時補圖。\n\n順帶修掉 HtmlText 的標籤正則：原本的 <[^>]+> 會把危險數據欄的\n「Blood <80 mEq/L or >120 mEq/L」整段當標籤刪掉，數值就消失了。\n這個函式也用在判斷 NEW/LDT/CAP 與檢體退件，會連帶誤判。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\FalconCopy",
+      "commits": [
+        {
+          "hash": "834afb52",
+          "time": "17:36",
+          "message": "記錄台北 2026-09-21 換版（MR !9）並結案空白 ORDER_NO 警告",
+          "body": "- 台北列更新為 2026-09-21 17:31 / main 9b2279b，並把原本「每輪一筆 WARN、\n  待查」改成結案說明（1,303 筆無單號 QC 資料、Oracle '' 等同 NULL 導致\n  永遠標不掉）。\n- 順手修正台北列兩處已過期的描述：排程起跑時刻改為 :x3:35/:x8:35\n  （2026-09-03 重錨定觸發器後的實際時刻），一輪耗時改為「離峰 <1 秒、\n  傍晚尖峰 20~70 秒」。\n- 桃園列標註成因已查明、修正待下次換版生效。\n- 換版歷史新增一列，並附記當日 16:53~17:13 的停擺事件（明細階段\n  39.4 ms/筆、0x800710E0 是「工作已在執行中」而非有人停用）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9b2279b7",
+          "time": "17:22",
+          "message": "略過空白 ORDER_NO 的 PAT_RESULTH，消除每輪一行的假警告",
+          "body": "台北 error log 每輪都會出現一行\n「ORDER_NO  查無未處理資料（可能已被其他實例處理）」（約每天 280 行），\n實際上不是錯誤，也不是別的實例造成的：\n\n- 有一批 PRH_ORDER_NO 空白的 RESULTH（台北現有 1303 筆，經查證是\n  QC／品管資料：TEST_CODE 9001~9003、LAB_NO 6xxxxx29001、無 PAT_ID），\n  本來就不該進網路報告查詢。\n- 偵測查詢的 ROW_NUMBER() PARTITION BY PRH_ORDER_NO 會把所有 NULL 併成\n  同一個分割，所以每輪固定帶回其中一筆。\n- 帶著空字串去查 WHERE PRH_ORDER_NO = :order_no 時，Oracle 的 '' 等同\n  NULL，永遠 0 筆 → 白跑一次 Oracle 往返、記一行假警告、且永遠標不成\n  已處理，下一輪再來一次。\n\n處理：\n- 組 affectedOrderNos 時就排除空白單號，改以 Info 記錄略過筆數。\n- 原本那行競態訊息（單號在偵測後才被標記完成）降級為 Info：它會自行\n  補回，不需人工介入，不該進 error log（nlog 是 Warn 以上寫 errorFile）。\n- 不動 Oracle 端的 PRH_TRX_STATUS：該 flag 可能有其他消費者，程式端\n  略過後已無任何成本。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "2b1e54a2",
+          "time": "19:20",
+          "message": "docs: 9/21 晚上——批次 2/4 收尾完成、3a＋批次 5 換檔完成",
+          "body": "- 全日反向比對（18:05）乾淨：§7 0、孤立主檔 0、真缺/真多 0；!281 全日實證（母項 99 筆、空 UCL 列兩側都有）\n- .227 三條 .job（01/05/05a）以 flags DISABLED 停用（同批次 1 的 07），56.227 三支 feed schtasks /DISABLE\n- 轉移卡 batch2/batch4 ⑤ 2026-09-18 觀察期通過（附兩類已知差異判定）、⑥ 2026-09-21 結案\n- 3a／批次 5 切換步驟 1–6 逐項打勾附證據：.227 四份 config → .CUTOVER、產生器輸出與預覽 hash 相同、\n  換檔重啟 RUNNING 單位數 9、GO-cutover 八支排程、首輪 pull（UNIMAX 一檔 19:15 到 HOLD）\n- app\\ 三份過期 .CUTOVER* 產出已刪\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5e7b6075",
+          "time": "14:10",
+          "message": "docs: 9/21 部署第 17 列＋週末與 !281 驗收結果；閘門⑤ 誠實改寫、清 14 個 stale 勾；白名單① 改寫理由；Cerberus 產生器修 JSONC",
+          "body": "- DEPLOY_LOG：補第 13–17 列（9/17、9/18 三次與今天 07:30 的 !281＋!285），線上標記移到 17\n- TODO：週末反向比對（§7 0、真缺 0、1110 同名重送兩側皆重複寫）、!281 12:18 驗收通過\n  （母項寫了、空 UCL 寫了但被修補層 php delete；§4 白名單① 理由改寫、不能拿掉）、\n  閘門⑤ 由「零異常」改成「兩類已知差異、不阻擋」，閘門④⑦與批次 5 資產 0–7 逐項附證據打勾，\n  Cerberus 監控頭進度與 HOLD 原因（共用帳密兩條路）\n- reverse-compare-batch24／-3a：白名單① 加註 !281 之後的判讀規則（有 php delete 規則的才算白名單）\n- gen-cerberus-heads.ps1：-CompareWith 改成字串安全的 JSONC 剝註解，並讀 Cerberus.Heads；\n  對正式設定首次跑成功\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "20e00d1d",
+          "time": "08:47",
+          "message": "新增本機專案索引 runbook 與產生器",
+          "body": "找「Flutter 報告查詢 app」時發現只掃 D:\\Gitlab + D:\\Personal\\Project\n會漏掉 D:\\repos（SVN 時代的本機舊檔），而該專案沒有 remote，\nGitLab/GitHub 搜尋也找不到。\n\n- runbooks/project-locations.md：四個根目錄定位、搜尋順序、\n  沒有 remote 的孤兒專案清單，以及自動產生的完整專案表（255 個）\n- scripts/build-project-index.py：掃描標記檔重建索引區塊\n- .gitignore 白名單加入 /scripts/\n- CLAUDE.md 加上觸發詞索引\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "284de061",
+          "time": "08:26",
+          "message": "chore(memory): 同步各專案 memory，並把 taipeigolf 明文帳密改為指向 reference",
+          "body": "- lisweb: MR!1525/!1531 狀態由「待 review」更正為「已 merged」；新增危險數據清單電話通報標記 memory\n- OrderInSql / ucl-admin / TwowayConnection: 補各自新累積的 memory 與索引\n- taipeigolf/next-steps.md: 移除工作副本中的明文後台/DB 密碼，改指向 gitignored 的\n  reference/mochahost-hosting.md（歷史中 init commit 那筆不動，真正的解法是輪替密碼）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "uclcloud",
+      "commits": [
+        {
+          "hash": "c9a84058",
+          "time": "08:59",
+          "message": "docs: 新增會員活躍度現況與成長瓶頸分析",
+          "body": "為了評估「要不要做行動 App」對正式庫 uclw2w 做了一次 read-only 盤點，\n結論是 App 不是當前瓶頸，問題在漏斗上游與留存，把這個認知寫成文件避免\n日後重複從「介面不夠方便」的角度提解法。\n\n關鍵數字（2026-09-21 快照）：\n- 一般會員 6,249 人，但帳號裡真的有報告可看的只有 1,788（29%）\n- 近一年真實活躍（有新報告＋有登入）僅 154 人（2.5%）\n- 2,775 人（44%）註冊後從未登入，其中 610 人有報告沒看過\n- 註冊量兩年萎縮 84%，2025-08→09 出現斷崖（48→19），成因待查\n- 報告 90% 集中在台北大安，其餘五分部合計不到 10%\n- 但有 383 人到檢 6 次以上，是唯一有回訪動機的族群\n\n文件內容：\n- 核心數字、三個獨立問題（P1 註冊量萎縮／P2 不回訪／P3 分部覆蓋）\n- 「不是問題的東西」一節，記錄 App 等解法為何不是當前瓶頸\n- 由便宜到昂貴的驗證順序，與待確認事項\n- 附錄 8 段可重跑的 read-only SQL\n\n另在 CLAUDE.md 加上指向本文件的摘要，標示做新功能前先讀。\n依維運手冊規範，文件未寫入任何明文連線字串。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "67242c1d",
+          "time": "16:02",
+          "message": "docs(30): 字級與間距放大——上版壓過頭，字小又只占半頁",
+          "body": "10.5→13px、行高 1.36→1.55、標題 17→22px、表格 9.8→12px、區塊內距加倍，\n邊界回到 12mm。內容不變，改為填滿版面而非擠在上半頁。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e2213160",
+          "time": "16:01",
+          "message": "docs(30): Rundown 濃縮至單頁 A4",
+          "body": "字級 12.5→10.5px、行高 1.5→1.36、邊界 12mm→9mm；檢查清單改雙欄、\n步驟由 9 條併為 6 條（存證與發佈合併），措辭去贅字。\n話術、三個防爭議要點、存證三件套、應變表等實際會用到的內容全部保留。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5e4d8797",
+          "time": "15:58",
+          "message": "docs: 新增兩份可直接列印的 A4——現場 Rundown 手持稿、登記 QR 海報",
+          "body": "build-docs-pdf.mjs 走 Edge 無頭列印，對 docs/14 只輸出 1 頁（內容被截）且紙張\n跑成 Letter；不值得追該工具的問題，改做 A4 HTML 讓瀏覽器 Ctrl+P，版面所見即所得。\n\n- 30 現場 Rundown：主持人手持稿。含種子碼話術（三位住戶各說一個數字）與三個\n  防爭議要點、填完請住戶核對白板與螢幕、存證三件套、出錯應變表\n- 31 登記 QR 海報：QR 放大為向量（取自 docs/28 內嵌 SVG，放大不糊）＋網址＋\n  三步驟＋不會用手機的替代路徑\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "396b459c",
+          "time": "15:50",
+          "message": "docs: 種子碼改為「現場三位住戶各說一個數字」，並寫明三個防爭議要點",
+          "body": "分散式熵：沒有任何人能單獨決定結果——第一位說數字時不知道後兩位會說什麼，\n連主持人也無法操控。這是可信度的來源，比「電腦隨機」更有說服力。\n\n三個坑寫進流程（收集數字**之前**就要講）：\n① 順序有差（7-23-58 ≠ 58-23-7）② 格式有差（連字號/無分隔/頓號結果各異，\n須先議定）③ 說出口即定案，否則等同讓人先試一個看看。\n\n另：Rundown 加「先用 277 戶範例 demo 示範 30 秒」（同種子兩次相同、換種子全不同），\n細則加「歡迎自行試跑」；挑人建議找有登記的住戶、別找委員。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "242975da",
+          "time": "15:27",
+          "message": "test(scripts): 建立複測用測試帳號（七戶，補齊未測過的規則路徑）",
+          "body": "登記表單 UI 已於 9/18 驗過，現在要補的是引擎路徑：R0 無障礙輪、志願小位免抽、\n一戶多車混車種、社宅×身障例外、社宅重機吃兩格公益位、純自行車戶。\n手填七戶約 40 分且易錯，改走正式 Edge Function 建立，可重跑（已存在則改走\nupdate-household）。志願集中在 230-234 連號區，另塞 482（已鎖定）與 2（公益位）\n驗引擎是否正確跳過。\n\n⚠️ 測試資料，11 月抽籤前須清除。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e72c8cae",
+          "time": "15:25",
+          "message": "feat(ops): 稽核斷線偵測——每日心跳順帶驗證 audit_log 寫得進去",
+          "body": "audit() 刻意不拋錯（稽核失敗不該讓使用者操作跟著失敗），代價是壞掉時完全無聲：\n2026-09-18 漏 grant 那次，表在、RLS 對、零紀錄，是人工去查才發現的。\n\n- ping 寫一筆 system.ping 稽核後**讀回來**確認（只讀證明不了寫得進去），回 auditOk\n- keepalive workflow 見 auditOk!=true 即失敗，錯誤訊息直指常見原因（新表漏 grant）\n- 實測 auditOk:true；守衛邏輯正反兩向都驗過\n\n查稽核時以 action <> 'system.ping' 濾掉哨兵列（每天一列）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "99f8d558",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-21",
+          "body": "🤖 自動生成於 2026-09-21 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "2dd179ab",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-20 (2 commits)",
+          "body": "🤖 自動生成於 2026-09-21 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 27,
+    "sideCommits": 8,
+    "totalCommits": 35
+  }
+}
