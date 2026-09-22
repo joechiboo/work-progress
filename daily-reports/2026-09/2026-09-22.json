@@ -1,0 +1,439 @@
+{
+  "date": "2026-09-22",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "98d0f085",
+          "time": "19:27",
+          "message": "docs: 9/22 切換日兩輪反向比對（3a 零未解釋、batch5 三處差異全部歸因）",
+          "body": "15:50 3a 首輪＋19:20 全日兩輪（3a 全日、batch5 首日）：\n\n- 3a：§0 11 家全部相同、§6 0、§7 0。§1 的 44 筆全是 0088（php L2816 改寫 ID_INVNO），\n  改以 ID 對齊 44/44、明細 98/98，實證我方 ID_INVNO=E 號=影子 ID_CLI_INFO ⇒ 非漏單\n- batch5：37 家中 34 家逐筆相同。0030(1/46)、0536(3/74) 是「一家吃兩條線」——\n  多出的來自尚未切換的 xevox 線，ansn 部分完全相同；0674(41/40) 是內容鍵 upsert\n  正確沿用 9/19 既有主檔，切換前舊程式同樣行為（2608000848 9/17 同型）\n- §8 1120/0539 為 0（紅線 3 成立）\n- §9 的 0045「今日 0 vs 均 36.9」是平均被 9/09、9/10 兩天拉高；該家 9/21 起就沒送檔\n  （切換生效前）⇒ 客戶端停送。順帶記下 §9 用平均當基準會被偶發大量日拉歪\n- 連帶補完兩項待資料：UNIMAX 對映表（0511/0519/0520 兩側相同）、Veterans 0680（14/14）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "690bebab",
+          "time": "11:37",
+          "message": "feat: 3b 平行驗證的兩支前置腳本 —— 並解掉「只能 09:00 前或 18:00 後跑」那條已失效的限制",
+          "body": "明天早上要跑 3b 的平行驗證，估量時發現兩個會讓結果不可信的問題，先修掉。\n\n一、TRUNCATE 不能再照原做法（sync-unit-test-item.sql）\n\n  原做法是 TRUNCATE WebOrder_Test.dbo.UNIT_TEST_ITEM 再自正式庫整表重灌。那條\n  「只能 09:00 前或 18:00 後跑」的規則是批次 2/4 時代寫的，當時影子只在 09:00-18:00\n  跑。9/22 四條線切 Live 之後不成立了：ansn 影子的時窗是 05:02-19:02，也就是說\n  清晨就有人在查這張共用對照表，TRUNCATE 的空表窗口會讓它「查無對照、明細略過」\n  且不報錯，靜默弄髒批次 5 當天的反向比對基準。\n\n  實測落差只有新增 54 列、刪除 25 列（正式 60,113 / 測試 60,084），整表重灌 6 萬列\n  是大砲打小鳥。改成增量同步，沒有空表窗口，時段限制隨之解除。\n\n二、比對範圍鍵會被別條線污染（parallel-compare-3b.sql）\n\n  k3 的單位清單是動態產生的（「本輪寫入的所有單位」），在 2026-09-17 還成立，\n  因為當時 WebOrder_Test 沒有別人在寫。現在四條線的影子整天往裡面寫。\n\n  更麻煩的是 0030 與 0536 同時出現在 3b 與批次 5 的清單裡（兩個管道都有流量），\n  光靠單位＋時間分不開。實查確認檔名可以：走 ansn 管道的一律是\n  0030-PHYSICIANORDER-*.xls，走本線的不是。\n\n  ⇒ 範圍鍵改成三層：74 家釘死 ＋ 時窗 ＋ 排除 %PHYSICIANORDER% 檔名，並加安全網段\n  列出「時窗內寫進測試庫但不在清單裡」的單位。已對正式庫實跑驗語法，零 SQL 錯誤、\n  單位數 74。\n\n素材也備好了：D:\\OrderInSqlData\\parallel-0923\\ 共 1,712 檔（xevox 1,706 / after3pm 6），\n另有 186 個排除檔（Parsing_／Excel／-N 副本），以及 replay-filenames.json。\n量是批次 5 的三倍，但依 9/17 實測吞吐量（708 檔 18 分鐘）估約 45 分鐘餵完。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "d78e5692",
+          "time": "11:25",
+          "message": "docs: 3b 前置第 2、5、10 項完成 —— 十項只剩平行驗證實跑",
+          "body": "今天白天把三項不受時窗限制的推完了。\n\n第 2 項 .227 唯讀複查，三項全部相符：\n  - 程式目錄名沒有 3a 那種陷阱，兩個都叫預期的名字\n  - 線上 config 與卡上逐項一致（V2、delimiter、sectionNO/Trim、L2/U1 與 L1/U2）\n  - .job 觸發器實測：03 為 09:00 起 400 分（末班 15:40）、03a 兩個觸發器\n    07:00 起 300 分 ＋ 15:00 起 240 分、2344 搬檔 15:31 起每 4 分 120 分\n\n第 5 項兩份 .CUTOVER，各 +17 bytes，非 ASCII 與 CRLF 數皆不變。\n  ⛔ 與 3a／批次 5 不同的是兩線的 MyBackUpDir 都沒有改指 —— 紅線 7，FP 靠那個夾\n     讀 0705 寫 HCLAB Oracle，改指驗證夾會讓它在切換當天無聲停止。\n\n第 10 項佈署到 56.227：7 個檔逐檔 SHA256 相符、9 處佔位符全換且無殘留、BOM 慣例\n通過、六個 units 目錄已建。\n\n佈署前先查過「會不會影響線上程序」，結論是不會，而且理由是具體的：全 src 只有\nImportPipeline.cs:104 一處列舉目錄，掃的是設定裡的 InboxPath，沒有任何\nGetDirectories/EnumerateDirectories ⇒ 未登記的 units 目錄對服務等於不存在。佈署後\n覆查：單位數仍 9、XEVOX-SHADOW 仍 DryRun、[ERR]/[WRN] 皆 0、log 持續寫入。\n\n另補做了 3a 有而本批先前沒有的一項：產生器對真實現行設定實跑（先前只驗過去敏\n副本，那份的密文是假的，守門 1 沒被真正考過）。真實 diff 46 行、單位數 9→10、\n已切換八線仍 Live、連線密文未被動到。產出的 .CUTOVER.ALL 已當場刪除。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "29da4f4d",
+          "time": "11:09",
+          "message": "docs: after3pm 版位改用正式庫反查驗完 —— 並訂正我自己昨天寫錯的風險描述",
+          "body": "前置第 7 項原訂做法是「新增 XEVOX-AFTER3PM 影子單位補跑該版位」，那不可行：\n兩條線共用備份夾，影子餵不出只屬於 after3pm 的檔。改以檔案內容＋正式庫實據直接\n回答「條碼欄到底取第幾欄」，不跑服務、不寫 DB，今天白天就能做完。\n\n結論：兩種版位在 2344 的實際檔上產出完全相同的結果。\n\n  2344 的檔只有 11 欄（索引 0-10），而 BarCodeSeq 在 ProcessColumnL 版位是索引 11、\n  ProcessColumnU 版位是索引 21 —— 兩個都不存在。after3pm 取不到條碼會回退 IdInvno；\n  頂層取 SerialNo 也就是索引 0，而索引 0 正是那個 L2609… 單號。\n  正式庫實證 ID_CLI_INFO = ID_INVNO：after3pm 那 24 檔 169/169、2344 近 90 天全部\n  流量 3,677/3,677，皆 100%。\n\n⇒ 紅線 6 的後果描述要改。我昨天寫的是「被頂層搶走會用錯誤的版位解析（條碼取第 21\n欄而非第 11 欄）」，那是錯的。真正的後果是「晚一天進系統」——頂層線時窗 09:00-15:40，\n16:00 收進 inbox 就得等隔天，舊制則是 after3pm 的 15:00-19:00 當天處理掉。兩段窗排程\n還是要做（晚一天對醫檢是實質的服務行為改變），但它防的是延遲、不是資料損壞，觀察期\n判讀時別把它當資料正確性的守門。\n\n順帶查出一件事並確認不是缺陷：2344 近 90 天 254 個檔全部是 UTF-8 with BOM，不是\n設定裡寫的 big5（拿 Big5 解會在第 32 個位元組就失敗）。三層都對得起來——我方\nCreateFieldParser 用 detectEncodingFromByteOrderMarks、舊程式寫進正式庫的中文與單號\n都正確、兩者一致。但記下來：這條線的 Encoding: big5 對 2344 是不生效的，日後看設定\n推論編碼行為會推錯。\n\nL2 第 ⑨ 項的風險面跟著縮小，不再是 go／no-go 閘門。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "eb39246a",
+          "time": "09:55",
+          "message": "docs: Cerberus 接入 pending 到 FlexibleParsing 整合後 —— 連帶訂正三個已失效的說法",
+          "body": "使用者 2026-09-22 決定：Cerberus 監控頭不再是「先擱置幾天」，而是整個退出批次 1-5\n的範圍，等 Parsing 整合完成後再看。\n\n直接後果：批次 1-5 全程（含中秋連假、含 3b 觀察期）都沒有自動告警，唯一的偵測\n手段是每日人工反向比對。這句話本身不新，但有三處文件是**以「會有告警」為前提**\n寫的，留著不改就會被日後引用：\n\n1. MONITORING.md「每次批次切換後要重跑產生器」—— 現在沒有人在執行，也不打算在\n   批次 1-5 期間執行。9/8、9/15、9/22 三次切換都沒做，3b 同樣不會做。留著不標註\n   就是「文件寫了、實際沒做」的漂移，跟 9/18 查出 -CompareWith 從來沒成功跑過\n   同一型。\n2. batch5 卡「連假四天唯一還會出聲的是 Cerberus 的 Discord 告警」—— 那張表第一列\n   （流程停擺會不會被發現）從 ✅ 翻成 ❌。兩列都是不會 ⇒ 9/29 早上的人工檢查連\n   「服務有沒有掛掉」都是那時才知道，不只是補做比對。\n3. 3a／批次 5 兩張卡的切換步驟 11b／13 標成 pending，不會打勾。\n\n解除 pending 時從哪裡接續也寫下來了：產生器 9/21 已修好、8 顆頭已產出，只差\n「共用帳密怎麼給」那個決定；屆時要重跑，因為那時的 Live 線會比現在多。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "656c71bc",
+          "time": "09:45",
+          "message": "docs: 轉移卡第 1、6 項補打勾 —— 做完沒打勾就是 stale 勾",
+          "body": "第 1 項（轉移卡本身）與第 6 項（sync-shadow 拿掉 0705- 排除）今天都已完成，\n卡上還留著空框。第 6 項並補上實際驗證結果：位元組安全替換、非 ASCII 位元組數\n不變、下一輪同步後三個 0705 檔確實進了影子 inbox。\n\n十項前置目前 5 完成 / 5 待辦。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6b4532ef",
+          "time": "09:41",
+          "message": "feat: 批次 3b 切換資產 —— 產生器＋六支腳本，兩個競態都用既有機制解掉",
+          "body": "轉移卡前置第 3、4 項。一個目錄、一支產生器、一份 .CUTOVER.ALL，沿用 9/22 那套\n結構（批次 2/4 兩支產生器互不知道對方那個坑，結構上已經移除）。\n\n本批的產生器多做兩件 3a/批次 5 沒有的事：\n\n  1. 把 0705- 從 FileNameExcluded 拿掉。影子設定是 Parsing_,0705-，照抄進 Live\n     會讓近三個月 115 檔/5,289 單的一家整個掉光。先斷言那個值在整份檔裡唯一\n     再替換，並在產出端再掃一次「任何單位都不該排除 0705」。\n  2. 插入一個全新的 Live 單位。after3pm 沒有影子可替換——共用備份夾讓影子無法\n     只餵那條線的檔，所以它從來沒 DryRun 過。這也是為什麼它的版位必須另外驗。\n\n兩個競態都不必改 pull-settled.ps1：\n\n  0546 的原地改寫 → 頂層 pull 用 -SettleSeconds 180（觀測轉檔最大 60 秒，現行的\n       60 正好壓在邊界上）。檔案被 PHP 覆寫會重置 LastWriteTime，settle 本來就會\n       跟著重算，所以夠長就等於等它轉完。\n  2344 的搬檔窗 → 頂層 pull 排程改 /SC DAILY /ST 17:36 /RI 2 /DU 21:54，等於\n       15:31-17:35 不跑，把舊制「Xevox 15:40 關窗讓路」那個條件還給搬檔 bat。\n       代價實測為零：該時段 90 天只有 4 個檔，全是 2344。\n\n紅線 5（只掃頂層）不需要任何設定——pull-settled.ps1 用的是 Get-ChildItem -File，\n本來就不遞迴。\n\n驗證：以 56.227 現行設定的去敏副本實跑通過，兩線版位/時窗/WriteProfile/排除清單\n全對，單位數 9→10 只 +1，已切換的八條線原封不動。五道守門各做過負向測試，全部\n以正確理由擋下（過程中兩次是我的測試樁自己壞掉——PS 5.1 Get-Content 沒指定編碼\n把中文讀成亂碼、JSON 樁寫了 D:\\x 這種非法逸出——不是產生器的問題）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "142af2d0",
+          "time": "09:25",
+          "message": "docs: 9/22 四條線首輪立即驗證結果（3a 7-11 過、batch5 對映表待資料）",
+          "body": "四條線 09:00–09:09 首輪全過：UNIMAX 0005 25 張、VETERANS 0550 13 張、XEVOX2 0088 44 張、\nANSN 第二輪 0018 84＋0743 36 張；hook 全 200、[ERR]/[WRN] 0、inbox/quarantine 0、\nMessLog 11 筆全 isSucc=1。影子已追上的單位逐筆相同（0033/0506/0936/3528/0005/0550/0088）。\n\n- 3a 卡：7/8/9/10/11 打勾附證據；0680 標待資料（今日無來檔）\n- 0088 的 Anti-HBe(EIA / ApolipoproteiA1 查證為來源檔既有寫法（舊程式自 3 月起同樣值、\n  影子今日一字不差、欄寬 640 不可能截斷）——排除截斷嫌疑，留紀錄避免日後重查\n- batch5 卡第 11 項改為待資料：今日僅 0005 來檔且不走對映，需等 0511/0519/0520\n- TODO 9/22 段補首輪複查摘要\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "47dfc53f",
+          "time": "08:29",
+          "message": "docs: 轉移卡第 9 項打勾，並記下「登記值已過期」這個坑",
+          "body": "reverse-compare-3b.sql 完成，順便把定清單時查到的東西寫進卡裡：登記 72 家、\n實際 72 家、交集只有 64。0272 的 FP Companys.ThrowFolder 寫著丟進\nTaTung_Xevox_Files，但它的檔實際在 Cube_Backup_Files ⇒ 產生器與 pull 規則\n都不能照登記值走。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e158383f",
+          "time": "08:28",
+          "message": "合併 MR !297: docs/0922 rc3b",
+          "body": "docs/0922 rc3b\n\nSee merge request ucl/twowayconnection/orderinsql!297",
+          "category": "合併MR"
+        },
+        {
+          "hash": "e5d3f376",
+          "time": "08:27",
+          "message": "feat: 批次 3b 的反向比對腳本 —— 74 家清單以檔案實據定案，三段紅線檢查",
+          "body": "觀察期第一天就要用，先做起來（不受時窗限制，純 repo 工作）。\n\n單位清單不採信登記值：UNITDATA.UploadFolder 登記 72 家、備份夾近 90 天實際出現\n72 家，交集只有 64。逐一查過後定案 74 家 =\n\n  備份夾實際出現過的 72 家\n  + 0071 / 0074（修補層把 0050 的單搬過去，檔名仍是 0050-*）\n  - 0272 / 0854 / 0861：檔案在 Cube_Backup_Files、最新 09-14（正好停在 Cube 9/15\n    切換）⇒ 批次 4 的，不是本線。⚠️ FP 的 Companys.ThrowFolder 把 0272 寫成丟進\n    TaTung_Xevox_Files，但檔案實據說不是，以實據為準。\n  - 2798 / 0449：前處理 PHP 的輸入，產出進 Cube 線。\n\n比 3a 多三段，對應轉移卡的三條紅線：\n  §8  0705 今日主檔應 > 0（影子設定排除它，Live 照抄就整家掉單）\n  §9  0546 欄位右移指紋（吃到未轉檔的 22 欄版本會每欄右移且不報錯）\n  §10 2344 的 ID_CLI_INFO 形態（驗 after3pm 版位有沒有被頂層 pull 搶走）\n\n已對正式庫實跑驗語法：零 SQL 錯誤、112 行輸出、§7 跨檔併單 0。UTF-8 with BOM\n已確認（沒 BOM 的話 sqlcmd 當 Big5 讀、輸出 0 行，而 0 行跟「零差異」長得一樣）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "fb09ea42",
+          "time": "08:08",
+          "message": "合併 MR !296: docs/0922 batch3b card",
+          "body": "docs/0922 batch3b card\n\nSee merge request ucl/twowayconnection/orderinsql!296",
+          "category": "合併MR"
+        },
+        {
+          "hash": "b030039c",
+          "time": "08:08",
+          "message": "docs: 9/29 換檔定 07:10，並訂正「四天積壓一次湧入」—— 那句沒驗過而且是錯的",
+          "body": "換檔時點（使用者決定）：9/29 早上 07:10 到。原本擔心 after3pm 07:00 已開窗會漏跑，\n實測該夾近 90 天只進過 24 個檔（全是 2344，約 0.27 檔/日），而且都在前一天\n15:00-19:00 的窗內就被舊程式處理掉，所以 07:00 那夾預期是空的。Xevox 線 09:00\n才開窗。但順序不可顛倒：先停 03a、確認沒有 in-flight 的那一輪再換檔，否則\nKeelung 不冪等會寫出重複單。\n\n順手驗了「連假四天積壓一次湧入」這個一直被當前提的說法，以端午連假作對照組：\n\n  6/18 四  3,020 單 / 65 家   連假前正常日\n  6/19 五    201 / 8          端午，掉到 7% 但不是零\n  6/20 六    264 / 12\n  6/21 日      0\n  6/22 一  3,357 / 63         收假日，只比一般週一高兩三成\n\n舊程式是時間觸發、七天照跑（週日 16-21 單就是證據），連假到的檔當天就處理掉，\n不會累積。9/29 預期是略高於一般週二的量，不是四天份。真正積壓的是 3a/批次 5 的\n比對工作，那是我們自己不值守造成的，跟 3b 的檔案流無關。\n\n反過來也成立：連假不是沒有流量，每個假日仍有 200-300 單 / 8-12 家 ⇒ 不可以提前在\n9/24 收盤換檔，那等於最大的線在無人、且 Cerberus 仍 hold 的狀態下 Live 四天。\n\nCerberus 監控頭：使用者決定繼續 hold，已在排期表誠實寫明代價。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cc16216f",
+          "time": "07:55",
+          "message": "docs: 批次 3b 轉移卡 —— 實查推翻三個既有定版，兩個競態不必改腳本",
+          "body": "9/29 的備料從零開始，只有 9/23-24 兩個工作日。先把會決定產生器怎麼寫的\npull 規則查到底，因為錯的方向有兩個都是靜默掉單。\n\n實查推翻的三條（證據在卡上）：\n\n- `0705-` 不可排除。影子單位的 FileNameExcluded=Parsing_,0705- 是影子期設定，\n  照抄進 Live 會讓近三個月 115 檔/5,289 單消失。FP 對它是 mode=Parsing、\n  讀的是備份夾，發生在我方寫完之後，不是上游。\n- `0546-` 不可排除。PREPROCESSOR 原本把它跟 2798/0449 寫成同一類「轉進\n  Cube_Files」是錯的：PHP 對它是原地砍第一欄、檔名不變，產出留在本夾給本線吃\n  （近三個月 80 檔/438 單）。2798/0449 的產出確實落在 Cube_Backup_Files，\n  那兩個排得對。\n- `2344` 搬檔鏈原本只寫「切換設計要涵蓋」，現在有做法了。\n\n兩個競態都不必動 pull-settled.ps1：\n\n- 0546 的前處理競態：讀 parsing_order_files.php L348-392 確認是 rename+改寫，\n  以「0546_orig mtime → 備份夾同名檔 mtime」量測 79 檔全部 ≤1 分鐘（中位 0.5）\n  ⇒ 本線 -SettleSeconds 180 即可（其他線 60，正好壓在觀測最大值上）。\n- 2344 的搬檔窗：頂層 pull 排程分兩段、15:31-17:35 不跑，讓搬檔 bat 像舊制一樣\n  有獨占窗口。代價實測為零——該時段 90 天只有 4 個檔，全是 2344。\n\n過程中兩次被 mtime 保留咬到：move 與 rename 都保留 mtime，所以「備份夾寫入時刻」\n不是處理時刻、「0546_orig 的 mtime」不是轉檔時刻。第一版的延遲數字因此全錯，\n已在卡上註明推翻理由。\n\n另記兩項只有本批有的風險：after3pm 版位從未以自己的設定驗證過（共用備份夾讓\nXEVOX-SHADOW 用頂層版位吃掉了它的檔）、0705 的 Oracle 拋轉會在切換當天斷\n（FP CatchFolder 就是舊備份夾，Parsing DB @168.229 實查）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "fe4fd483",
+          "time": "07:41",
+          "message": "docs: 9/22 首日檢查結果、作戰圖時程更新、訂正 9/22 家數 42→45",
+          "body": "- 一頁式說明（index.html）：進度由 38 家/9-17 更新為 83 家/9-22，批次 2/4 標已結案 9/21、\n  9/22 那列標已切換，排程膨脹圖的「今天」移到 17 支（4 支 Feed 已停用），頁尾更新日期\n- TODO 全案節點表：9/22 訂正為 45 家（2+9+26+8，實查清點；原記 42 家有誤）、批次 2/4 標結案\n- batch5 轉移卡：ansn 首日立即驗證 7/8/9/10/12 打勾附證據（4 檔 122 張單、與影子逐筆相同、\n  Query Store 出現 Ansn 路徑 INSERT、27 欄變體零警告、hook 200）\n- TODO 9/22 段補首輪檢查摘要，並記下 pull log 的「來源不存在」是 .227 h$ 每 ~13 小時的既有現象\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 15
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f7805f45",
+          "time": "18:12",
+          "message": "合併 MR !1540: feat:[CRM] 新增拜訪紀錄部門、紀錄數量統計",
+          "body": "feat:[CRM] 新增拜訪紀錄部門、紀錄數量統計\n\nSee merge request ucl/lis/lisweb!1540",
+          "category": "合併MR"
+        },
+        {
+          "hash": "2009e292",
+          "time": "14:12",
+          "message": "docs(HCLAB_web): 補明志科大 RDW-SD 第三～五批案例與 DB 路線的驗證缺口",
+          "body": "- 保留期補上邊界實測: 0922 查 09/15 檢體 OL_DTL 已清空, 「7 天」是剛好 7 天就沒了\n- 交付前自我驗證加第 4 項: 走 DB 路線也要把有值的那幾筆回頭對 .res\n  OL_DTL 只給值不給品質旗標(ERROR comment / 空跑的 RBC-HGB / 重傳記錄全看不到)\n- INSTRUMENT_ERROR 旗標補 ERROR (Func.), 錯誤字串不只 ERROR (Result) 一種\n- res_extract.py 建議 --range 由 35,56 改 35,75 (實測分布到 68.8, 舊值一路誤報)\n- 案例紀錄表補二～五批, 新增 0922 第五批案例(跨保留邊界 + 有數字但不可信)\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9c641208",
+          "time": "10:53",
+          "message": "fix(登入): 帳號沒到期就別碰 EXPDATE, 措辭改成「暫時解鎖」",
+          "body": "原本無條件把 EXPDATE 設成隔天 23:59:59。但多數申請者其實只是**密碼**過期、\n帳號本身沒有到期日(EXPDATE 空或 9999) —— 這等於幫原本永久有效的帳號裝上一個\n到期日: 使用者改完密碼後第三天照樣被鎖死, 而且從此每次都要再跑一遍\n(ChangePassword 只更新 PWD_EXPDATE, EXPDATE 那行是註解掉的, 不會幫忙收尾)。\n盤點時台北 33 個符合資格的帳號中, 31 個正是這種「只有密碼過期」的情況。\n\n- ApplyExtend 的 newExpDate 改為可為 null, null 代表不調整;\n  UPDATE 的 SET 子句依實際要動的欄位組出來, 不動的欄位完全不進 SQL\n- 措辭一律講「暫時解鎖」不講「延長效期」: 成功訊息、知情通報信、modal 說明\n  都改成「這是暫時解鎖 → 請立即登入變更密碼 → 逾期會再次無法登入」,\n  避免使用者以為效期被延長了數個月而不去改密碼\n- 知情通報信主旨改為「帳號已暫時解鎖，請儘速變更密碼」\n- Discord 通報在效期未調整時顯示「未調整（本來就沒到期）」\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "cd5eaf9f",
+          "time": "09:58",
+          "message": "fix(二審): 單筆審核不再用畫面上不同步的註解覆寫 OH_PCMT",
+          "body": "台中反映 Rule Engine 自動加的「檢體延誤超過檢驗前檢體保存時效」註解會不見。\n查台中近 7 天: 規則觸發 107 筆, 其中 17 筆事後被清空, 另有 4 筆被貼到根本沒\n觸發規則的單上; 這 21 筆的 L20 事件全部沒有 [Batch] 標記, 100% 都是單筆審核。\n\n根因: LT270 單筆審核 (isBatch=false) 會把畫面上的 #OH_PCMT 無條件寫回 ORD_HDR,\n但那是明細區共用的欄位, 勾選審核的單號未必等於右側正在顯示的那筆 —— 在清單上\n勾別列、或明細還沒載完就按審核, 就會把別筆的註解寫過去 (或寫入空字串洗掉)。\n批次審核不動 OH_PCMT, 所以只有單筆審核會出事。\n\n修正:\n- 前端 LT270 新增 PcmtForAuthorise(): 只有右側明細顯示的單號 == 要審的單號時才\n  帶註解值, 否則送空字串。Authorise_GO 與 speedMode 的 AuthoriseQueue 都改用。\n- 後端 Authorise/Authorise_V2: 空值視為「這次不動註解」才更新 OH_PCMT, 與\n  UpdateOrdHDR 既有慣例一致。二審頁本來就沒有「清除註解」功能(清除鈕是註解掉的),\n  要清註解走 LT252。\n- 後端 AuthoriseQueue: 佇列的 OH_PCMT 會被二審排程原樣寫回 ORD_HDR, 畫面沒帶值\n  時改補目前 DB 的值, 避免空值進佇列後把註解洗掉。\n- 順手: Authorise_V2 的 OH_PCMT 原本是字串拼接進 SQL (違反專案規則, 註解含單引號\n  會直接 ORA 錯), 改為參數化並補上 BindByName。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "ce4370d8",
+          "time": "09:26",
+          "message": "fix(登入): 釐清通報措辭, Discord 送不出去要留痕",
+          "body": "實測通報後發現兩處問題:\n\n1. 「本人不會收到任何通知」讀起來像本人什麼都沒收到, 但驗證碼是寄到申請時\n   當場填的信箱, 照樣寄得出去; 沒登記信箱少的是第二封「有人動了你的效期」\n   的知情通報。改成點出真正的風險: 若申請的不是本人, 本人不會知道這件事。\n\n2. SendDcAlert 是 fire-and-forget, Discord 回 4xx 完全無聲 —— 對「通報本身\n   就是資安控制」的用途來說, 靜默失敗等於控制不存在。補上非 2xx 與例外的紀錄。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "936308ef",
+          "time": "09:09",
+          "message": "feat(登入): 延長效期成功時通報資訊室 Discord, 並補資安評估文檔",
+          "body": "這支功能任何人都能對任何到期帳號發起, 而帳號本人的知情通報只在有登記 USER_EMAIL\n時才寄得出去 —— PT 人員多半沒有, 等於被冒用延期完全無人知曉。資訊室這一則是\n唯一會亮燈的地方, 訊息會標明「此帳號未登記信箱, 本人不會收到任何通知」。\n\n- AlertOpt 加 ThreadId 與 WebhookParamKey: 可指定討論串、可走自己的 webhook,\n  參數沒設定時退回 Alert_DcWebWorkURL 並自動不帶 thread_id\n  (討論串隸屬原頻道, 換頻道帶著會被 Discord 回 Unknown Channel 10003)\n- 走 SendDcAlert 而非 CoreProcess: 後者有冷卻抑制會吃掉短時間內的多筆, 這裡每筆都要留\n- 通報失敗不影響已完成的延期\n- SYS_PARAMETER 的 Alert_DcAccountExtendURL DDL 附上, 密文不進版控\n\n資安評估文檔記錄的是「為什麼選這個鬆緊度」: 盤了台北正式庫 575 個帳號,\n可被任何人發起延期的池子是 33 個(31 個只是密碼過期的在職同仁, 2 個到期未加離職星號);\n384 個離職帳號都有加 `*` 並被本功能擋下 —— 離職加星這個慣例是目前最主要的防線。\n評估過但依「方便優先」沒採用的收緊手段(過期天數上限、第二因子、拿掉密碼過期這條)\n一併記下, 哪天出事可以直接開。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "27ce3e0a",
+          "time": "08:29",
+          "message": "fix(登入): 延長效期驗證碼信不帶姓名, 主旨加時間避免信箱摺疊",
+          "body": "驗證碼是寄到申請者自己填的信箱(可為外部), 原本信裡寫帳號持有人姓名 ——\n任何人輸入別人的帳號加自己的信箱就能查到該帳號的姓名, 而「最多只能幫別人\n延效期」的風險論述並不涵蓋姓名外洩。改成只顯示帳號代號。\n\n延長完成後的知情通報信是寄到帳號本人登記的信箱, 收件人就是本人, 維持帶姓名。\n\n另外主旨加上申請時間 (HH:mm): Gmail/Outlook 會依主旨把連續申請的信摺疊成\n同一串, 使用者展開後容易複製到已作廢的舊驗證碼。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8d1355ba",
+          "time": "07:51",
+          "message": "feat(登入): 新增帳號效期自助延長,驗證碼可寄外部信箱",
+          "body": "帳號到期時,原本只能走「忘記密碼」,而忘記密碼硬性比對 USER_ACCOUNT.EMAIL,\nPT/工讀人員沒有公司信箱、或忘了登記哪個信箱的同仁一律卡住,只能打電話到資訊室。\n\n登入頁另開「延長效期」:輸入帳號與任一可收信的信箱(允許外部),系統寄 6 碼一次性\n驗證碼,驗證通過只延長帳號效期,不變更也不寄出密碼 —— 使用者仍以原本的帳號密碼\n登入,進站後自行變更密碼。寄到外部的只有一串隨機碼,非本人操作最多只能幫別人延期。\n\n- EXPDATE 延到隔天 23:59:59;PWD_EXPDATE 若也已過期,一併給 3 天緩衝,\n  否則延完仍會被 LoginPost 的 PWCHANGE 分支擋在門外,等於沒解決問題\n- USER_STATUS 只在「確實因到期被設為 S」時解除;人為停用/離職/鎖定/PWDFC 一律擋下\n- 驗證碼存 SHA256(USER_ID:CODE) 不存明碼,15 分鐘失效、錯 5 次作廢,\n  同帳號 15 分鐘 3 次、同 IP 1 小時 10 次;重新申請會作廢舊碼\n- 延長完成寄知情通報到帳號登記的信箱(含時間與來源 IP),並寫 LisWebLog\n- 申請/驗證全程寫入 USER_ACCT_EXTEND 作為稽核軌跡\n- AppSettings EnableAccountExtend 為 kill switch,設 false 連入口與 API 都關閉\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "88f7ab22",
+          "time": "09:22",
+          "message": "feat(music): 🔊 一首一首調音量——拉齊之後還是不對的那幾首",
+          "body": "自動拉齊量的是整首的平均響度，量不到「這首人聲特別小、只有鼓很大」，\n所以拉齊之後仍然會剩幾首在辦公室裡偏大或偏小。「播過」與「mp3 庫」\n每一列多兩顆 🔉 🔊，一按 ±1.5 dB（約兩成），上下各四格。\n\n- 走的是自動拉齊同一條兩趟 loudnorm，只是目標換成「標準目標＋偏移」：\n  真峰值上限（TP=-1.5）照舊由 ffmpeg 守著，所以推大聲不會削波，\n  而不是把波形乘一個倍率頂出去\n- 偏移接在記號後面（argus-loudnorm I=-16 gain=+1.5），前半段原封不動，\n  所以背景那條照樣認它「做過了」——不會隔天把人家調的音量默默壓回去\n- 排在待播清單上的不給調：那份檔正是電視等一下要串的東西，換在串到一半\n  就是半首歌。剛播完的會立刻出現在「播過」，在那裡調不用等\n  （跟 cache/delete 同一條規矩，伺服器與面板各擋一次）\n- 每按一次就是一次有損重壓，所以有上下限（GainMaxDb 預設 ±6 dB）。\n  到頂了還嫌小聲，那是電視音量該解決的事，不是這兩顆鈕\n- 新加一道閘門：同一時間只准一支 ffmpeg 動檔案。背景補響度跟有人按鈕\n  可能同時看上同一首，兩邊會搶同一個 .normalizing 暫存檔\n- 面板上那一列標出偏移量（+1.5 dB）。值來自正規化器的記憶而不是檔案標籤——\n  為了列一份三百首的清單開三百次 ffmpeg，那份清單就不用列了\n\nAPI：POST /api/music/gain（{videoId} 或 {name} ＋ steps，正大聲負小聲）。\n\n順帶收進來：mp3 庫清單改成翻頁（一頁 40 首）。以前只列前 60 首，\n第 61 首之後在這個介面上等於不存在——快取裝得下幾百首，看不到的那段才是常態。\n\n實測（本機 ffmpeg ＋測試音檔）：+1 格後檔案量到 -14.5 LUFS、記號寫成\ngain=+1.5；連按到頂停在 +6 dB（-10 LUFS）並回「已經調到最大」；調回 0\n記號恢復乾淨；正在待播的那首被擋下來；背景巡邏 40 秒沒去動被調過的那份。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3fbb796f",
+          "time": "08:18",
+          "message": "feat(music): 🔁 自動續攤——清單空了電視自己接下一首",
+          "body": "最後一首播完到有人發現、有人去點，中間那段安靜沒有任何人受益。\n開關打開後，待播清單一空，電視就自己從「已撥」隨機撈一首回來接著播。\n\n四個決定：\n\n- 動手的是電視不是伺服器：現在該不該有音樂（全綠？午休？靜音？有沒有人\n  開著電視）只有播放端答得出來。伺服器自己排的話，半夜、週末、警報中都會\n  把檔案從已撥搬進待撥，那時沒有人在聽，歌卻已經被算成播過一次\n- 開關存成檔案（待撥隔壁的「自動續攤.on」，內容寫著它是什麼）：記憶體的話\n  上版、重開機會安靜地關掉，而沒有人會把那天的安靜聯想到那次重啟\n- 一次只撈一首：撈三首等於幫大家決定接下來半小時聽什麼\n- 只在平日 08:00-18:00 自己撈：少了這條，這顆開關的意思會變成「從今以後\n  永遠放」，而會想起它的時候都是想打開它的時候\n\n撈不到（已撥空了、剩下的都在撥不了名單）休息 60 秒並把理由寫在音樂列上：\n「開著卻安靜」跟「根本沒開」長得一模一樣，要查的東西卻完全不同。\n撈到之後等清單重抓回來才放行下一次——只靠 mLastFetch=0 的話，開頁前 30 秒\n會被 musicTick 的節流攔住，於是連撈兩首（headless 實測到，已修）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "218774c9",
+          "time": "10:16",
+          "message": "skill: flutter-phone-deploy — Flutter App 推到實機",
+          "body": "把今天在 honey-mishears 實跑過的流程收成 skill：\nflutter devices 確認 serial → build apk --release → install -d → adb monkey 啟動。\n\n記下兩件當場才知道的事：\n- build.gradle 有 `hasReleaseKeystore ? release : debug` 的三元判斷時，\n  缺 key.properties 也打得出 release APK（自動退回 debug 簽章），\n  所以裝自己手機不必先生上傳金鑰——但那種 APK 不能給別人裝\n- Samsung 雙profile 會讓 pm list packages 噴 SecurityException user 150，\n  是雜訊，安裝其實成功了\n\n抓不到手機的情境不在這支裡處理，轉既有的 android-device-connect。",
+          "category": "其他"
+        },
+        {
+          "hash": "160b30cb",
+          "time": "08:15",
+          "message": "feat(skill): android-device-connect — Android 實機連線診斷",
+          "body": "重點是判讀表：單看 adb devices 是空的，分不出線壞了還是設定沒開；\n合併 Windows PnP 清單才判斷得出來（只有 WPD = USB 偵錯沒開，\n兩端都沒有 = 線材問題）。S23 實測，含 Samsung 把「組建編號」藏在\n軟體資訊裡的差異。\n\n附 check-android-device.ps1 直接跑出結論（存檔需保留 UTF-8 BOM）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "87755cb5",
+          "time": "09:57",
+          "message": "docs: 轉入LIS 跳錯誤頁的根因與除錯路徑(ADD_ITEM 回空清單)",
+          "body": "2026-09-22 同仁反映 0235 轉入 LIS 跳錯誤頁。查出來是長年既有問題，\n不是當天上的 v9.22 造成的 —— 伺服器事件記錄裡同一個例外有 29 筆，\n最早回溯到 2026-01-30，橫跨四個站台。\n\n根因是 ADD_TEST_ITEM 有一條 UTI_UCL 沒加引號(0235 的 `2081,P215`)，\n被原樣拼進 `UCL_CODE in (...)` 後 SQL Server 把 P215 當欄位名而拋錯,\ngetDataTable 吃掉例外回 null，ADD_ITEM 走「傳一個空的LIST」的早退,\n呼叫端下一行直接取 [0] → ArgumentOutOfRangeException，且不在任何\ntry/catch 內 → Error_Log 沒紀錄、IIS log 只看到 customErrors 的 200。\n\n資料已修(全庫恢復 0 筆壞規則)，程式面的空清單地雷另開 MR。\n\n文件也記下這類「跳錯誤頁但 Error_Log 沒東西」的查法：\nDCOM/RPC 連不上時，改用 SMB 把 Application.evtx 抓回本機再\nGet-WinEvent -Path 解析，順便能用歷史發生時間判斷是不是新版造成的。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "honey-mishears",
+      "commits": [
+        {
+          "hash": "6e050e59",
+          "time": "11:53",
+          "message": "docs: 上架盤點與隱私政策草稿，並補上裝置識別碼的顯示",
+          "body": "盤點的結論是上架前卡在工具鏈：Play 從 2026-08-31 起要求新上架與更新\ntarget API 36，而且 target 35 以上必須支援 16 KB memory page size。\n兩件都不是改數字能解決的——compileSdk 36 要 AGP 8.9+，16 KB 對齊要靠\nFlutter 引擎重新編譯過的 .so，而專案用的 3.19.6 是 2024 年 4 月的版本。\n所以路徑是先升 Flutter 到 3.47.5。play-release.md 列了預期會壞的地方\n（withOpacity、rive、speech_to_text）以及 android/ 那些不能丟的客製。\n\n隱私政策草稿留了兩個 <> 要填。順手補上設定面板顯示裝置識別碼並可複製：\n政策承諾「可以要求刪除自己的紀錄」，而我們刻意不收任何能識別身分的東西，\n那串 UUID 就是唯一的憑據——政策上寫得到、App 裡拿不到，承諾就是空的。\n\nmanifest 的 INTERNET 註解原本寫「改成強制離線辨識可移除」，\n現在逐字稿回傳也要用它，照著做會把上傳弄壞。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d1db8aa2",
+          "time": "11:34",
+          "message": "feat: 取名環節，以及看場合的台詞",
+          "body": "取名跟諧音梗一樣全部走設定檔（naming 區塊）：觸發語、台詞、她會把名字的\n哪個字聽錯都不必動程式。沒有名字是合法狀態——她主動問可以被打發，打發兩次\n之後就不再問，只留關鍵字與長按標題兩個入口。\n\n順便讓規則可以寫 linesWhen：key 是她上一個狀態的規則 id，特殊 key repeat\n代表同一條梗連續命中；對不上就退回 lines，所以舊規則完全照舊。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "afcea293",
+          "time": "11:33",
+          "message": "refactor: 梗圖鑑改叫「我們的回憶」，解鎖紀錄通用化",
+          "body": "改名不只是換字。成就／圖鑑是系統在對玩家講話，冷的、要收集滿的，\n看到 3/4 只會想把剩下那個清掉；回憶是她在跟你講一起做過的事，\n沒集滿也不欠誰。同一份資料，換個名字就換掉整個語氣。\n\n鎖著的那幾則語氣跟著對了：在圖鑑的框架下它們是待解的謎面，在回憶的\n框架下就是還沒發生的事。一則都還沒有的時候也不再報 0／n——那是進度條\n的語氣。圖示從鎖頭換成刪節號，同樣的理由。\n\n儲存從綁在 rule id 上換成通用的回憶 id（rule: / milestone: 前綴），\n因為取名要算一則回憶，而它不是梗、沒有關鍵字、不會觸發姿勢。\nhome_page 留了追加那一筆的位置，等取名功能進來接上；現在先不放，\n列一則使用者還碰不到的回憶只會讓人找不到路。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "重構"
+        },
+        {
+          "hash": "859ae248",
+          "time": "11:29",
+          "message": "feat: 逐字稿回傳（只有文字，預設開、可關）",
+          "body": "目的很窄：知道哪些話掉進了「聽不懂」，好決定下一個梗加什麼關鍵字。\n走 Supabase 的 PostgREST，用 http 打就夠，不必加 SDK，APK 不變大。\n\n刻意不收的東西寫在 transcript_record.dart 的類別註解裡，並且有測試盯著\n「欄位只該有這六個——多一個就是多收資料」：沒有音檔、沒有她的名字、\n沒有明牌號碼、沒有裝置型號或 Android ID。識別碼是本機產生的 UUID v4，可重設。\n\n同意機制是預設開 + 三件配套：首次啟動告知一次（「不要傳送」與「知道了」\n同等大小，不是一行小字）、右上角設定隨時可關、關掉就連還沒送出的一起刪。\n留著等下次開啟才送等於沒有真的尊重那個關閉動作。設定面板同時列出待送內容——\n只給開關不讓人看內容，等於要使用者憑信任。\n\n金鑰走 --dart-define 不進版控（repo 是公開的，anon key commit 上去\n等於貼在網路上）。沒帶就整套靜靜不做事，這是刻意的預設。\nSupabase 建表與 RLS「只給寫不給讀」的政策見 docs/telemetry.md——\nanon key 會被拆出來，那條政策是唯一的防線。\n\nREADME 的離線宣告跟著改：回應邏輯仍然離線，但不能再讓人以為什麼都不出去。\nPlay 的資料安全性表單原本寫「不上傳、不儲存」，現在要分成錄音（仍不蒐集）\n與使用者產生的內容（有蒐集）兩塊填，隱私政策也從選配變必填。\n\nhome_page 的 hook（一行 record + 設定鈕）還在工作區沒 commit：\n那支檔案同時有平行 session 的取名功能 277 行，而我的 hook 長在他們的\n程式裡面，拆不開。等那邊落地時一起進。所以這個 commit 的狀態是\n「管線接好了但還沒人呼叫」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "391753a5",
+          "time": "11:13",
+          "message": "feat: 玩法清單改成梗圖鑑，新增房間梗與晾太久自己滑手機",
+          "body": "玩法對話框原本把每條規則的關鍵字、聽成什麼、會做什麼全列出來，\n點一次就等於把笑點先講完。改成圖鑑：只攤開觸發過的梗，其餘只給\n設定檔裡新的 hint 欄位當謎面，解鎖狀態用 rule id 存起來。\n長按標題整本翻開——開發時要對著關鍵字清單測辨識，那條路不能因為\n藏梗一起封掉；語音診斷也收到同一個手勢後面，不再擋在使用者面前。\n\n新梗「去房間」被她聽成「去房間坐」，於是真的坐上床，手擺在腿上\n等你下一句。床拆成前後兩層畫：角色只畫到膝蓋以上、根本沒有腿，\n「坐著」整個是靠棉被那層遮出來的。被子高度調過兩輪，蓋到腰會變成\n躺在床上要睡了，那是完全不同的畫面。\n\n晾滿 45 秒她會自己滑手機（時間與台詞都在設定檔，設 0 就關掉）。\n這條刻意不進圖鑑：圖鑑是「你做了什麼」的紀錄，滑手機是「你什麼都\n沒做」的後果，列進去就從撞見變成功能說明了。\n\npubspec 補上 shared_preferences——wife_identity.dart 已經進版控但\n相依沒有，main 目前 flutter analyze 不會過。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c1263cce",
+          "time": "11:05",
+          "message": "feat: 換一套衣服，並加上「抱緊我 → 包緊我」的梗",
+          "body": "衣服原本整身同一個粉色，看起來就是一塊布——沒有腰身也沒有層次。\n改成奶油色上衣 + 玫瑰色吊帶裙：圍兜、吊帶、兩顆釦子、彎的腰線。\n圍兜順便呼應打掃那個梗，她本來就該是這身。\n\n過程中兩個看圖才發現的問題：\n- 奶油色跟膚色明度太接近，肩膀跟手臂糊成一團淺色\n  → 上衣暗部壓深一階，袖口線改用專門的 _blouseLine\n- 腰線畫成水平直線像把人橫切一刀 → 稍微往下彎\n\n新梗 bundled：「抱緊我」聽成「包緊我」，她去換上薰衣草色厚外套、\n圍上圍巾包到只剩眼睛。上衣、吊帶裙、外套共用同一條剪影 _garmentPath，\n差別只在裡面怎麼分色，所以加一套衣服不用重畫輪廓。\n外套刻意換色系——房間跟她原本的衣服都是粉的，同色系看不出「多穿了一件」。\n\n規則排在 lottery（抱一個→報一個）前面。「抱緊我」不含「抱我」所以\n現在不會互搶，但以後有人往 lottery 加「抱」開頭的關鍵字時，順序是唯一的保險。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b9ab1db8",
+          "time": "10:50",
+          "message": "fix: 敷臉改成白色片狀面膜，綠泥那版太恐怖",
+          "body": "整張臉塗成綠的、眼睛蓋兩片小黃瓜，配色再怎麼調都是恐怖片。\n改成白色片狀面膜：挖眼洞與嘴洞，眼睛在洞裡閉著，嘴角微微上揚。\n也更接得上她那句台詞「你要不要也來一片」。\n\n白面膜第一版仍然有點陰森，拿掉的是幾個「為了更寫實」加的細節：\n- 兩側各一道皺褶，看起來是從眼睛流下來的淚痕\n- 斜向的一道高光（本意是「面膜剛敷上是濕的」），看起來是一道裂痕\n- 眼洞與嘴洞的描邊太粗，像戴了護目鏡\n另外把嘴從一條平線改成微笑——閉眼配平嘴等於「沒有表情」，\n那比任何顏色都更容易讀成陰森。\n\n程式與文件裡描述外觀的地方一起更新（character_pose 註解、Rive 契約的\nMask 狀態與佔位角色對照表、角色圖 README、生圖 prompt 的動作句）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "e847fec0",
+          "time": "10:22",
+          "message": "feat: 舞台加上房間背景",
+          "body": "原本角色浮在一片粉色漸層上。加了 RoomPainter：牆面漸層、踢腳板、\n木地板接縫、左側的窗（含簾桿與一片窗簾）、右牆的掛畫、腳下的地毯、\n角落的盆栽。\n\n尺寸算法跟 WifePainter 不同——舞台是 Expanded、會隨手機變，\n所以房間所有座標都用畫布比例算，不能寫死像素。\n\n擺位原則是中間整條留給角色與明牌卡，家具只放兩側；顏色刻意壓低對比，\n深色只留給地板接縫。背景搶戲的話這個 App 就白做了。\n\n原本那圈粉色光暈換成米色：房間畫進來之後它的作用從裝飾變成把角色從牆面\n拉開一層，不然人跟背景會黏在一起。地毯也是同個道理，沒有它她看起來像浮著。\n\n畫的過程照樣是渲染出來看著改：\n- 窗簾一開始只有窄窄一條、沒有簾桿，看起來像插了根粉色棍子\n- 盆栽的葉子用細長曲線畫，三片看起來是三根草 → 改成杏仁形並加葉脈\n\n預覽工具跟著補一組「整個舞台」的輸出（stage_idle / stage_clean）：\n角色單獨看起來對、擺進房間卻被家具卡到或跟牆同色是常有的事。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c5652223",
+          "time": "10:11",
+          "message": "feat: 佔位角色改成向量繪製，五官與衣著重畫",
+          "body": "原本的她是圓角方塊堆出來的——臉是圓形、眼睛是兩根膠囊、掃把是 emoji，\n只夠看出狀態，說不上好看。改成 WifePainter 用 Path 與漸層畫：\n髮型走貝茲曲線並帶髮流與髮際高光、動漫式大眼含虹膜漸層與雙高光、\n洋裝有肩線與袖口、掃把是畫出來的（握把＋束口＋鬃毛）。\n\n過程中真的把每個姿勢渲染出來看過，改掉的問題有：\n- 泡泡袖用兩顆橢圓畫，在這個頭身比下看起來像胸前掛了兩球\n  → 改由裙身輪廓自己收出短袖，袖蓋吃同一條漸層才不會變成亮補丁\n- 上眼線用描邊畫，兩端一樣粗，外眼角像貼了根觸角\n  → 改成填色的月牙，中間厚兩端收尖\n- 瀏海分線收成尖角，像被剪壞 → 分線頂端改成圓角\n- 後髮下襬比肩線寬，兩側露出細長暗色尖角 → 收進肩線內、同時加寬肩線\n- 泥膜平塗整張臉會從瀏海分線露出一片綠（像頭盔），\n  切在髮際線又會出現一條水平線（像泡在水裡）→ 上緣改用透明漸層收掉\n- 問號本來用 TextPainter 畫 '?'，缺字時會變實心方塊\n  （flutter_test 的 Ahem 字型就是這樣，裝置換 fallback 也可能歪）\n  → 改成自己畫 Path\n\ntool/render_character_preview.dart 是上面那輪迭代用的工具，一起留著：\n`flutter test tool/render_character_preview.dart` 會把六個姿勢輸出到\nbuild/character_preview/。放 tool/ 而不是 test/，所以 flutter test 不會掃到。\n下次調座標前先看圖，不要憑想像改。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "0247dd85",
+          "time": "09:48",
+          "message": "docs: 補上語音辨識的踩坑紀錄，並修正 README 被實測推翻的說法",
+          "body": "語音這條線的知識原本只存在 commit 訊息裡。四個坑的共同點是\n「錯誤訊息指向錯誤的方向」，不寫下來換台手機或換人接手一定會再踩。\n\n- 新增 docs/speech_recognition.md：整條鏈路、S23 實測數據、四個坑\n  （錯誤偽裝成裝傻／zh_TW≠cmn-Hant-TW／語系錯會安靜退回 en-US／\n  辨識器獨占資源漏放）、logcat 判讀表、Vosk 的取捨\n- README 修正：原本寫「多數手機會走 Google 線上辨識」，實測 online 是空的；\n  原本叫使用者自己去翻系統設定，現在 App 內就能下載\n- 新增 .claude/CLAUDE.md：改 Dart 要 analyze 不能只 test、\n  install 不會因 build 失敗而中止、新增 CharacterPose 的四個修改點、\n  明牌聲明不可移除、平行開發用 worktree\n- .gitignore 排除 .claude/settings.local.json\n\n前一版文件曾主張「Vosk 是唯一能出貨的做法」，那是基於坑 2 的錯誤判斷，\n文件裡已標註收回。",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "fe973b0d",
+          "time": "09:43",
+          "message": "fix: 補上辨識器洩漏與按住/放開的競態，語音辨識實機跑通",
+          "body": "實機驗證通過：SODA 以 cmn-Hant-TW 啟動、持續收音 2.4 秒、\nonStartOfSpeech → handleFinalResult 都有，角色會做出反應。\n\n兩個互相掩蓋的 bug：\n\n1. 辨識器洩漏 → ERROR_RECOGNIZER_BUSY\n   裝置端辨識器是獨占資源。check()/download() 的 destroy() 只寫在部分\n   callback 裡，關掉面板或下載停在 onScheduled 就留下殭屍，之後所有\n   startListening 都回 busy，而且重開 App 也不會好（卡住的是系統服務側）。\n   - Kotlin 改由單一 liveRecognizer 欄位持有，releaseRecognizer() 統一釋放\n   - check() 加 10 秒保險，callback 不回來也一定放掉\n   - 新增 release method；Dart 在 listen 前與面板 dispose 時呼叫\n\n2. 按住/放開競態 → error_client\n   第一次按下要跑 權限→初始化→查語系→收音，暖機一兩秒；使用者在暖機中\n   放手時，程式會在 start() 回來的瞬間 stop()，換來 error_client，\n   連按再撞 busy，而錯誤訊息說的是「辨識服務忙碌中」。\n   - 暖機（查語系）提前到 App 啟動，不需要麥克風權限\n   - 暖機中放手就不 start；已 start 的改 cancel()，並以提示而非錯誤呈現",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "6d7f92dd",
+          "time": "09:38",
+          "message": "docs: Rive 契約補上三層渲染器的優先序",
+          "body": "加了圖片角色之後，「素材沒好就用佔位角色」這句話不再正確——中間多了一層。\n把優先序寫清楚：Rive > 圖片 > 佔位，wife.riv 放進去就蓋過圖片角色，\n不必先把 PNG 刪掉。\n\n另外註明呼吸與歪頭是 CharacterMotion 套在外面的，圖片角色吃、Rive 角色不吃\n（動作全由狀態機負責，不會被外面再轉一次）——這點綁定時弄錯會變成轉兩次。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "35d83ca8",
+          "time": "09:24",
+          "message": "docs: 六張角色圖的 prompt 包，並補上渲染器切換的測試",
+          "body": "docs/character_prompts.md 是可以直接複製貼上的 prompt：一段固定的角色設定\n（配色取自 AppTheme，讓她跟介面同一組色）加六句動作描述。設定段每次都貼\n一模一樣的，六張才會是同一個人——這是形象一致性唯一靠得住的做法。\n另含負面 prompt、去背提醒、以及生完要檢查的五件事。\n\ncharacter_stage_test 守的是「素材放進去就會生效」這條路：素材掃描需要真的\nasset 檔測不到，但掃完之後由誰來畫是純邏輯。順便測缺圖退回 idle 的行為，\n確認它不會去要一張不存在的圖。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1f7dd84b",
+          "time": "09:13",
+          "message": "fix: 辨識語系改用辨識器自己的寫法，不要送 speech_to_text 的 zh_TW",
+          "body": "語言包裝好後仍然失敗，log 顯示 SODA 是拿 en-US 啟動的：\n送進去的 zh_TW（底線）ASI 解析不了，會安靜退回預設語系 en-US，\n再因為 en-US 沒裝而丟 LANGUAGE_PACK_ERROR——錯誤訊息指向\n完全錯誤的方向，跟「中文沒裝好」長得一模一樣。\n\nzh_TW vs cmn-Hant-TW 這個坑上一輪只修了「查詢」側，漏掉「辨識」側。\n\n- _resolveLocaleId 第一順位改問 checkRecognitionSupport 的已安裝清單，\n  直接用裝置自己的寫法（cmn-Hant-TW）\n- 退路仍走 speech_to_text 的清單，但底線一律換成連字號\n- AppConfig.preferredLocalePrefixes → preferredLocale（'zh-TW'）\n- 加 log 印出最後送給辨識器的語系，下次一眼可定位\n\n⚠️ 尚未實機驗證。",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "b541e4ab",
+          "time": "09:09",
+          "message": "feat: 角色渲染改成三選一，鋪好換 AI 形象的路",
+          "body": "原本 CharacterStage 用 bool useRive 二選一，兩種渲染器還夠用、三種就不行。\n改成 CharacterRenderer enum，啟動時掃一次素材決定優先序：\nRive（會動）→ 圖片（好看但不會動）→ 佔位角色（永遠可用的保底）。\n\n圖片角色要的只是去背 PNG，丟進 assets/character/default/ 就自動生效，\n缺圖的姿勢退回 idle.png，所以素材可以一張一張補；連 idle 都沒有就整組\n不啟用。素材偵測走 AssetManifest 而非逐張 rootBundle.load——後者會把整張\nPNG 讀進 cache，只為了問「在不在」太貴。\n\n順手把呼吸與歪頭抽成 CharacterMotion 給兩種渲染器共用。原本那張傾斜表\n只存在於佔位角色裡，mask 加進來時就漏掉了沒補；集中之後新增姿勢只要改\n_tiltFor 一處，兩邊同時生效。PlaceholderCharacter 因此從 StatefulWidget\n變成 StatelessWidget，掃把改吃 builder 傳進來的循環值。\n\ncharacter_image_asset_test 守的是檔名契約：檔名跟的是 enum 名稱而非 Rive\ntrigger（listening/confused，不是 listen/confuse），寫 asset README 時就\n先踩過一次，讓測試擋住下一次。\n\ndocs/character_art_roadmap.md 記錄為什麼不即時生圖（一致性、離線定位、\n延遲）以及未來捏人要做成 Rive input 而不是分層貼圖的理由。\nREADME 同時補上先前 mask 功能漏掉的「你好 → 泥好」那一列。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "51e7b1a7",
+          "time": "09:09",
+          "message": "feat: App 圖示與啟動畫面，造型沿用佔位角色",
+          "body": "用 tool/generate_app_icon.py 產生全套 Android 圖示：舊版方形 ic_launcher、\nAPI 26+ 的 adaptive icon（前景/背景分層）、API 33+ 的 themed icon 單色層，\n以及上架用的 512px playstore 圖。造型取自佔位角色、配色取自 AppTheme，\n讓桌面上的她跟 App 裡看到的是同一個人。\n\n啟動畫面底色改成 AppTheme.cream（#FFF6F0），原本是白色，\n開 App 的瞬間會先閃一下白再跳到粉色，現在第一幀就接得上。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ca2c655e",
+          "time": "09:04",
+          "message": "fix: 語系比對把 zh_TW 與 cmn-Hant-TW 當成兩種語言",
+          "body": "實測 S23 回報 supported 含 cmn-Hant-TW、installed 為空——中文是下載得到的，\n這台手機只是一個離線語言包都沒裝。但原本的比對「去掉符號比前綴」，\nzhtw 對不上 cmnhanttw，於是判定成不支援，UI 還把這個錯誤結論\n當成事實告訴使用者，也讓我一度據此主張必須改用 Vosk。\n\n- 改成拆 語言/文字/地區 三段比對，zh 與 cmn 視為同一語言，\n  缺的段落視為通配而非不相等\n- 新增 deviceTagFor()：下載與辨識一律送裝置自己的寫法，\n  用 zh_TW 去要模型系統不認得\n- blocked 訊息改列 supported 而非 installed（後者永遠是空的，沒有資訊量）\n- 6 個迴歸測試，直接拿 S23 實測回報的清單當測試資料\n\n另修：check() 加 8 秒逾時，避免 callback 不回來時卡在「檢查中」；\n      check/download/事件全部寫進 logcat，不必再靠口述螢幕內容。",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "0c2015e6",
+          "time": "08:53",
+          "message": "feat: App 內引導下載中文語音包，不再丟使用者去翻系統設定",
+          "body": "缺語言包是這支 App 目前唯一「使用者自己修得好」的錯誤，但修的路徑\n埋在系統設定三層選單底下——查這個問題時我們自己也找了很久，\n不能指望一般使用者。\n\nspeech_to_text 沒有包 Android 13 的這組 API，所以加一層 platform channel：\n- checkRecognitionSupport() → installed / pending / supported / online 四份清單\n- triggerModelDownload()    → API 34 以上經 EventChannel 回報下載進度\n- 退路 openVoiceInputSettings()：API 33 以下或語言不在可下載清單時用\n\nUI 五個狀態：檢查中 / 缺語音包 / 下載中 / 完成 / 不可能。\n最後一個會列出這台裝置實際有的離線語言，讓「下載也沒用」這件事\n當場講清楚，而不是讓人按半天才發現。\n\n⚠️ 平台層行為無法由 flutter test 或模擬器驗證，需實機確認。",
+          "category": "功能開發"
+        },
+        {
+          "hash": "f59f84c3",
+          "time": "08:42",
+          "message": "fix: 辨識失敗不再偽裝成「聽不懂」，並加上語音診斷面板",
+          "body": "S23 實測：ASI（Android System Intelligence）沒有中文語言包，直接回\nerror_language_unavailable。但原本的流程讓引擎錯誤走進 fallback，\n畫面歪頭裝傻，跟「有聽到但沒命中關鍵字」長得一模一樣——\n看起來像「她沒反應」，實際上是壞了，往錯方向查了很久。\n\n- 引擎報錯且沒有任何逐字稿時，誠實顯示原因，不走裝傻分支\n- 錯誤代碼翻成人話（語言包、連網、麥克風被佔用…）\n- ❓ 對話框加診斷區塊：引擎狀態／實際語系／可用語系／最後錯誤\n- 修 locale 挑選：原本「取第一個 zh 開頭」會誤中 zh-CN，\n  改為 台灣中文 → 任何繁中 → 任何中文 → 系統預設",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "ef925f6c",
+          "time": "08:24",
+          "message": "feat: 加入「你好 → 泥好」情境，辦公室也開得了口",
+          "body": "原本兩句都得喊「親一個」「抱一個」，同事在旁邊根本按不下去。\n「你好」是中性招呼語，隨時可以 demo，而且是最常見的中文詞，\n辨識率若連它都不行就確定是引擎問題而非詞彙問題。\n\n- 新增 CharacterPose.mask（Rive trigger: mask）\n- 佔位角色：整臉蓋綠泥 + 兩片小黃瓜\n- Rive 規格文件補上 Mask state 與轉場",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8447f78b",
+          "time": "08:04",
+          "message": "test: 補上關鍵字比對與明牌產生器的單元測試",
+          "body": "- MishearEngine：命中、包含比對、標點正規化、fallback、台詞來源\n- 額外驗證實際 JSON 設定檔可解析且每個情境都有 3 句以上台詞\n- LotteryGenerator：跑 200 輪驗不重複／已排序／落在 1~49／特別號不撞號\n- 依 Gradle 要求把 ndkVersion 釘在 25.1.8937393（rive_common 需要）",
+          "category": "其他"
+        },
+        {
+          "hash": "f76a7895",
+          "time": "07:57",
+          "message": "feat: AI 老婆 MVP — 語音裝傻互動的完整流程",
+          "body": "按住說話 → speech_to_text 轉文字 → 關鍵字比對 → 切換角色動畫與台詞，\n全程離線邏輯（不使用任何語言模型）。\n\n- 諧音梗抽成 assets/config/mishear_rules.json，新增梗不用改程式\n- 角色分兩套實作吃同一組 CharacterPose：Rive 素材存在時自動切換，\n  否則走純 Flutter 繪製的佔位角色\n- 麥克風權限含「拒絕」與「永久拒絕」兩種引導，後者導去系統設定\n- 明牌畫面內建「僅供娛樂、隨機產生」聲明以符合 Google Play 規範\n- Android 設為 compileSdk/targetSdk 34、minSdk 21，release 走 R8，\n  簽章由不進版控的 android/key.properties 驅動\n- docs/rive_state_machine.md 為美術端的狀態機規格契約\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "2782e53a",
+          "time": "07:28",
+          "message": "Initial commit: README and .gitignore",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 23
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "38c99cbc",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-22",
+          "body": "🤖 自動生成於 2026-09-22 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "1bd7437d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-21 (35 commits)",
+          "body": "🤖 自動生成於 2026-09-22 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "383b253d",
+          "time": "08:17",
+          "message": "feat: 作品集新增 AI 老婆 honey-mishears",
+          "body": "id 44，分類 fun，只掛 GitHub 連結（Android App 無 web demo，比照 id 41）。\n文案帶出刻意不接語言模型的純關鍵字比對、諧音梗外置成 JSON 不改程式碼、\nRive 狀態機＋Flutter 佔位角色，以及明牌畫面的娛樂性質聲明。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 28,
+    "sideCommits": 26,
+    "totalCommits": 54
+  }
+}
