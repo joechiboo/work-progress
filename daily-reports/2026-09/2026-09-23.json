@@ -1,0 +1,494 @@
+{
+  "date": "2026-09-23",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "83037c7d",
+          "time": "19:28",
+          "message": "docs: UNIT_REDIRECT 連到分部部署檢查清單",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6371b566",
+          "time": "19:28",
+          "message": "docs: 分部部署前的資料表檢查清單＋結構比對腳本",
+          "body": "目前服務只在台北運作。改轉單位規則新增 OrderInSql_UnitRedirect 表，分部不會自動有，\n而服務對缺表是 fail-closed（檔案進隔離區）。整理服務依賴的 WebOrder／Oracle 物件，\n並附唯讀腳本：台北與分部各跑一次、diff 表是否存在與欄位結構（同名表欄位不同才是常見的坑）。\n已在台北 WebOrder 實跑：6 張既有表 OK，新表尚未建（10/8 建）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "35167238",
+          "time": "19:20",
+          "message": "feat: 改轉單位規則改存 DB＋GUI /redirect（預設仍讀 txt，10/8 切換）",
+          "body": "TransferUCLCode 的「檢體標示 → 目標單位」對照原本只能改 txt，且套用不留痕跡\n（2026-09-23 1088 對照檔放錯地方、零警示）。本 MR：\n\n- Core/Redirect：IUnitRedirectSource（File＝原 LoadTransferMap 搬移、行為不變；\n  Db＝WebOrder.OrderInSql_UnitRedirect）、預覽（讀原檔第 24 欄分布，含混單偵測）、存檔前檢查\n- ExcelOrderFileAdapter：改由注入的來源取規則；有改轉就寫 log；讀取失敗擲例外進隔離區\n- Service/Redirect：UnitRedirect:Source（File 預設／Db，打錯字啟動即失敗）、\n  EditAccounts（留空＝沒人能改）、Discord 通知；/api/redirects 四支端點\n- 頁面 /redirect：必經預覽、警告勾選確認、只能停用不能刪除；其他頁導覽列各加一行\n- MessLog 稽核用 ProgCode=OrderInSql_UnitRedirect（避開流量統計）\n- tools/unit-redirect：建表、txt 規則匯入＋對帳\n- 已知分歧（未修，預覽會警告）：同一張單有轉有不轉時只有一張主檔，見 UNIT_REDIRECT.md §4.1\n\n驗證：測試 518/518；WebOrder_Test＋本機服務實跑預覽、存檔、稽核，\nFile 與 Db 兩種來源解析同 7 份檔結果一致。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "34dee2dd",
+          "time": "19:13",
+          "message": "feat: 「生效設定」入口改由 Gui:ShowConfigPage 控制（預設隱藏）",
+          "body": "不再直接刪連結，改成設定參數；現場要開在 appsettings.Local.json 設\nGui:ShowConfigPage=true 即可，不用改碼重建。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ac46cf43",
+          "time": "19:11",
+          "message": "chore: 導覽列隱藏「生效設定」入口",
+          "body": "Units 已只存在 appsettings.Local.json（範例改名 _UnitsSample），跨檔合併\n不再發生，本頁的核心訊號（inheritedKeys）永遠為空；且讀的是原始設定，\n看不到吃預設值的鍵。頁面與 /api/config/units 保留，網址直連仍可用。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c3fa7fdf",
+          "time": "18:50",
+          "message": "docs: 改轉單位規則改存 DB＋GUI 規格草案；登記 1088.txt 現場異動",
+          "body": "- 新增 UNIT_REDIRECT.md：TransferUCLCode 對照改存 WebOrder 新表\n  （不加在 Companys：一對多、FP 設定庫要退場），GUI 放 OrderInSql 自己的站，\n  必經預覽、名單權限、MessLog＋Discord 稽核；初期資訊室用、之後移交行政\n- DEPLOY_LOG 第 21b 列：09-23 18:40 新增 units\\unimax\\TxtTable\\1088.txt（01_2088）\n- TODO：1088 改轉 2088 驗收、回補待問\n- ELECTRONICALERT ⑥ 與 §7 MemberUnits 待決連到本規格\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b5aba60e",
+          "time": "18:41",
+          "message": "docs: .job 停用改檔後第一個觸發時點仍執行；01／05／05a 待 9/24 首班確認",
+          "body": "05 於 17:40:27 改 flags 後，17:50 仍執行一次（空轉，驗證夾無新檔），\n跑完 flags 保留 0x4、GUI 顯示已停用。停用是否生效改由 9/24 首班驗證。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5bfafce8",
+          "time": "17:46",
+          "message": "docs: 168.227 .job 停用要改 flags 不是 status；更正批次 2／4 結案紀錄",
+          "body": "9/21 停 01／05／05a 只改了 status 欄（0x41300→0x41302），flags 未設\nDISABLED bit，9/22 起照跑。影子 config＋空驗證夾，無正式影響。\n9/23 17:40 經 SMB 補正 flags 0x218000c0→0x218000c4，備份 .bak_20260923。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8873b5db",
+          "time": "16:03",
+          "message": "合併 MR !320: docs: 比對程序四條規則與反編譯 diff 判讀規則（UNIMAX 事故後）",
+          "body": "docs: 比對程序四條規則與反編譯 diff 判讀規則（UNIMAX 事故後）\n\nSee merge request ucl/twowayconnection/orderinsql!320",
+          "category": "合併MR"
+        },
+        {
+          "hash": "e19d10c2",
+          "time": "16:03",
+          "message": "docs: DEPLOY_LOG 補登 09-23 14:50 未登記部署，更正第 18 列回退目標",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "41c7fd84",
+          "time": "16:03",
+          "message": "docs: 比對程序四條規則、反編譯 diff 判讀規則、.227 exe hash 表",
+          "body": "UNIMAX 事故後訂定：結論附涵蓋範圍、白名單以欄位×單位、識別類欄位\n形狀比對、ID_TNO 分單前比；反編譯 diff 逐 hunk 標註是否影響寫入值。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0bc0efb8",
+          "time": "15:51",
+          "message": "docs: 補登 09-23 15:45 部署（試解析改版）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ffd73c30",
+          "time": "15:42",
+          "message": "試解析改版：原檔分頁移到左邊，解析結果改成與原檔同構的一列一項目",
+          "body": "- 分頁順序：原檔在左、預設開原檔（先看原檔、再看解析成什麼）\n- 解析結果由「每張單一個小表」改成一張大表：一列一個檢驗項目，同張單的病人欄位合併儲存格、\n  單與單交錯底色；欄名附原檔／資料庫欄名（NAME、Looks_DT…）方便對照；整份全空的欄省略並列出\n- 預覽多帶單位、SEQUENCE、ID_INVNO（主檔）與 Package、ID_TNO（明細）——UNIMAX 的\n  檢體標示／配號修正在預覽裡看得到\n- 預覽上限 10 → 200 張：原檔整份顯示時兩邊張數對不起來\n- 提示改白話；Excel 補一條「送驗日不讀原檔 Delivers_DT 欄，由轉入當下決定」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3cea42ef",
+          "time": "15:30",
+          "message": "docs: 補登 09-23 15:24 部署（原檔分頁欄位隱藏）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "aa4f2091",
+          "time": "15:26",
+          "message": "合併 MR !316: docs: UNIMAX 檢體標示事故 TODO（修資料完成、9/24 待辦）",
+          "body": "docs: UNIMAX 檢體標示事故 TODO（修資料完成、9/24 待辦）\n\nSee merge request ucl/twowayconnection/orderinsql!316",
+          "category": "合併MR"
+        },
+        {
+          "hash": "48b01a53",
+          "time": "15:25",
+          "message": "docs: UNIMAX 檢體標示事故 TODO——修資料完成紀錄與 9/24 待辦",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "66b03388",
+          "time": "15:19",
+          "message": "原檔分頁：欄位可用 checkbox 隱藏／顯示",
+          "body": "- 預設隱藏「資料列整欄空白」的欄（醫令檔 26 欄中常有 15 欄全空）\n- 逐欄 checkbox 收在可展開的「逐欄選擇顯示」區塊；另有全部顯示／重設\n- 設定依表頭記住（localStorage，僅本人瀏覽器；讀寫失敗即視為未設定）\n- 只有表格本身捲動，上方統計／提示／欄位開關不再跟著橫捲走\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d4657d26",
+          "time": "15:07",
+          "message": "docs: 補登 09-23 15:01 部署（UNIMAX ID_INVNO/ID_TNO 修正＋原檔分頁）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "fa0993be",
+          "time": "14:56",
+          "message": "試解析加「原檔」分頁：解析結果旁直接看檔案本身",
+          "body": "- 新增 GET /api/units/{line}/raw（唯讀）：RawFileReader 以與 adapter 相同的讀法攤開原檔\n  - Excel（依檔頭 OLE2/ZIP 判定，不看副檔名）：第一個工作表逐格、Big5 修正、日期格式同 adapter；\n    多工作表時提示只看第一個\n  - 文字：BOM 優先、否則單位 Encoding（Delimited 預設 big5、Xml 預設 utf-8），tab 以 → 標示\n  - 其他二進位：十六進位檔頭\n- 預覽對話框抽成共用 partial Pages/Shared/_FilePreview.cshtml（/alert、/lines 共用），\n  分「解析結果／原檔」兩分頁，各自快取\n- preview／raw 共用 ResolveUnitFile（線別＋檔名＋來源 → 路徑，擋路徑穿越）\n- 修正預覽提示「身分證已遮蔽中段」：實際從未遮蔽，改為「原樣呈現」\n- RawFileReaderTests 10 例\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9a7d592f",
+          "time": "14:54",
+          "message": "合併 MR !312: fix: UNIMAX 線檢體標示（ID_INVNO）與 0005 診所序號（ID_TNO）寫入錯誤",
+          "body": "fix: UNIMAX 線檢體標示（ID_INVNO）與 0005 診所序號（ID_TNO）寫入錯誤\n\nSee merge request ucl/twowayconnection/orderinsql!312",
+          "category": "合併MR"
+        },
+        {
+          "hash": "123194ef",
+          "time": "14:43",
+          "message": "docs: UNIMAX 檢體標示／配號欄位語意與 0005 修補層依賴",
+          "body": "新增 UNIMAX_IDINVNO_IDTNO.md：兩支同名 exe 的差異、第 25 欄三種語意、\n0005 三段式流程、時序風險與改動前檢查清單。更正批次 5 卡片「逐項相同」、\nPOST_IMPORT_FIXUPS §2.7「原樣寫入」的含義，CLAUDE.md 加陷阱摘要。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "48491c62",
+          "time": "14:39",
+          "message": "docs: 補登 09-23 14:33 部署（!310 收檔進度頁檔案清單＋試解析）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "996432ad",
+          "time": "14:37",
+          "message": "docs: SplitIdTno 註解更正——只有 0005 送 5 碼診所序號，其餘 UNIMAX 單位為 10 碼預取配號",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "838c9609",
+          "time": "14:29",
+          "message": "fix: UNIMAX 線 ID_INVNO 取 SEQUENCE 欄、ID_TNO 非 10 碼原樣保留",
+          "body": "9/22 切換後 UNIMAX 八家的檢體標示全寫成 `01`／`3F`（ID_INVNO 欄），\nLIS 看到的檢體標示錯誤；0005 的修補層規則（LEN(ID_TNO)=5 且\nLEN(ID_INVNO)>5）也因此命不中。\n\n根因（反編譯兩支舊 exe diff 實證）：\n- UNIMAX 跑 chansnsn_0885 exe，ID_INVNO 取 SEQUENCE 欄（第 9 欄）；\n  我方只照 ansn_1_0_0_0 移植（取第 24 欄）。新增單位選項\n  IdInvnoFromSequence=1 對應。\n- 兩支舊 exe 的 SplitIdTno 遇非 10 碼直接 return、保留原值；我方誤移植\n  成清空，UNIMAX 的 5 碼診所檢體號被丟掉。ansn 線此欄全空故無影響。\n- TransferUCLCode 未開的分支同樣要保留 Cells[25] 原值。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "9bbf71ae",
+          "time": "14:26",
+          "message": "收檔進度頁：點單位可查最近的檔案並試解析",
+          "body": "- 新增 GET /api/alert/units/{unitCode}/files?days=7：掃所有啟用線別的\n  inbox／quarantine／archive，以與進度表相同的 ResolveUnitCode 歸戶\n  （同一單位可能落在兩條線，例 0536 的 ansn 與 xevox 管道）\n- /alert 頁點單位代碼或 📄 開啟檔案清單（1～31 天），每檔可「解析」，\n  沿用既有唯讀 /api/units/{line}/preview（不寫 DB、不搬檔）\n- 轉檔路徑未變動；補 AlertRecentFilesTests 5 例\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4ec080fb",
+          "time": "10:46",
+          "message": "docs: 收錄同仁對 GUI／資料夾整併的回饋，排序與前提",
+          "body": "兩位同仁的 memo 共六件事（單位為主的簡化首頁、重轉當天檔、歸檔分單位、\nDB 記格式、inbox 併一夾、新增單位自助）。方向都接受，這裡記排序與前提：\ninbox 由上游決定，要等 6a／批次 7；歸檔是我方自己寫的，可提早評估；\n重轉已成功的檔會產生重複單、新增單位自助會撞上 Units 索引合併，都要先定規格。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b681e898",
+          "time": "09:58",
+          "message": "3b 平行驗證完成：零轉檔程式缺陷；修兩支比對腳本、補素材備製規則",
+          "body": "2026-09-23 07:41–09:23 本機回放 1,706＋6 檔、43,894 張主檔，隔離 0、ERR 0。\n差異全數歸因：php 修補層（L331 姓名、跨單位搬單、L2066 0884 病歷號、L2051 0035 身分證、\n0347／0855／0032 的同單號／同病人併單——只改 SN 不留指紋，單號層級比對 1,046／1,046、\n104／104 相同）、客戶重送（0105／0249 各 1），以及素材污染（0576：FP isBackupFile=1\n把客戶原始 .csv 備份進 TaTung_Xevox_Backup_Files，上線後 pull 讀不到）。\n\n- parallel-compare-3b.sql：時窗 @testFrom／@testTo 在 Keelung 抓到 0 筆（cre_date 為\n  date-only），改以 #replay 檔名清單為範圍\n- 新增 tools/gen-replay-files.ps1：由素材 archive 夾產生 #replay，sqlcmd -i 逗號串接執行\n- reverse-compare-3b.sql：白名單補 ⑥⑦，新增 §12 單號層級比對（否則 9/30 起每天上千筆假差異）\n- 轉移卡：第 8 項打勾、結果表、素材備製規則、ImportWorker 逐線依序處理的 9/29 注意事項\n- TODO：3b 前置十項全部完成\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c5693c11",
+          "time": "07:54",
+          "message": "fix: sync-unit-test-item 改全欄位＋NOTRAN＋驗收不過就回滾",
+          "body": "首版兩個洞，9/23 開跑前對資料查出來：\n\n1. 只 INSERT 三欄（單位／代碼／UCL），驗收雜湊也只算那三欄。補進去的列檢體別、套組、\n   檢驗名全成 NULL——而檢體別、套組正是 Keelung 對照查詢的比對鍵（先比代碼＋檢體別\n   ［＋套組 V4］，沒中才退回只比代碼）。9/23 待補 56 列中 36 列有檢體別、4 列有套組，\n   含 3b 的 0581／0165／0071／0050。三欄雜湊照樣印「相同」，錯了看不出來。\n2. 沒同步 NOTRAN_TEST_ITEM（決定 Cancel，9/23 差 18／19 列）→ §4／§5 會多出 Cancel 假差異。\n\n改成全欄位、兩張表、單一交易；以全欄 EXCEPT 兩向皆 0 為驗收，不為 0 就整筆 ROLLBACK。\n表無主鍵，刪除用 EXISTS (SELECT t.* INTERSECT SELECT d.*) 做 NULL 安全整列比對。\n\n9/23 07:3x 實跑：UNIT_TEST_ITEM 刪 25／補 56、NOTRAN 刪 19／補 18，剩餘差異 0，已提交。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 28
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "8582eb69",
+          "time": "20:29",
+          "message": "chore: session 收尾備份 2026-09-23 — honey-mishears 升級已驗證，memory 改成後續待辦",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "85a93489",
+          "time": "19:56",
+          "message": "chore: session 收尾備份 2026-09-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "dbdac1dd",
+          "time": "19:55",
+          "message": "chore: session 收尾備份 2026-09-23 — honey-mishears Flutter 升級待驗證 memory",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "b8c36afa",
+          "time": "19:46",
+          "message": "memory: 豆點高雄上線狀態（單位關，10/1 開）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2a32891e",
+          "time": "19:33",
+          "message": "chore: session 收尾備份 2026-09-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "fa6f641e",
+          "time": "18:41",
+          "message": "chore: session 收尾備份 2026-09-23 (2)",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "aacaa902",
+          "time": "17:48",
+          "message": "chore: session 收尾備份 2026-09-23（UNIMAX 事故：LIS 修資料 reference、變體 memory 更正）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a7074f95",
+          "time": "17:47",
+          "message": "chore: session 收尾備份 2026-09-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "db2c3fc1",
+          "time": "16:14",
+          "message": "chore: session 收尾備份 2026-09-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "9ed525f4",
+          "time": "08:50",
+          "message": "chore: session 收尾備份 2026-09-23",
+          "body": "- 新增 skill session-wrap（收 session 檢查清單）\n- .gitignore 排除 skills/synced/（平台自動同步的官方 skill）\n- lisweb memory：LT270 報告註解三連案（!1538/!1541/!1542/!1543）、明日台北/台中上版待辦、!1451 已 merge\n- 其他 session 累積的各專案 memory\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "1470f752",
+          "time": "15:52",
+          "message": "docs: PHP 配對工具先不下架，確認分單版可行後再處理",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0cb902d1",
+          "time": "15:45",
+          "message": "feat: 配對面板加「找候選單號」，移植 OrderMappingManager.php 的比對分析",
+          "body": "原本配對要操作的人自己知道單號(先去 LIS 查)。PHP 工具會直接列出候選，\n沒補這步的話同仁還是會回去用 PHP，無法達成「只留一個入口」。\n\n「找候選單號」到 LIS 找同單位、同一個病人(身分證號，沒有就用姓名)、\n送檢日前後 7 天的單，最多 20 張，逐張比對項目：\n- 符合度沿用 PHP：項目重疊比例 × 70 + max(0, 30 − 日期差 × 5)\n- 分列會配對的項目 / 醫令有 LIS 沒有 / LIS 多出的項目\n- 完全重疊綠底；按「帶入」填入單號並自動查核\n- 唯一候選且完全重疊時直接帶入並查核(比照 PHP 預設勾選)，仍要人按確認才寫入\n\n與 PHP 的差異：\n- 未簽收的單不會漏：LIS 未簽收的單 ID_TRX_DT 停在 9999-12-31，PHP 直接拿它\n  比日期，剛開還沒簽收的單全部找不到；改用 ID_UPDATE_ON(比照 LISWeb CodeMap)\n- 不要求至少一個項目重疊才列出：LIS 那張單可能還沒補上這個項目\n- 單位同時比送檢與 UNIT_Corr 收費單位(PHP 只比送檢，台北 180 組會查不到)\n- 沿用 PHP 的代碼特例對照 D081 ↔ 9478(只影響比對)\n\n驗證：tno-mapping.spec.js 新增 3b(LIS 單設成未簽收仍找得到、按帶入填入並查核)，\n連同原本 smoke 共 14/14 PASS。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "20f6aed5",
+          "time": "10:55",
+          "message": "合併 MR !26: feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (v9.29, CHG202609220003)",
+          "body": "feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (v9.29, CHG202609220003)\n\nSee merge request ucl/twowayconnection/uclweborder!26",
+          "category": "合併MR"
+        },
+        {
+          "hash": "4f00a928",
+          "time": "10:46",
+          "message": "chore: 版號改為 9.29(2026/09/29 下週二上線)",
+          "body": "9/25 中秋、9/28 教師節連假，改到 9/29 台北＋台中一起上。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a3adab1e",
+          "time": "10:28",
+          "message": "feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (工單 CHG202609220003)",
+          "body": "台中皓生補醫令：同一個病人 LIS 已經有一張單(分單開的、手開的、或照紙本開的)，\n晚到／補進來的電子醫令沒辦法再填同一個單號，檢驗值回不去。原本只能用 HCLAB_web\n的 OrderMappingManager.php 直接改 DB，繞過分單所有檢查。\n\n病人列多一欄「配對單號」：輸入 LIS 既有的 10 碼 → 查核 → 勾項目 → 確認。\n只更新 WebOrder：ID_TNO = 既有單號、TO_ORA = 1(= LIS 已有資料，分單不必處理 BLG)，\n不寫 Oracle。\n\n查核(確認時伺服器端再跑一次)：\n- LIS BLG_TX_HDR 要有這張單\n- 同一個病人：身分證號兩邊都有就比身分證號；任一邊沒有就改比姓名。\n  既有的改單號檢查遇到沒身分證號是直接略過，紙本單常見這種情況，照搬會變成\n  任何單號都配得上去\n- 分單系統裡這個單號沒掛在別的病人(同一個病人持有是正常的，那就是原本那張單)\n- 單位不同(比對送檢與 UNIT_Corr 收費單位)需勾確認\n- LIS 那張單沒有該項目時只警告：配對後不會再轉入，要先在 LIS 補上\n\n工具列「配對查詢/取消」：只列出最後一筆 DistAuditLog 是 MAP_TNO 的明細，\n一般轉入的不會出現也不會被改到；取消後回到未分單、LIS 不動。一般轉入要退回\n仍用「取消轉入LIS」，兩者語意不同，畫面上有寫明。\n\n配對／取消都跟 DistAuditLog(MAP_TNO / UNMAP_TNO) 在同一個交易 —— 取消配對\n要靠這筆稽核判斷來源，沒寫進去就不算配對成功。\n\n資料存取集中在新檔 DML/TnoMapping_DML.cs。評估文件(原 !24)一併帶進來並\n改寫成定案與實作說明。\n\n驗證：新增 tests/smoke/tno-mapping.spec.js(台中測試庫 1062 同一病人兩張 SN：\n正常轉入 A、LIS 不存在擋、別的病人擋、B 配對到 A 且 LIS 明細數不變、取消配對\n只列 B)，連同原本的 smoke 共 13/13 PASS。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "6a2885bf",
+          "time": "08:44",
+          "message": "fix: 加項規則查詢失敗不再讓整張單轉不進去 (v9.23)",
+          "body": "ADD_ITEM 用 getDataTable() 查加項規則，回 null 代表這句查詢「拋了例外」\n(沒有資料是另一條 Rows.Count == 0)。原本這裡 return 一個空的 List，\n呼叫端下一行就 addListString[0] → ArgumentOutOfRangeException。\n\n那個例外不在任何 try/catch 內，所以三個常看的地方都沒訊號：\nError_Log 沒紀錄、IIS log 只看到 customErrors 導向後的 200、\n畫面只有一句「執行階段錯誤」。2026-01-30 起共 29 次、橫跨四個站台、\n咬了八個月沒人查得出來。\n\n修法：\n- null 分支改成跳過該條規則並寫 Error_Log，不再 return 空 List。\n  改完 ADD_ITEM 只剩單一出口、必定回滿 4 個元素。\n- 呼叫端加防護：元素不足就記錄並視為「本單無加項」，不讓它整頁掛掉。\n\n這條早退路徑從來沒有成功回傳過 —— 每次走到都是呼叫端當場崩潰，\n所以沒有既有行為需要保留。\n\n觸發物(0235 的 ADD_TEST_ITEM 少了引號)已於 2026-09-22 修掉資料，\n但那句查詢逾時或死結同樣回 null，這裡才是根治。\n\n驗證：台中測試庫 1062 + 本機 DbOnlineReservation 副本 smoke test 7/7 PASS。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "b96cda62",
+          "time": "08:32",
+          "message": "docs: 醫令配對回單號的需求與整合評估 (CHG202609220003)",
+          "body": "台中皓生漏項目補醫令，補進來的醫令掛不回已完成的 10 碼單號，檢驗值回不去。\n李宗勳已有 PHP 工具 OrderMappingManager.php(HCLAB_web !41 v2 兩地共用)，\n評估把功能整合進分單系統。\n\n盤點結果：\n- 分單系統要把明細掛到「已存在且已轉入」的單號卡 5 關，其中第 3 關\n  (BLG_TX_HDR 已存在就擋)就是古孟畇說的「只能用在空單上」\n- 但需要的零件都在：Update_TransferredTNO 的驗證正好是「新號碼必須\n  已存在於 LIS + 同 PID + 排除同單 + 寫 DistAuditLog」，只是入口被\n  cbTO_ORA.Checked 鎖住；BLG_TX_DTL.checkDataExist 也已支援加項去重\n- 規模不大：台中近 14 天只有 1 張，故建議先做「能手動掛上去」，\n  自動配對建議等觀察實際頻率再說\n\n文件另含對 !41 的 review 建議(已另貼到該 MR)。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b7db5de7",
+          "time": "10:45",
+          "message": "feat(LT274): 依送檢單位隱藏報告附加資料中的特定註解行",
+          "body": "台中 媽媽咪亞診所(1633 自費 / 6633 健保, 同一家)來電要求: 報告不要出現\n「檢體延誤超過檢驗前檢體保存時效」, 但系統內照常保留。Rule Engine 規則不動,\nDB 的 OH_PCMT 不動, 只在產報告時過濾。\n\n- 新增 Files/ReportCommentHide.json: Sites 以 LabUniform 為 key(送檢單位代碼\n  各分部不共用), 每站列出 Clinics + HideKeywords; 目前只設台中 20395754。\n  改這個檔不用重發佈, 下一次產報告就生效。\n- 新增 Helper/ReportCommentFilter: 逐行判斷, 該送檢單位命中時只拿掉含關鍵字\n  的那幾行, 其他註解照印; 永不回 null(View 直接 .Split)。設定檔讀不到或壞掉\n  一律照原樣顯示, 不讓報告印不出來。\n- ReportController: GetPrintLT274(LT274 列印 / UCLToken PDF / PrintAIReport)\n  與 LT274E(英文版)兩處 Info.addition 套用; 設定檔在迴圈外讀一次。\n\n關鍵字用「檢體延誤」而非整句片語, 同仁手打的變體(如少了「檢驗前」)也擋得到。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "7dff9de4",
+          "time": "09:48",
+          "message": "docs(problems): 記錄改單後未重跑 Rule Engine 導致檢體延誤註解漏加",
+          "body": "台中回報的兩個「沒自動加註解」其中一條。規則本身正確,缺的是改單後重新評估:\nhc010 的 CheckRuleEngine 只包在 checkHDR == null(第一次寫入 ORD_HDR)分支,\n改單走 MERGE WHEN MATCHED 就整段跳過, 開單當下不符合、改單後才符合的單\n永遠不會被評估。\n\n實測(台中):09-15~21 符合條件 120 筆有 13 筆未觸發, 09-22 單日 56 筆有 21 筆,\n未觸發者 100% 都有 B02 改單事件。單筆反證 6092206575:開單時正常觸發 L00,\n16:04 改單後只有 L02 沒有第二次評估。\n\n文檔同時記下為什麼不能只把那個 if 拿掉(GLOBAL_CMT_SET 無去重會疊字、\n桃園共用同一支 hc010 且 HCL1247 沒有 =0 守衛), 以及兩層建議修法:\n規則端加 HAS_GLOBAL_CMT 守衛讓 9024 冪等(我方可自行上), hc010 端用\nApp.config 開關只開台中。另附 Tickit #379 的往返脈絡與驗收查核結果。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "654e9aa9",
+          "time": "08:34",
+          "message": "docs(二審): 報告註解的寫入路徑不走審核, 而是 UpdateComments GLOBAL",
+          "body": "把 LT270 報告註解這一連串案子(!1538 / !1541 / !1542)挖出來的機制寫回文檔。\n\nPages/LT270_確認報告.md 新增「報告註解(OH_PCMT)」一節:\n- 兩個入口(外面的 #OH_PCMT 欄位 / 註解視窗)都走 SaveReportComment, 改完即寫 DB\n- 寫入打 PUT /api/Examine/UpdateComments (TI_CODE=GLOBAL), 空字串 = 清成 NULL,\n  並一併清 OD_CTL_FLAG1 讓 R01 重產把新註解帶到網路報告\n- 為什麼註解不跟審核一起送: #OH_PCMT 是明細區共用欄位, 且審核端把空值視為\n  「這次不動註解」, 所以清除註解無法經由審核達成\n- lastSavedPcmt 的比較基準為何必須是 DB 現值而不是欄位現值\n- 單項備註走非 GLOBAL 分支, modal 的 #CustomComment 是它唯一的編輯介面,\n  別因為報告註解那邊有外面的欄位就拿掉\n\n開發常見陷阱與注意事項.md 新增第 11 條「別把編輯搭在另一個動作的 payload 上」:\n記錄空字串同時代表「沒帶到值」與「要清空」如何連續生出三個 bug, 以及判準。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d88fa570",
+          "time": "08:19",
+          "message": "fix(二審): 外面的報告註解欄位改完即存, 清空就是清空",
+          "body": "上一個 commit 只接了「註解」視窗那條路, 但畫面上那格註解本身就是可以直接\n打字的 input。直接在那裡刪光再按審核並不會清除 (走審核 payload, 空值被\n!1538 定義成「這次不動註解」), 而且沒有任何提示 —— 兩個入口行為不一致,\n使用者會以為清掉了其實還在, 比原本的問題更容易害人。\n\n改成 #OH_PCMT 的 change 也走 SaveReportComment: 改完離開焦點就寫回 DB,\n空值進去就是清空。不另外跳 confirm —— 所見即所存, 而且 confirm 掛在 blur\n上會吃掉使用者接著按「審核」的那一下。\n\n比較基準從「欄位現值」換成 lastSavedPcmt (DB 現值): 直接編輯是改完才觸發\nchange, 那時欄位現值已經是新值, 拿它當基準永遠比不出差異。lastSavedPcmt\n在明細載入、CleanTable、寫入成功這三處同步。\n\n程式用 .val() 塞值不會觸發 change, 所以換單/清畫面不會誤寫。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "9d0ea632",
+          "time": "07:44",
+          "message": "fix(二審): 報告註解改完即寫回 DB, 修復無法清除註解",
+          "body": "!1538 把「空的 OH_PCMT」定義成「這次不動註解」以擋掉覆寫別筆的問題,\n但二審的人本來就會用註解視窗把內容清空再按審核來清除註解 —— 這條路因此\n無聲失效: 清空、審核、畫面照樣顯示成功, 回頭看註解還在。\n\n根因是註解搭在審核的 payload 上順便寫, 空字串同時代表「沒帶到值」與\n「要清空」兩件事, !1538 只是把天平從一律寫推到一律不寫。\n\n改成跟 LT252/LT253/LT255/LR251/LR251U 一致: 註解視窗按確定的當下就\nPUT /api/Examine/UpdateComments (TI_CODE=GLOBAL) 寫回 DB, 與審核脫鉤。\n該端點無條件寫入, 空字串就是清空; 且會一併設 OH_ARCHIVE_FLAG=1 與清\nOD_CTL_FLAG1, R01 重產才會把新註解帶到網路報告 —— 後者是審核那條路\n本來就做不到的, 順帶解掉 LT270 改註解不同步網路報告的問題。\n\n!1538 的防呆保留不動, 兩者不衝突:\n- 改成新註解: modal 寫入新值, 審核時單號相符再寫同值 (idempotent)\n- 清空註解: modal 清成 NULL, 審核時空值不動 -> 清得掉\n- 勾別筆就按審核: 沒開過 modal, 單號不符不寫 -> 不會洗掉\n- 批次審核: isBatch 不動註解\n\n純前端, 後端未動; UpdateComments 的 GLOBAL 路徑與 ClearCtlFlag1ForWebResync\n在 V2026.09.23.001 的 dll 內已具備。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "66771a9e",
+          "time": "19:25",
+          "message": "docs(deploy): 高雄 2026-09-23 部署紀錄（豆點上線、追上 master）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e256d602",
+          "time": "19:09",
+          "message": "feat(doudian): 新增豆點 HIS adapter（高雄 7949/7969）",
+          "body": "- DouDianAdapter：HEXAM XML 變體，PAT/@ID 病歷號、yyyy-MM-dd、無 T header、\n  RSTID 不留空、EITEM 帶 DRNAME；回應兼容 JSON 字串與 returnCode 物件\n- 缺病歷號直接 Failed（豆點收了也對不到病人）\n- 高雄建置 SQL：HisVendors DouDian（先關）+ 兩站 mapping，與展望並存\n- 文件：api-spec（含測試區實測）、his-vendors、config-reference\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "a46fcee3",
+          "time": "07:52",
+          "message": "初始化評鑑整合專案骨架",
+          "body": "README 說明整合原則，並建立 standards/、mapping/、cases/ 目錄；\n第一個 case 為聯合生技（ISO 13485 + ISO 27001），先列待釐清事項。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "honey-mishears",
+      "commits": [
+        {
+          "hash": "2041667d",
+          "time": "20:29",
+          "message": "docs: README 的 compileSdk 說法對齊實際設定（釘 37.0）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c15311d2",
+          "time": "20:28",
+          "message": "chore: 忽略 Kotlin 2.4 產生的 android/.kotlin/",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8b87209c",
+          "time": "20:28",
+          "message": "build: Flutter 3.19.6 → 3.47.5，工具鏈對齊 Play 的 API 36 與 16KB 要求",
+          "body": "Play 從 2026-08-31 起新上架與更新都要 target API 36，且 target 35 以上必須\n支援 16KB memory page size。兩件都不是改數字能解決的：compileSdk 36 要 AGP 8.9+，\n16KB 對齊要靠 Flutter 引擎重編過的 .so，3.19.6 的引擎沒有。\n\nDart 一行沒改就能編（55 個 analyze info 全是 withOpacity 等棄用，80 個測試全過）。\n真正要動的都在 android/ 與相依：\n- AGP 7.3→9.1.0、Gradle 7.6.3→9.3.1、Kotlin 1.7.10→2.4.0、Java 1.8→17\n- speech_to_text 6.6→7.5（6.x 的 gradle 腳本在 AGP 9 configure 時 NPE；\n  錯誤畫面附的「改 android.newDsl」提示是誤導，那行早就有）\n- rive 0.13→0.14：整包重寫，rive_character.dart 照新 API 重做。\n  它從來沒被實際跑過（沒有 .riv），類別註解有標\n- permission_handler 11→13，其 android 套件寫死 compileSdk 37 且 AAR metadata\n  要求 app 也 ≥ 37。Android 17 平台在 SDK 裡叫 android-37.0，所以 app 寫\n  compileSdk = 37 + compileSdkMinor = 0；外掛子專案由 root build.gradle 的\n  afterEvaluate hook 補上 minor——那段必須放在 evaluationDependsOn(':app') 之前\n- Kotlin 2.4 增量快取在這台 Windows 上關不掉（Could not close incremental\n  caches ... .tab），clean 重來也一樣 → gradle.properties 關 kotlin.incremental\n\ntargetSdk / minSdk / ndkVersion 交給 flutter.* 決定，不再寫死；minSdk 因此從 21\n變 24（Android 7.0 起）。fat APK 72MB 是正常的：.so 已 strip，變大是 AGP 8+\n預設不壓縮 .so（16KB 對齊）加三個 ABI；Play 走 AAB 會按 ABI 拆。\n\n實機語音測試還沒做（手機當時沒接著），見 memory。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b215d565",
+          "time": "19:55",
+          "message": "docs: 語音診斷的入口改成回憶簿",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f03e1bca",
+          "time": "19:54",
+          "message": "docs: 文件跟上回憶簿、取名、坐床與滑手機",
+          "body": "README 的「這是什麼」補上去房間那則梗，以及三件在梗旁邊發生的事（晾太久滑手機、\n取名、我們的回憶）；「新增一個諧音梗」補 hint 與 linesWhen 兩個欄位、bed 特效，\n並說明取名觸發語比 rules 先比對。專案結構補上這次進來的檔案。\n\nCLAUDE.md 加一條：每條梗都要寫 hint 而且不能破梗（測試會擋）。\n\nRive 規格補 sit / scroll 兩個 trigger 與 Sitting / Scrolling 兩個狀態，\n狀態與轉場的數量從 7 改成 9。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "edcd35ee",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-23",
+          "body": "🤖 自動生成於 2026-09-23 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "3b7dfd57",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-22 (54 commits)",
+          "body": "🤖 自動生成於 2026-09-23 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "f89ea92a",
+          "time": "17:08",
+          "message": "docs(sci): T1 血壓欄位異常診斷 — 「高血壓 T1 最準／次數無效益」為資料假影",
+          "body": "SUA 血壓的 T1 欄位與 T2–T8 相關結構不同（SBP 1.73×、DBP 1.54×，\n其餘標記 ≤0.99×），源自原始資料。CHARLS 兩點結論皆相反。\n論文不改，文檔保存；外部驗證總覽 §3.4 補交叉引用。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 53,
+    "sideCommits": 8,
+    "totalCommits": 61
+  }
+}
