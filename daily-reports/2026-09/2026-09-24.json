@@ -1,0 +1,488 @@
+{
+  "date": "2026-09-24",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "8140dcf4",
+          "time": "19:30",
+          "message": "docs: 9/24 晚間反向比對結論——無轉檔缺陷；0014 重送 12 張、xevox2 影子 13:35 停擺待判斷；3b 建議放行；連假排程",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a84dda83",
+          "time": "15:53",
+          "message": "docs: 1120 版位實查——就是 ansn UCLOrder 範本，6b 解析不是瓶頸",
+          "body": "- Parsing DB FileFormat（id 1032）11 列逐欄對得上 AnsnHeaders；0539／0705_NEW／0235 同版\n- 本機 15 檔／16,021 列實檔表頭 0 不符；ID_INVNO 全 10 碼、ID_TNO 欄全空\n- 送端點② 的 tno 要取 ID_INVNO 欄（FP 兩者都取第 25 欄），不可照搬 adapter 的 IdTno\n- TODO 1b 改寫：10/13 在我方這側可行，剩解除排除／組請求／回放\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0184a686",
+          "time": "14:17",
+          "message": "tools: 6a 平行驗證（DB 層）工具備妥——9/30 跑 3a 下游 6 家、10/2 跑 13 家",
+          "body": "- make-parallel-config.ps1：本機回放設定。寫入選項照抄 56.227 下游線（WriteProfile／Version／L／U／\n  sectionNO／Enrich／ValidateId），切分鍵依 KeelungStandard 規則推出，FpFields 從 Parsing DB 現撈；\n  本機連線非 WebOrder_Test、下游線非 Live、WriteProfile 非 Default 一律中止\n- copy-6a-material.ps1：.227 備份夾唯讀取原始檔（fp-replay-prep 的 ExecuteLog 白名單近 14 天\n  只撈到 1020，其餘 5 家全漏；3a 切換後 .txt 也不再進備份夾）\n- parallel-compare-6a.sql：自 3b 版分出，釘死 13 家、白名單改 0536／0550 SEQUENCE，\n  新增「每檔切單數」段（以去副檔名 stem 對齊 .xls 與 FP .txt）\n- README：9/30 執行步驟與判讀順序\n- 發現：陪跑設定寫死 0680 切分鍵含 BarCodeSeq，但 Veterans 是 V1、規則不含它；由 9/30 的切單數段裁決\n- BATCH6A_PLAN §0 現況表「6a-1 尚未開始」與 §0.3 矛盾，一併訂正\n\n已驗：產生器對 6 家產出、FP0680 FpFields 與 README 預期逐字相同；本機 Release 以此設定啟動\n「單位數 6」通過 UnitSettingsValidator；比對腳本 NOEXEC 編譯通過。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5a709d95",
+          "time": "14:08",
+          "message": "docs: 6b 連假交接——1120 版位先查、!1549 待辦、正式庫放寬查核",
+          "body": "- TODO 1b：連假回來第一步唯讀查 1120 FileFormat 是否為 18 種版位之一，決定 10/13 可不可行\n- TODO 1c：!1549 待辦（換病人檢查、review/上版/補日期、補答 b/c、① origin）與我方 A/B 段、Spark 講定回退\n- §7.18：正式庫放寬查核仍乾淨；範例單號 6092374151 是 1120 真實單非測試寫入；\n  使用者印象中的「兩筆」待線索\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "40b9d3f7",
+          "time": "12:49",
+          "message": "docs: §7.18 從正式庫獨立驗證——② 未曾寫入、開通參數未設",
+          "body": "EVENTLOG 自 9/20 起 EL_USERID='ORDERINSQL' 只有 9/23 修檢體標示的 B02 189 筆、無 B01；\nSYS_PARAMETER 無 OrderInSql_OrderUnits ⇒ 正式庫上 ② 整支關閉。\nDevTest 組態 9/24 11:37 前連正式庫一事，未造成 ② 寫入正式。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c21a1f67",
+          "time": "12:41",
+          "message": "docs: §7.18 補 LIS 回覆定稿——寫入測試站 56.231:8090 已可打",
+          "body": "LIS 定稿回覆（lisweb 文檔 端點②_回覆7.16_20260924.md）把測試環境改成兩段：\nA 段 LisWeb2 純試算 dryRun 對正式庫比計價（等 !1549 上版）；\nB 段新架 LISWeb_DevTest（56.231:8090 → 56.225）現在就能實打寫入。\n\n- 記錄 dryRun 改唯讀、開通前寫入一律 422、首輪試算 691/691（LIS 腳本待 sanity check）\n- 記錄 Web.DevTest.config 到 9/24 11:37 才修好、DevTest 未覆寫的連線仍指正式\n- 補答進度：d 已答；a（程式確實沒擋換病人）、b、c 未答\n- 回答 LIS：6b 測試寫我方 WebOrder_Test，② 不讀我方醫令，不必對齊 56.225 WebOrder\n- 10/9 瓶頸完全在我方（1120 解析）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c0fe7562",
+          "time": "11:20",
+          "message": "docs: 記錄 LIS 對 §7.16 的回覆（§7.17）與我方判讀（§7.18）",
+          "body": "LIS 回覆：② 已實作（lisweb !1549），冪等靠既有 ID_TNO 主鍵、不配號、\n另開端點、沿用 ① 驗簽；契約改為請求帶醫令本身（1120 不在 WebOrder）。\n\n我方判讀：\n- 接受冪等／操作者 BATCH＋EL_USERID=ORDERINSQL／不寫 ORD_DECLARE／驗收方式\n- 訂正回覆中 LisWeb2 可測的說法（已確認連正式庫）、可測日期未填\n- 請 LIS 補答 a–d：同 tno 換病人、0.1% ID_TNO≠ID_INVNO、未知項目的量、56.225 快照日\n- 新增我方硬前提：1120 要自己解析\n- 封鎖窗內沒有自動化回退\n\n§3.3 契約草案、§6 驗收、§7.7 附註、§7.16、TODO、index.html 同步標註。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "31943dd8",
+          "time": "11:14",
+          "message": "tools: 6b 端點② 測試用配號庫 LisAllot_Test 建庫腳本",
+          "body": "lisweb 配號當天沒有區間時會 INSERT AutoAllotCodeLog，新區間起點取當天所有專案的最大值＋1，\n本機測試若連正式庫會推移其他專案（如 CMV）的區間。複製 4 張配號表到 56.191 的 LisAllot_Test，\n本機 lisweb 的 DbOnlineReservation／BBS 改指此庫。\n\n已於 2026-09-24 執行：設定表 6／46／12 筆與正式一致，AutoAllotCodeLog 空；\nlisweb 登入可讀、只能寫 AutoAllotCodeLog。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5a43dc77",
+          "time": "10:57",
+          "message": "docs: 訂正 §7.16——LisWeb2（56.231）連正式庫，② 不可在那測",
+          "body": "§7.16 初版與 dark launch 段寫成「在 LisWeb2 可測」，與 §7.14「LisWeb2 不是沙箱」矛盾。\n改為本機 lisweb 連 Oracle 測試庫 56.225；第 0／9 題與 TODO 同步。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "265e6749",
+          "time": "10:51",
+          "message": "docs: 6b 端點② 改為先上正式不接入；Oracle 測試庫 56.225",
+          "body": "- LIS_API_REQUEST §7.16 補 dark launch 段：三個前提（上線即認證、另開端點不動 CMV、平行測試不燒正式 TNO）、\n  56.225 上的接入前驗證、反向比對影子 AutoDeliver 的隔離風險\n- 第 0／9 題補 9/24 答案；TODO 6b 前提補指向\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b2ee3934",
+          "time": "09:44",
+          "message": "docs: TODO 標記 /docs 已於 9/24 部署",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4f65df8e",
+          "time": "09:43",
+          "message": "docs: DEPLOY_LOG 第 23 列（09-24 09:37 GUI 文件頁 /docs）",
+          "body": "只動 UI；等 UNIMAX 首批驗收無誤才重啟、停機前 inbox 全空；XEVOX-SHADOW 1485/0/8 前後相同、[ERR] 0。\n第 22 列補回退目標 app_bak_20260924_0937。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ec16d0dd",
+          "time": "09:38",
+          "message": "docs: 09:36 驗收——.job 停用有效、UNIMAX 新版首批 0005 通過；交接三項結案",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7d9568f6",
+          "time": "09:31",
+          "message": "tools: reverse-compare-batch5 的 0030／0536 限定 PHYSICIANORDER 檔名",
+          "body": "兩家同時走 xevox（3b）線。未排除時 §9 的 Avg14 被 xevox 量灌大\n（0030 29.8→0.4、0536 48.3→2.5，九成以上不是本批），ansn 管道整家掉單會被遮住；\n3b 切換後還會在 §1／§5 混成假差異。§0／§1／§7／§9 一併排除。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "59f8e61b",
+          "time": "09:27",
+          "message": "docs: 19:20 反向比對移交另一個 session＋執行要點；09:12 首檔驗證結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8f53fcc9",
+          "time": "08:49",
+          "message": "feat: GUI 新增「文件」頁（/docs）",
+          "body": "- docs/index.html 建置時複製成 docs-index.html，/docs 直接回傳，與其他 GUI 頁同一授權（GuiPolicy）\n- 回傳時把左上角品牌字換成「← OrderInSql GUI」連結回 /alert\n- 四頁導覽列加「文件」\n- 測試：檔案有進輸出目錄、品牌字還在（兩者都是靜默失效型）\n- TODO：隨 10/6 部署上線，附部署後驗證\n\n內容是部署當下的版本，最新版以 GitLab 上的 docs/index.html 為準。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "908ea90d",
+          "time": "08:36",
+          "message": "docs: index.html「切換前後比三次」改成三張卡片",
+          "body": "原本 6 欄表格擠在 960px 內，腳本名不能折行，階段與時機欄被壓成一字一行。改成每個階段一張卡片、欄位名在上內容在下，窄螢幕自動疊成一欄。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "98618efb",
+          "time": "08:27",
+          "message": "docs: index.html 專案說明與作戰圖分工，去掉重複內容",
+          "body": "分工原則：專案說明只放不隨日期變的（為什麼、架構、設計、方法），作戰圖放會隨日期變的（節點、家數、排程數、待決事項）。\n\n- 架構子頁的排程數量表、9→17→21 收斂流程、兩台舊機不退役說明，移到作戰圖「排程收斂」\n- 開發進度子頁改名「開發階段」，拿掉上線家數與切換日期\n- 頁首拿掉 83→153 家的進度卡\n- 切換與驗證：修正「見上一節時程表」的失效指引；批次 6 說明更新為 9/16 決策（Paring.bat 不動、6 與 7 不必一起切）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e9e067e0",
+          "time": "08:24",
+          "message": "docs: index.html 專案說明的子頁籤改為導覽列下方的固定列",
+          "body": "子頁籤原本在頁首統計卡下方，捲下去就找不到；改成緊貼頂端導覽列的第二層，只在專案說明頁籤出現。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "bf9ef9a8",
+          "time": "08:20",
+          "message": "docs: index.html 專案說明拆五個子頁、文件索引欄寬對齊、作戰圖日期整理",
+          "body": "- 專案說明：01–08 節改為子頁（背景／架構／開發進度／切換與驗證／技術與風險）\n- 文件索引：各表固定欄寬、日期改 M/D 不折行、轉移卡拿掉合併儲存格\n- 作戰圖：拿掉中秋連假列，日期欄統一格式、時間備註放日期下方\n- 切換頁籤改為直接跳到定位，不做平滑捲動\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5f227aa9",
+          "time": "08:11",
+          "message": "docs: index.html 改為分頁版（專案說明／作戰圖・時程／文件索引）",
+          "body": "- 專案說明：原 01–08 節保留，05 的時程表移到作戰圖頁籤，日期與 6a 敘述更新到 9/24 改排\n- 作戰圖・時程：全案節點、6a 全切驗證清單、6b 前提、排程收斂、決策、資料夾調整\n- 文件索引：docs 底下 33 份文件的用途、對象、什麼時候讀\n- 文件連結改為 GitLab 絕對網址，發布成網頁後也點得到\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5e8a5943",
+          "time": "08:10",
+          "message": "docs: 9/24 今日時序合併兩個 session 的排程＋跨 session 交接事項",
+          "body": "- 單一時序表，每列標負責 session；19:20 反向比對為準、取消 17:00 那輪\n- 交接：!333 改了 3b 兩支的逐值配對（互換型 9/29 前重跑）、0179 NULL 空殼、batch5 0030／0536 限定檔名、9/23 14:50 非我方刪單\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6cd06323",
+          "time": "07:58",
+          "message": "tools: reverse-compare-3a 補 §9 識別類欄位；三支腳本逐值改依明細鍵配對",
+          "body": "- reverse-compare-3a：自 3b §13 移植為 §9（白名單 0088 ID_INVNO php L2816、0550 SEQUENCE php L153——已對 php 原文確認）。\n  Veterans 檢體註解事故那一欄（明細 ID_CLI_INFO）從此逐值比。對 9/22 起（已修資料）實跑：9a 0、9c 0、9b 21/21 常數\n- 逐值段（3a §9c／3b §13c／parallel-3b）原本只按主檔分區、ORDER BY (SELECT 0) 任意配對：\n  同一張單內各明細值不同（Veterans 每支檢體各自的條碼）時報假差異（0550 4 筆，兩側值其實相同），\n  也可能遮住「兩支檢體條碼互換」。#idv 加明細鍵 K（代碼|UCL），同鍵內依值排序配對\n- 3b 兩支：rc-3b 對今日實跑無錯；pc-3b 僅 PARSEONLY（重跑需回放素材）。9/23 的 ID_CLI_INFO 零差異結論不受影響\n  （舊配對只可能多報、不會少報「整單同值」型差異；互換型差異要 9/29 前重比才能排除）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c427814d",
+          "time": "07:56",
+          "message": "docs: 改排 6a 10/6 全切、6b 10/13；歸檔夾評估；LIS 端點② 待確認事項",
+          "body": "- TODO：全案節點改為 10/5 結案判讀 → 10/6 改轉單位 GUI＋6a 全切 → 10/13 6b；\n  6a 全切的「測試做足」清單、3b 下游 7 家基準 9/29 才有的時程限制、6b 封鎖窗 go/no-go\n- BATCH6A_PLAN：§0.3 補 #9/#10、§0.6 時程改寫、§5.2 梯次改為驗證深度分組、決策 1 轉急\n- LIS_API_REQUEST §7.16：6b 10/13 需 LIS 回覆的 11 題\n- TODO backlog C：歸檔夾按單位分子夾的影響評估與建議\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b8cf992b",
+          "time": "07:54",
+          "message": "docs: Veterans 檢體註解事故——9/24 07:36 部署、WebOrder 129 列已修、Oracle 不受影響",
+          "body": "- DEPLOY_LOG 第 22 列（!328 b176605，目前線上）\n- batch3a 卡：根因、影響範圍（切單兩側相同、明細 ID_CLI_INFO 不進 LIS 五張表實查）、處置\n- TODO：事故小節＋⑤ 回掃進度（形狀掃描 86 家）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f55e8ade",
+          "time": "07:52",
+          "message": "tools: reverse-compare-3b 補 §13 識別類欄位（欄位×單位白名單＋形狀）",
+          "body": "與 parallel-compare-3b 同一段邏輯，方向相反（正式側＝我方＋修補層）。\n9/30 起 3b 觀察期每日反向比對即涵蓋 ID_CLI_INFO／ID_TNO／ID_INVNO／\nSEQUENCE／ANAMNESIS_NO。以 @day=09-23 的副本驗過語法。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "bd09c508",
+          "time": "07:40",
+          "message": "tools: 3b 平行比對補識別類欄位（欄位×單位白名單＋形狀），重比 9/23 回放仍零缺陷",
+          "body": "- parallel-compare-3b.sql 新增識別類欄位段：ID_INVNO／SEQUENCE／ANAMNESIS_NO／\n  ID_CLI_INFO／ID_TNO 的逐值比對（欄位×單位白名單）與形狀比對\n- SEQUENCE 改比同檔內兩側差距是否固定；0347／0536／0855 先逆運算 php L153\n- ID_TNO 只比正式側未分單、無修補指紋的列（規則 4）\n- @replayDay 改由 #replay 反推，可對前一天的回放重比\n- 重比結果：ID_CLI_INFO 87,749 對 0 差異，其餘差異全數歸因\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b176605d",
+          "time": "07:34",
+          "message": "fix: ProcessColumnU=1 的條碼取來源第 11 欄——Veterans 檢體標示 9/22 起逐張錯",
+          "body": "9/24 形狀回掃（同一正式庫、切換前 vs 切換後）抓到：Veterans 的明細 ID_CLI_INFO\n切換前是逐檢體條碼（0550 8 碼、0680 A＋7 碼），切換後全變成單號；與影子逐張比對\n0550 59 張、0680 14 張，0／73 相同。ID_CLI_INFO 即 Keelung 家族的檢體標示。\n\n根因：舊碼 Form1 在 U=1 時讀 grid 的 Cells[21] 當條碼，我方移植成「來源第 21 欄」。\n實際重映射發生在讀檔層 CsvHelper.DeSerilize：`if (U && num == 11) num = 21;`——\n來源第 11 欄搬進 grid[21]，迴圈從 22 繼續，來源第 12～21 欄從來不讀。\nVeterans 的檔沒有第 21 欄 ⇒ 條碼恆空 ⇒ 退回單號。七支舊 exe 的 CsvHelper 同 hash。\n\n- ColumnSchema.KeelungStandard：U=1 時條碼維持來源第 11 欄；取消註記（第 14 欄）在 U=1\n  時舊碼讀不到，一併移除對應（否則第 14 欄有值的列會被我方誤丟）\n- 受影響的現行線：VETERANS（L1/U1，已上線）、XEVOX（L2/U1，3b 9/29；不用條碼，只受取消註記影響）\n- 測試 3 則：逐檢體條碼、條碼空退回單號、U=1 不讀第 14 欄（對照組 U=2 仍丟列）；\n  退回修正時前後兩則會紅。全套 503 綠\n\n9/22、9/23 兩輪 3a 反向比對都寫「零未解釋差異」，因為腳本沒比明細 ID_CLI_INFO——\n即 CLAUDE.md「比對程序四條規則」第 3 條要補的洞。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 28
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b0a0c6f7",
+          "time": "12:45",
+          "message": "refactor(config): 整並 Bat 連線字串到 DbOnlineReservation",
+          "body": "Bat 與 DbOnlineReservation 在每個分部都指同一個 DbOnlineReservation 庫，\n只有台中 Bat 指 1.250（Initial commit 起的歷史遺留），造成：\n- 分單把未對應登記寫在 1.227，CodeMap 卻去 1.250 讀，看不到\n- 份數維護頁寫 1.227，簽收（GetPrintMoreList）去 1.250 讀，維護的規則不生效\n\n改動：\n- CheckRepository / MapRepository 改用 DbOnlineReservationconnectionString\n- 移除 BaseRepository.BatchLogConnectionString 與全部 15 份 config 的 Bat\n- CodeMap 文件同步\n\nRelease(台北)、JY、KH、SJ、TY、HVC、XinYi、Rongwen 的 Bat 與 DbOnlineReservation 解密後相同，行為不變。\n台中上版前須先確認 1.250 的 LogAccountProjectAuth / TestCodePrintCopiesRule 已在 1.227。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "重構"
+        },
+        {
+          "hash": "098f37e2",
+          "time": "12:35",
+          "message": "docs(OrderInSql): 端點② 回覆對方 LIS_API_REQUEST §7.16 (十一題+測試環境)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ad7d6a48",
+          "time": "12:31",
+          "message": "docs(OrderInSql): 端點② 測試金鑰不外傳, 對方需要時來 LIS 查",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b966759d",
+          "time": "12:28",
+          "message": "docs(OrderInSql): 端點② 測試站台 LISWeb_DevTest (56.231:8090 → 56.225) 已建並實打通過",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1feaaf82",
+          "time": "11:54",
+          "message": "docs(OrderInSql): 端點② 測試站台不設 IP 白名單 (與 56.231 其他站台相同)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6501b923",
+          "time": "11:37",
+          "message": "fix(組態): Web.DevTest.config 連線字串沒加 xdt 指令, 發佈後實際連正式庫",
+          "body": "DevTest 的 BBS/HCLAB/TAX/WebOrder/HIGHQ/CRM 都設成 56.225 測試庫, 但 <add> 沒有\nxdt:Transform, 整段被 XDT 忽略, 用 DevTest 發佈的站一直吃 base Web.config 的正式庫.\n補上 SetAttributes + Match(name) (同 Web.Release.config 寫法);\nTransformWebConfig 輸出逐條解密驗過, 六條皆 56.225.\n\n端點② 的寫入測試站台 (56.231 另建, 給 OrderInSql 6b 用) 以 DevTest 發佈.\nDevTest 沒覆寫的連線 (HCLABx 網路報告 / DbOnlineReservation / HR ...) 仍連正式,\n只測 API 無妨; 若開放在上面審報告, 要先處理 HCLABx.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "e977d510",
+          "time": "11:32",
+          "message": "docs(OrderInSql): 端點② 測試環境: LisWeb2 連正式庫只能試算, 寫入測試另在 56.231 建站接 56.225",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ba1c4478",
+          "time": "11:26",
+          "message": "docs(OrderInSql): 端點② 正式庫試算比對首輪 691/691 一致 (待 sanity check)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7158da94",
+          "time": "11:23",
+          "message": "feat(OrderInSql): 端點② dryRun 改為純試算 (LisWeb2 連正式庫)",
+          "body": "LisWeb2 (56.231) 連的是正式庫 168.225, 原本「照寫再 rollback」的 dryRun\n會鎖表頭、耗 EVENTLOG 序號, 且單位未開通前打不進來, 對方無法驗證.\n\n- dryRun=true 改為完全唯讀: 照新單算出會寫的內容回 preview\n  (每項價格/帳別/健保/自動加做/套餐子項 + 急件/列印份數/整理後病人欄位)\n- 唯讀所以不受 OrderInSql_OrderUnits 限制, 也不看單號是否已存在\n- 建單與試算共用 BuildPlan, 保證兩邊算法一致\n\n56.225 回歸 (新建/重送/補項目/加做急件/套餐/409/422/401) 結果與改動前相同.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "47e62a74",
+          "time": "10:54",
+          "message": "feat(OrderInSql): 端點② POST api/lis/orders 建委託單, 取代 .229 AutoDeliver",
+          "body": "給 OrderInSql 批次 6b (富盈 0705 / 禾瑞 1120) 用: 呼叫端送醫令 (單號/病人/項目),\n價格/帳別/套餐/自動加做/急件由 LIS 算, 寫入內容逐欄對齊 AutoDeliver.\n\n- 冪等靠 BLG_TX_HDR.ID_TNO 主鍵: 醫院自帶 UCL 單號 (ID_TNO=ID_INVNO 99.9%),\n  不用 DDL、不用配號; 重送只補單上沒有的項目 (照 AutoDeliver), 無新項目時完全 no-op\n- 整張單一個交易 (AutoDeliver 逐句 autocommit 會留孤兒表頭); FOR UPDATE + 撞主鍵重跑處理並發\n- 表頭 ID_UPDATE_BY 維持 'BATCH'、ID_TRX_DT 9999-12-31 (全系統靠它判未簽收)\n- EVENTLOG 沿用 [P] 標籤, EL_USERID 改寫 ORDERINSQL; 端點① 據此回 orderinsql-api-created\n- 新 SYS_PARAMETER OrderInSql_OrderUnits 逐家開通, 沒設 = 整支關閉\n- dryRun=true 照跑後 rollback, 供上線前平行比對\n\n測試庫 56.225 驗證: 新建/重送/補項目/加做急件/套餐展開/409/422/401/dryRun/6 路並發 全過.\n文檔: Documents/Projects/OrderInSql_API/端點②_orders.md\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a0aa6d26",
+          "time": "08:05",
+          "message": "fix(smoke): 刪單要等 DELETE 回來, 不然冒煙 PASS 但測試單留在正式站",
+          "body": "2026-09-24 台中 07:34 排程冒煙記成 PASS, 但測試單 6092429001 沒被刪, 留在正式站。\ntrace 顯示最後一個請求 GET /api/BLG/ChkOrd 是 -1(被中斷): deleteOrder 點完 #Delete\n就 return(原本就寫著 TODO: 驗證刪除成功), 測試結束關瀏覽器時 ChkOrd 還在路上,\n後面真正的 DELETE /api/BLG 根本沒送出。主流程又在 teardown 一 return 就設\ndeleted = true, 連 finally 的補刪安全網都不會觸發。前幾天是 ChkOrd 剛好夠快才沒出事。\n\n- 新增 clickDeleteAndWait: 等到 DELETE /api/BLG?ID_TNO= 的回應; 後端刪除失敗也是\n  HTTP 200、錯誤放在回傳字串, 所以 body 非空就丟例外 → 測試轉紅、finally 補刪接手。\n  確認框改 on/off, 刪完移除。\n- deleteBySerialIfExists(sweep 清殘留用)原本點完固定等 500ms, 同一類 race, 改用同一支。\n- bt201.spec「重載確認已空」改 expect.poll(最多 60s): DELETE 回來只代表 BLG 標成 B03,\n  ORD 由 hc010 約 3 秒後才清掉, 刪完馬上查一次一定還看得到。\n\n台中實測: bt201.spec PASS(刪後第一次重載 3 項, 下一輪 0 項); smoke.spec PASS;\n三次都有 SMOKE01 的 B03, BLG/ORD 無殘留。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "8f7828c7",
+          "time": "15:08",
+          "message": "chore: session 收尾備份 2026-09-24（OrderInSql 文件頁 memory）",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "1ce67c2d",
+          "time": "12:56",
+          "message": "memory(分單): 台中 9/29 上線安排 — lisweb Bat 整並 !1550、Oracle UNKNOW 已補",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2dc5d8ac",
+          "time": "12:39",
+          "message": "chore: memory 更新資安長",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "297af78c",
+          "time": "12:39",
+          "message": "memory: 端點② §7.16 回覆已成文檔、測試金鑰不外傳",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "40a888fd",
+          "time": "12:35",
+          "message": "chore: session 收尾備份 2026-09-24",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "74b244db",
+          "time": "08:45",
+          "message": "chore: session 收尾備份 2026-09-24（台中檢體延誤/LT274隱藏/冒煙刪單race）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "10bf451f",
+          "time": "07:39",
+          "message": "lisweb-deploy: 台中 WebDeploy 改走 8172 (443 已 404)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d9332757",
+          "time": "07:26",
+          "message": "chore: session 收尾備份 2026-09-24",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "2f30fef7",
+          "time": "12:39",
+          "message": "README：確認資安長代表為紀伯喬",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7d33040f",
+          "time": "12:34",
+          "message": "新增內部稽核通知，稽核計畫與通知改為人工維護",
+          "body": "- XRA0802005 附件 內部稽核通知：稽核期間 10/14～11/02，場址與分工表，\n  實際時間由稽核員於稽核前 7 日協調（依 QP0802）\n- 稽核計畫、通知已由使用者在 Word 調整，移除通知產生腳本並清除\n  guard 紀錄，避免重跑腳本覆蓋人工修改\n- README 更新已確認／待確認事項\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e2917e8a",
+          "time": "12:23",
+          "message": "聯合生技內部稽核整合：計畫、查檢表與程序修訂草稿",
+          "body": "ISO 13485 與 ISO 27001 內部稽核合併為一份計畫（XRA0802005 兼作\nISMS-4-019）、同一稽核週與稽核小組；查檢表維持兩份各自獨立。\n方向為 27001 對應到 13485。\n\n- output/：整合版稽核計畫、兩份查檢表、內部稽核文件對應說明\n- output/程序修訂草稿/：ISMS-2-009、QP0802、ISMS-2-001、ISMS-1-001、\n  QP0505 修訂版，依 QP0402 修訂色標示（桃紫紅／鮮綠輪流）\n- output/scripts/：產生腳本；guard.py 防止重跑時覆蓋人工修改\n- reference/：同仁草稿與共用資料夾現行版文件副本\n- 未來_全面對應盤點.md：全部 ISMS／QP 對應掃描結果（未來參考）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "6c9c1c09",
+          "time": "09:14",
+          "message": "fix(music): 🔊 電視那面待播清單也要有音量鈕——上一版漏了它",
+          "body": "上一版把音量鈕加在「♪ 點歌 → 待播」那一籤，但同仁真正在用的是牆底音樂列展開的\n那面待播清單（有進度條、拖 ⠿ 換順序的那個浮層）——加完說「沒看到」的就是這個。\n\n那面清單本來就不含正在播的那首（qRest 把它濾掉，它在最上面那張卡片裡），\n所以每一列都是「沒有人在串的檔案」，照 queueGainWhy 只擋轉檔中／沒有 mp3 的 YT 曲目。\n\n- 🔉− 🔊+ 排在 ▼ 與 ✕ 之間：⤒▲▼ 改的是順序，這兩顆改的是檔案本身，隔開一段\n- 偏移量寫在副標（「mp3・103 KB・音量 -1.5 dB」），不另外佔一欄\n- 清單指紋補上 gainDb：那面靠指紋決定要不要重畫，不補的話調完看不到變化\n- 回應改走 gainMsg：這面開著的時候 orderMsg 那行字在浮層後面，等於沒說\n  （跟遙控器跳歌回應同一個坑）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "956c4a15",
+          "time": "08:52",
+          "message": "feat(music): 🔊 待播清單也能調音量——擋的改成「正在播的那首」",
+          "body": "拉齊之後還是不對的那幾首，本來只能在「播過」跟「mp3 庫」調，而人最想調它的時機\n是它還排在待播、等一下就要播的時候。\n\n原本整排待播都不給調，是因為重壓會把檔案整個換掉，換在電視串到一半那一刻它會拿到\n前半舊、後半新——輕則爆音，重則被當成「檔案壞了」搬進撥不了。但那個理由只對\n「正在播的那一首」成立，排在後面的還沒被誰打開，換掉是安全的。\n\n問題在於伺服器不知道哪一首正在播（插播、YouTube 連不上時跳著挑，清單第一首都不是），\n所以讓電視自己講：拿清單時順便回報 ?player=1&playing=<檔名>，伺服器記 120 秒。\n跟「跳過現在這首」是同一條原則的兩面——猜的代價都是動到不該動的那首歌。\n\n- 待播那一籤每列加 🔉− 🔊+，正在播的那首標「▶ 播放中」、鈕變灰並寫出原因\n- mp3 庫從「排在待播就不給調」放寬成同一條規矩（🗑 仍然擋整排：刪檔不可逆）\n- 三份清單都回 gainDb，調完一次三份一起重抓\n- 鈕面補上 −／+：兩個喇叭圖示在電視那個距離分不出誰大誰小（截圖實測）\n\n本機實測：沒人在播時待播的 mp3 調得動；電視回報播它之後被擋、同一時間待播另一首\n照調；用 videoId 指名也擋得住；回報過期（120 秒）後整份待播又調得動。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "e2668bdf",
+          "time": "07:19",
+          "message": "合併 MR !27: feat: 配對面板加「找候選單號」，移植 PHP 的比對分析 (v9.29)",
+          "body": "feat: 配對面板加「找候選單號」，移植 PHP 的比對分析 (v9.29)\n\nSee merge request ucl/twowayconnection/uclweborder!27",
+          "category": "合併MR"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "honey-mishears",
+      "commits": [
+        {
+          "hash": "7e428361",
+          "time": "19:04",
+          "message": "tool: 選角統一構圖（置中、胸口以上、閉嘴微笑開場），紅改年輕、藍的椅子跟參考圖走",
+          "body": "第一輪六個候選：紅兩個都被畫老、拉得太遠，三位構圖大小不一；\n第一格常是嘴巴半開，拿來當參考圖會把表情帶進整套。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e4f0dc87",
+          "time": "16:16",
+          "message": "feat: 可以挑人——每位角色一個資料夾，第一次開 App 先挑她",
+          "body": "- 素材路徑改成 assets/character/<id>/{video,still,voice}/，名單在 characters.json\n  （稱呼與挑人時她說的一句話，改 JSON 不動程式）\n- 只列每個姿勢都有片的角色；兩位以上又沒挑過才出現挑人畫面，挑完才打招呼\n  （早安會出聲，不能在挑人畫面後面講）；右上角可以換人，名字與回憶簿共用\n- 挑人畫面用待機靜態圖預覽，不開額外的解碼器；換人時播放器整個重建\n- 現有素材搬到 default/：教學附的臉，fallbackOnly，一位都不齊時才上場，\n  gitignore 改成只擋 default/，白藍紅三位的素材之後要進版控\n- prepare_video_clips.py 加 --character <id> --batch\n- 測試：名單規則、挑人畫面、pubspec 有沒有列到每位角色的資料夾\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "01699511",
+          "time": "15:54",
+          "message": "feat(tool): 三位角色（白藍紅）的短片提示詞產生器",
+          "body": "換掉教學附的臉：用 MiniMax H3 純文字生成我們自己的角色。\ntool/clip_prompts.py 是提示詞的唯一來源——姿勢時間軸寫一份，角色只描述\n外型、房間、光線、舉止與聲線；講話片台詞讀 mishear_rules.json 的 voice.line。\n一位角色 23 段（13 段無聲循環＋10 段講話片）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e5b601f8",
+          "time": "15:45",
+          "message": "chore: withOpacity 換成 withValues，video todo 對齊現況",
+          "body": "- 剩下的 analyze info 只有 speech_service 的 listenFor/pauseFor 棄用，\n  動到語音要實機驗，留到接手機那次一起改\n- video_clip_prompts：待機小動作已做、補上實測素材體積\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "97006418",
+          "time": "15:42",
+          "message": "feat: 打開 App 她先打招呼，每個梗都有一句開口台詞",
+          "body": "- 招呼看時段與隔多久沒來：早上有講話片就直接開口說早安，\n  深夜問你怎麼還沒睡，三天以上沒來小小埋怨一下（JSON 的 greeting 區塊）\n- 每條梗補 voice.line：邊做邊講的招牌台詞，給之後生講話片用\n- docs：挑老婆的規劃（character_selection.md），roadmap 標記卡通路線停用\n\n新 App 圖示取自教學附的人物圖，跟影片素材一樣先不進版控。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a46cdb11",
+          "time": "14:27",
+          "message": "feat: 她改成寫實短片，會開口講話、叫你暱稱、陪你吃飯",
+          "body": "仿「桌面 AI 女友」（零度解說，MiniMax H3 + ComfyUI）的做法：\n她的每個姿勢是一段 AI 生成的循環短片，房間烤在影片裡。\n\n- 拿掉卡通：向量角色、房間、床、圖片角色、Rive 都刪掉（APK 少 22MB）\n- 影片角色：待機是幾乎不動的底，隨機插播撥頭髮、托腮、看窗外；\n  解碼前與播不了時停在同姿勢的靜態圖；切姿勢不閃黑\n- 版面：她鋪滿全螢幕，字幕（她淡紫、你白色）與毛玻璃按鈕浮在上面\n- 開口講話：吃飯、早安、晚安、好累四個情境有帶聲音、對好嘴型的片子，\n  字幕用片子裡講的那句；連續觸發改回文字台詞\n- 新情境：一起吃飯（她唯一不會聽錯的事）、好累／心情不好（陪伴優先，\n  排在所有梗前面，不回傳逐字稿）、晚安、早安；打掃改成擦你的手機螢幕\n- 暱稱：說「叫我老公」她就記住，取完名她也會問一次；不做選單。\n  暱稱與說出暱稱的那句都不回傳\n- 產品核心寫進 README 與專案規則：會心一笑＋情緒價值，衝突時陪伴優先\n\n素材（影片、靜態圖、講話片）與 App 圖示暫不進版控：\n目前的臉取自教學附的人物圖，repo 是公開的。換成自己的角色後再 commit。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "7b9d7b52",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-24",
+          "body": "🤖 自動生成於 2026-09-24 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "42597b30",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-23 (61 commits)",
+          "body": "🤖 自動生成於 2026-09-24 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 53,
+    "sideCommits": 8,
+    "totalCommits": 61
+  }
+}
