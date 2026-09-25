@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-25",
+  "weekday": "五",
+  "work_projects": [],
+  "side_projects": [
+    {
+      "name": "honey-mishears",
+      "commits": [
+        {
+          "hash": "db6907d2",
+          "time": "14:15",
+          "message": "docs: 為什麼不用真人的臉當角色（決策紀錄）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5ce87cc3",
+          "time": "14:15",
+          "message": "assets: 白、藍、紅三位角色的短片素材（我們自己生的臉）",
+          "body": "MiniMax H3 純文字生成、無參考圖的原創角色，可進版控、可上架。\n每位 10 個姿勢＋3 段待機小動作＋10 段講話片，約 13MB。\n提示詞由 tool/clip_prompts.py 產生；default/（教學的臉）仍不進版控。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "bab5962c",
+          "time": "07:06",
+          "message": "docs: 更新彙整資料 2026-09-25",
+          "body": "🤖 自動生成於 2026-09-25 07:06",
+          "category": "文檔"
+        },
+        {
+          "hash": "11bde08b",
+          "time": "07:06",
+          "message": "docs: 每日工作紀錄 2026-09-24 (61 commits)",
+          "body": "🤖 自動生成於 2026-09-25 07:06",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 0,
+    "sideCommits": 4,
+    "totalCommits": 4
+  }
+}
