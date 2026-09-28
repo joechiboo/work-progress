@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-28",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f05eb42b",
+          "time": "10:28",
+          "message": "fix(OrderInSql): 端點② 同 tno 換病人回 409 tno-patient-mismatch",
+          "body": "單號已存在時原本只比單位，同一個 tno 送來不同病人會被當成冪等命中、\n把 A 的項目無聲地補到 B 的單上還回 200（醫院貼錯條碼就會發生）。\nOrderInSql LIS_API_REQUEST §7.18 補答 a。AutoDeliver 讀碼確認連單位都不核對\n（表頭撞主鍵 try/catch 只記 log，明細照補到既有單）。\n\n比對規則（PatientMismatch）：\n- 兩邊都有身分證（非空白、非 \"00\"）=> 只比身分證（去空白、轉大寫）。\n  身分證是表頭唯一的強識別；相同就是同一人，姓名不同（改名、罕用字、\n  院所打錯字、檢驗室手改）不擋，否則只會多出假的 409\n- 任一邊沒有身分證 => 退而比姓名（去所有空白含全形、英文轉大寫），\n  與 ID_NAME 或 ID_LAST_NAME 任一欄相同即同一人。ID_LAST_NAME 是 Big5 欄，\n  罕用字存成 '?'，且 AutoDeliver 建的舊單沒有 ID_NAME，所以請求姓名先轉一次\n  Big5 再比 ID_LAST_NAME\n- 表頭連姓名都空白 => 沒有反證依據，放行\n- 病歷號／生日／性別不比：病歷號常空白且各院編法不一；生日、性別空值會被\n  填預設值（1900-01-01／依身分證推），比了只會誤擋\n\n錯誤碼照既有 409 的格式：{error:\"tno-patient-mismatch\", detail}，detail 只寫\n哪一欄不符、不帶既有單個資。檢查在 FOR UPDATE 鎖住表頭之後、補項目之前，\n所以並發撞主鍵改走補項目那條路時也會被擋。dryRun 不看單號在不在，不做此核對。\n\n驗證：msbuild 通過；PatientMismatch 以反射對 build 出的 DLL 跑 17 個離線案例\n全過（含全形空白、英文大小寫、Big5 以外罕用字）。未連 DB、未在測試站實打，\n實打案例列在端點②_orders.md 第七節待辦 1c。\n\n文件：端點②_orders.md（409 表、比對規則、與 AutoDeliver 差異 #10、待辦 1c）、\n端點②_回覆7.16_20260924.md（409 錯誤碼、文末補答 §7.18 a）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "062b989c",
+          "time": "10:35",
+          "message": "feat(6b): LIS 端點② POST /api/lis/orders 呼叫端骨架＋醫令組裝＋1120 解析統計",
+          "body": "尚未接進服務管線（Program.cs、單位設定、1120- 排除皆未動），只做可獨立測試的元件。\n\n- Core/LisOrders：請求／回應型別（對齊 lisweb !1549 的 LisOrderViewModel）、\n  ILisOrderClient、LisOrderOutcome 分流（Created／AlreadyExists／Previewed／\n  Rejected／Unauthorized／Retryable）\n- LisOrderRequestBuilder：PhysicianOrder → 請求。tno／invno 取主檔 IdInvno\n  （第 25 欄），不取明細 IdTno；ValidateUnit 擋 Version≠2 與 IdInvnoFromSequence；\n  BuildByTno 依 tno 合併 adapter 依 SEQUENCE 切開的主檔，病人不一致擋\n  tno-patient-mismatch；日期解析失敗／UCL_CODE 空在本地擋（LIS 會靜默吞掉）\n- Service/LisOrders：HttpLisOrderClient（沿用 LisApiTokenFactory 簽 JWT，\n  金鑰另設 LisOrders:JwtKey）、LisOrdersOptions（BaseUrl 無預設、DryRunOnly 預設 true）\n- appsettings.json：LisOrders 範本段（全空）\n- 測試 64 例：狀態碼分流、JWT 方向與金鑰、請求本體欄名、tno 取值、\n  依 tno 合併、1120 版位端到端；Lis1120ParseStatsTests 以環境變數啟用、\n  報告寫到 repo 外\n\n1120 本機 15 檔（去重 14 檔、15,999 列）：主檔 3,337、依 tno 合併後請求 2,831，\n410 組同 tno 被 SEQUENCE 切成多張主檔（病人皆一致），組裝失敗 0。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "2ed83800",
+          "time": "09:46",
+          "message": "feat(sci): B9 完成 — XGB-SHAP 排序 vs LR 標準化係數排序一致性",
+          "body": "- 三疾病 Top-1／Top-2 兩種方法完全相同（核心指標的兩個時間點）\n- Top-5 重疊 4/5，Top-10 6–8/10，Spearman 0.49–0.68（26 特徵）\n- 分歧集中在 Δ 特徵：Δ 與原始值精確共線，LR 的 L2 把權重記到原始值，樹模型直接切 Δ；排除 Δ 後高血壓 ρ 0.593→0.744\n- 與 C0-4「Δ 對線性模型冗餘、對樹模型可用」互為佐證\n- 新增腳本、結果表與說明文件，TODO B9 結案\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A3JMoNifjBsCKaox5Wswgy",
+          "category": "功能開發"
+        },
+        {
+          "hash": "25ea7017",
+          "time": "09:41",
+          "message": "docs(sci): TODO 補三項 — SHAP 用 XGBoost 的理由段、XGB-SHAP vs LR 係數一致性（B9）、Δ 消融跨模型對照",
+          "body": "- C5：必補「SHAP 為何用 XGBoost 不用 LR」說明段與六階段實驗流程；標註不可沿用答案卡的 KernelExplainer 理由\n- B9：新增 XGB-SHAP 排序 vs LR 標準化係數排序一致性小實驗（口試答案卡標記的追問風險，至今未做）\n- C0-4：Δ 消融跨模型結果已在 results/ 現成，不必重跑；核對教授紙本批註「是用 LR？」\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A3JMoNifjBsCKaox5Wswgy",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "67b4c7b7",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-28",
+          "body": "🤖 自動生成於 2026-09-28 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "83c747bc",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-27 (2 commits)",
+          "body": "🤖 自動生成於 2026-09-28 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 2,
+    "sideCommits": 4,
+    "totalCommits": 6
+  }
+}
