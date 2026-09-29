@@ -1,0 +1,376 @@
+{
+  "date": "2026-09-29",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "ba4cfe6e",
+          "time": "19:26",
+          "message": "docs: 3b 首日 19:20 反向比對結論；0855 LIS 已由行政刪除、10 張單待重新分單",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e5a5ce3c",
+          "time": "18:01",
+          "message": "docs: 3b 首日事故——0855 一行切一張單（漏移植採檢日截 8 碼）；after3pm 線不只 2344",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c58ba744",
+          "time": "17:56",
+          "message": "fix: Keelung 版位漏移植舊碼 CtrlExcel 的採檢日截 8 碼，UCL 系檔案一行切一張單",
+          "body": "舊程式讀檔後、切單前有一段前處理：來源第 10 欄（採檢日）長度 9～10 碼且前 8 碼\n通過 TryParseExact(\"yyyymmdd\") 時截成前 8 碼。採檢日在主檔切分鍵裡，漏掉這段，\n第 10 欄＝日期＋流水號的檔（0347／0855／0050 等 UCL 系 HIS）就會每行開一張主檔。\n\n2026-09-29 批次 3b 首日：0855 的 10 張單寫成 23 張主檔，已分單進 LIS（23 個配號）。\n0347／0050 在修補層併單清單內，進 LIS 前被併回；0855 不在清單內所以直達 LIS。\n\n- ColumnSchema.LegacySampleDateTrimIndex：KeelungStandard 設為採檢日欄；Cube／DaAn／FP 不動\n- 格式字串照抄舊碼 \"yyyymmdd\"（mm 是分鐘，舊碼筆誤），11 碼以上不截——都與舊程式同\n- 以當日 8 個實檔驗證：修正後主檔數與影子（舊程式）逐檔相同\n  （0855 23→10、0347 217→156、其餘 6 檔不變）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "eae55ebe",
+          "time": "12:30",
+          "message": "合併 MR !372: docs: 收檔夾整併給 Spark 的問題單",
+          "body": "docs: 收檔夾整併給 Spark 的問題單\n\nSee merge request ucl/twowayconnection/orderinsql!372",
+          "category": "合併MR"
+        },
+        {
+          "hash": "f4b373fd",
+          "time": "12:29",
+          "message": "docs: 收檔夾整併給 Spark 的問題單——先問事實（管道／前處理 PHP／資料夾語意），請他改的部分 10/27 後",
+          "body": "- 新增 INBOX_MERGE_REQUEST.md：15 題提問、可能的調整範圍、我方會做的事\n- UPSTREAM_ALIGNMENT §1 答覆改填新文件，附題號對照；§3 補窗口與時點\n- TODO backlog E 加連結；訂正「E 全面實質無日期」（9/24 改排後已有錨點）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2dfe2774",
+          "time": "12:19",
+          "message": "docs: 3b 首日訂正——分單 9.29 已於 08:00 上線，全線 955 配號核對 0 不符",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a153973c",
+          "time": "11:39",
+          "message": "docs: 3b 首日紀錄——首批驗證、feed UNC 修正、11:37 首批 227 配號進 LIS 全對",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "369adccd",
+          "time": "10:27",
+          "message": "docs(todo): backlog E 補硬前提——併 inbox 後只靠檔名前綴分流，三管道加前綴行為待確認；我方每單位已自帶 Adapter/InboxPath 不必等 D",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8571ce2f",
+          "time": "10:06",
+          "message": "docs(todo): 6a／6b 分兩個 session 驗證——界線、WebOrder_Test 時窗、10/6 早上交接點；!326 歸 6b session",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f4fb1de7",
+          "time": "09:42",
+          "message": "docs(todo): 主時程表補上 9/29 定的細項——6b A 段／!1553 版號／10/9 門檻、!326 merge 與切 Db、1088 月批",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a9ab23e6",
+          "time": "09:39",
+          "message": "docs(todo): !326 定案——10/6 部署維持 Source=File，切 Db 10/27 後",
+          "body": "- 10/7–10/8 1088 月批用新的「改轉命中」log 驗收\n- 10/8 落在 6a 觀察期，原標題的 10/8 不再適用；6a／6b 期間改轉邏輯不動\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1ba9b90f",
+          "time": "09:29",
+          "message": "test(6b): B 段實打 DevTest :8090——14/15 通過，唯一逾時是站台冷啟動",
+          "body": "- LisOrdersDevTestLiveTests：設 LIS_DEVTEST_CONFIG／LIS_1120_FILE／LIS_0705_FILE 才跑，\n  BaseUrl 不是 :8090 一律中止；用本機 1120／0705 實檔解析出的單打我方 HttpLisOrderClient\n- 通過：201 新建、200 重送、200 補項、409 換單位、409 換病人、422 unknown-item／invalid-tno／\n  unit-not-enabled（且未寫入）、6 路並發 1×201＋5×200、401 錯金鑰（且未寫入）、0705 Keelung 201／200\n- ① dryRun 首次 30 秒逾時：單獨重打 3 張皆 0.0–0.3 秒 ⇒ 冷啟動\n- batch6b 範本 TimeoutSeconds 30 → 120：LIS 回收／發版後第一張逾時，0705 會整檔進隔離區\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e9a1e0d4",
+          "time": "09:18",
+          "message": "fix: 3b 兩支 feed 的 UNC 少一個反斜線，影子整個早上沒收到檔",
+          "body": "feed-verify-xevox(.after3pm).bat 寫成 `\\192.168.168.227\\h$`，copy 每輪都失敗；\n因為先判 errorlevel 才寫 log，所以連 feed-xevox.log 都沒產生，靜默空轉。\n正式轉檔不受影響（pull 的路徑是對的），只有影子（反向比對的對照組）斷了。\n09:17 現場兩支已補（留 .bak_20260929），09:18:20 那輪送出 11 檔。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "20d75b0a",
+          "time": "09:11",
+          "message": "docs(todo): 1c 409 換病人檢查——DevTest 實打 7/7、lisweb !1553 待 review",
+          "body": "- 實打抓到 ID_LAST_NAME 罕用字誤判，已修\n- !1549 上正式站的 V2026.09.29.001 不含此修正 ⇒ !1553 必須排進 10/13 前的版號\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8a094d1b",
+          "time": "08:31",
+          "message": "feat(6b): 端點② 路徑擴到 Keelung 線——0705 在 XEVOX 加開關即可；Default 語意的 ② 失敗改進隔離區",
+          "body": "- LisOrderLayout：tno 來源依 adapter 集中定義（Excel／Delimited 都取主檔 IdInvno；選項 LisOrdersTnoSource 可覆寫為 IdCliInfo）\n- ValidateUnit 放寬 Delimited＋Keelung＋Version=2，仍擋 Cube／DaAn／FpFileFormat、V1／V3、IdInvnoFromSequence、送 ② 單位在 sectionNO\n- LisOrderUnitSettings：WriteProfile 與 adapter 配對（Excel＝Ansn、Delimited＝Default）、Delimited 必須開 Enrich；RerunIsIdempotent\n- ImportPipeline：WriteProfile≠Ansn 的 Retry／Halt 不留 inbox、進隔離區並附「先刪 PhysicianOrderD.filename=… 的單」提示；\n  多單位線過濾後為空的檔成功列不再加「② 0 張」\n- 0705 實檔回放（34 檔／7,825 列／1,631 張）：IdInvno＝檔案第 1 欄 7,825/7,825、全 10 碼、同 tno 零切分、組裝失敗 0\n  （Lis0705ParseStatsTests，設 LIS_0705_DIR 才跑）\n- batch6b：units-0705-xevox.json 改成可用形狀；README 0705 段（證據、驗證表、三個失敗語意候選、收拾 SQL、切換順序）\n- 測試 +22（622 綠、連跑兩輪）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b3a7a231",
+          "time": "08:25",
+          "message": "docs(3b): 家數三種口徑（70/72/74）與 9/29 備份夾覆掃的清單外前綴",
+          "body": "- 70＝流量基線現役數、72＝備份夾實際前綴、74＝比對腳本清單；逐家核對用 72/74\n- 覆掃 7/1 起 74 個前綴，清單外只有 0409、9527，皆 9/22 單次雜訊\n- 9527／0235 是 2681 那檔改前綴重送；9527 再發生只會出現在 §11 安全網\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "faa091a0",
+          "time": "08:06",
+          "message": "docs(todo): 1c 6b 待 LIS 更新為 9/29 狀態——!1549 已上台北正式站但端點未開放, 測試改指 DevTest 8090",
+          "body": "- ② !1549 9/28 merge、9/29 隨 LISWeb V2026.09.29.001 上台北/台中；正式庫尚無 OrderInSql_OrderUnits ⇒ 端點仍關\n- 測試站不是 LisWeb2（連正式庫），是 DevTest http://192.168.56.231:8090 → 56.225\n- ① 409 換病人檢查 LIS 側進行中（fix/lis-orders-409-patient-mismatch，未開 MR）；③④ 未做\n- 今天 3b 在 LIS 側無配合事項\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8b6cb48f",
+          "time": "08:00",
+          "message": "feat(6b): 端點② client 接進管線——單位開關、分流→歸檔/隔離/留 inbox/停批、啟動期驗證、切換範本",
+          "body": "- ImportPipeline：Options.LisOrders=1 的單位在「解析 → 寫 WebOrder」後由 LisOrderDispatcher\n  依 tno 合併（BuildByTno）逐張送 ②；Created/Exists 歸檔、Rejected/組裝失敗隔離（原因碼進隔離紀錄、\n  已寫入 N＝全部）、Retryable 檔留 inbox 下輪整檔重跑、Unauthorized 檔留 inbox 且本輪剩下的檔不碰。\n  DryRun 單位帶 ?dryRun=true 只記錄不改計數。沒開關的單位與 client 未註冊時一個位元都不變。\n- 部分成功語意：WebOrder 已寫、② 部分已建 ⇒ 整檔重跑，兩層都冪等（ansn 內容鍵 upsert、tno 主鍵），\n  故不維護「送到第幾張」的狀態；理由寫在 LisOrderDispatcher 類別註解。\n- LisOrderUnitSettings：啟動期驗（Excel／Version=2／非 IdInvnoFromSequence／WriteProfile 明寫 Ansn／\n  非 Disabled 必須有 client），驗不過服務起不來；LisOrdersUnits 供多單位線過濾。\n- Program.cs：LisOrders:BaseUrl 有值才註冊 ILisOrderClient；啟動 log 印站台＋金鑰指紋（SHA-256 前 8 碼）＋\n  DryRunOnly；空則印「未啟用」。\n- MessLog：逐張一列 ProgCode=OrderInSql_Lis（單位、tno、分流、狀態碼、耗時、addedItems），\n  不混進 OrderInSql（流量統計以 isSucc=1 列數當檔數）；檔案層級的成功列尾端附 ② 摘要。\n- tools/pull-settled.ps1 加 -IncludeLike（預設空＝同行為）；tools/cutover-templates/batch6b/：1120 另建單位＋\n  只拉 1120-* 的 pull、LisOrders 段範本、0705 的開關形狀（⛔ 目前會被驗證擋下，見 README）。\n- appsettings.json 的 _UnitsSample 加 1120 範例；線上 Local.json／pull bat／1120- 排除本次一個都沒動。\n- 測試：LisOrderPipelineTests 18 例、LisOrderUnitSettingsTests 13 例；全套 600 綠，連跑兩輪。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a502d4a0",
+          "time": "07:53",
+          "message": "fix(6a): 單位碼沒加引號會被吃掉前導零——三支腳本加守門，README 範例訂正",
+          "body": "`-Units 0680,0550` 被 PowerShell 先解析成整數 680、550，前綴比對整家落空且不報錯，\n結果只剩沒有前導零的 1020。9/24 因此誤判 fp-replay-prep.ps1 漏單位、另寫 copy-6a-material.ps1；\n9/29 同坑再踩一次才發現。\n\n- fp-replay-prep.ps1／copy-6a-material.ps1／make-parallel-config.ps1：非 4 碼字串直接 throw\n- copy-6a-material.ps1 檔頭：撤回「fp-replay-prep 有 bug」的說法，保留它的存在理由（3a 後無 .txt 可配）\n- README 9/30 步驟：範例加引號，附 9/29 實測 27 檔\n- .claude/CLAUDE.md：記這個坑與症狀辨識\n\n已驗：不加引號兩支都擋下；加引號 0680／0550 各 2／9 檔；6 家合計 27 檔（9/22–9/28）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7eb52bb4",
+          "time": "07:40",
+          "message": "docs: 3b 切換實做紀錄（07:20–07:40）；Pull-Xevox DAILY 觸發器 /SD 要設前一天",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7eb5ed06",
+          "time": "07:36",
+          "message": "合併 MR !356: feat(6b): LIS 端點② POST /api/lis/orders 呼叫端骨架＋醫令組裝＋1120 解析統計",
+          "body": "feat(6b): LIS 端點② POST /api/lis/orders 呼叫端骨架＋醫令組裝＋1120 解析統計\n\nSee merge request ucl/twowayconnection/orderinsql!356",
+          "category": "合併MR"
+        },
+        {
+          "hash": "1f7c3615",
+          "time": "06:32",
+          "message": "docs: 連假四天比對結論（無轉檔缺陷）＋9/29 06:30 3b 開球前快照",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 22
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "4f073224",
+          "time": "15:37",
+          "message": "chore: session 收尾備份 2026-09-29（RiskPrediction-3H 騰稿 memory）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2914e82c",
+          "time": "10:28",
+          "message": "chore: session 收尾備份 2026-09-29",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "914c2940",
+          "time": "08:57",
+          "message": "chore: session 收尾備份 2026-09-29（LISWeb 0929 上版、端點②409、LisWeb2 不跟版規則）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "29f2a56c",
+          "time": "08:36",
+          "message": "chore: session 收尾備份 2026-09-29 (BT402 地址條大字版 memory + 比對工具)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "edef682a",
+          "time": "08:25",
+          "message": "runbook(branch-cleanup): worktree remove 會順 junction 刪主 repo packages, 補拆除與驗證步驟",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ade39a1a",
+          "time": "08:20",
+          "message": "chore: 冒煙 MR!1548 同步完成 2026-09-29",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "4da8ce1d",
+          "time": "11:00",
+          "message": "diag(music): 📶 卡住時讓電視自己量一次速度",
+          "body": "黑盒子抓到症狀了：電視的緩衝存量一路只有 0.2～1.3 秒，播三四秒就停二十秒\n（10:57:02→10:57:32 播放位置卡在 77.0 秒沒動）。同一時間**一筆換檔都沒有**，\n所以響度正規化這次是清白的。\n\n伺服器端也乾淨：同一個 7.9 MB 的檔案抓到開發機是 0.77 秒、約 10.7 MB/s。\n剩下的可能只在「伺服器到電視那段線」或「電視自己」——而那件事伺服器量不到：\n它把位元組交給作業系統就結束了。\n\n所以讓卡住的那一台自己說話：stalled 的那一刻抓 256 KB、算 KB/s，連同\nnavigator.connection 的自述（effectiveType／downlink／saveData）寫進黑盒子。\n256 KB 是刻意挑的——小到就算線很爛也幾秒內結束（不會讓卡住更嚴重），\n大到量得出頻寬而不是連線建立時間。30 秒最多一次。\n\n順便：串流那一筆記下來源 IP，才分得出哪幾筆是電視、哪幾筆是別人在面板試聽。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "34bad114",
+          "time": "10:48",
+          "message": "feat(music): ⏭ 正在被動的檔案先讓開——重壓中的那首不給播",
+          "body": "大原則：**檔案正在被 ffmpeg 動的時候，那一首暫時不可播**。電視跳下一首，它留在原位，\n處理完自動回到可播——跟「轉檔中先跳過」同一個模式，只是換了階段：\n那個是「還沒有 mp3」，這個是「mp3 在手上但正在被換掉」。\n\n為什麼要這條：重壓一首要十幾秒，結尾是 File.Move 把檔案整個換掉。電視是一段一段\n（Range）要檔案的，換檔落在播放中間，它下一段就拿到另一個編碼的位元組——\n聽起來就是斷一下、卡一下。今天同仁回報的「播 mp3 卻斷斷續續」就是這個形狀。\n\n舊的防線擋不住：Busy() 問的是「檔案能不能獨佔開啟」，而 HTTP 串流在兩段之間根本\n沒握著檔案，正在播的歌在它眼裡跟閒置的一模一樣。「哪一首在播」只有電視知道，\n所以接上它幾天前就開始回報的那條資訊（NotePlaying）。\n\n三道一起上：\n- 清單標 Processing → 播放端跳過（mPlayable），三份清單都寫出「音量處理中…先播下一首」\n- 挑檔案時先讓開電視正在串的那一份（早點讓開，不白花十幾秒 CPU）\n- 壓好了在 File.Move 前**再問一次**（那十幾秒裡歌可能剛好輪到它），撞上就整個作廢，\n  原檔一個位元都不動，黑盒子記一筆「換檔:讓路」\n\n黑盒子那一筆也標明來源了（剛轉好／背景補／手動調）——今天查那一筆 10:39:44 的換檔，\n是靠檔案建立時間反推才確定它是「剛轉好順手壓的」，那不該是查問題的人要做的事。\n\n本機實測：重壓期間 processing=true 持續六次輪詢、壓完自動清掉；\n壓到一半讓電視回報「我在播它」→ 換檔作廢、原檔時間戳一個位元沒變、黑盒子有「讓路」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "445a5705",
+          "time": "10:34",
+          "message": "feat(music): 🔍 點唱機黑盒子——「歌播到一半斷斷續續」現在查得到",
+          "body": "同仁回報電視播 mp3 時聲音斷斷續續，而這件事目前完全無從查起：服務跑成 Windows 服務，\nILogger 進的是事件檢視器，要看得先是那台的本機 admin；聲音又是在電視那端斷的，\n伺服器這邊只看得到一串 Range 請求。兩邊的線索都在，卻沒有一個地方能並排看。\n\n開一個讀得到的窗口（GET /api/music/diag，最近 300 筆，新的在前），三種來源寫進同一圈：\n\n- 伺服器：每個 /api/music/file 的 Range 請求（含 404）。電視反覆要同一段＝它在重試；\n  兩筆之間空好幾秒＝伺服器吐得慢（磁碟或網路）\n- 播放端：<audio> 的 waiting／stalled／error／resume，連同「播到第幾秒、緩衝到第幾秒、\n  存量幾秒、readyState/networkState」——存量≈0 才是真的沒資料，存量還很大卻停住是別的事。\n  YouTube iframe 的 BUFFERING 分開記（yt-buffering），才分得出斷的是 mp3 還是 iframe\n- 檔案動作：背景重壓換檔（換檔:響度）、人工跳過刪檔（刪檔:人工跳過）、搬進已撥／撥不了。\n  「播到一半檔案被換掉」是這個症狀最有嫌疑的機制，跟播放端的 waiting 對時間就知道\n\n播放端那支有節流（同一種 3 秒一筆）：卡住時瀏覽器會連續丟事件，照單全收會把黑盒子\n用同一秒的幾十筆洗掉，而那幾十筆講的是同一件事。\n\n刻意只在記憶體、只留 300 筆：它回答的是「剛剛那一首為什麼斷」，不是稽核紀錄，\n重啟就沒了也剛好——重啟本身就改變了現場。不記任何個資（點唱機本來就沒有登入）。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "72b810f7",
+          "time": "08:17",
+          "message": "feat(music): ⏭ 跳過就是刪掉——那首連檔案一起消失",
+          "body": "跳過的意思一直是「這首我不要了」，但它的實作是「搬進已撥」＝這首歌還在庫裡：\n續攤會把它撈回來、有人再點還命中快取，按跳過的那個人得一路再按一次。\n\n現在人按的 ⏭ 會連檔案一起刪：YouTube 曲目刪掉 .url 與快取那份 mp3，\n上傳的 mp3 直接刪除。**沒有回收桶**，所以三顆 ⏭ 與面板說明全部改寫成「會刪掉那份\nmp3，救不回來」，「先不要播」那條路仍然是待播清單的 ✕（搬進已撥、點得回來）。\n\n**只吃人按的那一次**：播放端在 /api/music/done 帶 skipped=true。四條人工路徑\n（音樂列 ⏭、清單卡片 ⏭、遙控器台▲、面板/API 的跳過）都在 musicSkipCurrent 會合；\n自動發生的三種走別條——播完是 ended、放不出聲音帶 fail 進撥不了、\n午休與警報只是暫停（根本不算結束）。所以午休不會刪掉任何東西。\n\n兩個保護：\n- 同一支影片還被待撥裡別的 .url 用著就不刪快取。刪了的話另一個人排的那首會拿到 404，\n  被電視當成「檔案壞了」搬進撥不了——一個跳過動作害另一首歌被黑名單\n- 刪不掉（剛剛還在串、被咬住）就退回原本那條路搬進已撥。留在待撥的話下一輪又會播一次，\n  那比沒刪掉糟得多。TryDelete 也會重試幾次，串流那條連線通常半秒內就收掉了\n\nlog 記得下「刪了什麼、什麼時候」，**查不到「誰」**——點唱機刻意沒有登入，\n最多只有 /api/music/skip 那條路有來源 IP，而電視自己按的連那個都沒有。\n\n本機實測五種：正常播完→已撥（檔案在）／跳過上傳 mp3→刪除／跳過 YT→.url 與快取都刪／\n同一支影片還被排著→快取留著只刪那個 .url／面板 ✕→照舊搬進已撥不刪。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "074ba533",
+          "time": "08:43",
+          "message": "fix(OrderInSql): 端點② 409 姓名比對：ID_LAST_NAME 的罕用字讀回來不一定是原字",
+          "body": "測試站（DevTest → 56.225）實打 1c 案例⑤抓到誤判：沒有身分證、對 AutoDeliver 建的舊單\n（ID_NAME 為 NULL）用含罕用字的姓名重送，應 200 卻回 409。\n\n原本假設 ID_LAST_NAME 收不下的罕用字一律存成 '?'，所以把請求姓名轉 cp950 再比。\n實測資料庫字元集 ZHT16MSWIN950 對「喆」U+5586 寫入存成 FB46，讀出卻是造字區 U+E0A3，\n寫入／讀出不對稱，原字串與 cp950 轉過的字串都對不上。\n\n改為比 ID_LAST_NAME 時，表頭的 '?' 與私用區字元（U+E000–U+F8FF）當成「這一格無法比對」，\n字數要相同、其他字要全同（請求端以文字元素切，surrogate pair 算一格）。\n代價是兩個名字只差在罕用字那一格時視為同一人——這條本來就是沒有身分證時的退路。\n\n實打 7/7：身分證不同 409／身分證同姓名不同 200／一邊無身分證姓名不同 409／\n一邊無身分證姓名同（含全形空白）200／罕用字對 ID_NAME NULL 的單 200／\n同位置罕用字但其他字不同 409／兩個不同病人並發同一新單號 201+409。\n每個 409 明細與 EVENTLOG 筆數不變；測試單與 CUST_MASTER 已清、ORD_HDR 無殘留。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "04a1b8a9",
+          "time": "10:28",
+          "message": "fix(OrderInSql): 端點② 同 tno 換病人回 409 tno-patient-mismatch",
+          "body": "單號已存在時原本只比單位，同一個 tno 送來不同病人會被當成冪等命中、\n把 A 的項目無聲地補到 B 的單上還回 200（醫院貼錯條碼就會發生）。\nOrderInSql LIS_API_REQUEST §7.18 補答 a。AutoDeliver 讀碼確認連單位都不核對\n（表頭撞主鍵 try/catch 只記 log，明細照補到既有單）。\n\n比對規則（PatientMismatch）：\n- 兩邊都有身分證（非空白、非 \"00\"）=> 只比身分證（去空白、轉大寫）。\n  身分證是表頭唯一的強識別；相同就是同一人，姓名不同（改名、罕用字、\n  院所打錯字、檢驗室手改）不擋，否則只會多出假的 409\n- 任一邊沒有身分證 => 退而比姓名（去所有空白含全形、英文轉大寫），\n  與 ID_NAME 或 ID_LAST_NAME 任一欄相同即同一人。ID_LAST_NAME 是 Big5 欄，\n  罕用字存成 '?'，且 AutoDeliver 建的舊單沒有 ID_NAME，所以請求姓名先轉一次\n  Big5 再比 ID_LAST_NAME\n- 表頭連姓名都空白 => 沒有反證依據，放行\n- 病歷號／生日／性別不比：病歷號常空白且各院編法不一；生日、性別空值會被\n  填預設值（1900-01-01／依身分證推），比了只會誤擋\n\n錯誤碼照既有 409 的格式：{error:\"tno-patient-mismatch\", detail}，detail 只寫\n哪一欄不符、不帶既有單個資。檢查在 FOR UPDATE 鎖住表頭之後、補項目之前，\n所以並發撞主鍵改走補項目那條路時也會被擋。dryRun 不看單號在不在，不做此核對。\n\n驗證：msbuild 通過；PatientMismatch 以反射對 build 出的 DLL 跑 17 個離線案例\n全過（含全形空白、英文大小寫、Big5 以外罕用字）。未連 DB、未在測試站實打，\n實打案例列在端點②_orders.md 第七節待辦 1c。\n\n文件：端點②_orders.md（409 表、比對規則、與 AutoDeliver 差異 #10、待辦 1c）、\n端點②_回覆7.16_20260924.md（409 錯誤碼、文末補答 §7.18 a）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7593afcd",
+          "time": "07:38",
+          "message": "feat(deploy): 桃園 TY_UCL 加 IIS AppInit 暖機 transform (/Home/Warmup)",
+          "body": "與 Web.Release.config (台北) 同款, 隨部署帶上不被 WebDeploy 洗掉。\n⚠️ 上版前 22.230 / 22.231 必須先裝 Web-AppInit 模組, 否則整站 500。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "f2430199",
+          "time": "07:20",
+          "message": "合併 MR !1551: feat(lt252b): 新增獨立審核頁面與批量重新測驗",
+          "body": "feat(lt252b): 新增獨立審核頁面與批量重新測驗\n\nSee merge request ucl/lis/lisweb!1551",
+          "category": "合併MR"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "cb759031",
+          "time": "09:54",
+          "message": "chore: 版號改為 9.30(2026/09/30 台北上線)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ba76ef14",
+          "time": "09:53",
+          "message": "fix: Error_Log 寫自建 Exception 時 @source 為 null 導致 INSERT 失敗",
+          "body": "自己 new 出來沒 throw 過的 Exception，Source 是 null；AddWithValue(null)\n不會送出參數，INSERT Error_Log 會拋 8178「必須有參數 '@source'」，\nError_Log.Insert 再把例外往外丟。\n\n實際案例 (2026/09/24 A271, TNO 6092414385)：院內碼超過 10 碼，\nIsCodeWritable 要記一筆「略過登記」卻在寫 log 時炸掉，例外穿出\nUnMapTestCode_DML 被轉入 LIS 的 catch 接住 → 該單 Oracle 已寫成功，\n畫面卻報「部分資料轉入失敗」，同單後續未對應碼也沒登記。\n\n- Error_Log.Insert 兩個多載：Source 為 null 時改用空字串\n  （同時修好 DISTRIBUTE 兩處 ADD_ITEM 防呆 log 的同款問題）\n- UnMapTestCode_DML 所有寫 log 改走 LogQuietly，守住「絕不往外拋」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "90d01b40",
+          "time": "15:27",
+          "message": "feat(sci): JISE 工作稿 Ch3 依教授紙本騰稿完成＋寄教授版（Ch1–Ch3）",
+          "body": "- Ch3：依紙本 p.11–p.13 整合；順序對調為 3.1 Prediction Problem、3.2 Research Questions\n  章首採教授手寫段；原「現有預測方法的限制」已拆入 §2.4、「核心研究問題」刪除\n- 式 (3-1)(3-2) 沿用原方程式物件，改流水號 (2)(3) 並接交互參照；補 Y 的符號說明\n- Q1–Q7 套用教授改字；條列與小標格式對齊前兩章，移除隨碩論帶入的分頁符號\n- Ch2：半形括號改全形、肌酐酸→肌酸酐\n- 寄教授/：Ch1–Ch3＋References 的 Word 與 PDF（拔除 Ch4–Ch7 空殼與 Acknowledgements 草稿）\n- 16_Ch3_教授批註.md：逐頁批註對照與判讀信心\n- TODO：9/30 16:40 與教授討論之議程\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "2bfdc20a",
+          "time": "11:31",
+          "message": "docs(sci): 教授 9/24、9/27 語音逐字稿、LINE 文字紀錄與 TODO 更新",
+          "body": "- 逐字稿 5 支（第四章實驗刪減、實驗一補設計、依問題重排、實驗一為何放第一、約討論）\n- LINE文字紀錄.md：9/27–9/28 往返原文＋結論\n- TODO：C0-5 第四章實驗設計重組、C7 Ch2 狀態、E12 三高譯法、E13 參考文獻體例、C0 頁首\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0da444d0",
+          "time": "11:31",
+          "message": "feat(sci): JISE 工作稿 Ch2 依教授紙本騰稿完成",
+          "body": "- 2.1–2.4 依紙本 p.5–p.11 批註整合；第五章、第四節（類別不平衡）、表 2-2 刪除\n- §2.4 依教授結構重組：缺口／動機／Ch3 限制拆插入「第一、二、三」三段\n- Table 1 併入表 2-2 三欄（特徵相關＋解釋性分析）、SEQ 標號＋交互參照、橫向區段\n- 參考文獻改 JISE 體例：第一作者字母序＋SEQ 編號＋內文交互參照（補回漏列 4 筆，共 18 筆）\n- 頁首改範本格式（全名／完整題目）並統一三節；式 (2-1) 還原原方程式物件、改流水號 (1)\n- 90_archive/：被取代的舊稿與改稿過程備份\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "42032009",
+          "time": "11:31",
+          "message": "docs(sci): 教授紙本批註掃描與逐頁轉錄（Ch1–Ch3）",
+          "body": "- scans/：2026-09-22 影印機掃描兩份 PDF（封面～Ch2 p.5、Ch2 p.5～Ch3 p.13）\n  ＋給教授的目次截圖、p.21 教授手寫照片、判讀用放大截圖\n- 15_Ch2_教授批註.md：p.5–p.11 逐頁批註對照、判讀不確定處、決策紀錄\n- README：「紙本一律先掃描存證再 key in」規則與檔案清單\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "90a83976",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-29",
+          "body": "🤖 自動生成於 2026-09-29 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "309c0f68",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-28 (6 commits)",
+          "body": "🤖 自動生成於 2026-09-29 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "honey-mishears",
+      "commits": [
+        {
+          "hash": "47aae7a1",
+          "time": "12:02",
+          "message": "feat: 用打的測試入口——不方便對手機講話時，打字代替說話",
+          "body": "右上角多一顆鍵盤圖示，打的字走跟語音一模一樣的結算（取名、暱稱那兩輪也是）。\ndebug 版一律有；release 要帶 --dart-define=TYPE_TO_TALK=true，上架版本不會出現。\n\n- 打字進來的不回傳逐字稿：回傳是拿來看辨識器聽成什麼的，混進去會污染\n- 面板列出每條梗的第一個關鍵字，點一下就送，方便掃過所有姿勢與影片\n- 繞過的是辨識器，語音相關的改動還是要實機開口測\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 38,
+    "sideCommits": 7,
+    "totalCommits": 45
+  }
+}
