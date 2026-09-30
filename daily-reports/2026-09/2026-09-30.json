@@ -1,0 +1,1187 @@
+{
+  "date": "2026-09-30",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "10e8b6dd",
+          "time": "19:27",
+          "message": "docs: 3b 第二天收盤與 19:20 比對——影子基準被 6a 平行驗證污染，我方無缺陷訊號；請 6a 寫入加識別",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "88cc0b70",
+          "time": "17:48",
+          "message": "docs: 3540 壞檔後續——行政重轉兩次的殘留與拆單，待行政清理",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b351ffec",
+          "time": "16:04",
+          "message": "docs: 待部署登記 !395 逐行預檢與 6b 三個 commit",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3117dc64",
+          "time": "16:03",
+          "message": "feat: 試解析逐行預檢——分隔檔壞行講清楚是哪一行、為什麼、要跟診所講什麼",
+          "body": "2026-09-30 3540 的檔第 99 行診所端就壞了（開立日 1913、代碼 1150930、引號不成對），\n解析器只說「Line 99 cannot be parsed using the current Delimiters」，行政看不懂也不知道要\n跟診所講什麼。不用 LLM，幾條確定性的規則就夠，而且不把病人資料送出去。\n\n- DelimitedLineDiagnostics：逐行預檢（引號不成對／欄數與多數列不同／開立日、生日、採檢日形狀），\n  ForClinic 湊出「可轉給診所」的一句話；Head 只取前 4 欄，不帶病人欄位\n- 解析器接住 MalformedLineException 改擲 OrderFileMalformedLineException（子類別，行為不變、\n  整檔仍進隔離區）：訊息帶行號、理由、該行前幾欄 ⇒ MessLog／隔離區「失敗原因」直接看得懂\n- 試解析：FilePreview 多 Issues／ErrorLineNo；失敗時給行號與可疑行清單，成功時當警訊；\n  畫面「看原檔第 N 行」跳到原檔分頁並標紅可疑行\n- 測試 +5（652 綠）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "2ffbefaf",
+          "time": "12:16",
+          "message": "docs(6a): 時序圖與逐日待辦（SCHEDULE_6A.md）；3b 下游提前驗證抓到 3525 兩缺陷",
+          "body": "- 新增 docs/SCHEDULE_6A.md：Mermaid 甘特圖（6a 驗證／切換、會卡到 6a 的他線節點、限制期間）＋ 10/1–10/27 逐日待辦\n- 10/1–10/2 排入：修 3525、反向比對工具（FpTxtProjector 投影舊路徑寫 WebOrder_Test，觀察期每天比）、再跑一次 13 家\n- 9/30 提前跑 3b 下游 7 家（素材 9/29、12 檔）：5 家乾淨；3525 ① 檢驗代碼漏串 SUB_TEST_CODE\n  （正式 090406-1、我方 090406）② 看診日 7 碼民國未套擴充格式 → 空值。切單 12／12 相同、未對齊 0\n- BATCH6A_PLAN §0.6、TODO 作戰圖、轉移卡前置狀態同步\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ada8a046",
+          "time": "09:49",
+          "message": "docs: 0855 9/29 那 23 張主檔決定不處理",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9a13b706",
+          "time": "09:49",
+          "message": "docs(todo): 1120 CBC 子項寫入者自查——不在 Paring.bat／HCLAB2／.229 排程，停 AutoDeliver 不會連帶停它",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "213efd08",
+          "time": "09:42",
+          "message": "docs(todo): 作戰圖三處訂正——10/6 為 23 家、10/16 go／no-go 含 6a、FP 例外 4 家的去向",
+          "body": "- 10/6：「暫定 27 家」→ 23 家（9/30 定案，0699／0272／0848／0449 留 FP）\n- 10/16：go／no-go 原本只列 6b。6a 回退也要動 .229（valid=1），封鎖窗內不可 ⇒ 兩者都要在 10/16 定案；\n  並列出與 Spark 要講定的兩件事\n- 10/27 後：FP 例外 4 家中只有 0699／0272 需要實作，0848／0449 可能永久留 FP（影響 .229 退役）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f0850988",
+          "time": "09:38",
+          "message": "docs(todo): 10/6 交接點補「部署 main 會把 6b 一起帶上線」的確認項",
+          "body": "線上版（第 24 列）刻意不帶 6b；10/6 部署 main 會同時帶上 6a 兩個修正（要帶）與已接進管線的\n6b 端點②（8b6cb48、8a094d1）。請 6b session 部署前確認沒有單位打開 ② 開關、LisOrders 空或\nDryRunOnly、啟動無 ② 驗證例外；不確定就改 cherry-pick 部署。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "aa7fb0cd",
+          "time": "09:31",
+          "message": "fix(6a): 檔尾註記列不再寫出空殼主檔；0165 的 .ods／.xlt 定案維持進隔離區",
+          "body": "查 0165 .ods／.xlt 時用真實檔 0165-202608.xls 跑本機服務，順帶抓到一個缺陷：\n檔尾兩列單號欄是 `~~8/29 15:40`、時間格 `07:20:00`，通過三鍵 gate（FP 也把它們寫進 .txt），\n我方開了主檔、空代碼明細在 enricher 被丟掉 ⇒「垃圾單號、明細 0 筆」的空殼主檔 2 張。\n正式庫同一檔 0 張：舊 Keelung 程式在那列生日欄 `8/31/26` 轉換失敗丟例外，整列未落庫。\n\n- DelimitedOrderFileAdapter：6a 版位（FpFileFormat）整張不寫「沒有任何一筆明細帶檢驗代碼」的單。\n  真醫令必有代碼、垃圾列必沒有 ⇒ 不誤殺。同檔重跑 121→119 張、空殼 0，與正式庫一致。\n  Keelung 路徑不動（9/15 以來正式庫 0 次、3b 觀察期），TODO 記待辦\n- 測試 +2：檔尾註記列整張不寫；首列無代碼但續列有時同一張單保留（647 全過）\n- parallel-compare-6a.sql：補「明細 0 筆主檔」段——原本每段都以明細 filename 圈範圍，空殼完全看不到\n- .ods／.xlt：備份夾近期 11 個全部有同內容的可讀副本 ⇒ 必為重複檔。現況 AssertNotBinary 擋下進隔離區、\n  0 張單，定案維持（看得見，且 10/6 前不再加程式變更）；觀察期 quarantine 判準排除它們\n- TODO 10/6 列：部署的 main 必須含 6a 兩個修正（!381 採檢日、本次空殼主檔）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "dbb5f625",
+          "time": "09:28",
+          "message": "docs: 9/30 採檢日修正上線＋09:25 驗收通過（20 檔主檔數＝影子）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "789448f6",
+          "time": "09:16",
+          "message": "docs(todo): 6b A 段結果——計價待查差異 0；1120 CBC 子項由另一支程式補，列為問 Spark 的 6b 門檻",
+          "body": "- 1120 2,775 張、0705 1,622 張、項目 23,389（非零價 20,686）：價格／帳別／健保／套餐 0 差異\n- 工具列的待查皆有解釋（事後註記、空白預建單、事後刪單、0705 就醫日）\n- 1120 的 8461–8474 由 ITD_UPDATE_BY='BATCH' 的程式補、不留 EVENTLOG，推測是 Paring.bat 鏈的 PHP；\n  停 AutoDeliver 若連它一起停，10/13 起 1120 CBC 會少白血球分類 ⇒ 10/13 前問 Spark\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "30c043d5",
+          "time": "09:15",
+          "message": "docs(6a): 轉移卡補 10/6 Discord 公告稿",
+          "body": "讀者為同仁（客服、檢驗、資訊）。說明 23 家改由新服務直讀、對同仁與院所沒有影響的部分、\n10 家近三個月幾乎沒送檔（切換後首檔逐檔確認、有異常直接回報）、4 家維持舊路徑。\n貼之前依 10/3 驗證結果核對名單。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "29a0fa1d",
+          "time": "09:06",
+          "message": "feat(6a): 全切＝23 家——下游線改由 ThrowFolder 推、0775 從子目錄拉、回退讀 units-6a.json",
+          "body": "使用者 9/30 定案全切。27 家扣 4 家例外（全為零流量）：\n- 0699 橫向展開、0272 依病歷號改單位代碼：程式面未實作，直讀會靜默寫錯\n- 0848：前處理 PHP 每分鐘拿走全部 0848-*，FP 本來就收不到\n- 0449：ThrowFolder 是 Cube_Files，但 FP 產出 Keelung 版 .txt、Cube 線用 Cube 版位解析，\n  現況那條路本身對不上\n產生器對這 4 家各以理由擋下。\n\n- make-cutover-config.ps1：$Units 純清單；下游線由 Parsing DB 的 ThrowFolder 對照推出（不手寫）；\n  pull 來源由 CatchFolder 推（0775 → ExamOrder_Files\\0775）；另輸出 units-6a.json\n- ROLLBACK.ps1：讀 units-6a.json，把 inbox 殘檔搬回各家原本的來源夾（0775 搬回頂層 FP 收不到）\n- 兩支 SQL：23 家；CatchFolder 守門放行 0775 子目錄\n- 轉移卡：範圍 23 家、驗證深度（13 家平行驗證、10 家只有設定審查→觀察期首檔逐檔看）、4 家例外\n\n已驗：以 56.227 現行設定副本實跑 10→33 單位、原 Live 線全保留；去敏後啟動服務單位數 33 通過驗證器；\n兩支 SQL NOEXEC 編譯通過、事後確認 23 家 valid 仍為 1；兩條路徑正規式單獨測過。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3fc3dd02",
+          "time": "08:50",
+          "message": "feat(6a): 10/6 切換資產——轉移卡、設定＋pull 產生器、FP valid 切換／回退 SQL、GO／ROLLBACK",
+          "body": "預設切 13 家（近 90 天有流量、做過 DB 層平行驗證），其餘 14 家留 FP。\n\n建卡查出的三件事（皆列為紅線）：\n- ImportPipeline 對 inbox 全收、不看前綴 ⇒ 每家一個 FP<代碼> 單位、一個 inbox；\n  pull .bat 由同一支產生器依 -IncludeLike 逐家分流，單位清單只有一份來源\n- .227 parsing_order_files.php 與 FP 共用 ExamOrder_Files：0580 只拿 .xls（→ 批次 5）\n  ⇒ pull 排除 0580-*.xls；0848 全被 PHP 拿走、FP 從未收到 ⇒ 不切（產生器擋）\n- 下游三線都有 ProcessingWindow 與 QFT PostImportHookUrl ⇒ 照抄，否則出貨日處理消失\n\n另：valid=0 之後沒有影子可做反向比對，BATCH6A_PLAN §0.6「10/7 起反向比對」註明不成立並給替代方案；\n陪跑擴 13 家建議取消。\n\n已驗：產生器以 56.227 現行設定副本實跑（10→23 單位、原 Live 線全保留、0848／無引號兩道負向擋下）；\n去敏後啟動服務單位數 23 通過驗證器；兩支 SQL 以 NOEXEC 在 Parsing DB 編譯通過，事後確認 valid 未動。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3ec22cf2",
+          "time": "08:34",
+          "message": "docs: 10/5 休假，原排三件事移到 10/3（六）",
+          "body": "使用者 10/5（一）休假、10/3（六）上班。原排 10/5 的三件事整組移到 10/3：\n- 6a 平行驗證：3b 下游 7 家＋3a 6 家重跑（素材 9/29–10/2 完整四天）、歸因完、定 10/6 切哪幾家\n- 批次 1–5 結案判讀\n- 收工前 merge !326\n\n10/2 只剩 !326 上線前待辦收齊。「10/2 18:00 後／10/5 09:00 前」的時段限制一併拿掉——\n對照表 9/22 起已改增量同步，不再 TRUNCATE。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "827f861f",
+          "time": "08:13",
+          "message": "test(6b): A 段比對工具——實際醫令檔 dryRun × 正式庫 AutoDeliver 單逐欄比",
+          "body": "- LisOrdersProdDryRunCompareTests：設 LIS_ASTAGE_CONFIG／LIS_ASTAGE_OUT／LIS_1120_DIR／LIS_0705_DIR 才跑；\n  同單位所有檔先解析再整批 BuildByTno（跨檔重送聯集），打 ② dryRun，撈正式 BLG_TX_HDR／DTL／PKG_ITEM＋EVENTLOG B01 比對\n- 一律 dryRun 三道：呼叫端寫死、DryRunOnly 強制 true、HttpClient 底層 DryRunOnlyHandler 攔非 dryRun URL；結束斷言攔截 0\n- Oracle 唯讀交易＋只准 SELECT、不撈姓名；WebOrder（選填）包唯讀倉儲；報告路徑在 git repo 內拒絕；:8090 拒絕\n- 比對邏輯抽成純函式（LisAStage/AStageComparer），六種性質分開計：待查差異／現行設定類／行為差異／已知／歸因分類／未比對；\n  正式多出的項目依 ITD_UPDATE_BY、B01 [P]OI= 與 ITD_UPDATE_ON 歸因（同批／重送／人工），不直接算差異\n- 報告附涵蓋範圍與識別欄位形狀分布；另加不連線的解析預演\n- 單元測試 LisAStageComparerTests 38 案；Lis1120ParseStatsTests 抽出 ContentHash／ReadRawRows 供去重共用\n- batch6b/README「A 段怎麼跑」（設定範本、指令、IP 白名單下兩種執行處的取捨）；TODO 1c 加一行進度\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d6a2f4c6",
+          "time": "08:05",
+          "message": "fix(6a): 採檢日帶時間的 Excel 儲存格被切錯位、整檔進隔離；9/30 平行驗證 6 家零轉檔缺陷",
+          "body": "平行驗證（DB 層）第一輪，3a 下游 6 家、9/22–9/29 共 33 檔。\n\n真缺陷：0680 三檔全進隔離。採檢日是 Excel 日期儲存格，ExcelRowReader 轉成\n`2026/09/19 09:32:21`，NormalizeDateTime 只拿掉 - 與 /，剩下的空白冒號讓逐 2 碼切時分秒\n錯位成 `2026/09/19  0:9::32`，寫主檔時 DateTime.Parse 丟例外。FP .txt 一律給純數字，\n所以這條路從來沒走過。修法：取數字時連空白與冒號一起拿掉；Keelung 各線的 .txt 不含這兩種\n字元，行為不變。補 10 例測試（含 FP 純數字格式不變、輸出必須吃得進寫入層的 DateTime.Parse）。\n\n修正後重跑：33 檔、隔離 0、ERR 0；每檔切單數 33／33 相同（550＝550 張）；主檔未對齊 0；\n識別欄逐值＋形狀全 0。差異全數歸因：姓名 207＝修補層 L331、性別 1＝FP_EXPORT_CONTRACT §6.4\n定案差異、明細 2＝人工補項（A334）。\n\n- make-shadow-config.ps1：0680 切分鍵拿掉 BarCodeSeq（以規則推出的那組才與正式逐檔相同）\n- README：等待迴圈寫法（fp*\\inbox -File 永遠回 0，9/30 因此把服務停在檔案處理到一半）\n- BATCH6A_PLAN §0.6：第一輪結果、涵蓋範圍、白名單；TODO 測試做足 #1\n\n⚠️ 未部署：3b 觀察期不動線上，6a 尚無單位啟用，併進 10/6 的部署。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "427541f6",
+          "time": "07:43",
+          "message": "docs: DEPLOY_LOG 第 24 列——09-30 07:40 採檢日截 8 碼修正上線（只上修正、不帶 6b）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "739483f5",
+          "time": "07:36",
+          "message": "合併 MR !379: docs(index): 文件索引加收檔夾整併問題單",
+          "body": "docs(index): 文件索引加收檔夾整併問題單\n\nSee merge request ucl/twowayconnection/orderinsql!379",
+          "category": "合併MR"
+        },
+        {
+          "hash": "1b3673cb",
+          "time": "07:36",
+          "message": "docs(index): 文件索引加 INBOX_MERGE_REQUEST（給 Spark 的收檔夾整併問題單），inbox 卡片加連結",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c8eae269",
+          "time": "07:33",
+          "message": "合併 MR !378: docs: 整併問題單 §3 提案定案保留",
+          "body": "docs: 整併問題單 §3 提案定案保留\n\nSee merge request ucl/twowayconnection/orderinsql!378",
+          "category": "合併MR"
+        },
+        {
+          "hash": "6d6c7d13",
+          "time": "07:32",
+          "message": "docs: 整併問題單 §3 提案定案保留——實際執行方式以 Spark 的判斷為準",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e54404d9",
+          "time": "07:29",
+          "message": "合併 MR !377: docs(todo): 補 Spark 問題單的交付待辦",
+          "body": "docs(todo): 補 Spark 問題單的交付待辦\n\nSee merge request ucl/twowayconnection/orderinsql!377",
+          "category": "合併MR"
+        },
+        {
+          "hash": "e4a7d9da",
+          "time": "07:28",
+          "message": "docs(todo): Spark 交接項下補一條——收檔夾整併問題單與修補層完整清單同一段交付",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4cb92b0e",
+          "time": "07:27",
+          "message": "合併 MR !373: fix: Keelung 版位漏移植舊碼 CtrlExcel 的採檢日截 8 碼，UCL 系檔案一行切一張單",
+          "body": "fix: Keelung 版位漏移植舊碼 CtrlExcel 的採檢日截 8 碼，UCL 系檔案一行切一張單\n\nSee merge request ucl/twowayconnection/orderinsql!373",
+          "category": "合併MR"
+        },
+        {
+          "hash": "7dc4f923",
+          "time": "07:22",
+          "message": "合併 MR !376: docs: 給 Spark 的問題單依 9/29 實測訂正",
+          "body": "docs: 給 Spark 的問題單依 9/29 實測訂正\n\nSee merge request ucl/twowayconnection/orderinsql!376",
+          "category": "合併MR"
+        },
+        {
+          "hash": "01472599",
+          "time": "07:22",
+          "message": "docs: 給 Spark 的問題單依 9/29 實測訂正——after3pm 不只 2344（行政手動搬 20 檔／12 單位）、重複前綴補 0096-0096- 樣態",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 28
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "7853da66",
+          "time": "19:47",
+          "message": "chore: mushoku-reader 翻譯全部完成，更新 memory 2026-09-30",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "cd2d667d",
+          "time": "19:03",
+          "message": "chore: session 收尾備份 2026-09-30",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "94886a4b",
+          "time": "16:05",
+          "message": "memory: office-automation CI/CD 已關（無 runner，pipeline 一律 timeout）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5ba7542b",
+          "time": "15:59",
+          "message": "memory: 品質指標年度彙整已進 GitLab office-automation（MR !6）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9c4ed7b3",
+          "time": "15:54",
+          "message": "skill: it-qi-monthly-report（品質指標月報自動產出）；annual-chart 註明上游",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "d4275020",
+          "time": "15:48",
+          "message": "skill: it-qi-annual-chart（資訊室品質指標年度折線圖）＋ session 收尾備份 2026-09-30",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "993e7da0",
+          "time": "15:46",
+          "message": "memory: OfficeAutomation 專案（健保 VPN 登入、品質指標月報）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "026c9380",
+          "time": "11:02",
+          "message": "project-locations：加入 family-insurance",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4da8153b",
+          "time": "08:59",
+          "message": "Add mushoku-reader project memory",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a360e160",
+          "time": "07:44",
+          "message": "project-locations: add mushoku-reader",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "411d8b70",
+          "time": "07:41",
+          "message": "chore: session 收尾備份 2026-09-30",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8956ca95",
+          "time": "07:33",
+          "message": "memory(orderinsql): 整併問題單 §3 提案定案保留",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "032cdb8b",
+          "time": "07:30",
+          "message": "memory(orderinsql): 上傳管道窗口暫定 Spark、問題單位置與交付時點",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 13
+    },
+    {
+      "name": "Management\\OfficeAutomation",
+      "commits": [
+        {
+          "hash": "cde4b45b",
+          "time": "15:54",
+          "message": "品質指標年度彙整：2026 年 1–8 月折線圖網頁＋更新說明",
+          "body": "quality_indicators/annual/ 新增：\n- it-quality-2026.html：三項指標逐月折線圖（各自一張、灰線目標值、hover 讀數）、\n  中斷事件明細、資料表（未達標紅字）、備註\n- README.md：資料來源（Ucl-shared 掃描 PDF）、要抄的欄位、健保上傳率的三個坑\n  （費用年月落後兩月、截圖重複沿用、2026-07 改定義）、怎麼補月份／換年度\n\n根 README 與 quality_indicators/README 加上入口。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "fc64159c",
+          "time": "15:54",
+          "message": "文件：repo CLAUDE.md、VPN 常見問題補 2315061／同卡雙登入、月報下游與目標值出處",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "08f66fd4",
+          "time": "15:42",
+          "message": "品質指標月報：健保上傳率全自動（VPN 報告卡抓取＋紅框截圖＋一頁 PDF）",
+          "body": "- quality_indicators/nhi_upload_rate.py：ICEE4001 報告卡查詢、解析當月列、E1/G2 框紅截圖\n- quality_indicators/build_report.py：報告月 M 用健保 M-1 資料、M-2 比較；HTML 版面 → Edge 列印 PDF\n- 一、二項尚未接資料，PDF 留待補框\n- nhivpn：沿用已登入 session；簽章 [2315061] 偶發時重試一次\n- 2026-08 產出與人工版數字一致（91.5% / 99.5%，前月 91.0% / 99.1%）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "89a204d8",
+          "time": "15:12",
+          "message": "健保 VPN 登入：修正簽章失敗（身分證欄位需 blur 才寫入 hidID）、錯誤訊息亂碼",
+          "body": "實測全自動登入成功。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "d5ef52d5",
+          "time": "14:59",
+          "message": "健保 VPN 登入：同仁使用說明、雙擊啟動的 cmd、身分證號輸入不回顯",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8ca1b8a5",
+          "time": "14:45",
+          "message": "新增健保 VPN 自然人憑證自動登入模組",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "9542dd91",
+          "time": "14:26",
+          "message": "初始化辦公室自動化專案：品質指標月報骨架",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "35740088",
+          "time": "17:32",
+          "message": "fix(BT201): 台中就醫日帶入採檢日的送檢單位白名單擴充為 33 個",
+          "body": "台中提出 31 個要「就醫日期輸入後直接代入採檢日期」的單位代碼，\n與原白名單 1993/1959/6962 取聯集後共 33 個（1959 兩邊都有）。\n33 個代碼已全部對台中 DEBTOR 查證存在。\n\n- BT201.cshtml：`台中限定連動的送檢單位` 常數擴充，仍只在台中(LabUniform 20395754)套用\n- 文檔：自動設定章節改列 33 個單位的代碼/名稱對照表\n\n純前端 Razor 常數，不動 dll / Web.config，可只覆蓋 BT201.cshtml 熱抽換。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "fd24dc6c",
+          "time": "16:11",
+          "message": "合併 MR !1556: feat:[楊大簽收] 優化CMV簽收流程：改由系統參數動態注入與API同步，前端零寫死",
+          "body": "feat:[楊大簽收] 優化CMV簽收流程：改由系統參數動態注入與API同步，前端零寫死\n\nSee merge request ucl/lis/lisweb!1556",
+          "category": "合併MR"
+        },
+        {
+          "hash": "335870af",
+          "time": "16:10",
+          "message": "合併 MR !1555: doc:[禾瑞] SITE改為Xinyi，避免陽大簽收打預防API緩慢",
+          "body": "doc:[禾瑞] SITE改為Xinyi，避免陽大簽收打預防API緩慢\n\nSee merge request ucl/lis/lisweb!1555",
+          "category": "合併MR"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "e39ef978",
+          "time": "16:29",
+          "message": "feat: 未對應登記院內碼上限 10 → 50 碼（DB 前置：alter_DbOnline_UnitTestCode_50.sql）",
+          "body": "DbOnlineReservation 三張 Customer_* 登記表的 UnitTestCode 是公衛 API 開的 varchar(10)，\n分單院內碼欄位是 50 碼（實際最長 25），超過的登記不進去、CodeMap 看不到院內碼，\n且每張單記兩筆 Error_Log。已與公衛同仁確認可放寬（2026/09/30）。\n\n- docs/sql/alter_DbOnline_UnitTestCode_50.sql：拆 PK → ALTER COLUMN → 建回 PK，可重複執行，各分部先跑\n- UnMapTestCode_DML.UnitTestCodeMaxLen 10 → 50\n- SharedProject DDL 同步（sharedproject!28）\n- 發佈 SOP 前置檢查表補一列\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b6037de8",
+          "time": "16:18",
+          "message": "fix: BLG_TX_HDR 寫入時跳脫電話/身分證/檢體標示的單引號 (ORA-00917)",
+          "body": "單位 0886 病人 TEL1 內容是單引號，_CreateAllBLG 直接拼字串變成 ''' 導致\nORA-00917 遺漏逗號，該單轉入兩次都失敗。ID_PTELNO / ID_PID / ID_INVNO\n比照 ID_PADDR1 加 Replace(\"'\", \"''\")，_Create 與 _CreateAllBLG 兩處都改。\n版號 10.01（2026/10/01 上線）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "df5e5d13",
+          "time": "07:29",
+          "message": "合併 MR !28: fix: Error_Log 寫自建 Exception 時 @source 為 null 導致轉入 LIS 誤報失敗 (v9.30)",
+          "body": "fix: Error_Log 寫自建 Exception 時 @source 為 null 導致轉入 LIS 誤報失敗 (v9.30)\n\nSee merge request ucl/twowayconnection/uclweborder!28",
+          "category": "合併MR"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "HIS\\SharedProject",
+      "commits": [
+        {
+          "hash": "28abc05a",
+          "time": "16:28",
+          "message": "chore(DbOnlineReservation): Customer_* 三張登記表 UnitTestCode varchar(10) → varchar(50)",
+          "body": "分單系統 v9.22 起把「代碼未對應」登記到這三張表讓 LISWeb CodeMap 補正，\n但分單的院內碼欄位是 50 碼（實際最長 25），超過 10 碼的登記不進去。\n已與公衛同仁確認可放寬：公衛 API 寫入自帶 Size=10 不受影響，LISWeb 無長度假設。\n正式庫用分單 repo 的 docs/sql/alter_DbOnline_UnitTestCode_50.sql 施作（拆 PK 再建）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "mushoku-reader",
+      "commits": [
+        {
+          "hash": "e4f0330e",
+          "time": "20:26",
+          "message": "Two-level TOC: pick the work first, then its arcs",
+          "body": "- build_index.py: add work name to each entry\n- index.html: work pills above the arc list (defaults to the work you are\n  reading, remembered afterwards; dot = unread new chapters); arc names drop\n  the redundant work prefix; per-work read count; prev/next and arrow keys\n  stay within the same work\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9ad9e521",
+          "time": "19:42",
+          "message": "Add kolong chapters 21-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7cdb7977",
+          "time": "19:37",
+          "message": "Add kolong chapters 11-20",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "6da2a343",
+          "time": "19:33",
+          "message": "Add oryuo chapters 11-11",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "636cbffa",
+          "time": "19:32",
+          "message": "Add oryuo chapters 1-10",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "6d6ea5c8",
+          "time": "19:25",
+          "message": "Add jobless chapters 11-15",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "384486f8",
+          "time": "19:24",
+          "message": "Add kolong chapters 1-10",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "6fcd5de6",
+          "time": "19:16",
+          "message": "Add jobless chapters 1-10",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c3489237",
+          "time": "19:14",
+          "message": "Add xmas chapters 1-4",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "08aefc6b",
+          "time": "19:11",
+          "message": "Add dasoku chapters 31-32",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "1db184b0",
+          "time": "19:07",
+          "message": "Add dasoku chapters 21-30",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "ba398d06",
+          "time": "19:02",
+          "message": "Add translation check and offline browser test scripts",
+          "body": "- scripts/check_translations.py: per-work missing / suspiciously short /\n  abridged chapters\n- scripts/test_offline.mjs: CDP real-time test of the offline download and\n  offline reading\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d79f72f9",
+          "time": "19:00",
+          "message": "Add other Mushoku side works: Jobless Oblige, 王竜王討伐, 古龍の昔話, Christmas shorts",
+          "body": "- episodes.py: new works (reader ids 2000/3000/4000/5000+); 'shorts' works\n  built from standalone short-story ncodes; 'heading' label style\n- fetch.py: per-entry url for short stories\n- translate_titles.py --arcs: works without arcs use the work name\n- build_index.py: heading style labels\n- arcs.json: arcs for the new works\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b18e7765",
+          "time": "18:50",
+          "message": "Deploy skill: note that Workers Builds auto-deploy is already connected",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "30d87c0f",
+          "time": "18:50",
+          "message": "Add dasoku chapters 11-20",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7b1524d3",
+          "time": "18:31",
+          "message": "Add dasoku chapters 1-10",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e462c6ae",
+          "time": "18:14",
+          "message": "Update deploy skill for Workers static assets (was Pages)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e29c86da",
+          "time": "18:13",
+          "message": "Support the side story (蛇足編) as a second work",
+          "body": "- episodes.py: WORK env selects the work (main / dasoku); raw/zh subdirs,\n  reader ids offset by 1000 for the side story\n- fetch/translate scripts: use work-aware RAW/ZH dirs\n- build_index.py: merge all works into one chapters.json\n- translate_titles.py --arcs: per-work arcs, side-story arcs prefixed\n- index.html: offline cache matching uses full path under zh/\n- arcs.json: side-story arcs\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8ecc61ef",
+          "time": "18:07",
+          "message": "Add offline reading via service worker",
+          "body": "- sw.js: network-first for the shell/TOC, cache-first (with background\n  refresh) for zh/*.md; never caches redirected responses (e.g. an expired\n  Cloudflare Access session)\n- index.html: register the worker; TOC button downloads every chapter into\n  the cache with progress\n- build_site.js: publish sw.js\n- .gitattributes: keep *.sh LF so bash scripts run on Windows checkouts\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "61e8926d",
+          "time": "17:58",
+          "message": "Group reader TOC by story arc; add batch script; unify a name",
+          "body": "- episodes.py: record each page's arc from the site TOC\n- translate_titles.py --arcs: translate arc names into arcs.json\n- build_index.py: add arc to each chapter entry\n- index.html: collapsible arc groups with per-arc progress; opens the arc\n  you are reading\n- scripts/run_range.sh: batch fetch/translate/publish (moved into repo)\n- prompt.py: add names seen in translations to the glossary;\n  normalize 琪希莉卡 -> 奇希莉卡 in ch.88/99\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8b525b16",
+          "time": "15:58",
+          "message": "Show current chapter title in the sticky header while reading",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1d0251ac",
+          "time": "15:26",
+          "message": "Re-translate ch.39/63/89 as marked abridgments; guard against refusal output",
+          "body": "These chapters had been saved as refusal messages instead of translations.\n- prompt.py: omit sexualized content involving minors with a 〔此處略〕 marker\n  instead of refusing the whole chapter\n- translate_cc.py: reject output shorter than 30% of the source\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e16e702d",
+          "time": "15:18",
+          "message": "Add chapters 151-157",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4e60a002",
+          "time": "15:04",
+          "message": "Add chapters 141-150",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3a2b0569",
+          "time": "14:42",
+          "message": "Add chapters 131-140",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7c5a07e1",
+          "time": "14:18",
+          "message": "Add chapters 121-130",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0a481745",
+          "time": "14:01",
+          "message": "Add chapters 111-120",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "21889594",
+          "time": "13:43",
+          "message": "Add chapters 101-110",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f0ae7dcf",
+          "time": "13:22",
+          "message": "Add chapters 91-100",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7d4e15c2",
+          "time": "13:04",
+          "message": "Add chapters 81-90",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5813caec",
+          "time": "12:57",
+          "message": "Add chapters 261-261",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "bd7e5fa0",
+          "time": "12:52",
+          "message": "Add chapters 251-260",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "38d50855",
+          "time": "12:47",
+          "message": "Add chapters 71-80",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a7a8d7ed",
+          "time": "12:33",
+          "message": "Add titles for chapters 241-261 and final pages to TOC",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3349b50b",
+          "time": "12:32",
+          "message": "Add chapters 241-250",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9c3619e2",
+          "time": "12:25",
+          "message": "Add chapters 61-70",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "93d2d718",
+          "time": "11:22",
+          "message": "Add chapters 61-70",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6a9c3a97",
+          "time": "11:20",
+          "message": "Add chapters 231-240",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "cfd63593",
+          "time": "11:14",
+          "message": "Add chapters 51-60",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3454f3e3",
+          "time": "11:00",
+          "message": "Add chapters 221-230",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d82c7186",
+          "time": "10:57",
+          "message": "Add chapters 41-50",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "76431fa1",
+          "time": "10:37",
+          "message": "Add chapters 211-220",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a911eec6",
+          "time": "10:32",
+          "message": "Add chapters 31-40",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8767ead6",
+          "time": "10:14",
+          "message": "Add chapters 201-210",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3edca60f",
+          "time": "10:12",
+          "message": "Add chapters 21-30",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "104837bb",
+          "time": "09:53",
+          "message": "Add chapters 11-20",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "546ca7ba",
+          "time": "09:53",
+          "message": "Add chapters 191-200",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c7e7ef4c",
+          "time": "09:33",
+          "message": "Add chapters 181-190",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f3546c33",
+          "time": "09:32",
+          "message": "Add chapters 1-10",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "dace1f8d",
+          "time": "09:11",
+          "message": "Add chapters 171-180",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2ea09f76",
+          "time": "08:56",
+          "message": "List chapters 1-157 in the reader TOC with translated titles",
+          "body": "- scripts/translate_titles.py: translate only chapter titles (one claude -p\n  call) into titles.json; limited to a given range to avoid spoilers\n- build_index.py: merge titles.json entries (file: null = not translated)\n- index.html: show untranslated entries greyed out / not clickable;\n  navigation, resume, NEW and read counts only consider readable chapters\n- translate_cc.py: extract claude_p() helper\n- zh: chapters translated so far in the 171-185 batch\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "399e0198",
+          "time": "08:52",
+          "message": "Map chapters via site TOC instead of fixed page offset; support interludes",
+          "body": "The page/chapter offset is not constant (interludes and map pages are\ninterleaved: +14 at ch.158, +17 from ch.176, ...), so fetching 171+ with\nOFFSET=14 grabbed the wrong pages.\n\n- scripts/episodes.py: build page<->chapter mapping from the site TOC\n  (cached in raw/toc.json); unnumbered pages get ids like 170.5\n- fetch.py: fetch by TOC, include interludes inside the range, verify titles\n- translate*.py: iterate raw files in range (supports 170.5.md)\n- build_index.py / index.html: label + file fields, fractional ids in URL\n- zh/170.5.md (interlude), zh/171.md\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "de2d4ea6",
+          "time": "08:46",
+          "message": "Add Cloudflare Workers static-assets deploy config",
+          "body": "Deploy copies only the reader files (index.html, chapters.json, _headers,\nzh/) into public/ and uploads that, so raw/ and scripts never leave the repo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e976db1a",
+          "time": "08:37",
+          "message": "Add chapters 164-170 and rebuild chapter index",
+          "body": "Also point the deploy skill's daily update flow at translate_cc.py.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5996eb96",
+          "time": "08:36",
+          "message": "Add chapters 164-170 and rebuild chapter index (158-170)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e082597b",
+          "time": "08:24",
+          "message": "Add read-state tracking to reader, Claude Code translation script, and ch.158",
+          "body": "- Reader: mark chapters read only when scrolled to the end, show per-chapter\n  progress, resume button, NEW badge for newly added chapters, \"mark unread\",\n  header progress bar, arrow-key navigation; store scroll position as ratio\n- scripts/translate_cc.py: translate via Claude Code subscription (claude -p)\n- scripts/prompt.py: shared translation instructions and name glossary\n- zh/158.md: first translated chapter\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "fe8ada78",
+          "time": "08:12",
+          "message": "Add subscription-based translator (claude -p) and first chapter",
+          "body": "- scripts/translate_cc.py: translate via Claude Code subscription, no API key\n  (Opus 5.5, effort low; strips auto-loaded context ~68k -> ~700 tokens)\n- scripts/prompt.py: shared glossary/system prompt\n- translate.py: fix model id (claude-opus-5-5), max_tokens 64000,\n  refuse to write truncated output\n- zh/158.md + chapters.json\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 57
+    },
+    {
+      "name": "family-insurance",
+      "commits": [
+        {
+          "hash": "7789f6e9",
+          "time": "19:19",
+          "message": "CLAUDE.md：記錄回答風格偏好",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f523721e",
+          "time": "19:18",
+          "message": "評估：還本型癌症險不買，消費型再議",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "94168e67",
+          "time": "19:16",
+          "message": "新增癌症／重大傷病一次金評估（國泰 MFB、ZCN 提案）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e64ae7a4",
+          "time": "15:02",
+          "message": "P1 國泰：更正為太太經手辦理",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "987b0433",
+          "time": "14:57",
+          "message": "全球：扣款為太太信用卡",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "26cad166",
+          "time": "14:57",
+          "message": "概要：凱基繳費人簡化為「太太」",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a98d0b42",
+          "time": "14:56",
+          "message": "概要拿掉「自繳」；總表註明車險查詢管道",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5c84c85e",
+          "time": "14:55",
+          "message": "概要：凱基本年保費由太太出資",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a27bd31b",
+          "time": "14:54",
+          "message": "P1 國泰：確認扣款為太太的台北富邦 *529",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8f6896fe",
+          "time": "14:54",
+          "message": "概要：欄位「年繳」改為「每年保費」避免誤會",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4e094504",
+          "time": "14:52",
+          "message": "P1 國泰：保額 USD 59,000、預定利率 2%、受益人已指定",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e53ed246",
+          "time": "14:51",
+          "message": "P1 國泰：月繳 12,099（年約 14.5 萬），更新總表、概要與給太太摘要",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ebef4d74",
+          "time": "14:46",
+          "message": "新增一頁 A4 保險概要 HTML（給太太看）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "77b63a4a",
+          "time": "14:38",
+          "message": "新增給太太的摘要",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c24bd1ea",
+          "time": "14:37",
+          "message": "總表：新增待辦清單",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "7b5450e1",
+          "time": "14:29",
+          "message": "P2：HLR 住院日額 1,000，住院日額合計每天 3,000",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "224885dc",
+          "time": "14:25",
+          "message": "P2 凱基六項保額與附約條款重點、P1 國泰生效日與保額；理賠速查加收據正本規則",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "42010047",
+          "time": "14:04",
+          "message": "P2 凱基：列出 6 項主附約，更新總表與理賠速查",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9183109c",
+          "time": "14:03",
+          "message": "P2：補傷害醫療給付附加條款（MT03，保額 5 萬）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b4a1894c",
+          "time": "13:01",
+          "message": "README：記錄保險存摺用法與白金會員到期",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "028867f0",
+          "time": "12:58",
+          "message": "P5：確認躉繳 403,480 已付清（房貸戶專案）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "39eaeff4",
+          "time": "12:56",
+          "message": "P5：更正保費記錄，40 萬為信用貸款，繳別待確認",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "81557e88",
+          "time": "12:54",
+          "message": "P5：保費已一次繳清約 30～40 萬",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b434d717",
+          "time": "12:51",
+          "message": "P5：白話重點定稿",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "21564be3",
+          "time": "12:49",
+          "message": "P5 第一金：保額 700 萬、20 年期至 2043-09",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a524c12f",
+          "time": "12:46",
+          "message": "依保險存摺補齊：P1 國泰鑫美利、P2 新康寧終身醫療、新增 P5 第一金定期壽險、G1 南山團保",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4bb8903c",
+          "time": "11:01",
+          "message": "新增理賠速查與 CLAUDE.md，更新盤點結論",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "827b994d",
+          "time": "10:59",
+          "message": "P3：附約享有心為計劃 2",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4a96bce6",
+          "time": "10:00",
+          "message": "P4：確認 LDG 保額為每月失能扶助金",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e7bebbc4",
+          "time": "09:58",
+          "message": "P3：被保險人為本人",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c18f5d4b",
+          "time": "09:57",
+          "message": "P3：主約保額 40 萬，換算失能給付",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "87ef905e",
+          "time": "09:52",
+          "message": "總表：頂端加「一眼看懂」四格保障地圖",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "83cf0bb8",
+          "time": "09:51",
+          "message": "P3：補主約 DJ 與附約 JR 的給付內容",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "484c3897",
+          "time": "09:49",
+          "message": "P3：記錄元大線上無轉電子保單選項",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ac51255d",
+          "time": "09:46",
+          "message": "P3 主附約明細；總表新增「還要繳多久」",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "03c727f9",
+          "time": "09:44",
+          "message": "P3 元大人壽：幸扶一世雙重照護，12-31 信用卡扣款",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "65822717",
+          "time": "09:43",
+          "message": "總表：P3 元大保費 12,943，更新年度保費合計",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c108d591",
+          "time": "08:25",
+          "message": "P2：2026 年期保費已繳清",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "17f54231",
+          "time": "08:23",
+          "message": "P2：補應繳日 08-14、寬限期與繳費年度",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1887e25f",
+          "time": "08:16",
+          "message": "P2 凱基人壽：依催繳通知記錄年繳 18,520、30 年期、已繳 20 期",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "524c1987",
+          "time": "08:12",
+          "message": "P4：記錄 2026-09-30 已申請轉電子保單",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "07e895ce",
+          "time": "07:57",
+          "message": "P4：確認只有三項主附約、信用卡繳費、紙本保單",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9b827f35",
+          "time": "07:56",
+          "message": "P4 全球人壽：依保戶專區資料建立摘要並填入總表",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "40432703",
+          "time": "07:50",
+          "message": "總表：登記四張個人保單（媽媽：國泰、凱基；太太：元大、全球）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "106459c6",
+          "time": "07:43",
+          "message": "新增 private/ 區放含個資原始檔，整個目錄不進 repo",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "275022df",
+          "time": "07:21",
+          "message": "初始化：README、總表骨架、.gitignore 排除掃描檔",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01XuAqMYZnxx6EPGzVpJr1m7",
+          "category": "其他"
+        }
+      ],
+      "count": 46
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "e1594f43",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-09-30",
+          "body": "🤖 自動生成於 2026-09-30 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "34c78794",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-29 (45 commits)",
+          "body": "🤖 自動生成於 2026-09-30 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 55,
+    "sideCommits": 105,
+    "totalCommits": 160
+  }
+}
