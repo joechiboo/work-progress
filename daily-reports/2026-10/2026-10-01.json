@@ -1,0 +1,729 @@
+{
+  "date": "2026-10-01",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "AI\\requisition-ocr",
+      "commits": [
+        {
+          "hash": "427761f7",
+          "time": "15:49",
+          "message": "合併 MR !6: 結案報告：手寫送檢單更正為 4 位病人、6 張醫令",
+          "body": "結案報告：手寫送檢單更正為 4 位病人、6 張醫令\n\nSee merge request ucl/AI/requisition-ocr!6",
+          "category": "合併MR"
+        },
+        {
+          "hash": "ca23fa6e",
+          "time": "15:49",
+          "message": "結案報告：手寫送檢單更正為 4 位病人、6 張醫令（已對照 BLG）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ff70fb9d",
+          "time": "15:46",
+          "message": "合併 MR !5: 結案報告改以人工 keyin 單據為範圍",
+          "body": "結案報告改以人工 keyin 單據為範圍\n\nSee merge request ucl/AI/requisition-ocr!5",
+          "category": "合併MR"
+        },
+        {
+          "hash": "8111ab0a",
+          "time": "15:46",
+          "message": "結案報告改以人工 keyin 單據為範圍：排除分單／線上平台清單，修正計分",
+          "body": "- 配上 LIS 的 10 頁查建單標籤：分單 1、線上平台 [H] 4 已是電子醫令，2 頁配錯，有效 3 頁\n- score.py：LIS 無資料佔位（生日 1900-01-01、醫師 N/A、短身分證）不再當標準答案；急件 0/1 正規化\n- 報告第 1 頁改為處方箋／手寫送檢單／勾選單逐欄 before／after；第 2 頁案例改為手寫送檢單\n- decisions.md 加量測範圍決策與結案前重算\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "a89705c8",
+          "time": "15:43",
+          "message": "合併 MR !1: stage0 dry run",
+          "body": "stage0 dry run\n\nSee merge request ucl/AI/requisition-ocr!1",
+          "category": "合併MR"
+        },
+        {
+          "hash": "22439119",
+          "time": "15:34",
+          "message": "合併 MR !4: 結案報告加第 2 頁：檢驗項目辨識",
+          "body": "結案報告加第 2 頁：檢驗項目辨識\n\nSee merge request ucl/AI/requisition-ocr!4",
+          "category": "合併MR"
+        },
+        {
+          "hash": "3e97b5f6",
+          "time": "15:34",
+          "message": "結案報告加第 2 頁：檢驗項目辨識（三種版型 before／after）",
+          "body": "第 1 頁的檢驗項目由「0%」改為「讀得到、分不出有沒有開」：原計分要求字串完全相同，\n放寬比對後 LIS 開的 39 項約 2/3 有列出，但 AI 共列 424 項。\n掃描圖為本機去識別化裁切檔 docs/img/*.jpg，已被 gitignore，不進 repo。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "14e3db4c",
+          "time": "15:24",
+          "message": "結案報告精簡：環境、模型、每張時間＋各欄位 before／after",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5a73d4ae",
+          "time": "15:22",
+          "message": "結案報告：A4 一頁式 docs/poc-closure.html",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "87f37653",
+          "time": "15:09",
+          "message": "POC 結案：洗腎室名冊比對＋回測；記錄本地 4b 真實頁約 30%",
+          "body": "- build_roster.py：從 LIS 抓洗腎室病人名冊（--before 可切歷史名冊做回測）\n- match.py：OCR 身分欄位當查詢鍵對名冊打分，auto／suggest／new 三級；\n  合法但不同的身分證、性別不符一律否決 auto；單位不明最多 suggest\n- match_roster.py：results/ 套名冊 → results/matched/；score.py 可指定結果目錄對照\n- simulate_match.py：7–8 月名冊 vs 9 月真實病人回測，auto 64–69%、帶錯率萬分之三到五\n- lis_query.ps1 改存 UTF-8 BOM（無 BOM 時中文註解吃掉換行，查詢永遠回空）\n- decisions.md：建單來源量測（洗腎室佔台北人工開單 3 成）、項目月重複率 42%、\n  真實頁 qwen3-vl:4b 逐欄約 30%（下限）、項目近 0%，結案與重啟路徑\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c36532bd",
+          "time": "13:33",
+          "message": "階段 0 試抽結案：30 頁真實樣張跑 qwen3-vl:4b，表頭 30.5%／項目 0%／LIS 配對 10/30",
+          "body": "- fetch_lis_orders：項目主檔表名改 ITEM_MASTERH，列印名改 join TEST_ITEM（HCLAB 沒有 ITEM_MASTER，撞 ORA-00942）\n- decisions.md：量測記錄加真實 30 頁一列；新增「不進階段 1、改比後端或先做頁型／多人清單 schema」與配對規則缺口兩筆決策\n- sampling-plan.md：辨識時間表換成實測（中位 44 s、勾選單 140 s）；補階段 0 四個檢核點結果與 20 頁未配對歸因表\n- README：score 只讀 results/ 頂層，合成結果移 results/synthetic/\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f4e55753",
+          "time": "12:50",
+          "message": "extract：真實頁撞 context／小模型逐項列出整張勾選單的對策",
+          "body": "- Ollama num_ctx 預設 4096→8192（真實頁 prompt 約 1,700 token，4096 會 done_reason=length；\n  16384 則溢出 RTX 3050 VRAM 跑到 CPU），另加 num_predict 上限 3000\n- Ollama schema 拿掉 TestItem.checked：qwen3-vl:4b 看到此欄會把印刷清單上百項全列且全標 true；\n  prompt 強調只列勾選項、沒勾給空陣列\n- JSON 被截斷時從 test_items 最後一個完整項目切斷補尾，保住排在前面的表頭欄位並在 remarks 標 [TRUNCATED]\n- 字串 \"null\"/\"none\"/\"n/a\" 一併轉 None\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a6746acf",
+          "time": "12:19",
+          "message": "score：性別/急件/診所名正規化；記錄合成樣張冒煙結果（qwen3-vl:4b 96.7%）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4ba89aaa",
+          "time": "12:18",
+          "message": "抽樣 clone 腳本與比對計劃：從 \\Ucl-shared\\檢驗單存檔 按路線分層抽單頁回 samples/real/",
+          "body": "- clone_samples.py：15 條 Line 路線各抽 N 頁（路線內按頁隨機，不取每份前幾頁），拆單頁 PDF 到 samples/real/，manifest.csv 記來源\n  - 用 os.scandir 列目錄（每路線近萬檔，逐檔 stat 走 SMB 要好幾分鐘）\n  - 拆頁前整份 read_bytes 再 fitz.open(stream=)，直接開 UNC 路徑會對 SMB 大量小讀取\n- docs/sampling-plan.md：資料盤點（3 天 175 份 6,531 頁、每天約 2,200 頁）、樣本量計算、分三階段 30/150/400、\n  辨識時間估算、末碼反查配對流程；階段 0 試抽 30 頁發現過半是一頁多位病人的送檢清單，schema 需支援一頁多筆\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e3f131b0",
+          "time": "12:18",
+          "message": "文件：註明末碼配對目前只處理單人頁，多人清單頁待 schema 改多列",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "47af8791",
+          "time": "12:17",
+          "message": "標準答案配對改用手寫末碼：fetch --from-results 以末碼＋掃描日反查 BLG_TX_HDR，score 末碼計分",
+          "body": "紙本送檢單上行政只手寫檢體編號末幾碼，OCR 讀不到完整 10 碼單號（年尾數+MMDD+流水）。\n- fetch_lis_orders.py：--from-results 組單號前綴反查，多筆用身分證/姓名/生日縮小，寫 _matches.json；另抓 ID_INVNO\n- score.py：配對順序加 _matches.json 與末碼＋日期視窗；lab_order_no 改 endswith 比對\n- schema/prompt：告訴模型檢體編號是手寫末幾碼，照抄不補零\n- README / ground-truth README / decisions 補規則說明\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "22ee6a66",
+          "time": "11:41",
+          "message": "README：本地後端快速開始、後端比較表、結案標準",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ee511b8e",
+          "time": "11:40",
+          "message": "本地後端：Ollama + Qwen3-VL（預設），合成送檢單產生器與 Markdown 正確率報表",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2934c54d",
+          "time": "11:19",
+          "message": "標準答案改抓 LIS 醫令：fetch_lis_orders.py + lis_query.ps1（.NET Oracle 驅動），score.py 支援單號/身分證配對與 LIS 代碼別名",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a52b91a8",
+          "time": "11:06",
+          "message": "POC 骨架：欄位 schema、視覺模型辨識、身分證/日期驗證、批次跑與評分腳本",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "15da7d17",
+          "time": "11:00",
+          "message": "初始化：送檢單 OCR 專案骨架與 POC 計畫",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 21
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "d5db9c32",
+          "time": "19:10",
+          "message": "chore: uclcloud 搬到 D:\\Gitlab\\OfficialWebsites，memory 與專案索引跟著搬",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f8186f3d",
+          "time": "18:53",
+          "message": "lisweb-tag: PatchNote 積壓只列不建議",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9a3c4301",
+          "time": "18:47",
+          "message": "lisweb-tag: 打 tag 前掃未處理的 PatchNote (scripts/pn-pending.ps1)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "31023b3f",
+          "time": "18:37",
+          "message": "memory: 0466 卡檔到檔型態",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a8f591f0",
+          "time": "18:33",
+          "message": "chore: session 收尾備份 2026-10-01",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7d5be9c9",
+          "time": "16:05",
+          "message": "chore: session 收尾備份 2026-10-01（requisition-ocr 結案 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "278cf818",
+          "time": "15:45",
+          "message": "chore: session 收尾備份 2026-10-01",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "daa6a311",
+          "time": "12:25",
+          "message": "chore: session 收尾備份 2026-10-01（requisition-ocr memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "9aaffe04",
+          "time": "12:18",
+          "message": "memory：requisition-ocr（LIS 末碼配對、掃描檔來源）、lisweb bt410 拆單、d--Gitlab 專案索引",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "53d76bd5",
+          "time": "10:50",
+          "message": "centrifuge-balance memory: worktree deploy flow, signing and release process",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "44b93e94",
+          "time": "10:16",
+          "message": "chore: session 收尾備份 2026-10-01",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e15b2a4e",
+          "time": "09:22",
+          "message": "Cerberus memory：分部 HC010 五顆頭上線",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d7d525b7",
+          "time": "08:35",
+          "message": "feat(skill): smoke-rerun 免RDP補跑排程冒煙 + lisweb/OrderInSql memory 更新 1001",
+          "body": "",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b64336ae",
+          "time": "08:13",
+          "message": "Cerberus memory：MR !47 已 merge",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "91e9f2e9",
+          "time": "08:11",
+          "message": "Cerberus memory：Oracle 手冊已補（MR !47），listener log 成長速度",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0d8d5fee",
+          "time": "07:59",
+          "message": "chore: session 收尾備份 2026-10-01",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "150ae49c",
+          "time": "07:33",
+          "message": "chore: session 收尾備份 2026-10-01",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 17
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "292c4350",
+          "time": "19:22",
+          "message": "docs: 3b 第三天（10/1）反向比對——無轉檔缺陷，差異全數歸因",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1962aaa0",
+          "time": "18:30",
+          "message": "docs: 10/6 部署帶上 !409（略過原因顯示）＋ Backlog G 卡檔改檔名排 10/19 那週",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c5fd595c",
+          "time": "17:14",
+          "message": "feat: 略過的檔講得出原因——卡檔標紅、轉入結果列檔名、進度頁歸回單位",
+          "body": "2026-10-01 0466 高雄榮總：人工前處理把檔名的 `-` 打成 `_`，\n排程每輪靜默略過、手動轉入只回「略過 1」，檔在 inbox 躺了一夜，\n直到有人點試解析才發現。\n\n- ImportPipeline.DescribeSkip：略過判斷抽成共用，回傳原因；\n  區分「設定刻意排除」（Parsing_* 等，正常）與「卡檔」（檔名不合慣例，要人處理）。\n  UnitPrefixed 線直接給出改正後的檔名\n- ImportReport.SkippedFiles：手動轉入結果帶檔名與原因；稽核 MessLog 一併列出\n- 卡檔第一次出現記 Warning，同一個檔不重複記\n- 線別頁：inbox 清單直接寫原因、卡檔預設不勾；總表顯示「⚠ N 卡住」\n- 收檔進度頁：解不出單位碼時退而取檔名開頭歸戶（僅顯示用），\n  inbox 欄顯示卡住數、手動轉入對話框與最近檔案清單看得到卡檔與原因\n\n轉檔行為不變：哪些檔會轉、寫入什麼都與原本相同。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e77f7a80",
+          "time": "09:26",
+          "message": "docs: 0855 採檢日修正實戰驗收通過（4 張單＝4 張主檔），9/29 事故結案",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "648849dd",
+          "time": "08:33",
+          "message": "docs: 恢復 1088 改轉規則（DEPLOY_LOG 21d）——使用者決定維持原狀、待 Min 確認需求",
+          "body": "- 08:29 1088.txt 改回原名，內容 01_2088 未動\n- 01 在其他家是就診類別（門診 01／洗腎 03）；安怡洗腎月檢也標 01，10/7 月批前要問清楚\n- 更正：9/29 那張是門診項目 U/R1，轉 2088 很可能正確\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "efa9bdaf",
+          "time": "08:05",
+          "message": "docs: 撤 1088 改轉規則（DEPLOY_LOG 21c）——01 標在幾乎所有項目，生效期間只命中 9/29 一張",
+          "body": "- 10/1 07:59 1088.txt 改名停用（可還原）\n- 9/29 6092913641 尿液常規已以 2088 在 LIS 出報告／計價，處置待問 Min\n- !326 的 seed 與 WebOrder_Test 要拿掉 1088 那條\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "aff6f54f",
+          "time": "07:50",
+          "message": "test: 改轉單位三方回放比對工具＋10/1 上線前驗證紀錄",
+          "body": "- tools/unit-redirect/replay-compare/：同一份 Program.cs 分別編進 main 的 Core（現行版）與 !326 的 Core，\n  只跑 ExcelOrderFileAdapter.Parse（Legacy／File／Db／不套規則基準線），逐列比主檔切分與單位碼。\n  不寫 DB、不起服務；Db 模式連線字串走環境變數；輸出含檔名列號，一律放 repo 外\n- 結果：UNIMAX 203 檔＋ANSN 687 檔、86,022 列，三方逐列相同；0885 兩條規則素材零命中（沒驗到）；\n  以 9/15 舊 TxtTable 對照可比出 1088 的 835 列，確認比對有鑑別力\n- TxtTable 清點（56.227 各線、168.227 舊程式）與 seed-from-txt.sql／WebOrder_Test 7 條一致，seed 不用改\n- UNIT_REDIRECT §7.2 記錄上述驗證；§8 新增兩項未決：1088 的 01 涵蓋整組月檢（10/7 月批前要決定）、\n  規則的「存在」會切換 ID_TNO 拆解（自對自規則不可停用、SameUnit 訊息不正確，切 Db 前處理）\n- 1088.txt 在 168.227 的放置時間更正為 09-23 17:44；TODO 1088 段與作戰圖分工段各加進度行\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1e9f68fb",
+          "time": "07:49",
+          "message": "feat(6a): 反向比對工具——FP 收手後以投影重建舊路徑；已驗證投影與真 FP .txt 45／45 位元組相同",
+          "body": "6a 切換後 FP 對 23 家 valid=0、不再產出 .txt，批次 1–5 那種「舊程式寫影子庫」的反向比對做不到。\n改為自己重建舊路徑：原始檔 → FpTxtProjector（NPOI，重現 FP ImportExcel）→ FP 格式 .txt →\n下游三線（Keelung 設定照抄 56.227 Live）寫 WebOrder_Test → parallel-compare-6a.sql 對正式庫比。\n\n- tests FpProjectToTxtTool：環境變數啟用（CI 略過），輸出照 FP_EXPORT_CONTRACT §2（UTF-8 BOM、CRLF、\n  檔名剝 .xls/.xlsx/.csv），依下游線分 inbox\n- make-reverse-6a.ps1：units.json（Parsing DB 現撈，下游線由 ThrowFolder 推）＋本機三線設定\n  （連線 WebOrder_Test、拿掉 ProcessingWindow／PostImportHookUrl）\n- parallel-compare-6a.sql：每檔切單數改以 stem 對齊兩側（不再寫死正式側 .txt，反向時正式側是原始檔名）；\n  釘死清單 13 → 23 家\n- README「反向比對」：每日步驟（18:00 前跑完並清）、此方向的預期差異；轉移卡、計畫、時程同步\n\n驗證（切換前，9/22–9/29 的 45 個原始檔）：\n- 投影 .txt vs 56.227 下游三線 archive 的真 FP .txt：45／45 位元組相同\n- 模擬舊路徑寫 WebOrder_Test vs 正式庫：956 張、未對齊 0、切單 45／45、識別欄 0、性別 0；\n  差異只有正式庫事後被改的（姓名 207＝修補層 L331、明細 2＝人工 A334）\n- 跑完已清（956／1,917）；測試 715 全過\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8f9b5ae5",
+          "time": "07:37",
+          "message": "docs: 單位接入 GUI 化時程——10/17 封鎖窗開始 §6 盤點，表設計 10/27 !326 切 Db 後",
+          "body": "10/16 前是 6a／6b 切換主線；Spark 封鎖窗 10/17–10/25 不能動線上，\n拿來做只讀資料、寫文件的盤點。表設計仍等 !326 驗過 Source=Db 模式、\n6b go／no-go 後 Parsing 退場時程有定論。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0ba410c4",
+          "time": "07:35",
+          "message": "fix(6a): 檢驗代碼串子項目、看診日 7 碼民國、採檢日中文上下午——3b 下游 12 檔重跑全部零差異",
+          "body": "9/30 提前跑 3b 下游 7 家抓到，10/1 修。都在 6a 讀取路徑（FpFileFormat），尚無單位啟用，現行各線不受影響。\n\n- SUB_TEST_CODE：原本只放在 FpUnitSchema（投影器用），正式讀取路徑拿不到 ⇒ 3525 檢驗代碼 090406\n  （正式 090406-1），UCL 對不到。ColumnSchema 加 SubTestCodeIndex，adapter 照 FP 串成「代碼-子項目」\n- 單位預設檢驗代碼（Companys.UTI_TEST_CODE，只有 1400 設 SDS）：代碼空時補上；兩支產生器寫入 FpDefaultTestCode。\n  沒補的話 !389「沒有檢驗代碼的單整張不寫」會把那種列丟掉\n- 看診日：只補 7 碼民國（3525 的 1150924，FP 轉 8 碼 ⇒ 正式有值）。刻意不整組套擴充格式——\n  Excel 日期儲存格在正式庫是空值（FP 轉 14 碼、Keelung 解析失敗），整組套會讓別家冒出新差異\n- 採檢日：澄清 0576／0581 是中文上下午文字（2026/9/24 下午 01:00:00），FP 以 zh-TW Convert.ToDateTime 解析；\n  6a 版位在原本正規化失敗時再以 zh-TW 解析，帶到秒\n- 測試 +12（714 全過）；tools/clean-parallel-6a.sql：每輪平行驗證跑完即清（範圍＝#replay＋23 家＋今天，\n  掛著非回放檔名明細就中止），配合 3a／3b 19:20 反向比對\n\n驗證：同 12 檔（0030／0536／0576／0580／0581／3525）重跑——主檔逐欄 0、明細代碼 0、明細數 0、\n切單 12／12、SEQUENCE 檔內差距 12／12 常數；修正前為看診日 90、採檢日 91、代碼 TestOnly 110／ProdOnly 271。\n跑完已清（406／775），空殼 0。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7356ef1c",
+          "time": "07:33",
+          "message": "docs: DEPLOY_LOG 第 25 列——10-01 07:31 逐行預檢上線（仍不帶 6b）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1a7681cb",
+          "time": "07:29",
+          "message": "docs: 單位接入 GUI 化需求記錄——Parsing 維護表收進 OrderInSql（WebOrder 新表）",
+          "body": "新增 docs/UNIT_ONBOARDING_GUI.md：建立單位、欄位對應等接入流程都在 GUI 完成。\n定位＝FP Parsing 的 Companys／FileFormat 維護表收進本服務；已定在 WebOrder 另建新表\n（Parsing 跟著批次 6 退場），第一張是 !326 的 OrderInSql_UnitRedirect。\n記下硬性約束（不在 Units 陣列上開 GUI、寫入語意無預設值、啟用前試轉、\n不是每種單位都能 GUI 接入、改設定留痕）、表草圖、接入盤點清單與順序。\n\nTODO Backlog D／F 併入本文件；ELECTRONICALERT ⑥／§3.2、UNIT_REDIRECT、\n文件索引加連結。時程不變：6a 全梯次後才開始設計。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d381dfa4",
+          "time": "07:20",
+          "message": "docs: 回覆 TODO ⑤——6a 選「跑完即清」；9/30 殘留已清，6a 實際只寫 956 張／12 家",
+          "body": "- 9/30 兩輪 6a 平行驗證的寫入已清除（45 個回放檔名＋13 家＋cre_date=9/30：主檔 956／明細 1,910）\n- 6a 只寫了 956 張／12 家，不是 3,064 張／40 家；0865／0842 不是 FP 單位 ⇒ 另有約 2,100 張來源待 3b session 查\n- 規則：6a 每輪跑完比完立刻清、18:00 前清完（3a／3b 反向比對 19:20 跑）；SCHEDULE_6A 同步\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5705e147",
+          "time": "07:20",
+          "message": "docs: 0936 採檢日民國年寫成西元格式、寫到一半進隔離——修正副本重跑完成",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 14
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "350a35d8",
+          "time": "09:39",
+          "message": "分部 HC010 上線後的待辦寫進文件：先記著，遇到再回來改",
+          "body": "佈署指南「佈署後待辦」補四條：台北 WallName 補地名、TakoDoko 分部 HCINI 物件補關鍵字、\n冒煙失敗時記下 ID_POLL_FLAG（分不出 HC010 死了還是慢了）、Oracle 可連線頭還要不要獨立做。\nREADME Roadmap 勾掉 HC010 擴分部，新增分部儀器佇列一條。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ba277033",
+          "time": "09:00",
+          "message": "佈署紀錄補分部 HC010 翻啟用那一列",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d6c9cf4a",
+          "time": "08:57",
+          "message": "分部 HC010 五顆頭翻啟用：56.231 實測五站 Oracle 1521 全通",
+          "body": "早上先以灰磚佈上，等的就是這一步——開發機連得到不算數（09-10 打卡機那顆的教訓）。\nRDP 56.231 用 TcpClient 測五站 1521，台中／桃園／新竹／嘉義／高雄全部 True；\n翻之前再查一次五站積壓皆 0，不會一啟用就紅。\n\nRunbook 裡 TaskLoader 那步仍標「?」：分部畫面還沒人實機看過，不擋上線。\n佈署指南的驗連線指令改成 TcpClient 版（Test-NetConnection 不通時要卡 20 秒左右）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5b9ce0a8",
+          "time": "08:40",
+          "message": "佈署紀錄補分部 HC010 那一列：牆 12 → 17 塊（5 塊灰磚）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0753e780",
+          "time": "08:16",
+          "message": "分部也要看 HC010：五站各補一顆積壓頭，先擱著等 56.231 連線驗證",
+          "body": "今早 07:30 冒煙 FAIL(TC)：「等 hcini 生成檢驗單(ord)逾時」，正是台北 HC010 那顆頭在守的症狀，\n而五個分部完全沒有這顆頭。冒煙一天只看一次、只等 2.5 分，分不出死了還是慢了；\n測試單跑完就刪，事後 DB 也查不到當時卡在哪。08:00 查台中時當天一筆 BLG 都還沒有，\n佇列 0 不代表 HC010 活著——這正是需要整天每輪都看的理由。\n\n## 這次做了什麼\n\n複製台北那顆 DbBacklog，換五站連線字串（密文已 round-trip 解回驗證），全部 `Enabled: false`。\n已從開發機驗：五站都有 ALKEY4_BLG_TX_HDR，計畫皆 INDEX RANGE SCAN；當下五站積壓皆 0。\n\n跟台北不同：分部的 HCINI 跟 Oracle 同台（TakoDoko 查得），Runbook Host 照實寫。\nTaskLoader 那一步分部沒人實機看過，標「?」上牆。新竹另有一台叫 InterFaceServer(221) 的\n舊版 HCLAB CM，名字像台北 221 但無關，Runbook 裡寫明別被帶去那台。\n\n不設 Bite：HCINI 是廠商常駐程式，分部那台還同時是正式 Oracle。\n\n## 為什麼先擱著\n\n開發機連得到不算數——09-10 打卡機那顆就是開發機通、56.231 不通，上線每輪卡 32 秒外加誤發 Discord。\n56.231 到五站 SQL Server 是通的（報告回傳六顆頭），但 Oracle 是另一台另一個埠。\n翻 true 的步驟寫進佈署指南「佈署後待辦」。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e2bb7a37",
+          "time": "08:06",
+          "message": "手冊補「Oracle 台北連不上」：09-08 那次只有 HC010 在叫，看起來像 HCINI 的事",
+          "body": "告警寫「查詢失敗 ORA-50000」時照 HC010 那段去 221 重啟 TaskLoader 沒用，\n真正連不上的是台北 Oracle。補上怎麼分辨、先通知誰、前 5 分鐘觀察、\nlistener log 怎麼讀，以及 listener log 照現在速度約 2027-04 撞 4 GB。\n三層防線表格記下這次事故尚未補強。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "cec04ead",
+          "time": "11:19",
+          "message": "fix(BT410): 歷史紀錄自動帶入後拆分預覽表要重算, 且只帶基底編號(避免 X-5-1)",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "36ab6ec6",
+          "time": "11:14",
+          "message": "fix(BT410): 拆分收據防呆 — 序號查詢中擋列印、空表當場補畫、後端擋重複編號",
+          "body": "伺服器慢時勾選後 splitInfo 還沒回來就按列印, 會讀到 0 列而報「加總 0 ≠ 原金額」。\n- 前端: 查詢期間顯示「查詢中」並擋列印; 列印時預覽表為空就先 render 再檢核; 查詢失敗退回 -1 起編\n- 後端: saveSplit 寫入前查 RECEIPT_NO 是否已存在 (無唯一索引), 有則拒絕並提示重新勾選\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "9e63b8a3",
+          "time": "10:45",
+          "message": "feat(BT410): 收據拆分功能 — 一張拆多張(編號-1/-2、同月不同日、金額加總不變)",
+          "body": "客戶要求單張收據不超過某金額(常見兩萬)時, 勾選「拆分收據」填每張上限,\n系統自動算張數、平均分攤金額、日期同月連續遞增(優先往前, 月初不夠才往後),\n預覽表可手改, 一次寫入 RECEIPTS(單一交易)後走 PrintBT410Batch 一頁一張列印。\n\n- Models: SplitReceiptRequest / SplitReceiptItem / SplitReceiptInfo\n- Repository: GetSplitInfo(已拆序號接續編號) / SaveReceipts(交易整批寫入)\n- API: GET /api/receipt/splitInfo, POST /api/receipt/saveSplit(後端重驗規則)\n- View: 勾選+上限+預覽表+即時檢核; 拆分模式停用「兩份同頁」\n- Docs: BT410 頁面文件補拆分收據章節\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "a8d8d68f",
+          "time": "19:58",
+          "message": "docs: 新增檢驗雲存摺 App 規劃",
+          "body": "給一般會員的 Flutter 報告查詢 App 規劃定案（2026-10-01）：\n- 定位 B2C、MVP 功能列表、Android 先上\n- 後端擴充：報告 API 修 IDOR、refresh token、推播、刪除雲端報告／帳號\n- 推播只在 08:00–21:00 發送、保留雲端上傳同意選項、檢驗所四字簡稱規則\n- 里程碑 M0–M5 與驗收標準、上架準備清單、待確認事項\n\nCLAUDE.md 加上指向規劃文件的段落。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "08292bb0",
+          "time": "19:16",
+          "message": "docs: 更新專案本機路徑為 D:\\Gitlab\\OfficialWebsites\\uclcloud",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "2dab4c56",
+          "time": "07:14",
+          "message": "合併 MR !29: fix: 轉入 LIS 單引號跳脫 (ORA-00917)＋未對應登記院內碼上限放寬到 50 碼 (v10.01)",
+          "body": "fix: 轉入 LIS 單引號跳脫 (ORA-00917)＋未對應登記院內碼上限放寬到 50 碼 (v10.01)\n\nSee merge request ucl/twowayconnection/uclweborder!29",
+          "category": "合併MR"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "centrifuge-balance",
+      "commits": [
+        {
+          "hash": "3b71e840",
+          "time": "10:27",
+          "message": "Link the online copy of the business model doc",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "98fc45a7",
+          "time": "10:24",
+          "message": "Add business model and advertising assessment",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "44a25e40",
+          "time": "10:21",
+          "message": "Drive the vibrator directly on Android so haptics are felt",
+          "body": "Flutter's HapticFeedback goes through the system touch-feedback\nchannel, which many Android phones ship disabled or near-silent. Add a\nHaptics helper that uses the vibration package with short\namplitude-controlled pulses on Android (VIBRATE permission added),\nkeeps the Taptic engine on iOS, and no-ops on web. Tap, button press,\nspin-up, stop and the three-knock imbalance pattern all go through it.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "5f667fc8",
+          "time": "10:16",
+          "message": "Sign release builds with the upload keystore when key.properties exists",
+          "body": "Release builds read android/key.properties (gitignored) and fall back to the\ndebug key without it, so CI and fresh clones keep building. Also turn off\nKotlin incremental compilation, which breaks on Windows when the project and\nthe pub cache sit on different drives.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c87534ef",
+          "time": "10:06",
+          "message": "Add app icon: balanced centrifuge rotor",
+          "body": "Top-down rotor with three tubes at 120°, in the app's palette. The art\nis drawn by assets/icon/generate.py and pushed into Android (incl.\nadaptive and themed monochrome), iOS and web via flutter_launcher_icons.\nAdaptive foreground inset is 0 because the source already sits inside\nthe safe zone.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0baa7d27",
+          "time": "09:55",
+          "message": "Add app publishing cost estimate for Android and iOS",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5282d7f3",
+          "time": "09:52",
+          "message": "Lock the app to portrait and fit the rotor to short screens",
+          "body": "Portrait only on Android (manifest), iOS (Info.plist) and via\nSystemChrome at startup. The rotor is also capped by the height left\nbetween the header and the action bar so short phones and wide web\nwindows keep the whole board on screen.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "b2cf11a2",
+          "time": "09:49",
+          "message": "Let the progress bar go back to cleared levels",
+          "body": "Tapping a cleared segment (or any level up to the current one) reloads\nthat level to replay it; segments ahead stay inert. Hit area is padded\naround the thin bar.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "a78cd414",
+          "time": "09:40",
+          "message": "Make the Flutter UI feel like a game: haptics, celebration, power key",
+          "body": "Haptic feedback on hole taps, a medium thump on spin-up, a heavy one\nwhen the rotor stops, and three knocks on an unbalanced launch. Level\nclears no longer show a button: a check bursts from the hub with a\nparticle spray, then the next level loads by itself after a beat or\non a tap (free mode waits for the tap). The LCD strip is gone; the\ntube count and live rpm are drawn in the rotor hub. The bottom bar is\nnow a round power key flanked by two small round tools.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "adf80655",
+          "time": "09:28",
+          "message": "Show the next-level card over the rotor after the spin",
+          "body": "Once a level's spin coasts to a stop, a card pops in at the centre of\nthe rotor with the result and a \"next level\" button (or \"free mode\"\nafter the last level). The bottom button stays \"launch\" and is\ndisabled, along with hints, until the layout changes.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "122c3671",
+          "time": "09:02",
+          "message": "Streamline the Flutter UI and build APKs in CI",
+          "body": "Replace the level picker with a non-interactive ten-segment progress\nbar on one row, move rules, legend and the maths into an info sheet,\ndrop the standing instruction copy, and rebuild the controls as a\nbottom action bar: two compact tool buttons plus one large primary\nbutton that turns into \"next level\" after a clear. Bundle CanvasKit\nwith the web build so it runs offline. Add a GitHub Actions workflow\nthat analyzes, tests and uploads a release APK.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "e54aec97",
+          "time": "08:51",
+          "message": "Add Flutter app porting the centrifuge puzzle",
+          "body": "Scaffold app/ (Android, iOS, web) and port the web demo one to one:\nten levels with fixed tubes and broken holes, free mode for 2–30\nholes, two-stage hints with a dashed layout guide, spin-up animation\nwith motion blur and rpm readout, wobble plus imbalance arrow on\nfailure, light and dark palettes, and cleared levels persisted with\nshared_preferences. Balance math lives in a Flutter-free module with\nunit tests; a widget test plays level 1 end to end.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "cc10a609",
+          "time": "08:39",
+          "message": "Add Flutter app matching the web demo",
+          "body": "Game logic in pure Dart with unit tests, CustomPainter rotor with\nspin animation, levels and free mode, staged hints, saved progress.\nCI analyzes, tests, and builds a debug APK.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01EDeLuDQsBuMAfe94AwgDzD",
+          "category": "其他"
+        },
+        {
+          "hash": "57d8b810",
+          "time": "08:16",
+          "message": "Add centrifuge balance puzzle demo",
+          "body": "Single-file web demo: ten levels plus free mode, staged hints,\nspin animation on success.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01EDeLuDQsBuMAfe94AwgDzD",
+          "category": "其他"
+        }
+      ],
+      "count": 14
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "918a4526",
+          "time": "10:48",
+          "message": "chore: 作品集封存 GreenKeeper",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "523f0b08",
+          "time": "10:46",
+          "message": "chore: 作品集封存 laozi-reader、TempoKid、Lab Report Generator",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "31e0f7ca",
+          "time": "10:46",
+          "message": "chore: 作品集封存 Health Tracker（hidden: true）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "09fb6e90",
+          "time": "10:45",
+          "message": "chore: 作品集封存 AI 老婆 honey-mishears（hidden: true）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ad5141c7",
+          "time": "10:41",
+          "message": "fix: 作品卡片按鈕超過三顆時自動換行",
+          "body": ".project-links 原本 flex 不換行、按鈕固定 100px 寬，三顆按鈕會被擠出卡片。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "567fc009",
+          "time": "10:39",
+          "message": "feat: 離心機配平補上線上展示連結（GitHub Pages 網頁版）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "107aebd1",
+          "time": "10:37",
+          "message": "feat: 離心機配平加「下載 App」按鈕，連到 GitHub Release",
+          "body": "- 作品卡片新增 download 欄位與對應按鈕（有欄位才顯示）\n- 離心機配平改指向 releases/latest，技術標籤改為 Flutter/Dart/Android\n- 中英文描述更新為已做成 Android App\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e630c33a",
+          "time": "08:23",
+          "message": "feat: 作品集新增離心機配平，並修正 Health Tracker 錯字",
+          "body": "- 新增 centrifuge-balance（id 45，趣味互動）：試管配平解謎，\n  文案帶出向量和為零與質因數之和的配平定理，並註明後續規劃 Flutter App。\n  repo 尚未開 GitHub Pages，暫時只放 GitHub 連結。\n- Health Tracker 標題與說明的「晦跑」更正為「晨跑」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "c8a2ee6c",
+          "time": "15:06",
+          "message": "docs(todo): 更正過期條目；標出 641-655 已通過但系統未做",
+          "body": "- 稽核 log 已於 9/18 套用、9/21 加哨兵，條目仍寫「待套 SQL」\n- 10 月底彩排條目移除「驗 ADMIN_PASSWORD 已換新」（9/18 決定不換）\n- 641-655：9/3 第 8 題通過，bikeSeats() 仍 164 格，升為 11/15 前必做\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8dbcdbaf",
+          "time": "15:03",
+          "message": "docs(28): 住戶懶人包精簡改版＋櫃台口徑改為「引導住戶自填」",
+          "body": "- 28 住戶簡易說明：原三欄版（含 8 條修法重點）對住戶偏複雜，改為只講\n  「什麼時候、怎麼登記、多少錢」——三步驟時程＋兩種登記方式（線上 QR／\n  管理中心）＋費用表＋三條小提醒。字級放大，修法重點改指向管理辦法\n- 28、31：「服務人員全程幫您填完／協助填寫」改為「櫃台人員引導您填寫」，\n  原則上讓住戶自己填，櫃台只負責引導\n- 一併納入 docs/assets 登記網址 QR（svg 給印刷、png 給 LINE），README 已有索引\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9d1c37dd",
+          "time": "14:35",
+          "message": "docs: 停車場管理辦法修正草案條文對照表（10 月例會表決用）",
+          "body": "主委裁示 9 月例會紀錄原擬附之細則／標紅版／配置圖不列入（未經委員討論表決、\n內容過細住戶不易讀），改依經理提供之「社區規約修正草案條文對照表」格式，\n提 10 月例會表決後公告。\n\n- 三欄橫式：修正條文｜原有條文｜修正說明；異動處紅字底線（修正欄標新增、原有欄標刪除）\n- 條文自標紅版程式產生（<ins>/<del> → 紅字底線），不手抄，標紅版改了重跑即同步\n- 錨點從條文本體「壹、依據」起找——標紅版開頭的「修正要點」摘要與條文同字，\n  照抓會撞到摘要、紅字全失（社宅兩列就是這樣抓錯的）\n- 附件四列原文改取 docs/05：標紅版附件依約定只標新增不顯示刪除，原字不在檔內\n  （例：附件一·五「停放雙機車位」在標紅版中消失）\n\n與草案（docs/19）兩處刻意不同，待確認：\n① 伍三（三）（六）不採「志願分發」——系統與細則實際對自行車是隨機抽號、不排志願，\n   9 月已記「10 月例會改條文而非改系統」；只保留正名與逾期視同放棄\n② 增訂伍三（八）一位多停——9/3 第 10 題表決通過，但草案與標紅版均未收\n\n另修 build-docs-pdf.mjs：Edge 無頭列印失敗時靜默退出，原本仍印 ✅；改為檢查檔案存在。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "7aff30ea",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-01",
+          "body": "🤖 自動生成於 2026-10-01 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "141f0d93",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-09-30 (160 commits)",
+          "body": "🤖 自動生成於 2026-10-01 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "cb6229d9",
+          "time": "17:43",
+          "message": "feat(sci): JISE 工作稿 Ch4–Ch7 依教授 9/30 紙本騰稿（先搬不刪）",
+          "body": "- Ch4 實驗設計重組：依 p.21 批註排序，實驗一～七，總覽表 Table 2；\n  4.1–4.3 待教授歸還 p.14–19 後補（紅字佔位）\n- Ch5 結果、Ch6 討論、Ch7 結論自定稿I 搬入，章節/圖表交互參照重編\n- 參考文獻依 JISE 字母序重排；表格寬度縮至版心、清除儲存格首行縮排\n- 推論與改動處標紅，待確認處以〔?〕標註（11 處）\n- 新增 9/30 紙本掃描與 17_Ch4以後_教授批註.md 轉錄；改前備份三份\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 64,
+    "sideCommits": 28,
+    "totalCommits": 92
+  }
+}
