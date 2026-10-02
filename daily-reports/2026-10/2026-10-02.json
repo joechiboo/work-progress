@@ -1,0 +1,419 @@
+{
+  "date": "2026-10-02",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "6617be65",
+          "time": "17:27",
+          "message": "docs: 列出檢驗雲與 Data2Cloud 以 sa 連線資料庫的問題 [skip ci]",
+          "body": "2026-10-02 查證：uclw2w 上檢驗雲豹後端（156.223）與 Data2Cloud（56.231）都用 sa，\n公司官網則用低權限的 uclWebsite。文件記錄現況、風險（對外服務＋sa、固定金鑰加密\n等於密碼在 repo、git 歷史已有）、建議修法（各建專用帳號、帳密移出 repo、改 sa 密碼）\n與查證 SQL。Data2Cloud 會建實體暫存表，低權限帳號需建表權限或改用 # 暫存表。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5667b025",
+          "time": "14:30",
+          "message": "test: 報告測試其餘 UserList 也明確指定 Id，修正 CI 偶發 cannot be tracked",
+          "body": "MR !12 修了一部分，GetReportDetail_WithAgeCalculationEdgeCases 與 complex 那組\n還是用 InMemory 自動配號，偶爾撞到 seed 的 Id，CI 報\n「UserList cannot be tracked」（2026-10-02 pipeline #1910 又遇到一次）。\n改用 9101–9103、9201–9203，不與 seed（1–4）及其他測試（9001–9017）重疊。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "b3f84efb",
+          "time": "14:08",
+          "message": "chore: 正式環境的 Firebase 憑證路徑指向 uclit 家目錄",
+          "body": "正式機的服務以 uclit 身分執行，/var/www 屬 root、改 systemd 要 sudo 密碼，\n所以金鑰改放 /home/uclit/secrets/firebase-sa.json（目錄 700、檔案 600），\n路徑寫在 appsettings.Production.json。路徑不是機密；金鑰本身不進 repo，\n不在部署目錄內，CI 部署不會覆蓋。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "aced6a0c",
+          "time": "12:52",
+          "message": "feat: 新報告推播（裝置登記、掃描佇列、FCM 發送）",
+          "body": "照「檢驗雲存摺 App 規劃」C/D 節實作，Firebase 憑證還沒拿到也能先上：\n\n- UserDevices：App 登入後 PUT api/Device/push-token 依 DeviceId 登記 FCM token，\n  登出 DELETE 移除；換帳號登入整筆改掛新帳號\n- ReportNotificationScanner（BackgroundService，每 30 分鐘）：\n  偵測掃 Memhealth_main.Id > 水位，依（會員, 報告）登記到 ReportNotifications；\n  同一張單的項目分批進來只登記一次；CheckDate 超過 14 天視為補傳、標 skipped 不推\n- 發送只在台灣時間 08:00–21:00，時窗外偵測到的留 pending 等下一個時窗內的 tick；\n  同一會員同一輪多份合成一則；推播文字不放健康內容；沒裝置的標 no_device 不留\n- FcmPushSender：FirebaseAdmin，Firebase:CredentialPath 沒設或檔案不存在時 no-op，\n  pending 會被標 failed 而不是累積到設定好那天一次轟出去；FCM 回 Unregistered 就刪裝置\n- POST api/internal/notifications/scan（X-Internal-Api-Key）供人工補跑；沒設 key 端點不存在\n- Testing 環境不啟動排程；Notifications:Enabled 可整個關掉\n\n部署前先在 uclw2w 跑 backend/Scripts/06_create_push_notification_tables.sql\n（建三張表、Memhealth_main.Id 索引，水位從現在的 MAX(Id) 起算）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "de5601c0",
+          "time": "12:13",
+          "message": "feat: 報告 API 補存摺 App 需要的欄位（歷次參考區間、項目數、檢驗所簡稱）",
+          "body": "item-detail 的 HistoricalData 每一點帶當次的 LBound/UBound/LDangerous/UDangerous/Abnormal。\n參考區間會隨檢驗所、儀器、年齡調整，趨勢圖不能拿「現在這份」的區間去重判歷次\n（賴主任 2026-10-02 回饋）。\n\nlist 每份報告帶 ItemCount / AbnormalCount / SignificantCount / LabShortName：\n- 異常判讀抽成 Utils/AbnormalFlags（H/HH/L/LL/A 算異常、S 算差異顯著），與 App 端規則相同\n- LabShortName 取 UserList.AliasName，沒設定時為 null，前端退回全名\n- 拿掉原本的 TOP 500：項目數要算得準，截在中間會讓最後一份報告的項目數變少\n\n純新增欄位，網站前端不受影響。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3e3c1195",
+          "time": "13:08",
+          "message": "docs: 隱私權政策補檢驗雲存摺 App 段落與資料刪除方式",
+          "body": "- 新增「十一、行動應用程式」：App 額外蒐集的推播識別碼與裝置資料、推播只在 08–21 發且不含健康內容、報告不落地手機、Firebase Cloud Messaging 第三方說明\n- 新增資料刪除方式（錨點 #data-deletion，給 Play 資料安全表單用）：自助刪雲端報告、停止上傳、來信申請刪帳號；註明刪的是雲端副本、檢驗所原始紀錄依法保存\n- 蒐集項目補身分證字號與推播識別碼\n- 營運主體比照服務條款改為大安聯合醫事檢驗所（原寫聯合生技股份有限公司），最後更新改 2026-10-02\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cbdd7546",
+          "time": "11:37",
+          "message": "feat: 會員中心新增「刪除雲端報告」",
+          "body": "一般會員中心（有填身分證者）多一張「雲端報告管理」卡片，按下後在對話框說明\n後果（全部刪除、無法復原、同時停止上傳、帳號保留、檢驗所原始報告不受影響、\n重新開啟上傳會補回），輸入登入密碼並勾選確認才能送出；成功後重抓會員資料，\n讓「雲端上傳」狀態同步變成未同意。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "d7c8f534",
+          "time": "11:31",
+          "message": "feat: 會員可自行刪除雲端檢驗報告",
+          "body": "新增 POST /api/report/delete-all：一般會員再輸入一次密碼後，刪除自己在\n檢驗雲的全部報告（Memhealth_main、OPDSubhealth），並同時把 Ifupload 設為 0。\n\n- 依 Person_ID 以 SQL 整批刪除，與報告列表的查詢條件一致；不用 EF Remove，\n  因為 DbContext 把 Memhealth_main 主鍵設成 UclChkPri_ID，會誤刪同單號的他人資料\n- 一定要關閉上傳：Data2Cloud 01:00 補傳模式會把 7 天內登入、ifUpload=1 的會員\n  歷史報告補回來；之後會員重新開啟上傳，歷史報告會被補回（預期行為）\n- 帳號保留、可繼續登入；分部 LIS 原始紀錄不受影響\n- 稽核紀錄寫入新表 ReportDeletionLogs（不存身分證與報告內容）\n  部署前需在 uclw2w 執行 backend/Scripts/05_create_report_deletion_logs.sql\n- 密碼比對抽成 Utils/PasswordVerifier，規則與登入相同（BCrypt → 舊 BCrypt → 舊明文）\n\n測試：端點的身分與密碼把關（Moq），以及刪除 SQL 在本機 LocalDB 上實跑，\n確認另一位會員同單號的報告不會被刪到（CI 無 LocalDB，該項跳過）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "0f900563",
+          "time": "10:16",
+          "message": "docs: 刪除帳號不可沿用 IsDisable=0 標記，改設 DeletedAt",
+          "body": "正式庫有報告的一般會員 1,830 人中 1,702 人 IsDisable=0（舊註冊流程寫入），\n皆為正常使用中帳號。原規劃以 IsDisable=0 表示已刪除、並在報告查詢與登入擋 IsDisable=0，\n會讓這些會員全部看不到報告。改為新增 DeletedAt 欄位，並取消「一般會員登入檢查 IsDisable」的小修。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "84fdcc2e",
+          "time": "10:08",
+          "message": "合併 MR !12: test: 報告測試明確指定 Id，修正 CI 不穩定",
+          "body": "test: 報告測試明確指定 Id，修正 CI 不穩定\n\nSee merge request ucl/officialwebsites/cloudedleopard!12",
+          "category": "合併MR"
+        },
+        {
+          "hash": "62965d60",
+          "time": "09:41",
+          "message": "test: 報告測試的 UserList/GGoodsKind 明確指定 Id，修正 CI 不穩定",
+          "body": "測試中新增的 UserList 與 GGoodsKind 未指定 Id，由 InMemory 自動產生，\n在 CI 上偶發與已追蹤的種子資料 Id 衝突（pipeline #1897 重跑時\nGetTestItemDetail_WithNonNumericValues、GetReportDetail_WithMultipleCategories 失敗）。\n改為明確指定 9001 起的 UserList Id 與 9501 起的 GGoodsKind Id。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "39ed0180",
+          "time": "09:03",
+          "message": "docs: 新增檢驗雲存摺 App 賴主任回饋整理",
+          "body": "賴主任看過企劃示意頁後提出三點：報告存 PDF、參考區間變動時的趨勢圖、\n顯示項目範圍。逐點對照規劃與程式碼，並列出待辦與負責階段。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "48f2de03",
+          "time": "08:20",
+          "message": "feat: 登入續期（refresh token），App 30 天、網站 7 天免重新登入",
+          "body": "登入憑證（JWT）維持 30 分鐘，另發續期憑證無感換發，App 不必每半小時重登。\n\n後端\n- 新表 UserRefreshTokens（Scripts/04_create_user_refresh_tokens.sql，部署前需先執行）\n  只存 SHA-256 雜湊；App 憑證綁定裝置\n- RefreshTokenService：簽發、輪替、撤銷\n  - 每次續期換發新的一組並撤銷舊的\n  - 輪替掉的舊憑證超過 60 秒又被使用 → 視為外洩，撤銷該會員全部憑證\n    （60 秒內視為多分頁競態；登出撤銷的憑證再用只回無效，不連坐其他登入）\n  - 續期時重新檢查帳號：檢驗所待審/停用不可續期，規則與登入一致\n- 登入與註冊：ClientType=app 時續期憑證放回應內容；網站寫入 HttpOnly、Secure、\n  SameSite=Strict、Path=/api/Auth 的 cookie，JavaScript 讀不到\n  簽發失敗（例如資料表尚未建立）不影響登入\n- POST api/Auth/refresh、api/Auth/logout、api/Auth/logout-all\n- 改密碼撤銷其他裝置、目前瀏覽器換發新憑證；重設密碼撤銷全部\n\n前端\n- API 遇到 401 先續期一次並重送原請求，失敗才導回登入頁；同時多個 401 只續期一次\n- 路由守衛發現登入憑證過期時先嘗試續期\n- 登出時通知後端撤銷續期憑證並清除 cookie\n\n測試：後端新增 32 個（服務與完整流程），前端新增 5 個\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "6da26c1c",
+          "time": "08:07",
+          "message": "fix: 報告查詢改以登入身分驗證，修補可查他人報告的漏洞",
+          "body": "報告列表、明細、項目詳解三支 API 原本沒有授權（[Authorize] 被註解），\n且以 query string 的 memId/personId/pid（Base64 身分證）決定查誰，\n知道他人身分證即可查到其報告。\n\n後端\n- 三支端點加 [Authorize]，改由 JWT 解析登入者，取其 Memid 與身分證查詢；\n  query string 的 memId/personId/pid 保留為可選參數但一律忽略（相容舊連結）\n- 檢驗所帳號或無身分證的會員回 403；登入者不存在回 401\n- JWT 新增 uid claim（UserList.Id）；舊 token 以 userId（Memid）回退解析\n\n前端\n- 報告網址與 API 呼叫不再帶會員編號與 Base64 身分證（含舊 ASP 轉址）\n- API 帶 token 卻收到 401 時清除登入資訊並導回登入頁\n- 登入頁支援 redirect 參數，重新登入後回到原頁，並提示登入逾時\n\n測試\n- 改寫 14 個測舊行為的測試；新增未登入 401、檢驗所 403、\n  帶他人身分證查他人報告 404、本人可查、舊 token 相容等測試\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "a91dc33d",
+          "time": "08:12",
+          "message": "fix: 修正會員服務條款營運主體為大安聯合醫事檢驗所",
+          "body": "經濟部商工登記查無「聯合檢驗雲股份有限公司」，服務條款簽約主體寫錯。\n改為與聯絡資訊一致的「大安聯合醫事檢驗所」，簡稱「本公司」統一改為「本所」，\n最後更新日期改為 2026年10月2日。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "43b4bf2a",
+          "time": "08:03",
+          "message": "docs: 檢驗報告傳入檢驗雲文件更新當日上傳排程",
+          "body": "- 新增 15/18/21 當日上傳排程（\\內部排程\\檢驗雲當日上傳）與 log 位置\n- 修正：01:00 正常模式是逐項上傳，不是整張單審完才傳\n- 修正部署路徑錯字 Schdeule → Schedule；記錄舊 V2 排程現況\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cd4c6d45",
+          "time": "07:39",
+          "message": "docs: 規劃新增原始報告功能（F17）",
+          "body": "會員可在檢驗雲看到檢驗所正式核發的報告版面：\n- 來源為各分部 HCLABx pat_resulth.htmlContent（網路報告查詢用的報告 HTML）\n- 由 Data2Cloud 同步時一併帶上雲端、清理成自足 HTML，存新表 ReportOriginals\n- 檢驗雲 API 以登入身分查詢，Web/App 於 sandbox iframe / 關閉 JS 的 WebView 顯示\n- 台北先做 POC，再推到其他分部；之後可直接轉 PDF（F14）\n- 刪除雲端報告一併刪除 ReportOriginals\n- 風險補記：LISWeb PrintReport/LT274Pdf 為 AllowAnonymous，token 可推算\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 17
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "8d8e4a75",
+          "time": "15:14",
+          "message": "feat: 趨勢圖參考範圍調整時更明顯，並在圖下說明",
+          "body": "賴主任問「參考區間改變時看得到嗎」：上一版已改成各次用當時的區間畫階梯，\n但實機看（尿酸 2026/03 起 4–7.5 → 0~6.9）換檔處不夠明顯，也沒有文字說明。\n\n- 新增 RefRange：下限 0 視為沒有下限、上限 ≥9999（例如 eGFR 9999.99）視為沒有上限，\n  畫圖、比較、文字都用正規化後的範圍；假邊界不再撐大 Y 軸（eGFR 不會被壓成平線）\n- 上下限畫成看得見的綠線，換檔處加橘色直虛線標「範圍調整」\n- 圖下新增「參考範圍曾調整」說明框：哪天起由多少改為多少，並說明判讀以當時範圍為準\n- 歷史紀錄改用數值比對範圍（原本拿顯示文字「<7.0」跟上下限「0~6.9」比，最新一筆也被誤標），\n  只有跟最新不同的才標「當時參考範圍」\n- 範圍寫法統一為 4–7.5、≤6.9、≥60\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "89b3687e",
+          "time": "12:13",
+          "message": "feat: 趨勢圖改用各次當時的參考區間與判定",
+          "body": "賴主任回饋：趨勢圖原本拿「點進來那份」的參考區間畫整段、並用它重判歷次顏色，\n檢驗所調整過區間的項目會被誤判。改成：\n\n- HistoryPoint 帶當次的 LBound/UBound/Unit/Abnormal（對應後端 item-detail 新欄位）\n- 區間帶改畫階梯狀（上下限各一條 step line、中間填色），在兩次之間的中點換檔；\n  只有單邊界限時延伸到圖表邊緣，沒有區間的那次留空\n- 點的顏色照當次檢驗所的判定；舊資料沒有判定才退回用當次區間比\n- 單位跟前一次不同就斷線，不同單位的值連起來沒有意義\n- tooltip 與歷史紀錄顯示當次單位；歷史紀錄的參考區間跟現在這份不一樣時另行標出\n- 圖下方一行說明：區間曾調整／單位不同不連線\n- 示範資料：三酸甘油酯第 4 次起上限 150 → 200，看得到階梯帶；測試驗證每點帶自己的區間\n\n後端未部署新欄位時 lBound/uBound 為 null、flag 為空，畫面退回只畫數值線。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "731ae283",
+          "time": "13:30",
+          "message": "chore: 商店截圖（示範模式，S23 裁 1060×2120）",
+          "body": "趨勢頁 Y 軸刻度待 fix/trend-axis 合進 main 後重拍。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "35b54e0e",
+          "time": "13:25",
+          "message": "feat: 接 FCM 新報告推播",
+          "body": "對應後端 uclcloud MR !15（api/Device/push-token、ReportNotificationScanner）。\n\n- firebase_core / firebase_messaging / flutter_local_notifications；google-services.json\n  進 repo（Firebase 專案 ucl-cloud，套件 tw.com.ucl.uclcloud；不是機密）\n- 登入後與每次正常啟動：要通知權限（Android 13+）、取 FCM token、PUT api/Device/push-token\n  登記；token 輪替自動重登；登出前 DELETE 移除。登記失敗只記 log，不擋登入登出\n- 前景收到通知用 local notification 畫一則（頻道 reports，與後端一致）；\n  背景／關閉狀態點通知 → 一份直達 /reports/:id、多份回存摺；未登入由路由守衛記住、登入後導過去\n- 設定頁「通知」區新增「新報告通知」開關，存本機並同步後端 NotifyEnabled；\n  系統沒給權限時後端視為關閉\n- 示範模式（DEMO=true）不初始化 Firebase，開關只存本機\n- Gradle：google-services plugin 4.4.4、core library desugaring（flutter_local_notifications 需要）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e44a3acc",
+          "time": "13:08",
+          "message": "chore: 上架簽章設定與商店素材",
+          "body": "- build.gradle.kts 讀 android/key.properties 用上傳金鑰簽 release，檔案不在時退回 debug 簽章\n- README 補發佈簽章（金鑰存放、SHA-1、打包驗證、CI 還原）與商店素材說明\n- store/：Play 圖示 512、主題圖片 1024×500、商店文案與資料安全表單答案草稿\n\n已本機驗證：flutter build appbundble --release 產出的 AAB 憑證 SHA-1 與上傳金鑰一致。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "cf97009f",
+          "time": "11:50",
+          "message": "fix: 趨勢圖 Y 軸對齊整數刻度，不再出現 219.7 換行與負值",
+          "body": "實機回饋：軸的上下界直接取「資料範圍多留 15%」，三酸甘油脂變成 -28.6～219.7，\n219.7 超出軸寬還折行。\n\n- 新增 niceAxis：上下界對齊 1/2/5×10ⁿ 的刻度，最高最低點離邊界太近再多留一格\n- 檢驗值沒有負的，資料全非負時下界不低於 0\n- 刻度標籤依刻度大小決定小數位；軸寬加到 48\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "37df114c",
+          "time": "11:50",
+          "message": "合併 MR !5: fix: 取消自適應圖示前景的 16% 內縮，雲豹實機才夠大",
+          "body": "fix: 取消自適應圖示前景的 16% 內縮，雲豹實機才夠大\n\nSee merge request ucl/officialwebsites/uclcloud-app!5",
+          "category": "合併MR"
+        },
+        {
+          "hash": "73002cbe",
+          "time": "11:45",
+          "message": "feat: 設定頁可刪除雲端全部報告",
+          "body": "對應後端 POST /Report/delete-all（uclcloud MR !13）。設定頁「報告」區多一列\n「刪除雲端報告」，確認框說明後果（全部刪除、無法復原、同時停止上傳、帳號保留、\n檢驗所原始報告不受影響、重開上傳會補回），輸入登入密碼並勾選確認才能送出。\n成功後本機會員資料的同意上傳改為關閉、存摺與明細快取失效重抓。\n示範模式假後端支援同一條路徑，並補一個測試走完整流程。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "dbb33d03",
+          "time": "11:30",
+          "message": "fix: 報告明細的數據判讀與風險分析，短結論直接顯示並上色",
+          "body": "實機回饋：數據判讀只有「健康」兩字也要點開摺疊才看得到。\n\n- 30 字內的短結論直接顯示在標題右側，不摺疊\n- 顏色比照網站：健康綠、前期／邊緣／輕微橘、其餘紅\n- 長篇建議維持摺疊，標題前加同色圓點\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "b532b613",
+          "time": "11:22",
+          "message": "fix: 取消自適應圖示前景的 16% 內縮，雲豹回到 0.9",
+          "body": "flutter_launcher_icons 預設在前景四周內縮 16%，雲豹實際只剩設定的 68%，\n實機上怎麼放大都偏小。改成 adaptive_icon_foreground_inset: 0，\n大小完全由 icon_foreground.svg 控制。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8e0c23ab",
+          "time": "11:19",
+          "message": "fix: App 圖示雲豹放大到 1.0",
+          "body": "實測三星 One UI 會把自適應圖示整張畫布縮進圖示框（不照標準裁四周），0.9 時臉只佔約 59%。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8ff66646",
+          "time": "10:13",
+          "message": "fix: App 圖示雲豹再放大到 0.9",
+          "body": "三星的圓角方形遮罩下飽滿不被切；圓形遮罩（Pixel 等）耳朵上緣會被切到一點，可接受。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "d2cbe605",
+          "time": "10:05",
+          "message": "fix: 放大 App 圖示上的雲豹，接近滿版",
+          "body": "實機看 0.7 倍留白太多，放大到 0.85；臉與耳朵仍在自適應圖示的遮罩內。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "82d42d7e",
+          "time": "09:39",
+          "message": "feat: App 圖示改用檢驗雲豹的雲豹",
+          "body": "來源是網站的 apple-touch-icon.svg（與 favicon 同一隻雲豹），維持網站綠 #42B883。\n\n- assets/icon/icon.svg：滿版方形，給舊版 Android 與 iOS\n- assets/icon/icon_foreground.svg：透明底、雲豹縮進安全區，給 Android 8+ 自適應圖示\n- 以 flutter_launcher_icons 產生各尺寸（設定在 pubspec.yaml，重產：dart run flutter_launcher_icons）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ce7ac025",
+          "time": "08:55",
+          "message": "feat: 示範模式，不連後端也能在實機看完整流程",
+          "body": "`--dart-define=DEMO=true` 時以內建假後端取代 HTTP：任意帳密可登入，\n存摺有 6 份虛構報告（含偏高/偏低、S 顯著變化、可畫趨勢的歷次數值）。\n\n- 後端還沒 ready 前先做實機測試，之後也用來拍上架截圖\n- 列表多回規劃中的 ItemCount / AbnormalCount / LabShortName，預覽後端補完後的樣子\n- 登入頁與設定頁版本號標示「示範資料」\n- 新增端到端測試（登入 → 存摺 → 明細 → 趨勢）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "49fd0b59",
+          "time": "08:50",
+          "message": "feat: 檢驗雲存摺 App 骨架與 M2 核心功能",
+          "body": "Flutter App，給檢驗雲豹一般會員查檢驗報告，沿用網站帳號。\n\n- 登入、續期憑證自動換新（401 續期後重送，同時多個 401 只續期一次）、登出\n- 存摺首頁：依年份分段的報告列表、NEW 章、下拉更新\n- 報告明細：異常 ↑↓、S 顯著變化、數據判讀與風險分析\n- 單項趨勢：折線圖＋參考區間帶、歷史紀錄、項目說明\n- 設定：個人資料、同意上傳報告至雲端開關、隱私權政策、版本\n- applicationId tw.com.ucl.uclcloud；release 只走 https\n- 測試 16 個（續期 interceptor、資料解析）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "22ae146b",
+          "time": "13:33",
+          "message": "memory: uclcloud 存摺 App Firebase、D-U-N-S、上架簽章與商店素材進度",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5d4dd7a0",
+          "time": "12:02",
+          "message": "chore: session 收尾備份 2026-10-02（檢驗雲存摺 App 實機驗證、centrifuge memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "07e03c69",
+          "time": "10:16",
+          "message": "chore: session 收尾備份 2026-10-02（檢驗雲 M1 上線、memory 更新）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "cf972983",
+          "time": "09:17",
+          "message": "chore: session 收尾備份 2026-10-02",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "2781c37b",
+          "time": "08:05",
+          "message": "chore: session 收尾備份 2026-10-02",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "48b98e70",
+          "time": "08:04",
+          "message": "CLAUDE.md: 記錄用暫時服務繞道建遠端排程（免 RDP）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "96e12e1a",
+          "time": "08:00",
+          "message": "memory: uclcloud Data2Cloud 當日上傳排程",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "507dc27e",
+          "time": "19:23",
+          "message": "合併 MR !414: docs: 10/2 19:20 反向比對——無轉檔缺陷",
+          "body": "docs: 10/2 19:20 反向比對——無轉檔缺陷\n\nSee merge request ucl/twowayconnection/orderinsql!414",
+          "category": "合併MR"
+        },
+        {
+          "hash": "ca4dc13a",
+          "time": "19:23",
+          "message": "docs: 10/2 19:20 反向比對——無轉檔缺陷，補進結案文件 §4 與 3b 卡",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "76744469",
+          "time": "08:30",
+          "message": "docs(6a): 10/2 第二輪平行驗證——13 家 77 檔零轉檔缺陷",
+          "body": "素材 9/22–10/1（3a 下游 49 檔、3b 下游 28 檔），含 !403 三修正與 !409。1,751 張、隔離 0、ERR 0；\n差異全數歸因：未對齊 19＝0581 一檔 10/1 16:40 收窗後才進 Xevox 線（正式庫當時 0 筆）；\n姓名 299＝修補層 L331；性別 2＝0550 FP 跨病人沿用（§6.4）；明細 3＝修補層補項。識別欄 0、空殼 0。\n跑完已清（1,751／3,552）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c88d41e6",
+          "time": "07:25",
+          "message": "合併 MR !412: docs: 批次 1–5 結案判讀資料（10/3 用）",
+          "body": "docs: 批次 1–5 結案判讀資料（10/3 用）\n\nSee merge request ucl/twowayconnection/orderinsql!412",
+          "category": "合併MR"
+        },
+        {
+          "hash": "146b62c8",
+          "time": "07:25",
+          "message": "docs: 批次 1–5 結案判讀資料（10/3 用）——3a／5 建議結案、3b 維持 10/6–10/7",
+          "body": "- 各批結案條件、事故、未結項、結案動作（停哪些排程、哪些絕對不能停）\n- 3b 不能 10/3 結案的關鍵：停 03 前必須先做 0705 的 Companys 改指\n- 10/2 早上實查：.227 舊排程、56.227 pull／feed、各線每日量\n- 釐清 6a 提出的「9/30 影子庫 2,100 張來源不明」：為影子正常量＋0774 的 -1 副本\n- 列出文件互相矛盾處，結案時一併訂正\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "91b6a98d",
+          "time": "07:42",
+          "message": "chore: 當日上傳排程改以 SYSTEM 執行，記錄實際工作名稱",
+          "body": "已在 56.231 建立 \\內部排程\\檢驗雲當日上傳（15:00/18:00/21:00）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5fcc7869",
+          "time": "07:13",
+          "message": "fix: run-today 把「所有資料都已存在」視為成功，改記新寫入筆數",
+          "body": "SaveToCloudAsync 只寫主表沒有的資料，全部已存在時回傳非空字串，\n--backfill execute 會印成「補上傳失敗」；18:00/21:00 輪沒新報告時不該報失敗。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "c68a4893",
+          "time": "07:08",
+          "message": "feat: 新增當日上傳排程（15:00/18:00/21:00）",
+          "body": "run-today.ps1 對六分部跑 --backfill execute <今天>，讓會員當天查得到報告；\n附工作排程器匯入檔，01:00 主排程不變。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "0c7b2854",
+          "time": "17:29",
+          "message": "feat(sci): 追蹤修訂刪除 SR 與 6.3 類別不平衡；TODO 加篇幅預算",
+          "body": "- 工作稿以 Word 追蹤修訂（28 筆）刪除符號回歸相關內容：4.6 環境段與\n  Table 5 PySR 列、第 5 章開頭、6.4 整節、綜合討論、7.1、7.3\n- 依使用者指示刪除 6.3 類別不平衡與資料策略整節，及引用該實驗的句子\n- 原 6.5–6.7 遞補為 6.3–6.5，內文 §6.5/§6.6 引用同步更新\n- 接受修訂後 47 頁；TODO 新增 C0-6 篇幅預算（目標 ≤30 頁）與待問教授三題\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "fd8ded57",
+          "time": "17:14",
+          "message": "fix(sci): 條列懸掛縮排、還原 Table 1 橫頁欄寬、修正 Ye 引用編號",
+          "body": "- 第 3–6 章 59 項（n）條列改懸掛縮排，折行對齊冒號後文字\n- Table 1 位於橫頁，前次寬表縮放誤把它縮成直式版心寬，自備份還原欄寬\n- §2.2 內文 Ye et al. 交互參照誤指 Wang（[16]），改指 Ye（[20]）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "81e8fb5d",
+          "time": "07:06",
+          "message": "docs: 更新彙整資料 2026-10-02",
+          "body": "🤖 自動生成於 2026-10-02 07:06",
+          "category": "文檔"
+        },
+        {
+          "hash": "26e009f5",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-01 (92 commits)",
+          "body": "🤖 自動生成於 2026-10-02 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 48,
+    "sideCommits": 4,
+    "totalCommits": 52
+  }
+}
