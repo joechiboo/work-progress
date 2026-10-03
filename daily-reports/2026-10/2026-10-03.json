@@ -1,0 +1,500 @@
+{
+  "date": "2026-10-03",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "b421b774",
+          "time": "17:09",
+          "message": "chore: session 收尾備份 2026-10-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a147dbfc",
+          "time": "15:39",
+          "message": "chore: session 收尾備份 2026-10-03（檢驗雲存摺送審、runbook 補漏送版本的坑）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "03d29bb2",
+          "time": "15:06",
+          "message": "android-app-publish: note the pre-review quick check",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "34c27900",
+          "time": "15:04",
+          "message": "android-app-publish: production release can be left as a draft",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8e16b1ff",
+          "time": "15:00",
+          "message": "memory: centrifuge published on Google Play",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "90937e93",
+          "time": "15:00",
+          "message": "android-app-publish: exact centrifuge publish time",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "daa17d09",
+          "time": "15:00",
+          "message": "android-app-publish: record centrifuge review result and post-publish propagation",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1ed17613",
+          "time": "14:39",
+          "message": "D:\\Private 依 App 分資料夾：runbook 與 uclcloud/centrifuge memory 路徑更新；存摺 App 上架進度",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "3450ef4c",
+          "time": "12:36",
+          "message": "chore: session 收尾備份 2026-10-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "935f5c4c",
+          "time": "12:27",
+          "message": "Android publish runbook: Play install check and production submission",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "95ecf0c4",
+          "time": "12:11",
+          "message": "android-app-publish runbook：檢驗雲存摺欄位更新為實況（隱私權網址、審核帳號、資料刪除網址、AD_ID 已查）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "54216ba9",
+          "time": "12:05",
+          "message": "Android publish runbook: install hiccups, package rename, account setup notes",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7ecb1250",
+          "time": "12:02",
+          "message": "Add Android app publishing runbook and centrifuge Play progress",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6960b0b3",
+          "time": "11:05",
+          "message": "tako runbook：補 credentials/relations/attachments 實際 DTO 欄位；uclcloud 存摺 App 上架進度 memory",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "038d9948",
+          "time": "10:14",
+          "message": "chore: session 收尾備份 2026-10-03（F17 PDF 文件定案、webreport 主機）",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "eb7fed82",
+          "time": "09:55",
+          "message": "chore: session 收尾備份 2026-10-03",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "b04b6065",
+          "time": "16:04",
+          "message": "docs: 新增檢驗雲存摺 2.0 候選功能清單 [skip ci]",
+          "body": "1.0 送審後把後續功能用「打不打 P1 註冊量／P2 留存／P3 分部覆蓋」重新篩過：\nA 通知補完（Email 給沒裝 App 的人、未讀提醒、生物辨識）、B 進人（App 內註冊、\n櫃檯 QR、其他分部原始報告）、C 內容（歷史 PDF 補齊、家人帳號、常規項目摺疊）、\nD 送審前技術債；另列不建議放 2.0 的項目、可量化目標與建議開工順序。\n是否開 2.0 尚未決定，App 可能停在 1.0；App 規劃文件加上指向本文的註記。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "78cb7895",
+          "time": "16:02",
+          "message": "docs: 原始報告 F17 專節改成實際上線的做法 [skip ci]",
+          "body": "- 標註 2026-10-03 上線（台北＋四個分部），Data2Cloud 端細節改連 Data2Cloud docs/9. 原始報告 PDF.md\n- 流程改成 --report-pdf sync 依 missing 撈單、AORD 與單號回收檢查、各分部 LISWeb\n- missing 端點補 oldest／personId 參數與 MinCheckDate\n- 金鑰位置改成 secrets 檔；分階段與待確認更新現況\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a1d970b0",
+          "time": "14:38",
+          "message": "docs: 帳號與金鑰清單的本機路徑改為 D:\\Private\\uclcloud-app\\ [skip ci]",
+          "body": "D:\\Private 依 App 分資料夾，避免與離心機配平的檔案混在一起。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9844df4d",
+          "time": "12:50",
+          "message": "fix: 對外名稱改用「檢驗雲」，隱私權政策與 SEO 不再出現內部名稱「檢驗雲豹」",
+          "body": "隱私權政策第十一節（App 段落）改為「檢驗雲網站」；SEO 的 og:site_name、\n預設標題與描述改為「聯合檢驗雲」，跟 index.html 的網站標題一致。\n「檢驗雲豹」是內部名稱，Google Play 商店資訊與 App 畫面同步改掉。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "e91ccd48",
+          "time": "11:01",
+          "message": "docs: 檢驗雲存摺 App 帳號與金鑰清單，並記錄 Firebase 備援擁有者擱置的決定 [skip ci]",
+          "body": "列出 Play 開發者帳號、上傳金鑰、Play App Signing、Firebase 專案與服務帳號、\ngoogle-services.json、審核測試帳號各自在哪、誰保管、備援狀態；不含任何密碼。\nFirebase 目前只有一個擁有者，2026-10-03 決定先擱置，寫明風險、何時回頭補與暫時緩解。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e364404a",
+          "time": "10:58",
+          "message": "feat: 原始報告 PDF 待產清單加 2021 下限、最舊優先與指定會員",
+          "body": "補歷史用。missing 端點：\n- days=0 表示不限天數，但一律不早於 ReportPdf:MinCheckDate（預設 2021-01-01，\n  與 ReportHtmlSync 相同）。2021 以前分部 Oracle 已封存，而且單號每 10 年回收、\n  2016 的單號跟 2026 一樣，拿舊單號去 LISWeb 會產到別人的新報告\n- oldest=true 從等最久的開始列，Data2Cloud 用來做混合制撈單（新的優先、留額度給舊的）\n- personId 只列某個人的，先替特定會員整批開通\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3f2130cc",
+          "time": "10:35",
+          "message": "chore: Google Play 審核用測試會員與虛構報告的建立腳本（script 07）",
+          "body": "Play Console「應用程式存取權」要給審核員一組能登入的帳號。腳本在 uclw2w 建\nUserLevel=1 的 playreview 會員（身分證第二碼用 0，不會撞到真人），並寫入四份\n與 App 示範模式同一組的虛構報告，掛在大安聯合底下；可重複執行，審核員按了\n「刪除雲端報告」後重跑即可復原。密碼雜湊不進 repo，執行前自行代入。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d795db8d",
+          "time": "10:11",
+          "message": "docs: 原始報告 F17 專節改成定案的 LISWeb 產 PDF 方案 [skip ci]",
+          "body": "原本寫的是「HTML 經 Data2Cloud 帶上雲、建 ReportOriginals 表、Playwright 轉 PDF」，\n2026-10-02 已改為 Data2Cloud 向 lisweb2 LT274Pdf 取 PDF、存 156.223 檔案、\nApp 經後端下載（issue #1、MR !21）。本次同步文件：\n\n- F17 與 F14 合併成同一件，功能列表與刪除機制表一併更新\n- 端點表、選擇理由、安全設計照 issue #1 與 MR !21\n- 新增「調查過的其他來源」：HCLABx pat_resulth、新版 webreport（含台北主機\n  56.227:8080 與其內網 PDF 端點，列為備案）、舊版 hclab2 其實是代理轉呼叫新版\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "21699e01",
+          "time": "10:11",
+          "message": "chore: 正式機機密設定改讀 /home/uclit/secrets/uclcloud-secrets.json",
+          "body": "上傳金鑰這類機密不進 repo，也不想每次都要 sudo 改 systemd。後端多讀一個放在\n服務帳號家目錄的 JSON（optional），uclit 自己就能建、CI 部署不會覆蓋。\n開發機沒有這個檔，照常跳過。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c248b3bc",
+          "time": "09:49",
+          "message": "feat: 原始報告 PDF 的存放與 API（issue #1 後端）",
+          "body": "會員在 App 看檢驗所正式版面的報告。PDF 由 Data2Cloud 在內網向 LISWeb 取得後\n經內部端點上傳，存成 156.223 上的檔案（網站目錄外），不進 SQL Express。\n\n- ReportPdfStore：路徑 {SHA256(身分證)}/{檢驗所}_{yyyyMMdd}_{單號}.pdf。\n  單號每 10 年回收重用、各分部各自編號，所以不能只用單號；身分證那段只從\n  登入者本人取，授權寫錯也只讀得到自己的資料夾。單號、檢驗所代碼只收路徑安全\n  字元，組出來的路徑再驗一次在根目錄下。先寫暫存檔再改名，重傳覆蓋\n- POST/PUT api/internal/report-pdfs（X-Internal-Api-Key＝ReportPdf:UploadKey）：\n  missing 列出雲端有資料但沒 PDF 的報告；上傳只收雲端真的有的（身分證＋單號）、\n  檢查 %PDF- 檔頭與大小上限。金鑰沒設端點不存在\n- GET api/report/pdf/{單號}（登入）：回本人的 PDF；列表與明細多 HasPdf\n- 刪除雲端報告時一併刪該會員的 PDF 資料夾（DB 交易成功後才刪檔）\n- ReportPdf:RootPath 空＝功能關閉；正式機設 /home/uclit/report-pdfs，\n  UploadKey 走環境變數 ReportPdf__UploadKey 不進 repo\n\n測試 14 個：路徑規則與路徑注入、金鑰把關、非 PDF／未知報告／超大檔拒收、\nmissing→上傳→下載來回、重傳覆蓋、只刪該會員、同單號不同人各拿各的（LocalDB）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c3c0a450",
+          "time": "08:27",
+          "message": "test: 會員測試不共用 EF 服務快取，根治 Register 偶發 cannot be tracked",
+          "body": "EF InMemory 的自動配號器被快取在共用的內部服務提供者裡，綁在「整個測試程序\n第一個要號碼的資料庫」上。只要別的測試類別先跑，MemberControllerTests 的\nRegister 新增會員就會配到 1～6 之間、跟種子資料撞號，回 500\n（實測：tracked=[5:testnophone, …, 5:admin, …]）。\n\n單獨跑會員測試一定過、與任何其他測試一起跑則穩定失敗 2～3 個，結果只取決於執行\n順序；過去在個別測試補明確 Id（MR !12、!17）只是改變誰先跑，問題一直都在。\n2026-10-03 master pipeline #1917–#1919 因此全數卡在 test-backend，相容性修正\n（!19）、隱私權政策（!16）都沒部署出去。\n\n修法：MemberControllerTests 的 DbContext 加 EnableServiceProviderCaching(false)，\n每個測試有自己的配號器。完整測試本機連跑 3 次全過（1126）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d9681ff7",
+          "time": "07:59",
+          "message": "合併 MR !7: docs: 新增檢驗雲存摺 App 規劃",
+          "body": "docs: 新增檢驗雲存摺 App 規劃\n\nSee merge request ucl/officialwebsites/cloudedleopard!7",
+          "category": "合併MR"
+        },
+        {
+          "hash": "fa5a4b91",
+          "time": "07:57",
+          "message": "合併 MR !16: docs: 隱私權政策補檢驗雲存摺 App 段落與資料刪除方式",
+          "body": "docs: 隱私權政策補檢驗雲存摺 App 段落與資料刪除方式\n\nSee merge request ucl/officialwebsites/cloudedleopard!16",
+          "category": "合併MR"
+        },
+        {
+          "hash": "0c38a509",
+          "time": "07:54",
+          "message": "fix: EF 指定 SQL Server 相容性層級 100，修推播發送每輪失敗",
+          "body": "正式庫 uclw2w 的相容性層級是 100（SQL Server 2008），EF Core 9 預設把\n「清單.Contains(欄位)」翻成 OPENJSON(...) WITH (... '$')，在層級 100 報\n「接近 '$' 之處的語法不正確」。2026-10-02 起推播的發送步驟每輪都失敗\n（偵測正常，20:35 的 22 份新報告卡在 pending）。\n\n- AddDbContext 加 UseCompatibilityLevel(100)，EF 改用 IN (@p0, @p1, ...)\n- 層級寫成 UclDbContext.SqlServerCompatibilityLevel 常數，測試共用\n- 同樣受影響、但被 try/catch 吃掉的：報告列表檢驗類別名稱\n  （ReportController.GetAllTestNamesForReports，失敗時回空字串）\n- 新增 LocalDB 測試：把測試庫設成層級 100，先證明不設定會丟同樣的 SqlException，\n  再用正式設定跑一次推播偵測＋發送（CI 無 LocalDB 跳過）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "e65672b7",
+          "time": "07:52",
+          "message": "合併 MR !18: docs: 列出檢驗雲與 Data2Cloud 以 sa 連線資料庫的問題 [skip ci]",
+          "body": "docs: 列出檢驗雲與 Data2Cloud 以 sa 連線資料庫的問題 [skip ci]\n\nSee merge request ucl/officialwebsites/cloudedleopard!18",
+          "category": "合併MR"
+        }
+      ],
+      "count": 15
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "7e0502d6",
+          "time": "15:27",
+          "message": "合併 MR !14: fix: 對外名稱改用「檢驗雲」，商店文案定稿並重拍登入與設定截圖",
+          "body": "fix: 對外名稱改用「檢驗雲」，商店文案定稿並重拍登入與設定截圖\n\nSee merge request ucl/officialwebsites/uclcloud-app!14",
+          "category": "合併MR"
+        },
+        {
+          "hash": "29f54664",
+          "time": "14:37",
+          "message": "chore: 主要圖片改為「大安聯合醫事檢驗所 × 聯合檢驗雲」，README 金鑰路徑更新",
+          "body": "主要圖片右下那行原本寫「檢驗雲豹」（內部名稱）。沒有留產生腳本，所以用\n原圖抽出「聯合」「檢驗雲」的字形重新排列，背景依上下列補回，字型與顏色\n跟原圖一致。D:\\Private 依 App 分資料夾，上傳金鑰改放 D:\\Private\\uclcloud-app\\。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b617795d",
+          "time": "12:56",
+          "message": "chore: 重拍登入與設定截圖，畫面文字改為「檢驗雲網站」",
+          "body": "登入頁用正式版（無示範橫幅）、設定頁用示範模式，在 S23 拍並照其他截圖\n裁成 1060×2120。設定頁新版多了「新報告通知」開關。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1fd61791",
+          "time": "12:50",
+          "message": "fix: 對外名稱改用「檢驗雲」，商店文案與資料安全表單改為實際送審版",
+          "body": "登入頁與設定頁的「檢驗雲豹網站」改為「檢驗雲網站」（檢驗雲豹是內部名稱）。\nstore/listing.md：簡短與完整說明換成送審定稿（不再寫「即時」與「聯合醫事\n檢驗所會員專用」）；資料安全表單改為實際填寫的答案並拿掉地址；補上其他\n應用程式內容聲明的答案。登入與設定兩張截圖另行重拍。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "11cd5f26",
+          "time": "10:51",
+          "message": "chore: 重拍商店截圖的趨勢頁，Y 軸改為整數刻度後的版本",
+          "body": "舊圖的 Y 軸還是 113.7 / 64.3 的小數刻度；main 已含 niceAxis 與階梯參考帶，\n用示範模式在 S23 重拍並裁成同樣的 1060×2120。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "93c100fe",
+          "time": "10:10",
+          "message": "feat: 原始報告 PDF 檢視與分享",
+          "body": "對應後端 uclcloud !21（GET api/report/pdf/{單號}、列表／明細 HasPdf）。\n\n- 報告明細有 PDF 時多一顆「原始報告 PDF」，開新頁用 flutter_pdfview 顯示，\n  右上角分享／儲存（share_plus，mimeType application/pdf）\n- 檔案下載到 App 私有目錄（getApplicationSupportDirectory），其他 App 讀不到；\n  登出、登入逾時、刪除雲端報告時一併清掉。先寫 .part 再改名，不會留半截檔\n- 後端回 404（還沒產）顯示「原始版面還沒準備好，審核完當天會產生」\n- 示範模式：假後端回一頁手刻的 PDF（Courier、英文），列表／明細 HasPdf=true；\n  測試驗 %PDF- 檔頭與 %%EOF\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "85e50404",
+          "time": "07:58",
+          "message": "合併 MR !9: chore: 上架簽章設定與商店素材",
+          "body": "chore: 上架簽章設定與商店素材\n\nSee merge request ucl/officialwebsites/uclcloud-app!9",
+          "category": "合併MR"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "ef1c3fd8",
+          "time": "09:27",
+          "message": "docs: .227 停用 SMB 改 flags 沒生效——10/3 09:20 RDP GUI 補正",
+          "body": "- CLOSURE §0：07:52–09:15 四支照跑、09:20 GUI 切啟用／停用、09:26 驗證生效\n- SCHEDULE_INVENTORY：停用方法更正為「必須 RDP 用 GUI」，推翻「第一班可能照跑」解釋\n- 3a／批次 5 卡片 ⑥ 註記\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "73ed24d4",
+          "time": "08:13",
+          "message": "docs(6a): 10/3 資產佈署與 !326 merge 打勾；6a 改由 6b session 接手",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1b5c4e59",
+          "time": "08:08",
+          "message": "docs(todo): 10/6 分工定案——6b session 用 wo 建表（db_owner，免 GRANT）、使用者 RDP 跑 GO-cutover",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f1f77942",
+          "time": "08:07",
+          "message": "docs: 3a／批次 5 結案（10/3）——停 .227 舊排程、feed、sync-shadow 四行",
+          "body": "- CLOSURE §0：10/3 執行紀錄（07:51 .job flags、07:53 feed 停用、07:57 sync-shadow）\n- 3a／批次 5 卡片 ④⑤⑥ 回填\n- SCHEDULE_INVENTORY：10/3 現況；02 改 flags 後當日重複序列照跑的觀察\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "98012e85",
+          "time": "07:59",
+          "message": "合併 MR !326: feat: 改轉單位規則改存 DB＋GUI /redirect（10/6 部署維持 Source=File；切 Db 10/27 後另排）",
+          "body": "feat: 改轉單位規則改存 DB＋GUI /redirect（10/6 部署維持 Source=File；切 Db 10/27 後另排）\n\nSee merge request ucl/twowayconnection/orderinsql!326",
+          "category": "合併MR"
+        },
+        {
+          "hash": "bf45362a",
+          "time": "07:49",
+          "message": "fix(6a): GO 腳本的佔位符守門改用拼接、README 改指 repo 新版 pull-settled；10/3 資產已佈署 56.227",
+          "body": "10/3 佈署時踩到兩個坑：\n- GO-cutover.ps1 的守門（「.bat 裡還有佔位符就中止」）與註解都直接寫著佔位符字面值，整檔取代會連守門一起換掉，\n  切換當天換好密碼的 .bat 反而被擋。改成拼接組出佔位符、註解不寫字面值 ⇒ 字面值只剩 schtasks 那一行，整檔取代安全\n- README 寫「pull-settled.ps1 從 cutover-batch3b 複製」——56.227 上所有 cutover 目錄的都是**舊版**（沒有 -IncludeLike），\n  照抄會讓每一行 pull 失去前綴過濾、把整個 ExamOrder_Files 搬走。改指 repo 的 tools/pull-settled.ps1（diff 已核對為純新增）\n\n已佈署：cutover-batch6a 六個檔（UTF-8 BOM）、fp<代碼> 23 家 × inbox／archive／quarantine（皆空）。\n密碼佔位符尚未換（自動化權限擋下寫入密碼），10/6 當天由人換：GO、ROLLBACK、產生後的 pull-inbox-6a.bat。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "3031acb0",
+          "time": "07:01",
+          "message": "docs(6a): 10/3 最終輪平行驗證零轉檔缺陷，名單定案 23 家；Xevox 素材截止點約 15:27",
+          "body": "13 家、素材 9/22–10/2、93 檔、2,265 張、隔離 0、ERR 0；0165 首檔 161＝161。差異全數歸因：\n未對齊 41＝0536 一檔 FP 15:28 產出，Xevox pull 15:30 停（未滿 180 秒暫留）、17:36 才搬，過了收窗（時間差）；\n姓名 337＝修補層 L331；性別 3＝0550×2、0165×1 FP 跨病人沿用（§6.4）；明細 3＝修補層補項。\n三輪（9/30、10/2、10/3）無歸因不完的單位 ⇒ 10/6 切 23 家。跑完已清（2,265／4,508）。\n\nREADME：素材截止點不是收窗時刻——Xevox 線因 pull 15:30 停＋180 秒 settle，實際約 15:27。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "0656b04c",
+          "time": "16:02",
+          "message": "docs: 原始報告 PDF 機制文件，appsettings 補上各分部 LISWeb 端點",
+          "body": "- 新增 docs/9. 原始報告 PDF.md：流程、排程時機、混合制撈單、二審／AORD／單號回收檢查、各分部端點、設定、手動指令、排錯\n- DEPLOYMENT.md、8. 整合處理模式.md 補上 PDF 步驟並連到新文件\n- appsettings.json 的 ReportPdf:LisWeb 補上桃園、新竹、台中、嘉義、高雄（走 VPN 位址，2026-10-03 已實測）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d71c60e9",
+          "time": "12:10",
+          "message": "fix: 原始報告 PDF 的二審檢查也查封存表 AORD，並守門 BLG 年份",
+          "body": "約 2 年前的單會從 HORD 封存到 HCLABA.AORD（台北的分界在 2024-10），原本只查\nHORD_DTL，封存單全被判成「尚未全部二審」而不產 PDF。實測 2021-01、2022-01、\n2023-08、2024-01、2024-10 的單在 HORD 都是 0 項、AORD 全數二審完成，BLG 也都在。\n\n- 新增 GetOrderReviewStatusAsync：照 LISWeb GetReportsDetail 的 fallback，先 HORD_DTL\n  再 HCLABA.AORD_DTL；沒有 AORD 或沒權限的分部退化成查無（不報錯）\n- 同時取 BLG 年份，要跟雲端那筆的送檢年份一致才產。單號每 10 年回收，年份對不上\n  就是同號的別張單（與 LISWeb MR!1447 的年份守門同一用意，這裡自己再擋一次）\n- 不能產的原因寫進 log：查無項目／未全部二審（附來源與數字）／BLG 查無／年份不符\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "f6088b7b",
+          "time": "10:59",
+          "message": "feat: 原始報告 PDF 混合制撈單、時段名額、補歷史煞車與指定會員",
+          "body": "比照 ReportHtmlConverter：\n- 每輪名額依時段：凌晨 00–07 200、白天 07–21 30（讓路給現場列印）、晚間 21–24 100；\n  CLI 有帶上限以 CLI 為準\n- 混合制撈單：大部分名額給最新的（新報告當天有），每輪保留 25 給等最久的舊報告，\n  舊的慢慢補、不會被新單無限插隊；舊報告由檢驗雲依 2021-01-01 下限起算\n- --stop-at HH:mm：補歷史用，到點就停，不跑進上班時間\n  （--report-pdf sync Taipei 3650 7000 --stop-at 06:30，22:00 起跑約 8 小時 6,000 多份）\n- --report-pdf person <分部> <身分證>：把某個人 2021 起的報告一次產完\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "51697506",
+          "time": "09:51",
+          "message": "feat: 原始報告 PDF 同步（LISWeb LT274Pdf → 檢驗雲）",
+          "body": "檢驗雲存摺 App 要看檢驗所正式版面的報告（uclcloud issue #1）。做法：問檢驗雲\n哪些報告還沒 PDF → 確認整張單全部二審 → 向該分部 LISWeb 取 PDF → 上傳檢驗雲\n內部端點。這裡是唯一允許呼叫 LISWeb 報告端點的地方（內網、伺服器對伺服器）。\n\n- 新指令 --report-pdf：check（設定、檢驗雲連線與金鑰、LISWeb 存活）、\n  sync [分部] [天數] [上限]（排程用）、one <分部> <身分證> <單號>（改單重產）\n- 01:00 整合流程與 run-today.ps1 最後各加一步 sync；沒設金鑰會自己跳過\n- LT274Pdf 一定帶 isFax=Y（只印一份；不帶會照單位設定重複印，設 0 份時整份空白）\n  與 download=true（不帶會寫到 LISWeb 伺服器留檔）；回來的內容驗 %PDF- 檔頭\n- 台北走 lisweb2（56.231 批次專用站），不可打 56.230；每張間隔 DelayMs，\n  一輪最多 MaxPerRun 張，補歷史不會把 LISWeb 打爆\n- 設定 appsettings ReportPdf：CloudApiBaseUrl、UploadKey（正式機那份自己填或\n  環境變數 ReportPdf__UploadKey，不進 repo）、LisWeb 各分部位址（先只有台北）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "51dd3d78",
+          "time": "16:20",
+          "message": "fix(music): 🎲 續攤一首一張籤——點過幾次的歌不再被放大",
+          "body": "同仁反映自動續攤「怎麼老是那幾首」。已撥裡同一首被重新點幾次就有幾個檔\n（時間戳後綴，是播放次數的紀錄），而續攤照檔案抽籤，點過 5 次的歌被撈中的\n機會是別首的 5 倍。線上已撥 298 個檔、實際 232 首，WOODZ〈Drowning〉一首就佔 5 張籤。\n\n- 抽籤前照「同一首」併組、每組抽一個檔；「同一首」的認法跟已撥清單的 ×N 併列共用（SongKey）\n- 同一首的另一份檔已經在待撥排隊時也跳過（檔名不同，原本只比檔名擋不到）\n- 檔案本身不動，次數紀錄照留\n\n本機實測：同一首 5 份＋兩首各 1 份，抽 300 次得 109／89／102（舊版約 214／43／43）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "02e63cef",
+          "time": "08:15",
+          "message": "feat(music): 🔁 自動續攤週六也撈",
+          "body": "週六也有人上班，原本只限週一～五，週六按鈕亮著「開」卻不會自己撈。\n時段改成週一～六 08:00–18:00，週日照舊不動；按鈕提示、音樂列說明、文件一起改。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "90d75851",
+          "time": "08:02",
+          "message": "fix(smoke): BT201 開單等單位查詢鏈跑完再 keyin, 存檔改等 POST /api/BLG 回應",
+          "body": "桃園 09-25、10-03 排程冒煙紅燈: 單位 Enter 後馬上填 9001, 單位查詢(HFCLINIC→特價表)\n還沒回來時 BT201 的檢驗代碼 handler 會靜默放棄 (#CLINIC_desc 空清掉代碼 / spListObject\n未建直接 return), 9001 被吃掉、存檔送不出; 原本 Ctrl+Q 後只等 500ms 不驗存檔,\n要到 LT253 等 2.5 分鐘才紅, 看起來像 hcini 逾時.\n\n- waitUnitReady: blur 單位欄確保 change 觸發, 等 #CLINIC_desc 與 spListObject[單位] 就緒\n- keyinItems: 每筆 Enter 後確認代碼沒被前端清掉\n- saveAndWait: 等 POST /api/BLG, 回應非空字串即失敗; 沒送出就當場紅並帶出 dialog/toast/modal 訊息\n- createOrder / createOrderWithPid 共用\n\n非桃園客製造成 (customOrder 跳欄/單號帶日期兩輪行為一致), 是共用碼的 race; 桃園只是抽到.\n驗證: TY、TP 本機各跑一次 PASS, 桃園 IIS log 確認 9001→9002→9003→ChkIdTrxDt→POST /api/BLG.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "centrifuge-balance",
+      "commits": [
+        {
+          "hash": "72b32319",
+          "time": "12:34",
+          "message": "Add the globalization plan for v1.1.0",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9a838bfe",
+          "time": "11:07",
+          "message": "Add Google Play store graphics",
+          "body": "Hi-res icon, feature graphic and six phone screenshots for the listing,\npadded to 9:16 because the device's 19.5:9 captures exceed Play's 2:1 limit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "781dadbc",
+          "time": "10:45",
+          "message": "Add an in-app privacy policy page",
+          "body": "The info sheet gains a \"隱私權政策\" row that opens a full page with\nthe Chinese text of privacy.html: provider, no data collection, local\nonly storage, vibration permission, all ages, how changes are\nannounced, and the contact block. The web URL is shown as selectable\ntext at the bottom; no INTERNET permission or URL launcher is added,\nmatching what the policy states.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "df6800f1",
+          "time": "10:42",
+          "message": "Add the Google Play store listing text",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c8308736",
+          "time": "10:38",
+          "message": "Add a privacy policy page for the Play listing",
+          "body": "Google Play needs a public privacy policy URL. The page states that the\napp collects no personal data, keeps progress only on the device, and only\nuses the vibration permission, with UNION CLINICAL LABORATORY as the\nprovider to match the Play developer account. The web demo links to it\nfrom a new footer.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2fd115e8",
+          "time": "10:25",
+          "message": "Use the company package name tw.com.ucl.centrifuge_balance",
+          "body": "The app will be published on Google Play under the Da-An Union Clinical\nLaboratory organization account, so the Android applicationId and the iOS\nbundle id move from the personal tw.joechiboo prefix to tw.com.ucl.\nThe package name cannot change after the first Play upload.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "c72b7350",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-03",
+          "body": "🤖 自動生成於 2026-10-03 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "c09cd6f8",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-02 (52 commits)",
+          "body": "🤖 自動生成於 2026-10-03 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "d3b95b03",
+          "time": "19:43",
+          "message": "feat(sci): 圖 1–8 英文重製、實驗三補寫設計、標題改 JISE 格式；寄教授 Ch4–Ch7 版",
+          "body": "- 新增 scripts/make_sci_figures.py：Fig 1–8 全部以滑動窗口數據重畫為英文版\n  （Fig 1 程式繪製並移除 SR；Fig 3 改用與 Table 11 一致的滑動窗口消融值；\n  Fig 6 補回碩論 VML 格式遺失的圖；ROC 以 rerun_roc_sliding_window.py 重現）\n- 實驗三依教授「有，改」批註補寫 SHAP 實驗設計（紅字，取自 nb19 實際做法）\n- 4.4 整節改為佔位，待教授歸還 p.18–19；致謝整節移出至 Acknowledgements_草稿.md\n- 7.1 兩段因刪除 SR／類別不平衡後改寫；表格字型統一標楷體＋TNR\n- 圖表標題改範本格式 Fig. n. / Table n.，交互參照同步；表格與圖均設不跨頁、標題引言同頁\n- TODO：C0-6 篇幅預算與方法一致性問題、E0 致謝寫回提醒；批註檔補 p.21 判讀\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 52,
+    "sideCommits": 9,
+    "totalCommits": 61
+  }
+}
