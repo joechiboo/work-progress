@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-05",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "3f9bc91f",
+          "time": "11:43",
+          "message": "fix(BT410): 拆分收據不再擋同一天開立日期 (前後端一併放行)",
+          "body": "同仁需求: 四張拆分收據要編成同一天開立日期, 原本前端 validateSplitRows\n與後端 ValidateSplit 都擋「彼此不同日」。預設排法仍是同月不同日連續遞增,\n只是手改成同一天不再報錯; 張數超過當月天數時改成全部預設落在開立日,\n不再拒絕。有改 ReceiptController (dll), 上版需完整發佈不能只蓋 cshtml。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "b32b5967",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-05",
+          "body": "🤖 自動生成於 2026-10-05 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "e4db955e",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-04 (2 commits)",
+          "body": "🤖 自動生成於 2026-10-05 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 2,
+    "totalCommits": 3
+  }
+}
