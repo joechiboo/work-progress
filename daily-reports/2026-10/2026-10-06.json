@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-06",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "098a7eff",
+          "time": "17:53",
+          "message": "feat(6b): 10/13 切換資產——產生器現撈 56.227 設定（33→34）、GO／ROLLBACK、pull 來源訂正、反向比對 §8 依日期切換、轉移卡與執行單",
+          "body": "- make-cutover-config-6b.ps1：從現行 appsettings.Local.json 唯讀現撈，加 LisOrders（正式站／佔位金鑰／DryRunOnly 參數化／120s）、\n  1120 單位（Mode 參數化、ProcessingWindow 照抄 ANSN）、XEVOX 加 LisOrders=1＋LisOrdersUnits=0705；守門 Units 唯一、\n  無 _UnitsSample、原單位逐鍵相同且順序不變、ansn 家族 1120- 排除維持、XEVOX 符合 ② 前提；產 units-6b.json 給回退\n- GO-cutover-6b.ps1：守門（Live 設定三件事、.bak_20261013、啟動 log「端點②…1120(Live)、XEVOX(Live)」、pull-settled 新版、\n  bat 來源 ExamOrder_Files、inbox）→ 確認 LIS／Spark 兩步 → 建 OrderInSql-Pull-1120 每 2 分鐘；不停任何排程\n- ROLLBACK-6b.ps1：-Scope All|1120|0705；停 pull、殘檔搬回 ExamOrder_Files、設定還原／只關一家；LIS／Spark 後續列明、封鎖窗註記\n- pull-inbox-1120.bat：來源 UCLOrder_Files → ExamOrder_Files（1120 的 ThrowFolder 是死設定，原檔從未在那裡；\n  AutoDeliver valid=0 後檔留 CatchFolder）；加 net use\n- reverse-compare-batch5.sql §8：@cutover6b=2026-10-13 前兩家都該 0，之後只 0539 該 0、1120 列成 6b 線當日量\n- Batch6bCutoverAssetsTests：範本永遠驗（1120／0705 套 XEVOX 現況／lisorders 段／bat／BOM）；\n  設 LIS_6B_CUTOVER_CONFIG 以 Program.cs 同法載入產出、跑 UnitSettingsValidator＋LisOrderUnitSettings\n- docs/migrations/batch6b-lis-orders.md 轉移卡（六條紅線、三方分工、立即驗證、回退、公告稿）；batch6b/README 改成切換日執行單\n\n產生器以 56.227 現行設定 UNC 唯讀代跑：單位數 33→34、Live 33 保留、Core 兩道驗證通過（DryRun 與 Live 兩版）；重複套用負向擋下。\ndotnet test 757 全綠。不佈署、不動線上。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a4228a6c",
+          "time": "17:36",
+          "message": "合併 MR !426: docs: 10/6 整合——6a 切換完成、6b 狀態核對、backlog C／A、作戰圖頁籤",
+          "body": "docs: 10/6 整合——6a 切換完成、6b 狀態核對、backlog C／A、作戰圖頁籤\n\nSee merge request ucl/twowayconnection/orderinsql!426",
+          "category": "合併MR"
+        },
+        {
+          "hash": "3ea87334",
+          "time": "17:36",
+          "message": "docs: 10/6 整合——6a 切換完成（23 家、首日 12 家 483 張）、1c 6b 狀態核對、backlog C／A Draft MR、作戰圖頁籤更新",
+          "body": "- TODO.md：作戰圖 10/6 列標 ✅ 並寫實際時間（07:51 建表、07:52 部署、08:25 valid=0、08:38 Pull-6a）；\n  分工段註明 10/3 起 6a 由 6b session 接手；10/7–10/12 列補巡檢由 session 排程、回退演練延後；\n  1c 6b：!1553 已上正式站、10/13 前剩三件；backlog C（!424）／A（!425）改「Draft 待部署」、6a 線不需開 ByUnit\n- SCHEDULE_6A.md：10/6 段全部打勾、gantt 標 done；觀察期段加首日數字\n- DEPLOY_LOG.md 第 27 列尾補首日結果（14 檔／13 成功／483 張、[ERR] 1、共享斷線一次）\n- 轉移卡：記錄表 10/6 列補首日；觀察期加「10/6 首日小結」；公告稿補實際時間與首日數字；前置狀態表更新\n- MIGRATION_RUNBOOK.md 6a 列改「✅ 10/6 切換、觀察期至 10/16」、6b 列更新 10/13 前待辦；WORKSTREAMS.md 同步\n- index.html 作戰圖頁籤：10/6 節點完成、首日 stat、56.227 排程 21→22（＋Pull-6a）、下個節點 10/13 6b、\n  6a 驗證表改結果、6b 前提改 10/6 核對、決策 1 結案、backlog C／A；文件索引加 SCHEDULE_6A 與轉移卡\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "493001e8",
+          "time": "17:15",
+          "message": "feat: 單位總覽頁 /units（backlog A）——以單位為列不分線、首頁只看待轉／已轉，純唯讀",
+          "body": "新頁 /units ＋ GET /api/overview?date=，首頁 / 改導向它；/alert、/lines、/config 原網址不動。\n五頁導覽列加「單位」。\n\n單位列＝三來源合併：單位設定裡本身就是單位的線（6a FP####、6b 1120、四碼數字）∪\n各線 inbox／quarantine／archive 的檔名 token（與 /alert 同一套 ResolveUnitCode 歸戶）∪\nWebOrder 查詢日 PhysicianOrderD 的 UTI_UNIT_CODE+Dept。名稱查 UNITDATA，查無的照列並標示。\n\n每列：待轉（inbox 不分日期；⚠ 卡住沿用 DescribeSkip 非 Intentional，刻意排除不算）、\n已轉檔數（查詢日 archive，根目錄＋ByUnit 子夾）、已轉張數（WebOrder cre_date 當日\nGROUP BY 單位鍵×filename、COUNT DISTINCT SN）、隔離（查詢日／更早）、最後到檔、備註。\n一檔多單位（TransferUCLCode 改轉、XML 檔內單位）以 WebOrder 反查為準：張數算在實際\n寫入的單位，檔名歸戶對不上的列備註「寫入來自別單位檔名的檔：X（檔名歸 Y）」。\n\n效能：一個請求掃一次磁碟（AlertQuery.ScanFiles，CollectRecentFiles 改建其上、行為不變）\n＋查一次 WebOrder；DB 掛掉時檔案端數字照常、張數留空並帶 dbError，不出誤報。\n\nCore：IAlertRepository.GetFilesWrittenOnAsync ＋ UnitFileOrders；NormalizeFileName 去舊程式存的路徑。\nService：UnitsOverviewBuilder（純函式）＋ UnitsOverviewQuery（DI）。\n測試：UnitsOverviewTests 24 案例（單位認法、三來源合併、待轉／卡住、已轉、一檔多單位歸屬、\n隔離今日／更早、有動靜、排序、磁碟掃描含子夾）；dotnet test 814/814 連跑兩輪全綠。\n文件：ELECTRONICALERT_INTEGRATION §5.1 ⑦／§5.2 端點、SYSTEM_OVERVIEW、TODO A 列進度。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "d3b1874f",
+          "time": "16:59",
+          "message": "feat: 歸檔分單位子夾（backlog C）——Options.ArchiveLayout=ByUnit 逐線 opt-in，預設平鋪不變",
+          "body": "寫端（ImportPipeline）：成功檔搬到 ArchiveLayout.ResolveArchiveDir：沒設／Flat＝archive 根目錄\n（一個位元都不變）；ByUnit＝archive\\<檔名 token>\\。token 只允許 ASCII 英數字，`..`、含分隔、\n空字串退回根目錄（不跳出 archive）；撞名 -N 在子夾內套同一條；隔離區不動。\n啟動期驗證：ArchiveLayout 打錯字（ByUnits／PerUnit）直接擲例外，服務起不來。\n\n讀端一律「根目錄＋一層子夾」、不看選項（舊檔不回搬；關掉後子夾檔也找得到）：\n- AlertQuery.CollectRecentFiles（GUI 已轉入清單）\n- Program.ResolveUnitFile → 抽成 UnitFileResolver（preview／raw 原檔預覽），路徑穿越擋兩層\n- UnitRedirectPreview.FindSamples（改轉預覽樣本檔，評估時漏列的消費端）\n\n腳本：feed-verify×8（LEDGER 版）改 for /R 走子夾，兩種佈局都吃；robocopy 範本註明只認平鋪；\nreplay-prep／gen-replay-files 加 -Recurse。\n\n文件：FILE_LOCATIONS／SYSTEM_OVERVIEW 補子夾佈局與一檔多單位的限制；TODO C 列加進度；\nappsettings 範例加 _comment_ArchiveLayout。\n\n測試：ArchiveByUnitTests 32 案例（平鋪預設、ByUnit、非法 token、撞名、隔離平鋪、\n清單兩層、Resolver 跳脫、驗證器）；dotnet test 790/790 連跑兩輪全綠。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "99397282",
+          "time": "08:49",
+          "message": "docs: 10/6 部署（DEPLOY_LOG 26）與批次 6a 切換完成（27）——33 單位、valid=0 23 家、Pull-6a 排程 08:38",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "248d46ea",
+          "time": "08:10",
+          "message": "docs: 1088 改轉規則 10/6 定案維持 01_2088——01＝健保分不出門診／洗腎，長期改抓 B 欄",
+          "body": "- TODO／UNIT_REDIRECT §8／CLOSURE：診所端 Y 欄語意（01 健保含洗腎月檢、11 自費、3F 洗腎加開）、\n  9/29–10/5 12 張 11 張進 2088、月批照跑由行政搬回；B 欄若能依單位寫則規則可拿掉\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "94e215c7",
+          "time": "06:46",
+          "message": "docs(3b): 10/3、10/5 反向比對——無轉檔缺陷，乾淨比對日累計 4 天",
+          "body": "- 3b 卡片：第五、六天比對紀錄（10/4 週日影子不跑）\n- CLOSURE §3.3：補 10/3–10/5；「乾淨日未達 3 天」條件已滿足，剩 0705 Companys 改指\n- 10/5 §7 跨檔合併 29＝0361 同批單送 4 次＋php 併明細，非轉檔層\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "24b55574",
+          "time": "07:57",
+          "message": "memory: both apps still in Play review on 2026-10-06",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "d3886c41",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-06",
+          "body": "🤖 自動生成於 2026-10-06 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "d0477796",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-05 (3 commits)",
+          "body": "🤖 自動生成於 2026-10-06 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 9,
+    "sideCommits": 2,
+    "totalCommits": 11
+  }
+}
