@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-07",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "4dd25f74",
+          "time": "17:14",
+          "message": "docs: 10/7 院所重送——0536 已進 LIS 59 張重複、0581 未分單；backlog H 重送防護",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8e021e2d",
+          "time": "16:07",
+          "message": "合併 MR !428: docs: 10/7 6a 觀察期第 1 天＋第一次反向比對（零未解釋差異）",
+          "body": "docs: 10/7 6a 觀察期第 1 天＋第一次反向比對（零未解釋差異）\n\nSee merge request ucl/twowayconnection/orderinsql!428",
+          "category": "合併MR"
+        },
+        {
+          "hash": "dec153b4",
+          "time": "16:07",
+          "message": "docs: 10/7 6a 觀察期第 1 天＋第一次反向比對（10/6 素材 15 檔／528 張零未解釋差異）",
+          "body": "- DEPLOY_LOG 第 27 列：10/7 觀察期第 1 天（17 檔全成功、0 隔離、[ERR] 0；0581 同內容兩檔重複；\n  0536 同名檔重送 59 張×2 皆已分單待確認；3525 收窗後兩檔手動轉入；1088 月批改轉；共享斷線兩次）\n- 轉移卡：10/7 小結、反向比對結果與涵蓋範圍、記錄表 10/7 列；零流量 10 家首檔處註明 3525\n- SCHEDULE_6A：觀察期 10/7 一行\n- batch6a README：預期差異補四條（檢體名稱 20 位元組截斷、修補層加項、0165 stem 撞名、Ambiguous）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "d156567c",
+          "time": "14:58",
+          "message": "centrifuge is live on Google Play",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "997d03c0",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-07",
+          "body": "🤖 自動生成於 2026-10-07 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "9e7197a8",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-06 (11 commits)",
+          "body": "🤖 自動生成於 2026-10-07 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 4,
+    "sideCommits": 2,
+    "totalCommits": 6
+  }
+}
