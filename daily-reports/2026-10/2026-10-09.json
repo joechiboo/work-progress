@@ -1,0 +1,398 @@
+{
+  "date": "2026-10-09",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "09d1ccb9",
+          "time": "19:46",
+          "message": "合併 MR !438: docs(3b): 10/7–10/9 反向比對補跑——兩類轉檔層差異，三天不計乾淨日",
+          "body": "docs(3b): 10/7–10/9 反向比對補跑——兩類轉檔層差異，三天不計乾淨日\n\nSee merge request ucl/twowayconnection/orderinsql!438",
+          "category": "合併MR"
+        },
+        {
+          "hash": "594dcf23",
+          "time": "19:46",
+          "message": "docs(3b): 10/7–10/9 反向比對補跑——兩類轉檔層差異（0202 P315 少一列、空代碼明細不寫），三天不計乾淨日",
+          "body": "3b session 10/9 關閉、工作移交 6b session；10/7、10/8 當晚未跑，由 6b session 逐日補跑＋三天合跑，\n另以全量查詢（不受 §4／§5 TOP 50 限制）歸因明細差。\n\n- 0202（嘉義基督教醫院）T080878A1@78A1 的 P315 我方每張少一列（23 張）：UNIT_TEST_ITEM 同代碼兩列 P315，\n  GetUclCodesAsync 用 SELECT DISTINCT、舊程式照列寫。9/29 起每天都有，10/1–10/6 當時被歸成修補層\n- 空檢驗代碼明細我方不寫（DbOrderEnricher L41）：10/8 0711 4 列（一張成空殼主檔）、0850 2 列；舊程式時期正式庫留著\n- 0362 4 列傾向人工刪除（Query Store 佐證、未逐筆證實）；2006 重送 25 張主檔被 ad hoc DELETE 清掉\n- 其餘全歸因：6a 7 家影子 0、修補層搬單逐日加總相符、§7 0、§13 只差白名單 0884\n- 3b 卡補登 10/6 列、加 10/7–10/9；結案總表乾淨日加註待定\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c66472ee",
+          "time": "16:17",
+          "message": "docs(6a): 10/9 回退演練（1400）完成並切回——8 步紀錄；ROLLBACK -Units 會停整條 Pull-6a",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "04ab6906",
+          "time": "16:09",
+          "message": "docs: 6a 觀察期第 2、3 天（10/8、10/9）＋反向比對兩輪零未解釋差異",
+          "body": "- DEPLOY_LOG 第 27 列：10/8（當天未排巡檢、10/9 補查）、10/9 小結\n- 轉移卡：觀察期加 10/8、10/9 小結與反向比對（素材 10/7 18 檔／565 張、\n  10/8 20 檔／595 張）結果＋涵蓋範圍；記錄表加 10/8、10/9\n- SCHEDULE_6A：觀察期加 10/8、10/9 兩行\n- batch6a README 預期差異：補院所重送在比對中的三種呈現（Ambiguous、\n  -1 stem NoProd、0 張檔 NoProd＋NoTest），性別／截斷補實例\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8b28e401",
+          "time": "14:57",
+          "message": "docs(todo): backlog H 規格定案——收檔擋整份重送（內容雜湊）＋部分重疊提示，不改分單系統",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2205136c",
+          "time": "08:22",
+          "message": "docs(6b): 10/13 換金鑰步驟＝貼現行 Auth:Jwt:Key（共用）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1f4f3994",
+          "time": "08:22",
+          "message": "docs(6b): 執行單 10/9 列改定案；10/13 換金鑰＝貼現行 Auth:Jwt:Key",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "677fa4de",
+          "time": "08:21",
+          "message": "feat(6b): OrderUnits 開通 SQL 由我方執行（sys-parameter-orderunits.sql）；金鑰先共用；未知項目 90 天僅 2 張",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "0246ae9e",
+          "time": "08:20",
+          "message": "docs: 6b LIS 三題定案——OrderUnits 由我方 10/13 填、金鑰先共用、未知項目 90 天僅 2 張",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "96af9abc",
+          "time": "08:14",
+          "message": "docs(todo): 6b 10/9 定案——valid=0/1 由我方執行、CBC 子項改 memo 不是門檻",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7bbd0b88",
+          "time": "08:12",
+          "message": "feat(6b): valid=0／1 改由我方跑 SQL、CBC 子項降為 memo（2026-10-09 使用者三個決定）",
+          "body": "- 新增 fp-valid0-cutover-6b.sql／fp-valid1-rollback-6b.sql：比照 6a，清單只有 1120／0705，\n  守門反過來擋 mode<>'Parsing'、CatchFolder 兩家各比（ExamOrder_Files／TaTung_Xevox_Backup_Files）、\n  交易、UpdatedNow=Expected=2、印 CommittedAt；sqlcmd 直連 .229、不帶 -P；UTF-8 BOM\n- GO-cutover-6b.ps1：檔頭順序與 Read-Host ② 改成「我方已跑 fp-valid0-cutover-6b.sql、CommittedAt 已過 11 分鐘」\n- ROLLBACK-6b.ps1：後續 B／③ 改成「我方跑 fp-valid1-rollback-6b.sql」，封鎖窗註記保留\n- README：三方分工 Spark 欄改「—（valid=0／1 由我方執行）」、10/12 核對清單拿掉 Spark 兩項、\n  加兩支 SQL NOEXEC 編譯檢查、10/13 步驟 0 改我方 09:00 前跑、立即驗證 #9 改為觀察不是門檻、回退第 4 步改我方\n- 轉移卡：紅線 3 改「我方 valid=0 → LIS 開通 → 換檔重啟 → 建 pull」；紅線 5 改寫成 memo\n  （1120 CBC 8 子項由不明程式補——已知未解、不動；保留查過的事實與 10/13 後觀察法）；\n  前置狀態／回退／觀察期／影子交接的 Spark 字樣改我方；記錄表加 10/9 列\n- pull-inbox-1120.bat 註解、LIS_API_REQUEST 我方這側那條、測試檔頭註解同步\n- 測試：Batch6bCutoverAssetsTests 加兩支 SQL 的存在／BOM／單位清單／mode='Parsing'／CatchFolder 檢查（757 → 760 全綠）\n- docs/TODO.md 不動\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "08d08a7f",
+          "time": "07:47",
+          "message": "docs(6b): 修正 UNC 路徑反斜線",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "33c2a6cf",
+          "time": "07:47",
+          "message": "docs(6b): 與 3b 影子 03 的交接——0705 不改 Companys、10/16 go 後才停影子（10/9 使用者定案）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "86c1b098",
+          "time": "07:45",
+          "message": "docs(3b): 結案併入 6b——10/9 定案不改 .229 Companys，10/16 go 之後才停影子 03",
+          "body": "- CLOSURE §1／§3.3：3b 比對條件已達（乾淨日 5 天）；Companys 改指只是 6b 前的過渡橋，改等 6b\n- 3b 卡片 §7：兩段處置的第二段改為等 6b；附 10/9 查證（onlyParsingTodayFiles=1、isBackupFile=0）\n- TODO 作戰圖：批次 1–5 結案列更新\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6a58018a",
+          "time": "07:42",
+          "message": "docs(todo): 0536／0581 重複單 LIS 端實查——0536 乾淨、0581 剩 1 組",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d4f51bae",
+          "time": "07:24",
+          "message": "docs: GUI 資訊架構重設計（UNIT_ONBOARDING_GUI §7.1）——每頁只回答一個問題；!425 不直接部署、先做模型",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c1d1ac52",
+          "time": "14:52",
+          "message": "chore(Chronos): 第一筆登記改每 20 分鐘（同仁要求）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "69f8ebad",
+          "time": "12:59",
+          "message": "style(ScheduleJobs): 目標/參數/備註欄位撐滿寬度，備註改多行",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1e94696e",
+          "time": "12:47",
+          "message": "feat(ScheduleJobs): 試跑/執行結果加人話摘要（SUMMARY 慣例）；表格改 7 欄可換行不再左右捲；DelayCommentBackfill 結果加 COMPLETED_NOT_PROCESSED",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "34ad7b8e",
+          "time": "12:39",
+          "message": "docs: 排程整合入口更新為排程維護頁＋第一支工作端點",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "89a5d001",
+          "time": "12:35",
+          "message": "feat(ScheduleJobs): 排程維護頁（Chronos 註冊表 GUI）＋檢體延誤補加改為純工作端點",
+          "body": "- SchemaModify/Chronos排程/SCHEDULE_JOB_建表：SCHEDULE_JOB / SCHEDULE_JOB_LOG 兩表＋序號，第一筆登記 DelayCommentBackfill（每小時第 10 分 06~22 點，預設停用）\n- Home/ScheduleJobs 頁：列表、新增/編輯（代碼/類型/cron/目標/參數 JSON/逾時/重試/不重疊/負責人/主機）、啟停、試跑(dryRun)/立即執行、執行紀錄；REGISTER 型只列不跑\n- api/ScheduleJobs：[Authorize]；試跑/立即執行由 LISWeb 帶 X-Schedule-Key 打工作自己的端點，結果寫 SCHEDULE_JOB_LOG\n- DelayCommentBackfill 不再有獨立頁，只留 POST api/Schedule/DelayCommentBackfill（body {days, excludeClinics} = SCHEDULE_JOB.PARAMS）\n- 選單腳本改建 ScheduleJobs（系統管理 > System Tools），含把 10/09 先建的 DelayCommentBackfill 節點就地改名\n\n定時觸發由 Chronos 執行器負責（ucl/lis/schedule/chronos），不在 w3wp 裡跑背景工作。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "9ee8f13c",
+          "time": "12:02",
+          "message": "chore(DelayCommentBackfill): 選單改掛 系統管理 > System Tools(9030)，權限先只給群組 1；折疊資料夾權限一併補",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "fe00908a",
+          "time": "11:53",
+          "message": "fix(DelayCommentBackfill): 頁面 API 加 [Authorize]，未登入回 401（排程端點維持金鑰驗證）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "2caf277b",
+          "time": "11:12",
+          "message": "Revert \"refactor(DelayCommentBackfill): 拿掉人工頁面與選單，只留排程端點（之後由 Chronos 排程維護頁立即執行/試跑）\"",
+          "body": "This reverts commit 713526dad5f2b31c34019266179dae9e5c0a4dc8.",
+          "category": "重構"
+        },
+        {
+          "hash": "713526da",
+          "time": "10:51",
+          "message": "refactor(DelayCommentBackfill): 拿掉人工頁面與選單，只留排程端點（之後由 Chronos 排程維護頁立即執行/試跑）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "重構"
+        },
+        {
+          "hash": "46cc3482",
+          "time": "09:45",
+          "message": "fix(DelayCommentBackfill): OH_PCMT 300 bytes 上限防護（塞不下改 SKIPPED 交人工）；docs: 排程整合入口指向 Chronos 專案",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "a128087f",
+          "time": "09:37",
+          "message": "feat(DelayCommentBackfill): 檢體延誤註解補加頁面＋排程端點（台中，Chronos 第一個 job）",
+          "body": "Rule 9024 只在 hc010 首次開單時評估，BT201 已存檔後才改採檢日/加 P80x 的單不會補加\n（Documents/Problems/改單後未重跑RuleEngine_檢體延誤註解漏加.md）。\n\n- Files/DelayCommentBackfill.json：以 LabUniform 分站的設定（套餐、片語、天數、排除單位），改 JSON 不用重發佈\n- Repository：掃描條件與 Rule 9024 + COLDATE_DIFF v0.2 對齊（採檢日區間夾擊、EVENTLOG 無 L00、OH_PCMT 不含片語）；\n  補加沿 LT252 人工註解路徑（OH_PCMT append + 清 OD_CTL_FLAG1 + L00 GLOBAL_CMT_SET(0024)[Batch]），每張單獨立交易、鎖列重驗\n- 頁面 Home/DelayCommentBackfill：掃描→勾選→補加；已審核完成的列出但預設不勾\n- 排程端點 POST api/Schedule/DelayCommentBackfill?dryRun=：X-Schedule-Key 驗證（SYS_PARAMETER Schedule_ApiKey / Schedule_ApiAllowIp），已審核完成一律跳過\n- SchemaModify：台中選單（掛 LT252 同資料夾、權限比照）＋金鑰參數，只在台中跑\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "29cd4d2b",
+          "time": "08:32",
+          "message": "fix(LT252): 電泳 F4 四項有陰性值以外的數值就不帶陰性, 且不再覆蓋既有數值",
+          "body": "生化組回報: 陽性報告 (儀器已傳輸 M Protein % / g/dL) 在 LT252 WS43 按 F4,\nM-peak 仍被帶成 NEG、IgG/A/M Kappa/Lambda 帶成 No Paraprotein, 等於把陽性\n發成陰性。要求四項全空白才帶入陰性。\n\n- QuickFillState 把設定項目分成 blank / fill / ns / other 四種狀態;\n  任何一項是 other (儀器送入或人工鍵入的其他值、自選片語) 就整個循環不跑,\n  跳提示列出哪幾項已有數值\n- F4 三段都只動自己寫過的值: 帶入只填空白格; NS 段只把空白與陰性值改成 NS;\n  清空段只清 NS; 2303 片語只在等於設定片語時才清。儀器區帶值與人工值一律保留\n- NS 前的 confirm 文字改為「已輸入的數值不會被覆蓋」\n- LT252B 同步; 熱鍵說明與 Documents/BusinessLogic/電泳報告機制.md 一併更新\n- scratchpad 以 jsdom + jQuery 3 跑同構 DOM 測試, 兩份各 19 項通過\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 12
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "6441418f",
+          "time": "14:52",
+          "message": "docs: 第一支工作改每 20 分鐘",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c0e10ff4",
+          "time": "14:11",
+          "message": "docs: BaseUrl 一律 localhost（站台 NAT IP 自連不通）；第一支工作已啟用、首次排程觸發整鏈驗證",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "86f35d48",
+          "time": "13:15",
+          "message": "feat(runner): 已部署台中 33.229；設定階段失敗也寫 log；task XML 進版控（Repetition 必帶 Duration）；docs 補雙網段 DB 主機與 33.229 實機排程資料夾",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c8d33bf7",
+          "time": "12:39",
+          "message": "fix(runner): Oracle 11g 改用 ODP.NET Core 3.21.x（23.x ORA-28040）；docs: 部署指南、執行計畫改為「GUI 在 lisweb／執行器在 Chronos」、README 狀態與待決更新",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7f2bd58d",
+          "time": "12:35",
+          "message": "feat(runner): Chronos 執行器第一版（HTTP 型）",
+          "body": "- 每分鐘跑一輪（工作排程器叫起；loop 模式可常駐）：讀 SCHEDULE_JOB 啟用中的工作，NCrontab 算到期\n- NO_OVERLAP 用 RUNNING_SINCE 鎖，殭屍鎖（超過兩倍逾時）自動釋放\n- HTTP 型：帶 X-Schedule-Key 打 TARGET（相對路徑補 BaseUrl）＋ PARAMS 當 body，逾時/重試（5xx 或連不上才重試）\n- 結果寫 SCHEDULE_JOB_LOG、更新 LAST_*／NEXT_RUN_AT；logs/chronos.log 每輪一行心跳給 Cerberus LogFreshness\n- 連線字串 DES 密文（同 LISWeb Cipher），金鑰檔 schedule-api.key 不進 git\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "433ff249",
+          "time": "11:14",
+          "message": "Revert \"docs: 階段一不做人工頁面，只留排程端點（使用者 2026-10-09 決定）\"",
+          "body": "This reverts commit 00ab1c734900b4a452cda93ff09123fbe269a2b1.",
+          "category": "文檔"
+        },
+        {
+          "hash": "00ab1c73",
+          "time": "10:51",
+          "message": "docs: 階段一不做人工頁面，只留排程端點（使用者 2026-10-09 決定）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e16a1c68",
+          "time": "09:46",
+          "message": "docs: 階段一實作紀錄（lisweb MR、台中實證數據、每小時可接住約 95%）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "71db9529",
+          "time": "09:37",
+          "message": "docs: 執行計畫（階段一台中延誤註解、階段二搬家）＋ 端點驗證定案；scripts: 階段一過渡用工作排程器腳本",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "fc511768",
+          "time": "09:24",
+          "message": "docs: Chronos 統一排程框架 — 設計說明 + 全公司排程盤點總表（第一版）",
+          "body": "- README：問題、設計原則（觸發與邏輯分離、一站一套、常駐程序只登記、看門狗獨立）、\n  註冊表欄位、執行器、維護頁、借 Cerberus 告警、分批順序、不做的事、待決事項\n- docs/排程盤點總表：56.231 實機 77 支（讀 Tasks XML）、其他台北主機、六分部、\n  PHP 體系（168.2 crontab / 168.227 HCLAB2）、疑似退役、共同問題、待實機確認清單\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "8ad77b1c",
+          "time": "15:45",
+          "message": "chore: session 收尾備份 2026-10-09",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "236bdea8",
+          "time": "12:40",
+          "message": "memory(argus): 點唱機同曲多版本只留點閱最高",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "3ef763b6",
+          "time": "07:40",
+          "message": "chore: session 收尾備份 2026-10-09",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "075dd603",
+          "time": "17:08",
+          "message": "佈署紀錄補 DB 頭同輪重試（MR !52）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b8cd6faa",
+          "time": "16:55",
+          "message": "DB 頭連線錯誤同輪重試一次：抖一下不再告警",
+          "body": "一個月約十次告警是「中斷約 2 分」——只失敗一輪、下一輪自己好，全是\nORA-50000 timed out／SQL-53/64 這類連線錯誤（台北、高雄、台中、嘉義都有）。\n2026-10-09 16:42 台中 Oracle 連線逾時 15 秒那次就是這型，同一秒台中\nSQL Server 照樣查得到。\n\n- DbProbe.WithTransientRetry：只認連線類錯誤碼，清連線池、等 5 秒重試一次，\n  第二次也失敗才往上丟當失去心跳；表不存在／帳密錯不重試\n- 一輪最多重試 3 次：多顆頭同時連不上＝真出事，不該每顆都拖時間\n- 重試成功寫 Warn 留痕，同一站常抖就是該補的洞\n- 真故障仍在同一輪告警，不像「連兩輪才叫」會晚 2 分鐘\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "ef1d12a3",
+          "time": "19:33",
+          "message": "feat(sci): 紅字只標教授修改；Fig. 1 中文版；寄教授 10/09 版",
+          "body": "- 紅字規則改為「教授新增／修改才紅，碩論原文黑」：比對定稿I／II 全文，\n  336 個片段轉黑（編號、交互參照、圖表標題、參考文獻、原文句），140 個保留\n- 混淆矩陣四項定義刪「正確／錯誤」（使用者修改，各收成一行）\n- 新增研究架構與流程圖中文版（給教授看稿，不進 Word）；make_sci_figures.py\n  架構圖改為中英共用函式\n- 寄教授：Ch1–Ch7 10/09 版 PDF／docx＋中文 Fig. 1，移除舊 review 版 PDF\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b66ffc1e",
+          "time": "19:12",
+          "message": "fix(sci): 參考文獻斷行與編號間距、摘要拿掉外部驗證",
+          "body": "- 參考文獻：URL／DOI 插入零寬空格斷行點，消除左右對齊撐開的大空白；\n  懸掛縮排加寬，修正兩位數編號與作者名黏住\n- 摘要：刪除外部驗證相關敘述（內文未收錄）；AUC 範圍 0.73→0.74（依 Table 8）；\n  「單一空腹血糖」限定為高血糖\n- Normal 樣式明確寫回 10pt；TODO E11 更新為現行交互參照狀態\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "a85c828d",
+          "time": "17:38",
+          "message": "feat(sci): 4.1–4.4 依教授 p.14–19 騰稿；套用 10/09 meeting 意見與 JISE 範本字級",
+          "body": "- 4.1–4.3 依取回紙本 p.14–19 騰稿（底稿定稿I，改動標紅、不確定處〔?〕）；\n  時間軸設計、類別不平衡情況整段刪；變數定義表補預測目標列\n- 研究架構圖依教授手繪新架構重畫（五階段）；健檢次數分佈圖重畫並修正\n  分母（原圖誤用篩選前 6,119，改 6,056）\n- 4.4 自 10/03 備份放回，標題改效能度量、註記教授尚未審閱\n- 參考文獻補碩論 [23]–[26]（Luo Dryad、JNC 8、ADA、NCEP），並依教授\n  要求改為首次引用順序編號\n- Meeting 10/09：小標降為 10pt、表格移至首次提及之後、StratifiedGroupKFold\n  正名 5-fold cross validation、消融實驗改 Δ 特徵／精簡特徵實驗、\n  可解釋性分析改特徵重要性分析\n- 全文套 JISE 範本字級（內文 10pt、行距固定 12pt、表 9pt、圖表標題 9–9.5pt），51→36 頁\n- 新增 18_Ch4前半_教授批註.md 轉錄與掃描檔；TODO C0-7 記錄 meeting 意見\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "c327c56f",
+          "time": "11:28",
+          "message": "docs: 新增 2026/05-07、2026/08-10 AI 工具費用報銷總結",
+          "body": "2026/09 起 Anthropic 對台灣帳戶加收 5% VAT，月費由 US$100 變 US$105；\n08-10 期改用信用卡實際扣款匯率換算台幣。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "f750cf1a",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-09",
+          "body": "🤖 自動生成於 2026-10-09 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "c4dc6b3b",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-08 (2 commits)",
+          "body": "🤖 自動生成於 2026-10-09 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 43,
+    "sideCommits": 6,
+    "totalCommits": 49
+  }
+}
