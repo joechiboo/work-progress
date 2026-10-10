@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-10",
+  "weekday": "六",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "a4bfdeda",
+          "time": "16:02",
+          "message": "fix(6a): 採檢日中文上下午＋兩位數日解析錯（2026/10/10 上午 09:01 → 上午:09:01）",
+          "body": "NormalizeDateTime 只拿掉 - / 空白 :，「上午」留在數字串中，日期段滿 8 碼時前 8 碼仍合法，\n組出「2026/10/10 上午:09:01」，AsDate 擲例外、整檔中途失敗（10/10 0581 實案，失敗前已寫入 9 張）。\n10/1 的修正只測到 7 碼日期（2026/9/24），10/10 起每個兩位數日都會踩到（0576／0581）。\n\n6a 版位含中文上下午的值一律直接走 zh-TW 解析；非 6a 版位行為不變（加測試鎖住）。754 測試兩輪綠。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "8e9f45f7",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-10",
+          "body": "🤖 自動生成於 2026-10-10 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "28bf6449",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-09 (49 commits)",
+          "body": "🤖 自動生成於 2026-10-10 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 1,
+    "sideCommits": 2,
+    "totalCommits": 3
+  }
+}
