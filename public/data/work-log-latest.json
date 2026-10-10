@@ -1,13 +1,13 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-10-09",
-    "days": 523,
-    "weeks": 74.7
+    "end": "2026-10-10",
+    "days": 524,
+    "weeks": 74.9
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 5831,
+    "totalCommits": 5834,
     "projectCount": 99,
     "dailyAverage": 11.1
   },
@@ -11221,7 +11221,7 @@
     },
     {
       "name": "OrderInSql",
-      "totalCommits": 505,
+      "totalCommits": 506,
       "commits": [
         {
           "hash": "13ace8da",
@@ -15261,6 +15261,14 @@
           "message": "docs: GUI 資訊架構重設計（UNIT_ONBOARDING_GUI §7.1）——每頁只回答一個問題；!425 不直接部署、先做模型",
           "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a4bfdeda",
+          "date": "2026-10-10",
+          "message": "fix(6a): 採檢日中文上下午＋兩位數日解析錯（2026/10/10 上午 09:01 → 上午:09:01）",
+          "body": "NormalizeDateTime 只拿掉 - / 空白 :，「上午」留在數字串中，日期段滿 8 碼時前 8 碼仍合法，\n組出「2026/10/10 上午:09:01」，AsDate 擲例外、整檔中途失敗（10/10 0581 實案，失敗前已寫入 9 張）。\n10/1 的修正只測到 7 碼日期（2026/9/24），10/10 起每個兩位數日都會踩到（0576／0581）。\n\n6a 版位含中文上下午的值一律直接走 zh-TW 解析；非 6a 版位行為不變（加測試鎖住）。754 測試兩輪綠。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -26853,7 +26861,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 748,
+      "totalCommits": 750,
       "commits": [
         {
           "hash": "4bdff543",
@@ -32836,6 +32844,22 @@
           "date": "2026-10-09",
           "message": "docs: 每日工作紀錄 2026-10-08 (2 commits)",
           "body": "🤖 自動生成於 2026-10-09 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8e9f45f7",
+          "date": "2026-10-10",
+          "message": "docs: 更新彙整資料 2026-10-10",
+          "body": "🤖 自動生成於 2026-10-10 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "28bf6449",
+          "date": "2026-10-10",
+          "message": "docs: 每日工作紀錄 2026-10-09 (49 commits)",
+          "body": "🤖 自動生成於 2026-10-10 07:05",
           "category": "文檔",
           "tags": []
         }
