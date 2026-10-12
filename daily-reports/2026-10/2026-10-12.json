@@ -1,0 +1,611 @@
+{
+  "date": "2026-10-12",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "ac5bd501",
+          "time": "19:30",
+          "message": "fix(docs): CLOSURE_BATCH1-5.md 換行改回 LF（!448 誤存成 CRLF，內容不變）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "a11f3bae",
+          "time": "19:29",
+          "message": "docs(3b): 10/12 反向比對——無轉檔缺陷，第 1 類 5 件不計乾淨日；10/11 合跑 0392 對平",
+          "body": "- 差異全歸因：6a 直讀 6 家、修補層搬單位、0096 院所重傳後 php 併回、0011／0032 正式側併單\n- ① P315 型 5 件（0202 4、0011 P993 1）、② 0；附涵蓋範圍（§13 54 家、白名單 ANAMNESIS_NO×0884、SEQUENCE×0347/0536/0855）\n- CLOSURE §3.3 補 10/12 列\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ce045377",
+          "time": "17:10",
+          "message": "docs(6a): 觀察期 10/10–10/12 ＋反向比對兩輪（素材 10/9、10/10）零未解釋差異",
+          "body": "- 10/10 0581-20261010-2 採檢日「上午:」半套寫入 → 10/12 hotfix 重轉 16 張；10/11 0 檔；10/12 14 檔、11 家 287 張、[ERR] 0、隔離 0\n- 反向比對：10/9 14 檔／275 張、10/10 2 檔／17 張，附涵蓋範圍；0581 重轉單一對一 0 差異\n- README 預期差異表補「正式側 cre_date 晚於素材日」與「LastWriteTime＝原檔修改時間」\n- .229 d$ 無 session 時改讀 AutoDeliver 一般共享（-ParsingConfigPath）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0ab091bf",
+          "time": "09:49",
+          "message": "docs(index): 文件頁 Web GUI 卡改寫——/units 是首頁（異常／待處理／正常）、所有設定上 GUI 的方向連到 UNIT_ONBOARDING_GUI",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "dd94da8d",
+          "time": "09:48",
+          "message": "feat(gui): /units 單位列加「改預期」——預期收檔時間、休診日、上傳路徑備註，沿用 /alert 的 PUT /api/alert/units 與 UNITDATA",
+          "body": "值班可改的那一類（UNIT_ONBOARDING_GUI §6.3 第 1 點）從 /alert 搬進單位頁；兩頁同一份資料、同一個端點。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "90a9f4c0",
+          "time": "09:40",
+          "message": "docs(gui): §6 設定盤點——33 單位 29 鍵逐鍵標值班／工程／唯讀，設定檔外四處，第一批搬 DB 是 6a 欄位對應",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3e21dca5",
+          "time": "09:33",
+          "message": "feat(gui): /units 改版——異常在上、待處理中間、正常摺疊；合併收檔進度五色（預期、應到未到、量偏少）；備註用規則組一句話",
+          "body": "10/8 回饋「太複雜、說明太多、難聚焦」＋ 10/12 模型定案（claude.ai/artifact/9rfdU6fy8u7nqd3ZR96ZrW 第 3 版）：\n- 前端同時抓 /api/overview（檔案端）與 /api/alert（DB 端五色），以單位碼合併；對不到檔案端的單位（含 Dept 後綴）照樣列出\n- 分三段：異常（隔離／卡住／應到未到／量偏少／備註有注意事項）直接展開在最上面；待處理（待轉、還沒到預期時間）與正常摺疊；不活躍勾選才顯示\n- 備註欄：每種狀態一句固定句型，資料全來自既有兩支 API，不用 LLM；需要動作的列給「看檔案」按鈕（既有的最近檔案＋試解析對話框）\n- chips 改為 隔離／卡住／應到未到／量偏少／待轉／等待中／已轉／全部；篩選或搜尋時自動展開摺疊段\n- 拿掉頁尾說明段，改一行連到 /docs\n後端不動（UnitsOverviewBuilder／AlertQuery 原樣）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "608975ce",
+          "time": "17:15",
+          "message": "feat: 單位總覽頁 /units（backlog A）——以單位為列不分線、首頁只看待轉／已轉，純唯讀",
+          "body": "新頁 /units ＋ GET /api/overview?date=，首頁 / 改導向它；/alert、/lines、/config 原網址不動。\n五頁導覽列加「單位」。\n\n單位列＝三來源合併：單位設定裡本身就是單位的線（6a FP####、6b 1120、四碼數字）∪\n各線 inbox／quarantine／archive 的檔名 token（與 /alert 同一套 ResolveUnitCode 歸戶）∪\nWebOrder 查詢日 PhysicianOrderD 的 UTI_UNIT_CODE+Dept。名稱查 UNITDATA，查無的照列並標示。\n\n每列：待轉（inbox 不分日期；⚠ 卡住沿用 DescribeSkip 非 Intentional，刻意排除不算）、\n已轉檔數（查詢日 archive，根目錄＋ByUnit 子夾）、已轉張數（WebOrder cre_date 當日\nGROUP BY 單位鍵×filename、COUNT DISTINCT SN）、隔離（查詢日／更早）、最後到檔、備註。\n一檔多單位（TransferUCLCode 改轉、XML 檔內單位）以 WebOrder 反查為準：張數算在實際\n寫入的單位，檔名歸戶對不上的列備註「寫入來自別單位檔名的檔：X（檔名歸 Y）」。\n\n效能：一個請求掃一次磁碟（AlertQuery.ScanFiles，CollectRecentFiles 改建其上、行為不變）\n＋查一次 WebOrder；DB 掛掉時檔案端數字照常、張數留空並帶 dbError，不出誤報。\n\nCore：IAlertRepository.GetFilesWrittenOnAsync ＋ UnitFileOrders；NormalizeFileName 去舊程式存的路徑。\nService：UnitsOverviewBuilder（純函式）＋ UnitsOverviewQuery（DI）。\n測試：UnitsOverviewTests 24 案例（單位認法、三來源合併、待轉／卡住、已轉、一檔多單位歸屬、\n隔離今日／更早、有動靜、排序、磁碟掃描含子夾）；dotnet test 814/814 連跑兩輪全綠。\n文件：ELECTRONICALERT_INTEGRATION §5.1 ⑦／§5.2 端點、SYSTEM_OVERVIEW、TODO A 列進度。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "55113813",
+          "time": "16:59",
+          "message": "feat: 歸檔分單位子夾（backlog C）——Options.ArchiveLayout=ByUnit 逐線 opt-in，預設平鋪不變",
+          "body": "寫端（ImportPipeline）：成功檔搬到 ArchiveLayout.ResolveArchiveDir：沒設／Flat＝archive 根目錄\n（一個位元都不變）；ByUnit＝archive\\<檔名 token>\\。token 只允許 ASCII 英數字，`..`、含分隔、\n空字串退回根目錄（不跳出 archive）；撞名 -N 在子夾內套同一條；隔離區不動。\n啟動期驗證：ArchiveLayout 打錯字（ByUnits／PerUnit）直接擲例外，服務起不來。\n\n讀端一律「根目錄＋一層子夾」、不看選項（舊檔不回搬；關掉後子夾檔也找得到）：\n- AlertQuery.CollectRecentFiles（GUI 已轉入清單）\n- Program.ResolveUnitFile → 抽成 UnitFileResolver（preview／raw 原檔預覽），路徑穿越擋兩層\n- UnitRedirectPreview.FindSamples（改轉預覽樣本檔，評估時漏列的消費端）\n\n腳本：feed-verify×8（LEDGER 版）改 for /R 走子夾，兩種佈局都吃；robocopy 範本註明只認平鋪；\nreplay-prep／gen-replay-files 加 -Recurse。\n\n文件：FILE_LOCATIONS／SYSTEM_OVERVIEW 補子夾佈局與一檔多單位的限制；TODO C 列加進度；\nappsettings 範例加 _comment_ArchiveLayout。\n\n測試：ArchiveByUnitTests 32 案例（平鋪預設、ByUnit、非法 token、撞名、隔離平鋪、\n清單兩層、Resolver 跳脫、驗證器）；dotnet test 790/790 連跑兩輪全綠。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "de080452",
+          "time": "09:08",
+          "message": "docs(deploy): DEPLOY_LOG 28 補 0581-20261010-2 重轉結果——09:01 成功 16 張／31 明細，無殘留",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "432b3a82",
+          "time": "08:02",
+          "message": "docs(gui): 需求範圍擴大——所有設定都在 GUI 上改（比照展望大一統），附設定類別清單與模型連結",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "331ca2d0",
+          "time": "07:51",
+          "message": "docs(6b): 公告稿併入給 LIS／Spark 的事項（OrderUnits 與 valid 皆我方執行、金鑰共用、回退分工），10/13 一次發",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0476ef01",
+          "time": "07:48",
+          "message": "docs(6b): 前置狀態 #7 打勾（56.227 資產 10/9 佈署、10/12 唯讀複核含 Oracle 三項）；修 README 被吃掉的反斜線（unitsJ0 → units\\1120）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8a99617c",
+          "time": "07:44",
+          "message": "合併 MR !427: feat(6b): 10/13 切換資產——產生器現撈 56.227 設定、GO／ROLLBACK、pull 來源訂正、反向比對 §8、轉移卡與執行單",
+          "body": "feat(6b): 10/13 切換資產——產生器現撈 56.227 設定、GO／ROLLBACK、pull 來源訂正、反向比對 §8、轉移卡與執行單\n\nSee merge request ucl/twowayconnection/orderinsql!427",
+          "category": "合併MR"
+        },
+        {
+          "hash": "04ed7d10",
+          "time": "07:43",
+          "message": "docs: DEPLOY_LOG 28——6a 採檢日 hotfix（!439）部署＋0581 半套單清除重轉",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "a3af9803",
+          "time": "07:34",
+          "message": "合併 MR !439: fix(6a): 採檢日中文上下午＋兩位數日解析錯（2026/10/10 上午 09:01 → 上午:09:01）",
+          "body": "fix(6a): 採檢日中文上下午＋兩位數日解析錯（2026/10/10 上午 09:01 → 上午:09:01）\n\nSee merge request ucl/twowayconnection/orderinsql!439",
+          "category": "合併MR"
+        },
+        {
+          "hash": "f481d6bc",
+          "time": "06:52",
+          "message": "合併 MR !440: docs(3b): 10/10–10/11 反向比對——10/10 計乾淨日、10/11 週日不比",
+          "body": "docs(3b): 10/10–10/11 反向比對——10/10 計乾淨日、10/11 週日不比\n\nSee merge request ucl/twowayconnection/orderinsql!440",
+          "category": "合併MR"
+        },
+        {
+          "hash": "0348204c",
+          "time": "06:52",
+          "message": "docs(3b): 10/10–10/11 反向比對——10/10 零未解釋差異計乾淨日（6 天），10/11 週日影子不跑不比",
+          "body": "- 10/10：差 23 全是 0581 6a 直讀；0035 佔位身分證 php 清空、0361／2681 php 併單空殼；\n  全量明細差只有帶修補層指紋的取消註記差；10/9 兩類已知差異（P315 型、空代碼型）皆 0 件\n- 10/11：我方只有 0392 17 張（16 張為 10/10 檔重送、檔名多 _），影子週一補處理後以 10/11–10/12 合跑確認\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 18
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "b4232d5c",
+          "time": "15:59",
+          "message": "chore: 官網 XSS MR !4 已合併",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "364b188b",
+          "time": "15:58",
+          "message": "chore: session 收尾備份 2026-10-12（官網 XSS 修補 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "5abf14c6",
+          "time": "15:43",
+          "message": "UPC ECS memory：記錄擱置項目與 WES 待處理",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "67001af0",
+          "time": "15:37",
+          "message": "外部站點規則：抓取前先看 robots.txt",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "661256ec",
+          "time": "15:33",
+          "message": "移除封鎖時間長度（廠商處理時間，無參考意義）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "dabf8f62",
+          "time": "15:33",
+          "message": "更正：外部站點封鎖是廠商人工解鎖，不會自動解除",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d8d0374c",
+          "time": "15:30",
+          "message": "外部站點封鎖實測約一小時解除",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f04eaa67",
+          "time": "15:13",
+          "message": "新增「外部站點不要大量爬取」規則與 UPC ECS 相關 memory",
+          "body": "- CLAUDE.md：公司共用對外 IP，大量爬外部站點會讓全公司被封鎖\n- UPC memory：ECS 基因列表三站分工、外部站點爬取注意事項\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c59d1e78",
+          "time": "14:32",
+          "message": "chore: requisition-ocr memory（100 張比較結果、Ollama instruct）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "ee99dfdd",
+          "time": "12:52",
+          "message": "centrifuge v1.1.0 submitted for review with global listing",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "69760069",
+          "time": "12:19",
+          "message": "memory: centrifuge v1.1.0 tag moved to e758460",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5f9bd9ea",
+          "time": "12:17",
+          "message": "centrifuge v1.1.0: en-US store assets done, runbook section 8",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "00e4ab5b",
+          "time": "11:57",
+          "message": "chore: 備份各專案 memory 2026-10-12",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "947a953c",
+          "time": "11:56",
+          "message": "CLAUDE.md：加 Claude API 平台（公司帳號）指引，細節在 reference/",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c700c5d8",
+          "time": "11:47",
+          "message": "memory: centrifuge v1.1.0 AAB built, tagged and released on GitHub",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c5c61f8d",
+          "time": "11:43",
+          "message": "memory: centrifuge score strip commit",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1cdf3b16",
+          "time": "11:32",
+          "message": "memory: centrifuge v1.1.0 local state after info sheet simplification",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "36f84a96",
+          "time": "11:24",
+          "message": "runbooks(tickit): 代操改走使用者提供的 session cookie",
+          "body": "- 記錄登入方式盤點（2026-10-12）：只有表單登入，沒有 SSO/API token，未登入 401\n- 舊作法「從 Oracle 取明碼密碼登入」被 auto mode 以 Credential Exploration 擋下，標註不要繞過\n- 新增標準流程：使用者貼 PHPSESSID → 讀工單、取 CSRF → add_comment 的 PowerShell 範本\n- 長期方案 B（固定腳本 + allow 規則）/ C（請維護者加 API token）待決定\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 18
+    },
+    {
+      "name": "AI\\requisition-ocr",
+      "commits": [
+        {
+          "hash": "91a72597",
+          "time": "14:37",
+          "message": "合併 MR !12: 文件整合結案結論",
+          "body": "文件整合結案結論\n\nSee merge request ucl/AI/requisition-ocr!12",
+          "category": "合併MR"
+        },
+        {
+          "hash": "87d42082",
+          "time": "14:36",
+          "message": "文件整合結案結論：維持「目前尚無法執行」",
+          "body": "- README：狀態改三頁報告、本地模型改 instruct 版、補 100 張比較的完整指令與新程式\n- decisions：加 10-12 維持結案決策列、量測記錄加 100 張這列、舊結案一節標註已被取代\n- sampling-plan：記錄實際抽樣流程與產出率（979 頁 → 100 張）\n- .env.example：預設本地模型改 qwen3-vl:4b-instruct，註明雲端模型名稱\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ed8f9652",
+          "time": "14:32",
+          "message": "合併 MR !11: 同一批 100 張醫令比較四個模型；報告改 3 頁",
+          "body": "同一批 100 張醫令比較四個模型；報告改 3 頁\n\nSee merge request ucl/AI/requisition-ocr!11",
+          "category": "合併MR"
+        },
+        {
+          "hash": "e36d6f3b",
+          "time": "14:31",
+          "message": "同一批 100 張醫令比較四個模型，結案報告改為 3 頁",
+          "body": "- select_set.py：從初篩結果挑人工 keyin、配對可信的醫令當固定樣本集\n- score_set.py：對 BLG 算欄位正確率、項目讀到率、身分全對、項目全對、整張醫令完全正確\n  （造字當萬用字元、常用縮寫對照、診所套餐單不計項目）\n- spend.py：加總雲端花費；bench_api.py 加平行、續跑、樣本集標籤\n- fetch_lis_orders.py：可指定結果資料夾與配對表，多筆候選允許姓名／身分證差一字\n- extract.py：Ollama 結果過濾空字串（instruct 版會吐空項目）\n- 報告：總結＋四模型比較表、錯在哪裡、可行方向；decisions.md 記錄結果\n\n結果（整張醫令完全正確）：本地 4B 3%、Opus 5.5 22%、Sonnet 5.5 21%、Haiku 5.5 14%。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d484b30b",
+          "time": "12:12",
+          "message": "合併 MR !10: 結案報告擴充為 4 頁：總結＋雲端 API 比較",
+          "body": "結案報告擴充為 4 頁：總結＋雲端 API 比較\n\nSee merge request ucl/AI/requisition-ocr!10",
+          "category": "合併MR"
+        },
+        {
+          "hash": "2c32fc08",
+          "time": "12:11",
+          "message": "結案報告擴充為 4 頁：最前面加總結頁，最後加雲端 API 比較",
+          "body": "- 第 1 頁總結：目標、四個關鍵數字、量測一覽、結論、重啟步驟\n- 第 2、3 頁為原本的本地模型欄位辨識與檢驗項目\n- 第 4 頁雲端 API：Opus／Sonnet／Haiku 5.5 的速度、花費、合成單正確率與上雲前要確認的事\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "af23a374",
+          "time": "12:06",
+          "message": "合併 MR !9: decisions：雲端 API 量測結果",
+          "body": "decisions：雲端 API 量測結果\n\nSee merge request ucl/AI/requisition-ocr!9",
+          "category": "合併MR"
+        },
+        {
+          "hash": "2e0b94a5",
+          "time": "12:06",
+          "message": "decisions：記錄雲端 API 量測（Opus／Sonnet／Haiku 5.5，合成樣張）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "cc5ee2e5",
+          "time": "11:56",
+          "message": "合併 MR !8: bench_api：並排比較 5.5 系列三個模型",
+          "body": "bench_api：並排比較 5.5 系列三個模型\n\nSee merge request ucl/AI/requisition-ocr!8",
+          "category": "合併MR"
+        },
+        {
+          "hash": "3580336f",
+          "time": "11:56",
+          "message": "bench_api：預設並排比較 Opus 5.5／Sonnet 5.5／Haiku 5.5，價格表更新",
+          "body": "- --model 可逗號列多個，跑完寫 results/bench/compare.md\n- PRICES 依 2026-10-12 官方 pricing 頁加入 5.5 系列（Haiku 5.5 $0.10／$0.50）\n- 雲端後端預設模型改 claude-opus-5-5\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7fefa424",
+          "time": "11:50",
+          "message": "合併 MR !7: 加雲端 API 量測工具 bench_api.py",
+          "body": "加雲端 API 量測工具 bench_api.py\n\nSee merge request ucl/AI/requisition-ocr!7",
+          "category": "合併MR"
+        },
+        {
+          "hash": "de63ef04",
+          "time": "11:49",
+          "message": "加雲端 API 量測工具：bench_api.py 記每頁秒數、token、花費與每日推估",
+          "body": "- extract() 可傳 stats，兩個後端都回報秒數、input／output token、影像尺寸\n- anthropic 後端：REQOCR_EFFORT 可調思考深度；記 usage 與 request id；max_tokens 截斷視為失敗\n- bench_api.py：實跑或 --estimate 粗估；結果可直接給 score.py 算正確率\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 12
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "ea3011a5",
+          "time": "15:57",
+          "message": "docs: 加入 XSS 同類寫法掃描腳本（追蹤事項 T1~T3 用）",
+          "body": "用法：python docs/security/xss_scan.py <repo根目錄> <輸出.json>\n依 public / admin / dead-copy 分類列出 Request→未編碼輸出的疑似點（啟發式，含誤判）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9a0e9db6",
+          "time": "15:53",
+          "message": "docs: XSS 矯正紀錄補上 CSP 工單 Tickit #409",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "41c2287e",
+          "time": "15:51",
+          "message": "docs: XSS 矯正紀錄補上修補後實測結果與部署過程",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "af6439bb",
+          "time": "15:50",
+          "message": "fix: security.asp 註解中的 %> 會提早結束 ASP 區塊；補上部署後驗證紀錄",
+          "body": "檔頭註解範例 `<%=SecUrl(x)%>` 的 %> 讓後面的函式定義被當成 HTML 輸出，\n並排測試時攔下，未影響正式頁面。ISO 紀錄補上修補後實測結果與部署過程。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "b2b7dda5",
+          "time": "15:39",
+          "message": "docs: XSS 矯正措施紀錄、部署與驗證腳本",
+          "body": "docs/security/2026-10-12-xss-remediation.md 供 ISO 27001 矯正措施紀錄使用，\n修補後驗證欄位待部署後補上。附部署腳本（stage/swap/rollback/cleanup）、\n驗證腳本與修補前基準結果。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f37c3e88",
+          "time": "15:36",
+          "message": "fix: 修補官網反射型 XSS（OBB-2118656）及同類輸入輸出問題",
+          "body": "新增 include/security.asp 共用函式：依輸出情境編碼（SecHtml/SecUrl/SecJs）、\n白名單輸入驗證（SecId/SecReqId/SecReqInt/SecReqText/SecLocalUrl）。\n\n- ServiceQuery.asp（OBB-2118656）：strsearch/MiddleID/GoodstypeID 驗證後\n  依 HTML 屬性、HTML 內文、URL 參數分別編碼；page/MaxPerPage 改整數白名單，\n  非數字不再 500\n- search/product/hot_goods/new_goods/sale/video.asp：同樣模式；另修補\n  strsearch、GoodstypeID、Middle_Item_ID_s、shopid cookie 直接串入 SQL 的注入\n- knowledge.asp：TypeName 輸出編碼、typeid 白名單\n- login.asp、webshopLogin.asp：getPage/pathstr/questr/path 限站內相對路徑\n  （同時阻擋 open redirect），隱藏欄位與 JS 字串輸出編碼\n- dealers/login.asp：URL 隱藏欄位輸出編碼\n- bank/show.asp、webshop/shop/show.asp：OutNo 白名單（同時阻擋 SQL 注入），\n  HTML/JS/URL 輸出編碼\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "f1350a42",
+          "time": "15:30",
+          "message": "chore: 匯入 webshop/shop 正式機現行版本以便追蹤 XSS 修補",
+          "body": "ServiceQuery/search/product/hot_goods/new_goods/sale/video/knowledge/login/show.asp\n原本被 .gitignore 排除，先以正式機 (\\192.168.156.224\\d$\\ucl\\web) 現行版\n原樣入庫並加入白名單，下一個 commit 才是修補，diff 才看得出改了什麼。\nlogin.asp 正式機版與本機舊副本不同，以正式機為準。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "565fb769",
+          "time": "09:24",
+          "message": "docs: ORA-01745 修正 MR !1573 已 merge，待打 tag 上台中",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "3fe288c6",
+          "time": "09:19",
+          "message": "docs: 10-12 決策：台中先跑一週、台北不動；觀察週三件事（bind-user MR、Cerberus 跨站讀檔加頭、一週後驗收）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c15c727b",
+          "time": "08:38",
+          "message": "docs: 10-12 台中上版，排程轉 OK；維護頁儲存 ORA-01745 修正中",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a5352ab5",
+          "time": "18:07",
+          "message": "feat(RawItemQuery): 未開單項目原始值查詢頁，業務自助查 RDW-SD 並匯出",
+          "body": "明志科大（0564）每週送一批檢體要 RDW-SD（8602 未設開單細項，ORD_DTL 沒有），\n至今七批都是資訊室人工撈 OL_DTL + .res 封存再判讀。改成頁面讓業務自己查。\n\n- Home/RawItemQuery：貼檢體號（可直接貼信件，自動抓 10 碼），或用「客戶＋報告審核日期」\n  列出候選再勾選（客戶指定的通常只是當天其中幾支）\n- 逐支查 DB（ONLINE_LOG/OL_DTL，含 OL_COMMENT 的儀器 ERROR）＋ HCLAB_web\n  ResultArchiveQuery.php 原始檔封存，合併後標可用性：OK / 需判讀（複驗不一致、超出範圍）/\n  不可用（CHECK、儀器 ERROR、空跑 RBC<0.5 或 HGB<1.0）/ 查無；重傳另外標出，不去重\n- DB 與 .res 同一次上機用「值相同＋時間差 2 分鐘內」配對（DB 的 WBC 等被四捨五入，整組比對不上）\n- 匯出 Excel（含說明頁）；頁面逐支呼叫 API，避免整批卡逾時\n- SchemaModify 選單腳本：台北 3025 結果查詢及發報告，權限 Marketing(29)＋系統管理(1)\n- 文檔補上頁面說明，並更正「DB 不給品質旗標」（OL_COMMENT 其實有 ERROR 註記）\n\n本機連台北正式庫實測：第七批 6 支結果與 10/07 人工交付一致；10/06、10/08 共 38 支\nDB 紀錄全數正確併入 .res；當天未封存檢體走 DB 正常。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "2940cad6",
+          "time": "08:38",
+          "message": "fix(ScheduleJobs): 儲存/啟停時 ORA-01745，綁定變數 :user 是 Oracle 保留字，改名 :updBy",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "UPC\\Front",
+      "commits": [
+        {
+          "hash": "c338172b",
+          "time": "14:36",
+          "message": "最新消息新增 ECS 通過衛福部認證，ECS 清單紅字改黑",
+          "body": "- 最新消息新增一則：大安聯合擴展帶因篩檢（ECS）通過衛生福利部合格認證，\n  附 upcob 行銷網站的 ECS 清單與介紹連結\n- ECS panel V14 PDF 紅字（與 ACMG Secondary Finding 重疊的 7 個基因）改黑，\n  並移除第 15 頁「以紅字表示 Secondary Finding 基因」圖例；\n  重轉 ECS_01/04/12/13/15.png，其餘頁面不變\n- UPDATE_ECS.md 補充只有 PDF 時直接改色的作法\n\n需求來源：蕭醫師 2026-10-12 訊息（ECS 送衛福部版本已無 ACMG SF）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "centrifuge-balance",
+      "commits": [
+        {
+          "hash": "ece1f148",
+          "time": "12:53",
+          "message": "Mark v1.1.0 as submitted with the global listing",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e758460f",
+          "time": "12:16",
+          "message": "Add the en-US store graphics and the screenshot crop tool",
+          "body": "Six English screenshots (hint, unbalanced, spinning, balanced, lab,\nfree 30 holes) and an English feature graphic for the global Play\nlisting, shot on the SM-S9110 with the app's per-app locale set to\nen-US. tool/storeshot.py turns a raw capture into the 1226x2180 store\nsize the way the v1.0.0 set was made; the listing doc records the\nmethod, including the two Samsung-specific steps.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e1c8be31",
+          "time": "12:08",
+          "message": "Hide the header title when it cannot fit",
+          "body": "With three mode pills plus the licence and info buttons, the header\nleft so little room that the title was scaled down to an unreadable\nsliver, worst in English. A title squeezed below about 80% of its size\nreads as a defect, so the header now measures it and hides it instead;\nthe launcher already names the app. On wider screens it still shows.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "41244141",
+          "time": "11:42",
+          "message": "Show scores as a dot strip per campaign",
+          "body": "The scores section was a wrap of uneven chips, each carrying a level\nname and a best-score phrase, up to twenty of them. It is now one row\nof numbered dots per campaign: outlined until cleared, filled once\ncleared, gold when cleared in a single launch. The per-level best count\nalready appears on the game screen's result card, so the sheet no\nlonger repeats it, and the two strings it used are gone.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "86477da0",
+          "time": "11:31",
+          "message": "Simplify the info sheet",
+          "body": "The sheet listed every rule, every legend entry and the full maths\nsection at once, which read as a wall of text. Now it shows only what\nthe current rotor needs: the lab rule only in lab mode, legend entries\nonly for tube and hole kinds present on this rotor, and the maths\nfolded behind an expansion tile. The shake-and-arrow rule is gone; the\nrotor teaches it on the first launch.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8b1f2344",
+          "time": "10:09",
+          "message": "Add the Play Console checklist for the global rollout",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "c62b31b1",
+          "time": "10:06",
+          "message": "Keep the English app name within 30 characters",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "5a1c8fbf",
+          "time": "10:06",
+          "message": "Bring README status and the store listing up to v1.1.0",
+          "body": "README says v1.0.0 is on Google Play and what v1.1.0 adds. The store\nlisting's Chinese copy now covers lab mode, the licence and English,\nand gains a complete en-US listing (name, short and full description)\nfor the global rollout.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        },
+        {
+          "hash": "6ceeb1a2",
+          "time": "09:54",
+          "message": "v1.1.0: lab campaign, licence, English, shorter text",
+          "body": "Lab mode: ten new levels where specimen tubes are fixed and the player\nbalances the rotor with a limited budget of water-filled spare tubes,\nthe way a bench technologist does. Each budget equals the brute-forced\nminimum and that minimum has a single solution (checked by a test), so\nthe limit is the puzzle. Lab progress and best scores are stored apart\nfrom the classic campaign.\n\nLicence: clearing all ten classic levels awards a Medical Technologist\nLicence with confetti, an issue date, a licence number, score stats\nand an optional nickname kept on the device. It is reachable from a\nheader badge and can be shared as an image through the system share\nsheet (share_plus; no new permissions). Clearing the lab campaign adds\na Lab Endorsed stamp.\n\nLocalization: gen-l10n with Traditional Chinese and English ARB\nfiles; English is the fallback for non-Chinese systems. Game state\nnow emits message ids rather than strings. On-screen copy is cut\nback: level title plus a spare-tube chip, no standing explanations,\nshorter hints, icons for first-try and continue.\n\nAlso: privacy policy mentions the local nickname and the share sheet\n(in-app and privacy.html, both languages), README and store release\nnotes updated, version 1.1.0+2.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
+          "category": "其他"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "ffe4c089",
+          "time": "10:08",
+          "message": "docs(seals): 公告原檔改放 private/notices/，用法補範例",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9b32d412",
+          "time": "10:05",
+          "message": "fix(map): 只有鎖定格改空白，其他車位維持實心填色",
+          "body": "前一版誤解主委需求，把所有圓圈都改成白底彩框。實際要求是只有**鎖定格**去掉填色：\n鎖定格不開放承租、大小位之分對它無意義，留白（白底＋黑框＋黑字）一眼可辨不能選；\n其餘車位維持原實心填色＋白字。移除 --filled 參數（不再需要切換）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "245934e1",
+          "time": "09:50",
+          "message": "feat(map): B1 圖改空心圓＋公告用印（主委要求）",
+          "body": "主委要求：①加公告章、管委會字樣 ②圓圈不填色。\n\n- 圓圈改「白底＋車種色外框」：不填色（省墨、可書寫），以外框色保留大／小位區分；\n  編號改黑字（白字在空心圓上看不見）。不用全透明，因底圖線條會穿過編號（實測\n  1、4、5 號的三角形與無障礙位輪椅圖示）。公益／鎖定外圈外推，與車種框分開。\n  --filled 可切回舊實心樣式。\n- --seal image｜blank：依社區公告頁尾格式加「[紅色方章] 樂菲莊園管理委員會／電話\n  [藍色公告章]」於右上角空白處（建築線外、無車位）。image 嵌電子章；blank 留白供蓋章。\n- extract-seals.mjs：從公告 PDF 剪下兩顆章並去背（連通區塊濾除掃描灰塵）。\n\n⚠️ repo 公開：印章圖檔一律放 private/seals/（不進版控）；電子章版若輸出到 public/\n   直接拋錯——public/ 隨網站部署，任何人都能下載印章偽造公告。防呆以絕對路徑比對，\n   已驗相對路徑、./public、絕對路徑三種寫法皆擋下。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "1ac548cf",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-12",
+          "body": "🤖 自動生成於 2026-10-12 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "66988050",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-11 (2 commits)",
+          "body": "🤖 自動生成於 2026-10-12 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "taipeigolf\\TaipeiGolf",
+      "commits": [
+        {
+          "hash": "238956e5",
+          "time": "08:15",
+          "message": "修正每日備份半路無聲中斷：寫 log 改用 .NET AppendAllText",
+          "body": "10/6、10/9、10/10、10/11 的 DB 備份都在 log 寫了 start 之後就沒下文。\n原因是這台的 Add-Content 連續寫入時約九成會丟「Stream was not readable」\n（推測是防毒即時掃描剛寫完的檔），在 ErrorActionPreference=Stop 下\n整支腳本直接中斷，連錯誤都來不及記。\n\n- backup-db.ps1：Log 與 db-counts.json 改用 [IO.File]::AppendAllText / WriteAllText\n- sync-content.ps1：同步紀錄改成一次 AppendAllText（原本逐行 Add-Content，有檔案異動時最容易中斷）\n\n實測 Add-Content 60 次失敗 56 次、AppendAllText 60 次 0 失敗；手動完整跑兩支皆 exit 0。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 61,
+    "sideCommits": 15,
+    "totalCommits": 76
+  }
+}
