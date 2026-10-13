@@ -1,0 +1,501 @@
+{
+  "date": "2026-10-13",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "e4bc037c",
+          "time": "17:22",
+          "message": "合併 MR !4: 查檢表繳交改 11/04，初稿與總結會議拆開",
+          "body": "查檢表繳交改 11/04，初稿與總結會議拆開\n\nSee merge request ucl/management/audit-integration!4",
+          "category": "合併MR"
+        },
+        {
+          "hash": "5be356a0",
+          "time": "17:22",
+          "message": "查檢表繳交改 11/04，報告初稿 11/05～09 與總結會議 11/10 拆開",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ab9f02f2",
+          "time": "16:57",
+          "message": "合併 MR !3: 計畫與通知只留 XRA0802005 單一編號",
+          "body": "計畫與通知只留 XRA0802005 單一編號\n\nSee merge request ucl/management/audit-integration!3",
+          "category": "合併MR"
+        },
+        {
+          "hash": "66b95d26",
+          "time": "16:57",
+          "message": "計畫與通知只留 XRA0802005 單一編號，不再兼作 ISMS-4-019",
+          "body": "- 計畫 壹、三 改為「涵蓋 ISMS-2-009 對計畫之要求，不另訂 ISMS-4-019」\n- 通知 依據欄拿掉「兼作 ISMS-4-019」\n- 說明流程、README 同步；收尾加「撤 Ucl-shared 的 ISMS-4019-202609-01」\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "177ac5a5",
+          "time": "16:39",
+          "message": "A4 說明流程縮回兩頁",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "36ba89d6",
+          "time": "16:30",
+          "message": "合併 MR !1: 聯合生技 2026 內部稽核整合：計畫、查檢表、名冊、程序修訂草稿與會議資料",
+          "body": "聯合生技 2026 內部稽核整合：計畫、查檢表、名冊、程序修訂草稿與會議資料\n\nSee merge request ucl/management/audit-integration!1",
+          "category": "合併MR"
+        },
+        {
+          "hash": "fe9cb117",
+          "time": "16:27",
+          "message": "A4：第二段從新頁開始",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "07c0fcab",
+          "time": "16:27",
+          "message": "說明流程：補每人帶哪幾張查檢表、分派未見於任何文件須記入會議記錄",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b64af729",
+          "time": "16:10",
+          "message": "查檢表表尾（計畫擬訂人／核准）改為 10/14 review 後簽，稽核當天只填表頭與結果",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5afe8b80",
+          "time": "16:05",
+          "message": "會議流程改兩段式（五份文件→五份程序修訂會後送審）；修訂草稿日期改 10/14、啟用日留白；補查檢表簽署操作",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0796c8f2",
+          "time": "15:42",
+          "message": "文件位置索引：補 lis-web-docs 上的 13485 主檔、內稽／管審／人員紀錄位置與讀取方式",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "001baf60",
+          "time": "15:40",
+          "message": "CV 與名冊資格比對表；名冊草稿再補楊盛南、蕭郁詩 13485 訓練",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f4f4b9cd",
+          "time": "15:37",
+          "message": "流程：名冊換發連動授權證明補「內部稽核」列；名冊建議兩套共用 4-018",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "04ae2380",
+          "time": "15:35",
+          "message": "名冊換發草稿 4018-202610-01（補 13485 訓練、刪離職）；撤回授權過期項；刪舊草稿",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e1977b81",
+          "time": "15:22",
+          "message": "說明流程：查檢表分派改依往年章節慣例、補前次追蹤與 13485 資格選項",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5c84e120",
+          "time": "15:15",
+          "message": "名冊改用 Ucl-shared 的 ISMS-4018-202609-01；流程補 13485 稽核員資格缺口",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a527699c",
+          "time": "15:03",
+          "message": "README：稽核通知文件編號待處理（外稽後新編 XRA0802012）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c88580b6",
+          "time": "14:54",
+          "message": "會議資料：名冊草稿與 5 份程序修訂草稿轉 PDF",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d2b879a3",
+          "time": "10:25",
+          "message": "會議說明流程 A4 兩頁印刷版（HTML＋PDF）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "70bcd964",
+          "time": "10:21",
+          "message": "會議說明流程 HTML 版",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "182cc09e",
+          "time": "10:04",
+          "message": "10/14 工作會議資料：四份文件 PDF、名冊草稿、說明流程",
+          "body": "- 會議資料_20261014/：計畫、通知、兩份查檢表的 PDF＋Word 集中一處\n- ISMS-4-018 內部稽核人員名冊 2026 草稿（資格欄待填）\n- 會議說明流程.md：議程、各文件講法、查檢表分派提議、待決定事項\n- README 新增待確認：名冊未建、ISMS-2-027 是否納入稽核範圍\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 21
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "e975db61",
+          "time": "19:25",
+          "message": "docs(3b): 10/13 反向比對——無轉檔缺陷，第 1 類 8 件不計乾淨日",
+          "body": "- 差異全歸因：6a 直讀 7 家、修補層搬單位、php 併單空殼、0438 下游改套組（adjust=99）\n- ① DISTINCT 型 8 件（0202 5、0247 2、0572 1）、② 0；§8 0705 66／66（影子 03 未歸零但相等）\n- 附涵蓋範圍（§13 60 家、白名單 ANAMNESIS_NO×0884、SEQUENCE×0347/0536/0855）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c584a970",
+          "time": "17:42",
+          "message": "docs(6b): 紅線 5 memo 已驗證——CBC 子項由 BATCH 程式對 ② 建的單照補（認 P803、不認建單者）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "fd1e0b39",
+          "time": "17:37",
+          "message": "fix(6b): 1120 範本補 FileNaming=UnitPrefixed（實檔雙前綴卡 inbox）＋首日結果入文件",
+          "body": "- 10/13 17:18 首檔 1120-1120-PHYSICIANORDER-UCLTP202610131.xls 被當成不可處理類型留在 inbox；\n  17:30 現場 Local.json 補鍵重啟後 225 張全 ② 201。範本與測試同步（FromFile 斷言）\n- 6b 轉移卡：首日 0705 66＋1120 225 全 201、B01 全 ORDERINSQL、跨日對照零差異、CBC 子項 memo\n- DEPLOY_LOG 29 補 ③；SCHEDULE_6A 10/13（6a 第 7 天＋每 6 小時斷線規律）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "e82e8cf7",
+          "time": "10:07",
+          "message": "docs: 文件頁補隔離區「標記已處理」（!458）——自動修復卡、P4 段、進度摘要今日項",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "52fec391",
+          "time": "10:03",
+          "message": "docs: 待部署表加 !458 隔離區標記已處理；TODO backlog I 補 MR 號",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "fe787243",
+          "time": "10:01",
+          "message": "feat(gui): 隔離區「標記已處理」——搬進 quarantine\\resolved\\ 子夾，不刪不重跑、寫 MessLog",
+          "body": "隔離夾只累積不會清，GUI 列表看起來一堆、分不出新舊（10/13 實查 9 個全是已處理完的 9/30–10/10 舊檔）。\n「已處理」程式判不出——送錯管道的非醫令、診所另補不同檔名的修正檔都沒有後續成功訊號，只有人知道，\n所以做成人按的按鈕：線別頁隔離分頁勾檔＋原因必填 → POST /api/units/{code}/resolve →\nImportWorker.ResolveAsync 搬進 resolved 子夾（同名加 -N 不覆蓋、只收檔名擋路徑穿越），寫 MessLog。\n權限共用 Auth:RequeueAccounts。GUI 與收檔進度頁只掃隔離夾頂層，搬進子夾即不再計數，列表程式不用改。\n\n測試 4 個（搬檔／同名後綴／路徑穿越與不存在／空清單），全套 773 過。\n文件：FILE_LOCATIONS 資料夾表、SSO_INTEGRATION 權限表與稽核範例、TODO backlog I（含為何不自動、半自動留待）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4934eaa6",
+          "time": "09:53",
+          "message": "docs(todo): Backlog 加「切換後的兩大核心」——80% 維護上 GUI、檔案 folder 結構，都等 Spark 10/26 回來再動",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e528f662",
+          "time": "09:37",
+          "message": "docs: 文件頁加第四頁籤「進度摘要」——一頁白話版：10/13 做了什麼、接下來的計畫",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "61156501",
+          "time": "09:34",
+          "message": "docs(plan): 作戰圖頁籤更新到 10/13——6b 今早已切 2 家（34 單位、端點② Live、Pull-1120）、6a 觀察期 6 天小結、10/16 go／no-go 後的收尾排程（FP 7 家 10/27／11/3／12/3、pull 收口 !450、切 Db、backlog C/A/G）、新增 10/9–10/13 五項決策",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "befabadd",
+          "time": "08:26",
+          "message": "docs(6b): §7.19／轉移卡／README 的 MR 佔位符換成 !454",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "64142d6e",
+          "time": "08:26",
+          "message": "feat(lis-orders): 端點② 請求加 details、回應解析 unmappedItems，未對應項目改由 LIS 寫 UNKNOW 建單（§7.19）",
+          "body": "2026-10-13 切換首日定案：② 遇到 ITEM_MASTERH 查無的項目回 422 unknown-item、整檔進隔離區，\n會卡住後面的分單流程（WebOrder 已寫、LIS 沒單）。改成我方把每筆明細的院所原始代碼一起送，\nLIS 對未對應的項目寫 UNKNOW 佔位碼建單並登記 CodeMap，單照建、檔照歸檔。\n\n- LisOrderContracts：LisOrderRequest.Details（unitTestCode／unitTestName／ucl，欄位名與 lisweb 一字不差）、\n  LisOrderResponse.UnmappedItems（缺欄位不炸）\n- LisOrderRequestBuilder：拿掉 missing-ucl-code 整張擋下，UCL 空的明細改 ucl=\"\" 送出；items＝details 裡 ucl 非空者去重；\n  no-items 只在 details 也空時擋；BuildByTno 合併時 details 依 (unitTestCode, ucl) 去重取聯集；Keelung 退回規則（!451）同時反映在 ucl\n- LisOrderDispatcher：有 unmappedItems 的那張 log 用 Warning、MessLog 訊息含「未對應=[…]」（isSucc 仍 1）、\n  DispatchResult 加 Unmapped 計數與摘要「未對應 N」；verdict 不變（Success ⇒ 歸檔）、不進 Problems\n- LisOrderUnitSettings 第 4 條（Delimited 必須開 Enrich）的後果改述；HttpLisOrderClient log 加 details／unmapped\n- 測試：builder（details 內容、UCL 空不擋、全空仍送、合併去重、ansn／Keelung 各一）、新 LisOrderDispatcherTests\n  （Warning／MessLog／Summary／verdict）、pipeline（1120／0705 有未對應的檔歸檔不隔離）、契約序列化（details／unmappedItems JSON 名稱）\n- 文件：LIS_API_REQUEST §3.5 契約補充、§7.19 定案與上線順序（lisweb 先；反過來舊 LIS 的 Web API Newtonsoft 預設\n  MissingMemberHandling.Ignore 會忽略 details、不會 400）；batch6b 轉移卡「待決 → 定案」；batch6b README 立即驗證／分流動作改述\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "59579411",
+          "time": "08:15",
+          "message": "docs(6b): 10/13 切換記錄（DEPLOY_LOG 29、轉移卡）＋GO 第 88 行守門改 cmd /c",
+          "body": "- 07:15 valid=0 → 07:16 OrderUnits → 07:19 重啟 34 單位 → 07:28 GO 建 Pull-1120；08:06 hotfix !451\n- GO-cutover-6b.ps1 第 88 行：schtasks 查無排程時 PS 5.1 NativeCommandError 會中止，改 cmd /c 看結束碼（切換日實踩）\n- 定案：未對應項目改走 ② 寫 UNKNOW→CodeMap，10/14 上線\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f53b0d29",
+          "time": "07:59",
+          "message": "docs: FP 剩餘 7 家收尾轉移卡——0699／0272 不實作、10/27 起分組 valid=0、12 月停 AutoDeliver 排程",
+          "body": "- 新增 migrations/fp-retire-remaining-7.md：7 家分 A 空轉組（0848／0449／0705_NEW）、\n  B 真停組（0539／0235／0699／0272）、C 排程；紅線五條、步驟十項、回退\n- TODO 10/27 列改指本卡；BATCH6A_PLAN #6／#9 劃掉（2026-10-13 使用者定案不實作）\n- index.html 文件表加一列\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "15de8be0",
+          "time": "07:59",
+          "message": "fix(6b): Keelung 版位 UCL 查無對照時退回檔案檢驗代碼，不再整檔 missing-ucl-code",
+          "body": "切換日查明：正式庫 UNIT_TEST_ITEM 對 0705 只有 2015 一列，9/29 起 0705 明細 96% UCL 為空；\n照原規則中午 0705 的檔會每張 missing-ucl-code、整檔進隔離區、LIS 沒有單。\nFP 對 0705 的 FileFormat 第 3 欄同時是 UTI_TEST_CODE 與 UCL_CODE，AutoDeliver 寫進 ITD_ITEM_CODE 的就是檔案代碼；\n9/30 A 段即以 UCL＝TEST_CODE 模擬、對正式庫 1,622 張逐項比對 0 差異。\n\n- LisOrderLayout 加 UclFallbackToTestCode：Keelung true、ansn false（1120 第 21 欄與第 20 欄不是同一個東西）\n- Build：UCL 空且版位允許 ⇒ 用 TestCode；兩者皆空才 missing-ucl-code\n- 測試：新增三條；原「沒開 Enrich 每張組裝失敗」改為「退回檔案代碼送出」（769 全過）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "21825254",
+          "time": "07:53",
+          "message": "docs(pull-all): 執行單加第 4 步——同一次重啟拆 ConnectionStrings:Hclab（TODO「不挑日期」那條排進 10/20 那週）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8f8f6ac0",
+          "time": "07:41",
+          "message": "feat(tools): pull 收口——pull-all.ps1＋pull-lines.json 把 56.227 的 12 支 Pull 排程收成 1 支",
+          "body": "TODO「pull 收口成一支排程＋一張清單」（2026-09-09 定案，L3 原排 9/26 完成、實際未動工）。\n- pull-lines.json：12 條線逐條抄自 56.227 現場 bat（10/13 唯讀讀取）；PullAllAssetsTests 比對兩者參數一致\n- pull-all.ps1：逐線呼叫既有 pull-settled.ps1（批次 1 仍 robocopy /MOV），每條線一個子程序、逾時 Kill 跳過（預設 60s、6a 每單位 120s）；\n  ActiveWindow 表達 Xevox 線 15:30–17:36 暫停（取代原排程觸發時段）；net use 一次、密碼從本機檔讀；具名 mutex 擋重疊\n- register-pull-all.ps1：56.227 本機跑——守門 → WhatIf 對帳 → 建 Pull-All（IgnoreNew、上限 10 分）→ 停 10 支舊排程；-Rollback 反向\n- 封鎖窗版本：Fp6a／1120 兩條拉 FP CatchFolder 的線 Enabled=false 先不併（Pull-6a／Pull-1120 照跑），10/27 後再併\n- 本機功能測試：WhatIf 不搬、實搬、單位組（0580 排除 .xls、0775 子目錄）、robocopy、時段 PAUSED、停用線略過、逾時 TIMEOUT 皆符合\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "85c0ec6c",
+          "time": "17:44",
+          "message": "chore: session 收尾備份 2026-10-13",
+          "body": "ParkFee：A3 車位圖改版記憶（主委版面、--paper、印章固定實際尺寸、\n鎖定＋社宅空心、印章不可進版控／上網站）。\n其餘為其他 session 累積的 memory 與 lisweb-deploy skill。\n（deploy-site.ps1 密碼樣式命中為 $pw 變數參照、值由 reference/ 讀入，已人工確認非明文）",
+          "category": "其他"
+        },
+        {
+          "hash": "b3011b63",
+          "time": "16:23",
+          "message": "memory: 豆點高雄 IDNO 改 JY07350064",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "18dc149b",
+          "time": "10:11",
+          "message": "chore: session 收尾備份 2026-10-13（OrderInSql 隔離區標記已處理、AuditIntegration memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "11c1a219",
+          "time": "09:54",
+          "message": "chore: memory 指向 TODO.md 兩大核心段 2026-10-13",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "13de3c72",
+          "time": "09:52",
+          "message": "chore: session 收尾備份 2026-10-13（OrderInSql 切換後兩大核心 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "04466d4d",
+          "time": "09:38",
+          "message": "memory: Chronos 階段一點五（邏輯搬進 Chronos、台中已審核已列印也補、保留字教訓）、MR reviewer=Ken、OrderInSql 6b 計畫",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6c1dbfa1",
+          "time": "08:55",
+          "message": "chore: session 收尾備份 2026-10-13",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c868231c",
+          "time": "08:06",
+          "message": "chore: session 收尾備份 2026-10-13",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "b44115b8",
+          "time": "09:22",
+          "message": "fix(task): 補加訊息正確標示已審核/已列印；docs: skipPrinted 台中關閉、:comment 保留字教訓、lisweb 回退路徑同病不修",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "e8bcb6d4",
+          "time": "09:21",
+          "message": "fix(task): EVENTLOG 綁定變數 :comment 是 Oracle 保留字（ORA-01745），改 :evUser/:evText",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "c82fa1e9",
+          "time": "09:03",
+          "message": "docs: README 狀態與執行方式補正",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f0c855b4",
+          "time": "09:02",
+          "message": "feat(runner): 商業邏輯搬進 Chronos——TASK 型內建工作＋維護頁執行請求",
+          "body": "- Tasks/：IChronosTask、TaskRegistry、PARAMS 取值；DelayCommentBackfillTask 自 lisweb 端點搬來，\n  新增 includeCompleted（已審核也補，加註不碰審核狀態）與 skipPrinted（OH_LAST_PRINT 有值不補）\n- 執行器：TASK 型在新連線上跑、逾時取消、例外才重試；每輪先處理 RUN_REQUEST（DRYRUN/RUN），\n  搶請求防重複、試跑不動 LAST_*；HTTP 型金鑰改為選配\n- CLI：run CODE [--apply] [--params json] [--task]，本機對站台 DB 試跑核對用\n- sql/002：JOB_TYPE 允許 TASK、加 RUN_REQUEST 三欄（台中已跑）\n- 台中 10-13 09:00 起由內建工作執行，09:02 試跑請求實測通過；文件更新\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c7570797",
+          "time": "08:42",
+          "message": "docs: 規劃階段一點五——工作邏輯移出 lisweb 改 PL/SQL（SQL 型），含台中「已審核未列印也補」規格；不採用 .231 備用站折衷",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "943b5c6a",
+          "time": "14:21",
+          "message": "合併 MR !6: chore/sync login banner knowledge table css",
+          "body": "chore/sync login banner knowledge table css\n\nSee merge request ucl/officialwebsites/ucl!6",
+          "category": "合併MR"
+        },
+        {
+          "hash": "a10aee4e",
+          "time": "14:21",
+          "message": "fix: 衛教知識頁補上 CKEditor 5 表格格線樣式",
+          "body": "- 內容區加 .knowledge-content class，補 figure.table / td / th 的框線與內距\n- 編輯器內靠 .ck-content CSS 畫線，公開頁沒有該樣式導致表格無格線\n- 此樣式自 2026-06-05 已在正式機上線，本次補入版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "4326cd33",
+          "time": "14:21",
+          "message": "feat: 舊後台登入頁加入新版後台導引橫幅、頁尾改資訊室版權",
+          "body": "- 登入框下方加橫幅連到新版後台 http://192.168.156.224:8080/\n- 頁尾移除外包商「風華國際顧問」聯絡資訊，改為「© 大安聯合醫事檢驗所 資訊室」\n- 中文以 HTML entity 寫入，檔案維持 Big5；此版自 2026-06-05 已在正式機上線，本次補入版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "32cd0d47",
+          "time": "14:14",
+          "message": "feat: 醫療院所登入頁「診所健保上傳」新增桃園連結",
+          "body": "- 診所健保上傳區塊新增桃園聯合醫事檢驗所 https://servty.ucl.com.tw:5566/\n- 同步 prod 既有漂移：台中健保上傳改 report.uml.com.tw、報告查詢區塊的「桃園(舊)」hclab 連結\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c3bdee4c",
+          "time": "09:03",
+          "message": "feat(ScheduleJobs): 維護頁只當 GUI——試跑/立即執行改寫請求給 Chronos 執行器，支援 TASK 類型",
+          "body": "lisweb 不再直接打工作端點：RequestRun 寫 SCHEDULE_JOB.RUN_REQUEST（DRYRUN/RUN），\nChronos 執行器下一分鐘內執行並寫紀錄，頁面輪詢紀錄顯示結果。類型加 TASK（Chronos 內建工作）。\n需先跑 Chronos sql/002（台中已跑）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "85a616e6",
+          "time": "08:22",
+          "message": "feat(api/lis/orders): 端點② 未對應項目改寫 UNKNOW 佔位碼並登記 CodeMap，不再整張拒收",
+          "body": "OrderInSql 走 POST api/lis/orders 建單時，遇到 ITEM_MASTERH 查無的項目原本 422 unknown-item\n整張拒收，整檔進隔離區、後面分單流程卡住。改成比照分單系統既有做法：\n\n- 請求新增選填 `details`（unitTestCode／unitTestName／ucl）；有送才啟用，沒送的舊呼叫端行為不變\n- 要建的項目 = items ∪ details 裡 ucl 非空者；ucl 為空或 ITEM_MASTERH 查無 ⇒ 未對應\n- 未對應時單照建、可建的照 BuildPlan 寫，單上尚無 UNKNOW 才補一列（qty 1、price 0、\n  帳別／健保取 DEBTOR、ITD_UPDATE_BY=Batch），[P]OI= 事件含 UNKNOW\n- 登記 SQL Server DbOnlineReservation 的 Customer_UnMapTestCode／Customer_UCLOrderHaveUnTestCode\n  （不存在才 INSERT、CreateBy=ORDERINSQL），在 Oracle commit 之前做，失敗整張 rollback 回 500\n- no-items 改成 items 與 details 皆空才擋；新增 422 invalid-detail（unitTestCode 空）\n- 回應新增 unmappedItems；dryRun 不寫任何東西、preview.items 多一筆 UNKNOW\n- 文件：端點②_orders.md 加契約與規則、登記表 schema（56.191 唯讀查）；\n  CodeMap_代碼對應.md「兩種來源的單」改三種，補 1120 UCL_CODE 非空 ⇒ SyncFenDan 不回寫的限制\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\VisionReportHub",
+      "commits": [
+        {
+          "hash": "b2ba830f",
+          "time": "16:22",
+          "message": "fix(doudian): 高雄檢驗所代碼改為 JY07350064",
+          "body": "豆點回報 HEXAM IDNO 送的 9401020012 不是高雄所（是照抄展望的值）。\n正式機 HisVendors.DefaultConfig 已於 2026-10-13 16:21 改好；\n這裡同步建置 SQL 與文件，避免重建時又帶錯。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "47d23105",
+          "time": "17:43",
+          "message": "docs: 收尾整合——B1 圖新用法、private/ 存放規則、補記兩項未結",
+          "body": "README：\n- B1 圖指令補 --paper／--seal；說明 10-13 主委版面、印章固定實際尺寸、A0 才看得清號碼、\n  列印須選實際大小\n- 新增「含印章／內部資料一律放 private/」：notices／seals／reference 用途、\n  根目錄只擋 *.pdf（jpg／docx 仍會被 git add -A 收進去）、Edge 無頭列印時好時壞\n\nTODO 補記：\n- 辦法修正條文對照表兩點待確認（自行車不採志願分發、增訂一位多停）、\n  10/8 管委會表決結果待回填、docs/19 第 11 條須同步\n- 網站 B1 圖待換新版面（待使用者同意，須用不帶章版）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0e26d3dd",
+          "time": "17:40",
+          "message": "feat(map): 社宅位改空心黑字（含自行車 114-118）；號碼改最後一趟畫",
+          "body": "- 社宅位與不開放位在圖例同屬「（不選擇）」，一般住戶都選不到 → 一併空心（白底）、\n  黑字，畫法一致一眼可辨；金框照留以區分兩者。\n- 號碼拆成第三趟最後統一畫：車位間距小於圓直徑，相鄰框互相交疊；原本「框＋號碼」\n  同一趟畫時，後一格的框會壓過前一格號碼。社宅改空心黑字後尤其明顯——自行車\n  114-118、機車 92-96 的號碼被切。改後號碼保證在最上層。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "9bad699e",
+          "time": "17:34",
+          "message": "feat(map): B1 圖改用主委修改稿版面；可選紙張 A4–A0，印章固定實際尺寸",
+          "body": "版面（依主委 Word 修改稿）：\n- 標題「樂菲莊園 B1 停車場機車及腳踏車車位配置圖」、直式圖例（種類／數量 席／\n  備註）、管委會名稱電話，全部移到右上空白處（建築線外、無車位）；頂端標題列拿掉，\n  圖面因此再放大。用語改「不開放車位」「社宅車位（不選擇）」。顏色沿用原精確色\n  （修改稿為 Word 近似色）。\n- 圖例數量一律取自實際畫出的格數，不手填，避免圖例與圖面對不上。\n\n紙張（--paper A4|A3|A2|A1|A0，預設 A3）：\n- 圖面、標題、圖例隨紙張等比放大；**印章固定實際尺寸**（紅章 28mm、公告章\n  45.5×31mm，由剪章時的擷取倍率反推），否則 A2 以上海報會出現巨大印章、不像真的。\n- 已驗 A4–A1 四種尺寸：紅章皆 29mm（含透明邊），資訊區皆未超出空白區。\n- 資訊區超出空白區時會印警告，不默默疊圖。\n\n另：輸出訊息原寫死「A3」，改顯示實際紙張；檔頭補用法與「列印須選實際大小」提醒。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "40c25574",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-13",
+          "body": "🤖 自動生成於 2026-10-13 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "409ad6ea",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-12 (76 commits)",
+          "body": "🤖 自動生成於 2026-10-13 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 57,
+    "sideCommits": 5,
+    "totalCommits": 62
+  }
+}
