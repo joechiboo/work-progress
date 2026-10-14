@@ -1,0 +1,469 @@
+{
+  "date": "2026-10-14",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "14add823",
+          "time": "15:36",
+          "message": "內稽計畫、通知、查檢表簽核歸檔；記錄送審與待辦",
+          "body": "- 三份簽核掃描檔已歸檔 lis-web-docs ArchivePDF/XR/XRA（20261014）\n- 文件位置索引補 2026 檔名與通知的命名\n- README 待確認：通知編號已定（XRA0802005 附件）、ISMS 內稽紀錄夾仍待換掉 ISMS-4019\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "83c22d1b",
+          "time": "15:17",
+          "message": "程序修訂五份送 FMApply；ISMS-2-009 併入觀察事項追蹤",
+          "body": "- 會後送審資料夾改放實際上傳的 Word 檔，會議投影 PDF 移到「程序修訂草稿PDF（會議投影用）」\n- 五份已於 10/14 送 FMApply（202610140001～0005）\n- ISMS-2-009 1.4 併入盧晏慈大安版的觀察事項追蹤修訂（生技申請 202609160001 已撤銷）；\n  保留向資安委員會報告稽核情形、多場址字句；1.3 補啟用日期 2025/10/28\n- build_revisions.py 可指定只產單份\n- README、文件位置索引記上送審版本位置\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2ee9d592",
+          "time": "14:16",
+          "message": "合併 MR !11: 文件位置索引：修正路徑控制字元",
+          "body": "文件位置索引：修正路徑控制字元\n\nSee merge request ucl/management/audit-integration!11",
+          "category": "合併MR"
+        },
+        {
+          "hash": "d7e770a0",
+          "time": "14:16",
+          "message": "文件位置索引：修正被轉成控制字元的路徑",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7c7c307f",
+          "time": "14:15",
+          "message": "合併 MR !10: 文件位置索引：修正路徑",
+          "body": "文件位置索引：修正路徑\n\nSee merge request ucl/management/audit-integration!10",
+          "category": "合併MR"
+        },
+        {
+          "hash": "178d888f",
+          "time": "14:15",
+          "message": "文件位置索引：修正 ISMS 2025 內稽路徑、程序修訂草稿狀態",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "aa934196",
+          "time": "14:15",
+          "message": "收尾：LINE 分工訊息、一家公司一次原則、27001 內稽慣例入索引",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "64b5b5a7",
+          "time": "12:44",
+          "message": "合併 MR !8: 27001 每個受稽單位一份完整 ISMS-4-020",
+          "body": "27001 每個受稽單位一份完整 ISMS-4-020\n\nSee merge request ucl/management/audit-integration!8",
+          "category": "合併MR"
+        },
+        {
+          "hash": "9786b2e1",
+          "time": "12:44",
+          "message": "27001 改照 2025 慣例：每個受稽單位一份完整 ISMS-4-020",
+          "body": "- 拿掉 4～10 章／附錄 A 的切法；紀伯喬→行政部、蘇綉媚→業務部、謝文軒→資訊室各一份\n- 補各部門要準備的 27001 紀錄（依 2025 三份查檢表實際引用的證據）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c2a99400",
+          "time": "10:57",
+          "message": "合併 MR !7: 稽核總結會議改 11/11（三）",
+          "body": "稽核總結會議改 11/11（三）\n\nSee merge request ucl/management/audit-integration!7",
+          "category": "合併MR"
+        },
+        {
+          "hash": "84d13c1c",
+          "time": "10:57",
+          "message": "稽核總結會議改 11/11（三），初稿彙整延至 11/10",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "06944540",
+          "time": "10:50",
+          "message": "合併 MR !6: 27001 資訊室改由謝文軒稽核（照 9/16 決議）",
+          "body": "27001 資訊室改由謝文軒稽核（照 9/16 決議）\n\nSee merge request ucl/management/audit-integration!6",
+          "category": "合併MR"
+        },
+        {
+          "hash": "63e0bc55",
+          "time": "10:50",
+          "message": "27001 資訊室改由謝文軒稽核（照 9/16 決議）；技術部依場址分兩位稽核員",
+          "body": "- 計畫分工表加謝文軒列，林鈺城改為內湖工廠（13485）\n- 通知受文者加謝文軒，場址1 稽核員改謝文軒\n- 說明流程：ISMS-4-020 第 4～10 章及附錄 A 技術部項目改分派謝文軒\n- tracked.py：切割 run 時略過 lastRenderedPageBreak\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "56837efe",
+          "time": "10:12",
+          "message": "合併 MR !5: 計畫拿掉四格簽核表",
+          "body": "計畫拿掉四格簽核表\n\nSee merge request ucl/management/audit-integration!5",
+          "category": "合併MR"
+        },
+        {
+          "hash": "2c2572fe",
+          "time": "10:12",
+          "message": "計畫拿掉四格簽核表，只留表單原有的專案負責人／審核人",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 15
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "81d7ecd4",
+          "time": "09:07",
+          "message": "docs: 上線切換表——八支逐支切換時點（10-20 下午六支、10-21 驗夜間後切兩支高頻），各支依舊排程實際時點排在兩次執行之間；NHI 已證實只有 56.231 觸發",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8623f90f",
+          "time": "08:57",
+          "message": "sql/005 台北檢驗雲兩筆併一筆 Data2Cloud（--scheduled，已套用）；003 同步改八支；docs 更新",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "90e6ea67",
+          "time": "08:47",
+          "message": "docs: 台北 56.231 新機制 10-14 08:46 整套裝好（停用）；scripts: run-oracle-script.ps1（ODP.NET 跑 sql/ 腳本，sqlplus 會卡死）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "90418202",
+          "time": "08:36",
+          "message": "docs/sql: 台北上線前準備包——001 建表（各站通用，無台中列）、004 選單與金鑰（各站通用，DEFINE 代入）、部署指南加台北七步",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8bec31ed",
+          "time": "08:28",
+          "message": "docs: 本週只做準備不動正式機；10-20 上線日清單六步，10-21 起逐支切（使用者 10-14 確認）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5a28ac0a",
+          "time": "08:25",
+          "message": "feat(runner): 到期工作原子認領（LAST_RUN_AT 先推到現在）、task XML 改 Parallel／PT3H；sql/003 台北批次 3 九支登記（停用）；docs: W2 前置完成紀錄、FalconCopy／ReportHtmlSync 盤點補齊",
+          "body": "- 工作排程器 IgnoreNew 會讓長 EXE 期間完全沒有新一輪，改 Parallel；不重複執行靠 DB：ClaimDue（到期認領）＋ TryLock（NO_OVERLAP）＋ ClaimRequest\n- sql/003：TARGET／PARAMS 取自 56.231 Tasks XML 實值，含 FalconCopy 的 workDir＋TNS_ADMIN、ReportHtmlSync 的 batch 與 workDir、Data2Cloud 當日沿用 run-today.ps1\n- WebOrderArchive、upload-performance 修正版已分別 commit 到各自 repo（未部署）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b172fbc5",
+          "time": "08:11",
+          "message": "feat(runner): EXE 型執行器＋到期工作平行跑；docs: 時程提前一週（批次 3 於 10-20 上線）、PHP 排程接入指南",
+          "body": "- Program.Exe.cs：TARGET 路徑＋參數；PARAMS args／dryRunArgs／workDir（預設 exe 資料夾）／stdin／encoding（預設 big5）／okExitCodes／env；\n  沒設 dryRunArgs 的工作試跑不啟動程式；逾時 Kill(entireProcessTree)；只有啟動失敗才重試\n- Tick：到期判斷與上鎖仍在同一連線依序做，執行與寫紀錄各自一條 Task、各自開連線；Log 加鎖\n- run NAME --type EXE --target ... [--timeout]：不查表不連 DB 的 ad-hoc 試跑；連線字串改第一次用到才解密\n- 本機 7 項行為驗過（exit code、okExitCodes、試跑不啟動、逾時、stdin、找不到檔、工作目錄、Big5 輸出）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a04dc82e",
+          "time": "07:59",
+          "message": "docs: 計劃書簡化為一頁——正文只留現況、目標、時程、驗收；SOP／風險／元件／候選盤點收進摺疊區",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5e135c50",
+          "time": "07:56",
+          "message": "docs: 階段二計劃書（HTML，給同仁／主管）——3 週時程 10-20～11-07、搬遷 SOP、風險與先決、批次 3 候選技術盤點；執行計畫與 README 連結",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "065ee0e7",
+          "time": "19:24",
+          "message": "docs(3b): 10/14 反向比對——無轉檔缺陷，① 4 件（P-01）、② 2 件不計乾淨日",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ffddc670",
+          "time": "17:38",
+          "message": "docs(6b): 10/14 1120 第 2 天——290 張全 201、逐張項目數 0 不符、紅線 5 每日記錄",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ea402ba9",
+          "time": "15:54",
+          "message": "docs: 10/14 收窗——6a 第 8 天、6b 第 2 天（0705 chunked 422 → hotfix !466 重跑全數建單）、DEPLOY_LOG 31",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "2ce6b4a2",
+          "time": "14:44",
+          "message": "fix(6b): ② 請求改帶 Content-Length，不走 chunked——LIS 讀分塊 body 為空，大單 422 empty-body",
+          "body": "10/14 14:16 0705-0705202610141.csv：82 張中 13 項以上的 8 張被 LIS 回 422 empty-body（!454 加 details 後\n請求變大一倍）。:8090 dryRun 重現：同一份 body 帶 Content-Length 200、Transfer-Encoding: chunked 422。\nJsonContent.Create 不帶長度 ⇒ 改成 SerializeToUtf8Bytes＋ByteArrayContent（application/json; charset=utf-8）。\n測試加斷言：ContentLength＝body 位元組數、不走 chunked。787 全過。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "59628084",
+          "time": "08:11",
+          "message": "docs: 文件頁作戰圖更新到 10/14——6b 首日結果、!451／FileNaming 兩個修正、UNKNOW 已上線、單一 session",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "1367f961",
+          "time": "08:01",
+          "message": "docs: 新增 KNOWN_PROBLEMS（已知問題，擱置）——P-01 對照表重複登記時新程式只寫一筆 UCL 明細",
+          "body": "- 舊程式照 UNIT_TEST_ITEM 列數寫、新程式 SELECT DISTINCT；全庫 1,289 組／68 家重複\n- LIS 不受影響（BLG_TX_DTL 以單號＋項目唯一，實查 0202 兩張 P315 皆 1 筆）\n- 附同仁回報時的兩段查詢與「何時重新打開」；CLOSURE §3.3、docs/index.html 連結\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3d2eaa53",
+          "time": "07:38",
+          "message": "docs(deploy): DEPLOY_LOG 30——!454 UNKNOW→CodeMap 上線（LIS !1576 已於 V2026.10.14.002）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d46b9dab",
+          "time": "08:26",
+          "message": "docs(6b): §7.19／轉移卡／README 的 MR 佔位符換成 !454",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a6aae83c",
+          "time": "08:26",
+          "message": "feat(lis-orders): 端點② 請求加 details、回應解析 unmappedItems，未對應項目改由 LIS 寫 UNKNOW 建單（§7.19）",
+          "body": "2026-10-13 切換首日定案：② 遇到 ITEM_MASTERH 查無的項目回 422 unknown-item、整檔進隔離區，\n會卡住後面的分單流程（WebOrder 已寫、LIS 沒單）。改成我方把每筆明細的院所原始代碼一起送，\nLIS 對未對應的項目寫 UNKNOW 佔位碼建單並登記 CodeMap，單照建、檔照歸檔。\n\n- LisOrderContracts：LisOrderRequest.Details（unitTestCode／unitTestName／ucl，欄位名與 lisweb 一字不差）、\n  LisOrderResponse.UnmappedItems（缺欄位不炸）\n- LisOrderRequestBuilder：拿掉 missing-ucl-code 整張擋下，UCL 空的明細改 ucl=\"\" 送出；items＝details 裡 ucl 非空者去重；\n  no-items 只在 details 也空時擋；BuildByTno 合併時 details 依 (unitTestCode, ucl) 去重取聯集；Keelung 退回規則（!451）同時反映在 ucl\n- LisOrderDispatcher：有 unmappedItems 的那張 log 用 Warning、MessLog 訊息含「未對應=[…]」（isSucc 仍 1）、\n  DispatchResult 加 Unmapped 計數與摘要「未對應 N」；verdict 不變（Success ⇒ 歸檔）、不進 Problems\n- LisOrderUnitSettings 第 4 條（Delimited 必須開 Enrich）的後果改述；HttpLisOrderClient log 加 details／unmapped\n- 測試：builder（details 內容、UCL 空不擋、全空仍送、合併去重、ansn／Keelung 各一）、新 LisOrderDispatcherTests\n  （Warning／MessLog／Summary／verdict）、pipeline（1120／0705 有未對應的檔歸檔不隔離）、契約序列化（details／unmappedItems JSON 名稱）\n- 文件：LIS_API_REQUEST §3.5 契約補充、§7.19 定案與上線順序（lisweb 先；反過來舊 LIS 的 Web API Newtonsoft 預設\n  MissingMemberHandling.Ignore 會忽略 details、不會 400）；batch6b 轉移卡「待決 → 定案」；batch6b README 立即驗證／分流動作改述\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "Management\\MonthlyTraining",
+      "commits": [
+        {
+          "hash": "a2172242",
+          "time": "14:15",
+          "message": "補文件：年度訓練驗證、意見收集流程、手寫判讀做法、87 待辦",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a36343a8",
+          "time": "12:55",
+          "message": "87 定名「資訊室持續改善報告」，日期 2027-02，加入講稿",
+          "body": "- 簡報、題目、答案改用正式標題；考卷檔名一併更名\n- 講稿.md：每頁約一分鐘，同步放在簡報講者備註\n- 選題時程確定維持 2 月\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3a5d9c17",
+          "time": "12:50",
+          "message": "87 加入 10 題考題與答案，記錄簡報位置",
+          "body": "- 題目／答案 docx 沿用 75 題目的紀錄表表頭與版面：選擇 6、是非 3、問答 1\n- tools/build_quiz.py 可重新產生\n- 簡報放 Slides artifact，各主題「後來怎麼了」待填\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0ea85ca1",
+          "time": "10:22",
+          "message": "87 選定主題並彙整 2026 同仁建議",
+          "body": "- 建議彙整.md：75 問答題與 2026-09 訓練驗證 Employee comments 歸成 13 個主題（去識別化）\n- 逐字稿與個別追蹤含姓名，放 _raw/ 不進 git\n- 76（三月）只有選擇／是非題，沒有建議可整理\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1d880f27",
+          "time": "08:45",
+          "message": "87 註記可能延到 2027-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6e5eb41c",
+          "time": "08:43",
+          "message": "81 Ken 標註可能被跳過，待確認",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2fcd0551",
+          "time": "08:41",
+          "message": "初始化：每月教育訓練專案，整理歷屆紀錄與 2027-02 選題",
+          "body": "- docs/訓練制度與交付格式.md：交付物、題目格式、歸檔、新人考核、ISO 對應\n- docs/歷屆主題.md：1～86 場分類清單與撞題觀察\n- sessions/87_2027-02_Joe/選題.md：六個候選主題與時程\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "58e4105e",
+          "time": "15:46",
+          "message": "feat(project-index): 專案索引加「說明」欄，可用用途關鍵字搜",
+          "body": "- build-project-index.py 自動從 README／CLAUDE.md 第一段、package.json 擷取說明\n- 個人專案優先採用 Personal/Project/INDEX.md 的手寫說明\n- 沒 README 的 GitLab 專案改用 OVERRIDES 手寫；濾掉 GitLab/Flutter 樣板 README\n- worktree 只標「xx 的 worktree」，不重複主 repo 說明\n- 重建索引（2026-10-14）：GitLab 78、個人 51、D:\\repos 159\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a282df96",
+          "time": "15:36",
+          "message": "memory: 2026 內稽 10/14 送審與歸檔進度",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1c5f97fe",
+          "time": "14:15",
+          "message": "chore: session 收尾備份 2026-10-14",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a86eb911",
+          "time": "07:44",
+          "message": "memory/skills: OrderInSql 6b 切換分工與 GUI 方向、session 整併；lisweb deploy skill 與 memory 更新（2026-10-14）",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "1fbe624e",
+          "time": "14:32",
+          "message": "feat(RawItemQuery): 檢體號支援起迄範圍展開，結果加送檢單位欄並提醒混批",
+          "body": "- 明志來信改用「6100806385 ~ 6100806388」起迄寫法，原本只抓 10 碼數字會只查到頭尾、中間無聲漏掉\n- 起迄（~ ～ - 至 到）逐號展開，一段最多 50 支；迄號比起號小或跨太大不展開並擋查詢\n- 結果與匯出加送檢單位（ORD_HDR/HORD_HDR → DEBTOR），整批不是同一單位或查無檢驗單時紅字提醒\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "22bf7437",
+          "time": "07:38",
+          "message": "feat(ScheduleJobs): 執行紀錄折疊連續相同結果——顯示時間範圍 ×N 次，點列展開",
+          "body": "排程每 20 分鐘跑一次、多數輪次結果完全一樣（同觸發、結果、狀態碼、輸出），\n紀錄表一眼全是重複列。改為：\n\n- 取最近 200 筆（原 30），前端把「連續且觸發/結果/狀態碼/輸出完全相同」的列折成一列，\n  顯示「日期 HH:mm～HH:mm ×N 次」、耗時 min～max；跨日時顯示完整起迄時間\n- 點折疊列展開/收合各筆明細；輸出欄仍可點開看完整內容\n- 「折疊連續相同結果」勾選框可關閉，回到逐筆列表\n- 單筆（無重複）的列維持原樣\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "dbLIS",
+      "commits": [
+        {
+          "hash": "8faaca06",
+          "time": "18:49",
+          "message": "docs: 新增系統總覽、部署手冊、開發環境與接手指南",
+          "body": "從程式碼、csproj 與 git 歷史整理出三份文件，讓負責同仁以外的人也能\n建起來、改需求、發版。推測而未實際驗證的步驟一律標（待確認），\n待負責同仁補正。不含任何帳密。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\blood-type-sync",
+      "commits": [
+        {
+          "hash": "3fe787ce",
+          "time": "07:41",
+          "message": "fix: 血型結果改白名單過濾，IFS 等非血型值不再寫入/報不一致",
+          "body": "- 原本只靠 InvalidValues 黑名單，IFS、檢體錯誤等值會漏過：\n  CUST_MASTER 空的會被寫進去（J222780268 ABO=IFS），有值的報成血型不一致\n- 改讀設定檔既有的 ValidAboValues / ValidRhValues，不在白名單的略過並記 log\n- 修補來源單號：只缺 MEDICAL_HISTORY 時原本 UPDATE 直接 return false 沒寫；\n  同時有不一致時不補，避免來源指向血型對不上的檢體\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\upload-performance",
+      "commits": [
+        {
+          "hash": "50acd0d5",
+          "time": "08:23",
+          "message": "fix: 查不到營收不上傳且回 1、連線/API 失敗回 2（以前 SQL 失敗把 null 當營收上傳還回 0）；連線字串改 DES 密文；設定相對 exe 資料夾且必須存在",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "a6bd0637",
+          "time": "08:56",
+          "message": "feat: --scheduled 排程單一入口（給 Chronos 一天叫四次）——當天首輪做整合處理（標記檔），每輪各分部當日增量＋PDF；無 y/N、結束碼 0/1/2",
+          "body": "取代 01:00「檢驗雲上傳」與 15/18/21「檢驗雲當日上傳」(run-today.ps1) 兩支工作排程；ps1 留手動補跑用。\nIBackfillCommand 加 RunRangeAsync 供程式內呼叫。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TwowayConnection\\WebOrderArchive",
+      "commits": [
+        {
+          "hash": "08f7e98f",
+          "time": "08:23",
+          "message": "fix: 失敗回非 0 結束碼（1 封存/索引失敗、2 整支掛）；連線字串與信箱密碼改 DES 密文；設定與 Logs 相對 exe 資料夾",
+          "body": "- ArchiveService／IndexOptimizer 加 Failures 計數，Program 以此決定結束碼；以前 top-level statements 永遠回 0，排程器看不出失敗\n- Cipher.DecryptOrRaw：密文解開、明文原樣，過渡期兩種都能跑\n- SetBasePath(AppContext.BaseDirectory)、log 路徑絕對化；準備由 Chronos（EXE 型）觸發\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "260165c1",
+          "time": "07:06",
+          "message": "docs: 更新彙整資料 2026-10-14",
+          "body": "🤖 自動生成於 2026-10-14 07:06",
+          "category": "文檔"
+        },
+        {
+          "hash": "ce773b2e",
+          "time": "07:06",
+          "message": "docs: 每日工作紀錄 2026-10-13 (62 commits)",
+          "body": "🤖 自動生成於 2026-10-14 07:06",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "d9b6decb",
+          "time": "07:51",
+          "message": "feat(map): 右上資訊區字級自動撐滿空白區（經理要求底下不要留白太多）",
+          "body": "不再手調字級：整塊（標題、圖例、管委會）依空白區實際高度等比放大，倍率以二分搜尋\n求最大值（撐滿 95% 高度、不超出寬度），換紙張也自動撐滿。標題另受寬度上限；\n圖例與管委會可再放大以填滿高度；印章不參與放大，維持實際尺寸。\n\n修一個浮點誤差 bug：標題撞寬度上限時 tW＝availW，浮點會變 availW+ε，二分搜尋誤判\n「超寬」而提早停——A3 只撐到 80%、A0 卻到 95%，同比例紙張結果不一致。標題本就保證\n不超寬，寬度檢查改只看圖例與管委會區。修後 A3、A0 皆倍率 1.70、撐滿 95%。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 51,
+    "sideCommits": 3,
+    "totalCommits": 54
+  }
+}
