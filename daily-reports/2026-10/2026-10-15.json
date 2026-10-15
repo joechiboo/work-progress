@@ -1,0 +1,333 @@
+{
+  "date": "2026-10-15",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "d06abb74",
+          "time": "17:00",
+          "message": "稽核準備分成被稽核／去稽核／lai 三個資料夾（使用者整理）；README、TODO 路徑更新",
+          "body": "- 被稽核/：文件盤點（行政部＋技術部）\n- 去稽核/：行政部文件確認清單\n- lai/：賴主任文件確認清單\n- 桃園、台中里程碑 docx 為使用者最新修改，對應 PDF 已移除\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "66bb52af",
+          "time": "09:41",
+          "message": "文件盤點：行政部、技術部各一頁（對照 114/11/26 內稽查檢表）",
+          "body": "- 每項列出去年引用份數、去年稽核後新歸檔、待辦；行政部 7 項、技術部 10 項待辦\n- 受稽單位改稱技術部（資訊室＋內湖工廠），移除資訊室待辦清單（內容已併入）\n- TODO 補：LIS 生產後監督 2026、文管系統確效歸檔、QMS 變更申請書、開發計畫書草稿、銷貨紀錄 Q2/Q3、冷凍 E 系列；軟體清冊改為作廢舊表單\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2c36129d",
+          "time": "09:27",
+          "message": "賴主任清單：只留標題與表格，字再放大",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "30001a78",
+          "time": "09:26",
+          "message": "賴主任清單：績效管理說明 2023 版已歸檔 ArchivePDF",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7eb4bcba",
+          "time": "09:10",
+          "message": "檢驗雲存摺 App 設計開發文件草稿（開發計畫書、要求規格書、設計輸入、軟體確效）",
+          "body": "- 定位成獨立產品，照備管機 2025-06-12 那套出四份，放 output/檢驗雲存摺App/\n- 底稿用 lis-web-docs 最新版本Word 的空白表單，保留頁首頁尾；開發計畫書借要求規格書的底稿換編號\n- 事實來源：uclcloud docs/檢驗雲存摺 App 規劃.md、uclcloud-app repo\n- 確效結果 10/15 實跑：App 6fba9ce 測試 33/33、後端 origin/master dace42d 1,141/1,141、正式站未登入 401\n- 推播端到端、Play 正式版審核兩格留空待補\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "fa34cece",
+          "time": "08:57",
+          "message": "賴主任清單：績效管理說明改寫（V1.0 寫 2020 KPI、2023 版未改版），拿掉確認人／日期",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5cd23a89",
+          "time": "08:54",
+          "message": "賴主任清單：拿掉幹部自評（各幹部年底寫）；TODO 改列年底追",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6460de53",
+          "time": "08:48",
+          "message": "賴主任清單：拿掉「想確認的事」欄（關鍵資訊併入目前狀況）、字放大",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8f62fbaf",
+          "time": "08:48",
+          "message": "台中聯合實驗室搬遷建置里程碑（XRS0602002）草稿",
+          "body": "- 2026-01-14 管審紀錄輸出 E 點名「補一份台中聯合實驗室里程碑」，補 2025 年這份\n- 一頁五段：4 月前期建置 → 6/13 搬遷 → 7 月弱電驗收＋駐點 → 10 月儀器連線＋庫存系統 → 12 月連線收尾\n- 依據 D:\\Task 六趟台中出差計畫與費用明細、台中聯合驗收 20250709（只寫弱電，裝修不寫）、lisweb git\n- 樣板複製桃園聯合那份的段落格式；TODO 記上待簽核歸檔\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "38ca26e2",
+          "time": "08:47",
+          "message": "賴主任清單：拿掉近期待簽文件區塊",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "82e14e5b",
+          "time": "08:45",
+          "message": "賴主任清單擴充：品質計畫、營運計劃書、FMEA、近期待簽文件",
+          "body": "- 範圍改 IA-2（5.3）、IA-3（6.1、6.2）、IA-5（8.5），共 7 項\n- 品質計畫：專案負責人未簽、良率門檻 90%／80% 不一致（QP0504：品質目標由執行長訂）\n- 新增「近期會送給您簽的文件」：桃園里程碑、10/14 會議紀錄、XRA0603002 作廢\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3936f03c",
+          "time": "08:35",
+          "message": "TODO：補品質計畫、營運計畫書、FMEA、品質指標、軟體清冊、App 設計開發文件",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "942681c5",
+          "time": "08:11",
+          "message": "桃園聯合 LISWeb 導入里程碑（XRS0602002）草稿",
+          "body": "- 以高雄聯合那份為範本，一頁：2025/09 組態建置 → 2026/02/23 切換 → 2026/05～06 確效驗收 → 後續事項\n- 依據 lisweb git 紀錄、XRA0705005 安裝服務驗證單（20260605）、XRM0401001 軟體確效\n- TODO 記上待簽核歸檔\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a90ad77d",
+          "time": "08:00",
+          "message": "移除列印殘檔",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "add6c195",
+          "time": "07:59",
+          "message": "稽核準備：行政部／賴主任／資訊室 A4 清單、2026 內稽 TODO",
+          "body": "- 稽核準備/：行政部文件確認清單（IA-3＋7.4，29 項中 9 項待確認）、\n  賴主任文件確認清單（預算、授權、績效、幹部自評）、資訊室待辦（里程碑、網路架構圖作廢）\n- 依 ArchivePDF 歸檔紀錄、2025 內稽查檢表、115/01/14 管審紀錄判斷負責人\n- TODO_2026內稽.md：會後待辦＋稽核準備＋稽核後，集中追蹤\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 15
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "c0869dc6",
+          "time": "17:36",
+          "message": "memory: pc-migration 換機交接入口",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8018bd5b",
+          "time": "17:00",
+          "message": "memory: 2026 內稽 10/15 收工進度、稽核準備資料夾分法、27001/13485 分工",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b155de0b",
+          "time": "09:53",
+          "message": "memory: dbLIS MR !101 文件待更正（Debug 連秉坤正式庫）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "210caaa9",
+          "time": "09:51",
+          "message": "chore: session 收尾備份 2026-10-15（台中／App 里程碑與設計開發文件 memory、glab merge 405 繞道）",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "0156c89b",
+          "time": "08:00",
+          "message": "memory: 2026 內稽待辦改指向 repo TODO、負責人判斷依據",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "32741722",
+          "time": "07:20",
+          "message": "memory: 整理排序",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "baa5c9d5",
+          "time": "07:20",
+          "message": "memory: 冒充 OBB 通知信紀錄",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "0af0a449",
+          "time": "07:18",
+          "message": "chore: session 收尾備份 2026-10-15",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "295db005",
+          "time": "08:46",
+          "message": "合併 MR !1581: feat(devtool): 新增分次 RES 匯出與內容預覽",
+          "body": "feat(devtool): 新增分次 RES 匯出與內容預覽\n\nSee merge request ucl/lis/lisweb!1581",
+          "category": "合併MR"
+        },
+        {
+          "hash": "93e53837",
+          "time": "08:30",
+          "message": "fix(文管): PDF 預覽回正確 Content-Type，修正 Chrome 偶發把 PDF 當文字顯示",
+          "body": "真正原因：PreViewPDF（四階母版/四階紀錄）回傳 Content-Type 是 application/unknown，\n瀏覽器只能自己猜檔案類型，Chrome 偶發猜錯就把整份 PDF 原始碼當文字印出來\n（換瀏覽器就好）。QP/SOP 走 MergePdf 本來就回 application/pdf，所以沒事。\n\n- PreViewPDF：改回 application/pdf（內容一律是 PDF，本來就要過 PdfReader）\n- DaAnPreviewPDF / PreviewUploadPDF / PreviewReportPDF：同樣問題，改依副檔名決定\n  (MimeMapping.GetMimeMapping)，避免非 PDF 檔被誤標\n- 還原前一個 commit 對 FileList.cshtml RecordPreview 的修改：那條路徑(ISMS 四階紀錄)\n  走 FMPreview 本來就回 application/pdf，不是這次問題所在\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "4200b992",
+          "time": "08:14",
+          "message": "fix(FileList): 四階紀錄預覽改用 iframe 直開，修正 Chrome 把 PDF 當文字顯示",
+          "body": "四階紀錄的預覽原本是先插入空的 <object type=application/pdf>，再 fetch 成 blob\n後非同步塞給 object.data。Chrome 偶發不啟動 PDF 檢視器，把整份 PDF 原始碼\n當 HTML 文字吐出來（換瀏覽器就正常）。\n\n改成與四階母版等其他區塊相同：iframe 直接導向 /Home/FMPreview，交給瀏覽器\n內建檢視器；檔名中的單引號另行編碼，避免截斷 src 屬性。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "4e07d08b",
+          "time": "17:38",
+          "message": "docs(6b): 10/15 1120——245 張全 201、逐張 0 不符、紅線 5 每日記錄（時間差改以 B01 為起點）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "718b292b",
+          "time": "15:54",
+          "message": "docs: SCHEDULE_6A 10/15 張數更正為 622",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0f2538eb",
+          "time": "15:54",
+          "message": "docs: 10/15 收窗——6a 第 9 天、6b 第 3 天 0705 76 張全 201",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "6ef72626",
+          "time": "07:24",
+          "message": "docs: 冒充 OBB 信說明補上 unsubscribe 陷阱與檢查連結實際網址",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ba0e3ed6",
+          "time": "07:20",
+          "message": "docs: 冒充 Open Bug Bounty 漏洞通知信的辨識與處理說明",
+          "body": "2026-10-13 info@/contact@/help@ 收到寄件網域 mx-openbugbounty.org 的假通知，\n報告編號 OBB-5673736 在 OBB 官網為 404，確認為冒充信。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "1786fa6a",
+          "time": "07:08",
+          "message": "feat(wall): 🎆 午休與下班前倒數十秒、放一場 101 煙火",
+          "body": "到點前十秒整面牆變夜空倒數，歸零放二十秒從塔身往外噴的煙火，淡出回牆。\n時刻與秒數在 Wall:Celebration。只在全綠時放，轉紅當場收掉讓警報接手；\n聲音全部 Web Audio 合成，沒有音檔、沒有授權問題；那半分鐘點唱機暫停。\n?party=1 可隨時預覽。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "6fba9cee",
+          "time": "08:13",
+          "message": "docs: iOS 上架後回補 XRS0602002 里程碑文件的提醒",
+          "body": "檢驗雲存摺是資訊室 2026 年的里程碑專案，草稿已在 AuditIntegration repo，\n最後版本要等 iOS 上架後補日期再簽核歸檔。README 加提醒連結。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "4252128d",
+          "time": "17:48",
+          "message": "docs: 每日工作紀錄 2026-10-14 (54 commits)",
+          "body": "🤖 自動生成於 2026-10-15 17:48",
+          "category": "文檔"
+        },
+        {
+          "hash": "64b93e4a",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-15",
+          "body": "🤖 自動生成於 2026-10-15 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "7a8f81a4",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-14 (54 commits)",
+          "body": "🤖 自動生成於 2026-10-15 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "ef8a8960",
+          "time": "17:47",
+          "message": "feat(auth): 測試棟 Z（Z＋1–3 碼）＋健檢「測試帳號殘留」＋清場檢查點",
+          "body": "經理要一個好記的試玩帳號（Z99）。既有戶號規則只認 A–H 棟、S 店面、員工-，\nZ99 前後端都會擋 → 開「Z 棟＝測試棟」：社區無 Z 棟，永不撞真實戶，不動既有邏輯。\n前端 household.js、後端 normalize.ts 同步；+3 測試（含 Y99 等其他字母仍擋）。\n四支驗戶號的函式已重新部署，實打驗過：Z99 可登記登入、Y99 仍回格式錯誤。\n\n配套（不然 11/15 會混進真實名冊）：\n- check-roster 新增 3.5「測試帳號殘留」warn：Z%／S1-99x／員工-測試／09001000 電話\n  一律列出，特徵與 TODO 清場 SQL 同步；fixture 補 Z99 列鎖住行為\n- TODO 清場條目：硬期限 11/14、三個檢查點（11/14 清完、11/20、11/28 健檢不再出現\n  該 warn）、SQL 加 Z%；記下誤建的 S1-99（被打斷的呼叫已寫入，一併清）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ca4da04b",
+          "time": "17:31",
+          "message": "docs: 車位登記抽籤公告——口語版、比照社區公告格式、五步驟時間軸",
+          "body": "經理 10/14 會議要求：先前文件（細則、對照表）對住戶太細，要一份概略、口語的公告。\n- 格式比照社區既有公告：公告抬頭／主旨／說明／謝謝您的配合／管委會＋章位\n- 五步驟時間軸（登記→選志願→抽籤→簽約繳費→使用），只標住戶要做的事和期限\n- 費用三行、電腦抽籤可驗算一句、不會用手機請到櫃台一句\n- 嵌登記 QR（取自 docs/28 向量），不然流程寫「掃 QR」卻沒得掃\n- 日期、文號留空由管理中心填；章位留白人工蓋\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 33,
+    "sideCommits": 5,
+    "totalCommits": 38
+  }
+}
