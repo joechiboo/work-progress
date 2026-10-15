@@ -117,6 +117,27 @@
       "name": ".claude (工具設定)",
       "commits": [
         {
+          "hash": "af9be8b1",
+          "time": "18:13",
+          "message": "chore: ParkFee memory——附件一承租→使用待追認 2026-10-15",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "d0f6705b",
+          "time": "18:01",
+          "message": "chore: session 收尾備份 2026-10-15（ParkFee 抽籤落選0查證 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "05be116e",
+          "time": "17:54",
+          "message": "chore: session 收尾備份 2026-10-15",
+          "body": "",
+          "category": "其他"
+        },
+        {
           "hash": "c0869dc6",
           "time": "17:36",
           "message": "memory: pc-migration 換機交接入口",
@@ -173,7 +194,41 @@
           "category": "其他"
         }
       ],
-      "count": 8
+      "count": 11
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "a6c3a072",
+          "time": "19:25",
+          "message": "docs(3b): 10/15 反向比對——無轉檔缺陷，① 10 件（P-01）、② 4 件；3527 重送 10/5 檔",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4e07d08b",
+          "time": "17:38",
+          "message": "docs(6b): 10/15 1120——245 張全 201、逐張 0 不符、紅線 5 每日記錄（時間差改以 B01 為起點）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "718b292b",
+          "time": "15:54",
+          "message": "docs: SCHEDULE_6A 10/15 張數更正為 622",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0f2538eb",
+          "time": "15:54",
+          "message": "docs: 10/15 收窗——6a 第 9 天、6b 第 3 天 0705 76 張全 201",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 4
     },
     {
       "name": "lisweb",
@@ -198,33 +253,6 @@
           "message": "fix(FileList): 四階紀錄預覽改用 iframe 直開，修正 Chrome 把 PDF 當文字顯示",
           "body": "四階紀錄的預覽原本是先插入空的 <object type=application/pdf>，再 fetch 成 blob\n後非同步塞給 object.data。Chrome 偶發不啟動 PDF 檢視器，把整份 PDF 原始碼\n當 HTML 文字吐出來（換瀏覽器就正常）。\n\n改成與四階母版等其他區塊相同：iframe 直接導向 /Home/FMPreview，交給瀏覽器\n內建檢視器；檔名中的單引號另行編碼，避免截斷 src 屬性。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "錯誤修正"
-        }
-      ],
-      "count": 3
-    },
-    {
-      "name": "OrderInSql",
-      "commits": [
-        {
-          "hash": "4e07d08b",
-          "time": "17:38",
-          "message": "docs(6b): 10/15 1120——245 張全 201、逐張 0 不符、紅線 5 每日記錄（時間差改以 B01 為起點）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔"
-        },
-        {
-          "hash": "718b292b",
-          "time": "15:54",
-          "message": "docs: SCHEDULE_6A 10/15 張數更正為 622",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔"
-        },
-        {
-          "hash": "0f2538eb",
-          "time": "15:54",
-          "message": "docs: 10/15 收窗——6a 第 9 天、6b 第 3 天 0705 76 張全 201",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔"
         }
       ],
       "count": 3
@@ -278,8 +306,98 @@
   ],
   "side_projects": [
     {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "e858cb27",
+          "time": "18:28",
+          "message": "forms: 紙本登記表濃縮成 A4 一頁——機車 2 輛＋自行車 1 台併一表、多台另填一張；docs/04 改為指向 html 正本不再維護文字版面",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1a875c76",
+          "time": "18:24",
+          "message": "docs: 實際搬移 9 份封存檔到 docs/archive/（前一 commit git mv -q 失敗未搬）、封存檔內連結改 ../",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "56e947bd",
+          "time": "18:20",
+          "message": "docs: 封存 9 份一次性會議材料到 docs/archive/，連結與 build 路徑同步",
+          "body": "經理拿到 8 月舊版登記表後，決定把已完成的一次性材料隔開，避免與現行文件混用：\n8/16 投票單＋LINE 草稿、8/16 紀錄發布版、9 月例會提案單（md＋A4）、8/19 複驗清單、\n8/22 經理議程、9 月材料 LINE 文、9/3 主持稿。\n\n- 留下的文件（10/13/17/21/README）內的連結改指 archive/；docs/19.md 那條也改了但\n  與使用者進行中的修改同檔，不在本 commit\n- build-bylaw.mjs 改從 archive/ 複製 9 月提案單到 public/agenda-a4.html（meeting.html 仍連）\n- docs/archive/README.md 列各檔封存原因\n- 不搬：docs/17（決議紀錄，查證用）、docs/19（build 來源、使用中）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "bcd98fa5",
+          "time": "18:13",
+          "message": "docs(forms): 附件一內文「承租」全改「使用」，杜絕租賃稅費疑慮；對照表同步",
+          "body": "- 附件一表單（doc/html）：承租人→使用人、承租期限→使用期限、承租相鄰→使用相鄰、承租戶中途退租→使用人中途終止使用、租用於→轉供…使用、簽署欄承租人→使用人；「住戶（含承租戶）」指房屋承租、維持\n- 標紅版 html：附件一段同步加 <ins>，五、承租金額／租金→維護清潔費（與表單一致），修正說明加一段\n- docs/19 第 15 條：修訂範圍擴大至內文，註明 9/3 僅通過標題正名、內文待下次例會追認\n- build-bylaw-compare.mjs：附件一新增 5 列（二、三2、三6、六、簽署欄），四／五列改新用語 → docs/32 修正條文欄已無承租／租金\n- bylaw-content.js、public/bylaw-redline.html 重產（順帶帶入 9/21 住戶說明「種子碼」段）\n- TODO：9/3 會後追蹤加 ⑦ 下次例會追認\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "787d6699",
+          "time": "18:12",
+          "message": "fix(forms): 網站下載的紙本登記表停在 8/20 舊版——改由 build 自動同步；封存舊產出",
+          "body": "經理 10/15 回報「紙本登記表沒有自行車選項」，追到根源：/bylaw 頁下載連結指向\npublic/forms/紙本登記表.doc，該檔 8/20 之後沒再更新（無自行車區塊、無社宅欄），\n而 docs/forms/登記表-紙本.doc 8/26、9/9 都改過。兩處各一份、靠人記得同步，必然走鐘。\n\n- build-bylaw.mjs 每次 build 自 docs/forms/ 複製紙本表到 public/forms/，來源唯一\n- 下架 public/print/ 四份舊盤點圖（6 月 b1-motor-seats×2、b1-survey-blocks、8/24 -new），\n  移本機 archive/；網站只留 b1-map-a3.pdf，且換為主委修改稿新版面、PNG 同步重產\n- docs/pdf/ 只留最新版，15 份被取代的移 _archive/（不進版控）\n- README 新增「封存慣例」段，寫明各層規則與這次的教訓\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "e8b4949c",
+          "time": "18:00",
+          "message": "docs: 9/3 會議紀錄只留議題（追蹤事項已移至 TODO）；B1 圖 PDF/PNG 依最新版面重產",
+          "body": "- 會議紀錄標題加日期、641–655 註明擬開放停自行車；移除辦法修訂草案逐條表、物業回覆與追蹤表\n- public/print/b1-map-a3.pdf、png 以 d9b6dec（資訊區字級自動撐滿）重新輸出，無印章\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b9647d2e",
+          "time": "18:00",
+          "message": "docs: 抽籤「落選 0」驗證——判讀說明、事前催補志願、壓力案例紀錄",
+          "body": "- docs/14 §2.0 加「名冊健檢＋催補志願」（無志願且未勾電腦選號者必落選）；§2.1 加「判讀落選 0」小框供現場講解\n- docs/26 A 段補 2026-10-15 驗證：277 戶樣本 4 種種子皆 0 落選（供 609 > 需 401）、志願集中壓力案例落選 175、lottery 單測 77 綠\n- TODO 🎲：鎖定格數 44→46、9 月底輪記錄結果、10 月底輪沿用壓力案例；新增 check-roster 第 9 項待辦\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4a96c4aa",
+          "time": "17:52",
+          "message": "feat(allocate): 戶號改為可切換顯示（預設隱藏），連動公告版 CSV 與結果地圖",
+          "body": "2026-10-14 經理口徑：戶號非個資、可顯示。使用者定：系統預設仍隱藏、可點開、重整即復原。\n- /allocate 新增「顯示戶號」開關；機車四表（抽籤分發/電腦選位/免抽已定/落選）依開關加戶號欄\n- 公告版 CSV 隨開關帶戶號欄（檔名標「公告版含戶號」）；完整版不受影響\n- export/result.js 新增 opts.含戶號 與 resultColumns()，+3 測試（含工作人員列仍隱藏）\n- demo/result.html 點格子依 localStorage 旗標顯示戶號，已重生\n- docs/10 Q21 結案；TODO/docs/00/docs/10 補 10/15 與經理會面三件事與 eTag 時窗（12/16–12/31，最晚 2027/01/15）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ef8a8960",
+          "time": "17:47",
+          "message": "feat(auth): 測試棟 Z（Z＋1–3 碼）＋健檢「測試帳號殘留」＋清場檢查點",
+          "body": "經理要一個好記的試玩帳號（Z99）。既有戶號規則只認 A–H 棟、S 店面、員工-，\nZ99 前後端都會擋 → 開「Z 棟＝測試棟」：社區無 Z 棟，永不撞真實戶，不動既有邏輯。\n前端 household.js、後端 normalize.ts 同步；+3 測試（含 Y99 等其他字母仍擋）。\n四支驗戶號的函式已重新部署，實打驗過：Z99 可登記登入、Y99 仍回格式錯誤。\n\n配套（不然 11/15 會混進真實名冊）：\n- check-roster 新增 3.5「測試帳號殘留」warn：Z%／S1-99x／員工-測試／09001000 電話\n  一律列出，特徵與 TODO 清場 SQL 同步；fixture 補 Z99 列鎖住行為\n- TODO 清場條目：硬期限 11/14、三個檢查點（11/14 清完、11/20、11/28 健檢不再出現\n  該 warn）、SQL 加 Z%；記下誤建的 S1-99（被打斷的呼叫已寫入，一併清）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ca4da04b",
+          "time": "17:31",
+          "message": "docs: 車位登記抽籤公告——口語版、比照社區公告格式、五步驟時間軸",
+          "body": "經理 10/14 會議要求：先前文件（細則、對照表）對住戶太細，要一份概略、口語的公告。\n- 格式比照社區既有公告：公告抬頭／主旨／說明／謝謝您的配合／管委會＋章位\n- 五步驟時間軸（登記→選志願→抽籤→簽約繳費→使用），只標住戶要做的事和期限\n- 費用三行、電腦抽籤可驗算一句、不會用手機請到櫃台一句\n- 嵌登記 QR（取自 docs/28 向量），不然流程寫「掃 QR」卻沒得掃\n- 日期、文號留空由管理中心填；章位留白人工蓋\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 10
+    },
+    {
       "name": "work-progress",
       "commits": [
+        {
+          "hash": "172fe2a1",
+          "time": "17:48",
+          "message": "docs: 更新彙整資料 2026-10-15",
+          "body": "🤖 自動生成於 2026-10-15 17:48",
+          "category": "文檔"
+        },
+        {
+          "hash": "26df8f16",
+          "time": "17:48",
+          "message": "docs: 每日工作紀錄 2026-10-15 (38 commits)",
+          "body": "🤖 自動生成於 2026-10-15 17:48",
+          "category": "文檔"
+        },
         {
           "hash": "4252128d",
           "time": "17:48",
@@ -302,32 +420,12 @@
           "category": "文檔"
         }
       ],
-      "count": 3
-    },
-    {
-      "name": "ParkFee",
-      "commits": [
-        {
-          "hash": "ef8a8960",
-          "time": "17:47",
-          "message": "feat(auth): 測試棟 Z（Z＋1–3 碼）＋健檢「測試帳號殘留」＋清場檢查點",
-          "body": "經理要一個好記的試玩帳號（Z99）。既有戶號規則只認 A–H 棟、S 店面、員工-，\nZ99 前後端都會擋 → 開「Z 棟＝測試棟」：社區無 Z 棟，永不撞真實戶，不動既有邏輯。\n前端 household.js、後端 normalize.ts 同步；+3 測試（含 Y99 等其他字母仍擋）。\n四支驗戶號的函式已重新部署，實打驗過：Z99 可登記登入、Y99 仍回格式錯誤。\n\n配套（不然 11/15 會混進真實名冊）：\n- check-roster 新增 3.5「測試帳號殘留」warn：Z%／S1-99x／員工-測試／09001000 電話\n  一律列出，特徵與 TODO 清場 SQL 同步；fixture 補 Z99 列鎖住行為\n- TODO 清場條目：硬期限 11/14、三個檢查點（11/14 清完、11/20、11/28 健檢不再出現\n  該 warn）、SQL 加 Z%；記下誤建的 S1-99（被打斷的呼叫已寫入，一併清）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發"
-        },
-        {
-          "hash": "ca4da04b",
-          "time": "17:31",
-          "message": "docs: 車位登記抽籤公告——口語版、比照社區公告格式、五步驟時間軸",
-          "body": "經理 10/14 會議要求：先前文件（細則、對照表）對住戶太細，要一份概略、口語的公告。\n- 格式比照社區既有公告：公告抬頭／主旨／說明／謝謝您的配合／管委會＋章位\n- 五步驟時間軸（登記→選志願→抽籤→簽約繳費→使用），只標住戶要做的事和期限\n- 費用三行、電腦抽籤可驗算一句、不會用手機請到櫃台一句\n- 嵌登記 QR（取自 docs/28 向量），不然流程寫「掃 QR」卻沒得掃\n- 日期、文號留空由管理中心填；章位留白人工蓋\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔"
-        }
-      ],
-      "count": 2
+      "count": 5
     }
   ],
   "summary": {
-    "workCommits": 33,
-    "sideCommits": 5,
-    "totalCommits": 38
+    "workCommits": 37,
+    "sideCommits": 15,
+    "totalCommits": 52
   }
 }
