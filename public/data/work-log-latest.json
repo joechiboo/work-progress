@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-10-16",
-    "days": 530,
-    "weeks": 75.7
+    "end": "2026-10-17",
+    "days": 531,
+    "weeks": 75.9
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 6193,
+    "totalCommits": 6236,
     "projectCount": 102,
     "dailyAverage": 11.7
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1409,
+      "totalCommits": 1412,
       "commits": [
         {
           "hash": "a207ff46",
@@ -11287,6 +11287,30 @@
           "body": "四階紀錄的預覽原本是先插入空的 <object type=application/pdf>，再 fetch 成 blob\n後非同步塞給 object.data。Chrome 偶發不啟動 PDF 檢視器，把整份 PDF 原始碼\n當 HTML 文字吐出來（換瀏覽器就正常）。\n\n改成與四階母版等其他區塊相同：iframe 直接導向 /Home/FMPreview，交給瀏覽器\n內建檢視器；檔名中的單引號另行編碼，避免截斷 src 屬性。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "6e67a35d",
+          "date": "2026-10-17",
+          "message": "fix(TPFileList): 切換按鈕文字改用行內運算式，修正 Razor 編譯錯誤 CS1002",
+          "body": "@if 區塊內 Razor 只把單一 HTML 元素視為 markup，</i> 後的按鈕文字被當成 C# 敘述解析。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2bd5706b",
+          "date": "2026-10-17",
+          "message": "fix(TPFileList): 切換按鈕文字改用行內運算式，修正 Razor 編譯錯誤 CS1002",
+          "body": "@if 區塊內 Razor 只把單一 HTML 元素視為 markup，</i> 後的按鈕文字被當成 C# 敘述解析。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "adc73159",
+          "date": "2026-10-17",
+          "message": "feat(TPFileList): 加「顯示全部文件 / 只看我的應讀」切換按鈕，F2 開操作說明",
+          "body": "原本只能按 F4 或手動帶 showAll=Y 才看得到全部文件，業務反映看不到技術部 SOP。\n- 標題列加切換按鈕（沿用 F4 的 RedirectShowAllSwitch），全部文件模式按鈕標橘色；觀察者不顯示\n- RegisterHelpModal 補傳 F2(113)，與其他頁面一致\n- 操作說明與頁面文件同步更新\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
@@ -17635,7 +17659,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 159,
+      "totalCommits": 161,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -18905,6 +18929,22 @@
           "hash": "58476879",
           "date": "2026-10-16",
           "message": "runbooks: project-locations 登記 pc-migration（D:\\Private 特例）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4bba5896",
+          "date": "2026-10-17",
+          "message": "chore: session 收尾備份 2026-10-17（CMV 單一網站、LIS 接收 API）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ddec58d3",
+          "date": "2026-10-17",
+          "message": "lisweb-deploy: 方案B scheduled-deploy.ps1＋工作排程器說明；V2026.10.19.001 tag/排程 memory",
           "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
@@ -21902,6 +21942,757 @@
       "type": "work"
     },
     {
+      "name": "OnlineReport\\cmv-parent-portal",
+      "totalCommits": 93,
+      "commits": [
+        {
+          "hash": "76822722",
+          "date": "2026-10-16",
+          "message": "合併 MR !42: docs：LIS 資料對照、repo CLAUDE.md、北榮問題補 KJ 回覆",
+          "body": "docs：LIS 資料對照、repo CLAUDE.md、北榮問題補 KJ 回覆\n\nSee merge request ucl/onlinereport/cmv-parent-portal!42",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "4953dcc8",
+          "date": "2026-10-16",
+          "message": "合併 MR !41: docs：待辦補新流程不經 PMF、單一網站評估、LDT 範本不一定能改",
+          "body": "docs：待辦補新流程不經 PMF、單一網站評估、LDT 範本不一定能改\n\nSee merge request ucl/onlinereport/cmv-parent-portal!41",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "56507d0e",
+          "date": "2026-10-16",
+          "message": "合併 MR !40: 查得到結果的時間改約 10 個工作天（KJ 建議）",
+          "body": "查得到結果的時間改約 10 個工作天（KJ 建議）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!40",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "14a86137",
+          "date": "2026-10-16",
+          "message": "docs：LIS 資料對照（lis-mapping.md）、repo CLAUDE.md、北榮問題補 KJ 回覆與建議",
+          "body": "下次從專案目錄開 session 也讀得到：開工順序、MR／local／worktree 規則、\nLIS 欄位與狀態判斷、家長證號不能放 OH_PID、KJ 的回覆與處理\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "32705976",
+          "date": "2026-10-16",
+          "message": "docs：記下新流程不經 PMF／北榮無電子醫令介接、評估單一網站、LDT 範本不一定能改（KJ 只是建議）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "67e4ab7d",
+          "date": "2026-10-16",
+          "message": "查得到結果的時間改「採檢後約 10 個工作天」（KJ 建議，原 7 天）：入口頁、小卡",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "722cc276",
+          "date": "2026-10-16",
+          "message": "docs: 待問北榮清單更新報告不遮罩定案；LIS 同步待辦補病歷號密文",
+          "body": "questions-vghtpe.md「還沒問」那條改成不遮罩已定案、改告知，並列出標籤用詞與範本不同處。README 工程待辦：feat/lis-sync-api 合併前要在 LisSyncService 寫 MedicalRecordNoCipher。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c935afda",
+          "date": "2026-10-16",
+          "message": "questions-vghtpe.md：遮罩已定案照範本顯示完整值，「之後要問」改成只剩代檢單位",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6921fe3e",
+          "date": "2026-10-16",
+          "message": "2026-10-16 報告頁拔掉「需要紙本報告請洽送檢醫院」",
+          "body": "頁首警語、浮水印、頁尾醫院電話已經夠了，這句是第三次叫家長找醫院。只在家長按列印時（print-only 區塊）才說紙本怎麼拿。page-flows.md P3 示意與 P4 備註同步。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6e9f84b0",
+          "date": "2026-10-16",
+          "message": "2026-10-16 報告頁姓名、證號、病歷號照範本顯示完整值；簽署區對齊範本",
+          "body": "和 LDT 報告範本一致（使用者 2026-10-16 定案），不再預設遮罩。醫院要求隱碼顯示時\n把該院 Tenant.MaskReportIdentifiers 設 true 就切回遮罩，程式不用改；結果清單（P2）\n的母親姓名不受影響，一律遮罩。\n\n- ScreeningCase 加 MedicalRecordNoCipher（病歷號之前只存遮罩值，沒原值可顯示）\n- ReportPaper.Reveal：家長端 P3 與醫師端預覽共用同一套解密／遮罩規則；\n  個別欄位解不開（舊資料沒密文、金鑰對不上）退回遮罩值\n- FieldProtector.TryUnprotect 取代 Pending 頁自己的 Reveal；醫師端案件資料的病歷號也解開\n- 基本資料的日期照範本寫成 yyyy/MM/dd；完成時間維持範本的 yyyy-MM-dd HH:mm:ss\n- 簽署區改三欄格線：「報告簽署醫師」落在紙面中線（同範本），簽名與簽署日期靠在它右邊，\n  不再把標籤推離中線；手機版兩欄\n- migration ReportUnmask ＋ deploy/sql/07-report-unmask.sql；deployment.md 加 9c\n- report-template.md：遮罩那題改成已定案、告知醫院；補「標籤用詞與範本不同處」\n  （嬰兒性別、（母親）、採檢日期）也一併告知\n- 測試：ReportPaperTests（預設完整、租戶切回遮罩、解不開退回遮罩）；整站測試改驗完整值\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "86933d40",
+          "date": "2026-10-16",
+          "message": "README 工程待辦補：母親證號來源、同步對應（預設送檢醫師、(A)(B) 胎序）、醫師端頁尾電話、頁籤切換寶寶；deployment DNS 已生效",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "414d704f",
+          "date": "2026-10-16",
+          "message": "docs/questions-vghtpe.md：待北榮確認事項（小卡、模擬流程、送檢流程與母親證號）與 LIS 欄位現況",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9eb3f94a",
+          "date": "2026-10-16",
+          "message": "report-template.md 要問醫院的事第 3 題：併入「線上版遮罩證號與病歷號」",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2d0e9ce0",
+          "date": "2026-10-16",
+          "message": "報告紙面改標楷體並照範本 PDF 尺寸對齊；拿掉代檢單位行",
+          "body": "- 字型照範本：標楷體（DFKai-SB），數字／英文 Arial（表格資料值 Arial 粗體）\n- 字級、行高（1.28）、邊界（38/77/87px）、表格列高與欄寬、編號縮排、簽署欄與頁尾位置由範本 PDF 換算\n- 代檢單位／醫檢師照範本不顯示（待醫院回答再決定，report-template.md 第五節第 3 題）；簽名下只留簽署日期\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8072ce13",
+          "date": "2026-10-16",
+          "message": "README 待辦補工程項目：LIS 同步、lis-sync-api 合併前要改的、醫師端未做頁面、部署",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "12e5899b",
+          "date": "2026-10-16",
+          "message": "report-template 要問醫院的事：補「線上報告可否蓋醫師簽名圖」",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ee02f845",
+          "date": "2026-10-16",
+          "message": "報告紙面照北榮範本（附件4）重排；簽署欄只蓋簽署者簽名",
+          "body": "- 置中明體抬頭、深藍段落標題、粗外框表格＋欄名分散對齊＋藍字資料值、結果表置中、完成時間靠右\n- 結果解釋／檢測限制改阿拉伯數字懸掛縮排；報告簽署醫師置中；頁尾貼 A4 底部並加「第1頁，共1頁」\n- 「非正式報告」警語移到紙面外；範本沒有的簽署日期、代檢單位縮成一行小字\n- 紙面固定白底黑字；手機版表格改兩欄一列\n- 簽署欄不再印醫院＋姓名，有簽名檔只蓋簽名，沒有才印「○○○ 醫師（電子簽署）」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0162f571",
+          "date": "2026-10-16",
+          "message": "合併 MR !24: 醫師簽名檔＋家長端報告頁紙本樣式（浮水印、不給列印）",
+          "body": "醫師簽名檔＋家長端報告頁紙本樣式（浮水印、不給列印）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!24",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "76a26e85",
+          "date": "2026-10-16",
+          "message": "模擬模式點情境直接顯示查詢結果，不必回表單打驗證碼",
+          "body": "- 新增 /{tenant}/query?handler=Demo&s=n：以情境的證號與生日直接查詢，只在模擬模式存在，正式模式 404\n- 右上角情境清單改連這個捷徑（任何頁都能直接切換），移除 #fill 填表 JS\n- 測試：捷徑出結果、他院情境與超出範圍 404、正式模式 404\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "fc875139",
+          "date": "2026-10-16",
+          "message": "陽性一律不線上公開，家長端引導聯絡醫院；驗證碼打錯不再清掉證號",
+          "body": "- 2026-10-16 定案：陽性簽署後家長端只顯示「請與送檢醫院聯絡」＋電話；醫師端拿掉「是否線上公開」必選，改成提示安排告知家長\n- ParentQueryService.MapState 陽性一律 ContactHospital（舊資料標 PublishOnline 也一樣）；SignAsync 拿掉 publishOnline 參數\n- 模擬情境拿掉「陽性：醫師選擇公開」\n- 查詢頁驗證碼錯誤重新顯示時保留母親證號（密碼型欄位預設不回填）\n- page-flows、report-template、README 同步\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "74d90b7a",
+          "date": "2026-10-16",
+          "message": "report-template.md 要問醫院的事：補「陽性要不要上線（只開放陰性？）」",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "fecb4149",
+          "date": "2026-10-16",
+          "message": "左上角一律回該院首頁：醫師登入頁回家長查詢首頁、無醫院頁面回網站首頁",
+          "body": "- 醫師端沒登入時原本連 /{tenant}/admin，會被轉回登入頁，看起來像點了沒反應\n- / 與 /admin/login 的左上角原本不是連結，改連回 /\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "67ebfd64",
+          "date": "2026-10-16",
+          "message": "醫師簽名檔＋家長端報告頁紙本樣式",
+          "body": "- 我的簽名 /{tenant}/admin/signature：醫師本人上傳／更換／移除；伺服器去白底、裁切、縮到 120px 高\n  （SkiaSharp，手機拍照的灰紙也能去掉）；舊版保留，簽署時記下當下版本（ScreeningCase／SignatureEvent.SignatureImageId），\n  之後換簽名不影響已發布的報告。\n- 報告本體（_ReportPaper）：桌機 A4 一張紙；簽名圖以 data URI 內嵌（沒有獨立網址）；\n  沒簽名時印「姓名（電子簽署）」；整頁斜浮水印。家長端浮水印帶查詢時間，列印只印「紙本報告請洽送檢醫院」。\n- 待簽署頁預覽帶入自己的簽名；還沒上傳時在按鈕列上方提示。\n- 模擬模式：北榮展示醫師林志明用 DemoAssets/demo-sign.png（內嵌資源），陽明附醫刻意不給，展示兩種版面。\n- migration SignatureImage、deploy/sql/06-signature-image.sql。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d540f303",
+          "date": "2026-10-16",
+          "message": "查詢頁在一般桌機一屏放得下；驗證碼輸入自動轉大寫",
+          "body": "- 寬螢幕（≥640px）驗證碼輸入框放在圖片旁、頁尾收成兩行；頁面上下留白與欄位間距略縮\n- 1903×916 從 940px 降到 839px，不再出現捲軸；手機排法不變\n- 驗證碼比對本來就不分大小寫，輸入時轉大寫只是讓畫面與圖一致\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e35f254b",
+          "date": "2026-10-16",
+          "message": "北榮電話改用報告範本（附件4）頁尾的 02-2871-2121 #4074：展示資料與小卡",
+          "body": "小卡仍標黃底待確認（報告上的分機是否就是給家長的窗口，要問醫院）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7ed718bd",
+          "date": "2026-10-16",
+          "message": "修手機上「往下滑卻沒東西」：高度改 100dvh、拿掉頁尾空白；模擬模式按鈕移到頁首右上角",
+          "body": "- body min-height 補 100dvh（手機 100vh 含網址列，內容放得下也會多一截可滑空白）\n- 移除為浮動按鈕留的 64px 頁尾空白\n- 家長端模擬模式按鈕改在頁首右上角（absolute，跟頁面捲動、往下展開）；醫師端頁首右邊有登出，改固定左下角\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "24de277f",
+          "date": "2026-10-16",
+          "message": "醫院入口 /{tenant} 直接是查詢表單；證號顯示切換改用眼睛圖示",
+          "body": "- /{tenant} 與 /{tenant}/query 同一頁（Portal/Index 移除），QR code 掃進來就能輸入\n- 原入口頁的說明與查詢期間濃縮成表單上方兩行\n- 證號欄「顯示」文字鈕改成輸入框內的眼睛圖示：遮住時閉眼、顯示時張眼，aria-label 跟著切換\n- 測試斷言改比對標題，避免說明文字裡的「查詢結果」誤判\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "38ac541a",
+          "date": "2026-10-16",
+          "message": "合併 MR !19: 報告頁標示姓名、證號的主體（KJ 建議）",
+          "body": "報告頁標示姓名、證號的主體（KJ 建議）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!19",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "659b797a",
+          "date": "2026-10-16",
+          "message": "報告頁標示姓名、證號的主體：嬰兒性別、身分證字號（母親）；記下 KJ 對醫院 LDT 報告範本的建議",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5144c79f",
+          "date": "2026-10-16",
+          "message": "模擬模式改成右下角浮動面板，不佔主要版面",
+          "body": "- 頁首橫幅、查詢頁下方情境清單、首頁選醫院區塊都收進右下角「模擬模式」按鈕（<details>，無 JS 也能開）\n- 查詢頁點情境直接填表並收起；其他頁點情境跳到查詢頁，以 #fill= 帶入（hash 不送 server）\n- 頁尾留出按鈕位置，不蓋住「醫療院所登入」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e38fa1c7",
+          "date": "2026-10-16",
+          "message": "合併 MR !15: 醫師簽署定案：網頁按簽署（不做 HCA）、不做批次、報告頁紙本樣子＋簽名檔",
+          "body": "醫師簽署定案：網頁按簽署（不做 HCA）、不做批次、報告頁紙本樣子＋簽名檔\n\nSee merge request ucl/onlinereport/cmv-parent-portal!15",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "2acbd5e6",
+          "date": "2026-10-16",
+          "message": "家長端狀態用字改「檢驗完成，待醫師確認簽發報告」（KJ 建議）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7963c6de",
+          "date": "2026-10-16",
+          "message": "醫師端：登入＋待簽署頁（簽署／暫不簽署／取消）",
+          "body": "A0 帳密登入（cookie、帳號連錯 5 次鎖 15 分鐘、只能在所屬醫院網址登入）；\nA1＋A2 合併成一頁 /{tenant}/admin：左邊待簽署清單（陽性優先、預設打開第一筆），\n右邊案件資料（不遮罩）、處理歷程、簽署後家長看到的報告預覽（與 P3 共用 _ReportPaper）；\n底部 簽署（綠）／暫不簽署（紅，備註必填、常用備註一鍵帶入）／取消（灰，回清單）。\n陽性必選線上公開與否；處理完自動打開下一筆；不做批次簽署。\n\nCaseSigningService：同院 owner／user 都能簽、ucl-admin 不能；ScreeningCase.Status 設為\n並行權杖，兩位醫師同時處理同一筆時後到者得到「已被處理」。SignatureEvent 加來源 IP 與\n結果摘要（migration SigningAudit、deploy/sql/05-signing-audit.sql）。\nDevSeeder 加展示用醫師帳號與待簽署案件；模擬模式首頁與登入頁列出帳號。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "14cfb5ed",
+          "date": "2026-10-16",
+          "message": "合併 MR !16: 模擬模式預設開啟＋頁尾「醫療院所登入」連結",
+          "body": "模擬模式預設開啟＋頁尾「醫療院所登入」連結\n\nSee merge request ucl/onlinereport/cmv-parent-portal!16",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "08e89d79",
+          "date": "2026-10-16",
+          "message": "家長端頁尾加「醫療院所登入」連結，先接到建置中說明頁（/admin/login、/{tenant}/admin/login）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cd1a5b09",
+          "date": "2026-10-16",
+          "message": "模擬模式改為預設開啟；/healthz 標出 ok (demo)，連線字串已填卻沒關時 log 警告",
+          "body": "- appsettings.json Portal:Demo:Enabled 預設 true，本機不需 LocalDB 就能跑\n- 接正式資料庫前必須在 server 設定檔明確設 false（刪掉該行＝回到預設的開），上線清單 3a 同步改寫\n- PortalWebTests 明確關模擬模式，繼續驗正式模式\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b50c07cb",
+          "date": "2026-10-16",
+          "message": "家長端報告頁做成紙本樣子＋醫師簽名檔，不給 PDF 檔",
+          "body": "瀏覽器裡的 PDF 擋不住下載，改把 P3 排成 A4 紙本版面：簽名圖內嵌、\n整頁浮水印、列印隱藏、手機單欄。A0 加醫師上傳簽名檔，簽署記下當下版本。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "50666653",
+          "date": "2026-10-16",
+          "message": "醫師端不做批次簽署：月約十多筆，一筆一筆簽",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0b37a929",
+          "date": "2026-10-16",
+          "message": "醫師簽署定案：網頁按「簽署」，不做 HCA 數位簽章（HCA 另當支線）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9a17c96d",
+          "date": "2026-10-16",
+          "message": "LIS 同步接收 API：POST /api/lis/cases（給 Chronos CmvSyncTask）",
+          "body": "- LisSyncService：以 TNO 冪等 upsert；簽收→檢驗中、放行→待簽署、\n  已簽署後值變或退回簽收→清簽署並標已更正、作廢→已作廢\n- 證號／姓名明文只在這裡轉雜湊、密文、遮罩；姓名去掉「之子／之女」\n- 證號接受身分證、居留證、護照（外籍家長）\n- 只收白名單 IP＋X-Api-Key；模擬模式一律拒收\n- 測試：同步規則 12 個、端點 2 個\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "519afa64",
+          "date": "2026-10-16",
+          "message": "architecture-draft：同步改隨 Chronos 10-20 發佈一起上",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "797b1644",
+          "date": "2026-10-16",
+          "message": "deployment.md 加「外網通了之後」待辦：小卡與模擬模式先給同仁、合作醫師看",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3bffaae0",
+          "date": "2026-10-16",
+          "message": "architecture-draft：LIS 同步定案做成 Chronos TASK 型工作",
+          "body": "- 同步由 Chronos（台北 56.231）的 CmvSyncTask 負責，單位清單放工作 PARAMS\n- 範圍含簽收未審核、放行、更正、作廢\n- 走平台 API，雜湊／加密／遮罩在平台做；金鑰不放 PARAMS\n- 不放 Data2Cloud；排在 Chronos 台北 10-20 上線穩定後\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "21906755",
+          "date": "2026-10-16",
+          "message": "家長端報告頁改依北榮報告範本（附件4）",
+          "body": "- 報告頁照附件4的順序與用詞：基本資料（姓名＝父或母姓名之子／之女、送檢醫師）、\n  篩檢結果（唾液巨細胞病毒量＋完成時間）、結果解釋、檢測限制及其它注意事項、\n  報告簽署醫師、頁尾地址與範本版次；線上版保留「非正式報告」警語與遮罩\n- 結果解釋、檢測限制改為醫院範本層級文字，放在 Tenant（ReportTitle、\n  ReportResultLabel、ReportInterpretation、ReportLimitations、ReportTemplateVersion、\n  Address）；移除 ScreeningResult 的 DetectionLimitNote、MethodLimitation\n- migration ReportTemplate，156.224 用 deploy/sql/04-report-template.sql 套用\n- 代檢單位與醫檢師暫時保留（特管辦法 §39 核發報告人員），待醫院確認\n- docs/report-template.md：附件4對照、欄位來源、要問醫院的事\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b02772ed",
+          "date": "2026-10-16",
+          "message": "家長端模擬模式（Portal:Demo:Enabled）：不連資料庫，給同仁與醫院走一遍查詢流程",
+          "body": "- 開啟後資料庫改用記憶體、啟動時寫入 DevSeeder 虛構案件；不需要連線字串與 HMAC 金鑰\n- 頁首橫幅「模擬模式」；查詢頁下方列出各院情境，按「帶入」填好證號與出生日期\n- 首頁列出醫院入口；情境清單在 DemoScenarios.cs，測試核對與假資料一致\n- deployment.md 上線檢查清單加「模擬模式關閉」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "90fabb44",
+          "date": "2026-10-16",
+          "message": "deployment.md 加「正式上線前檢查清單」：預覽頁關閉、DB 連線字串、備份、憑證續約時點等集中一處",
+          "body": "萬用憑證 2026-12-25 到期，同仁說到期前一個月才能處理續約。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e20689c0",
+          "date": "2026-10-16",
+          "message": "docs：醫師帳號範圍定案（不自行註冊、跨院不互通），依單位限定審核列入未來方向",
+          "body": "- architecture-draft：新增「醫師帳號範圍」與「未來方向」兩節\n- page-flows A6：註明第一版沒有可審核單位欄位\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e1a26289",
+          "date": "2026-10-16",
+          "message": "deploy README：記錄 156.224 已建好 CmvPortal 資料庫與帳號、帳密已進大章魚",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5aa95429",
+          "date": "2026-10-16",
+          "message": "156.224 站台建好（IIS＋設定檔），預覽頁可用；deployment.md 改成進度表，DNS／nginx／DB 待辦",
+          "body": "iis-setup.cmd 改純 ASCII＋CRLF：cmd.exe 用系統碼頁讀批次檔，Big5／LF 版會解析錯亂。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cc713388",
+          "date": "2026-10-16",
+          "message": "deploy README：補 SSMS（SQLCMD 模式）一次執行法、只留本機備份與 -E 限制說明",
+          "body": "上一個 commit 只改到 XML，README 這三段當時沒寫進去，這裡補上。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "06eaf102",
+          "date": "2026-10-16",
+          "message": "備份第一版只留 156.224 本機；註明遠端 Windows 驗證不可行",
+          "body": "- 兩個排程 XML 拿掉 RemoteDir 參數，README 說明之後怎麼補遠端\n- 從 ucl 網域電腦用 -E 連 156.224 SQL 會被拒（工作群組不信任網域），\n  只能在 156.224 本機用 -E 或用 sa\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0e0a637b",
+          "date": "2026-10-16",
+          "message": "iis-setup.cmd：註解裡的 UNC 路徑補回 \\",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4573a6d3",
+          "date": "2026-10-16",
+          "message": "deploy.ps1／iis-setup.cmd：UNC 路徑補回開頭的 \\",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f3494168",
+          "date": "2026-10-16",
+          "message": "156.224 SQLEXPRESS 建置腳本與備份排程",
+          "body": "156.224 已有 SQL Server 2022 Express（SQLEXPRESS，與官網共用），本次只準備 CmvPortal 自己的部分，尚未執行：\n- deploy/sql/01-create-database.sql：建 CmvPortal（FULL 復原模式）、cmv_portal_app 登入\n  （只有 db_datareader／db_datawriter）、SYSTEM 的 db_backupoperator；可重複執行，密碼由執行者當場給\n- deploy/sql/02-schema.sql：EF migration 產生的冪等 schema 腳本\n- deploy/sql/03-verify.sql：唯讀檢查\n- deploy/backup/：cmv-backup.ps1（完整／log 備份、RESTORE VERIFYONLY、複製到遠端、\n  完整備份時一併帶 Data Protection 金鑰）＋兩個工作排程 XML（每天 02:30、每小時 :15）\n- deploy/README.md 步驟；docs/deployment.md 資料庫段落更新\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cbd12b7a",
+          "date": "2026-10-16",
+          "message": ".cmd 以 Big5 存在工作目錄（cmd.exe 用系統碼頁讀批次檔），repo 內仍是 UTF-8",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9684a203",
+          "date": "2026-10-16",
+          "message": "tools/iis-setup.cmd：156.224 IIS 首次建置（集區＋站台＋權限），RDP 或 sc.exe 一次性服務皆可",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "839662f8",
+          "date": "2026-10-16",
+          "message": "deploy.ps1：測試 → publish → SMB 推 156.224（app_offline.htm 換檔）",
+          "body": "照 ucl-admin deploy.ps1 的做法；不推 appsettings.Production.json 與 Development 設定，\n維護頁改成家長看得懂的文字，推完印出 DNS 設好前用 --resolve 驗證的指令。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "56643cb7",
+          "date": "2026-10-16",
+          "message": "定案：醫師端權限綁送檢醫院，不鎖送檢醫師",
+          "body": "- 同院任何醫師帳號都能看、都能簽該院案件；送檢醫師只做顯示與「只看我送檢的」篩選\n- 簽署人一律記目前登入者，不能代簽；與送檢醫師不同時預覽兩者都顯示\n- 拿掉「租戶簽署醫師清單」設定（不再需要）\n- 順修 architecture-draft：角色欄「退回」改「暫不簽署」、\n  稽核與租戶設定兩列歸回 ② 的表格\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e4bef7b9",
+          "date": "2026-10-16",
+          "message": "家長端新增「報告完成，待醫師確認」狀態",
+          "body": "KJ 提問（LIS 簽收後能否顯示檢驗中、待簽署能否讓家長看）後定案：\n- LIS 簽收 → 「檢驗中」（原本就有）\n- 待簽署、暫不簽署 → 「報告完成，待醫師確認」，兩者必須同一個字，\n  否則陽性被保留時家長會從狀態猜到結果；不給檢驗值\n- 檢驗值仍只在醫師簽署後公開（特管辦法 §40、陽性先聯絡、LIS 可能更正）\n- page-flows、flow-overview、README 狀態對照同步；測試 57 個全過\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "28fc3346",
+          "date": "2026-10-16",
+          "message": "合併 MR !5: 小卡掛到網站 /preview/parent-card（依賴 !4）",
+          "body": "小卡掛到網站 /preview/parent-card（依賴 !4）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!5",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "eb31e211",
+          "date": "2026-10-16",
+          "message": "小卡掛到網站 /preview/parent-card，上線前方便大家對內容",
+          "body": "- 小卡拆成 html／css／js 三檔：站台 CSP 不允許 inline script/style\n- 檔案從 docs/parent-card 連結發佈到 preview\\，不複製兩份\n- Portal:Preview:Enabled 控制開關（預設開，正式上線前關）；回應帶 X-Robots-Tag noindex\n- /preview/parent-card 轉址到小卡頁；gen_qr.py 不發佈\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2a3e53b7",
+          "date": "2026-10-16",
+          "message": "骨架＋資料模型＋家長端 P0–P3 雛形（假資料）",
+          "body": "- ASP.NET Core 10 Razor Pages＋EF Core 10＋SQL Server；方案 CmvPortal.slnx\n- Core：六張表（Tenant／PortalUser／ScreeningCase／ScreeningResult／\n  SignatureEvent／ParentAccessLog）與初始 migration\n- 個資：母親證號只存 HMAC（查詢）、Data Protection 密文（醫師端）與遮罩值；\n  查詢紀錄只存雜湊前 8 碼；正式機金鑰只放 appsettings.Production.json\n- 家長查詢：證號檢查碼檢核（身分證／新舊居留證）、SkiaSharp 圖形驗證碼、\n  查無資料 5 次鎖 15 分鐘（IP 與證號雜湊各自計數）、報告 10 分鐘短效 token、\n  三態（檢驗中／查看報告／請與送檢醫院聯絡）、跨院隔離\n- 報告頁照 2026-10-15 會議版型：代檢單位、檢測限制、醫檢師、報告簽署醫師；\n  手機版結果表改堆疊\n- 安全標頭（CSP 不允許 inline script、no-referrer、no-store）、全站限流、\n  nginx 轉送標頭只信任設定的 proxy\n- 對外文字不寫「○○醫院委託」（目前對口是醫師，委託關係未經醫院確認）\n- 開發環境自動 migrate＋寫入虛構展示資料；README 列展示用輸入\n- 測試 53 個：證號、遮罩、查詢流程（SQLite in-memory＋假時鐘）、\n  WebApplicationFactory 整站流程（表單→驗證碼→查詢→報告）\n- 釘 System.Security.Cryptography.Pkcs 10.0.13、SQLitePCLRaw.lib.e_sqlite3\n  2.1.14，蓋掉遞移相依的已知弱點\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3e5c59ee",
+          "date": "2026-10-16",
+          "message": "小卡拿掉「本查詢系統由○○醫院委託…」：對口目前是醫師，不能代表醫院",
+          "body": "page-flows P0 頁尾同句改為簽約後才放；README 待辦補確認簽約對象是醫院本身。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3ee1c53d",
+          "date": "2026-10-16",
+          "message": "家長小卡：各院一版，含 cmv.ucl.com.tw QR code，A4 一頁 10 張",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "62ef9c85",
+          "date": "2026-10-16",
+          "message": "通知分層定案（Email 主、Web Push 加值、站內 badge）＋帳號通知偏好",
+          "body": "- architecture-draft：通知三層與收件規則、移植 lisweb Web Push 的三項修改、\n  VAPID 私鑰只放 server；User 加 NotifyEmailDigest／NotifyEmailUrgent／NotifyPush\n- page-flows：首次登入頁含通知偏好勾選、A6 建帳號設初始值並顯示訂閱狀態、\n  A1 帳號選單加通知設定；通知表改引用 NotificationPlatform API\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "826b4dff",
+          "date": "2026-10-16",
+          "message": "第一版拿掉系統內退回，疑義走電話；端到端圖另出 PNG／SVG",
+          "body": "- 醫師端動作只剩「簽署」「暫不簽署（備註）」；移除退回／待重驗狀態，\n  檢體疑義由醫師電話聯絡 UCL，LIS 更正後以「已更正」重新同步\n- page-flows.md、architecture-draft.md、flow-overview.html 三處同步\n- docs/flow-end-to-end.svg（顏色已展開，無 CSS 變數，可貼簡報）、\n  flow-end-to-end.png（2x）；畫布加寬到 1130 避免右緣直排字貼邊\n- README 索引更新\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1903d875",
+          "date": "2026-10-16",
+          "message": "端到端流程圖獨立成 docs/flow-end-to-end.html，並修標籤重疊",
+          "body": "- 新增 flow-end-to-end.html：只含圖一泳道圖、圖例、三條法規註記\n- 兩份圖都修：退回標籤與通知醫師文字不再重疊、右側直排字縮短\n- README 索引加入\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1f83161f",
+          "date": "2026-10-16",
+          "message": "P4 PDF 改為規劃中、第一版不做",
+          "body": "- page-flows.md：P4 列三個候選呈現方式與取捨，P3 頁尾改「需要紙本報告請洽送檢醫院」\n- flow-overview.html：P4 改虛框標「規劃中，第一版不做」\n- architecture-draft.md：下載列同步更新\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "32d3e377",
+          "date": "2026-10-16",
+          "message": "頁面流程、部署文件與成員用流程示意圖",
+          "body": "- docs/page-flows.md：家長端 P0–P4、醫師端 A0–A7 每頁欄位／狀態／錯誤情境、\n  案件狀態機、通知\n- docs/deployment.md：156.224＋cmv.ucl.com.tw，照 ucl-admin deploy.ps1\n  （dotnet publish → app_offline.htm → SMB 推檔）的發佈程序與首次建置步驟\n- docs/flow-overview.html：本機可開的一頁流程示意（端到端泳道、家長端、\n  醫師端、狀態機、分工表），inline SVG、支援深色\n- README 文件索引更新\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "98fa6b96",
+          "date": "2026-10-16",
+          "message": "加入 2026-10-15 會議摘要與三模組架構草案",
+          "body": "- docs/meeting-2026-10-15.md：四家篩檢中心查詢頁比較、新報告版型草稿、\n  篩檢量、手寫備註（主機 156.224、網域 cmv.ucl.com.tw、陽明附醫）\n- docs/architecture-draft.md：家長查詢報告／醫師審核介面／檢驗值同步\n  的粗規劃、資料模型、法規對照、待定事項\n- README：另一家醫院＝陽明附醫、文件索引、待辦更新\n- 掃描原件含個案資料，改放 gitignored 的 local/，不進 git\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f6b72454",
+          "date": "2026-10-16",
+          "message": "初始文件：CMV 口水 LDT 家長查報告平台的法規研究、設計建議與 PMF 參考資料",
+          "body": "- README：專案定位、三個已拍板前提、三條關鍵法律結論、待辦\n- docs/legal-research.md：PMF 參考站實查、特管辦法 LDT 規範、報告交付與\n  「檢驗所不能發報告」的查證、個資與資安、風險清單、網站設計建議\n- docs/sources.md：來源索引與「未查到」清單\n- docs/reference/pmf/：PMF 公開文件本機副本（操作手冊、同意書、檢驗單、\n  不通過衛教單、家長查詢頁截圖）＋ SOURCE.md\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "234307bf",
+          "date": "2026-10-17",
+          "message": "合併 MR !57: 家長端結果清單每筆寫「陳美玲之子」",
+          "body": "家長端結果清單每筆寫「陳美玲之子」\n\nSee merge request ucl/onlinereport/cmv-parent-portal!57",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "88087f88",
+          "date": "2026-10-17",
+          "message": "家長端結果清單每筆寫「陳美玲之子」，拿掉「母親：陳○玲」",
+          "body": "清單原本是「母親：陳○玲」＋每筆「寶寶（男）」。改成同報告「姓名」欄的寫法（完整姓名＋之子／之女＋胎序），\n使用者 2026-10-17 決定：家長通過證號＋生日＋驗證碼後點進報告本來就看得到完整姓名，清單遮罩沒有保護作用。\n醫院設定報告遮罩（MaskReportIdentifiers）時清單也跟著遮罩。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1896b6e1",
+          "date": "2026-10-17",
+          "message": "docs：第二輪群組訊息草稿（測完醫師簽核流程再發）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "bff73f9b",
+          "date": "2026-10-17",
+          "message": "模擬模式：陽明附醫的展示醫師也套展示簽名圖",
+          "body": "陽明附醫報告照北榮格式（2026-10-17），展示時兩院報告都蓋同一張簽名圖。\n「姓名（電子簽署）」的版面改由北榮科主任（owner，沒有簽名圖）簽署時展示。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dcbcfdce",
+          "date": "2026-10-17",
+          "message": "docs：第一輪問題狀態更新；媽媽證號改放檢體標示（ID_INVNO）",
+          "body": "- Q1 小卡、Q2 模擬流程定案；Q3 北榮送檢流程下週問一圈\n- lis-mapping 第四節：新流程紙本 keyin，家長證號填檢體標示，不放 OH_PID；\n  記下 ID_INVNO 的現況、誰會讀它、要用新送檢單位代碼，小表改列退路\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "15a9b00b",
+          "date": "2026-10-17",
+          "message": "小卡頁拿掉列印；QR 圖檔可選圖下加網址",
+          "body": "- 小卡不在這頁印：拿掉列印按鈕、A4 拼版與列印 CSS、列印設定說明\n- 下載區加「圖下加網址」勾選（預設勾）：cmv-qr-url.png／svg，網址字型同小卡（Consolas），\n  SVG 的文字轉成外框路徑，印刷廠沒有字型也一樣；gen_qr.py 一起產\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "763a5f10",
+          "date": "2026-10-17",
+          "message": "模擬模式點展示帳號直接登入；陽明附醫套北榮報告範本",
+          "body": "- 醫師端模擬模式面板的展示帳號原本只是文字（滑過有框、點了沒反應，看起來像卡住），改成按鈕：點了直接登入，已登入時點別的帳號＝切換\n- 陽明附醫的 LDT 報告照北榮格式、只差簽署醫師（曹珮真醫師 2026-10-17）：DevSeeder 補報告標題、結果名稱、結果解釋、檢測限制、衛教文字；LIS 單位碼、地址、電話、版次待陽明附醫提供，列入待辦\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1428b760",
+          "date": "2026-10-17",
+          "message": "小卡改各院共用一張：拿掉醫院名稱與聯絡方式，QR 下載併進小卡頁",
+          "body": "- 正面抬頭改「新生兒巨細胞病毒（CMV）篩檢結果線上查詢」，不印醫院名稱；\n  背面拿掉各院單位與電話，第三點改「請洽採檢醫院」\n- 拿掉醫院切換與黃底暫定標示（TENANTS／tbd）\n- /preview/qr 併進 /preview/parent-card：cmv-qr.png／svg 移到 docs/parent-card，\n  gen_qr.py 一次產小卡用 qr.svg 與下載用圖檔\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0a8c2ff4",
+          "date": "2026-10-17",
+          "message": "小卡 QR 改成各院共用的 https://cmv.ucl.com.tw/",
+          "body": "配合單一網站（!47）：gen_qr.py 只產一張 qr.svg，刪掉各院的 qr-vghtpe／qr-ymuh；\n正面網址文字改成 cmv.ucl.com.tw。說明欄連到 QR code 圖檔下載頁。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2a5499a2",
+          "date": "2026-10-17",
+          "message": "醫師通知 Email：陽性與更正即時通知、每日待簽署摘要",
+          "body": "- 新表 EmailNotification：通知信佇列兼寄信紀錄（一位收件人一列），背景工作每分鐘寄出，失敗退避重試 5 次\n- LIS 同步時陽性進待簽署 → owner＋勾即時通知的醫師；已簽署報告被更正 → 原簽署醫師（關了或停用改寄 owner）；同一批同一人只收一封\n- 每日摘要：平台在設定時間（預設 08:30、週末不寄）當下算件數再寄，不用 NotificationPlatform /Schedule（排進去的內文件數會停在排入當下）\n- 寄信走 NotificationPlatform /api/Auth/Login＋/api/EmailTrigger/TriggerNow；沒設定 mailapi（開發、模擬模式）只寫 log、標略過\n- 信裡只有件數與醫師端連結，不放姓名、證號、檢驗編號\n- deploy/sql/08-email-notification.sql；deployment.md 上線清單補 mailapi 設定、156.224 連線實測、集區 AlwaysRunning\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "67896d73",
+          "date": "2026-10-17",
+          "message": "新增查詢網址 QR code 圖檔下載頁（/preview/qr）",
+          "body": "醫院可能只需要 QR 圖檔放進同意書或衛教單，不一定用小卡。\ndocs/qr/ 由 gen_qr.py 產生單一網址 https://cmv.ucl.com.tw/ 的\nPNG（1184 px、600 dpi）與 SVG，留 4 格靜區、Q 級容錯；\nqr.html 提供下載與使用注意。跟小卡一樣走 Portal:Preview:Enabled。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "da8c4b9c",
+          "date": "2026-10-17",
+          "message": "合併 MR !47: 家長端改單一網站：首頁即查詢、跨醫院比對、舊網址轉址",
+          "body": "家長端改單一網站：首頁即查詢、跨醫院比對、舊網址轉址\n\nSee merge request ucl/onlinereport/cmv-parent-portal!47",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "e849c3f4",
+          "date": "2026-10-17",
+          "message": "單一入口頁首：留位置給模擬模式按鈕，窄螢幕在「（CMV）」後換行",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9ac575d0",
+          "date": "2026-10-17",
+          "message": "小卡背面拿掉手寫的採檢日／可查詢日欄",
+          "body": "採檢時沒人會填這兩個空格；可查詢天數正面已寫「採檢後約 10 個工作天」。\n背面騰出的空間讓提醒文字放大、垂直置中。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b4eca395",
+          "date": "2026-10-17",
+          "message": "家長端改單一網站：首頁即查詢表單，跨醫院比對，舊各院網址永久轉址",
+          "body": "- 路由：/ 查詢（取代 Home 說明頁）、/report/{token}、/privacy；模擬模式捷徑 /?handler=Demo&s=n\n- 舊網址 /{tenant}、/{tenant}/query、/{tenant}/privacy、/{tenant}/report/{token} 對啟用中的醫院代碼 301 轉新網址，其他第一段照樣 404（LegacyTenantRedirects）\n- ParentQueryService.QueryAsync 不再帶醫院：證號＋出生日期在所有啟用中的醫院比對，查詢期限照各案件醫院的設定；結果每筆帶醫院名稱與電話\n- ReportTokenStore.Resolve 只看 token；報告頁從案件載入醫院，報告與頁尾仍以該院具名（特管辦法 §40）\n- ParentAccessLog.TenantId 改可為 null（migration SingleSite、deploy/sql/08-single-site.sql）；命中多家時記第一筆案件的醫院\n- 版面：無醫院的頁面只寫「新生兒巨細胞病毒（CMV）篩檢結果查詢」，頁尾「查詢問題請洽寶寶送檢的醫院」「系統建置維護：大安聯合醫事檢驗所」；個資告知列出各院聯絡電話\n- 模擬模式情境改單一清單並核對每筆的醫院；陽明附醫展示的待簽署案件改用自己的證號，免得跨院查出兩筆\n- 文件：README、page-flows、architecture-draft、deployment（套 04→08）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "03b296ca",
+          "date": "2026-10-17",
+          "message": "README：北榮送檢醫令待辦（流程待確認）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ab189c62",
+          "date": "2026-10-17",
+          "message": "合併 MR !45: 報告頁欄位標籤改回 LDT 範本原字",
+          "body": "報告頁欄位標籤改回 LDT 範本原字\n\nSee merge request ucl/onlinereport/cmv-parent-portal!45",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "d39867a7",
+          "date": "2026-10-17",
+          "message": "報告頁欄位標籤改回 LDT 範本原字：性別、身分證字號、採血日期",
+          "body": "LDT 報告範本是施行計畫附件，不能自行改。KJ 2026-10-16 的「嬰兒性別」「（母親）」\n加註（!19）改回，建議備註在 report-template.md 第四節，不調整；「採檢日期」也改回範本的\n「採血日期」，唾液寫採血的小錯留在第五節第 6 題問醫院。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f7c04cc2",
+          "date": "2026-10-17",
+          "message": "合併 MR !44: docs：刪掉 flow-end-to-end.html",
+          "body": "docs：刪掉 flow-end-to-end.html\n\nSee merge request ucl/onlinereport/cmv-parent-portal!44",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "1331683b",
+          "date": "2026-10-17",
+          "message": "docs：刪掉 flow-end-to-end.html，README 改連 PNG／SVG 與 flow-overview 第一節",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a25924d9",
+          "date": "2026-10-17",
+          "message": "合併 MR !43: LIS 同步接收 API：POST /api/lis/cases",
+          "body": "LIS 同步接收 API：POST /api/lis/cases\n\nSee merge request ucl/onlinereport/cmv-parent-portal!43",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "c13dd021",
+          "date": "2026-10-17",
+          "message": "LIS 同步：更正時收回簽名圖與公開、補寫病歷號密文、(A)／(B) 轉胎序",
+          "body": "- 簽署失效（LIS 更正、退回簽收、作廢後復原）時一併清 SignatureImageId，PublishOnline 設 false\n- PublishOnline 改由簽署決定，同步端不再依 Tenant.PublishPositiveByDefault 設定（陽性已一律不公開）\n- 寫入 MedicalRecordNoCipher（報告頁照範本顯示完整病歷號），病歷號有變才重新加密\n- 姓名後綴 (A)／(B)、（一）／（二）、(1)／(2) 轉胎序並從姓名去掉，前後於「之子／之女」都認；LIS 有給 BirthOrder 時以 LIS 為準\n- 測試改用 DevSeeder 沒用到的證號（原 H20000000 與種子的待簽署案件同證號同生日）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "OnlineReport\\ReportHtmlSync",
       "totalCommits": 79,
       "commits": [
@@ -23164,583 +23955,8 @@
       "type": "work"
     },
     {
-      "name": "OnlineReport\\cmv-parent-portal",
-      "totalCommits": 71,
-      "commits": [
-        {
-          "hash": "76822722",
-          "date": "2026-10-16",
-          "message": "合併 MR !42: docs：LIS 資料對照、repo CLAUDE.md、北榮問題補 KJ 回覆",
-          "body": "docs：LIS 資料對照、repo CLAUDE.md、北榮問題補 KJ 回覆\n\nSee merge request ucl/onlinereport/cmv-parent-portal!42",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "4953dcc8",
-          "date": "2026-10-16",
-          "message": "合併 MR !41: docs：待辦補新流程不經 PMF、單一網站評估、LDT 範本不一定能改",
-          "body": "docs：待辦補新流程不經 PMF、單一網站評估、LDT 範本不一定能改\n\nSee merge request ucl/onlinereport/cmv-parent-portal!41",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "56507d0e",
-          "date": "2026-10-16",
-          "message": "合併 MR !40: 查得到結果的時間改約 10 個工作天（KJ 建議）",
-          "body": "查得到結果的時間改約 10 個工作天（KJ 建議）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!40",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "14a86137",
-          "date": "2026-10-16",
-          "message": "docs：LIS 資料對照（lis-mapping.md）、repo CLAUDE.md、北榮問題補 KJ 回覆與建議",
-          "body": "下次從專案目錄開 session 也讀得到：開工順序、MR／local／worktree 規則、\nLIS 欄位與狀態判斷、家長證號不能放 OH_PID、KJ 的回覆與處理\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "32705976",
-          "date": "2026-10-16",
-          "message": "docs：記下新流程不經 PMF／北榮無電子醫令介接、評估單一網站、LDT 範本不一定能改（KJ 只是建議）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "67e4ab7d",
-          "date": "2026-10-16",
-          "message": "查得到結果的時間改「採檢後約 10 個工作天」（KJ 建議，原 7 天）：入口頁、小卡",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "722cc276",
-          "date": "2026-10-16",
-          "message": "docs: 待問北榮清單更新報告不遮罩定案；LIS 同步待辦補病歷號密文",
-          "body": "questions-vghtpe.md「還沒問」那條改成不遮罩已定案、改告知，並列出標籤用詞與範本不同處。README 工程待辦：feat/lis-sync-api 合併前要在 LisSyncService 寫 MedicalRecordNoCipher。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "c935afda",
-          "date": "2026-10-16",
-          "message": "questions-vghtpe.md：遮罩已定案照範本顯示完整值，「之後要問」改成只剩代檢單位",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "6921fe3e",
-          "date": "2026-10-16",
-          "message": "2026-10-16 報告頁拔掉「需要紙本報告請洽送檢醫院」",
-          "body": "頁首警語、浮水印、頁尾醫院電話已經夠了，這句是第三次叫家長找醫院。只在家長按列印時（print-only 區塊）才說紙本怎麼拿。page-flows.md P3 示意與 P4 備註同步。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "6e9f84b0",
-          "date": "2026-10-16",
-          "message": "2026-10-16 報告頁姓名、證號、病歷號照範本顯示完整值；簽署區對齊範本",
-          "body": "和 LDT 報告範本一致（使用者 2026-10-16 定案），不再預設遮罩。醫院要求隱碼顯示時\n把該院 Tenant.MaskReportIdentifiers 設 true 就切回遮罩，程式不用改；結果清單（P2）\n的母親姓名不受影響，一律遮罩。\n\n- ScreeningCase 加 MedicalRecordNoCipher（病歷號之前只存遮罩值，沒原值可顯示）\n- ReportPaper.Reveal：家長端 P3 與醫師端預覽共用同一套解密／遮罩規則；\n  個別欄位解不開（舊資料沒密文、金鑰對不上）退回遮罩值\n- FieldProtector.TryUnprotect 取代 Pending 頁自己的 Reveal；醫師端案件資料的病歷號也解開\n- 基本資料的日期照範本寫成 yyyy/MM/dd；完成時間維持範本的 yyyy-MM-dd HH:mm:ss\n- 簽署區改三欄格線：「報告簽署醫師」落在紙面中線（同範本），簽名與簽署日期靠在它右邊，\n  不再把標籤推離中線；手機版兩欄\n- migration ReportUnmask ＋ deploy/sql/07-report-unmask.sql；deployment.md 加 9c\n- report-template.md：遮罩那題改成已定案、告知醫院；補「標籤用詞與範本不同處」\n  （嬰兒性別、（母親）、採檢日期）也一併告知\n- 測試：ReportPaperTests（預設完整、租戶切回遮罩、解不開退回遮罩）；整站測試改驗完整值\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "86933d40",
-          "date": "2026-10-16",
-          "message": "README 工程待辦補：母親證號來源、同步對應（預設送檢醫師、(A)(B) 胎序）、醫師端頁尾電話、頁籤切換寶寶；deployment DNS 已生效",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "414d704f",
-          "date": "2026-10-16",
-          "message": "docs/questions-vghtpe.md：待北榮確認事項（小卡、模擬流程、送檢流程與母親證號）與 LIS 欄位現況",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "9eb3f94a",
-          "date": "2026-10-16",
-          "message": "report-template.md 要問醫院的事第 3 題：併入「線上版遮罩證號與病歷號」",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2d0e9ce0",
-          "date": "2026-10-16",
-          "message": "報告紙面改標楷體並照範本 PDF 尺寸對齊；拿掉代檢單位行",
-          "body": "- 字型照範本：標楷體（DFKai-SB），數字／英文 Arial（表格資料值 Arial 粗體）\n- 字級、行高（1.28）、邊界（38/77/87px）、表格列高與欄寬、編號縮排、簽署欄與頁尾位置由範本 PDF 換算\n- 代檢單位／醫檢師照範本不顯示（待醫院回答再決定，report-template.md 第五節第 3 題）；簽名下只留簽署日期\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "8072ce13",
-          "date": "2026-10-16",
-          "message": "README 待辦補工程項目：LIS 同步、lis-sync-api 合併前要改的、醫師端未做頁面、部署",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "12e5899b",
-          "date": "2026-10-16",
-          "message": "report-template 要問醫院的事：補「線上報告可否蓋醫師簽名圖」",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ee02f845",
-          "date": "2026-10-16",
-          "message": "報告紙面照北榮範本（附件4）重排；簽署欄只蓋簽署者簽名",
-          "body": "- 置中明體抬頭、深藍段落標題、粗外框表格＋欄名分散對齊＋藍字資料值、結果表置中、完成時間靠右\n- 結果解釋／檢測限制改阿拉伯數字懸掛縮排；報告簽署醫師置中；頁尾貼 A4 底部並加「第1頁，共1頁」\n- 「非正式報告」警語移到紙面外；範本沒有的簽署日期、代檢單位縮成一行小字\n- 紙面固定白底黑字；手機版表格改兩欄一列\n- 簽署欄不再印醫院＋姓名，有簽名檔只蓋簽名，沒有才印「○○○ 醫師（電子簽署）」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0162f571",
-          "date": "2026-10-16",
-          "message": "合併 MR !24: 醫師簽名檔＋家長端報告頁紙本樣式（浮水印、不給列印）",
-          "body": "醫師簽名檔＋家長端報告頁紙本樣式（浮水印、不給列印）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!24",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "76a26e85",
-          "date": "2026-10-16",
-          "message": "模擬模式點情境直接顯示查詢結果，不必回表單打驗證碼",
-          "body": "- 新增 /{tenant}/query?handler=Demo&s=n：以情境的證號與生日直接查詢，只在模擬模式存在，正式模式 404\n- 右上角情境清單改連這個捷徑（任何頁都能直接切換），移除 #fill 填表 JS\n- 測試：捷徑出結果、他院情境與超出範圍 404、正式模式 404\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "fc875139",
-          "date": "2026-10-16",
-          "message": "陽性一律不線上公開，家長端引導聯絡醫院；驗證碼打錯不再清掉證號",
-          "body": "- 2026-10-16 定案：陽性簽署後家長端只顯示「請與送檢醫院聯絡」＋電話；醫師端拿掉「是否線上公開」必選，改成提示安排告知家長\n- ParentQueryService.MapState 陽性一律 ContactHospital（舊資料標 PublishOnline 也一樣）；SignAsync 拿掉 publishOnline 參數\n- 模擬情境拿掉「陽性：醫師選擇公開」\n- 查詢頁驗證碼錯誤重新顯示時保留母親證號（密碼型欄位預設不回填）\n- page-flows、report-template、README 同步\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "74d90b7a",
-          "date": "2026-10-16",
-          "message": "report-template.md 要問醫院的事：補「陽性要不要上線（只開放陰性？）」",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "fecb4149",
-          "date": "2026-10-16",
-          "message": "左上角一律回該院首頁：醫師登入頁回家長查詢首頁、無醫院頁面回網站首頁",
-          "body": "- 醫師端沒登入時原本連 /{tenant}/admin，會被轉回登入頁，看起來像點了沒反應\n- / 與 /admin/login 的左上角原本不是連結，改連回 /\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "67ebfd64",
-          "date": "2026-10-16",
-          "message": "醫師簽名檔＋家長端報告頁紙本樣式",
-          "body": "- 我的簽名 /{tenant}/admin/signature：醫師本人上傳／更換／移除；伺服器去白底、裁切、縮到 120px 高\n  （SkiaSharp，手機拍照的灰紙也能去掉）；舊版保留，簽署時記下當下版本（ScreeningCase／SignatureEvent.SignatureImageId），\n  之後換簽名不影響已發布的報告。\n- 報告本體（_ReportPaper）：桌機 A4 一張紙；簽名圖以 data URI 內嵌（沒有獨立網址）；\n  沒簽名時印「姓名（電子簽署）」；整頁斜浮水印。家長端浮水印帶查詢時間，列印只印「紙本報告請洽送檢醫院」。\n- 待簽署頁預覽帶入自己的簽名；還沒上傳時在按鈕列上方提示。\n- 模擬模式：北榮展示醫師林志明用 DemoAssets/demo-sign.png（內嵌資源），陽明附醫刻意不給，展示兩種版面。\n- migration SignatureImage、deploy/sql/06-signature-image.sql。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d540f303",
-          "date": "2026-10-16",
-          "message": "查詢頁在一般桌機一屏放得下；驗證碼輸入自動轉大寫",
-          "body": "- 寬螢幕（≥640px）驗證碼輸入框放在圖片旁、頁尾收成兩行；頁面上下留白與欄位間距略縮\n- 1903×916 從 940px 降到 839px，不再出現捲軸；手機排法不變\n- 驗證碼比對本來就不分大小寫，輸入時轉大寫只是讓畫面與圖一致\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e35f254b",
-          "date": "2026-10-16",
-          "message": "北榮電話改用報告範本（附件4）頁尾的 02-2871-2121 #4074：展示資料與小卡",
-          "body": "小卡仍標黃底待確認（報告上的分機是否就是給家長的窗口，要問醫院）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7ed718bd",
-          "date": "2026-10-16",
-          "message": "修手機上「往下滑卻沒東西」：高度改 100dvh、拿掉頁尾空白；模擬模式按鈕移到頁首右上角",
-          "body": "- body min-height 補 100dvh（手機 100vh 含網址列，內容放得下也會多一截可滑空白）\n- 移除為浮動按鈕留的 64px 頁尾空白\n- 家長端模擬模式按鈕改在頁首右上角（absolute，跟頁面捲動、往下展開）；醫師端頁首右邊有登出，改固定左下角\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "24de277f",
-          "date": "2026-10-16",
-          "message": "醫院入口 /{tenant} 直接是查詢表單；證號顯示切換改用眼睛圖示",
-          "body": "- /{tenant} 與 /{tenant}/query 同一頁（Portal/Index 移除），QR code 掃進來就能輸入\n- 原入口頁的說明與查詢期間濃縮成表單上方兩行\n- 證號欄「顯示」文字鈕改成輸入框內的眼睛圖示：遮住時閉眼、顯示時張眼，aria-label 跟著切換\n- 測試斷言改比對標題，避免說明文字裡的「查詢結果」誤判\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "38ac541a",
-          "date": "2026-10-16",
-          "message": "合併 MR !19: 報告頁標示姓名、證號的主體（KJ 建議）",
-          "body": "報告頁標示姓名、證號的主體（KJ 建議）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!19",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "659b797a",
-          "date": "2026-10-16",
-          "message": "報告頁標示姓名、證號的主體：嬰兒性別、身分證字號（母親）；記下 KJ 對醫院 LDT 報告範本的建議",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "5144c79f",
-          "date": "2026-10-16",
-          "message": "模擬模式改成右下角浮動面板，不佔主要版面",
-          "body": "- 頁首橫幅、查詢頁下方情境清單、首頁選醫院區塊都收進右下角「模擬模式」按鈕（<details>，無 JS 也能開）\n- 查詢頁點情境直接填表並收起；其他頁點情境跳到查詢頁，以 #fill= 帶入（hash 不送 server）\n- 頁尾留出按鈕位置，不蓋住「醫療院所登入」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e38fa1c7",
-          "date": "2026-10-16",
-          "message": "合併 MR !15: 醫師簽署定案：網頁按簽署（不做 HCA）、不做批次、報告頁紙本樣子＋簽名檔",
-          "body": "醫師簽署定案：網頁按簽署（不做 HCA）、不做批次、報告頁紙本樣子＋簽名檔\n\nSee merge request ucl/onlinereport/cmv-parent-portal!15",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "2acbd5e6",
-          "date": "2026-10-16",
-          "message": "家長端狀態用字改「檢驗完成，待醫師確認簽發報告」（KJ 建議）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7963c6de",
-          "date": "2026-10-16",
-          "message": "醫師端：登入＋待簽署頁（簽署／暫不簽署／取消）",
-          "body": "A0 帳密登入（cookie、帳號連錯 5 次鎖 15 分鐘、只能在所屬醫院網址登入）；\nA1＋A2 合併成一頁 /{tenant}/admin：左邊待簽署清單（陽性優先、預設打開第一筆），\n右邊案件資料（不遮罩）、處理歷程、簽署後家長看到的報告預覽（與 P3 共用 _ReportPaper）；\n底部 簽署（綠）／暫不簽署（紅，備註必填、常用備註一鍵帶入）／取消（灰，回清單）。\n陽性必選線上公開與否；處理完自動打開下一筆；不做批次簽署。\n\nCaseSigningService：同院 owner／user 都能簽、ucl-admin 不能；ScreeningCase.Status 設為\n並行權杖，兩位醫師同時處理同一筆時後到者得到「已被處理」。SignatureEvent 加來源 IP 與\n結果摘要（migration SigningAudit、deploy/sql/05-signing-audit.sql）。\nDevSeeder 加展示用醫師帳號與待簽署案件；模擬模式首頁與登入頁列出帳號。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "14cfb5ed",
-          "date": "2026-10-16",
-          "message": "合併 MR !16: 模擬模式預設開啟＋頁尾「醫療院所登入」連結",
-          "body": "模擬模式預設開啟＋頁尾「醫療院所登入」連結\n\nSee merge request ucl/onlinereport/cmv-parent-portal!16",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "08e89d79",
-          "date": "2026-10-16",
-          "message": "家長端頁尾加「醫療院所登入」連結，先接到建置中說明頁（/admin/login、/{tenant}/admin/login）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cd1a5b09",
-          "date": "2026-10-16",
-          "message": "模擬模式改為預設開啟；/healthz 標出 ok (demo)，連線字串已填卻沒關時 log 警告",
-          "body": "- appsettings.json Portal:Demo:Enabled 預設 true，本機不需 LocalDB 就能跑\n- 接正式資料庫前必須在 server 設定檔明確設 false（刪掉該行＝回到預設的開），上線清單 3a 同步改寫\n- PortalWebTests 明確關模擬模式，繼續驗正式模式\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b50c07cb",
-          "date": "2026-10-16",
-          "message": "家長端報告頁做成紙本樣子＋醫師簽名檔，不給 PDF 檔",
-          "body": "瀏覽器裡的 PDF 擋不住下載，改把 P3 排成 A4 紙本版面：簽名圖內嵌、\n整頁浮水印、列印隱藏、手機單欄。A0 加醫師上傳簽名檔，簽署記下當下版本。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "50666653",
-          "date": "2026-10-16",
-          "message": "醫師端不做批次簽署：月約十多筆，一筆一筆簽",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0b37a929",
-          "date": "2026-10-16",
-          "message": "醫師簽署定案：網頁按「簽署」，不做 HCA 數位簽章（HCA 另當支線）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "9a17c96d",
-          "date": "2026-10-16",
-          "message": "LIS 同步接收 API：POST /api/lis/cases（給 Chronos CmvSyncTask）",
-          "body": "- LisSyncService：以 TNO 冪等 upsert；簽收→檢驗中、放行→待簽署、\n  已簽署後值變或退回簽收→清簽署並標已更正、作廢→已作廢\n- 證號／姓名明文只在這裡轉雜湊、密文、遮罩；姓名去掉「之子／之女」\n- 證號接受身分證、居留證、護照（外籍家長）\n- 只收白名單 IP＋X-Api-Key；模擬模式一律拒收\n- 測試：同步規則 12 個、端點 2 個\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "519afa64",
-          "date": "2026-10-16",
-          "message": "architecture-draft：同步改隨 Chronos 10-20 發佈一起上",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "797b1644",
-          "date": "2026-10-16",
-          "message": "deployment.md 加「外網通了之後」待辦：小卡與模擬模式先給同仁、合作醫師看",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "3bffaae0",
-          "date": "2026-10-16",
-          "message": "architecture-draft：LIS 同步定案做成 Chronos TASK 型工作",
-          "body": "- 同步由 Chronos（台北 56.231）的 CmvSyncTask 負責，單位清單放工作 PARAMS\n- 範圍含簽收未審核、放行、更正、作廢\n- 走平台 API，雜湊／加密／遮罩在平台做；金鑰不放 PARAMS\n- 不放 Data2Cloud；排在 Chronos 台北 10-20 上線穩定後\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "21906755",
-          "date": "2026-10-16",
-          "message": "家長端報告頁改依北榮報告範本（附件4）",
-          "body": "- 報告頁照附件4的順序與用詞：基本資料（姓名＝父或母姓名之子／之女、送檢醫師）、\n  篩檢結果（唾液巨細胞病毒量＋完成時間）、結果解釋、檢測限制及其它注意事項、\n  報告簽署醫師、頁尾地址與範本版次；線上版保留「非正式報告」警語與遮罩\n- 結果解釋、檢測限制改為醫院範本層級文字，放在 Tenant（ReportTitle、\n  ReportResultLabel、ReportInterpretation、ReportLimitations、ReportTemplateVersion、\n  Address）；移除 ScreeningResult 的 DetectionLimitNote、MethodLimitation\n- migration ReportTemplate，156.224 用 deploy/sql/04-report-template.sql 套用\n- 代檢單位與醫檢師暫時保留（特管辦法 §39 核發報告人員），待醫院確認\n- docs/report-template.md：附件4對照、欄位來源、要問醫院的事\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b02772ed",
-          "date": "2026-10-16",
-          "message": "家長端模擬模式（Portal:Demo:Enabled）：不連資料庫，給同仁與醫院走一遍查詢流程",
-          "body": "- 開啟後資料庫改用記憶體、啟動時寫入 DevSeeder 虛構案件；不需要連線字串與 HMAC 金鑰\n- 頁首橫幅「模擬模式」；查詢頁下方列出各院情境，按「帶入」填好證號與出生日期\n- 首頁列出醫院入口；情境清單在 DemoScenarios.cs，測試核對與假資料一致\n- deployment.md 上線檢查清單加「模擬模式關閉」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "90fabb44",
-          "date": "2026-10-16",
-          "message": "deployment.md 加「正式上線前檢查清單」：預覽頁關閉、DB 連線字串、備份、憑證續約時點等集中一處",
-          "body": "萬用憑證 2026-12-25 到期，同仁說到期前一個月才能處理續約。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e20689c0",
-          "date": "2026-10-16",
-          "message": "docs：醫師帳號範圍定案（不自行註冊、跨院不互通），依單位限定審核列入未來方向",
-          "body": "- architecture-draft：新增「醫師帳號範圍」與「未來方向」兩節\n- page-flows A6：註明第一版沒有可審核單位欄位\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e1a26289",
-          "date": "2026-10-16",
-          "message": "deploy README：記錄 156.224 已建好 CmvPortal 資料庫與帳號、帳密已進大章魚",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "5aa95429",
-          "date": "2026-10-16",
-          "message": "156.224 站台建好（IIS＋設定檔），預覽頁可用；deployment.md 改成進度表，DNS／nginx／DB 待辦",
-          "body": "iis-setup.cmd 改純 ASCII＋CRLF：cmd.exe 用系統碼頁讀批次檔，Big5／LF 版會解析錯亂。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cc713388",
-          "date": "2026-10-16",
-          "message": "deploy README：補 SSMS（SQLCMD 模式）一次執行法、只留本機備份與 -E 限制說明",
-          "body": "上一個 commit 只改到 XML，README 這三段當時沒寫進去，這裡補上。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "06eaf102",
-          "date": "2026-10-16",
-          "message": "備份第一版只留 156.224 本機；註明遠端 Windows 驗證不可行",
-          "body": "- 兩個排程 XML 拿掉 RemoteDir 參數，README 說明之後怎麼補遠端\n- 從 ucl 網域電腦用 -E 連 156.224 SQL 會被拒（工作群組不信任網域），\n  只能在 156.224 本機用 -E 或用 sa\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0e0a637b",
-          "date": "2026-10-16",
-          "message": "iis-setup.cmd：註解裡的 UNC 路徑補回 \\",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "4573a6d3",
-          "date": "2026-10-16",
-          "message": "deploy.ps1／iis-setup.cmd：UNC 路徑補回開頭的 \\",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f3494168",
-          "date": "2026-10-16",
-          "message": "156.224 SQLEXPRESS 建置腳本與備份排程",
-          "body": "156.224 已有 SQL Server 2022 Express（SQLEXPRESS，與官網共用），本次只準備 CmvPortal 自己的部分，尚未執行：\n- deploy/sql/01-create-database.sql：建 CmvPortal（FULL 復原模式）、cmv_portal_app 登入\n  （只有 db_datareader／db_datawriter）、SYSTEM 的 db_backupoperator；可重複執行，密碼由執行者當場給\n- deploy/sql/02-schema.sql：EF migration 產生的冪等 schema 腳本\n- deploy/sql/03-verify.sql：唯讀檢查\n- deploy/backup/：cmv-backup.ps1（完整／log 備份、RESTORE VERIFYONLY、複製到遠端、\n  完整備份時一併帶 Data Protection 金鑰）＋兩個工作排程 XML（每天 02:30、每小時 :15）\n- deploy/README.md 步驟；docs/deployment.md 資料庫段落更新\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cbd12b7a",
-          "date": "2026-10-16",
-          "message": ".cmd 以 Big5 存在工作目錄（cmd.exe 用系統碼頁讀批次檔），repo 內仍是 UTF-8",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "9684a203",
-          "date": "2026-10-16",
-          "message": "tools/iis-setup.cmd：156.224 IIS 首次建置（集區＋站台＋權限），RDP 或 sc.exe 一次性服務皆可",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "839662f8",
-          "date": "2026-10-16",
-          "message": "deploy.ps1：測試 → publish → SMB 推 156.224（app_offline.htm 換檔）",
-          "body": "照 ucl-admin deploy.ps1 的做法；不推 appsettings.Production.json 與 Development 設定，\n維護頁改成家長看得懂的文字，推完印出 DNS 設好前用 --resolve 驗證的指令。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "56643cb7",
-          "date": "2026-10-16",
-          "message": "定案：醫師端權限綁送檢醫院，不鎖送檢醫師",
-          "body": "- 同院任何醫師帳號都能看、都能簽該院案件；送檢醫師只做顯示與「只看我送檢的」篩選\n- 簽署人一律記目前登入者，不能代簽；與送檢醫師不同時預覽兩者都顯示\n- 拿掉「租戶簽署醫師清單」設定（不再需要）\n- 順修 architecture-draft：角色欄「退回」改「暫不簽署」、\n  稽核與租戶設定兩列歸回 ② 的表格\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e4bef7b9",
-          "date": "2026-10-16",
-          "message": "家長端新增「報告完成，待醫師確認」狀態",
-          "body": "KJ 提問（LIS 簽收後能否顯示檢驗中、待簽署能否讓家長看）後定案：\n- LIS 簽收 → 「檢驗中」（原本就有）\n- 待簽署、暫不簽署 → 「報告完成，待醫師確認」，兩者必須同一個字，\n  否則陽性被保留時家長會從狀態猜到結果；不給檢驗值\n- 檢驗值仍只在醫師簽署後公開（特管辦法 §40、陽性先聯絡、LIS 可能更正）\n- page-flows、flow-overview、README 狀態對照同步；測試 57 個全過\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "28fc3346",
-          "date": "2026-10-16",
-          "message": "合併 MR !5: 小卡掛到網站 /preview/parent-card（依賴 !4）",
-          "body": "小卡掛到網站 /preview/parent-card（依賴 !4）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!5",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "eb31e211",
-          "date": "2026-10-16",
-          "message": "小卡掛到網站 /preview/parent-card，上線前方便大家對內容",
-          "body": "- 小卡拆成 html／css／js 三檔：站台 CSP 不允許 inline script/style\n- 檔案從 docs/parent-card 連結發佈到 preview\\，不複製兩份\n- Portal:Preview:Enabled 控制開關（預設開，正式上線前關）；回應帶 X-Robots-Tag noindex\n- /preview/parent-card 轉址到小卡頁；gen_qr.py 不發佈\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2a3e53b7",
-          "date": "2026-10-16",
-          "message": "骨架＋資料模型＋家長端 P0–P3 雛形（假資料）",
-          "body": "- ASP.NET Core 10 Razor Pages＋EF Core 10＋SQL Server；方案 CmvPortal.slnx\n- Core：六張表（Tenant／PortalUser／ScreeningCase／ScreeningResult／\n  SignatureEvent／ParentAccessLog）與初始 migration\n- 個資：母親證號只存 HMAC（查詢）、Data Protection 密文（醫師端）與遮罩值；\n  查詢紀錄只存雜湊前 8 碼；正式機金鑰只放 appsettings.Production.json\n- 家長查詢：證號檢查碼檢核（身分證／新舊居留證）、SkiaSharp 圖形驗證碼、\n  查無資料 5 次鎖 15 分鐘（IP 與證號雜湊各自計數）、報告 10 分鐘短效 token、\n  三態（檢驗中／查看報告／請與送檢醫院聯絡）、跨院隔離\n- 報告頁照 2026-10-15 會議版型：代檢單位、檢測限制、醫檢師、報告簽署醫師；\n  手機版結果表改堆疊\n- 安全標頭（CSP 不允許 inline script、no-referrer、no-store）、全站限流、\n  nginx 轉送標頭只信任設定的 proxy\n- 對外文字不寫「○○醫院委託」（目前對口是醫師，委託關係未經醫院確認）\n- 開發環境自動 migrate＋寫入虛構展示資料；README 列展示用輸入\n- 測試 53 個：證號、遮罩、查詢流程（SQLite in-memory＋假時鐘）、\n  WebApplicationFactory 整站流程（表單→驗證碼→查詢→報告）\n- 釘 System.Security.Cryptography.Pkcs 10.0.13、SQLitePCLRaw.lib.e_sqlite3\n  2.1.14，蓋掉遞移相依的已知弱點\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "3e5c59ee",
-          "date": "2026-10-16",
-          "message": "小卡拿掉「本查詢系統由○○醫院委託…」：對口目前是醫師，不能代表醫院",
-          "body": "page-flows P0 頁尾同句改為簽約後才放；README 待辦補確認簽約對象是醫院本身。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "3ee1c53d",
-          "date": "2026-10-16",
-          "message": "家長小卡：各院一版，含 cmv.ucl.com.tw QR code，A4 一頁 10 張",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "62ef9c85",
-          "date": "2026-10-16",
-          "message": "通知分層定案（Email 主、Web Push 加值、站內 badge）＋帳號通知偏好",
-          "body": "- architecture-draft：通知三層與收件規則、移植 lisweb Web Push 的三項修改、\n  VAPID 私鑰只放 server；User 加 NotifyEmailDigest／NotifyEmailUrgent／NotifyPush\n- page-flows：首次登入頁含通知偏好勾選、A6 建帳號設初始值並顯示訂閱狀態、\n  A1 帳號選單加通知設定；通知表改引用 NotificationPlatform API\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "826b4dff",
-          "date": "2026-10-16",
-          "message": "第一版拿掉系統內退回，疑義走電話；端到端圖另出 PNG／SVG",
-          "body": "- 醫師端動作只剩「簽署」「暫不簽署（備註）」；移除退回／待重驗狀態，\n  檢體疑義由醫師電話聯絡 UCL，LIS 更正後以「已更正」重新同步\n- page-flows.md、architecture-draft.md、flow-overview.html 三處同步\n- docs/flow-end-to-end.svg（顏色已展開，無 CSS 變數，可貼簡報）、\n  flow-end-to-end.png（2x）；畫布加寬到 1130 避免右緣直排字貼邊\n- README 索引更新\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "1903d875",
-          "date": "2026-10-16",
-          "message": "端到端流程圖獨立成 docs/flow-end-to-end.html，並修標籤重疊",
-          "body": "- 新增 flow-end-to-end.html：只含圖一泳道圖、圖例、三條法規註記\n- 兩份圖都修：退回標籤與通知醫師文字不再重疊、右側直排字縮短\n- README 索引加入\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1f83161f",
-          "date": "2026-10-16",
-          "message": "P4 PDF 改為規劃中、第一版不做",
-          "body": "- page-flows.md：P4 列三個候選呈現方式與取捨，P3 頁尾改「需要紙本報告請洽送檢醫院」\n- flow-overview.html：P4 改虛框標「規劃中，第一版不做」\n- architecture-draft.md：下載列同步更新\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "32d3e377",
-          "date": "2026-10-16",
-          "message": "頁面流程、部署文件與成員用流程示意圖",
-          "body": "- docs/page-flows.md：家長端 P0–P4、醫師端 A0–A7 每頁欄位／狀態／錯誤情境、\n  案件狀態機、通知\n- docs/deployment.md：156.224＋cmv.ucl.com.tw，照 ucl-admin deploy.ps1\n  （dotnet publish → app_offline.htm → SMB 推檔）的發佈程序與首次建置步驟\n- docs/flow-overview.html：本機可開的一頁流程示意（端到端泳道、家長端、\n  醫師端、狀態機、分工表），inline SVG、支援深色\n- README 文件索引更新\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "98fa6b96",
-          "date": "2026-10-16",
-          "message": "加入 2026-10-15 會議摘要與三模組架構草案",
-          "body": "- docs/meeting-2026-10-15.md：四家篩檢中心查詢頁比較、新報告版型草稿、\n  篩檢量、手寫備註（主機 156.224、網域 cmv.ucl.com.tw、陽明附醫）\n- docs/architecture-draft.md：家長查詢報告／醫師審核介面／檢驗值同步\n  的粗規劃、資料模型、法規對照、待定事項\n- README：另一家醫院＝陽明附醫、文件索引、待辦更新\n- 掃描原件含個案資料，改放 gitignored 的 local/，不進 git\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f6b72454",
-          "date": "2026-10-16",
-          "message": "初始文件：CMV 口水 LDT 家長查報告平台的法規研究、設計建議與 PMF 參考資料",
-          "body": "- README：專案定位、三個已拍板前提、三條關鍵法律結論、待辦\n- docs/legal-research.md：PMF 參考站實查、特管辦法 LDT 規範、報告交付與\n  「檢驗所不能發報告」的查證、個資與資安、風險清單、網站設計建議\n- docs/sources.md：來源索引與「未查到」清單\n- docs/reference/pmf/：PMF 公開文件本機副本（操作手冊、同意書、檢驗單、\n  不通過衛教單、家長查詢頁截圖）＋ SOURCE.md\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
       "name": "Cerberus",
-      "totalCommits": 67,
+      "totalCommits": 69,
       "commits": [
         {
           "hash": "1f4dc257",
@@ -24277,13 +24493,29 @@
           "body": "一個月約十次告警是「中斷約 2 分」——只失敗一輪、下一輪自己好，全是\nORA-50000 timed out／SQL-53/64 這類連線錯誤（台北、高雄、台中、嘉義都有）。\n2026-10-09 16:42 台中 Oracle 連線逾時 15 秒那次就是這型，同一秒台中\nSQL Server 照樣查得到。\n\n- DbProbe.WithTransientRetry：只認連線類錯誤碼，清連線池、等 5 秒重試一次，\n  第二次也失敗才往上丟當失去心跳；表不存在／帳密錯不重試\n- 一輪最多重試 3 次：多顆頭同時連不上＝真出事，不該每顆都拖時間\n- 重試成功寫 Warn 留痕，同一站常抖就是該補的洞\n- 真故障仍在同一輪告警，不像「連兩輪才叫」會晚 2 分鐘\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "b9de0d95",
+          "date": "2026-10-17",
+          "message": "feat(LogFreshness): 支援共用帳密（ShareUserEnc／SharePasswordEnc）與讀取逾時；新增 Chronos@台北、Chronos@台中 兩顆執行器心跳頭",
+          "body": "- LogFreshness 原本只能用跑 Cerberus 的身分讀 log，SYSTEM 對外是機器帳號，跨站 d$ 讀不到。\n  比照 FolderBacklog：帳密有設就先 WNetAddConnection2 再讀；整段讀取包在 ScanTimeoutSeconds 逾時裡，\n  對方主機無回應不會卡住整輪。沒設帳密的既有頭行為不變（只多了逾時）\n- Chronos 執行器（ucl/lis/schedule/chronos）心跳 |INFO|tick ok，log 10-17 起按日滾檔 chronos-*.log；\n  台北可撲咬（本機 \\Chronos\\Runner，Parallel 排程多叫一輪無害），台中跨站帶 administrator 密文、不撲咬\n- 本機以 harness 載入真實 appsettings 只跑 LogFreshness.Check 驗過：19 顆頭解析 OK、既有兩顆照常綠、\n  兩顆 Chronos 頭對舊檔名 chronos.log 判綠；目錄不存在／主機無回應（5 秒逾時）／密文壞掉都轉紅\n- 兩顆 Chronos 頭要等 10-20 兩站換上滾檔版執行器才會綠（現在站上還是單一 chronos.log）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d6be27ec",
+          "date": "2026-10-17",
+          "message": "config: 登記血型同步、NHI 自費上傳兩顆 ScheduledRun 頭（先 Enabled: false）",
+          "body": "兩支夜間批次改成只在失敗時寄信，平常靠這兩顆頭判斷「今天跑了沒、結果如何」。\n心跳讀程式自己寫的 logs\\run-history.log（成功 \"OK(\"、失敗 \"FAIL(\"）。\n新版程式 10-17 才部署，隔天凌晨第一次執行後才有檔案，先灰磚，見到當天那行再翻 true。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "Management\\AuditIntegration",
-      "totalCommits": 63,
+      "totalCommits": 64,
       "commits": [
         {
           "hash": "a46fcee3",
@@ -24788,6 +25020,636 @@
           "body": "- 桃園 LISWeb 軟體確效報告（2026/05/22）原夾在安裝服務驗證單第 7～13 頁，抽出成單檔放 被稽核/\n- LIS 生產後監督：累積表 2026 欄已填，非缺漏\n- 文管系統 V2.0 確效未簽、兩份開發計畫書草稿在 ArchivePDF、桃園 LIS 2021 計劃書不需歸檔\n- 程序修訂已發行、賴主任清單已交付；郁詩 2026 查檢表的調整建議記入 TODO\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "49c48928",
+          "date": "2026-10-17",
+          "message": "App 文件：Data2Cloud 改每日四次、Google Play 正式版打合格",
+          "body": "- 開發計畫書：Data2Cloud 寫入頻率改為每日四次（01:00 整合、15/18/21 當日增量，10/14 起）\n- 軟體確效報告：上架 2 拿掉送審日期、打合格；結論同步修改\n- TODO：推播端到端下週找琦如測試後再勾\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "totalCommits": 39,
+      "commits": [
+        {
+          "hash": "6441418f",
+          "date": "2026-10-09",
+          "message": "docs: 第一支工作改每 20 分鐘",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c0e10ff4",
+          "date": "2026-10-09",
+          "message": "docs: BaseUrl 一律 localhost（站台 NAT IP 自連不通）；第一支工作已啟用、首次排程觸發整鏈驗證",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "86f35d48",
+          "date": "2026-10-09",
+          "message": "feat(runner): 已部署台中 33.229；設定階段失敗也寫 log；task XML 進版控（Repetition 必帶 Duration）；docs 補雙網段 DB 主機與 33.229 實機排程資料夾",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c8d33bf7",
+          "date": "2026-10-09",
+          "message": "fix(runner): Oracle 11g 改用 ODP.NET Core 3.21.x（23.x ORA-28040）；docs: 部署指南、執行計畫改為「GUI 在 lisweb／執行器在 Chronos」、README 狀態與待決更新",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "7f2bd58d",
+          "date": "2026-10-09",
+          "message": "feat(runner): Chronos 執行器第一版（HTTP 型）",
+          "body": "- 每分鐘跑一輪（工作排程器叫起；loop 模式可常駐）：讀 SCHEDULE_JOB 啟用中的工作，NCrontab 算到期\n- NO_OVERLAP 用 RUNNING_SINCE 鎖，殭屍鎖（超過兩倍逾時）自動釋放\n- HTTP 型：帶 X-Schedule-Key 打 TARGET（相對路徑補 BaseUrl）＋ PARAMS 當 body，逾時/重試（5xx 或連不上才重試）\n- 結果寫 SCHEDULE_JOB_LOG、更新 LAST_*／NEXT_RUN_AT；logs/chronos.log 每輪一行心跳給 Cerberus LogFreshness\n- 連線字串 DES 密文（同 LISWeb Cipher），金鑰檔 schedule-api.key 不進 git\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "433ff249",
+          "date": "2026-10-09",
+          "message": "Revert \"docs: 階段一不做人工頁面，只留排程端點（使用者 2026-10-09 決定）\"",
+          "body": "This reverts commit 00ab1c734900b4a452cda93ff09123fbe269a2b1.",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "00ab1c73",
+          "date": "2026-10-09",
+          "message": "docs: 階段一不做人工頁面，只留排程端點（使用者 2026-10-09 決定）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e16a1c68",
+          "date": "2026-10-09",
+          "message": "docs: 階段一實作紀錄（lisweb MR、台中實證數據、每小時可接住約 95%）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "71db9529",
+          "date": "2026-10-09",
+          "message": "docs: 執行計畫（階段一台中延誤註解、階段二搬家）＋ 端點驗證定案；scripts: 階段一過渡用工作排程器腳本",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "fc511768",
+          "date": "2026-10-09",
+          "message": "docs: Chronos 統一排程框架 — 設計說明 + 全公司排程盤點總表（第一版）",
+          "body": "- README：問題、設計原則（觸發與邏輯分離、一站一套、常駐程序只登記、看門狗獨立）、\n  註冊表欄位、執行器、維護頁、借 Cerberus 告警、分批順序、不做的事、待決事項\n- docs/排程盤點總表：56.231 實機 77 支（讀 Tasks XML）、其他台北主機、六分部、\n  PHP 體系（168.2 crontab / 168.227 HCLAB2）、疑似退役、共同問題、待實機確認清單\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "565fb769",
+          "date": "2026-10-12",
+          "message": "docs: ORA-01745 修正 MR !1573 已 merge，待打 tag 上台中",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3fe288c6",
+          "date": "2026-10-12",
+          "message": "docs: 10-12 決策：台中先跑一週、台北不動；觀察週三件事（bind-user MR、Cerberus 跨站讀檔加頭、一週後驗收）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c15c727b",
+          "date": "2026-10-12",
+          "message": "docs: 10-12 台中上版，排程轉 OK；維護頁儲存 ORA-01745 修正中",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b44115b8",
+          "date": "2026-10-13",
+          "message": "fix(task): 補加訊息正確標示已審核/已列印；docs: skipPrinted 台中關閉、:comment 保留字教訓、lisweb 回退路徑同病不修",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e8bcb6d4",
+          "date": "2026-10-13",
+          "message": "fix(task): EVENTLOG 綁定變數 :comment 是 Oracle 保留字（ORA-01745），改 :evUser/:evText",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "c82fa1e9",
+          "date": "2026-10-13",
+          "message": "docs: README 狀態與執行方式補正",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f0c855b4",
+          "date": "2026-10-13",
+          "message": "feat(runner): 商業邏輯搬進 Chronos——TASK 型內建工作＋維護頁執行請求",
+          "body": "- Tasks/：IChronosTask、TaskRegistry、PARAMS 取值；DelayCommentBackfillTask 自 lisweb 端點搬來，\n  新增 includeCompleted（已審核也補，加註不碰審核狀態）與 skipPrinted（OH_LAST_PRINT 有值不補）\n- 執行器：TASK 型在新連線上跑、逾時取消、例外才重試；每輪先處理 RUN_REQUEST（DRYRUN/RUN），\n  搶請求防重複、試跑不動 LAST_*；HTTP 型金鑰改為選配\n- CLI：run CODE [--apply] [--params json] [--task]，本機對站台 DB 試跑核對用\n- sql/002：JOB_TYPE 允許 TASK、加 RUN_REQUEST 三欄（台中已跑）\n- 台中 10-13 09:00 起由內建工作執行，09:02 試跑請求實測通過；文件更新\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c7570797",
+          "date": "2026-10-13",
+          "message": "docs: 規劃階段一點五——工作邏輯移出 lisweb 改 PL/SQL（SQL 型），含台中「已審核未列印也補」規格；不採用 .231 備用站折衷",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "81d7ecd4",
+          "date": "2026-10-14",
+          "message": "docs: 上線切換表——八支逐支切換時點（10-20 下午六支、10-21 驗夜間後切兩支高頻），各支依舊排程實際時點排在兩次執行之間；NHI 已證實只有 56.231 觸發",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8623f90f",
+          "date": "2026-10-14",
+          "message": "sql/005 台北檢驗雲兩筆併一筆 Data2Cloud（--scheduled，已套用）；003 同步改八支；docs 更新",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "90e6ea67",
+          "date": "2026-10-14",
+          "message": "docs: 台北 56.231 新機制 10-14 08:46 整套裝好（停用）；scripts: run-oracle-script.ps1（ODP.NET 跑 sql/ 腳本，sqlplus 會卡死）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "90418202",
+          "date": "2026-10-14",
+          "message": "docs/sql: 台北上線前準備包——001 建表（各站通用，無台中列）、004 選單與金鑰（各站通用，DEFINE 代入）、部署指南加台北七步",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8bec31ed",
+          "date": "2026-10-14",
+          "message": "docs: 本週只做準備不動正式機；10-20 上線日清單六步，10-21 起逐支切（使用者 10-14 確認）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5a28ac0a",
+          "date": "2026-10-14",
+          "message": "feat(runner): 到期工作原子認領（LAST_RUN_AT 先推到現在）、task XML 改 Parallel／PT3H；sql/003 台北批次 3 九支登記（停用）；docs: W2 前置完成紀錄、FalconCopy／ReportHtmlSync 盤點補齊",
+          "body": "- 工作排程器 IgnoreNew 會讓長 EXE 期間完全沒有新一輪，改 Parallel；不重複執行靠 DB：ClaimDue（到期認領）＋ TryLock（NO_OVERLAP）＋ ClaimRequest\n- sql/003：TARGET／PARAMS 取自 56.231 Tasks XML 實值，含 FalconCopy 的 workDir＋TNS_ADMIN、ReportHtmlSync 的 batch 與 workDir、Data2Cloud 當日沿用 run-today.ps1\n- WebOrderArchive、upload-performance 修正版已分別 commit 到各自 repo（未部署）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b172fbc5",
+          "date": "2026-10-14",
+          "message": "feat(runner): EXE 型執行器＋到期工作平行跑；docs: 時程提前一週（批次 3 於 10-20 上線）、PHP 排程接入指南",
+          "body": "- Program.Exe.cs：TARGET 路徑＋參數；PARAMS args／dryRunArgs／workDir（預設 exe 資料夾）／stdin／encoding（預設 big5）／okExitCodes／env；\n  沒設 dryRunArgs 的工作試跑不啟動程式；逾時 Kill(entireProcessTree)；只有啟動失敗才重試\n- Tick：到期判斷與上鎖仍在同一連線依序做，執行與寫紀錄各自一條 Task、各自開連線；Log 加鎖\n- run NAME --type EXE --target ... [--timeout]：不查表不連 DB 的 ad-hoc 試跑；連線字串改第一次用到才解密\n- 本機 7 項行為驗過（exit code、okExitCodes、試跑不啟動、逾時、stdin、找不到檔、工作目錄、Big5 輸出）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a04dc82e",
+          "date": "2026-10-14",
+          "message": "docs: 計劃書簡化為一頁——正文只留現況、目標、時程、驗收；SOP／風險／元件／候選盤點收進摺疊區",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5e135c50",
+          "date": "2026-10-14",
+          "message": "docs: 階段二計劃書（HTML，給同仁／主管）——3 週時程 10-20～11-07、搬遷 SOP、風險與先決、批次 3 候選技術盤點；執行計畫與 README 連結",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "970ee455",
+          "date": "2026-10-16",
+          "message": "docs: CmvSync 改隨 10-20 發佈一起上（使用者 10-16 決定），登記後先試跑",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e998e5de",
+          "date": "2026-10-16",
+          "message": "docs: CmvSync 連線註記措辞修正",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8635d42a",
+          "date": "2026-10-16",
+          "message": "docs: 階段二之後新增工作 CmvSync（新生兒 CMV 結果同步家長平台）——做成 TASK 型、不擠進 10-20、走平台 API、PARAMS 列單位",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "566c20c0",
+          "date": "2026-10-17",
+          "message": "docs: 部署包改放開發機固定位置 D:\\tmp\\chronos-deploy-20261020（scratchpad 換 session 就找不到）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7aebdbe4",
+          "date": "2026-10-17",
+          "message": "docs/scripts: 上線日操作清單（照抄可跑的指令）；remote-task.ps1 免 RDP 遠端啟停／匯入工作排程（中文名稱假排程驗過）；腳本存成 UTF-8 BOM（PS 5.1）",
+          "body": "10-17 再次就緒檢查：Cerberus MR !54 rebase 到最新 main（另一 session 已加血型／NHI 兩顆頭，舊分支部署會蓋掉）；\nblood-type-sync 新版 --dry-run 不寫 run-history.log；到 33.229 的跨站 SMB 閒置會斷，每步前重連。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "73905e6c",
+          "date": "2026-10-17",
+          "message": "docs/sql: NHI 自費上傳排除在整合計畫外（使用者 10-17）——寫明原因與重新納入條件；台北註冊表改 REGISTER 型（sql/006 已套用）；003 改七支",
+          "body": "原因：NHI 要把 XML 複製到 168.227 共用，Chronos 以 SYSTEM 執行會被 56.231 網域信任問題擋下（1789），\n且 NHI 複製失敗仍回 0，交給 Chronos 會無聲漏傳。維持原工作排程（Administrator），Chronos 只登記。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "180a52e3",
+          "date": "2026-10-17",
+          "message": "docs: 給 IT 的 56.231 網域信任問題說明（證據、兩個可能方向、診斷與修復步驟、時段限制）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b6b86139",
+          "date": "2026-10-17",
+          "message": "docs: upload-performance 不換版——比對 7～9 月台北已上傳值與 Oracle 新算法差 0.16～0.22%（使用者 10-17：不一致就不換）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d2fdfcb9",
+          "date": "2026-10-17",
+          "message": "docs: 計劃書 W2 同步 10-17 修訂（NHI 不切、五支週一切）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d63e7ee4",
+          "date": "2026-10-17",
+          "message": "docs: 10-17 就緒檢查——56.231 網域信任壞了（SYSTEM 碰不到網路共用）→ NHI 這次不切；WebOrderArchive／UploadPerformance 先只換觸發叫舊 exe、改版另排；兩站都換滾檔版執行器後才上 Cerberus MR !54",
+          "body": "upload-performance 站上 2023 版從 SQL Server bill_detail 算營收，repo 版改從 Oracle BLG_TX_DTL，部署要會計確認。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9146699b",
+          "date": "2026-10-17",
+          "message": "docs: 部署指南 Cerberus 頭與驗證步驟改用按日滾檔的 log",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ab033e38",
+          "date": "2026-10-17",
+          "message": "feat(runner): log 按日滾檔 chronos-yyyy-MM-dd.log，03:00 清超過保留天數的檔；docs: Cerberus 頭改 FilePattern chronos-*.log、跨站要帶共用帳密",
+          "body": "單一 chronos.log 從不滾檔（台中 8 天 982KB），Cerberus LogFreshness 每 2 分鐘要讀整個檔、台中那顆還是跨站，一年後幾十 MB。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
+      "name": "HealthInsurance\\Clinic_NHI_Update",
+      "totalCommits": 37,
+      "commits": [
+        {
+          "hash": "85fc01e1",
+          "date": "2026-01-13",
+          "message": "Add documentation for performance analysis, user flow, and automation design",
+          "body": "- PERFORMANCE_ANALYSIS.md: SQL injection risks, N+1 queries, caching issues",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "76abbd55",
+          "date": "2026-01-13",
+          "message": "Add tmpclaude-* to .gitignore",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "756c605c",
+          "date": "2026-01-13",
+          "message": "Add batch select by order number feature and F2 help modal",
+          "body": "- Add checkbox toggle in table header to enable \"batch select by order number\"",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c6772e8f",
+          "date": "2026-01-13",
+          "message": "Add REQUIREMENTS.md for tracking feature requests",
+          "body": "- REQ-001: Batch select items with same order number",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7db12c98",
+          "date": "2026-01-13",
+          "message": "Add README documentation and update .gitignore",
+          "body": "- Add comprehensive README.md with project overview, setup guide, and known issues",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b18ad6b6",
+          "date": "2026-01-19",
+          "message": "Update automation design to use Console App approach",
+          "body": "- Change from API endpoint approach to standalone Console App (方案 B)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0a7c19fe",
+          "date": "2026-01-20",
+          "message": "Fix XML field mappings and add unit override for NHI codes",
+          "body": "- Fix rdata field mappings (r2=TI_NAME, r3=ANZ_NAME, r9=DoctorCode)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "55d3e26c",
+          "date": "2026-01-20",
+          "message": "Add NHI.AutoUpload Console App for self-pay auto-upload",
+          "body": "- Create .NET 9 Console App with NLog logging (14-day retention)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7db6f502",
+          "date": "2026-01-21",
+          "message": "Add diagnostic SQL and connection string encryption utility",
+          "body": "- diagnostic_query.sql: SQL queries for troubleshooting",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "59a97a71",
+          "date": "2026-01-21",
+          "message": "Add web.config features and DailyUploadFolder to Console App",
+          "body": "- Add ExceptStrings, ItemCodeIgnore, R41 value handling",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "540cc26e",
+          "date": "2026-01-22",
+          "message": "Add --dry-run mode for testing without file generation",
+          "body": "- Add --dry-run parameter to simulate execution without creating files",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4e7f666c",
+          "date": "2026-01-22",
+          "message": "Enable MSSQL logging to 56.191 NHI database",
+          "body": "- Update MSSQL connection string to 192.168.56.191",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "18a910be",
+          "date": "2026-01-22",
+          "message": "Add NHI upload verification guide",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3c08f789",
+          "date": "2026-01-22",
+          "message": "Fix NHI.AutoUpload filename format to match NHI standard",
+          "body": "- Change filename format from NHI_{hosCode}_{timestamp}.xml to",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "982e9a64",
+          "date": "2026-01-22",
+          "message": "Optimize batch save and fix UpdateLoginRecord Oracle date type",
+          "body": "- Replace foreach loop with batch save method in Controller",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "ce485144",
+          "date": "2026-01-22",
+          "message": "Optimize GenerateXML performance with batch loading",
+          "body": "- Add BatchLoadTestValueData() to pre-load all reference data before XML generation loop",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b6776e89",
+          "date": "2026-01-22",
+          "message": "Optimize Get_NHI_data and Get_DBLIS_NHI_data performance",
+          "body": "查詢 list 效能優化：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d0ad2685",
+          "date": "2026-01-22",
+          "message": "Optimize XML export performance with Dictionary lookup",
+          "body": "修復 Find_Total_Data 和 Find_DBLIS_Total_Data 的 N+1 查詢問題：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "14f52894",
+          "date": "2026-01-22",
+          "message": "Add missing files and fix csproj references",
+          "body": "- 新增 Images/Loading_icon.gif",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "66313f5a",
+          "date": "2026-01-22",
+          "message": "Add station selection to publish script with auto config merge",
+          "body": "- publish.bat 新增站點選單，選擇後自動合併設定到 web.config",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "57240e2e",
+          "date": "2026-01-22",
+          "message": "Add station-specific config files for deployment",
+          "body": "新增 7 個站點的設定檔範本到 configs 資料夾：",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cb5e6118",
+          "date": "2026-01-22",
+          "message": "chore: 新增發佈腳本 publish.bat",
+          "body": "- 使用 MSBuild 編譯並發佈到 publish/ 目錄",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5aeef3cc",
+          "date": "2026-01-22",
+          "message": "chore: 新增設定檔初始化腳本 init-config.bat",
+          "body": "首次部署時執行此腳本，會自動從 .sample.config 複製設定檔",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "247b56eb",
+          "date": "2026-01-22",
+          "message": "feat(web): 新增登入記錄、NLog 14天清除、設定檔拆分",
+          "body": "Web:5566 改進:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ffd6ecc0",
+          "date": "2026-01-22",
+          "message": "docs: 整理文件結構，新增文件索引",
+          "body": "- 將 AUTOMATION_DESIGN.md, PERFORMANCE_ANALYSIS.md, USER_FLOW.md 移至 docs/",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a62f7953",
+          "date": "2026-01-22",
+          "message": "feat: 新增 SaveToMSSQL 設定開關、TCP 連線測試、加密指令",
+          "body": "- 新增 SaveToMSSQL 設定，可關閉 MSSQL 寫入功能 (因 227 為 SQL Server 2000 不支援)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5a80ac83",
+          "date": "2026-01-23",
+          "message": "Add project documentation for demo presentation",
+          "body": "- Add docs/index.html with system overview, AutoUpload details, and processing flow",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9ac903bd",
+          "date": "2026-01-23",
+          "message": "Add NHI_FileSequence table for independent sequence tracking",
+          "body": "- Replace Oracle CLINIC_NHIUPDATE_DETAIL query with MSSQL NHI_FileSequence",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "705ebd83",
+          "date": "2026-01-23",
+          "message": "Fix hdata/rdata INSERT missing createtime column",
+          "body": "- Add createtime field to SaveHData INSERT statement",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "fe08258b",
+          "date": "2026-01-29",
+          "message": "Fix r4 result interpretation and atomic sequence numbering",
+          "body": "- Apply result interpretation (linear/phrase conversion) to r4 field,",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2b011904",
+          "date": "2026-03-09",
+          "message": "Fix NullRef on r4-1 AppSettings and JS indexOf error masking",
+          "body": "- Add null protection (?? \"\") for r4-1_Negative/Positive/NotDetermined AppSettings",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "5280bdcc",
+          "date": "2026-03-09",
+          "message": "Update DEBTOR_LOGIN auth doc with current implementation",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d33cf784",
+          "date": "2026-06-12",
+          "message": "Document AutoUpload date-filter issue and agreed fix",
+          "body": "ORDER_DT single-day window misses orders whose selfpay flag or report",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "618e6f77",
+          "date": "2026-06-12",
+          "message": "Fix taichung dbLisConn to site-local 1.227",
+          "body": "Repo said 192.168.1.252 but the live taichung station logs to",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "eb3a1664",
+          "date": "2026-06-12",
+          "message": "Add per-branch display name and rename Taichung station",
+          "body": "UI title was hardcoded as Daan United for every branch site. _Layout.cshtml",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "24ee856c",
+          "date": "2026-06-12",
+          "message": "Split whitelisted sub-packages into separate hdata for NHI upload",
+          "body": "Clinics ordering P801 (CBC+DC combined panel) had all results merged",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bcff6952",
+          "date": "2026-10-17",
+          "message": "feat(AutoUpload): 只在有單位失敗時寄執行報告，改寫 run-history.log 心跳給 Cerberus",
+          "body": "- 原本全部成功、0 筆也天天寄信，久了沒人看；沒跑則根本沒有信，不會有人察覺\n- 每次執行在 logs/run-history.log 補一行：成功 \"OK(5/5) …\"、失敗 \"FAIL(1/5) … 失敗單位\"、例外 \"FAIL(例外) …\"\n- 例外路徑原本不寄信也沒人知道（NLog mail target 讀的 Notification.SmtpServer 沒設），現在由 Cerberus 抓\n- dry-run 不寫心跳；對應 Cerberus 頭「NHI自費上傳@台北」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
@@ -25082,301 +25944,6 @@
           "message": "docs: 冒充 Open Bug Bounty 漏洞通知信的辨識與處理說明",
           "body": "2026-10-13 info@/contact@/help@ 收到寄件網域 mx-openbugbounty.org 的假通知，\n報告編號 OBB-5673736 在 OBB 官網為 404，確認為冒充信。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "錯誤修正",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "HealthInsurance\\Clinic_NHI_Update",
-      "totalCommits": 36,
-      "commits": [
-        {
-          "hash": "85fc01e1",
-          "date": "2026-01-13",
-          "message": "Add documentation for performance analysis, user flow, and automation design",
-          "body": "- PERFORMANCE_ANALYSIS.md: SQL injection risks, N+1 queries, caching issues",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "76abbd55",
-          "date": "2026-01-13",
-          "message": "Add tmpclaude-* to .gitignore",
-          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "756c605c",
-          "date": "2026-01-13",
-          "message": "Add batch select by order number feature and F2 help modal",
-          "body": "- Add checkbox toggle in table header to enable \"batch select by order number\"",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c6772e8f",
-          "date": "2026-01-13",
-          "message": "Add REQUIREMENTS.md for tracking feature requests",
-          "body": "- REQ-001: Batch select items with same order number",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "7db12c98",
-          "date": "2026-01-13",
-          "message": "Add README documentation and update .gitignore",
-          "body": "- Add comprehensive README.md with project overview, setup guide, and known issues",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b18ad6b6",
-          "date": "2026-01-19",
-          "message": "Update automation design to use Console App approach",
-          "body": "- Change from API endpoint approach to standalone Console App (方案 B)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0a7c19fe",
-          "date": "2026-01-20",
-          "message": "Fix XML field mappings and add unit override for NHI codes",
-          "body": "- Fix rdata field mappings (r2=TI_NAME, r3=ANZ_NAME, r9=DoctorCode)",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "55d3e26c",
-          "date": "2026-01-20",
-          "message": "Add NHI.AutoUpload Console App for self-pay auto-upload",
-          "body": "- Create .NET 9 Console App with NLog logging (14-day retention)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7db6f502",
-          "date": "2026-01-21",
-          "message": "Add diagnostic SQL and connection string encryption utility",
-          "body": "- diagnostic_query.sql: SQL queries for troubleshooting",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "59a97a71",
-          "date": "2026-01-21",
-          "message": "Add web.config features and DailyUploadFolder to Console App",
-          "body": "- Add ExceptStrings, ItemCodeIgnore, R41 value handling",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "540cc26e",
-          "date": "2026-01-22",
-          "message": "Add --dry-run mode for testing without file generation",
-          "body": "- Add --dry-run parameter to simulate execution without creating files",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "4e7f666c",
-          "date": "2026-01-22",
-          "message": "Enable MSSQL logging to 56.191 NHI database",
-          "body": "- Update MSSQL connection string to 192.168.56.191",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "18a910be",
-          "date": "2026-01-22",
-          "message": "Add NHI upload verification guide",
-          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "3c08f789",
-          "date": "2026-01-22",
-          "message": "Fix NHI.AutoUpload filename format to match NHI standard",
-          "body": "- Change filename format from NHI_{hosCode}_{timestamp}.xml to",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "982e9a64",
-          "date": "2026-01-22",
-          "message": "Optimize batch save and fix UpdateLoginRecord Oracle date type",
-          "body": "- Replace foreach loop with batch save method in Controller",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "ce485144",
-          "date": "2026-01-22",
-          "message": "Optimize GenerateXML performance with batch loading",
-          "body": "- Add BatchLoadTestValueData() to pre-load all reference data before XML generation loop",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b6776e89",
-          "date": "2026-01-22",
-          "message": "Optimize Get_NHI_data and Get_DBLIS_NHI_data performance",
-          "body": "查詢 list 效能優化：",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d0ad2685",
-          "date": "2026-01-22",
-          "message": "Optimize XML export performance with Dictionary lookup",
-          "body": "修復 Find_Total_Data 和 Find_DBLIS_Total_Data 的 N+1 查詢問題：",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "14f52894",
-          "date": "2026-01-22",
-          "message": "Add missing files and fix csproj references",
-          "body": "- 新增 Images/Loading_icon.gif",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "66313f5a",
-          "date": "2026-01-22",
-          "message": "Add station selection to publish script with auto config merge",
-          "body": "- publish.bat 新增站點選單，選擇後自動合併設定到 web.config",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "57240e2e",
-          "date": "2026-01-22",
-          "message": "Add station-specific config files for deployment",
-          "body": "新增 7 個站點的設定檔範本到 configs 資料夾：",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cb5e6118",
-          "date": "2026-01-22",
-          "message": "chore: 新增發佈腳本 publish.bat",
-          "body": "- 使用 MSBuild 編譯並發佈到 publish/ 目錄",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "5aeef3cc",
-          "date": "2026-01-22",
-          "message": "chore: 新增設定檔初始化腳本 init-config.bat",
-          "body": "首次部署時執行此腳本，會自動從 .sample.config 複製設定檔",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "247b56eb",
-          "date": "2026-01-22",
-          "message": "feat(web): 新增登入記錄、NLog 14天清除、設定檔拆分",
-          "body": "Web:5566 改進:",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "ffd6ecc0",
-          "date": "2026-01-22",
-          "message": "docs: 整理文件結構，新增文件索引",
-          "body": "- 將 AUTOMATION_DESIGN.md, PERFORMANCE_ANALYSIS.md, USER_FLOW.md 移至 docs/",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "a62f7953",
-          "date": "2026-01-22",
-          "message": "feat: 新增 SaveToMSSQL 設定開關、TCP 連線測試、加密指令",
-          "body": "- 新增 SaveToMSSQL 設定，可關閉 MSSQL 寫入功能 (因 227 為 SQL Server 2000 不支援)",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "5a80ac83",
-          "date": "2026-01-23",
-          "message": "Add project documentation for demo presentation",
-          "body": "- Add docs/index.html with system overview, AutoUpload details, and processing flow",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "9ac903bd",
-          "date": "2026-01-23",
-          "message": "Add NHI_FileSequence table for independent sequence tracking",
-          "body": "- Replace Oracle CLINIC_NHIUPDATE_DETAIL query with MSSQL NHI_FileSequence",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "705ebd83",
-          "date": "2026-01-23",
-          "message": "Fix hdata/rdata INSERT missing createtime column",
-          "body": "- Add createtime field to SaveHData INSERT statement",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "fe08258b",
-          "date": "2026-01-29",
-          "message": "Fix r4 result interpretation and atomic sequence numbering",
-          "body": "- Apply result interpretation (linear/phrase conversion) to r4 field,",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "2b011904",
-          "date": "2026-03-09",
-          "message": "Fix NullRef on r4-1 AppSettings and JS indexOf error masking",
-          "body": "- Add null protection (?? \"\") for r4-1_Negative/Positive/NotDetermined AppSettings",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "5280bdcc",
-          "date": "2026-03-09",
-          "message": "Update DEBTOR_LOGIN auth doc with current implementation",
-          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d33cf784",
-          "date": "2026-06-12",
-          "message": "Document AutoUpload date-filter issue and agreed fix",
-          "body": "ORDER_DT single-day window misses orders whose selfpay flag or report",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "618e6f77",
-          "date": "2026-06-12",
-          "message": "Fix taichung dbLisConn to site-local 1.227",
-          "body": "Repo said 192.168.1.252 but the live taichung station logs to",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "eb3a1664",
-          "date": "2026-06-12",
-          "message": "Add per-branch display name and rename Taichung station",
-          "body": "UI title was hardcoded as Daan United for every branch site. _Layout.cshtml",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "24ee856c",
-          "date": "2026-06-12",
-          "message": "Split whitelisted sub-packages into separate hdata for NHI upload",
-          "body": "Clinics ordering P801 (CBC+DC combined panel) had all results merged",
-          "category": "其他",
           "tags": []
         }
       ],
@@ -26189,253 +26756,6 @@
           "date": "2026-08-19",
           "message": "feat(QRCode標籤): 新增 sideNo 參數控制側邊編號；版次 V2026.08.19.01",
           "body": "附加報告（QRCode）標籤右上前 5 碼＋右緣直式後 5 碼的側邊編號，",
-          "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "LIS\\Schedule\\Chronos",
-      "totalCommits": 30,
-      "commits": [
-        {
-          "hash": "6441418f",
-          "date": "2026-10-09",
-          "message": "docs: 第一支工作改每 20 分鐘",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "c0e10ff4",
-          "date": "2026-10-09",
-          "message": "docs: BaseUrl 一律 localhost（站台 NAT IP 自連不通）；第一支工作已啟用、首次排程觸發整鏈驗證",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "86f35d48",
-          "date": "2026-10-09",
-          "message": "feat(runner): 已部署台中 33.229；設定階段失敗也寫 log；task XML 進版控（Repetition 必帶 Duration）；docs 補雙網段 DB 主機與 33.229 實機排程資料夾",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c8d33bf7",
-          "date": "2026-10-09",
-          "message": "fix(runner): Oracle 11g 改用 ODP.NET Core 3.21.x（23.x ORA-28040）；docs: 部署指南、執行計畫改為「GUI 在 lisweb／執行器在 Chronos」、README 狀態與待決更新",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "7f2bd58d",
-          "date": "2026-10-09",
-          "message": "feat(runner): Chronos 執行器第一版（HTTP 型）",
-          "body": "- 每分鐘跑一輪（工作排程器叫起；loop 模式可常駐）：讀 SCHEDULE_JOB 啟用中的工作，NCrontab 算到期\n- NO_OVERLAP 用 RUNNING_SINCE 鎖，殭屍鎖（超過兩倍逾時）自動釋放\n- HTTP 型：帶 X-Schedule-Key 打 TARGET（相對路徑補 BaseUrl）＋ PARAMS 當 body，逾時/重試（5xx 或連不上才重試）\n- 結果寫 SCHEDULE_JOB_LOG、更新 LAST_*／NEXT_RUN_AT；logs/chronos.log 每輪一行心跳給 Cerberus LogFreshness\n- 連線字串 DES 密文（同 LISWeb Cipher），金鑰檔 schedule-api.key 不進 git\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "433ff249",
-          "date": "2026-10-09",
-          "message": "Revert \"docs: 階段一不做人工頁面，只留排程端點（使用者 2026-10-09 決定）\"",
-          "body": "This reverts commit 00ab1c734900b4a452cda93ff09123fbe269a2b1.",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "00ab1c73",
-          "date": "2026-10-09",
-          "message": "docs: 階段一不做人工頁面，只留排程端點（使用者 2026-10-09 決定）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e16a1c68",
-          "date": "2026-10-09",
-          "message": "docs: 階段一實作紀錄（lisweb MR、台中實證數據、每小時可接住約 95%）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "71db9529",
-          "date": "2026-10-09",
-          "message": "docs: 執行計畫（階段一台中延誤註解、階段二搬家）＋ 端點驗證定案；scripts: 階段一過渡用工作排程器腳本",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "fc511768",
-          "date": "2026-10-09",
-          "message": "docs: Chronos 統一排程框架 — 設計說明 + 全公司排程盤點總表（第一版）",
-          "body": "- README：問題、設計原則（觸發與邏輯分離、一站一套、常駐程序只登記、看門狗獨立）、\n  註冊表欄位、執行器、維護頁、借 Cerberus 告警、分批順序、不做的事、待決事項\n- docs/排程盤點總表：56.231 實機 77 支（讀 Tasks XML）、其他台北主機、六分部、\n  PHP 體系（168.2 crontab / 168.227 HCLAB2）、疑似退役、共同問題、待實機確認清單\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "565fb769",
-          "date": "2026-10-12",
-          "message": "docs: ORA-01745 修正 MR !1573 已 merge，待打 tag 上台中",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "3fe288c6",
-          "date": "2026-10-12",
-          "message": "docs: 10-12 決策：台中先跑一週、台北不動；觀察週三件事（bind-user MR、Cerberus 跨站讀檔加頭、一週後驗收）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "c15c727b",
-          "date": "2026-10-12",
-          "message": "docs: 10-12 台中上版，排程轉 OK；維護頁儲存 ORA-01745 修正中",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "b44115b8",
-          "date": "2026-10-13",
-          "message": "fix(task): 補加訊息正確標示已審核/已列印；docs: skipPrinted 台中關閉、:comment 保留字教訓、lisweb 回退路徑同病不修",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "e8bcb6d4",
-          "date": "2026-10-13",
-          "message": "fix(task): EVENTLOG 綁定變數 :comment 是 Oracle 保留字（ORA-01745），改 :evUser/:evText",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "c82fa1e9",
-          "date": "2026-10-13",
-          "message": "docs: README 狀態與執行方式補正",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "f0c855b4",
-          "date": "2026-10-13",
-          "message": "feat(runner): 商業邏輯搬進 Chronos——TASK 型內建工作＋維護頁執行請求",
-          "body": "- Tasks/：IChronosTask、TaskRegistry、PARAMS 取值；DelayCommentBackfillTask 自 lisweb 端點搬來，\n  新增 includeCompleted（已審核也補，加註不碰審核狀態）與 skipPrinted（OH_LAST_PRINT 有值不補）\n- 執行器：TASK 型在新連線上跑、逾時取消、例外才重試；每輪先處理 RUN_REQUEST（DRYRUN/RUN），\n  搶請求防重複、試跑不動 LAST_*；HTTP 型金鑰改為選配\n- CLI：run CODE [--apply] [--params json] [--task]，本機對站台 DB 試跑核對用\n- sql/002：JOB_TYPE 允許 TASK、加 RUN_REQUEST 三欄（台中已跑）\n- 台中 10-13 09:00 起由內建工作執行，09:02 試跑請求實測通過；文件更新\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c7570797",
-          "date": "2026-10-13",
-          "message": "docs: 規劃階段一點五——工作邏輯移出 lisweb 改 PL/SQL（SQL 型），含台中「已審核未列印也補」規格；不採用 .231 備用站折衷",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "81d7ecd4",
-          "date": "2026-10-14",
-          "message": "docs: 上線切換表——八支逐支切換時點（10-20 下午六支、10-21 驗夜間後切兩支高頻），各支依舊排程實際時點排在兩次執行之間；NHI 已證實只有 56.231 觸發",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "8623f90f",
-          "date": "2026-10-14",
-          "message": "sql/005 台北檢驗雲兩筆併一筆 Data2Cloud（--scheduled，已套用）；003 同步改八支；docs 更新",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "90e6ea67",
-          "date": "2026-10-14",
-          "message": "docs: 台北 56.231 新機制 10-14 08:46 整套裝好（停用）；scripts: run-oracle-script.ps1（ODP.NET 跑 sql/ 腳本，sqlplus 會卡死）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "90418202",
-          "date": "2026-10-14",
-          "message": "docs/sql: 台北上線前準備包——001 建表（各站通用，無台中列）、004 選單與金鑰（各站通用，DEFINE 代入）、部署指南加台北七步",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "8bec31ed",
-          "date": "2026-10-14",
-          "message": "docs: 本週只做準備不動正式機；10-20 上線日清單六步，10-21 起逐支切（使用者 10-14 確認）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "5a28ac0a",
-          "date": "2026-10-14",
-          "message": "feat(runner): 到期工作原子認領（LAST_RUN_AT 先推到現在）、task XML 改 Parallel／PT3H；sql/003 台北批次 3 九支登記（停用）；docs: W2 前置完成紀錄、FalconCopy／ReportHtmlSync 盤點補齊",
-          "body": "- 工作排程器 IgnoreNew 會讓長 EXE 期間完全沒有新一輪，改 Parallel；不重複執行靠 DB：ClaimDue（到期認領）＋ TryLock（NO_OVERLAP）＋ ClaimRequest\n- sql/003：TARGET／PARAMS 取自 56.231 Tasks XML 實值，含 FalconCopy 的 workDir＋TNS_ADMIN、ReportHtmlSync 的 batch 與 workDir、Data2Cloud 當日沿用 run-today.ps1\n- WebOrderArchive、upload-performance 修正版已分別 commit 到各自 repo（未部署）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b172fbc5",
-          "date": "2026-10-14",
-          "message": "feat(runner): EXE 型執行器＋到期工作平行跑；docs: 時程提前一週（批次 3 於 10-20 上線）、PHP 排程接入指南",
-          "body": "- Program.Exe.cs：TARGET 路徑＋參數；PARAMS args／dryRunArgs／workDir（預設 exe 資料夾）／stdin／encoding（預設 big5）／okExitCodes／env；\n  沒設 dryRunArgs 的工作試跑不啟動程式；逾時 Kill(entireProcessTree)；只有啟動失敗才重試\n- Tick：到期判斷與上鎖仍在同一連線依序做，執行與寫紀錄各自一條 Task、各自開連線；Log 加鎖\n- run NAME --type EXE --target ... [--timeout]：不查表不連 DB 的 ad-hoc 試跑；連線字串改第一次用到才解密\n- 本機 7 項行為驗過（exit code、okExitCodes、試跑不啟動、逾時、stdin、找不到檔、工作目錄、Big5 輸出）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "a04dc82e",
-          "date": "2026-10-14",
-          "message": "docs: 計劃書簡化為一頁——正文只留現況、目標、時程、驗收；SOP／風險／元件／候選盤點收進摺疊區",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "5e135c50",
-          "date": "2026-10-14",
-          "message": "docs: 階段二計劃書（HTML，給同仁／主管）——3 週時程 10-20～11-07、搬遷 SOP、風險與先決、批次 3 候選技術盤點；執行計畫與 README 連結",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "970ee455",
-          "date": "2026-10-16",
-          "message": "docs: CmvSync 改隨 10-20 發佈一起上（使用者 10-16 決定），登記後先試跑",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e998e5de",
-          "date": "2026-10-16",
-          "message": "docs: CmvSync 連線註記措辞修正",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "8635d42a",
-          "date": "2026-10-16",
-          "message": "docs: 階段二之後新增工作 CmvSync（新生兒 CMV 結果同步家長平台）——做成 TASK 型、不擠進 10-20、走平台 API、PARAMS 列單位",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
         }
@@ -28335,6 +28655,109 @@
       "type": "work"
     },
     {
+      "name": "LIS\\Schedule\\blood-type-sync",
+      "totalCommits": 12,
+      "commits": [
+        {
+          "hash": "905fd648",
+          "date": "2026-01-19",
+          "message": "Merge branch 'feature/email-always-send'",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ccaf818f",
+          "date": "2026-01-19",
+          "message": "chore: 更新 Email 收件人為正式信箱",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b1f6c38e",
+          "date": "2026-01-19",
+          "message": "Merge branch 'feature/email-always-send'",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3ff38f4f",
+          "date": "2026-01-19",
+          "message": "fix: 週一只寄週報，平日有異常才寄執行報告",
+          "body": "- 週一：只發送週報，不發送當日執行報告",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "310ba973",
+          "date": "2026-01-19",
+          "message": "docs: 新增維護用 SQL 查詢文件",
+          "body": "- 資料不完整會員查詢",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "44c68988",
+          "date": "2026-01-19",
+          "message": "docs: 更新 README 文件",
+          "body": "- 更新規則新增「補來源單號」情境",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e5edb11c",
+          "date": "2026-01-19",
+          "message": "chore: 排除 Claude Code 暫存檔",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "73b60f02",
+          "date": "2026-01-19",
+          "message": "feat: 新增週報功能，每週一自動發送",
+          "body": "- 新增 WeeklyReport Model 與 WeeklyReportService",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a9a762f0",
+          "date": "2026-01-19",
+          "message": "chore: 延長 log 與 output 保留期限至 14 天",
+          "body": "Co-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "73acca1c",
+          "date": "2026-03-10",
+          "message": "feat: 平日無異常不寄 email，週報加入未執行日期警告",
+          "body": "- AlwaysSend 改為 false，平日只在有不一致或錯誤時才寄信",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3fe787ce",
+          "date": "2026-10-14",
+          "message": "fix: 血型結果改白名單過濾，IFS 等非血型值不再寫入/報不一致",
+          "body": "- 原本只靠 InvalidValues 黑名單，IFS、檢體錯誤等值會漏過：\n  CUST_MASTER 空的會被寫進去（J222780268 ABO=IFS），有值的報成血型不一致\n- 改讀設定檔既有的 ValidAboValues / ValidRhValues，不在白名單的略過並記 log\n- 修補來源單號：只缺 MEDICAL_HISTORY 時原本 UPDATE 直接 return false 沒寫；\n  同時有不一致時不補，避免來源指向血型對不上的檢體\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "42eb56b9",
+          "date": "2026-10-17",
+          "message": "feat: 每次執行寫 run-history.log 心跳，給 Cerberus ScheduledRun 判斷有沒有跑",
+          "body": "- 成功行 \"OK(更新N)\"、失敗行 \"FAIL(錯誤N)\"／\"FAIL(例外)\"，一次執行一行\n- dry-run 不寫，免得蓋掉當天真正的執行結果；不寫 BOM，否則第一行時間戳對不到\n- 對應 Cerberus 頭「血型同步會員資料@台北」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "HealthInsurance\\ICCardUpload2",
       "totalCommits": 12,
       "commits": [
@@ -28432,101 +28855,6 @@
           "message": "docs: detail cert-file-restore steps for cloud SAM last-resort recovery",
           "body": "Step 6 補完具體操作（之前缺實際路徑/動作）：",
           "category": "文檔",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "LIS\\Schedule\\blood-type-sync",
-      "totalCommits": 11,
-      "commits": [
-        {
-          "hash": "905fd648",
-          "date": "2026-01-19",
-          "message": "Merge branch 'feature/email-always-send'",
-          "body": "",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "ccaf818f",
-          "date": "2026-01-19",
-          "message": "chore: 更新 Email 收件人為正式信箱",
-          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b1f6c38e",
-          "date": "2026-01-19",
-          "message": "Merge branch 'feature/email-always-send'",
-          "body": "",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "3ff38f4f",
-          "date": "2026-01-19",
-          "message": "fix: 週一只寄週報，平日有異常才寄執行報告",
-          "body": "- 週一：只發送週報，不發送當日執行報告",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "310ba973",
-          "date": "2026-01-19",
-          "message": "docs: 新增維護用 SQL 查詢文件",
-          "body": "- 資料不完整會員查詢",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "44c68988",
-          "date": "2026-01-19",
-          "message": "docs: 更新 README 文件",
-          "body": "- 更新規則新增「補來源單號」情境",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e5edb11c",
-          "date": "2026-01-19",
-          "message": "chore: 排除 Claude Code 暫存檔",
-          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "73b60f02",
-          "date": "2026-01-19",
-          "message": "feat: 新增週報功能，每週一自動發送",
-          "body": "- 新增 WeeklyReport Model 與 WeeklyReportService",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "a9a762f0",
-          "date": "2026-01-19",
-          "message": "chore: 延長 log 與 output 保留期限至 14 天",
-          "body": "Co-Authored-By: Claude <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "73acca1c",
-          "date": "2026-03-10",
-          "message": "feat: 平日無異常不寄 email，週報加入未執行日期警告",
-          "body": "- AlwaysSend 改為 false，平日只在有不一致或錯誤時才寄信",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "3fe787ce",
-          "date": "2026-10-14",
-          "message": "fix: 血型結果改白名單過濾，IFS 等非血型值不再寫入/報不一致",
-          "body": "- 原本只靠 InvalidValues 黑名單，IFS、檢體錯誤等值會漏過：\n  CUST_MASTER 空的會被寫進去（J222780268 ABO=IFS），有值的報成血型不一致\n- 改讀設定檔既有的 ValidAboValues / ValidRhValues，不在白名單的略過並記 log\n- 修補來源單號：只缺 MEDICAL_HISTORY 時原本 UPDATE 直接 return false 沒寫；\n  同時有不一致時不補，避免來源指向血型對不上的檢體\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -29386,7 +29714,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 765,
+      "totalCommits": 767,
       "commits": [
         {
           "hash": "4bdff543",
@@ -35505,6 +35833,22 @@
           "date": "2026-10-16",
           "message": "docs: 每日工作紀錄 2026-10-15 (52 commits)",
           "body": "🤖 自動生成於 2026-10-16 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "60d719d5",
+          "date": "2026-10-17",
+          "message": "docs: 更新彙整資料 2026-10-17",
+          "body": "🤖 自動生成於 2026-10-17 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ff06808e",
+          "date": "2026-10-17",
+          "message": "docs: 每日工作紀錄 2026-10-16 (113 commits)",
+          "body": "🤖 自動生成於 2026-10-17 07:05",
           "category": "文檔",
           "tags": []
         }
