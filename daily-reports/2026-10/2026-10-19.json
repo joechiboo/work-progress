@@ -1,0 +1,481 @@
+{
+  "date": "2026-10-19",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\cmv-parent-portal",
+      "commits": [
+        {
+          "hash": "5a9bd35f",
+          "time": "19:58",
+          "message": "合併 MR !71: docs：上線清單記錄 VAPID／mailapi 已設；醫師說明拿掉「選醫院」",
+          "body": "docs：上線清單記錄 VAPID／mailapi 已設；醫師說明拿掉「選醫院」\n\nSee merge request ucl/onlinereport/cmv-parent-portal!71",
+          "category": "合併MR"
+        },
+        {
+          "hash": "636abf6a",
+          "time": "19:58",
+          "message": "docs：上線清單記錄 10-19 在 server 設好的 VAPID 與 mailapi；醫師說明拿掉「選醫院」",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6dbcbf98",
+          "time": "19:54",
+          "message": "README：LIS Invalid 拆成可追的待辦（查後續、問檢驗部門、定平台處理）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "88f8dad2",
+          "time": "19:53",
+          "message": "合併 MR !66: 資料庫現況、第一輪結語（兩則）、紙本送檢單與 LIS 串接待辦整理進文件",
+          "body": "資料庫現況、第一輪結語（兩則）、紙本送檢單與 LIS 串接待辦整理進文件\n\nSee merge request ucl/onlinereport/cmv-parent-portal!66",
+          "category": "合併MR"
+        },
+        {
+          "hash": "0dc5fd01",
+          "time": "19:51",
+          "message": "合併 MR !69: docs：大安紙本報告的 7569 格式",
+          "body": "docs：大安紙本報告的 7569 格式\n\nSee merge request ucl/onlinereport/cmv-parent-portal!69",
+          "category": "合併MR"
+        },
+        {
+          "hash": "4b4cbcb4",
+          "time": "19:50",
+          "message": "docs：大安紙本報告的 7569 格式（整數＋H、Not detected＜750、危急值通知列）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5ee2abea",
+          "time": "19:48",
+          "message": "第一輪結語 10-19 已發：README 打勾，questions-vghtpe 標發出與等回覆事項",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a92d7af5",
+          "time": "19:44",
+          "message": "合併 MR !68: 醫師端改單一入口 /admin，舊的 /{院}/admin 轉址",
+          "body": "醫師端改單一入口 /admin，舊的 /{院}/admin 轉址\n\nSee merge request ucl/onlinereport/cmv-parent-portal!68",
+          "category": "合併MR"
+        },
+        {
+          "hash": "52c26a46",
+          "time": "19:44",
+          "message": "醫師端改單一入口 /admin：醫院由登入帳號決定，舊的 /{院}/admin/… 永久轉址",
+          "body": "- /admin/login 直接輸入帳號密碼（帳號綁醫院，不跨院），拿掉選醫院頁與 TenantPageModel；AdminPageModel 從帳號載入醫院\n- 路由：/admin、/admin/pending/{tno}、/admin/signature、/admin/notifications、/admin/logout；manifest 只剩一份 /admin/manifest.webmanifest\n- 通知信與推播連結改 /admin；模擬面板列全部展示帳號、按鈕指 /admin\n- 舊網址 /{tenant}/admin、/{tenant}/admin/… 301 到 /admin/…（醫師加到主畫面的舊圖示也會轉過來）\n- 測試改路徑；補「陽明附醫醫師從同一入口登入看到自己醫院」「舊醫師端網址轉址」\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "dced979b",
+          "time": "19:42",
+          "message": "第一輪結語改成兩則（加醫師端通知）；README 補紙本送檢單與 LIS 串接的順序",
+          "body": "- questions-vghtpe.md：結語整理成 ①②③ 一則＋醫師端新增通知一則，列發前檢查；第二則不放展示帳號密碼（模擬模式面板點醫師即可登入）\n- doctor-notification-guide.md：收不到時補「iPhone 版本不到 16.4」（哪些機型升不上去、改用電腦或 Email）\n- README：北榮送檢醫令底下列紙本送檢單可先做的三件事；LIS 同步列串接順序與相依，標 10-20 趕不上、建議改排下一次發佈（待決定）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "19d243fb",
+          "time": "19:30",
+          "message": "合併 MR !67: 通知設定：「傳送測試通知」先儲存設定再送，按鈕改名",
+          "body": "通知設定：「傳送測試通知」先儲存設定再送，按鈕改名\n\nSee merge request ucl/onlinereport/cmv-parent-portal!67",
+          "category": "合併MR"
+        },
+        {
+          "hash": "b10a2e91",
+          "time": "19:30",
+          "message": "通知設定：「傳送測試通知」先儲存信箱與勾選再送，按鈕改名（推播＋測試信）",
+          "body": "使用者 iPhone 實測：填了通知信箱直接按測試，信箱沒存。按鈕改掛在設定表單上（form 屬性），送出先存再推。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a390b2df",
+          "time": "19:28",
+          "message": "資料庫現況與「現在能做／要等」整理進文件",
+          "body": "- deploy/README.md：執行狀態補上 04～06 已套、07～11 未套；新增一節說明 07～11 與備份排程現在就能做，填連線字串、關模擬模式要等（理由與前提）\n- deployment.md 第 5 項與上線檢查清單第 2 項同步，標出關模擬模式的前提\n- README 待辦改成指向該節，不再寫「接正式 DB 時才依序套」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a3f7cf09",
+          "time": "19:15",
+          "message": "合併 MR !65: 醫師端：設定下拉、通知信箱、模擬檢驗所放行新案件",
+          "body": "醫師端：設定下拉、通知信箱、模擬檢驗所放行新案件\n\nSee merge request ucl/onlinereport/cmv-parent-portal!65",
+          "category": "合併MR"
+        },
+        {
+          "hash": "b715a4a5",
+          "time": "19:14",
+          "message": "醫師端：頁首改「設定」下拉；通知設定可填通知信箱；模擬模式可模擬檢驗所放行新案件",
+          "body": "- 頁首「我的簽名／通知設定／登出」三個字擠在姓名後面，改成一顆「設定 ▾」下拉（純 details，不用 JS）\n- PortalUser.NotifyEmail：通知信寄到哪，空白＝登入 Email；通知設定頁可填、會驗格式；測試通知同時推播＋寄測試信\n- 模擬模式面板（登入後）多「模擬檢驗所放行一筆新案件（陰性／陽性）」：走真正的 LIS 同步路徑建案件，推播與通知信當場送出，給同仁用手機測通知\n- 寄信服務在模擬模式也可用（展示帳號把通知信箱填成自己的就收得到）\n- 「我的簽名」頁的移除按鈕在手機上撐滿，和上傳對齊\n- deploy/sql/11-notify-email.sql；deployment.md 清單 9g；README 模擬模式說明\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c5be2344",
+          "time": "19:05",
+          "message": "合併 MR !64: 假資料的陽性值改成 LIS 實際格式；lis-mapping 補 7569 值的分布",
+          "body": "假資料的陽性值改成 LIS 實際格式；lis-mapping 補 7569 值的分布\n\nSee merge request ucl/onlinereport/cmv-parent-portal!64",
+          "category": "合併MR"
+        },
+        {
+          "hash": "7c3be3af",
+          "time": "19:05",
+          "message": "假資料的陽性值改成 LIS 實際格式（整數 IU/swab）；lis-mapping 補 7569 值的分布",
+          "body": "台北 HCLAB 彙總查詢（2026-10-19）：陰性存 0、陽性整數、少數 Invalid，不是科學記號。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5bf00b03",
+          "time": "19:01",
+          "message": "「我的簽名」預覽改成和報告簽署格同一排法",
+          "body": "原本預覽印「醫院　姓名　簽名圖」，報告上只有簽名圖＋小字簽署日期，兩邊對不上（使用者 2026-10-19 用 iPhone 測時發現）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "dccdf594",
+          "time": "18:53",
+          "message": "合併 MR !62: docs：給醫師的通知設定說明＋LINE 短版",
+          "body": "docs：給醫師的通知設定說明＋LINE 短版\n\nSee merge request ucl/onlinereport/cmv-parent-portal!62",
+          "category": "合併MR"
+        },
+        {
+          "hash": "5c6c2e73",
+          "time": "18:52",
+          "message": "docs：給醫師的通知設定說明（iPhone／Android／電腦）＋LINE 短版",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "42f69932",
+          "time": "18:17",
+          "message": "docs：Web Push 實作說明、上線清單（VAPID 金鑰、連外推送服務、SQL 10）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a8b04735",
+          "time": "18:13",
+          "message": "醫師端瀏覽器通知（Web Push）：訂閱、推送、通知設定頁、加到主畫面",
+          "body": "- 新表 PushSubscription（醫師的每個裝置一列，404／410 標失效）、PushDelivery（一裝置一則，兼推送紀錄）\n- 新案件進待簽署（含陽性）→ 該院勾 NotifyPush 的醫師每台裝置；已簽署報告被更正 → 原簽署醫師；一裝置一批一則，內容只有件數\n- 寄送走 WebPush 套件（同 lisweb 收檢員通知）＋VAPID；由既有 NotificationWorker 每分鐘推；沒設金鑰標略過\n- 通知設定頁 /{tenant}/admin/notifications：Email 三個勾選（owner 關不掉即時）、這台裝置開關、裝置清單、傳送測試通知\n- /sw.js 只收推播、不快取任何頁面（lisweb 版的 Network First 會把含個資的頁面存進裝置）；manifest 讓 iPhone 加到主畫面\n- dotnet CmvPortal.Web.dll --generate-vapid-keys 產金鑰；deploy/sql/10-web-push.sql\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "53762cb2",
+          "time": "08:02",
+          "message": "醫師通知 Email：陽性與更正即時通知、每日待簽署摘要",
+          "body": "- 新表 EmailNotification：通知信佇列兼寄信紀錄（一位收件人一列），背景工作每分鐘寄出，失敗退避重試 5 次\n- LIS 同步時陽性進待簽署 → owner＋勾即時通知的醫師；已簽署報告被更正 → 原簽署醫師（關了或停用改寄 owner）；同一批同一人只收一封\n- 每日摘要：平台在設定時間（預設 08:30、週末不寄）當下算件數再寄，不用 NotificationPlatform /Schedule（排進去的內文件數會停在排入當下）\n- 寄信走 NotificationPlatform /api/Auth/Login＋/api/EmailTrigger/TriggerNow；沒設定 mailapi（開發、模擬模式）只寫 log、標略過\n- 信裡只有件數與醫師端連結，不放姓名、證號、檢驗編號\n- deploy/sql/08-email-notification.sql；deployment.md 上線清單補 mailapi 設定、156.224 連線實測、集區 AlwaysRunning\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b7bb29ff",
+          "time": "18:10",
+          "message": "README：待辦連到改名後的「第一輪結語」",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c40e83a0",
+          "time": "18:08",
+          "message": "合併 MR !59: docs：第一輪三題的結語（待發）",
+          "body": "docs：第一輪三題的結語（待發）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!59",
+          "category": "合併MR"
+        },
+        {
+          "hash": "490d6b61",
+          "time": "18:08",
+          "message": "docs：第一輪三題的結語（待發）；補上實際發出的訊息有問送檢醫師",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "839e57b9",
+          "time": "17:59",
+          "message": "docs：HCLAB 查詢防個資規則寫進 lis-mapping；README 補第二輪訊息與欄位內備註待辦",
+          "body": "原本只記在 Claude 的 memory，搬進 repo 讓其他人與 session 看得到。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 27
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "54fa2b74",
+          "time": "08:06",
+          "message": "fix(gui): 各頁左上 OrderInSql 標題改成連回首頁 /alert",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "9792f5ee",
+          "time": "07:54",
+          "message": "fix(docs): DEPLOY_LOG 換行改回 LF（!479 誤存成 CRLF，內容不變）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8b04e4ff",
+          "time": "07:52",
+          "message": "docs(deploy): DEPLOY_LOG 32——GUI 三支（!458／!424／!425），首頁維持 /alert",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "50dd6dea",
+          "time": "07:45",
+          "message": "合併 MR !424: feat: 歸檔分單位子夾（backlog C）——ArchiveLayout=ByUnit 逐線 opt-in，預設平鋪不變",
+          "body": "feat: 歸檔分單位子夾（backlog C）——ArchiveLayout=ByUnit 逐線 opt-in，預設平鋪不變\n\nSee merge request ucl/twowayconnection/orderinsql!424",
+          "category": "合併MR"
+        },
+        {
+          "hash": "4d2eb1e2",
+          "time": "07:45",
+          "message": "feat(gui): 首頁維持 /alert，/units 先以新頁上線——使用者看過正式資料再決定是否改首頁",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c170c38d",
+          "time": "09:49",
+          "message": "docs(index): 文件頁 Web GUI 卡改寫——/units 是首頁（異常／待處理／正常）、所有設定上 GUI 的方向連到 UNIT_ONBOARDING_GUI",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "879147a6",
+          "time": "09:48",
+          "message": "feat(gui): /units 單位列加「改預期」——預期收檔時間、休診日、上傳路徑備註，沿用 /alert 的 PUT /api/alert/units 與 UNITDATA",
+          "body": "值班可改的那一類（UNIT_ONBOARDING_GUI §6.3 第 1 點）從 /alert 搬進單位頁；兩頁同一份資料、同一個端點。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "220f7fa0",
+          "time": "09:33",
+          "message": "feat(gui): /units 改版——異常在上、待處理中間、正常摺疊；合併收檔進度五色（預期、應到未到、量偏少）；備註用規則組一句話",
+          "body": "10/8 回饋「太複雜、說明太多、難聚焦」＋ 10/12 模型定案（claude.ai/artifact/9rfdU6fy8u7nqd3ZR96ZrW 第 3 版）：\n- 前端同時抓 /api/overview（檔案端）與 /api/alert（DB 端五色），以單位碼合併；對不到檔案端的單位（含 Dept 後綴）照樣列出\n- 分三段：異常（隔離／卡住／應到未到／量偏少／備註有注意事項）直接展開在最上面；待處理（待轉、還沒到預期時間）與正常摺疊；不活躍勾選才顯示\n- 備註欄：每種狀態一句固定句型，資料全來自既有兩支 API，不用 LLM；需要動作的列給「看檔案」按鈕（既有的最近檔案＋試解析對話框）\n- chips 改為 隔離／卡住／應到未到／量偏少／待轉／等待中／已轉／全部；篩選或搜尋時自動展開摺疊段\n- 拿掉頁尾說明段，改一行連到 /docs\n後端不動（UnitsOverviewBuilder／AlertQuery 原樣）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c43f93b8",
+          "time": "17:15",
+          "message": "feat: 單位總覽頁 /units（backlog A）——以單位為列不分線、首頁只看待轉／已轉，純唯讀",
+          "body": "新頁 /units ＋ GET /api/overview?date=，首頁 / 改導向它；/alert、/lines、/config 原網址不動。\n五頁導覽列加「單位」。\n\n單位列＝三來源合併：單位設定裡本身就是單位的線（6a FP####、6b 1120、四碼數字）∪\n各線 inbox／quarantine／archive 的檔名 token（與 /alert 同一套 ResolveUnitCode 歸戶）∪\nWebOrder 查詢日 PhysicianOrderD 的 UTI_UNIT_CODE+Dept。名稱查 UNITDATA，查無的照列並標示。\n\n每列：待轉（inbox 不分日期；⚠ 卡住沿用 DescribeSkip 非 Intentional，刻意排除不算）、\n已轉檔數（查詢日 archive，根目錄＋ByUnit 子夾）、已轉張數（WebOrder cre_date 當日\nGROUP BY 單位鍵×filename、COUNT DISTINCT SN）、隔離（查詢日／更早）、最後到檔、備註。\n一檔多單位（TransferUCLCode 改轉、XML 檔內單位）以 WebOrder 反查為準：張數算在實際\n寫入的單位，檔名歸戶對不上的列備註「寫入來自別單位檔名的檔：X（檔名歸 Y）」。\n\n效能：一個請求掃一次磁碟（AlertQuery.ScanFiles，CollectRecentFiles 改建其上、行為不變）\n＋查一次 WebOrder；DB 掛掉時檔案端數字照常、張數留空並帶 dbError，不出誤報。\n\nCore：IAlertRepository.GetFilesWrittenOnAsync ＋ UnitFileOrders；NormalizeFileName 去舊程式存的路徑。\nService：UnitsOverviewBuilder（純函式）＋ UnitsOverviewQuery（DI）。\n測試：UnitsOverviewTests 24 案例（單位認法、三來源合併、待轉／卡住、已轉、一檔多單位歸屬、\n隔離今日／更早、有動靜、排序、磁碟掃描含子夾）；dotnet test 814/814 連跑兩輪全綠。\n文件：ELECTRONICALERT_INTEGRATION §5.1 ⑦／§5.2 端點、SYSTEM_OVERVIEW、TODO A 列進度。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "9306c977",
+          "time": "16:59",
+          "message": "feat: 歸檔分單位子夾（backlog C）——Options.ArchiveLayout=ByUnit 逐線 opt-in，預設平鋪不變",
+          "body": "寫端（ImportPipeline）：成功檔搬到 ArchiveLayout.ResolveArchiveDir：沒設／Flat＝archive 根目錄\n（一個位元都不變）；ByUnit＝archive\\<檔名 token>\\。token 只允許 ASCII 英數字，`..`、含分隔、\n空字串退回根目錄（不跳出 archive）；撞名 -N 在子夾內套同一條；隔離區不動。\n啟動期驗證：ArchiveLayout 打錯字（ByUnits／PerUnit）直接擲例外，服務起不來。\n\n讀端一律「根目錄＋一層子夾」、不看選項（舊檔不回搬；關掉後子夾檔也找得到）：\n- AlertQuery.CollectRecentFiles（GUI 已轉入清單）\n- Program.ResolveUnitFile → 抽成 UnitFileResolver（preview／raw 原檔預覽），路徑穿越擋兩層\n- UnitRedirectPreview.FindSamples（改轉預覽樣本檔，評估時漏列的消費端）\n\n腳本：feed-verify×8（LEDGER 版）改 for /R 走子夾，兩種佈局都吃；robocopy 範本註明只認平鋪；\nreplay-prep／gen-replay-files 加 -Recurse。\n\n文件：FILE_LOCATIONS／SYSTEM_OVERVIEW 補子夾佈局與一檔多單位的限制；TODO C 列加進度；\nappsettings 範例加 _comment_ArchiveLayout。\n\n測試：ArchiveByUnitTests 32 案例（平鋪預設、ByUnit、非法 token、撞名、隔離平鋪、\n清單兩層、Resolver 跳脫、驗證器）；dotnet test 790/790 連跑兩輪全綠。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "96b68173",
+          "time": "19:59",
+          "message": "chore: session 收尾備份 2026-10-19",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "b1e4b489",
+          "time": "18:00",
+          "message": "chore: cmv memory 整併進 repo 文件 2026-10-19",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "feebcfdd",
+          "time": "17:17",
+          "message": "chore: session 收尾備份 2026-10-19",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "89d7ad91",
+          "time": "10:32",
+          "message": "chore: session 收尾備份 2026-10-19",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c4809498",
+          "time": "07:58",
+          "message": "chore(lisweb-deploy): 排程發佈戰績+檢查清單；同日流水號自動跟上、msbuild 中文輸出判斷",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "07b536c6",
+          "time": "07:43",
+          "message": "chore: 考核系統 MR reviewer 註記",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "4d959df0",
+          "time": "07:43",
+          "message": "chore: session 收尾備份 2026-10-19（考核系統權限 memory）",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "9580e677",
+          "time": "16:36",
+          "message": "feat(BT403): 列印記錄新增「只看出帳人員/付款模式未設定」篩選",
+          "body": "月底批次多半依出帳人員/付款模式篩選，BT101 沒填的單位會整批漏印\n（0518 等四家九月帳單因付款模式空白漏印）。\n\n- 列印記錄 modal 加勾選框，只列 BT101 出帳人員或付款模式未填（含只填空白）的單位，\n  與列印狀態、主畫面篩選疊加\n- 表格中這兩欄沒填時顯示紅字「未設定」\n- GetPrintStatus / GetBillPrintStatusList 新增 onlyUnset 參數（預設 false，既有行為不變）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "09e33452",
+          "time": "16:13",
+          "message": "fix(BT402): 地址條只印期間內有帳別 0（月結帳）送件的單位",
+          "body": "現金、短期應收等不寄月結帳單的單位也會印出地址條；需求方確認\n「帳別 0 且當月有送件」才需要地址條。\n\n- GetReportBT402 多撈帳別 0 明細筆數 (MONTH_LINES) 與 BT101 帳別\n- PrintBT402Address 篩掉 MonthLines=0 的單位；BT402 報表本身不受影響\n- 略過名單依 BT101 帳別分組列在頁首螢幕提示（列印隱藏，不影響貼紙對位），\n  「帳別 0 但無月結明細」排最前，方便抓帳別設錯的單位\n- 台北 2026-09 試算 1,235 → 1,185 家\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "46a33e3f",
+          "time": "15:21",
+          "message": "fix(ScheduleJobs): 執行狀態改色塊、cron 加中文說明、修正跑版",
+          "body": "- 執行狀態：結果用色塊（OK 綠／FAIL、TIMEOUT 紅／SKIPPED 橘／執行中 藍／尚未執行 灰），不再斷成「O」「K」兩行；耗時改「1.7 秒」；時間縮成「10-19 15:20」\n- 類型欄：cron 底下加中文（每 10 分鐘、每天 01:10、每月 1 日 00:05、每週一至週五 07:30…），看不懂的寫法只顯示原式\n- 目標欄：拿掉 word-break: break-all（路徑會從單字中間切開），改 overflow-wrap: anywhere，並在反斜線後插 <wbr> 讓路徑從資料夾邊界斷\n- 操作欄：按鈕不換行，欄寬重新分配\n- 純前端（只改 cshtml），不動 API 與 DB\n- 以台北現有 8 筆真實資料做靜態頁、headless Edge 1191px 截圖確認；cronZh／fmtTime／fmtDur 以 node 跑 12 組樣式驗證\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "f57002d9",
+          "time": "10:45",
+          "message": "合併 MR !1584: fix:[BT201] 特定條件項目消失修正",
+          "body": "fix:[BT201] 特定條件項目消失修正\n\nSee merge request ucl/lis/lisweb!1584",
+          "category": "合併MR"
+        },
+        {
+          "hash": "7082843b",
+          "time": "10:40",
+          "message": "fix(TPFMApprove): 發行檔名白名單放行常用全形標點（，、：；＿－【】）",
+          "body": "文件發行時檔名含全形逗號（例：SOP09015C2 Creatinine_2 (Crea_2)，CCR標準操作手冊）\n會被擋下，但「，」不在 一-鿿 範圍內；白名單檢查是 6/29 才加的，\n既有已發行文件名稱本來就有這些全形標點。\n\n- 前端 IsValidPublishFileName 與後端 PublishFileNamePattern 同步加入 ，、：；＿－【】\n- 提示文字改為列出允許字元，避免誤以為是括號被擋\n- 文件編號仍以第一個空白前切出，全形標點不影響版本串接；\n  * ? 等萬用字元及路徑字元維持禁止\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "bb41b926",
+          "time": "10:39",
+          "message": "docs: LR355 品管下拉精簡方式（LR131 卸載撤機儀器、LR151 停用品管名稱）",
+          "body": "- 分析儀停用機制：補 LR355 一節（儀器下拉不濾「停」字、CustomALZ 會加回已卸載儀器；\n  品管名稱 QN_REC_FLAG 只有台中生效）、LR131 卸載的操作與影響範圍、\n  復機只補回 WS_CODE 需再切 ACTIVE\n- LR131 文件：Analyzer 分頁勾刪除即撤機、立即生效不需存檔、勿改 Active Station\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "8ebc1edd",
+          "time": "15:14",
+          "message": "合併 MR !31: fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面 (v10.20)",
+          "body": "fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面 (v10.20)\n\nSee merge request ucl/twowayconnection/uclweborder!31",
+          "category": "合併MR"
+        },
+        {
+          "hash": "12285785",
+          "time": "12:59",
+          "message": "chore: 版號改為 10.20(2026/10/20 台北上線)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2edbc291",
+          "time": "11:40",
+          "message": "test: 去重複孤兒細項的本地實測（setup SQL + Playwright）",
+          "body": "- tests/dedup_orphan_setup.sql：透過 Linked Server 唯讀正式庫，在本地 SQLEXPRESS 還原\n  0247 2026/10/16 去重複前狀態(16 條碼 × 2 份主單、29 筆被刪列照原 SN/SN_D 還原)\n- tests/smoke/dedup-orphan.spec.js：按去重複後不可留下整張只剩隱藏列的主單；\n  含對照組(還有可見項目的單，隱藏細項要保留)；EXPECT_OLD=1 驗舊版可重現\n- 實測：main 重現 11 張孤兒；本修正 0 張、DEDUP_ORPHAN 44 筆、對照組保留；\n  既有 lifecycle smoke 6 passed\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "53724b23",
+          "time": "11:08",
+          "message": "fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面",
+          "body": "醫院上傳的套檢是「套檢列 + 隱藏細項列」(細項由 OrderCheckJob 設 CANCEL=1)。\n同一條碼傳兩次時，去重複只比 CANCEL=0，刪掉重複套檢列後隱藏細項留下；\n整張只剩隱藏列時 PHP_ALL_CANCEL 會全部改回顯示 → 套檢變成一堆細項\n(2026/10/16 0247 基隆醫院 12 張單 52 筆)。\n\n- 刪完只剩隱藏列的主單，隱藏列一併刪除(稽核 DEDUP_ORPHAN)；有已轉入列不動\n- 已配號的優先保留(原本 ORDER BY SN DESC，SN 是 GUID 等於隨機)\n- 確認框顯示連帶刪除的隱藏細項數、要刪資料中的已配號筆數\n- tests/dedup_orphan_dryrun.sql 唯讀模擬：0247 10/16 抓到的 52 筆與實際被翻開的逐筆一致，\n  其他 4 個單位日 0 筆\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "a9976c33",
+          "time": "10:31",
+          "message": "docs: 各分部發佈狀況更新 —— 台北 10.01、台中 9.29（10.01 DB 前置已完成）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "0980b46f",
+          "time": "15:12",
+          "message": "fix(runner): 寫紀錄前把 Big5 存不了的字換成 ?（U+FFFD 在 .NET 算 1 byte、Oracle 存 2 bytes → ORA-01461）；EXE 輸出保留尾段；寫紀錄失敗也一定解鎖並改寫短紀錄；log 不寫 BOM；sql/003 拿掉錯的 encoding=utf-8",
+          "body": "10-19 15:00 Data2Cloud 首輪 rc=0 但紀錄寫不進去、鎖沒解，18:00 會被跳過。已人工解鎖補記；\n修正版 15:11 上兩站，15:12 立即執行驗證：紀錄 4000 bytes 中文正常、尾段 SUMMARY 全部成功、鎖已解。\n以 ODP.NET Core 3.21 在回滾交易裡重現與驗證（FFFD 3000 字失敗 → ForDb 後 OK）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "0f0c8df2",
+          "time": "08:03",
+          "message": "docs: 上線日進度（10-19 08:03：前置完成、四支已切）；切換表與操作清單日期改正（10-19 才是週一）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "25924522",
+          "time": "08:33",
+          "message": "feat(music): 🔁 自動續攤預設開，有人關掉才關",
+          "body": "旗標反過來：原本是「自動續攤.on 在＝開」，預設於是變成關——新機器、\n有人清了 Music 資料夾、檔案被誤刪，結果都是清單放完就安靜，沒有人知道為什麼。\n改成「自動續攤.off 在＝有人關掉」，沒有這個檔就是開；只有「有人按了關」\n這件事需要被記住，重啟、上版都不會把它忘掉。\n\n- 舊的 自動續攤.on 不再看，按一次開關就會順手清掉——留著的話，有人刪它想關掉，\n  結果什麼都不會發生\n- 讀不到 Music 那層（NAS 斷線）照舊當作關：File.Exists 讀不到時回 false，\n  少了 Directory.Exists 那道檢查，斷線會被讀成「沒有人關過」＝開\n- 線上現在本來就是開的（有 .on），換版後還是開，行為不會跳\n\n本機實測四步：只有舊 .on → 開；按關 → .off 出現、.on 被清；重啟 → 仍是關；\n按開 → .off 刪掉。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "7ebc30cd",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-19",
+          "body": "🤖 自動生成於 2026-10-19 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "418be7a9",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-18 (2 commits)",
+          "body": "🤖 自動生成於 2026-10-19 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 58,
+    "sideCommits": 2,
+    "totalCommits": 60
+  }
+}
