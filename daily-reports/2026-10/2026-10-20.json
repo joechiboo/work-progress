@@ -1,0 +1,444 @@
+{
+  "date": "2026-10-20",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\cmv-parent-portal",
+      "commits": [
+        {
+          "hash": "32bfef66",
+          "time": "11:17",
+          "message": "模擬模式加「無法判讀（Invalid）」情境；README 勾掉單位預設送檢醫師",
+          "body": "- DevSeeder 多一筆北榮待簽署案件（值 Invalid、證號 P200000005、10 天前出生）；DemoScenarios 加情境說明\n- 待簽署筆數 5→6 的測試與 README 醫師端表同步\n- 單位預設送檢醫師已由 CmvSync PARAMS units.<單位碼>.physician 解決\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "31408c54",
+          "time": "11:06",
+          "message": "Invalid 結果比照陽性：簽署後不線上公開，家長端只看到「請與送檢醫院聯絡」（曹醫師 10-20 定案）",
+          "body": "- ScreeningCase.IsInvalid（結果值 Invalid）、ContactOnly（陽性或 Invalid）；簽署發布、家長端 MapState 改看 ContactOnly\n- 簽署佇列、家長查詢清單補 Include(Results)，否則 IsInvalid 永遠 false 會漏到家長端\n- 醫師端待簽署：清單「無法判讀」標籤、預覽說明、簽署確認與提示文字\n- 測試：同步 Invalid → 待簽署 → 簽署後不公開；家長查詢走真正路徑確認引導聯絡醫院（175 全過）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0e46670a",
+          "time": "10:58",
+          "message": "docs：Invalid 定案（曹醫師 10-20）——不放行給家長、比照陽性；README 待辦改成改程式一項",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2bbe2674",
+          "time": "10:34",
+          "message": "醫師端頁尾：登入後才顯示檢驗所電話 (02) 2704-9977，登入頁只留建置維護一句",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "deb1fab5",
+          "time": "10:33",
+          "message": "README：Invalid 後續已查——3 筆都是放行的正式結果，沒有同號更正；同步端暫當檢驗中、定案後改 Classify",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ae83f730",
+          "time": "10:31",
+          "message": "上線清單補 12／12a：LIS 同步金鑰與白名單、56.231 連得到平台",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "21b32831",
+          "time": "10:19",
+          "message": "docs：CmvSyncTask 10-20 寫好、改排下一次 Chronos 發佈；README 待辦與 architecture ③ 同步",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9ff7efa4",
+          "time": "09:17",
+          "message": "備份排程 10-20 已在 156.224 註冊並跑過第一次完整備份；補齊做法與坑",
+          "body": "- 01-create-database.sql：GRANT CREATE ANY DATABASE 給 SYSTEM（RESTORE VERIFYONLY 需要，db_backupoperator 不夠）\n- cmv-backup.ps1 改存 UTF-8 BOM（PowerShell 5.1 讀無 BOM 檔用 Big5，log 中文會亂碼）\n- 新增 setup-backup.cmd（ASCII＋CRLF）：建 D:\\cmv-backup、給 NT Service\\MSSQL$SQLEXPRESS 修改權限、註冊兩個排程、立刻跑 Full；以 sc.exe 一次性服務用 SYSTEM 執行，免 RDP\n- deploy/README 第三節改成實際做法；deployment.md 第 5 項、上線清單第 4 項、README 待辦同步\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9d748b0b",
+          "time": "09:08",
+          "message": "小卡蓋章框改成明確選填；提醒改回「請洽採檢醫院」",
+          "body": "Peter 2026-10-20 顧慮印電話會回到電話接不完；KJ 定調由送檢單位自行決定要不要蓋、蓋不蓋電話。沒蓋章時背面提醒不能指向空框。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "421a37f2",
+          "time": "08:47",
+          "message": "DB：04～11 已於 10-20 套用；更正「04～06 已套」的錯誤記錄，補 sqlcmd 要加 -I",
+          "body": "- 實查套之前只有 InitialCreate，deployment.md 清單 9～9b 原本記已套是錯的；現在 __EFMigrationsHistory 9 筆到 NotifyEmail\n- 09 第一次跑因 sqlcmd 預設 QUOTED_IDENTIFIER OFF 建篩選索引失敗（Msg 1934），整支 rollback，加 -I 重跑通過；指令範例改帶 -I，並註明不要把輸出接管線吃掉結束碼\n- Tenant 實查 0 筆：清單第 9 項拆出「醫院資料還沒填」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ba1d2cd8",
+          "time": "08:27",
+          "message": "送檢單：拿掉送檢單位章格、表頭改「科別／病房」不折行、草稿標記改「待確認」",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "54f1c63b",
+          "time": "08:21",
+          "message": "送檢單字型改標楷體＋Times New Roman，勾選框放大",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2cb0b346",
+          "time": "07:16",
+          "message": "紙本送檢單草稿 0.1：以 PMF CMV-04 為底稿的大安版本（html＋pdf）",
+          "body": "- docs/requisition/：A4 一頁檢驗單，頂端 UID 格改送檢單位章、性別與多胞胎排行改勾選、家長證號附證件類別與填寫規則、送檢院所欄位去掉協調員、頁尾改大安\n- 出生體重、懷孕週數、聽篩結果照留（使用者決定）；表單編號待文管\n- 資料夾 README 列與 PMF 的差異、定案前待辦；README 文件索引與待辦更新\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d440636d",
+          "time": "07:15",
+          "message": "合併 MR !73: docs：模擬模式 ↔ 正式 API 測試對照",
+          "body": "docs：模擬模式 ↔ 正式 API 測試對照\n\nSee merge request ucl/onlinereport/cmv-parent-portal!73",
+          "category": "合併MR"
+        },
+        {
+          "hash": "ae4d1508",
+          "time": "07:14",
+          "message": "docs：模擬模式 ↔ 正式 API 測試對照（API 契約、情境對照、驗證 SQL、切換易漏事項）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "70a11543",
+          "time": "07:06",
+          "message": "合併 MR !72: KJ 10-19 三點：（母親）加註、多胞胎 (A)／(B)、小卡蓋章框",
+          "body": "KJ 10-19 三點：（母親）加註、多胞胎 (A)／(B)、小卡蓋章框\n\nSee merge request ucl/onlinereport/cmv-parent-portal!72",
+          "category": "合併MR"
+        },
+        {
+          "hash": "e073b4d4",
+          "time": "07:06",
+          "message": "KJ 10-19 三點：身分證字號值後加「（母親）」、多胞胎改 (A)／(B)、小卡背面留送檢單位蓋章框",
+          "body": "- 報告頁「身分證字號」標籤照範本不動，值後加「（母親）」（細一號、不粗體）；CLAUDE.md 規則改成「標籤不動、值內可加註」\n- 胎序顯示由「（第 2 胎）」改「(B)」，家長端清單、報告、醫師端清單同一套；LIS 同步解析 (A)／(B) 不變\n- 小卡背面右下加「送檢單位・聯絡電話」虛線框，送檢單位自己填或蓋章；小卡仍各院共用、不印院名\n- questions-vghtpe 記 KJ 第二批建議與處理；report-template 第三、四節；README 待辦結案\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 17
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "4bd3984b",
+          "time": "12:03",
+          "message": "功能說明欄 DESCRIPTION：維護頁看懂每支排程在做什麼",
+          "body": "可維護性是本專案的另一個目的：在維護頁就能知道各排程在做什麼，不用翻 repo。\n目前 JOB_NAME 只有一句標題、REMARK 是來歷與踩坑、PARAMS_DOC 是逐個參數，\n都回答不了「讀哪裡寫哪裡、壞了誰先發現」。比照 PARAMS_DOC 的分工加一欄：\n\n- sql/009：SCHEDULE_JOB 加 DESCRIPTION VARCHAR2(4000)，固定四段各一行\n  （做什麼：／資料流：／壞了：／文件：）；台北七支 EXE ＋ NhiAutoUpload 先填\n- IChronosTask 加 Description；DelayCommentBackfill、CmvSync 兩支寫好\n- 執行器 SyncParamsDoc 泛化成 SyncTaskDoc，PARAMS_DOC／DESCRIPTION 各自同步、\n  各自吞 ORA-00904（一欄沒加不影響另一欄）；`doc` 指令一併印功能說明\n- lisweb 側（列表名稱下顯示第一段、編輯框顯示全文）疊在 feat/schedule-params-doc\n\n部署順序同 008：各站先跑 009 → 換版執行器 → 上 lisweb，否則維護頁 ORA-00904。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e8770e86",
+          "time": "11:51",
+          "message": "sql/008：AutoAdjustBLG 說明——回溯天數不寫死預設值（台北正式是 1）、排除單位註明整串取代不是追加",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "93258654",
+          "time": "11:44",
+          "message": "docs: 主機間連線已知問題速查表（56.231 信任、56.227→168.227 每日斷線、168.227→56.227 未查）",
+          "body": "把散在 Chronos 與 OrderInSql 兩個 repo 的連線問題收成一張矩陣，附判讀順序與懸而未決項，README 加連結。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "039a1687",
+          "time": "11:03",
+          "message": "參數說明欄 PARAMS_DOC、EXE 型注入 CHRONOS_PARAMS：業務參數改在維護頁改",
+          "body": "同仁問「排程整合進 Chronos 了，參數還是要去各排程 config 改？能不能在維護頁改，例如排除的單位？」\nTASK 型本來就可以（PARAMS），EXE 型不行，而且 PARAMS 沒有說明沒人敢改。設計見 docs/參數整合設計.md。\n\n- sql/008：SCHEDULE_JOB 加 PARAMS_DOC VARCHAR2(4000)；台北七支 EXE 填執行器層鍵說明，AutoAdjustBLG 另填業務鍵\n- IChronosTask 加 ParamsDoc（兩支 TASK 都填）；執行器每輪比對同步到 PARAMS_DOC，不同才 UPDATE；`doc` 子命令印說明\n- 結果加 PARAMS_EFFECTIVE（實際生效值）；PARAMS 有說明裡沒有的鍵標 UNKNOWN_PARAMS（ParamsDocs.Keys/Unknown，有測試）\n- EXE 型啟動固定帶 CHRONOS_PARAMS／CHRONOS_JOB_CODE／CHRONOS_DRYRUN，程式接了就能在維護頁改；沒接的不受影響\n- 對應：lisweb feat/schedule-params-doc（頁面顯示說明、JSON 檢查、最後修改）、autoadjustblg feat/chronos-params（第一支接的 exe）\n- 部署順序：各站先跑 008 → 換版執行器 → 上 lisweb（lisweb 新版 SELECT 有 PARAMS_DOC，沒跑 008 會 ORA-00904）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3ad4d2a2",
+          "time": "11:03",
+          "message": "CmvSync：Invalid 改當放行送（值 Invalid），不再當檢驗中——曹醫師 10-20 定案不給家長看，平台比照陽性",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "400182aa",
+          "time": "10:26",
+          "message": "csproj 不複製 appsettings.Local.json 到輸出（避免 publish 帶出本機設定）；README 註明本機要手動複製",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "339ee5a4",
+          "time": "10:19",
+          "message": "CmvSync 內建工作：7569 結果同步到家長查報告平台（台北，先不登記）",
+          "body": "- Tasks/CmvSyncTask.cs：指定單位近 N 天的 7569 單（簽收／審核／B03 任一在區間），BLG_TX_HDR⟕ORD_HDR⟕ORD_DTL 一次帶出，分批 POST 平台 /api/lis/cases（X-Api-Key）；試跑只分類不送；輸出只有檢驗編號與狀態\n- Tasks/CmvSyncMapper.cs：純轉換——units 參數（字串或 {tenant,physician}）、0→Not detected、二審 R+A 才算放行、Invalid／空值當檢驗中、B03 作廢、ORD 不見又無 B03 略過、同單多列挑放行或最新、DOB 哨兵、MRR 參考區間\n- TaskContext 加 Config（appsettings Tasks:<Code> 區段）與 BaseDir；appsettings.json 加 Tasks:CmvSync（ApiUrl／ApiKeyFile／ConnectTo／TimeoutSec）；ConnectTo 走 ConnectCallback 保留 SNI 與憑證驗證\n- tests/Chronos.Runner.Tests（xunit，19 個測試）：mapper 規則與送平台的 JSON 形狀\n- sql/007 台北登記（ENABLED='N'）；*.key 進 .gitignore；csproj 複製 appsettings.Local.json 到輸出\n- docs/執行計畫.md：改排下一次台北發佈、執行器設定、未定項先保守；README 3-6\n\n本機實測：對台北 HCLAB 試跑 1931 近 30 天 18 筆（放行 14、檢驗中 4、Invalid 1）；本機平台非模擬模式收單 Created→Unchanged。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1f8fa664",
+          "time": "07:49",
+          "message": "docs: 階段二簡報（封面＋三個重點，方向鍵換頁、深淺色、可列印）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "da9487b5",
+          "time": "07:28",
+          "message": "docs: 計劃書更新至 10-20——七支已切完、現況改實際數字（135 次全 OK、0 告警）、時程日期改正（10-19 才是週一）、上線事故說明、風險與候選表標記已解與已切",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d3853b33",
+          "time": "07:20",
+          "message": "docs: 10-20 07:20 七支全部切完（ReportHtmlSync 07:06、FalconCopy 07:15 提前）；夜間首批全 OK；Cerberus !56 加 Chronos 工作結果頭",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "ad4a08da",
+          "time": "12:05",
+          "message": "memory(chronos): DESCRIPTION 功能說明欄進度（Chronos !6 merge、009 與執行器待部署、lisweb 併入 !1592）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "bb11275c",
+          "time": "11:52",
+          "message": "memory: 008 說明小修已做",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "0837b0bc",
+          "time": "11:50",
+          "message": "memory: 56.231 config 改動已釐清（琦如加排除單位）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "4e49dd85",
+          "time": "11:48",
+          "message": "memory: PatchNote 671 已整理",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "cb218a93",
+          "time": "11:47",
+          "message": "memory: 參數整合已上台北台中，剩 lisweb !1592",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "420e5942",
+          "time": "11:12",
+          "message": "memory: Chronos 參數整合（PARAMS_DOC＋CHRONOS_PARAMS）三支 MR；其他專案 memory 同步",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7bcf0098",
+          "time": "08:06",
+          "message": "chore: session 收尾備份 2026-10-20（Chronos 階段二批次 3 完成、Sonar CI token 排查）",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "65672160",
+          "time": "10:18",
+          "message": "App 文件：補 XRS0701001 風險管理報告",
+          "body": "比照 LIS 2026/01/06 那份寫法，FMEA 13 項；依 QP0701 附錄只用 S×O（不用 D、RPN）。\n第 6 項趨勢圖資料比對、第 11 項後端強化尚未完成，照實寫在結論。\n腳本可帶文件編號只產一份；風險報告頁尾改用對齊定位點，直式橫式頁都對齊。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "18c0c065",
+          "time": "10:16",
+          "message": "行政部清單依楊廠長回覆更新：內湖平面圖已有現行版、財產清冊有新設備才更新、標籤例外註記；總部平面圖待確認",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3769423e",
+          "time": "10:04",
+          "message": "行政部清單 PDF 更新（一頁）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7c775b44",
+          "time": "09:56",
+          "message": "行政部清單：在職履歷改 2027 補登、訓練驗證 2 年一批、財產清冊／標籤歸楊廠長；TODO 記明年事項",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0a5511fb",
+          "time": "09:39",
+          "message": "行政部補件清單改成全表＋負責欄（孝田／賴主任 #n／年底／技術部／楊廠長）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6135eedd",
+          "time": "09:23",
+          "message": "行政部補件清單（給邢孝田）；TODO：里程碑已歸檔",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "5fd67d34",
+          "time": "18:40",
+          "message": "docs: 10/20 收檔中斷事故（DEPLOY_LOG 32c）——168.227 上 SMB session 外洩到 2,048 上限；更正 32b Pull-All 實際 10:15 起在跑",
+          "body": "- 32c：10:09–11:39 56.227 收不到 168.227 的檔；根因是舊 pull bat 每輪 net use 不斷線，session 累積到 WS2003 單一來源上限 2,048\n  （也是長期「每 5.5 小時斷 14 分」的真因）；11:39 NetSessionDel 止血、11:41 12 支 bat 結尾加 net use /delete，session 數持平\n- 32b 更正：半註冊的 Pull-All 10:15 起以 SYSTEM 執行、與舊排程並行\n- SCHEDULE_INVENTORY：現況與「net use 的 bat 結尾一律斷線」規則\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "70a0d79d",
+          "time": "11:45",
+          "message": "docs(todo): 共享斷線備註加連結到 Chronos 主機間連線已知問題速查表",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7e2b8ecd",
+          "time": "08:32",
+          "message": "docs(pull-all): README 補 10/20 首次上線紀錄——踩坑表、未解的 schtasks /Create 卡住、下次重跑步驟",
+          "body": "佈署段拿掉「換 <ADMIN_PASSWORD>」（排程改 SYSTEM 後 register 不含密碼）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "36a8cf94",
+          "time": "08:31",
+          "message": "docs: 10/20 pull 收口首次上線未完成——Feed×2 已停、Pull-All 卡在 schtasks /Create（DEPLOY_LOG 32b）",
+          "body": "- DEPLOY_LOG 新增 32b：兩支 Feed 停用；Pull-All 建立卡住的經過、現況（舊 10 支照跑）、安全性與巡檢方式\n- DEPLOY_LOG 第 32 列 `quarantine\\resolved\\` 的 `\\r` 被寫成真 CR（0x0D），修回反斜線\n- TODO pull 收口項加現況與下一步；SCHEDULE_INVENTORY 補 10/20 排程狀態\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "10ba0bbd",
+          "time": "08:25",
+          "message": "fix(pull-all): 10/20 上線實測修正——PS 5.1 相容、168.227 帳號限定、改 SYSTEM、心跳檔",
+          "body": "- register：schtasks /Query 查無時寫 stderr，PS 5.1 + EAP=Stop 會直接擲例外 → 改 cmd /c 只看結束碼；/Change 同理暫降 EAP\n- pull-all：param 預設值的 $PSScriptRoot 在 powershell -File 下是空字串 → 改在本體以 MyInvocation 解析\n- pull-all：net use 的 1219 在 EAP=Stop 下會中斷整輪 → 暫降 EAP；連不上分享時寫 pull-all.log（原本各線只記「來源不存在」並回 OK）\n- pull-lines：User 改 UCL-WEB-TPE\\administrator。168.227 網域信任異常，未限定的帳號在網域身分下回 1789\n- register：排程改以 SYSTEM 執行、不再帶密碼。administrator＋密碼建立時 schtasks /Create 卡死\n- pull-all：每輪覆寫 logs\\last-run.txt 心跳（平常不寫 log，否則分不出沒跑與沒檔）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "LIS\\Schedule\\autoadjustblg",
+      "commits": [
+        {
+          "hash": "bf0f0645",
+          "time": "11:36",
+          "message": "合併 MR !3: feat/chronos params",
+          "body": "feat/chronos params\n\nSee merge request ucl/lis/schedule/autoadjustblg!3",
+          "category": "合併MR"
+        },
+        {
+          "hash": "2195811a",
+          "time": "11:04",
+          "message": "接 Chronos CHRONOS_PARAMS：排除單位、回溯天數、各加項開關可在 LISWeb 排程維護頁改",
+          "body": "Chronos 執行器啟動 EXE 時會塞環境變數 CHRONOS_PARAMS（SCHEDULE_JOB.PARAMS 的 JSON）。\n新增 ChronosParams.cs：有這個變數就用它蓋過 App.config 同名鍵，沒有（工作排程器直接跑、手動跑）行為完全不變。\n- 轉法：true/false → \"true\"/\"false\"；陣列 → 逗號接起來；數字字串照原樣；物件忽略；鍵名不分大小寫\n- 壞 JSON 印警告、全部退回 App.config，不讓加項整支不跑\n- Main 由 Chronos 叫起時印「生效參數」（每鍵的值與來源）並寫 NLog；PARAMS 有不認識的鍵會列出\n- CHRONOS_DRYRUN=Y 只印參數就結束（本程式本來沒有 dry-run；維護頁「試跑」靠這個，PARAMS 要加 \"dryRunArgs\":\"\"）\n- 連線字串、LogRetentionDays 不走這裡\n- 業務鍵 14 個改走 ChronosParams.Get，清單與 Chronos sql/008 的 PARAMS_DOC 一致\n\n基於 feature/hiv-ict-reflex-nat-0319（56.231 現在跑的版本，App.config 有 HIVNAT 鍵）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "604ce619",
+          "time": "12:05",
+          "message": "排程維護頁：顯示功能說明 DESCRIPTION（列表一行「做什麼」、編輯框四段全文）",
+          "body": "Chronos 另一個目的是可維護性：在維護頁就看懂每支排程在做什麼，不用翻 repo。\nChronos MR !6 加了 SCHEDULE_JOB.DESCRIPTION（四段各一行：做什麼／資料流／壞了／文件；\nTASK 型由執行器從程式碼同步、EXE／登記型 sql/009 手填）。這支是頁面端：\n- ViewModel／Repository 讀 DESCRIPTION（唯讀，Save 不寫）\n- 列表「代碼／名稱」下多一行第一段（去掉「做什麼：」段名），title 帶全文\n- 編輯框多一塊唯讀「這支在做什麼」，pre-wrap 照段落換行\n\n⚠ 上版前各站先跑 Chronos sql/009，否則 SELECT 會 ORA-00904（跟 008 同一條規則）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4c98376a",
+          "time": "11:04",
+          "message": "排程維護頁：參數 JSON 旁顯示參數說明（PARAMS_DOC）、儲存前檢查 JSON、顯示最後修改人／時間",
+          "body": "同仁問排程參數能不能在維護頁改（例如排除單位）。Chronos 這邊加了 PARAMS_DOC 欄位（TASK 型由執行器從程式碼同步、EXE 型登記 SQL 手填）\n與 EXE 型注入 CHRONOS_PARAMS；這支 MR 是頁面端：\n- ViewModel／Repository 讀 PARAMS_DOC（唯讀，Save 不寫）\n- 編輯框參數 JSON 與說明並排；儲存前 JSON.parse，壞 JSON 不送出（以前存進去下一輪整支 FAIL 才知道）\n- 列表與編輯框顯示 UPDATED_BY／UPDATED_ON（欄位本來就有，頁面沒秀）\n\n⚠ 上版前各站先跑 Chronos sql/008_加PARAMS_DOC_各站通用_20261020.sql，否則維護頁 SELECT 會 ORA-00904。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "f2409ad0",
+          "time": "07:18",
+          "message": "config: Chronos 工作結果頭（台北、台中）＋ FalconCopy 撲咬改踢 Chronos 執行器",
+          "body": "- Chronos工作@台北／@台中（DbBacklog）：查 SCHEDULE_JOB，已啟用工作上次 FAIL／TIMEOUT、或鎖卡住超過逾時＋5 分，就算一筆；門檻 1 分。\n  一顆頭罩住該站所有搬進 Chronos 的工作，之後新增工作不用再加頭。連線沿用 HC010 頭的同一組密文。\n  （鎖卡住那條是 10-19 Data2Cloud 首輪的教訓：寫紀錄失敗沒解鎖，下一輪會被跳過，單看結果抓不到）\n- FalconCopy 10-20 07:15 起由 Chronos 觸發、舊排程已停用：撲咬改踢 \\Chronos\\Runner，Runbook 改指向排程維護頁與回退方式\n- 只改 appsettings，exe 不動（每輪重讀設定）。本機 harness 對兩站 DB 實跑：現況綠；條件改成 OK 模擬出事會轉紅（台北 6 筆、台中 1 筆）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "f650d40f",
+          "time": "07:06",
+          "message": "docs: 更新彙整資料 2026-10-20",
+          "body": "🤖 自動生成於 2026-10-20 07:06",
+          "category": "文檔"
+        },
+        {
+          "hash": "41b09c16",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-19 (60 commits)",
+          "body": "🤖 自動生成於 2026-10-20 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "260b4f9f",
+          "time": "17:18",
+          "message": "docs(32): 條文對照表加出直式 A4 版（HTML→PDF）與 Word 檔，供經理放入會議紀錄",
+          "body": "- build-bylaw-compare.mjs：同一份列資料另寫直式 HTML（欄寬 38/38/24、字級降一階），\n  並把列 JSON 交給 build-bylaw-compare-docx.py 產 .docx（表頭跨頁重複、列不拆頁、紅字底線保留）\n- 內容即 10/15 版：已含附件一內文「承租」→「使用」各列（10/1 寄出的 PDF 尚無）\n- 橫式 HTML 輸出不變\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 50,
+    "sideCommits": 3,
+    "totalCommits": 53
+  }
+}
