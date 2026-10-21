@@ -1,0 +1,372 @@
+{
+  "date": "2026-10-21",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "21754c9b",
+          "time": "18:00",
+          "message": "chore: session 收尾備份 2026-10-21（排程發佈首次成功、!1588/!1590/!1591 已上台北）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a8a8199b",
+          "time": "17:56",
+          "message": "memory/runbook: 檢驗雲存摺 iOS 開發者帳號申請（改用聯合生技）",
+          "body": "- runbook android-app-publish：Apple 不收大安聯合（醫事檢驗所非法人）、uclit Zimbra 加 Apple 轉寄\n- uclcloud-app memory：iOS 上架準備現況、enrollment JPB2D8MV49、授權人資料與英文名來源\n- 一併備份其他 session 新增的 lisweb / uclcloud memory\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "796ee227",
+          "time": "11:48",
+          "message": "chore: session 收尾備份 2026-10-21",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a4a63bd6",
+          "time": "09:41",
+          "message": "CLAUDE.md：新增「文件寫成 .md、.html 還是 artifact？」判準；OrderInSql memory 記 10/27 Spark 一頁說明連結",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "080c64a0",
+          "time": "09:36",
+          "message": "chore: session 收尾備份 2026-10-21",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "36438acd",
+          "time": "08:27",
+          "message": "chore: session 收尾備份 2026-10-21（App 風險管理報告歸檔、里程碑 memory 更正）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "44af3e29",
+          "time": "08:27",
+          "message": "memory(chronos): 收尾時程 10-21 重排、CmvSync 現況更正",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "634f4fe7",
+          "time": "07:58",
+          "message": "chore: session 收尾備份 2026-10-21",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "48bab468",
+          "time": "07:55",
+          "message": "lisweb-tag: 只處理自己 MR 的 PatchNote，同仁的不列不提",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "b8e39bef",
+          "time": "07:53",
+          "message": "memory(chronos): 說明欄 DESCRIPTION 10-21 全部上線",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "fa1d9951",
+          "time": "07:48",
+          "message": "chore: OrderInSql memory——!485／Chronos !7 已合併",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6a0928ca",
+          "time": "07:47",
+          "message": "chore: session 收尾備份 2026-10-21（OrderInSql：168.227 斷線查明、監控牆交接、待合併 MR）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 12
+    },
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "1df61e6e",
+          "time": "09:35",
+          "message": "行政部查檢表 PDF：補上稽核日期 2026/10/29",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a1fa75c7",
+          "time": "09:34",
+          "message": "行政部稽核約 10/29（四）11:00：查檢表填稽核日期、TODO 更新",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8fbb3577",
+          "time": "09:25",
+          "message": "行政部查檢表：事件描述欄、備註欄格式統一（靠左、無縮排、標楷體）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5cf0b3af",
+          "time": "09:22",
+          "message": "行政部查檢表：提醒放回備註欄（照往年習慣），無縮排、靠左、小一號字",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2941705e",
+          "time": "09:19",
+          "message": "行政部查檢表：提醒從備註欄移到事件描述欄最後（※ 第 X 項），備註欄留空",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "92eed27a",
+          "time": "09:15",
+          "message": "行政部查檢表：備註欄字型統一、簽核欄只留最後一組",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e55b74b6",
+          "time": "08:49",
+          "message": "行政部稽核用查檢表（IA-3＋7.4）預填份數與版次",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d6a5c102",
+          "time": "08:33",
+          "message": "TODO：財產清冊已更新（M-034）、檔名更正；下一步找孝田正式稽核",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "a969a7c1",
+          "time": "08:54",
+          "message": "feat(fp-retire): FP 剩餘 7 家收尾步驟 1–3 補齊；時程因 10/26 光復節補假順延一天",
+          "body": "- 步驟 1：ExecuteLog 7 家近 90 天皆 0 筆（最後處理日填進卡的記錄表）\n- 步驟 2：fp-valid0-retire.sql／fp-valid1-rollback-retire.sql（-v Group=A／B；守門含逐家 mode、近 90 天有檔即中止），\n  .229 NOEXEC 編譯通過、守門條件唯讀試算全部放行\n- 步驟 3：gen-cerberus-heads.ps1 -Aggregate 加 -RetiredFpUnits，院所醫令收檔多盯 B 組 4 家（Cerberus !58）\n- 時程：說明 10/27、A 組 10/28、B 組 11/4、停排程 ~12/4\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4eb2b3c0",
+          "time": "08:03",
+          "message": "docs: 監控牆上線（10/21 08:00）——MONITORING 改為現況：院所醫令收檔／轉檔兩顆合併頭；TODO Cerberus 項打勾",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "63786a5a",
+          "time": "07:51",
+          "message": "feat(tools): gen-cerberus-heads.ps1 加 -Aggregate——產出院所醫令收檔（168.227 來源）／轉檔（56.227 inbox）兩顆多資料夾頭",
+          "body": "一條線一顆頭會在監控牆佔 45 格。-Aggregate 改產兩顆 Cerberus FolderBacklog 的 Watches 頭（Cerberus !57）：\n- 收檔：讀 56.227 pull-all\\pull-lines.json，排除規則照抄 pull、pull 時段外＋寬限為靜默窗（Xevox 15:30-17:56）；\n  ExamOrder_Files 只看 6a 各家＋1120（夾裡混著 FP 自己處理的單位）\n- 轉檔：沿用既有逐線 inbox 頭的路徑與靜默窗（時窗補集＋寬限）\n- 來源側帳密另給 -SourceShareUserEnc／-SourceSharePasswordEnc（168.227 必須 UCL-WEB-TPE\\administrator）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "9e471d5c",
+          "time": "07:44",
+          "message": "docs: 10/20 收檔中斷後續——32c 補過夜驗證、更正「來源不存在不是新問題」舊判讀、記 pull 自報訊號會說謊",
+          "body": "- DEPLOY_LOG 32c：10/21 07:23 驗證 11:41 後 12 支 pull「來源不存在」0 次，舊週期三個斷點都沒發生；註明監控盲點仍在\n- TODO：9/22 那段「每 ~13 小時斷 15 分、不用處理」標為錯誤判讀（真因是 SMB session 外洩，已修），今後再出現就是新問題\n- TODO pull 收口：半註冊 Pull-All 10:15 起已在跑、下週與其他已不用的排程一起清；新增「pull 的自報訊號會說謊」待辦（pull-settled exit 0、心跳照寫 OK）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "ef16e28c",
+          "time": "08:53",
+          "message": "config: OrderInSql 院所醫令收檔加盯 FP 收尾 B 組（0539／0235／0699／0272）——ExamOrder_Files、UCLOrder_Files 各一處",
+          "body": "OrderInSql docs/migrations/fp-retire-remaining-7.md 步驟 3：B 組 valid=0 之後檔進來沒人撿，偵測頭要先空跑一週。\n門檻 30 分、靜默 21:00-09:20（收尾前 FP 每 10 分撿一次）。由 gen-cerberus-heads.ps1 -Aggregate 重產，只多兩筆 Watches。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7ae9a81d",
+          "time": "07:51",
+          "message": "feat(FolderBacklog): 多資料夾模式 Watches＋--check 模式；加 OrderInSql 院所醫令收檔／轉檔兩顆頭",
+          "body": "- HeadOptions.Watches：一顆頭看多個資料夾、牆上只佔一格。每筆自帶 QuietWindows／StaleAfterMinutes／Include／Exclude；\n  逐筆攔例外（一處讀不到不拖垮其他處）；同一共用根只連一次、用完即斷（避免重演 OrderInSql 10/20 的 session 外洩）\n- 多資料夾模式略過隱藏／系統檔：168.227 UCLOrder_Files 有個 2022 年的 Thumbs.db，下游 pull 永遠不會拉走它\n- --check \"<頭名>\"：只判活、印結果，不告警、不送牆、不動 state.json\n- OrderInSql醫令收檔@台北（168.227 來源 11 處）、OrderInSql醫令轉檔@台北（56.227 inbox 34 處），\n  由 OrderInSql repo tools/gen-cerberus-heads.ps1 -Aggregate 產生；帳密以 --encrypt 同一套 DES 加密\n- 本機驗證：兩顆頭對正式資料夾 --check 正常（1.5／2.2 秒）；假資料夾驗過積壓、排除、隱藏檔、讀不到、靜默窗五種情境\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "e178c546",
+          "time": "08:12",
+          "message": "docs: 規劃 review——文件落差補正、收尾時程重排（階段二＝台北，待確認 15 項改長期）",
+          "body": "- README／執行計畫／盤點總表／參數整合設計：狀態改成實況（EXE 型與執行器 10-19 已部署、Cerberus 頭 !54/!56 已上、維護頁 TASK 支援已 merge、參數整合 10-21 上線、七支已接管）\n- 日期更正：W3 是 10-26 起（10-26 才是週一）、11-01 是週日（11-02 核對）、WebOrderArchive 新版 10-21 → 10-26\n- 收尾時程重排：10-26 週只做 56.231 本機能做的（匯出 XML、刪 7 筆舊定義、除名 32 支、REGISTER 8 類、台中驗收、lisweb 退役舊端點、Cerberus 補「該跑沒跑」）；每月績效舊定義等 11-02 核對上傳值再刪；待確認 15 項、補 exit code、PHP 試點、CmvSync 改不設期限\n- 新增階段三（台中補搬、四個分部上線）與待決（56.231 網域信任說明要不要送 IT）\n- 計劃書 SOP 第 5 步改成實際做法（通用「排程工作」頭，不逐支加頭）；多段時窗結案\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0be0703b",
+          "time": "07:44",
+          "message": "docs: 主機間連線速查表——56.227→168.227 斷線查明是 SMB session 外洩並已修，10/20「168.227 連不到 56.227」回報即同一事故",
+          "body": "- 第四列：真因（舊 pull bat 每輪 net use 不斷線，168.227 上 session 累積到 WS2003 上限 2,048 → 1130），10/20 11:41 修正、10/21 過夜驗證 0 次\n- 第七列：那則回報方向是反的，就是第四列的事故\n- 判讀順序：「05:40／11:40 先當常態」改成「1130／69 先查 session 數」\n- 懸而未決：斷線原因已查明；修正表格裡被吃掉的 UNC 反斜線\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "2218bfa4",
+          "time": "17:57",
+          "message": "合併 MR !1596: feat(rl001): 放行 Oracle 內建函式檢查",
+          "body": "feat(rl001): 放行 Oracle 內建函式檢查\n\nSee merge request ucl/lis/lisweb!1596",
+          "category": "合併MR"
+        },
+        {
+          "hash": "7d913c94",
+          "time": "12:09",
+          "message": "fix(LT276): 預設日期區間對齊 LT274，列出時迄時間自動推到當下",
+          "body": "- 起始日由「今天 00:00」改為「15 天前 00:00」，與 LT274 列印報告一致。\n  原本前一天晚班才完成的報告，隔天進電話通報畫面預設區間就被切掉，\n  要手動改日期才看得到。\n- 按「列出」時若迄欄未被手動改過，自動更新為當下時間，\n  停在頁面反覆查詢也能撈到剛完成的報告，不用重新整理頁面。\n\n純 view 變更，後端查詢不動。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "0f2356f8",
+          "time": "14:18",
+          "message": "docs(privacy): 說明聯合生技受託開發維運並發行 iOS 版 App",
+          "body": "Apple 開發者組織帳號只收法人，大安聯合醫事檢驗所在鄧白氏登記為獨資而被拒，\niOS 版改以聯合生技股份有限公司名義申請。政策主體維持大安聯合（與 Google Play\n開發者名稱一致），補上兩者為委託關係：\n\n- 前言加一段：聯合生技受本所委託開發維運、於 App Store 發行 iOS 版，本所仍為蒐集者\n- 4.3 第三方服務提供商加「系統開發及維運服務商（聯合生技）」\n- 最後更新日改 2026-10-21\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2ef9e51a",
+          "time": "12:18",
+          "message": "fix: 推播一份報告一筆、報告明細照紙本順序並濾掉套組母項、亞健康算不出來不再回「健康」",
+          "body": "琦如 2026-10-19/20 實機測試＋陳明輝主任回饋，四件事：\n\n1. 推播「您有 43 份新的檢驗報告」：ReportNotificationService.DetectAsync 分組含 GoodsProvider，\n   但 Memhealth_main.goodsProvider 是每個項目的 testcode，一份 43 項就 43 筆通知；隔天補進的\n   套組母項又多推一次「2 份」。改成依（PersonId, UclChkPriId, Memid）一份一筆，去重也不看 testcode。\n   Scripts/08 把 UX_ReportNotifications_Report 改成不含 GoodsProvider，並把既有重複列收成一筆。\n2. 報告明細順序與紙本一致：Data2Cloud 照 LIS 紙本順序逐列寫入，Id 就是紙本順序。\n   GetReportDetail 改依 Id 排、類別依第一個項目出現位置排，不再 OrderBy(CategoryName)。\n3. 空白項目：套組母項（P801/P803…）名稱與數值都空，列表計數與明細都濾掉；\n   新資料由 Data2Cloud MR !5 不再上傳，這裡擋已經上雲的舊列。\n4. 「18 項異常卻顯示健康」：成人健檢判讀只拿血糖、血脂、肝腎功能、尿蛋白 10 項對亞健康標準，\n   和異常項目數是兩套標準。(a) 後端查不到會員／沒資料／例外時改回空字串，不再假裝「健康」；\n   (b) 網站判讀區加一段評估範圍說明，空字串顯示「無法評估」（灰）而非「健康」（綠）。\n   App 端同主題在 uclcloud-app 另一支 MR。\n\n另附 Scripts/09（尚未執行）：subhealth_chk 補 9005 飯前血糖（大安/聯合/高雄/新竹共 46 份 2026 報告）\n與 9615 肌酸酐（新竹全部）的標準，並清 OPDSubhealth 快取。跑了之後網站上這些報告的判讀會改變，\n先知會陳主任再執行；9540 定量尿蛋白門檻待主任決定。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "c7ba39bb",
+          "time": "12:53",
+          "message": "feat(ios): 推播 iOS 走法、Info.plist 上架前置宣告",
+          "body": "- PushService 在 iOS 不再初始化 flutter_local_notifications（只給 Android 設定會丟 ArgumentError，\n  整個推播初始化中斷），改請 FCM 用系統通知呈現前景訊息；取 FCM token 前先等 APNs token\n- Info.plist 加 ITSAppUsesNonExemptEncryption=false（只走 https，TestFlight 免每次回答出口合規）\n  與 remote-notification 背景模式\n- README 新增 iOS 段：repo 已就緒的項目、要在 Mac 上用 Xcode 完成的步驟\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b8ee7f58",
+          "time": "12:19",
+          "message": "fix: 報告明細的判讀卡標題改回「成人健檢」並註明只評估 10 項",
+          "body": "陳明輝主任看到自己的報告 18 項異常卻顯示「健康」。那張卡是網站沿用的成人健檢亞健康模型，\n只拿血糖、血脂、肝腎功能、尿蛋白 10 項對標準，跟上方「異常 N 項」是兩套標準；\nApp 把網站標題的「成人健檢之」拿掉後更容易誤會。標題改回「成人健檢數據判讀」「成人健檢亞健康風險」，\n卡片底下加一行評估範圍說明。後端算不出來時改回空字串（cloudedleopard MR），整張卡本來就不顯示。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OnlineReport\\cmv-parent-portal",
+      "commits": [
+        {
+          "hash": "7927041a",
+          "time": "11:49",
+          "message": "合併 MR !86: docs：測試對照的 Invalid 列改成 10-20 定案",
+          "body": "docs：測試對照的 Invalid 列改成 10-20 定案\n\nSee merge request ucl/onlinereport/cmv-parent-portal!86",
+          "category": "合併MR"
+        },
+        {
+          "hash": "4883a0c1",
+          "time": "11:49",
+          "message": "docs：測試對照的 Invalid 列改成 10-20 定案（比照陽性，同步端當放行送 Invalid）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "a49be943",
+          "time": "12:18",
+          "message": "fix: 只上傳檢驗項目列（OD_ITEM_TYPE='U'），並排除醣化白蛋白的中間值 9238/9339",
+          "body": "- 套組母項（P801、P803、P601… 共 26 種）名稱與數值都是空的，過去照樣上雲，App 報告明細出現空白列；\n  且因為晚一天核發，後端推播又多推一次「您有 2 份新的檢驗報告」（2026-10-20 實機測出）。\n  正常／補傳／單筆三組查詢都加 OD_ITEM_TYPE = 'U'，與 LISWeb Data2CloudRepository 一致。\n  原本 excludeTestCodes 手動列的 P829/P214/P311 就是同一類問題。\n- 9238 Albumin (BCP)、9339 Glycated Albumin 是算醣化白蛋白用的中間值（RNF 無參考區間），\n  紙本靠 TEST_PROFILE.TP_HIDE_PRINT 不印，雲端卻顯示成第二、第三個「白蛋白」（陳主任 2026-10-20 回饋）。\n  先加進排除清單；之後若要根治改成 join TEST_PROFILE 排除 TP_HIDE_PRINT='Y'。\n\n已上雲的空白列與中間值由 uclcloud 後端 API 過濾，不回頭刪資料。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "b4651291",
+          "time": "19:10",
+          "message": "docs: 每日工作紀錄 2026-10-20 (53 commits)",
+          "body": "🤖 自動生成於 2026-10-21 19:10",
+          "category": "文檔"
+        },
+        {
+          "hash": "b2164f7c",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-21",
+          "body": "🤖 自動生成於 2026-10-21 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "56d60155",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-20 (53 commits)",
+          "body": "🤖 自動生成於 2026-10-21 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "24fcfb89",
+          "time": "19:07",
+          "message": "todo: 補 10/15 經理兩題回覆待送、紙本一頁版完成、docs/04 改名待決",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 37,
+    "sideCommits": 4,
+    "totalCommits": 41
+  }
+}
