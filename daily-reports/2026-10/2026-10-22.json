@@ -1,0 +1,791 @@
+{
+  "date": "2026-10-22",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "OnlineReport\\cmv-parent-portal",
+      "commits": [
+        {
+          "hash": "07efda81",
+          "time": "17:53",
+          "message": "使用統計依來源分開：預設只算家長，UCL 內網／公司 IP 內建排除，北榮、預防等在頁面上標 IP（醫師登入過的 IP 建議是哪家醫院，按確認才生效）；來源表、IP 排行（疑似機構）、標記清單（2026-10-22）",
+          "body": "新表 TrafficSource（deploy/sql/16），標記動作寫 AdminAccessLog TrafficSourceChanged。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a439aec0",
+          "time": "17:51",
+          "message": "家長查詢：只查到一個寶寶、報告已簽發時直接進報告頁",
+          "body": "- Query 頁 POST 與模擬情境：結果只有一筆且可看報告 → 302 到 /report/{token}；雙胞胎或那筆還沒好就停在結果頁\n- 報告頁底下原本就有「重新查詢」\n- 測試改成驗證轉址，另加雙胞胎停在結果頁；218 全過\n- README 家長端待辦：直接顯示報告打勾，雙胞胎頁籤仍延後\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "25d49501",
+          "time": "17:40",
+          "message": "家長查詢結果頁：一個寶寶為主的版面＋手機整行按鈕",
+          "body": "- 拿掉編號（大部分家長一年一個寶寶；雙胞胎名字本來就帶 (A)／(B)），兩位以上才在標題下寫「共 N 位寶寶」\n- 寶寶名字放大；手機上「查看報告」與狀態標籤整行寬、電話放大\n- 說明文字只講畫面上出現的狀態\n- 醫院電話改成 tel: 連結，手機點了直接撥（分機用逗號暫停後送出）\n- 217 全過（新增電話轉換測試 3 個）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3fab43c1",
+          "time": "17:37",
+          "message": "使用統計頁 /admin/usage（只有 UCL 看得到）：家長查閱率、簽署到第一次看的天數、超過 7 天沒人看、查詢結果分布、查無資料後一直沒查到的人，逐月與各醫院（2026-10-22）",
+          "body": "不裝第三方追蹤，全部從已發布案件與 ParentAccessLog 算（UsageStatsCalculator），不用 migration。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "92fc1d3d",
+          "time": "17:36",
+          "message": "docs：切正式的待辦總表（deployment.md，14 項含誰負責、卡在哪）；定案不另開模擬站，ready 當天關模擬直接切正式，取消「正式 DB＋虛構種子」",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6afbaf60",
+          "time": "17:31",
+          "message": "docs: mailapi 專用帳號 cmv-portal 已建、測試信 OK，記 uclit@ 轉寄規則與英文信尾",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e5fdd0e9",
+          "time": "17:28",
+          "message": "醫院設定拿掉、稽核紀錄改成只有 UCL 看得到（2026-10-22：醫師、院長不需要）",
+          "body": "- 刪 /admin/settings（A5）：醫院資料只在 UCL 的 /admin/tenants，報告範本全文改在那頁每家醫院底下展開看\n- /admin/audit 改用 UclAdminPageModel：醫院帳號進不了、選單也拿掉；UCL 可篩單一醫院，醫院要備查時篩該院後匯出 CSV\n- 醫院帳號選單剩：全部案件、我的簽名、通知設定、變更密碼\n- 測試、README、page-flows 同步；211 全過\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "763b4c39",
+          "time": "17:17",
+          "message": "無法判讀比照陽性標紅：報告該列與紙面紅框、待簽署上方多「無法判讀 N」、頁首 badge 有不正常（陽性或無法判讀）就變紅（2026-10-22：不正常一律紅）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "fc0aab39",
+          "time": "17:15",
+          "message": "mailapi 寄件人改設定切換（SendByAccount），專用帳號 cmv-portal 綁 uclit@",
+          "body": "- Notification:MailApi:SendByAccount（預設 false＝NotificationPlatform 預設寄件人 ittest@），\n  true 時用帳號在 EmailInfo 綁的信箱寄出\n- 寄件人選 uclit@ 的原因記進 deployment.md 第 10 項：ms1 不登入只能寄內部、\n  登入者只能用自己的地址當寄件人，support@ 沒有可登入的密碼\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "90e0750d",
+          "time": "17:15",
+          "message": "申請頁與帳號管理用語：職稱不印在報告（只在醫師端頁首）；「回撥」改白話「大安審核時打電話確認是本人申請」",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "bc243dc5",
+          "time": "12:49",
+          "message": "deploy.ps1：推完明確 exit 0，免得 robocopy 的結束碼（1～7＝有傳檔）被當成腳本失敗；10-22 實測整趟 60 秒（原 9 分鐘）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8368cb3e",
+          "time": "12:41",
+          "message": "A3 全部案件＋A5 醫院設定（唯讀）",
+          "body": "- /admin/cases：本院全部案件，檢驗編號／母親證號末四碼（比對遮罩值，不解密）／狀態／出生日篩選，標陽性、無法判讀、已更正，顯示簽署人與家長是否已查閱；匯出 CSV 只有遮罩證號；點編號進 /admin/pending/{tno} 唯讀檢視\n- /admin/settings：本院家長端電話、查詢期限、報告範本文字唯讀；要改洽大安（醫院資料與帳號都由 UCL 在 A7 管，2026-10-22）\n- 醫院帳號的設定選單：全部案件、我的簽名、通知設定、變更密碼、醫院設定、稽核紀錄\n- 測試 1 個（只看本院、末四碼與狀態篩選、CSV 不含證號全碼、設定頁唯讀）；210 全過\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2429a0c4",
+          "time": "12:37",
+          "message": "A4 稽核頁＋待簽署 badge",
+          "body": "- /admin/audit：家長查詢、操作紀錄（帳號事件＋簽署動作合併）兩個頁籤，日期篩選，匯出 CSV（UTF-8 BOM，Excel 開得了）；醫院帳號只看自己醫院、UCL 管理者看全部（＝A7 全域稽核）；證號只有雜湊前 8 碼\n- 頁首「待簽署 N」badge，有陽性變紅；醫院與 UCL 的設定選單都加「稽核紀錄」\n- 測試：醫院看不到別院、UCL 看全部、CSV 標頭、badge；另開站台避免共用狀態與限流（209 全過）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "645b4154",
+          "time": "12:31",
+          "message": "A7 租戶列表與同步狀態（UCL 管理者）",
+          "body": "- /admin/tenants：新增醫院（代碼、名稱、電話、LIS 單位碼、地址）、改基本資料與查詢期限、停用／恢復；每個動作寫 AdminAccessLog（TenantChanged），只記有變的欄位；報告範本文字不在網頁改\n- /admin/sync：LisSyncRun（新表，migration、deploy/sql/15，正式 DB 已套）每批同步一筆——筆數、被拒的檢驗編號與原因、耗時；各院案件狀態分布與最近更新；超過 2 小時沒同步標警示\n- LisSyncEndpoint 每批寫一筆 LisSyncRun；設定選單加「醫院」「同步狀態」\n- 測試：TenantAdminService 2 個、整站 2 個（UCL 頁面與權限、同步 API 寫紀錄）；208 全過\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "404cf3a0",
+          "time": "12:24",
+          "message": "deploy.ps1：推檔改 robocopy 只傳有變動的檔，排除 IIS 用不到的 SkiaSharp 平台檔與 240 MB pdb",
+          "body": "- 之前 Copy-Item 整份 313 MB 每次都傳，9 分鐘、還斷過一次；publish\\runtimes 的 osx／unix／arm64／x86 與 libSkiaSharp.pdb 不傳\n- /E /FFT /MT:8 /R:2 /W:3，不用 /MIR（server 的設定檔、logs 不能被刪）；結束碼 ≥8 才算失敗、保留 app_offline.htm\n- 對 server 乾跑：排除後 79 檔 111 MB，與上一版一致時 0 個要傳\n- README 部署那條 migration 進度改到 14\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3eae8d65",
+          "time": "12:20",
+          "message": "A6 帳號管理（UCL 管理者）：停用／恢復、改角色、強制登出、寄開通或重設連結、改姓名職稱",
+          "body": "- AccountAdminService：每個動作寫 AdminAccessLog（10～14，Note 記是哪位管理者）；停用與強制登出都換 SecurityStamp（全裝置登出、未用連結失效）；不能停用自己；模擬模式展示帳號不能停用與改角色；UCL 管理者角色不在這裡改\n- /admin/users：依醫院分組，顯示角色、是否開通、最近登入、通知勾選與推播裝置數；新帳號不在這裡新增（從申請審核進來）\n- AccountPasswordService.SendLinkAsync：開通或重設都能由平台主動寄（不受忘記密碼的頻率限制）\n- 最近登入用每人最大 Id 再撈時間（SQLite 不能對 DateTimeOffset 做 MAX）\n- 測試：服務 4 個＋整站 1 個；204 全過\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b11d3681",
+          "time": "12:11",
+          "message": "docs：帳號全部由 UCL 管（2026-10-22 定案）——A6 改成 UCL 管理者的帳號管理，owner 不建帳號、既有醫院加人也由 UCL 審",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f1d51db9",
+          "time": "11:36",
+          "message": "docs：migrator 帳密已收進大章魚；待辦加換 sa 密碼",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "563be64b",
+          "time": "11:19",
+          "message": "申請頁模擬模式加「試用、不會真的送出」提示；同 IP 一天上限模擬模式放寬到 100（正式維持 10）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b838f434",
+          "time": "11:16",
+          "message": "DB：套 migration 改用專用帳號 cmv_portal_migrator（CmvPortal db_owner，不再用 sa）；01 腳本一併建；sql/14 已套",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "22ed8aa4",
+          "time": "11:08",
+          "message": "醫師註冊：A8 單位申請頁＋A7a UCL 管理者審核（architecture ④）",
+          "body": "- UnitApplication（新表，migration、deploy/sql/14）：申請資料、證書字號加密、狀態、審核者與理由、通過後的租戶與帳號\n- UnitApplicationService：送出（驗證、同 Email 待審核中擋、同 IP 一天 10 件、收件確認信）；通過＝新醫院建租戶＋申請人當 owner／既有醫院加人，建帳號（不設密碼）並走 AccountPasswordService 寄開通信；駁回理由必填並 Email；Email 已有帳號時擋下\n- /admin/apply：不用登入、驗證碼同家長端、個資告知必勾；/admin/applications：待審核在前，通過（既有／新醫院切換）、駁回\n- UCL 管理者（UclAdmin）可從同一登入頁登入，登入後直接進申請審核，進不了待簽署；醫師進不了審核頁；UclAdminPageModel\n- 模擬模式：展示帳號多 admin@ucl.demo，種一件待審核申請，不寄信、開通連結直接顯示\n- 測試：服務 7 個＋整站 2 個（錯驗證碼→成功→管理者審核通過；未勾同意）；199 全過\n- 密碼服務：UCL 管理者也能用忘記密碼；信件抬頭沒醫院時用大安\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d8c58e8d",
+          "time": "11:04",
+          "message": "模擬模式：Invalid 情境改用已簽署案件，家長端直接看到「請與送檢醫院聯絡」",
+          "body": "原本情境指到待簽署的郭芳如那筆，家長端顯示「檢驗完成，待醫師確認簽發報告」，\n看起來跟陽性情境（已簽署、顯示請與送檢醫院聯絡）不一致，會誤以為 Invalid 沒比照陽性。\n比照陽性的做法拆成兩筆：新增已簽署的 Q200000006（何淑娟）給家長端情境，\n原待簽署的 P200000005 留在醫師端清單示範「無法判讀」標籤與簽署提示。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e46d472c",
+          "time": "10:32",
+          "message": "docs：sql/13 SecurityStamp 10-22 已套正式 DB",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0f845770",
+          "time": "10:30",
+          "message": "醫師端密碼：忘記密碼／首次開通、用連結設密碼、登入後變更",
+          "body": "- AccountPasswordService：一次性連結（Data Protection＋帳號 SecurityStamp＋用途＋到期；重設 1 小時、開通 7 天）；還沒設密碼的帳號「忘記密碼」寄開通信；不論帳號存不存在回同一句話，原因進 AdminAccessLog；同 Email 每小時 3 封、同 IP 每小時 10 次\n- 密碼規則：10～128 字、兩次相同、不含帳號、不能太單調\n- 頁面：/admin/password/forgot、/admin/password/set（設好直接登入）、/admin/password（設定選單「變更密碼」）；登入頁加忘記密碼連結\n- PortalUser.SecurityStamp（migration、deploy/sql/13）：登入 cookie 帶 stamp，改密碼後其他裝置登出\n- 模擬模式：不寄信、直接顯示連結；共用展示帳號走完流程但密碼不真的改（不然一鍵登入對其他人失效）\n- 測試：服務層 11 個（連結一次性、過期、停用帳號、頻率限制、模擬模式）＋整站 2 個（開通→登入→另一台被登出）；整站測試另開站台，避免吃光同 IP 限流額度（190 全過）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5ee11244",
+          "time": "10:12",
+          "message": "docs：sql/12 AdminAccessLog 10-22 已套正式 DB",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "13212ff9",
+          "time": "08:47",
+          "message": "醫師端帳號事件紀錄：登入成功／失敗（含原因）／鎖定／登出，含 IP 與 UA",
+          "body": "- AdminAccessLog（新表，migration AdminAccessLog、deploy/sql/12）：帳號不存在也記輸入的 Email，畫面仍不區分失敗原因，原因只進 Note\n- AdminAccessLogService；Login、Logout 接上；ClientIp 沿用 ForwardedHeaders（經 nginx 是真實來源）\n- 測試：不存在帳號、錯密碼、成功、登出四筆依序寫入（176 全過）\n- deployment.md 9h、deploy/README 執行狀態、README 待辦 ① 打勾；改密碼類事件等 ② 接上\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "320e4a00",
+          "time": "08:40",
+          "message": "README 待辦：接正式 DB 改走「正式 DB＋虛構種子」，含種子設定、展示信箱、mailapi 專用帳號、清假資料腳本、切換當天步驟",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "eb3447db",
+          "time": "08:30",
+          "message": "docs：第 ④ 模組「醫師註冊（單位申請）」設計；帳號範圍改成開放申請、UCL 審核；醫師端待辦重排",
+          "body": "- architecture-draft：加 ④（參考 uclcloud 檢驗所註冊，差異：不設密碼、不上傳證照、審核要定租戶歸屬與 LIS 單位碼）、UnitApplication 資料模型、帳號範圍 10-22 修訂\n- page-flows：A8 申請頁欄位與規則、A7a 審核、實作順序\n- README：四個模組；驗證碼語音標 pending；醫師端帳號與管理那包依序列出\n- CLAUDE.md 開工先讀改四個模組\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 28
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "3aa6cfe2",
+          "time": "16:35",
+          "message": "memory: Task repo 走 MR 並直接 merge",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d240e4e9",
+          "time": "16:23",
+          "message": "docs: perf-toolkit 真實資料搬回 Task repo，更新路徑",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "16ec1f5a",
+          "time": "16:05",
+          "message": "memory: lisweb !1598 已由 Ken merge，待 10/27 打 tag 上版",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d283eb5d",
+          "time": "14:31",
+          "message": "memory: Apple 補件 10-22 已上傳",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "2953c111",
+          "time": "12:16",
+          "message": "CLAUDE.md: 回覆一律用繁體中文",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "88406e01",
+          "time": "11:54",
+          "message": "chore: session 收尾備份 2026-10-22（cmv deploy memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "3567d098",
+          "time": "11:08",
+          "message": "memory: Apple 補件改為聯合生技在職暨授權證明（使用者兩邊兼任）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7b0d1af5",
+          "time": "10:28",
+          "message": "memory: 舊 iPhone 成為 uclit 受信任裝置、iPad 兩邊跳不登出",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e80ecd7b",
+          "time": "09:50",
+          "message": "memory: 修正索引路徑",
+          "body": "",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "90c067a2",
+          "time": "09:50",
+          "message": "memory: Apple 開發者帳號補件方式（授權書＋大安聯合在職證明）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "32fd0f1a",
+          "time": "08:51",
+          "message": "memory: 推播 2032 年根因（!36 已上線）、通知小圖示（!26）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a40f99e1",
+          "time": "08:18",
+          "message": "memory: uclcloud 判讀摺疊根因（AsNoTracking）、9238/9339 改 API 過濾、Scripts/09 已執行",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "861277a0",
+          "time": "08:16",
+          "message": "chore: session 收尾備份 2026-10-22（lisweb-deploy 戰績 10-22、reviewer/文檔merge 記憶、uclcloud 記憶）",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "cd196cfb",
+          "time": "07:36",
+          "message": "memory: uclcloud-app iOS 拆 A/B 線、iPad 不留、Mac 10-27 開工",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "2103728b",
+          "time": "07:25",
+          "message": "memory: Chronos 除名／登記提前到 10-27",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "5efa94ec",
+          "time": "07:23",
+          "message": "memory: Chronos 開工日順延到 10-27（10-26 光復節）",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 16
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "e9f8534f",
+          "time": "08:49",
+          "message": "docs: 報告順序後端與 Data2Cloud 已上線（Scripts/11、!35、!6），只差 lisweb !1598",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a09e02b3",
+          "time": "08:42",
+          "message": "fix(android): 通知小圖示改用白色剪影，不再顯示黑色方塊",
+          "body": "琦如 2026-10-19 實機截圖：鎖定畫面通知左側的 App 圖示是一塊黑。Android 把通知小圖示當單色\n遮罩，FCM 背景通知與前景 local notification 都直接用啟動圖示 @mipmap/ic_launcher，整張不透明\n就變成方塊。\n\n- tool/gen_notification_icon.py：從 assets/icon/icon_foreground.png 取雲豹剪影、綠色線條與\n  斑點挖透明，輸出 drawable-{mdpi..xxxhdpi}/ic_notification.png\n- manifest 加 FCM 預設小圖示與著色（default_notification_icon / default_notification_color）\n- PushService 的 local notification 同樣用 ic_notification，並以主色 #42B883 著色\n- 要出 1.0.1 才會到使用者手上\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "2aba01b5",
+          "time": "08:25",
+          "message": "docs: 報告順序改由 lisweb 算、Data2Cloud 寫回 SortSeq，三邊 MR 與部署順序",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "47855012",
+          "time": "08:19",
+          "message": "docs: 補判讀摺疊根因（MR !34）、全零快取清除與網站驗證結果",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "260eb31b",
+          "time": "08:02",
+          "message": "docs: 陳主任回饋進度更新：白蛋白改 API 過濾已上線、Scripts/09 已跑、順序問題三層原因與待決事項",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1d8f6470",
+          "time": "07:39",
+          "message": "合併 MR !22: docs/ios locale and description",
+          "body": "docs/ios locale and description\n\nSee merge request ucl/officialwebsites/uclcloud-app!22",
+          "category": "合併MR"
+        },
+        {
+          "hash": "f8e46c7b",
+          "time": "07:38",
+          "message": "docs(store): App Store 描述定稿；Info.plist 宣告 zh-Hant 語言",
+          "body": "CFBundleDevelopmentRegion／CFBundleLocalizations 設 zh-Hant，App Store 語言欄不再顯示 English。\n描述改成可直接貼的成品（多「原始報告 PDF」一條、末段補委託聯合生技發行）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c609837a",
+          "time": "07:36",
+          "message": "docs: iOS 打包與送審（A 線）操作清單",
+          "body": "Mac 開箱（Xcode 26、CocoaPods、Flutter 3.47.5、claude-config）、模擬器示範模式與截圖、\nXcode 簽章與 Push capability、真機與推播測試、TestFlight 上傳、送審與上架後待辦、疑難表。\n與 B 線文件對應，每節寫明前置條件。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a2c7f54d",
+          "time": "16:50",
+          "message": "docs(品管): QCName_ActiveOnly 補 SysParameter 頁面操作與快取生效說明",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "76c535c7",
+          "time": "16:46",
+          "message": "feat(品管): LR355/QCTop 品管名稱只列 Active 改由 SYS_PARAMETER 各站控管",
+          "body": "原本 QCRepository.Get() 寫死只有台中套 QN_REC_FLAG = 'Y'，其他分部在\nLR151 把品管檔案夾 Active 設 No，LR355、QCTop 下拉仍會列出。\n嘉義撤掉 ROCHE COBAS E411 後想隱藏舊的 411/Roche 品管檔，但不是每個\n分部都要這個行為，改成讀該站 SYS_PARAMETER「QCName_ActiveOnly」。\n\n- Y 只列 Active、N 全部列出\n- 沒設參數時維持舊行為（台中過濾、其他全列），發版與插參數不分先後\n- 台北、台中、嘉義插參數 = Y（SchemaModify/系統設定）\n- 分析儀停用機制文件 5-2 節同步改寫\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8c713695",
+          "time": "16:17",
+          "message": "fix(簽收): 陽大附醫簽收 P238、P019 標示改為 6F",
+          "body": "SigninINVNO 簽收清單的 WS_STR 分流：P238、P019 加入 ITD_ITEM_CODE 6F 清單\n（Post 與 PostV2 兩處同步）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "633d8bcb",
+          "time": "08:22",
+          "message": "feat(report): LT274Order 回紙本項目順序，給 Data2Cloud 寫進檢驗雲",
+          "body": "陳主任回饋檢驗雲 App 的明細順序與紙本不同。紙本順序只有 LT274 這條管線算得出來\n（送檢單位自訂範本 TSEQ_DTL、套餐展開 TEST_PROFILE、檢驗群組序 TG_LS_CODE），\n雲端那邊不該重做一套。新增匿名端點 /Report/LT274Order?UCLToken=base64(單號)，\n走 GetPrintLT274 取 Details 的 OD_TESTCODE 順序回 JSON；Data2Cloud 每份報告問一次、\n寫回 Memhealth_main.SortSeq。token 規則與 LT274Pdf 相同，只收單一單號。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4b77cfa0",
+          "time": "08:04",
+          "message": "docs(SOP): LISWeb 排程無人值守發佈流程",
+          "body": "前一晚打 tag → 等 CI 進 production → 建 Windows 工作排程 → DryRun，\n隔天 07:00 腳本自己 build/推站/warmup/冒煙/Discord。\n記錄整體流程、離開碼對照、早上怎麼確認成功、排程前檢查清單、\n10-13 至 10-22 的戰績與補上的防線、已知限制。\n\n腳本本身（deploy-site / scheduled-deploy / verify-site）因讀取含帳密的\n站台對應表，留在執行機器 ~/.claude，不進 repo。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "cb908104",
+          "time": "08:29",
+          "message": "fix: FCM Android 通知明確給 event_time，不再送 0001-01-01 讓鎖定畫面顯示「2032 年」",
+          "body": "琦如 2026-10-19 實機（Android 13，小米）鎖定畫面的推播標頭顯示「檢驗雲存摺 • 2032 年」。\n根因：FirebaseAdmin .NET 的 AndroidNotification.EventTimestamp 是非 nullable 的 DateTime，\n沒設值也會序列化成 event_time=\"0001-01-01T00:00:00Z\"（實測 3.7.0），Android 把它當通知的\nwhen，OEM 鎖定畫面格式化出荒謬年份。App 端與後端都沒碰時間欄位，所以之前查不到來源。\n改為送出時 EventTimestamp = DateTime.UtcNow，通知時間＝送達時間。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "33e427d6",
+          "time": "08:24",
+          "message": "feat(report): 明細依紙本順序 SortSeq 排，Id 只當退路",
+          "body": "陳主任回饋明細順序與紙本不同。上一版改依 Memhealth_main.Id 排的前提「Data2Cloud 照紙本\n順序寫入」不成立：上傳 SQL 照開單欄位排、補傳模式還不保序，而紙本順序只有 LISWeb LT274\n算得出來（自訂範本、套餐展開、檢驗群組序）。改由 Data2Cloud 問 LISWeb 一次寫回新欄位\nSortSeq（lisweb !1598、Data2Cloud !6），後端只負責照它排。\n\n- Memhealth_main 加 SortSeq int NULL（Scripts/11，含 filtered index 給 Data2Cloud 撈未排的）\n- 明細排序抽成 Utils/ReportItemOrder：SortSeq 在前、NULL 排最後、同序依 Id；類別分區塊保留，\n  區塊順序照第一個項目出現的位置\n- 測試：ReportItemOrderTests 四條（DbContext 以 UclChkPri_ID 當主鍵，記憶體 DB 放不進同報告第二列，\n  所以排序邏輯單獨驗）\n\n⚠️ 部署順序：先在正式庫跑 Scripts/11，再 merge 本 MR（EF 會 SELECT SortSeq，欄位不在明細會 500）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c9595a8f",
+          "time": "08:03",
+          "message": "fix: 亞健康實時判讀改用 AsNoTracking，不再被錯誤主鍵摺成只看一個項目",
+          "body": "正式機 log：「找到 33 筆檢驗項目 → 去重後剩餘 1 個 → 0 個標準 → 0000000000」。\nDbContext 把 Memhealth_main.UclChkPri_ID 當主鍵，同一份報告所有列同一個鍵，追蹤查詢的\nidentity resolution 把 33 列摺成第一列那個實體，判讀永遠只評估一個項目，所以不管標準表\n補不補，結果都是「健康」（OPDSubhealth 2025 筆快取裡 0000000000 佔絕大多數就是這個原因）。\n\n- CalculateHealthStatusFromTestData 的報告列查詢加 AsNoTracking，並跳過套組母項空白列與\n  9238/9339 中間值（與明細共用 ReportItemFilter）\n- 檢驗日期查詢原本用會員 Memid 篩 Memhealth_main.Memid（那欄是檢驗所），永遠查不到而用今天；改掉\n- 趨勢的同名項目查詢同樣加 AsNoTracking\n- 沒加單元測試：記憶體 DB 同一主鍵放不進第二列，模擬不了摺疊；以正式機 log 與陳主任\n  6101478001 的判讀結果驗證\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "77c12489",
+          "time": "07:50",
+          "message": "fix: 報告列表與明細排除醣化白蛋白中間值 9238/9339，不刪資料改由 API 過濾",
+          "body": "陳主任回饋明細出現重複的白蛋白：9238 Albumin (BCP)、9339 Glycated Albumin 是算醣化白蛋白的\n中間值（無參考區間，紙本不印），Data2Cloud 2026-10-21 起已不再上傳，但之前上雲的舊列還在。\n原本打算用 Scripts/10 刪庫（DryRun 實測 1350 筆、632 份報告），改為後端過濾、資料保留：\n- 新增 ReportItemFilter 集中排除代碼，清單對應 Data2Cloud 的 excludeTestCodes\n- 報告列表 SQL 與明細 LINQ 各加一條排除，與既有的套組母項空白列過濾並列\n- Scripts/10 標記為不執行，留作日後真要清庫的起點\n- 測試：只含 9238 的報告明細不會出現任何項目\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "f0e2d974",
+          "time": "07:38",
+          "message": "feat(push): iOS 推播補 APNs 聲音與優先權",
+          "body": "FCM 送到 iOS 只映射 title/body 成 alert，sound 要在 ApnsConfig 自己給，\n否則 iPhone 收到是無聲通知；apns-priority 10 立即送達。Android 行為不變。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "2d7ee9f9",
+          "time": "16:31",
+          "message": "佈署紀錄補 FolderBacklog 改看「第一次看到」那一列",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "87df00c9",
+          "time": "16:26",
+          "message": "FolderBacklog 年齡改從「第一次看到」算：搬進佇列的檔帶著來源時間戳，進來 30 秒被算成等了 261 分",
+          "body": "2026-10-22 16:12 院所醫令轉檔叫了一次「WEBORDER-XML：積壓 2 檔，最舊 261 分」，16:14 自動收隊。\n追下去：診所 2150 的醫令 XML 11:50 產生，16:11:55 才由 pull（robocopy /MOV /COPY:DAT）\n從 168.227 搬進 inbox，16:12:27 OrderInSql 就處理完——在佇列裡待不到 30 秒。\n年齡卻用檔案的 LastWriteTime 算，而 robocopy 連建立時間都保留來源的值，所以兩個時間戳都不能用。\n\n## 判斷錯在哪\n\n這顆頭要回答「檔在我們的佇列裡等了多久」，量的卻是「檔多久以前被寫出來」。\n台北 221 的儀器佇列是儀器直接寫檔，兩者相等，當初的實作就是照那個前提寫的；\nOrderInSql 的檔都是搬進來的，前提不成立，上游只要晚送就會誤報一次。\n\n## 改法\n\n新增 FileSightings（exe 旁 sightings.json）：每個資料夾記下每個檔第一次被看到的時間，年齡從那裡算。\n- 以資料夾為單位整份替換：這輪沒看到的檔＝已消化，記錄跟著清掉\n- 以檔名認檔、不含時間戳：卡住的檔若被上游一直覆寫，含時間戳會讓年齡每次歸零、永遠不叫\n- 靜默窗內沒掃的資料夾記錄原樣保留；3 天沒掃到才丟\n- 不併進 state.json：那份「有 key＝正在告警」，健康的佇列也得記檔\n- 附帶：年齡全用 Cerberus 的時鐘算，檔案伺服器時鐘偏移不再吃進年齡\n- 代價：剛開始看時（初次佈署、新資料夾），已經卡很久的檔最多晚一個門檻才叫\n- --check 只讀不寫 sightings.json\n\n本機模擬（Discord/Mail/牆皆留空，只走 console），單一與多資料夾兩種模式：\n5 小時前的檔剛進來 → 0 分不叫；待滿門檻 → 照樣叫；檔消化 → 收隊、記錄清空。\n--check 讀正式設定掃 56.227 的 34 處 inbox 正常，且沒寫出 sightings.json。\n\n## 一起改的\n\n- 院所醫令轉檔的 Runbook 第一步改成「先分真假」：開 /alert 看那條線的 inbox，檔已不見＝消化完了，\n  等下一輪收隊。原本三步都假設真的卡住，今天打開時檔已處理完，每一步都對不上，看的人找不到方向。\n- 佈署指令 /XF 加 sightings.json、.gitignore、README／架構與擴充 補說明。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "66366974",
+          "time": "07:25",
+          "message": "docs: 除名 32 支與登記常駐程式提前到 10-27，台中驗收等改 10-29～30",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e692713d",
+          "time": "07:23",
+          "message": "docs: 收尾時程順延一天——10-26 光復節放假，改 10-27（二）開工",
+          "body": "WebOrderArchive 新版 10-27、刪 7 筆舊定義 10-28、除名／登記 10-28～29、\n台中驗收與退役端點 10-30；11-02 每月績效核對不變。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "e2baa1e7",
+          "time": "08:32",
+          "message": "fix(report-order): 分部 LISWeb 回 404 就整輪跳過該分部，lisweb 可以晚於 Data2Cloud 上版",
+          "body": "lisweb 六站分批上版期間，沒上 LT274Order 的站每份報告都會 404。改成一站本輪第一次 404\n就不再打它（也不再查它的 Oracle 二審狀態），計入「分部未上端點」，下輪再試；\ncheck 子指令對 404 只警告不算失敗。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "026a56d7",
+          "time": "08:23",
+          "message": "feat: 紙本項目順序同步——向 LISWeb LT274Order 問一次，寫回 Memhealth_main.SortSeq",
+          "body": "陳主任回饋 App 明細順序與紙本不同。Memhealth_main.Id 不是紙本順序：上傳 SQL 照\nORD_DTL 開單欄位排、補傳模式走暫存表 INSERT…SELECT 連這個都不保序；紙本順序只有\nLISWeb LT274 算得出來（自訂範本、套餐展開、檢驗群組序），這裡不重做排序，只抓一次寫回。\n\n- ReportOrderSyncService：撈 SortSeq IS NULL 的報告（最近 30 天、一輪 300 份），\n  依 memid 對分部、與 PDF 同判準全部二審才排，GET /Report/LT274Order 取 testcode 順序，\n  AssignSortSeq 套到每列（清單外的 9001 起排最後、保持 Id 序），UPDATE 寫回\n- --scheduled／--integrated 第 4 步接在 PDF 之後；失敗只記 FAIL ORDER 不影響上傳\n- --report-order check / sync [分部] [天數] [上限] / one <分部> <身分證> <單號>\n- 設定 ReportOrder 區段全有預設值、LISWeb 位址沿用 ReportPdf:LisWeb，56.231 不用改 appsettings\n- 前置：檢驗雲先跑 cloudedleopard Scripts/11 加 SortSeq 欄位；DEPLOYMENT.md 第 8 節\n- 測試：AssignSortSeq 四條；既有 3 支 Data2CloudServiceTests 在 master 就是紅的\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "0fd572b6",
+          "time": "10:49",
+          "message": "feat(H): 院所重送守門——同單位、同檔名、內容相同、7 天內已轉入 → 隔離、不寫入",
+          "body": "backlog H 第 1 步。WriteProfile=Default（Keelung 家族、6a）主檔 SN 現生 GUID，整份重送＝整份重複單。\n2026-09-15～10-22 歸檔統計：整份重送 70 次、多出約 1,200 張重複主檔；其中同名同內容 47 次／約 812 張（本步擋這類）。\n- ResendGuard：比對來源＝archive（含撞名 -N）；先比大小再比 SHA-256；Ansn 語意不檢查；只檢查有單的檔\n- 位置在寫入迴圈之前（written=0），走既有隔離訊息格式\n- 隔離區「重跑」記下內容雜湊（quarantine\\requeue-approved\\），放行一次即消耗\n- 測試 7 個（全套 860 綠）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "scoreboard",
+      "commits": [
+        {
+          "hash": "2932fc3c",
+          "time": "15:07",
+          "message": "docs: 錄影改成每段 15 分鐘；手機設定補 UHD、不用動態模式",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "808c7130",
+          "time": "15:04",
+          "message": "docs: 錄影指南加入手機設定表",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f0844fe2",
+          "time": "15:00",
+          "message": "docs: 試錄改成按錄影前的現場自我檢查",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cf115258",
+          "time": "14:56",
+          "message": "docs: 腳架試過沒問題；正式錄前先試錄一兩分鐘",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ca0fc5a0",
+          "time": "14:55",
+          "message": "docs: 背心要有號碼，補號碼大小、顏色、數字挑選建議",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ed9b8381",
+          "time": "14:53",
+          "message": "docs: 連假錄影計畫、半場標記加隊伍欄、買背心重點",
+          "body": "- 錄影指南新增連假計畫：全場兩邊各一小時、半場兩個角度各半小時，含檔名\n- 容量與傳檔：三小時 4K 要 60 GB 起跳，改用傳輸線傳到電腦，不上傳 Drive\n- 標記格式：半場加第 4 欄「隊伍」我／對（現有程式只讀前兩欄，相容）\n- TODO：連假三步驟、蝦皮關鍵字與尺寸\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b17a127b",
+          "time": "14:50",
+          "message": "docs: game_mode migration 已套用到 Supabase",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2a577c99",
+          "time": "14:47",
+          "message": "web: 全場／半場模式，全場點一下 +2",
+          "body": "- 計分手勢：全場點一下 +2、半場點一下 +1；上滑 +1、下滑 −1 兩種模式都一樣\n- 底部新增「全場／半場」按鈕：預設全場，按一下切換這場的模式，所有裝置透過 Realtime 同步\n- 紀錄與 LINE 分享文字標出（半場）\n- migration 20261022000000_game_mode.sql：games.mode（full／half），new_game 沿用上一場的模式\n- 資料庫還沒套用 migration 時網頁照常運作（當全場），切換半場會提示\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "da7e5219",
+          "time": "14:42",
+          "message": "docs: 錄影指南加入兩種角度試錄比較",
+          "body": "- A 籃下底線後方往場內、B 場外邊線往場內，各錄 30 分鐘\n- 比較表：擺法、進球判定、誰出手與背心、三分、籃板、注意事項\n- TODO 錄影加入這一項\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "612d2e66",
+          "time": "14:41",
+          "message": "docs: 背心判斷分三種結果，看不清楚的進球待確認",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8e6cea42",
+          "time": "14:40",
+          "message": "docs: 鬥牛每球 1 分打到 6 分；只有我方穿背心，買三件",
+          "body": "- 辨識只分「有沒有穿背心」\n- 螢光黃／螢光綠，背上大號碼更好；早點買，半場錄影時穿著\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d1582b44",
+          "time": "14:39",
+          "message": "docs: 半場鬥牛沒有三分，重點是判斷哪一隊進球",
+          "body": "- 待確認的進球不擋比賽，之後補點\n- 全自動：往回找出手的人；背心最準，沒背心就開打前點人分隊\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9d8439e4",
+          "time": "14:39",
+          "message": "docs: TODO 加入功能順序與半場鬥牛模式",
+          "body": "- 功能順序：自動累積分數 → 三分球 → 籃板、助攻等個人數據\n- 錄影：同一支手機兩個籃框先後各錄一小時；半場鬥牛也可以錄\n- 全場、半場都要支援；新增「半場鬥牛模式」：先半自動確認隊伍，之後靠背心顏色\n- 待決定：鬥牛的計分方式與打到幾分\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5641d408",
+          "time": "14:37",
+          "message": "docs: 決定計分制為一般 2 分、三分 3 分",
+          "body": "- App 自動進球本來就記 2 分，不用改\n- 網頁待辦：最近一筆改 3 分；手勢配合 2／3 分制（待確認）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7d87bb69",
+          "time": "14:36",
+          "message": "docs: 決定打全場，一支手機對一個籃框",
+          "body": "- 待決定「全場還是半場」→ 全場，現有籃框對應隊伍的設計直接適用\n- 拿掉半場模式\n- 網頁待辦補「標出 1 號／2 號籃框」，換場對調寫清楚用途\n- 錄影補：兩支手機可兩個籃框同時錄、腳架放場外\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e8ffe442",
+          "time": "14:35",
+          "message": "docs: TODO 改以自動計分為主線",
+          "body": "- 最上面列自動計分的 6 個步驟：錄影 → 實機裝 APK → 接 YOLO → 用影片評估 → 必要時訓練 → 實戰測試，寫清楚誰做、等什麼\n- 錄影、待決定事項、App 其他歸在主線底下\n- 已完成項目移到最下面\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "617f0323",
+          "time": "14:30",
+          "message": "web: 比分放大到撐滿隊伍區塊，直向一律上下排",
+          "body": "- 比分字級改用 container query：依隊伍區塊寬高取較小者（66cqh／78cqw），三位數縮到 54cqw\n- 直向螢幕（含平板直放）一律上下排列，不再是細長兩欄\n- 實測比分高度：平板橫放 330→549px、平板直放 229→428px、手機直放 149→291px、電視 529→804px\n- LINE 分享文字：還沒有打完的場次時不印空的【戰績】\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e8c8d943",
+          "time": "12:56",
+          "message": "web: 紀錄頁加「刪除這一天」",
+          "body": "- 清單最下面的虛線紅字按鈕，一次刪掉當天全部場次（一個請求標記所有加分為撤銷）\n- 確認視窗寫出日期與場數；有進行中的場次會提醒計分板會歸零\n- 「復原」救回整天，並跳回被刪的那一天\n- 單場刪除改用同一支 deleteGames\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "93af19fd",
+          "time": "12:48",
+          "message": "web: 紀錄頁放大，中間捲動、按鈕固定",
+          "body": "- 紀錄對話框幾乎佔滿畫面（最寬 760px），字級依畫面短邊放大\n- 日期列與分享／關閉按鈕固定，只有戰績與場次捲動\n- 矮螢幕（手機橫放）三顆按鈕併成一排\n- 修正兩位數場次編號被切掉\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "50e0c6a8",
+          "time": "12:36",
+          "message": "web: 紀錄可編輯、刪除，刪除後可復原",
+          "body": "- 紀錄頁點一場：改隊名、改比分、刪除這場\n- 改比分＝補手動加減分事件到指定比分，原本的事件不動（每筆 ±3，差太多拆多筆）\n- 刪除＝把該場未撤銷的加分全標成撤銷，比分 0:0 就不顯示；紀錄頁出現「復原」，只還原這次標記的事件\n- 提示改用 popover 放進 top layer，開著對話框時不再被蓋住\n- 不改資料庫 schema\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2c29f278",
+          "time": "12:28",
+          "message": "web: 紀錄改成最新的在上、超過兩小時不顯示分鐘數",
+          "body": "- 各場比分最新的在上（進行中的那場排第一），編號仍照開打順序\n- LINE 分享文字同樣順序\n- 打了超過 120 分鐘多半是最後一場沒按開新局、隔天才結束，只顯示開局時間\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d2303743",
+          "time": "12:26",
+          "message": "web: 紀錄顯示每場的開局時間與打了幾分鐘",
+          "body": "- 時間取自開新局的時間點（games.created_at／ended_at），不另外記錄\n- 紀錄頁與 LINE 分享文字都加上「19:32（18 分鐘）」\n- TODO：清除、編輯紀錄先記下，之後再做\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1ebce9ea",
+          "time": "12:22",
+          "message": "docs: 新增 TODO，README 開發階段改指向 TODO",
+          "body": "- docs/TODO.md：待決定事項、錄影、網頁、個人數據、App、辨識訓練\n- README 原本的開發階段清單搬進 TODO，只留進度摘要與連結\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "bd464a17",
+          "time": "12:22",
+          "message": "web: 比賽紀錄、開新局選隊伍、點隊名改名",
+          "body": "- 開新局改成對話框選兩隊，快選 A～D 與今天用過的隊名\n- 點隊名改這場的隊名，其他裝置透過 Realtime 跟著更新\n- 新增「紀錄」：依日期的各隊戰績、每場比分，可分享到 LINE 或複製文字\n- 凌晨 5 點前開的局算前一天；0:0 不列入；進行中的那場不算進戰績\n- 統計放在 src/records.js（純函式），不改資料庫 schema\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "10e6b746",
+          "time": "12:15",
+          "message": "Redraw favicon as SVG basketball so it isn't clipped",
+          "body": "The emoji-as-text favicon overflowed its viewBox and rendered\ndifferently per OS emoji font.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 25
+    },
+    {
+      "name": "bordeaux-ii",
+      "commits": [
+        {
+          "hash": "a9c0881b",
+          "time": "15:25",
+          "message": "更正財務委員紀O喬為 H 棟(H3-06F) 補選委員",
+          "body": "- 出席率表：「財務委員（遞補）」改為「H 棟(H3-06F) 財務委員」並標註補選\n- 當選委員名單補上 H 棟(H3-06F) 紀O喬（補選）\n- 版號 v26.10.22.15.25\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4a8e6f91",
+          "time": "15:14",
+          "message": "新增第三屆115年9月份例會會議記錄、更新委員名單與出席率",
+          "body": "- 9/3 例會：消防機電改簽太古華電、已存違建處理流程、電梯公佈欄、\n  關閉社區幫反應功能、跑步機保養委由澄意、機車／自行車管理辦法修訂、\n  高壓清洗機先租借試用\n- E 棟王O蓁 115-8-31 辭任（樂菲（管）字第115090301號），補入辭職紀錄\n- E 棟石O薇 115-9-22 補選當選、9-24 生效，加入當選名單與出席表\n- 出席率統計延伸至 9/3、10/8 兩場例會（共 6 場）\n- 版號 v26.10.22.15.14\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c0641677",
+          "time": "14:32",
+          "message": "新增第三屆管委會115年10月份例會會議記錄(10/8)",
+          "body": "- 前次會議項目進度追蹤 6 項、9/7~10/7 工作報告\n- 議題：停車場管理辦法修訂、舊衣回收續約(回饋金提高為每年1萬)、\n  法顧與心成續約、園藝改與燦虹簽約、花圃告示牌、裝修須附市府許可證、\n  公共場所晾曬物品處置\n- 臨時動議：公共基金依 20% 提撥，每月 385,540 元\n- 版號 v26.10.22.14.31\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "3c02fd0a",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-22",
+          "body": "🤖 自動生成於 2026-10-22 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "2565a28d",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-21 (55 commits)",
+          "body": "🤖 自動生成於 2026-10-22 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "perf-toolkit",
+      "commits": [
+        {
+          "hash": "8b09b3a7",
+          "time": "16:22",
+          "message": "chore: ignore CLAUDE.local.md",
+          "body": "真實績效資料已搬離本 repo，位置記在本機 CLAUDE.local.md（不公開）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 69,
+    "sideCommits": 31,
+    "totalCommits": 100
+  }
+}
