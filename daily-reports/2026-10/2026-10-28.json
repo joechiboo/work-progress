@@ -1,0 +1,410 @@
+{
+  "date": "2026-10-28",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "dbLIS",
+      "commits": [
+        {
+          "hash": "31e499be",
+          "time": "18:47",
+          "message": "docs(04): 比對明細改指向本機 D:\\tmp\\binkun-20261028（原 session 暫存區）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a9b5f81b",
+          "time": "17:09",
+          "message": "docs: 秉坤外送項目看不到——查證非 dbLIS 問題，是台北分單去重複誤刪（附錄 E）",
+          "body": "- 一覽表加 #11；附錄 E 記 dbLIS→上傳檔→WebOrder→分單→HCLAB 各站查證結果與單號對照\n- 撞號序號由 dbLIS 外送清單每次匯出從 1001 起編，修法以分單系統為主\n- 根因與受影響名單見 OrderInSql docs/cases/2026-10-28-dedup-cli-info-collision.md（!497）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d1442761",
+          "time": "08:31",
+          "message": "docs: 系統總覽補「資料怎麼流、哪裡容易出錯」；同步程式現況更新",
+          "body": "- 01 新增 §4：一張單的生命週期、建單時抄一份（name_type、參考值文字等）、\n  LisManagement 設定快取與 SettingTriggersNewestTime（四家客戶 DB 實測，\n  只有秉坤平鎮還原時漏掉）、外送清單撈單條件與科室來源；文件索引補 04–06\n- 04／06：桃園設定同步 10/28 08:09 起已見運作且結果正確；更正查詢時間 07:30\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "52a2e040",
+          "time": "08:26",
+          "message": "docs: 新增秉坤同步程式 UclDbSync 維運手冊",
+          "body": "接手者視角：兩站跑在哪、同步哪些表與方向、設定主檔推送機制與 clone VM 教訓、\n跟醫令接收／LisManagement 快取／CONTEXT_INFO 記號的關係、判斷故障的 SQL、\n已知問題與出事時的處理順序。程式本身的操作手冊仍以 ucl/his/ucldbsync 為準。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "df4c8978",
+          "time": "08:15",
+          "message": "docs: Cerberus 接入首輪誤報、停用原因與新候選檢查",
+          "body": "- 首輪四顆誤報（看「多久沒新資料」而非「該發生沒發生」），MR !61 停用\n- 新候選：收件時間仍 2910、退報到未刪、印了標籤無結果列、同步工作未送出\n- 往回套兩週：52 張收件時間仍 2910（外送清單撈不到）、2 張退報到殘留、\n  2 張無結果列，另列清單處理\n- HIS_SentLog 2024-06 起停用，回 HIS 無法從 DB 監控\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9eb60466",
+          "time": "07:46",
+          "message": "docs: Cerberus 接入進度更新（密文已產、MR ucl/ops/cerberus!60 已開）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2ad176e7",
+          "time": "07:41",
+          "message": "docs: Cerberus 接入設計更正為八顆頭",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0be3fd0c",
+          "time": "07:36",
+          "message": "docs: 秉坤七顆 Cerberus 頭的 appsettings 片段（含 Runbook，連線密文留待 --encrypt 產生）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e50bda6c",
+          "time": "07:35",
+          "message": "docs: 新增秉坤雙站監控接入 Cerberus 的設計（七顆頭、SQL、門檻、前置條件）",
+          "body": "依 ucl/ops/cerberus 接入指南設計七顆頭：平鎮醫令接收心跳、兩向同步心跳、\n同步隊列積壓、建單蓋錯分類／參考值、多餘同步實例、平鎮設定刷新機制。\nSQL 均已於兩站正式 DB 唯讀實跑並計時（合計 <300 ms）。\n列出暫不接的項目與替代做法、接入步驟。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c2375834",
+          "time": "07:32",
+          "message": "docs: 秉坤問題整理補記同步程式 repo 與程式碼層面的根因確認",
+          "body": "- 同步程式 10/27 已上 ucl/his/ucldbsync；監控程式 repo 仍為空\n- 由 MasterDataSyncService 確認分類表被還原的機制：30 分鐘一次、\n  Local→Remote、只在 TY 站執行；clone VM 的 Local 是舊備份 DB\n- 桃園實例目前未推設定同步（平鎮仍是手動寫入值），需岑松確認\n- 收件時間修正在 LisManagement 印標籤路徑，10/28 平鎮仍有 4 張未生效\n- repo 衛生：appsettings.json 含明文密碼、.vs/ 進版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "03095f60",
+          "time": "07:25",
+          "message": "docs: 秉坤問題整理補充外送清單科室空白的根因與修法建議",
+          "body": "- 一覽表新增 #10 外送清單「科室」空白：科室取自 bill_master.op_update\n  對應的帳號名稱，直接印標籤未存檔的單停在 RECEIVE 而空白；建議改取\n  PrintRecord 最後印標籤帳號，交岑松修 LisManagement\n- #2 收件時間：記錄 10/27 回報已修正，10/28 凌晨仍見佔位值待確認上版\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "84b0e5a6",
+          "time": "19:50",
+          "message": "chore: session 收尾備份 2026-10-28",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "575e41c4",
+          "time": "19:35",
+          "message": "chore: session 收尾備份 2026-10-28（work-progress 變更單 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "b5ac16af",
+          "time": "19:34",
+          "message": "chore: session 收尾備份 2026-10-28",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "b88e52b7",
+          "time": "18:59",
+          "message": "memory(OrderInSql): 10/28 收尾——重送守門上線實況、0842 行政動 archive 致放行記號殘留、明日待辦",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "038d097a",
+          "time": "18:47",
+          "message": "memory(dbLIS): 秉坤腳本與名單改放 D:\\tmp\\binkun-20261028",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7eed58bc",
+          "time": "17:15",
+          "message": "chore: session 收尾備份 2026-10-28（去重複善後待辦、3528 撞號）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e8de357c",
+          "time": "17:10",
+          "message": "memory(dbLIS): 秉坤外送項目看不到先查分單去重複；docs/04 已在 MR !101",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2921209e",
+          "time": "17:09",
+          "message": "chore: session 收尾備份 2026-10-28（分單去重複誤刪查案）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "f25da32b",
+          "time": "08:17",
+          "message": "memory: 秉坤雙站事件與 OrderInSql 計畫更新",
+          "body": "- dbLIS binkun-two-site-split：同步程式 repo（ucldbsync）、clone VM 根因、\n  設定刷新機制、Cerberus 監控（MR !60/!61 部署與停用誤報頭）\n- OrderInSql：10/28 計畫與相關記錄（另一個 session）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "07b7afbf",
+          "time": "07:44",
+          "message": "memory: Chronos 10-28 刪舊定義完成",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "38071c04",
+          "time": "08:03",
+          "message": "合併 MR !61: fix: 停用四顆誤報的秉坤頭（判定邏輯錯）",
+          "body": "fix: 停用四顆誤報的秉坤頭（判定邏輯錯）\n\nSee merge request ucl/ops/cerberus!61",
+          "category": "合併MR"
+        },
+        {
+          "hash": "686eab21",
+          "time": "08:02",
+          "message": "fix: 停用四顆誤報的秉坤頭（判定邏輯錯）並寫明原因",
+          "body": "部署後首輪 07:52 四顆紅燈皆為誤報：\n- 平鎮醫令接收、同步 桃園→平鎮／平鎮→桃園：看「最後一筆距今多久」，\n  沒單或夜間無同步就紅；應改看「到了該處理的時間還沒處理」的積壓\n- 多餘同步實例：白名單漏 172.16.24.1（疑為桃園主機另一張網卡），門檻過緊\n保留三顆正常運作：建單分類蓋錯、建單參考值蓋錯、平鎮設定刷新機制。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "76682b0f",
+          "time": "07:50",
+          "message": "合併 MR !60: feat: 秉坤雙站八顆頭（平鎮醫令接收、同步心跳、隊列、蓋錯設定、多餘實例、設定刷新）",
+          "body": "feat: 秉坤雙站八顆頭（平鎮醫令接收、同步心跳、隊列、蓋錯設定、多餘實例、設定刷新）\n\nSee merge request ucl/ops/cerberus!60",
+          "category": "合併MR"
+        },
+        {
+          "hash": "b70e16a5",
+          "time": "07:46",
+          "message": "feat: 秉坤雙站八顆頭（平鎮醫令接收、兩向同步心跳、隊列積壓、蓋錯分類/參考值、多餘同步實例、平鎮設定刷新）",
+          "body": "依 dbLIS docs/05-秉坤監控接入Cerberus.md。SQL 已於兩站正式 DB 唯讀實測，八顆合計 <300 ms。\n- 平鎮醫令接收@秉坤：DbFreshness，上班時段 60 分沒新單就叫（10/27 曾停 90 分鐘）\n- 同步 桃園→平鎮／平鎮→桃園@秉坤：DbFreshness 看 SYNC_INBOX（UTC），30 分\n- 同步隊列積壓@秉坤桃園：DbBacklog 近 24 小時 PENDING/FAILED；先 Enabled=false，\n  桃園仍有數百筆 PENDING 待岑松清空後啟用\n- 建單分類蓋錯／建單參考值蓋錯@秉坤：DbBacklog 以單號日期前綴走 PK，10 分\n- 多餘同步實例@秉坤：DbBacklog 看非 172.16.27.23／1.34.169.127 的同步連線（10/27 clone VM 根因）\n- 平鎮設定刷新機制@秉坤：DbBacklog 守 SettingTriggersNewestTime 與 14 個 Tr_sys_*_changed，Minor\n部署前需在 56.231 驗證可連 60.251.173.208:1433 與 1.34.169.127:1401。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "46933b2c",
+          "time": "17:08",
+          "message": "docs(cases): 去重複誤刪補秉坤端——撞號的序號是 dbLIS 外送清單編的、平常一天多檔也會撞",
+          "body": "- 1021／1102 的 SEQUENCE 由 dbLIS fmBillOutsource 每次匯出從 1001 起編，兩單位同一支檔\n- 9/1 起 36 個有檔日有 7 天一天匯出兩支以上，同一送驗日本來就有多套序號\n- 下游在 dbLIS 的樣子與可監控的訊號（同單別項有回、這項沒回）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2d8a4c62",
+          "time": "17:04",
+          "message": "docs(cases): 10/28 分單系統去重複誤刪——ansn 家族 ID_CLI_INFO 是流水號，跨批撞號",
+          "body": "1021／1102／3528 在 10/27、10/28 被去重複刪掉 59 張單的明細（整張 48、少項 11）。\n轉檔正常，根因在分單系統去重複以 id_cli_info 當病患識別。附比對方法與判讀時踩到的兩個坑。\n逐筆名單含個資，留在本機 D:\\tmp，不進 repo。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5841bc07",
+          "time": "08:22",
+          "message": "docs: 10/28 56.227 卡頓（LSASS 2GB）→ 重開 → 停舊 10 支 pull、Pull-All 身分修成使用者 SYSTEM（DEPLOY_LOG 33b）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2d7d3e6a",
+          "time": "07:25",
+          "message": "docs: FP A 組 10/28 07:20 完成（3 家 valid=0、剩 B 組 4 家）；TODO 記 schtasks /Query 對 Pull-All 也不返回",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "524bc6af",
+          "time": "15:06",
+          "message": "docs: 簡報第一張加上 10 筆 REGISTER，維護頁 17 支全貌",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c0c65b31",
+          "time": "11:02",
+          "message": "docs: 簡報與計劃書更新到 10-28 現況（15,436 次零失敗、56.231 剩 35 支）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e9bc5879",
+          "time": "07:43",
+          "message": "10-28 收尾：刪 7 筆舊定義＋D2C-Pdf* 五支、停用檢驗雲舊版 V2；WebOrderArchive 新版首輪 OK",
+          "body": "- 七支已由 Chronos 接手滿一週，舊工作排程定義刪除（每月績效留 11-02 核對後刪）\n- D2C-Pdf* 五支（10-03 PDF 功能臨時工作，回填已完成）刪除，logs\\pdf-*.cmd 與 mktask.* 備份到\n  D:\\tmp\\chronos-task-backup-20261027\\_d2c-pdf-cmd 後刪（裡面寫死身分證號）\n- \\雙向連線與報告\\檢驗雲上傳（Data2CloudV2）只停用，觀察一週再刪\n- 56.231 自訂排程 79 → 35（Chronos 1、內部排程 12、雙向連線 22）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "654e38bb",
+          "time": "17:04",
+          "message": "docs: 去重複跨病人誤刪 10/28 追蹤（處理現況、3528、OrderCheckJob）",
+          "body": "- 秉坤 23 張：補做 13 張已人工補單，加做 7 張未處理；0926 Zinc 已補\n- 3528 每天 (D)(E) 兩檔序號重編，10/27、10/28 同樣誤刪；整理觸發條件\n- 順帶發現 OrderCheckJob 隱藏 3528 P228/P217/2460，待檢驗回覆\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "765410f1",
+          "time": "16:33",
+          "message": "fix: 去重複把不同病人的醫令當重複刪掉 (v10.29)",
+          "body": "2026/10/27 秉坤(1021/1102)按去重複刪 29 項，全部是別的病人，13 張單整張被刪光；\n0926 聯明 10/16 也被刪 3 項。\n\n根因：重複 key 從 v3.04 起以 id_cli_info(檢體註解)當病人識別。安慎線把採檢序號\n寫進這欄、每個檔從 1001 重編，同一天收好幾批就對到不同病人。\n\n- 重複 key 改成 病人(身分證/姓名+生日)+條碼+項目+院內碼，不再使用檢體註解\n- 防呆：同一組病人資料不一致整組不刪，確認框列出\n- 確認框病人後面帶條碼\n- 稽核多存 PatientID/PatientName/ID_INVNO；稽核與刪除同一交易，稽核失敗就不刪\n- DB 前置：docs/sql/alter_DistAuditLog_patient.sql(sqlcmd 加 -f 65001)\n\n本地驗證(tests/dedup_crosspatient_setup.sql + tests/smoke/dedup-crosspatient.spec.js)：\nmain 重現 24 筆跨病人誤刪；本修正只刪 2 筆對照組真重複、防呆組不刪、拿掉稽核欄位時\n一筆不刪；回歸 dedup-orphan(0247) 與 lifecycle smoke 皆通過。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\Data2Cloud",
+      "commits": [
+        {
+          "hash": "72b24452",
+          "time": "07:43",
+          "message": "docs: 10-28 V2 已停用、D2C-Pdf* 五支已刪",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "1b7c3ef5",
+          "time": "19:50",
+          "message": "docs: 變更單清單加 12 題速覽表",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2a2995f9",
+          "time": "19:35",
+          "message": "docs: README 標註 repo 公開、變更單不可進 main",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e5007bf2",
+          "time": "19:27",
+          "message": "docs: 變更單改用排版撐滿兩頁，簽章格恢復原大小",
+          "body": "- 簽章格不再放大填空\n- 字型改中文標楷體＋英數 Times New Roman，與官方表單一致\n- 滿版腳本改為逐份選字級（11 / 10.5 / 10pt）並二分搜尋行距，\n  12 份皆為 11pt、行距 1.18–1.51 倍，第二頁剩 13–39pt\n- README 第 5 步同步說明與警告處理\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b6475768",
+          "time": "19:19",
+          "message": "docs: 修正 README 滿版腳本路徑",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "eada2083",
+          "time": "19:19",
+          "message": "docs: 變更單第二頁滿版，簽章格加大",
+          "body": "- 新增 scripts/fit-change-request-docx.ps1：用 Word 量第二頁剩餘空間，\n  二分搜尋分配給確認、部署、核准、覆核簽章格，12 份皆兩頁且貼齊頁底\n- 產生器支援 CR_FILL 填充參數\n- README 第 5 步改用滿版腳本\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "65e2278c",
+          "time": "19:12",
+          "message": "docs: 變更單人員欄位全部留空，紙本親簽",
+          "body": "- 12 份正本的填表、申請、評估、執行、確認人員改為空白，執行日期保留\n- 產生器允許空的填表人員欄位\n- README 補上人員欄位留空的慣例\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0ed6a7c5",
+          "time": "19:11",
+          "message": "docs: 變更單補件流程文件 change-requests/README.md",
+          "body": "記錄 2026-10 補 5–10 月變更單的做法：選題原則、Tickit 查需求方、\n正本格式約束、產生 Word 與頁數檢查、送件路徑、踩過的坑\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "17320508",
+          "time": "19:10",
+          "message": "docs: 變更單 Word 版縮成兩頁",
+          "body": "- 字級 11pt→10pt、行距與段距收緊、頁邊界 2cm→1.5cm、表格欄寬重配\n- 12 份全部壓到兩頁（Word 實算頁數），內文未刪減\n- 產生器改名 .cjs：repo package.json 為 type=module，原 .js 跑不起來\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "390aa44e",
+          "time": "19:04",
+          "message": "docs: 新增 2026 年 5–10 月 ISMS 變更單 12 份（md + Word）與清單",
+          "body": "- 每月兩份共 12 份，紀錄編號留空待手編\n- 需求方對照 Tickit 工單回填至各單動機與清單（分部／提出人／工單號）\n- Word 版依 ISMS-4-059 官方表單版面產生，產生器 scripts/generate-change-request-docx.js\n- 變更單清單-2026-05至10.md：12 題總表、依據、確效建議、送件流程\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e3c31b00",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-28",
+          "body": "🤖 自動生成於 2026-10-28 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "27bb9b42",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-27 (36 commits)",
+          "body": "🤖 自動生成於 2026-10-28 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "scoreboard",
+      "commits": [
+        {
+          "hash": "f592025b",
+          "time": "10:41",
+          "message": "docs: 傳檔改用隨身碟，補手機移動影片的步驟",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "94320a14",
+          "time": "10:10",
+          "message": "docs: 影片改用隨身碟直接插手機轉存（exFAT、32 GB 以上）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e9e965c5",
+          "time": "10:10",
+          "message": "docs: 連假錄影時程：週五半場（沒球衣也錄）、週六全場，影片先轉筆電",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    }
+  ],
+  "summary": {
+    "workCommits": 35,
+    "sideCommits": 14,
+    "totalCommits": 49
+  }
+}
