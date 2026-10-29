@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-10-28",
-    "days": 542,
-    "weeks": 77.4
+    "end": "2026-10-29",
+    "days": 543,
+    "weeks": 77.6
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 6599,
+    "totalCommits": 6624,
     "projectCount": 103,
     "dailyAverage": 12.2
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1427,
+      "totalCommits": 1430,
       "commits": [
         {
           "hash": "a207ff46",
@@ -11431,6 +11431,30 @@
           "body": "前一晚打 tag → 等 CI 進 production → 建 Windows 工作排程 → DryRun，\n隔天 07:00 腳本自己 build/推站/warmup/冒煙/Discord。\n記錄整體流程、離開碼對照、早上怎麼確認成功、排程前檢查清單、\n10-13 至 10-22 的戰績與補上的防線、已知限制。\n\n腳本本身（deploy-site / scheduled-deploy / verify-site）因讀取含帳密的\n站台對應表，留在執行機器 ~/.claude，不進 repo。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "60d040a7",
+          "date": "2026-10-29",
+          "message": "fix(文管): 停用舊「品質文件上傳」(FileUpload/待處理區), 四階紀錄一律走 FMUpload",
+          "body": "- Menu 拿掉 JOY/ALICE 硬編的「品質文件上傳」卡片\n- Home/FileUpload 改導向 FMEntry; 刪除 FileUpload.cshtml 與 csproj 項目\n- Home/Upload 只保留 route=Correct (矯正中文件), 其他請求回 410\n- 移除 FILE_STATIC 流水號/寄信/LINE Notify(含寫死 token)/encrypt_ PDF 那段舊流程與 GetPendingFiles\n- 新增 Documents/Pages/FMUpload_上傳四階紀錄.md, 記錄兩個入口、根目錄規則與舊路線停用原因\n- DB: PERMISSION MODULE_CD='FileUpload' 另行 ACTIVE='N' (TP/TY/KH)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6213931b",
+          "date": "2026-10-29",
+          "message": "feat(FMUpload): 13485 四階紀錄上傳約束檔名＋改名功能",
+          "body": "- 聯合生技 XR 四階紀錄上傳改為「文件編號＋名稱＋後綴」組檔名：\n  輸入編號自動帶入文管系統名稱（去「母版」字樣、可調整），後綴預設今天\n- 檔名由後端組成並驗證：編號須為現行有效 XR 文件、名稱不可含 _、字元白名單\n- 檔案列表新增「改名」，限聯合生技文管成員，依登入帳號判斷；改名寫 LisWebLog\n- GetUploadFolder / CreateFolder / CheckFileExists / FMUploadFile 目的地\n  限制在四階紀錄根目錄內，擋任意路徑與 ..\n- 大安 ScanFiles 與 ISMS 紀錄維持原樣\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1b0cc9e4",
+          "date": "2026-10-29",
+          "message": "fix(XRA149): 列印後清空欄位時重新帶入簽名日期",
+          "body": "存檔列印後會清空所有 .pickvalue 文字欄位以便下一位受檢者填寫，\n簽名日期年/月/日也一起被清掉，但沒有重新呼叫 FillSignatureDateIfEmpty，\n櫃台必須重新整理頁面日期才會出現。比照「清除」鈕，清空後補帶當天日期。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
         }
       ],
       "type": "work"
@@ -16188,7 +16212,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 230,
+      "totalCommits": 239,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -18027,6 +18051,78 @@
           "date": "2026-10-28",
           "message": "memory: Chronos 10-28 刪舊定義完成",
           "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d9aeddfe",
+          "date": "2026-10-29",
+          "message": "chore: session 收尾備份 2026-10-29（uclcloud-app iOS 推播測試結論）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4b84b52a",
+          "date": "2026-10-29",
+          "message": "chore: session 收尾備份 2026-10-29（Apple 授權人確認連結進度、lisweb memory）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "645e5d0c",
+          "date": "2026-10-29",
+          "message": "chore: session 收尾備份 2026-10-29（Cerberus AgeFromFirstSeen、robocopy 走 PowerShell；lisweb 三筆 memory）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e890f719",
+          "date": "2026-10-29",
+          "message": "memory(dbLIS): 新電腦 UCL26605 的 build 環境與安全執行方式",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f9ff33a8",
+          "date": "2026-10-29",
+          "message": "memory(分單): 去重複監控狀態、docs 分支已併",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1dd45a26",
+          "date": "2026-10-29",
+          "message": "memory: dbLIS 換機前最後同步（binkun 兩站拆分、本機執行）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9cb1db7a",
+          "date": "2026-10-29",
+          "message": "lisweb-deploy: MSBuild 改用 vswhere 找（鎖 VS 2022）",
+          "body": "新電腦只裝 VS Build Tools 2022、不裝 VS Community，寫死 Community 路徑會找不到。\n鎖 [17.0,18.0)：舊機另有 VS 18 Build Tools，-latest 會挑到沒驗證過的那套。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c8f17cd4",
+          "date": "2026-10-29",
+          "message": "memory: 分單 10.29 上線後監控改從新電腦開",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a9da5dbd",
+          "date": "2026-10-29",
+          "message": "memory: 分單系統去重複跨病人誤刪 10/28 追蹤（換機前備份）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
         }
@@ -22328,7 +22424,7 @@
     },
     {
       "name": "TwowayConnection\\分單系統",
-      "totalCommits": 134,
+      "totalCommits": 136,
       "commits": [
         {
           "hash": "d9c88e57",
@@ -23401,6 +23497,22 @@
           "body": "2026/10/27 秉坤(1021/1102)按去重複刪 29 項，全部是別的病人，13 張單整張被刪光；\n0926 聯明 10/16 也被刪 3 項。\n\n根因：重複 key 從 v3.04 起以 id_cli_info(檢體註解)當病人識別。安慎線把採檢序號\n寫進這欄、每個檔從 1001 重編，同一天收好幾批就對到不同病人。\n\n- 重複 key 改成 病人(身分證/姓名+生日)+條碼+項目+院內碼，不再使用檢體註解\n- 防呆：同一組病人資料不一致整組不刪，確認框列出\n- 確認框病人後面帶條碼\n- 稽核多存 PatientID/PatientName/ID_INVNO；稽核與刪除同一交易，稽核失敗就不刪\n- DB 前置：docs/sql/alter_DistAuditLog_patient.sql(sqlcmd 加 -f 65001)\n\n本地驗證(tests/dedup_crosspatient_setup.sql + tests/smoke/dedup-crosspatient.spec.js)：\nmain 重現 24 筆跨病人誤刪；本修正只刪 2 筆對照組真重複、防呆組不刪、拿掉稽核欄位時\n一筆不刪；回歸 dedup-orphan(0247) 與 lifecycle smoke 皆通過。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "37a2fe0c",
+          "date": "2026-10-29",
+          "message": "合併 MR !33: docs: 去重複誤刪善後追蹤＋10.29 上線後監控",
+          "body": "docs: 去重複誤刪善後追蹤＋10.29 上線後監控\n\nSee merge request ucl/twowayconnection/uclweborder!33",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "5b0fe8f7",
+          "date": "2026-10-29",
+          "message": "docs: 10.29 上線紀錄＋去重複上線後監控查詢",
+          "body": "- docs/去重複_跨病人誤刪.md：10.29 上線結果、監控做法與在 Claude Code 開監控的指令\n- tests/dedup_audit_watch.sql：唯讀查今天去重複是否刪錯人(用稽核的病人欄位比對保留列)\n- 秉坤 7 張加做：使用者確認不用動\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
@@ -24277,6 +24389,653 @@
       "type": "work"
     },
     {
+      "name": "Cerberus",
+      "totalCommits": 80,
+      "commits": [
+        {
+          "hash": "1f4dc257",
+          "date": "2026-07-22",
+          "message": "新增告警階梯引擎與撲咬自動修復：Discord/Mail 雙 tier 常備",
+          "body": "把兩支能動的 notifier 串成有記憶的階梯，解決舊版「每 10 分洗頻」與",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9773b026",
+          "date": "2026-07-22",
+          "message": "新增 Email 嚎叫管道：走 NotificationPlatform mailapi 寄告警信",
+          "body": "- MailApiHowler：Login 取 JWT（process 內快取）→ POST /TriggerNow，",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "4af14886",
+          "date": "2026-07-22",
+          "message": "初始骨架：Cerberus・地獄不眠狼 — 例行任務心跳看門狗",
+          "body": "- .NET 10 console，fire-and-exit，設計由排程每 10 分鐘巡守一次",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "01afe4a5",
+          "date": "2026-07-23",
+          "message": "告警圖示換成三頭犬：🐺 → 🐶🐶🐶",
+          "body": "Unicode 沒有地獄犬 emoji，用三顆狗頭對應 Cerberus 三頭犬意象，",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "83170db8",
+          "date": "2026-07-23",
+          "message": "正名「地獄犬」：拿掉硬套的「地獄不眠狼」flavor",
+          "body": "- README 標題/由來、Discord footer、告警回應手冊標題、程式註解全面改為地獄犬",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7b1b770d",
+          "date": "2026-07-23",
+          "message": "佈署指南：勾掉撲咬啟用待辦（2026-07-23 點火＋實彈演習成功）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8c9ca396",
+          "date": "2026-07-23",
+          "message": "撲咬點火：BiteEnabled 開為 true（本機 schtasks /Run 喚醒 FalconCopy）",
+          "body": "- 同機佈署（56.231）Host 留空走本機執行，無跨機 RPC 權限問題",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d018d2ab",
+          "date": "2026-07-23",
+          "message": "佈署指南：勾掉已完成待辦（TaskName 實查、23h 根因已根治）",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6d180f9d",
+          "date": "2026-07-23",
+          "message": "收尾：拿掉 QuietWindows 補丁、log 保留 30 天、新增告警回應手冊",
+          "body": "- appsettings：ReadOK 23h 觸發器已於 2026-07-23 根治（Repetition.Duration 清空＝",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b54c00cc",
+          "date": "2026-07-23",
+          "message": "撲咬支援同機本機執行＋填入 FalconCopy 實際排程工作名",
+          "body": "- Biter：Bite.Host 留空＝本機直接 schtasks /Run（同機佈署免走 loopback RPC）。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cee334ab",
+          "date": "2026-07-23",
+          "message": "佈署指南：狀態更新為已上線（2026-07-23 於 56.231 完成驗收）＋ markdown lint 修整",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7ff99598",
+          "date": "2026-07-23",
+          "message": "佈署指南修正：排程建立改用 PS 5.1 可行的無限重複 workaround",
+          "body": "56.231 實地執行發現 Windows PowerShell 5.1 的 Register-ScheduledTask 不吃",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b9b0f8e1",
+          "date": "2026-07-23",
+          "message": "新增佈署指南：台北 56.231 同機佈署、一次性排程設定與驗收",
+          "body": "佈署包（self-contained win-x64）已放上 \\192.168.56.231\\Schedule\\Cerberus\\。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8db29341",
+          "date": "2026-07-23",
+          "message": "文件補齊（接入/架構/mailapi/Discord）＋監控範圍先收成只守台北",
+          "body": "- 新增 Docs/接入指南.md、Docs/架構與擴充.md、Docs/mailapi串接.md；更新 Docs/Discord串接.md、README。",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "47a0b050",
+          "date": "2026-08-13",
+          "message": "docs: 可靠性三層防線（維運設計準則）",
+          "body": "設計/review/事故 post-mortem 的檢核框架：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "bfab159b",
+          "date": "2026-08-13",
+          "message": "AuthoriseQueue head 切換心跳行為 [Heartbeat]",
+          "body": "新版 AuthoriseQueue exe（心跳行＋租約鎖）已於 2026-08-13 佈上 56.231，",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bbd22630",
+          "date": "2026-08-13",
+          "message": "fix: 讀心跳 log 改開 ReadWrite share，讀檔失敗視同失去心跳",
+          "body": "09:40 首輪實戰發現：AuthoriseQueue 的 NLog 每分 :01 握著寫入權，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3130db82",
+          "date": "2026-08-13",
+          "message": "第二顆頭：AuthoriseQueue@台北（消化排程心跳監控）",
+          "body": "- appsettings.json 新增 LogFreshness head：盯 56.231 AuthoriseQueue.Program.log",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "26a5a619",
+          "date": "2026-08-21",
+          "message": "fix: 滾檔寬限——新檔尚無心跳行不再誤判失聯",
+          "body": "AuthoriseQueue 的 log 每天 00:00:01 滾檔，Cerberus 00:00 那輪巡守",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8dd0236a",
+          "date": "2026-08-28",
+          "message": "第三顆頭：HC010 醫令產生@台北（新頭型別 DbBacklog）",
+          "body": "輪詢型程式卡住時，process 未必死、log 未必停，看心跳完全抓不到。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c10e4a0d",
+          "date": "2026-08-31",
+          "message": "更正佈署指南的根因：危險的是 robocopy 跑很久，不是巡守變慢",
+          "body": "上一版把「一輪 30 秒」當成撞上排程的原因，那是**開發機經 VPN** 的數字。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e6d82307",
+          "date": "2026-08-31",
+          "message": "佈署前先停排程：六顆跨站頭讓「撞上正在跑」從極低變成常態",
+          "body": "2026-08-31 佈六顆 DbBacklog 頭時實際誤發 6 則 Discord 告警。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1bac9634",
+          "date": "2026-08-31",
+          "message": "Wall 設定從正式機補回 repo（差點被整包覆蓋掉）",
+          "body": "Wall.Url 與 TokenEnc 一直只存在 56.231 上，repo 裡是空字串。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "64021921",
+          "date": "2026-08-31",
+          "message": "佈署指南：publish 模式不能換（今天害看門狗停擺 9 分鐘）",
+          "body": "正式機那包是 self-contained。我用 framework-dependent 覆蓋上去，",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a7ec9b7c",
+          "date": "2026-08-31",
+          "message": "DbBacklog 支援 SQL Server，接入 VisionReportHub 六站「整批失敗」頭",
+          "body": "Cerberus 只認得 Oracle，但 VisionReportHub 的傳輸紀錄在 SQL Server。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bff96964",
+          "date": "2026-08-31",
+          "message": "文件對齊事實：排程是 2 分鐘，不是 10 分鐘",
+          "body": "正式機（台北 56.231）的排程間隔實際是每 2 分鐘，但 README、Program.cs",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a978c6f6",
+          "date": "2026-08-31",
+          "message": "監控牆回報：Argus 的埠是 9200 不是 9100",
+          "body": "Argus 決定跟前身 ucl/ops/todo 那面牆並存（9100 上那個 IIS 站台還在跑），",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bf9396a0",
+          "date": "2026-08-31",
+          "message": "IStatusSink：每輪把完整快照送上 Argus 監控牆",
+          "body": "牆要的東西跟告警不一樣，所以不複用 IHowler：IHowler 只在狀態變化時",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "405e6a01",
+          "date": "2026-08-31",
+          "message": "docs: 冒煙測試頭的告警回應 SOP + 上線紀錄",
+          "body": "第四顆頭 2026-08-31 10:32 上線。補告警回應手冊：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "72d83aba",
+          "date": "2026-08-31",
+          "message": "第四顆頭：冒煙測試六站（ScheduledRun 首個真實用例）",
+          "body": "冒煙 2026-08-31 從個人開發機搬到 56.231，原因正是這顆頭要抓的東西——",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e099f65c",
+          "date": "2026-08-31",
+          "message": "新頭型別 ScheduledRun：一天一次的任務「跑了沒」",
+          "body": "心跳型問「現在還在跳嗎」，但冒煙測試、RMAN 備份、夜間批次這類一天只跑一次的",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "123dc791",
+          "date": "2026-08-31",
+          "message": "docs(佈署): 排程改 PT2M 結案 + 補改動後的驗收步驟",
+          "body": "2026-08-31 已把巡守間隔從 10 分改成 2 分（原本配不上 AuthoriseQueue 的",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "bfa3cb58",
+          "date": "2026-08-31",
+          "message": "docs(佈署): robocopy 補 /XD logs /XF state.json + HC010 上線紀錄",
+          "body": "2026-08-31 佈 HC010 那顆頭時發現的坑：原本的 robocopy 指令會把開發機的",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a253255c",
+          "date": "2026-09-01",
+          "message": "佈署指南：補 2026-09-01 儀器佇列兩顆頭上線紀錄",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ac8a4f7c",
+          "date": "2026-09-01",
+          "message": "儀器佇列兩顆頭補 221 帳密與實查結果：pattern 限縮、門檻確認百倍餘裕",
+          "body": "2026-09-01 16:15 一次性 SYSTEM 排程在 56.231 實查：SYSTEM 直讀 221 被拒，\n改帶 is1 帳密（密文）；兩佇列皆秒級消化、第一層無陳年檔案，\n墳場（error/tmp/PRIORITY）都在子資料夾、不會被掃進去。\nWatchPattern 依實際檔名限縮成 *.ord / *.res。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a406a4e7",
+          "date": "2026-09-01",
+          "message": "第四種頭型別 FolderBacklog：盯住檔案交換佇列的消化，首例 HCINI 儀器醫令/結果",
+          "body": "跟 DbBacklog 問同一個問題——「該被消化的東西有沒有卡住」——只是佇列長在\n資料夾不在資料表。掃第一層符合 WatchPattern 的檔案，看「最舊一個檔案等多久」\n（超過 StaleAfterMinutes 告警）與檔數（MaxBacklog，預設不看）；清空＝最健康。\n\n刻意設計（細節見 Docs/架構與擴充.md §5）：\n- 只掃第一層：error/backup 子資料夾放的是永遠不會被消化的檔案，掃進去紅到底\n- LastWriteTime 不用 CreationTime（file tunneling）；時鐘偏移吃進年齡，門檻要分鐘級\n- 掃描包在帶逾時的 Task（ScanTimeoutSeconds）：SMB 無回應不能拖垮整輪 fire-and-exit\n- 選配 ShareUserEnc/SharePasswordEnc（Utils/NetworkShare，WNetAddConnection2）：\n  SYSTEM 讀 UNC 的身分是機器帳號，對方共用沒開給它時帶帳密連，用完即斷、1219 沿用\n\n首兩顆頭：\\\\192.168.168.221\\queue 的 order\\IS1（DMS 醫令→HCINI 001O→IS1）與\nresult（儀器 RES→HCINI 001R→LIS）。⚠️ 佈署前置寫在 appsettings 註解：\n先驗 56.231 SYSTEM 讀不讀得到 221（2026-09-01 開發機網域帳號已確認被拒）、\n尖峰取樣校準門檻、清查陳年卡住的檔案。\n\n本機沙盒實測：空佇列/新鮮檔/pattern 排除半成品/45 分舊檔轉紅/子資料夾死檔\n被忽略/檔數超限轉紅/目錄不存在轉紅/漏設 WatchDir 轉紅，全數符合預期；\n真設定乾跑（拔告警管道）既有 10 顆頭全綠不受影響。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ca735216",
+          "date": "2026-09-01",
+          "message": "佈署指南：補上 2026-09-01 重跑按鈕那次的佈署紀錄",
+          "body": "順帶記下一個反直覺的觀察：這次 robocopy 只複製 6 個檔 315KB，\n其餘 234 個 framework DLL 因為沒變而被跳過，所以沒有撞上 2 分鐘\n那一輪——上一次的事故（config 先到 code 後到）是因為整包 94MB\n都在複製。改動小的版本其實比想像中安全，但那不是可以依賴的性質，\n先停排程仍然是正解。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2b56b3be",
+          "date": "2026-09-01",
+          "message": "牆上的重跑按鈕：接下指令、驗過、交給排程",
+          "body": "Argus 那面牆現在會在紅磚上畫「↻ 重跑 KH」。這一端負責把按下去的\n那張單子接下來、驗過，再交給工作排程器。\n\n指令走「快照回應」而不是讓 Argus 打進來：那會多一個網路方向、多一\n條防火牆規則、多一組憑證，而 Cerberus 是 fire-and-exit，根本沒有在\n聽的東西。回應這條路已經通、已經驗過共用密鑰，方向也天生正確——\n拿得到指令的一定是當下真的在巡守的那個 process。代價是延遲最多一\n輪，對一件要跑 5~9 分鐘的事情可以接受。\n\n執行透過 schtasks 而不是直接開 process：巡守幾秒後就結束，冒煙要跑\n5~9 分鐘。站別走 rerun-target.txt 不走命令列，因為 schtasks /Run 不\n能帶參數。\n\nRerunRunner 是整條鏈唯一的檢查哨——牆上那顆按鈕沒有任何驗證（牆面\n頁是公開的，放密鑰進去等於沒有密鑰），所以 target 一律當成「內網上\n任何人都能送的字串」：頭要存在且有開放、形狀要像代號、要在白名單\n內。觸發失敗會把 rerun-target.txt 刪掉，否則那個排程之後不管為什麼\n被叫起來，都會拿過期的單子去正式站開測試單。\n\n按鈕只長在紅／黃的磚上。綠的沒有理由重跑；灰的（未到期、靜默窗）根\n本還沒判定，這時候給按鈕等於邀請人把「還沒到時間」跑成綠的。\n\n不受 Pack.BiteEnabled 管：那個 kill-switch 管的是看門狗自己動手，重\n跑是人明確按下去的。要關掉就把該顆頭的 Rerun 設回 null。\n\n順手修掉告警回應手冊裡的地雷：它叫人用 smoke.cmd TY 重跑，而那條路\n徑不寫 smoke-history.log——站修好了牆還是紅的。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cba4a083",
+          "date": "2026-09-03",
+          "message": "紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令",
+          "body": "告警回應手冊寫得很完整，但它躺在 repo 裡——紅燈亮著的時候沒有人會先\nclone 一份下來翻。指引要長在事故旁邊才算存在。\n\n每顆頭加 Runbook（Host／Path／Steps／Credential），跟 Rerun 一樣只在紅／黃\n時附進快照；checker 自己炸掉的「檢查失敗」也給，那種紅更需要知道它在看哪台。\n\n三條規矩：\n- 不放帳密。牆是公開頁面又掛在訪客看得到的地方，Credential 只寫去哪裡拿。\n  主機與排程路徑則是刻意放上去的，那幾分鐘比「訪客瞄到一個內網 IP」貴。\n- 不知道就標不知道：開頭寫 ? 的行牆上標黃寫「待查證」。HC010 與兩顆儀器\n  佇列的頭跑在哪台、怎麼安全重啟都還沒查證，照抄別顆頭的指令會把人送錯機器。\n- 綠燈不送：快照每輪都送、牆每 15 秒 polling，替一排綠燈附上沒人會讀的\n  步驟只是讓電視那條線白扛流量。\n\nHeadRunbook 用 set 不用 init：它跟同檔案其他契約不一樣，是從 appsettings\n綁進來的。設定綁定失敗是無聲的，結果會是牆上那塊磚沒有指引而沒人發現。\n\n12 顆頭全部填好，六站報告回傳連 DB 主機一起寫上——分部佈署時同一份設定\n就看得出各站在哪台。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "df27488b",
+          "date": "2026-09-04",
+          "message": "佇列頭第一步少了 net use：同仁照著跑會直接被拒",
+          "body": "2026-09-04 用 is1 實測整條路徑，抓到兩件事。\n\n一、磚上第一步直接叫人跑 Get-ChildItem 讀 \\192.168.168.221\\queue，\n但一般網域帳號沒有 session 時直接 Permission denied——同仁照著做會撞牆，\n而且看起來像資料夾掛了，往錯的方向查。補上 net use 當第一步。\n\n二、帳密指路本來寫「TakoDoko 搜 192.168.168.221」，但大章魚裡根本沒有那台物件\n（其他五個分部都有 HCINI，就台北沒有）。已建「[台北] InterFaceServer(221)」\n並掛上 is1 憑證，指路改成連物件名一起寫，搜到之後不用再猜是哪一筆。\nHC010 的指路同步改成兩個物件都指明（DB 在 168.225、機器在 221）。\n\n順帶把 Path 的括號補完整：「只看第一層；子資料夾是墳場，不算積壓」——\n實查兩個佇列第一層都只有 PRIORITY／error／tmp 這些子資料夾，\n第一次看的人容易以為佇列裡有東西。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dd6b0a81",
+          "date": "2026-09-04",
+          "message": "合併 MR !34: 手冊補上 HC010 在哪、怎麼重啟（那段「待補」終於可以刪了）",
+          "body": "手冊補上 HC010 在哪、怎麼重啟（那段「待補」終於可以刪了）\n\nSee merge request ucl/ops/cerberus!34",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "2d591462",
+          "date": "2026-09-04",
+          "message": "手冊補上 HC010 在哪、怎麼重啟；佈署指南補上 09-04 三次佈署",
+          "body": "告警回應手冊那段「⚠️ 待補：HC010 跑在哪台機器、服務名是什麼、怎麼安全重啟」\n掛了很久，2026-09-04 實機查證了：\n\n    RDP 192.168.168.221 → 桌面 TaskLoader → 勾「HC010 產生醫令資料」→ Stop 再 Start\n\n同一支 TaskLoader 底下還有 HC001O（醫令產生）與 HC001R（檢驗結果收接），\n正好是儀器醫令／結果佇列那兩顆頭盯的東西，一起列成表。\n\n刻意保留一條警告，而且寫得比原本更明確：**知道在哪 ≠ 可以自己動**。\n它是 HCINI 的程式，重啟安不安全、會不會漏掉處理到一半的那批都還沒人驗證過。\n這一段補的是「不用再花時間找它在哪」，不是授權自己按下去——\n所以 appsettings 那顆頭的 Bite 仍然是 null。\n\n也提醒別照抄別顆頭的 Start-ScheduledTask：221 這三個是 TaskLoader 裡的任務，\n不是 Windows 排程也不是服務，那個指令對它們沒有意義。\n\n佈署指南補上 09-04 三次佈署，含這次的教訓：沒權限停排程時改成「先送 code、\n後送 config」兩趟，最壞情況降級成「新 code 配舊 config」（指引不出現），\n不會重演 08-31 那次六顆頭同時誤報。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "949a9e7e",
+          "date": "2026-09-04",
+          "message": "FalconCopy 重複鏈斷掉的判讀與修法（另一個 session 的未提交稿，原樣收進來）",
+          "body": "這批不是我寫的，內容一字未改，只是它在工作目錄裡躺了大半天沒進版控，\n今天要在同兩個檔上補 HC010 的查證結果，先把它落地免得被壓掉或混在一起。\n\n內容：告警回應手冊新增〈FalconCopy 專屬：每 18 分鐘規律叫一次＝重複鏈斷了〉，\n教人認出「黃報→綠報成對、每 17~18 分鐘一次」這個簽名；佈署指南補上 2026-09-03\n觸發器重錨定的紀錄，以及「停用→啟用不會恢復重複鏈」這個坑。\n順手把 SOP 裡的巡守間隔從 10 分改成 2 分（排程 08-31 就改了）。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6e2db9ed",
+          "date": "2026-09-04",
+          "message": "合併 MR !33: 指引補到「照著就能動手」：佇列頭改以資料夾為起點，報告回傳補上 SQL",
+          "body": "指引補到「照著就能動手」：佇列頭改以資料夾為起點，報告回傳補上 SQL\n\nSee merge request ucl/ops/cerberus!33",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "3e38bfcb",
+          "date": "2026-09-04",
+          "message": "221 實機確認：三顆頭的主機與重啟位置都查到了，待查證記號全部拿掉",
+          "body": "使用者 RDP 上 192.168.168.221，桌面 TaskLoader UCL 的任務清單直接給出答案：\n\n  HC001O  醫令產生        Started\n  HC001R  檢驗結果收接    Started\n  HC010   產生醫令資料    Started\n\n三顆頭盯的東西全部掛在 221 的 TaskLoader 底下，連「怎麼重啟」都一併解決了——\n不是排程、不是服務，是那支 TaskLoader 的 Start/Stop。\n\n所以：\n- HC010 的 Host 從「? 疑似 221，未證實」變成確認，並註明它讀的 DB 仍在 168.225\n- 兩顆佇列頭的 Host 補上實際任務代號（HC001O／HC001R，不是先前簡寫的 001O／001R）\n- 三顆頭的第三步都改成具體位置：RDP 221 → 桌面 TaskLoader → 勾該任務 Stop 再 Start\n\n三個 ? 記號拿掉。理由是語意：? 代表「這行還沒查證」，位置現在查證了，\n剩下的「該不該動」是 HCINI 負責人的判斷，不是未知——留著 ? 會讓那個記號\n從「不知道」滑成「要小心」，兩種意思混在一起，記號就不可信了。\n「動之前先問 HCINI 負責人」改用一般文字寫在同一步裡。\n\n12 顆頭現在全部答得出：哪台主機／看哪裡／照著就能動手／帳密去哪拿。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e78fa4a5",
+          "date": "2026-09-04",
+          "message": "指引補到「照著就能動手」：兩顆佇列頭改以資料夾為起點，六站報告回傳補上 SQL",
+          "body": "上線後逐顆對同仁的要求（哪台主機／詳細資訊／指引）掃一遍，12 顆只有 3 顆完全\n達標。這次補掉其中 8 顆。\n\n儀器醫令／結果佇列：原本 Host 寫「? 001O 跑在哪台還沒查證」，但這兩顆頭的處置\n起點根本不是那台機器——它看的是 \\192.168.168.221 上的交換資料夾，走 SMB 直接\n看就好。改寫成以資料夾為起點，Steps 給可直接複製的 Get-ChildItem，「誰去重啟\n001O/001R」才留 ? 記號。\n\n報告回傳六站：原本只說「近 60 分依 HisVendorId 分組，找 Success=0 的那家」，\n沒給 SQL——而這顆頭的價值全在「是哪一家廠商」，沒 SQL 等於還是要回座位查。\n補上可直接貼進去跑的查詢，第二步接上判讀。\n\nHC010：補上「疑似 192.168.168.221」這條線索，但仍標 ? 未證實。221 開了 445/135/\n3389、1521 沒開（Oracle 確實在 168.225），與「HCINI 介接主機」一致，但沒有登入\n證實過。不知道就標不知道。\n\n兩顆佇列頭的帳密指路寫明「一般帳號直讀會被拒」——2026-09-04 實測 Permission\ndenied。少了這句，看牆的人會以為是資料夾掛了。\n\n⚠️ 改法留給後人：這兩顆佇列頭的步驟原本逐字相同，字串 replace 會同時改到兩邊\n（今天踩過）。要動 Runbook 請逐顆頭定位後整塊重寫。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "deb62e7e",
+          "date": "2026-09-04",
+          "message": "合併 MR !31: 告警指引上牆：紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令",
+          "body": "告警指引上牆：紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令\n\nSee merge request ucl/ops/cerberus!31",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "4299864a",
+          "date": "2026-09-09",
+          "message": "冒煙紅燈先排除冷啟動誤報：受害的其實是每天第一個上班的人",
+          "body": "2026-09-05 嘉義那次 FAIL(CY) 不是站壞，是夜間閒置把 w3wp 殺掉、\n早上第一個敲門的人吃冷啟動。當天 Warmup 24.3 秒、登入後首頁 66.2 秒\n撞上 30 秒導頁逾時；07:58 重跑首頁 0.3 秒就過。\n\n手冊本來寫「通常是真的有問題，不是測試壞掉」，照著查會拿著截圖\n找一個不存在的功能 bug。補一節怎麼一分鐘判掉它：翻該站 IIS log\n看 /Home/Warmup 的 time-taken，兩萬多毫秒＝冷啟動，幾百毫秒＝真紅。\n\n更要緊的是這不只是監控的問題。09-09 早上 07:22 嘉義一台工作站\n登入等了 24.3 秒，是真的同仁在等；他把站暖起來之後 07:34 的冒煙\n只花 120 毫秒。09-05 會紅只是那天沒人比冒煙先進站——每天都有人\n在吃這個延遲，冒煙只是剛好把它照出來的探針。\n\n一併收進根治做法（高雄 09-01、嘉義 09-09 已套用）與各站 Web-AppInit\n現況。桃園與台中還沒裝：既代表它們每天仍在冷啟動，也代表發佈時若把\n帶 applicationInitialization 的 web.config 推過去會整站 500。\n\n集區名的陷阱也寫進去：嘉義 port 80 的站台掛在 LisWeb_Test，\n叫 LisWeb 的集區服務的是 18600 舊站，改錯會動到不相干的站。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6a321d43",
+          "date": "2026-09-10",
+          "message": "門檻 300 → 600 分：配合 lisweb 放寬判定窗（lisweb!1501）",
+          "body": "原本那塊磚一天有 22 小時是灰的，因為判定窗被縮成「平日 11 點與 18 點各一小時」。\n縮窗的原因不是「今天有沒有資料」這個問題會失效（它一整天都成立），\n而是這個 300 分的後備門檻：最後一筆早上 10:05 之後年齡一直長，到下午就會超標誤報。\n於是後備門檻反過來決定了判定窗。\n\n放寬後的窗是平日 11:00-16:59（看今天 06:00 起）與 17:00-23:59（看今天 16:00 起），\n實測 42 個完整平日的最壞年齡是早窗 487 分、晚窗 273 分，所以門檻要 600 分才夠。\n\n用注入時間對真實資料驗過 11 種情況：11:00/13:00/16:59/17:00/23:59 全綠、\n10:30 與週六日不判定，而 9/9 故障日在 17:00 正確抓到「16:00 起無資料」——\n比原本 18:00 早一小時，偵測沒有因為放寬而變差。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b1d38a7c",
+          "date": "2026-09-10",
+          "message": "啟用大門打卡機那顆頭：156.224 連得到差勤 DB，這是實測出來的",
+          "body": "lisweb!1500 已 merge 並佈到 docs。驗證結果：\n\n  curl -H 'X-Ops-Token: ...' https://docs.ucl.com.tw/api/Attendance/CardLogFreshness\n  -> HTTP 200, 83ms\n     {\"applicable\":0,\"lastSeen\":null,\"dbNow\":\"2026-09-10T12:52:21\",\"note\":\"非判定時段\"}\n\ndbNow 是 SMS_DB 真的 GETDATE() 回來的，所以這一行同時回答了今天一直問不出來的事：\n**156.224 連得到 192.168.168.127:1433**，而 56.230(15 秒 timeout)、56.231(32 秒失敗) 都不行。\n在端點上線前我沒有任何外部手段能確定這件事——那正是先做這支端點的第一個價值。\n\napplicable=0 也是對的：當時 12:52，不在 11 點／18 點的判定窗內。\n\n一併移掉 DisabledReason（啟用後那欄不會被讀，留著就是一句過期的話），\n並把註解改成記錄「已驗證」與判定時刻，外加那句代價：中午壞掉要等 18 點、週六壞掉要等週一。\n\nMinor 維持 true——刷卡不影響實驗室營運，牆上封頂在黃、不升級寄信。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "75443e55",
+          "date": "2026-09-10",
+          "message": "錯字：牆上那句「驗証」應為「驗證」",
+          "body": "上一版我用 unicode escape 寫中文時打錯碼位（U+8A3C「証」，台灣用的是 U+8B49「證」），\n三處都中：兩處註解、一處 DisabledReason——而最後那個會直接顯示在辦公室電視牆上。\n牆掛在訪客看得到的地方，錯字就是錯字。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cd102b2e",
+          "date": "2026-09-10",
+          "message": "連不到就請人代打：新增 HttpFreshness，打卡機那顆改走 docs 的端點",
+          "body": "56.231 連不到差勤 DB（1433 只放行辦公網段），56.230 實測也一樣擋。\n但 docs.ucl.com.tw（156.224，156.x 網段）連得到——於是由那邊的 LISWeb 開一支\napi/Attendance/CardLogFreshness 代打（lisweb!1500），Cerberus 問它要答案。\n\n## HttpFreshness\n\n契約跟 DbFreshness 的 SQL 四欄一一對應（applicable / lastSeen / dbNow / note），\n所以判定語意完全沒變，只是訊號來源從「自己查」變成「問別人」。\n\n三個刻意設計：\n\n**年齡仍由來源端的兩個值相減。** 這條比 DbFreshness 更重要，因為中間又多一台機器的時鐘。\n缺 dbNow 時**判故障而不是退回本機時間**——那種退讓會無聲地多吃一台機器的偏移。\n\n**「探測端點異常」與「無資料」是兩個 Headline。** 多一跳就多一種壞法（端點 500、\ntoken 過期、那台關機），而牆上寫「無資料」會讓人跑去查一台其實好好的讀卡機。\n兩者都亮燈（讀不到訊號一律當失去心跳），但必須指向不同的東西。\n\n**解密後的 token 會檢查是不是 ASCII。** DES 解密不驗證完整性：密文打錯一個字，\n解出來是亂位元組而不是例外，塞進標頭會讓 HttpClient 丟「連不上」——牆上指著網路、\n問題其實在設定。這條是本機實測抓到的，不是想像出來的。\n\n## 打卡機那顆頭\n\n型別 DbFreshness → HttpFreshness，移除 Provider/ConnStringEnc/FreshnessSql：\n判定 SQL 與「三個不可改的地方」現在住在 lisweb 的 AttendanceRepository，\n這裡不留副本（兩份遲早漂移）。處置指引改寫成「先分辨是端點壞還是資料真的沒進來」。\n\nMinor 維持 true——刷卡不影響實驗室營運，牆上封頂在黃、不升級寄信。\n仍然 Enabled:false，等 lisweb!1500 佈到 docs、我驗證通了才翻 true。\n\n## 驗證\n\n本機架 stub 端點跑真的 Cerberus.exe，11 種情況全部確認（隔離環境、Discord/Mail 留空、\n牆指向本機假接收端）：正常綠、超門檻黃、無資料黃、非判定時段灰、端點 503 / 缺 dbNow /\n401 / 密文壞掉 / 逾時 / 連不上 六種都回「探測端點異常」，以及一個刻意不設 Minor 的對照組\n確實是紅的——證明封頂是 Minor 在管，不是型別。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5603a152",
+          "date": "2026-09-10",
+          "message": "診斷講得太寬了：不是 56.x 連不到 168.x，是 168.127 只放行辦公網段",
+          "body": "上一版寫「那台到 168.x 網段的路由／防火牆」，把要網路組做的事講成了開通一個網段。\n查下去發現同一台 Cerberus 的兩顆 FolderBacklog 頭每 2 分鐘成功掃\n\\192.168.168.221\\queue（SMB 445）——**56.231 到 192.168.168.0/24 的路由本來就通**。\n\n被擋的只有 TCP 1433 到 192.168.168.127。而且從辦公網段（169.x）那同一組連線字串連得到、\n168.127 的 445 對辦公網段也是關的——那台是「只開 1433、只放行辦公網段」的專用 SQL 主機。\n\n所以要的不是一個網段，是一條規則：在 192.168.168.127 開 TCP 1433 給 192.168.56.231。\n把精確的診斷寫回設定註解，省掉下一個人重查一遍。\n\n順帶記下「在 LIS 開個 API 讓 Cerberus 去 call」為什麼不是解法：\n56.230 跟 56.231 同在 56.x 機房網段，換 host 不會換到不同的防火牆結果。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "df1643c1",
+          "date": "2026-09-10",
+          "message": "「監控未上線」的主詞是誰看不出來，改成「還沒在看」",
+          "body": "走廊上看到「大門打卡機／監控未上線」，第一直覺是「打卡機沒上線」——\n意思正好相反，而且會害人跑去查一台其實好好的機器。真正要講的是\n**我們沒在看它**，主詞是看門狗不是打卡機。\n\n這面牆的動詞本來就是「看」（Cerberus 負責叫，Argus 負責看），\n用它把主詞放回自己身上就沒有誤讀空間。\n\n同時把 DisabledReason 裡的 IP 與埠號拿掉。那塊灰磚會長期掛在牆上，\n而牆在訪客與客戶看得到的地方——每天曬一組內網位址沒有必要，\n細節寫在 appsettings 的註解裡就夠了。牆上要的是「卡在什麼事情上」，\n不是「卡在哪個 socket」。這條規矩一併寫進 DisabledReason 的文件。\n\n沒填理由時的預設字也改了：從「這顆頭目前沒有在監控」改成明說\n「沒有填停用理由」——沒填本身就是設定沒做完，該讓它顯示出來而不是靜靜留白。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3e3b1393",
+          "date": "2026-09-10",
+          "message": "停用的頭要留在牆上：把缺口藏起來就是自己製造假綠",
+          "body": "上一版把打卡機那顆停用之後，牆回到 12 塊全綠——但那件事一件都沒解決：\n資料還斷著、56.231 還是連不到門禁 DB。我把噪音關掉的同時，\n也把「這件事沒人在看」一起藏起來了，那正是設計準則第 1 條要防的東西。\n上一版註解寫「停用的頭刻意不上牆」是錯的，一併改掉。\n\n停用的頭現在照樣上牆：灰磚、headline 寫「監控未上線」、detail 寫 DisabledReason。\n不巡守、不告警，所以沒有 32 秒的卡頓、也不會再誤發 Discord。\n\n灰色是誠實的——這顆頭此刻確實沒有在被判定，跟靜默窗、未到期是同一件事。\n「系統說不適用」與「有人把它關了」的差別寫在字上，不靠顏色分：\n牆上多一種顏色的成本，遠高於多一行字。\n\n新增 DisabledReason，要求寫成「缺什麼、卡在誰身上」而不是「暫時關閉」——\n停用的頭沒有告警會催人，那句話是它唯一的聲音。打卡機那顆填的是：\n看門狗那台連不到 192.168.168.127:1433，需請網路開通，打卡機本身目前無人監看。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "14f95640",
+          "date": "2026-09-10",
+          "message": "看門狗那台連不到門禁 DB：加 Enabled 旗標，先把打卡機那顆擱著",
+          "body": "上一版佈上去才發現 **56.231 連不到 192.168.168.127**（SQL-64 / provider error 40），\n而且一次要卡 32 秒才失敗。開發機用同一組連線字串連得到，所以不是帳密或字串的問題，\n是那台到 168.x 網段的路由／防火牆——其他 SqlServer 頭連的 56.191、139.227 都是放行的網段。\n\n後果不只是那顆頭紅：每輪多花 32 秒，而且會固定進 Discord。已經誤發一則。\n\n## Enabled: false\n\n刪掉整段設定也能止血，但那會連同判定 SQL、門檻怎麼推出來的、處置指引一起帶走——\n那些是靠 30 天刷卡分布量出來的，刪掉下次要接回來得整個重做。所以加一個旗標把它擱著，\n1433 開通後翻回 true 就上線。\n\n停用的頭**不巡守、也不上牆**，刻意不顯示成灰磚：灰＝「現在問這個問題沒有意義」\n（靜默窗、未到期），是巡守的結果；停用是「我們決定先不看它」，是人的決定。\n混在同一個顏色裡，牆上就分不出這兩件事。每輪 log 留一行，免得關掉之後沒人記得。\n\n順帶把「開始巡守 N 顆頭」改成只算啟用的——log 的數字要對得上牆上的磚數，\n否則之後對帳的人會以為少了一塊。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "366cd4b1",
+          "date": "2026-09-10",
+          "message": "打卡機停了 23 小時沒人知道：加 DbFreshness，以及只亮到黃燈的次要頭",
+          "body": "2026-09-10 查 SMS_DB 時發現全公司 27 台讀卡機自 09-09 08:15 起完全沒有新資料，\n整整 23 小時無人察覺——沒有任何東西在看這條。\n\n## DbFreshness：問「這張表還在長嗎」\n\n`DbBacklog` 問的是「該被消化的東西卡住了嗎」，但沒有人在消化門禁刷卡紀錄，\n它只是該進來而沒進來。硬套積壓語意，牆上會出現「積壓 1 筆」——\n對走廊上看牆的人毫無意義。\n\n難的地方不在查詢，在**什麼時候問**。刷卡是陣發的，30 天實測這台門：\n平日 06–10 每天 10–26 筆（18 個平日沒一天是 0）、11–15 三十天總共只有 3 筆、\n16–17 每天 5–14 筆且 42 個平日的「下午第一筆」全部落在 16:09 前、週日掛零。\n\n當均勻心跳看只有兩種下場：門檻抓緊就每天中午誤報，放寬到吞得下最長空窗\n（單一門超過 5 小時）就等於沒在監控。所以判定時機交給 SQL 的第一欄決定——\n它看得到星期幾、幾點，也看得到其他 26 台門（用來分辨「只有這台壞」與「整套都停」）。\n不該判定時回 Suppressed 而不是綠：中午那四小時我們根本沒有訊號可看。\n\n代價寫進設定註解了：中午壞掉要等 18 時（約 6 小時），週六壞掉要等週一。\n這是「只看單一台門」的固有上限，不是門檻調得不夠緊。\n\n## Minor：不是每顆頭都該能亮紅\n\n門禁斷掉要修，但實驗室照常運作、報告照常發。這種頭跟 AuthoriseQueue 一樣亮紅的話，\n牆上的紅就開始貶值——走廊掃過去看到紅色卻不必衝過去，兩個月後真正該衝的那次\n也不會有人動。`Minor: true` 封頂在黃，並且不升級寄 Mail（Discord 照常叫）：\n既然是「今天內處理」，就不該在 60 分後寄信把人從別的事情上拉開。\n\n## 效能：踩過才知道的 76 倍\n\n`MAX(LogTime) ... WHERE CardTime >= DATEADD(...,GETDATE())` 因為最佳化器估不出\nGETDATE() 的筆數而退成整表掃描（144 萬列，實測 275ms）；改成\n`TOP 1 ... ORDER BY CardTime DESC` 走索引反向取第一筆後是 3.6ms。\n`CardTime <= GETDATE()` 也不是裝飾：少了它，任何一台讀卡機時鐘被設到未來\n就會永遠佔著「最新一筆」，牆上從此一片綠——正是這面牆最怕的假綠。\n\n兩支查 DB 的 checker 共用新的 Core/DbProbe.cs：「連線一定帶 timeout」這條規矩\n只能有一份，兩份實作遲早有一份會忘記補，而巡守是 fire-and-exit。\n\n## 驗證\n\n在隔離的暫存環境跑真的 Cerberus.exe（Discord/Mail 留空、牆指向本機假接收端、\n獨立 state.json），確認三件事：非判定時段回灰、該有資料卻沒有回黃（不是紅）、\nMinor 的頭撐過升級門檻只留 log 不寄信。過程中也逮到連線字串漏了\nTrustServerCertificate=True（Microsoft.Data.SqlClient v4 起預設加密），已補。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f006f537",
+          "date": "2026-09-11",
+          "message": "佈署紀錄補這次下架那一列",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6287d318",
+          "date": "2026-09-11",
+          "message": "下架大門打卡機那顆頭",
+          "body": "只看單一台門的判定時機太窄：平日只在 11 時與 18 時各判一次、週末完全不判，\n中午壞掉要等 6 小時、週六壞掉要等週一，牆上一天大半時間是灰的。\n一塊磚的成本是「每個經過走廊的人都要掃一眼」，這顆頭給的資訊量撐不起來。\n\n拿掉 appsettings.json 那顆 head（牆回到 12 顆）。checker（HttpFreshness／\nDbFreshness）與接入指南留著——型別本身沒問題，30 天的刷卡分布也是量出來的，\n哪天要改用整套讀卡機（不分門，實測平日 08–20 最長空窗 16 分）重做一顆時\n從那裡接著往下走。文件裡的打卡機範例改成歷史範例的語氣。\n\nlisweb 那支代打端點（api/Attendance/CardLogFreshness）暫時留著沒動，\n拿掉要排一次六站發佈，另外處理。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "350a35d8",
+          "date": "2026-10-01",
+          "message": "分部 HC010 上線後的待辦寫進文件：先記著，遇到再回來改",
+          "body": "佈署指南「佈署後待辦」補四條：台北 WallName 補地名、TakoDoko 分部 HCINI 物件補關鍵字、\n冒煙失敗時記下 ID_POLL_FLAG（分不出 HC010 死了還是慢了）、Oracle 可連線頭還要不要獨立做。\nREADME Roadmap 勾掉 HC010 擴分部，新增分部儀器佇列一條。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ba277033",
+          "date": "2026-10-01",
+          "message": "佈署紀錄補分部 HC010 翻啟用那一列",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d6c9cf4a",
+          "date": "2026-10-01",
+          "message": "分部 HC010 五顆頭翻啟用：56.231 實測五站 Oracle 1521 全通",
+          "body": "早上先以灰磚佈上，等的就是這一步——開發機連得到不算數（09-10 打卡機那顆的教訓）。\nRDP 56.231 用 TcpClient 測五站 1521，台中／桃園／新竹／嘉義／高雄全部 True；\n翻之前再查一次五站積壓皆 0，不會一啟用就紅。\n\nRunbook 裡 TaskLoader 那步仍標「?」：分部畫面還沒人實機看過，不擋上線。\n佈署指南的驗連線指令改成 TcpClient 版（Test-NetConnection 不通時要卡 20 秒左右）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5b9ce0a8",
+          "date": "2026-10-01",
+          "message": "佈署紀錄補分部 HC010 那一列：牆 12 → 17 塊（5 塊灰磚）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0753e780",
+          "date": "2026-10-01",
+          "message": "分部也要看 HC010：五站各補一顆積壓頭，先擱著等 56.231 連線驗證",
+          "body": "今早 07:30 冒煙 FAIL(TC)：「等 hcini 生成檢驗單(ord)逾時」，正是台北 HC010 那顆頭在守的症狀，\n而五個分部完全沒有這顆頭。冒煙一天只看一次、只等 2.5 分，分不出死了還是慢了；\n測試單跑完就刪，事後 DB 也查不到當時卡在哪。08:00 查台中時當天一筆 BLG 都還沒有，\n佇列 0 不代表 HC010 活著——這正是需要整天每輪都看的理由。\n\n## 這次做了什麼\n\n複製台北那顆 DbBacklog，換五站連線字串（密文已 round-trip 解回驗證），全部 `Enabled: false`。\n已從開發機驗：五站都有 ALKEY4_BLG_TX_HDR，計畫皆 INDEX RANGE SCAN；當下五站積壓皆 0。\n\n跟台北不同：分部的 HCINI 跟 Oracle 同台（TakoDoko 查得），Runbook Host 照實寫。\nTaskLoader 那一步分部沒人實機看過，標「?」上牆。新竹另有一台叫 InterFaceServer(221) 的\n舊版 HCLAB CM，名字像台北 221 但無關，Runbook 裡寫明別被帶去那台。\n\n不設 Bite：HCINI 是廠商常駐程式，分部那台還同時是正式 Oracle。\n\n## 為什麼先擱著\n\n開發機連得到不算數——09-10 打卡機那顆就是開發機通、56.231 不通，上線每輪卡 32 秒外加誤發 Discord。\n56.231 到五站 SQL Server 是通的（報告回傳六顆頭），但 Oracle 是另一台另一個埠。\n翻 true 的步驟寫進佈署指南「佈署後待辦」。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e2bb7a37",
+          "date": "2026-10-01",
+          "message": "手冊補「Oracle 台北連不上」：09-08 那次只有 HC010 在叫，看起來像 HCINI 的事",
+          "body": "告警寫「查詢失敗 ORA-50000」時照 HC010 那段去 221 重啟 TaskLoader 沒用，\n真正連不上的是台北 Oracle。補上怎麼分辨、先通知誰、前 5 分鐘觀察、\nlistener log 怎麼讀，以及 listener log 照現在速度約 2027-04 撞 4 GB。\n三層防線表格記下這次事故尚未補強。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "075dd603",
+          "date": "2026-10-09",
+          "message": "佈署紀錄補 DB 頭同輪重試（MR !52）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b8cd6faa",
+          "date": "2026-10-09",
+          "message": "DB 頭連線錯誤同輪重試一次：抖一下不再告警",
+          "body": "一個月約十次告警是「中斷約 2 分」——只失敗一輪、下一輪自己好，全是\nORA-50000 timed out／SQL-53/64 這類連線錯誤（台北、高雄、台中、嘉義都有）。\n2026-10-09 16:42 台中 Oracle 連線逾時 15 秒那次就是這型，同一秒台中\nSQL Server 照樣查得到。\n\n- DbProbe.WithTransientRetry：只認連線類錯誤碼，清連線池、等 5 秒重試一次，\n  第二次也失敗才往上丟當失去心跳；表不存在／帳密錯不重試\n- 一輪最多重試 3 次：多顆頭同時連不上＝真出事，不該每顆都拖時間\n- 重試成功寫 Warn 留痕，同一站常抖就是該補的洞\n- 真故障仍在同一輪告警，不像「連兩輪才叫」會晚 2 分鐘\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b9de0d95",
+          "date": "2026-10-17",
+          "message": "feat(LogFreshness): 支援共用帳密（ShareUserEnc／SharePasswordEnc）與讀取逾時；新增 Chronos@台北、Chronos@台中 兩顆執行器心跳頭",
+          "body": "- LogFreshness 原本只能用跑 Cerberus 的身分讀 log，SYSTEM 對外是機器帳號，跨站 d$ 讀不到。\n  比照 FolderBacklog：帳密有設就先 WNetAddConnection2 再讀；整段讀取包在 ScanTimeoutSeconds 逾時裡，\n  對方主機無回應不會卡住整輪。沒設帳密的既有頭行為不變（只多了逾時）\n- Chronos 執行器（ucl/lis/schedule/chronos）心跳 |INFO|tick ok，log 10-17 起按日滾檔 chronos-*.log；\n  台北可撲咬（本機 \\Chronos\\Runner，Parallel 排程多叫一輪無害），台中跨站帶 administrator 密文、不撲咬\n- 本機以 harness 載入真實 appsettings 只跑 LogFreshness.Check 驗過：19 顆頭解析 OK、既有兩顆照常綠、\n  兩顆 Chronos 頭對舊檔名 chronos.log 判綠；目錄不存在／主機無回應（5 秒逾時）／密文壞掉都轉紅\n- 兩顆 Chronos 頭要等 10-20 兩站換上滾檔版執行器才會綠（現在站上還是單一 chronos.log）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d6be27ec",
+          "date": "2026-10-17",
+          "message": "config: 登記血型同步、NHI 自費上傳兩顆 ScheduledRun 頭（先 Enabled: false）",
+          "body": "兩支夜間批次改成只在失敗時寄信，平常靠這兩顆頭判斷「今天跑了沒、結果如何」。\n心跳讀程式自己寫的 logs\\run-history.log（成功 \"OK(\"、失敗 \"FAIL(\"）。\n新版程式 10-17 才部署，隔天凌晨第一次執行後才有檔案，先灰磚，見到當天那行再翻 true。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f2409ad0",
+          "date": "2026-10-20",
+          "message": "config: Chronos 工作結果頭（台北、台中）＋ FalconCopy 撲咬改踢 Chronos 執行器",
+          "body": "- Chronos工作@台北／@台中（DbBacklog）：查 SCHEDULE_JOB，已啟用工作上次 FAIL／TIMEOUT、或鎖卡住超過逾時＋5 分，就算一筆；門檻 1 分。\n  一顆頭罩住該站所有搬進 Chronos 的工作，之後新增工作不用再加頭。連線沿用 HC010 頭的同一組密文。\n  （鎖卡住那條是 10-19 Data2Cloud 首輪的教訓：寫紀錄失敗沒解鎖，下一輪會被跳過，單看結果抓不到）\n- FalconCopy 10-20 07:15 起由 Chronos 觸發、舊排程已停用：撲咬改踢 \\Chronos\\Runner，Runbook 改指向排程維護頁與回退方式\n- 只改 appsettings，exe 不動（每輪重讀設定）。本機 harness 對兩站 DB 實跑：現況綠；條件改成 OK 模擬出事會轉紅（台北 6 筆、台中 1 筆）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ef16e28c",
+          "date": "2026-10-21",
+          "message": "config: OrderInSql 院所醫令收檔加盯 FP 收尾 B 組（0539／0235／0699／0272）——ExamOrder_Files、UCLOrder_Files 各一處",
+          "body": "OrderInSql docs/migrations/fp-retire-remaining-7.md 步驟 3：B 組 valid=0 之後檔進來沒人撿，偵測頭要先空跑一週。\n門檻 30 分、靜默 21:00-09:20（收尾前 FP 每 10 分撿一次）。由 gen-cerberus-heads.ps1 -Aggregate 重產，只多兩筆 Watches。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7ae9a81d",
+          "date": "2026-10-21",
+          "message": "feat(FolderBacklog): 多資料夾模式 Watches＋--check 模式；加 OrderInSql 院所醫令收檔／轉檔兩顆頭",
+          "body": "- HeadOptions.Watches：一顆頭看多個資料夾、牆上只佔一格。每筆自帶 QuietWindows／StaleAfterMinutes／Include／Exclude；\n  逐筆攔例外（一處讀不到不拖垮其他處）；同一共用根只連一次、用完即斷（避免重演 OrderInSql 10/20 的 session 外洩）\n- 多資料夾模式略過隱藏／系統檔：168.227 UCLOrder_Files 有個 2022 年的 Thumbs.db，下游 pull 永遠不會拉走它\n- --check \"<頭名>\"：只判活、印結果，不告警、不送牆、不動 state.json\n- OrderInSql醫令收檔@台北（168.227 來源 11 處）、OrderInSql醫令轉檔@台北（56.227 inbox 34 處），\n  由 OrderInSql repo tools/gen-cerberus-heads.ps1 -Aggregate 產生；帳密以 --encrypt 同一套 DES 加密\n- 本機驗證：兩顆頭對正式資料夾 --check 正常（1.5／2.2 秒）；假資料夾驗過積壓、排除、隱藏檔、讀不到、靜默窗五種情境\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "2d7ee9f9",
+          "date": "2026-10-22",
+          "message": "佈署紀錄補 FolderBacklog 改看「第一次看到」那一列",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "87df00c9",
+          "date": "2026-10-22",
+          "message": "FolderBacklog 年齡改從「第一次看到」算：搬進佇列的檔帶著來源時間戳，進來 30 秒被算成等了 261 分",
+          "body": "2026-10-22 16:12 院所醫令轉檔叫了一次「WEBORDER-XML：積壓 2 檔，最舊 261 分」，16:14 自動收隊。\n追下去：診所 2150 的醫令 XML 11:50 產生，16:11:55 才由 pull（robocopy /MOV /COPY:DAT）\n從 168.227 搬進 inbox，16:12:27 OrderInSql 就處理完——在佇列裡待不到 30 秒。\n年齡卻用檔案的 LastWriteTime 算，而 robocopy 連建立時間都保留來源的值，所以兩個時間戳都不能用。\n\n## 判斷錯在哪\n\n這顆頭要回答「檔在我們的佇列裡等了多久」，量的卻是「檔多久以前被寫出來」。\n台北 221 的儀器佇列是儀器直接寫檔，兩者相等，當初的實作就是照那個前提寫的；\nOrderInSql 的檔都是搬進來的，前提不成立，上游只要晚送就會誤報一次。\n\n## 改法\n\n新增 FileSightings（exe 旁 sightings.json）：每個資料夾記下每個檔第一次被看到的時間，年齡從那裡算。\n- 以資料夾為單位整份替換：這輪沒看到的檔＝已消化，記錄跟著清掉\n- 以檔名認檔、不含時間戳：卡住的檔若被上游一直覆寫，含時間戳會讓年齡每次歸零、永遠不叫\n- 靜默窗內沒掃的資料夾記錄原樣保留；3 天沒掃到才丟\n- 不併進 state.json：那份「有 key＝正在告警」，健康的佇列也得記檔\n- 附帶：年齡全用 Cerberus 的時鐘算，檔案伺服器時鐘偏移不再吃進年齡\n- 代價：剛開始看時（初次佈署、新資料夾），已經卡很久的檔最多晚一個門檻才叫\n- --check 只讀不寫 sightings.json\n\n本機模擬（Discord/Mail/牆皆留空，只走 console），單一與多資料夾兩種模式：\n5 小時前的檔剛進來 → 0 分不叫；待滿門檻 → 照樣叫；檔消化 → 收隊、記錄清空。\n--check 讀正式設定掃 56.227 的 34 處 inbox 正常，且沒寫出 sightings.json。\n\n## 一起改的\n\n- 院所醫令轉檔的 Runbook 第一步改成「先分真假」：開 /alert 看那條線的 inbox，檔已不見＝消化完了，\n  等下一輪收隊。原本三步都假設真的卡住，今天打開時檔已處理完，每一步都對不上，看的人找不到方向。\n- 佈署指令 /XF 加 sightings.json、.gitignore、README／架構與擴充 補說明。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "38071c04",
+          "date": "2026-10-28",
+          "message": "合併 MR !61: fix: 停用四顆誤報的秉坤頭（判定邏輯錯）",
+          "body": "fix: 停用四顆誤報的秉坤頭（判定邏輯錯）\n\nSee merge request ucl/ops/cerberus!61",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "686eab21",
+          "date": "2026-10-28",
+          "message": "fix: 停用四顆誤報的秉坤頭（判定邏輯錯）並寫明原因",
+          "body": "部署後首輪 07:52 四顆紅燈皆為誤報：\n- 平鎮醫令接收、同步 桃園→平鎮／平鎮→桃園：看「最後一筆距今多久」，\n  沒單或夜間無同步就紅；應改看「到了該處理的時間還沒處理」的積壓\n- 多餘同步實例：白名單漏 172.16.24.1（疑為桃園主機另一張網卡），門檻過緊\n保留三顆正常運作：建單分類蓋錯、建單參考值蓋錯、平鎮設定刷新機制。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "76682b0f",
+          "date": "2026-10-28",
+          "message": "合併 MR !60: feat: 秉坤雙站八顆頭（平鎮醫令接收、同步心跳、隊列、蓋錯設定、多餘實例、設定刷新）",
+          "body": "feat: 秉坤雙站八顆頭（平鎮醫令接收、同步心跳、隊列、蓋錯設定、多餘實例、設定刷新）\n\nSee merge request ucl/ops/cerberus!60",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "b70e16a5",
+          "date": "2026-10-28",
+          "message": "feat: 秉坤雙站八顆頭（平鎮醫令接收、兩向同步心跳、隊列積壓、蓋錯分類/參考值、多餘同步實例、平鎮設定刷新）",
+          "body": "依 dbLIS docs/05-秉坤監控接入Cerberus.md。SQL 已於兩站正式 DB 唯讀實測，八顆合計 <300 ms。\n- 平鎮醫令接收@秉坤：DbFreshness，上班時段 60 分沒新單就叫（10/27 曾停 90 分鐘）\n- 同步 桃園→平鎮／平鎮→桃園@秉坤：DbFreshness 看 SYNC_INBOX（UTC），30 分\n- 同步隊列積壓@秉坤桃園：DbBacklog 近 24 小時 PENDING/FAILED；先 Enabled=false，\n  桃園仍有數百筆 PENDING 待岑松清空後啟用\n- 建單分類蓋錯／建單參考值蓋錯@秉坤：DbBacklog 以單號日期前綴走 PK，10 分\n- 多餘同步實例@秉坤：DbBacklog 看非 172.16.27.23／1.34.169.127 的同步連線（10/27 clone VM 根因）\n- 平鎮設定刷新機制@秉坤：DbBacklog 守 SettingTriggersNewestTime 與 14 個 Tr_sys_*_changed，Minor\n部署前需在 56.231 驗證可連 60.251.173.208:1433 與 1.34.169.127:1401。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "db66c746",
+          "date": "2026-10-29",
+          "message": "佈署紀錄補 DbBacklog AgeFromFirstSeen（MR !62）那一列",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "134804a6",
+          "date": "2026-10-29",
+          "message": "DbBacklog 年齡可選「跟第一次看到非空取小」（AgeFromFirstSeen）：重送的舊帳務帶著昨天的時間戳進佇列，兩分鐘消化完卻被算成等了 1220 分",
+          "body": "2026-10-29 12:40 HC010醫令產生@台北 叫了一次「積壓 1 筆，最舊一筆已等 1220.7 分」、12:42 自動收隊。\n12:38 那輪佇列還是空的，所以那筆是 12:38～12:40 之間才進佇列、帶著 2026-10-28 16:19:25 的\nID_UPDATE_ON（前一天的帳務被重送，或 ID_POLL_FLAG 被改回 'N' 但沒更新時間），兩分鐘內就被消化。\n告警上的「最後心跳 2026-10-28 16:19:25」也是那筆資料的時間戳，看起來像昨天下午就斷了。\n\n## 判斷錯在哪\n\n跟 10-22 FolderBacklog 搬檔那次（87df00c）同型：這顆頭要回答「在佇列裡等了多久」，\n量的卻是「資料自己的時間戳多舊」。HC010 的 ID_UPDATE_ON 是帳務更新時間，不是進佇列時間。\n\n## 改法\n\n- 新選項 `AgeFromFirstSeen`（預設 false）：年齡取「DB 端算的年齡」與「Cerberus 第一次看到佇列非空至今」\n  的較小值；記錄存 sightings.json（key `db:頭名`，借 FileSightings 的結構，不另開檔）。\n  取小而不是只看第一次看到：忙碌但健康的佇列會一直非空、每筆秒級消化，只看「非空持續多久」會誤判卡住。\n  真卡住兩個年齡都會長，照樣滿門檻就紅。\n- 不做全域：DbBacklog 共 19 顆頭，多數的第二欄就是事件時間；「平鎮設定刷新」那顆甚至刻意回一小時前\n  好讓它立刻紅，全域開會把它弄壞。只有六顆 HC010 開。\n- 告警內文開了這選項時多寫「資料時間戳 N 分前」，「最後心跳」改指第一次看到的時刻。\n- 代價同 FolderBacklog：初次佈署／sightings.json 被刪時，已卡很久的佇列最多晚一個門檻才叫。\n\n文件：架構與擴充（刻意設計）、接入指南（欄位表）、告警回應手冊（HC010 第一步加「分真假」）。\n本機 `--check` 台北／台中兩顆皆「佇列已清空」（空路徑）；非空取小的路徑待線上觀察。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "OnlineReport\\ReportHtmlSync",
       "totalCommits": 79,
       "commits": [
@@ -24910,637 +25669,6 @@
           "message": "docs: 高雄盤點修正與換版紀錄 — 原記「無部署」有誤",
           "body": "高雄反應報告無法複製。查出高雄一直有一套 htmlConverter 在跑，版本停在\n2025-11-03 `7497ccb`（全站最舊，落後 20+ 個 commit），缺 `61e0232`(user-select)\n與 `05f0794`(window.print)，已於 2026-09-15 換版並重轉 9 月 5,448 筆。\n\n- 第 1 節高雄列：由「無部署跡象」改為實測結果（139.229 與 LIS 同機、FDD、\n  DB 139.227/HCLABx、渲染打自己、備份資料夾）\n- 新增「高雄盤點修正」：記下推論錯誤的教訓 —— 別拿 FalconCopy 的部署紀錄\n  反推本程式；辨識舊版的特徵（仍寫 batch_execution.log、startup_error.log\n  是啟動追蹤不是錯誤）；⚠ 高雄同新竹**無分部前綴**，609=2026年9月，\n  清理 SQL 一律用 trx_dt 圈範圍\n- 新增「重轉整段期間的零停機做法」：撥回 CreateTime 觸發\n  `trx_dt > CreateTime` 重轉，舊 HTML 原地保留可看，取代清成 NULL 的做法\n  （5,448 筆消化數小時，清 NULL 等於半天查無報告）\n- 待辦補：高雄 9 月以前尚有 161,122 筆舊版產物待決定是否往前重轉\n- 修正上個 MR 帶進來的錯字：IIS log 範例的 UNC 路徑少一個反斜線\n- docs/1 站台表補高雄列\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
           "category": "錯誤修正",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "Cerberus",
-      "totalCommits": 78,
-      "commits": [
-        {
-          "hash": "1f4dc257",
-          "date": "2026-07-22",
-          "message": "新增告警階梯引擎與撲咬自動修復：Discord/Mail 雙 tier 常備",
-          "body": "把兩支能動的 notifier 串成有記憶的階梯，解決舊版「每 10 分洗頻」與",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "9773b026",
-          "date": "2026-07-22",
-          "message": "新增 Email 嚎叫管道：走 NotificationPlatform mailapi 寄告警信",
-          "body": "- MailApiHowler：Login 取 JWT（process 內快取）→ POST /TriggerNow，",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "4af14886",
-          "date": "2026-07-22",
-          "message": "初始骨架：Cerberus・地獄不眠狼 — 例行任務心跳看門狗",
-          "body": "- .NET 10 console，fire-and-exit，設計由排程每 10 分鐘巡守一次",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "01afe4a5",
-          "date": "2026-07-23",
-          "message": "告警圖示換成三頭犬：🐺 → 🐶🐶🐶",
-          "body": "Unicode 沒有地獄犬 emoji，用三顆狗頭對應 Cerberus 三頭犬意象，",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "83170db8",
-          "date": "2026-07-23",
-          "message": "正名「地獄犬」：拿掉硬套的「地獄不眠狼」flavor",
-          "body": "- README 標題/由來、Discord footer、告警回應手冊標題、程式註解全面改為地獄犬",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7b1b770d",
-          "date": "2026-07-23",
-          "message": "佈署指南：勾掉撲咬啟用待辦（2026-07-23 點火＋實彈演習成功）",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "8c9ca396",
-          "date": "2026-07-23",
-          "message": "撲咬點火：BiteEnabled 開為 true（本機 schtasks /Run 喚醒 FalconCopy）",
-          "body": "- 同機佈署（56.231）Host 留空走本機執行，無跨機 RPC 權限問題",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d018d2ab",
-          "date": "2026-07-23",
-          "message": "佈署指南：勾掉已完成待辦（TaskName 實查、23h 根因已根治）",
-          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "6d180f9d",
-          "date": "2026-07-23",
-          "message": "收尾：拿掉 QuietWindows 補丁、log 保留 30 天、新增告警回應手冊",
-          "body": "- appsettings：ReadOK 23h 觸發器已於 2026-07-23 根治（Repetition.Duration 清空＝",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b54c00cc",
-          "date": "2026-07-23",
-          "message": "撲咬支援同機本機執行＋填入 FalconCopy 實際排程工作名",
-          "body": "- Biter：Bite.Host 留空＝本機直接 schtasks /Run（同機佈署免走 loopback RPC）。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cee334ab",
-          "date": "2026-07-23",
-          "message": "佈署指南：狀態更新為已上線（2026-07-23 於 56.231 完成驗收）＋ markdown lint 修整",
-          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7ff99598",
-          "date": "2026-07-23",
-          "message": "佈署指南修正：排程建立改用 PS 5.1 可行的無限重複 workaround",
-          "body": "56.231 實地執行發現 Windows PowerShell 5.1 的 Register-ScheduledTask 不吃",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "b9b0f8e1",
-          "date": "2026-07-23",
-          "message": "新增佈署指南：台北 56.231 同機佈署、一次性排程設定與驗收",
-          "body": "佈署包（self-contained win-x64）已放上 \\192.168.56.231\\Schedule\\Cerberus\\。",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "8db29341",
-          "date": "2026-07-23",
-          "message": "文件補齊（接入/架構/mailapi/Discord）＋監控範圍先收成只守台北",
-          "body": "- 新增 Docs/接入指南.md、Docs/架構與擴充.md、Docs/mailapi串接.md；更新 Docs/Discord串接.md、README。",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "47a0b050",
-          "date": "2026-08-13",
-          "message": "docs: 可靠性三層防線（維運設計準則）",
-          "body": "設計/review/事故 post-mortem 的檢核框架：",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "bfab159b",
-          "date": "2026-08-13",
-          "message": "AuthoriseQueue head 切換心跳行為 [Heartbeat]",
-          "body": "新版 AuthoriseQueue exe（心跳行＋租約鎖）已於 2026-08-13 佈上 56.231，",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "bbd22630",
-          "date": "2026-08-13",
-          "message": "fix: 讀心跳 log 改開 ReadWrite share，讀檔失敗視同失去心跳",
-          "body": "09:40 首輪實戰發現：AuthoriseQueue 的 NLog 每分 :01 握著寫入權，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "3130db82",
-          "date": "2026-08-13",
-          "message": "第二顆頭：AuthoriseQueue@台北（消化排程心跳監控）",
-          "body": "- appsettings.json 新增 LogFreshness head：盯 56.231 AuthoriseQueue.Program.log",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "26a5a619",
-          "date": "2026-08-21",
-          "message": "fix: 滾檔寬限——新檔尚無心跳行不再誤判失聯",
-          "body": "AuthoriseQueue 的 log 每天 00:00:01 滾檔，Cerberus 00:00 那輪巡守",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "8dd0236a",
-          "date": "2026-08-28",
-          "message": "第三顆頭：HC010 醫令產生@台北（新頭型別 DbBacklog）",
-          "body": "輪詢型程式卡住時，process 未必死、log 未必停，看心跳完全抓不到。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c10e4a0d",
-          "date": "2026-08-31",
-          "message": "更正佈署指南的根因：危險的是 robocopy 跑很久，不是巡守變慢",
-          "body": "上一版把「一輪 30 秒」當成撞上排程的原因，那是**開發機經 VPN** 的數字。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e6d82307",
-          "date": "2026-08-31",
-          "message": "佈署前先停排程：六顆跨站頭讓「撞上正在跑」從極低變成常態",
-          "body": "2026-08-31 佈六顆 DbBacklog 頭時實際誤發 6 則 Discord 告警。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "1bac9634",
-          "date": "2026-08-31",
-          "message": "Wall 設定從正式機補回 repo（差點被整包覆蓋掉）",
-          "body": "Wall.Url 與 TokenEnc 一直只存在 56.231 上，repo 裡是空字串。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "64021921",
-          "date": "2026-08-31",
-          "message": "佈署指南：publish 模式不能換（今天害看門狗停擺 9 分鐘）",
-          "body": "正式機那包是 self-contained。我用 framework-dependent 覆蓋上去，",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "a7ec9b7c",
-          "date": "2026-08-31",
-          "message": "DbBacklog 支援 SQL Server，接入 VisionReportHub 六站「整批失敗」頭",
-          "body": "Cerberus 只認得 Oracle，但 VisionReportHub 的傳輸紀錄在 SQL Server。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "bff96964",
-          "date": "2026-08-31",
-          "message": "文件對齊事實：排程是 2 分鐘，不是 10 分鐘",
-          "body": "正式機（台北 56.231）的排程間隔實際是每 2 分鐘，但 README、Program.cs",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "a978c6f6",
-          "date": "2026-08-31",
-          "message": "監控牆回報：Argus 的埠是 9200 不是 9100",
-          "body": "Argus 決定跟前身 ucl/ops/todo 那面牆並存（9100 上那個 IIS 站台還在跑），",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "bf9396a0",
-          "date": "2026-08-31",
-          "message": "IStatusSink：每輪把完整快照送上 Argus 監控牆",
-          "body": "牆要的東西跟告警不一樣，所以不複用 IHowler：IHowler 只在狀態變化時",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "405e6a01",
-          "date": "2026-08-31",
-          "message": "docs: 冒煙測試頭的告警回應 SOP + 上線紀錄",
-          "body": "第四顆頭 2026-08-31 10:32 上線。補告警回應手冊：",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "72d83aba",
-          "date": "2026-08-31",
-          "message": "第四顆頭：冒煙測試六站（ScheduledRun 首個真實用例）",
-          "body": "冒煙 2026-08-31 從個人開發機搬到 56.231，原因正是這顆頭要抓的東西——",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e099f65c",
-          "date": "2026-08-31",
-          "message": "新頭型別 ScheduledRun：一天一次的任務「跑了沒」",
-          "body": "心跳型問「現在還在跳嗎」，但冒煙測試、RMAN 備份、夜間批次這類一天只跑一次的",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "123dc791",
-          "date": "2026-08-31",
-          "message": "docs(佈署): 排程改 PT2M 結案 + 補改動後的驗收步驟",
-          "body": "2026-08-31 已把巡守間隔從 10 分改成 2 分（原本配不上 AuthoriseQueue 的",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "bfa3cb58",
-          "date": "2026-08-31",
-          "message": "docs(佈署): robocopy 補 /XD logs /XF state.json + HC010 上線紀錄",
-          "body": "2026-08-31 佈 HC010 那顆頭時發現的坑：原本的 robocopy 指令會把開發機的",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "a253255c",
-          "date": "2026-09-01",
-          "message": "佈署指南：補 2026-09-01 儀器佇列兩顆頭上線紀錄",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ac8a4f7c",
-          "date": "2026-09-01",
-          "message": "儀器佇列兩顆頭補 221 帳密與實查結果：pattern 限縮、門檻確認百倍餘裕",
-          "body": "2026-09-01 16:15 一次性 SYSTEM 排程在 56.231 實查：SYSTEM 直讀 221 被拒，\n改帶 is1 帳密（密文）；兩佇列皆秒級消化、第一層無陳年檔案，\n墳場（error/tmp/PRIORITY）都在子資料夾、不會被掃進去。\nWatchPattern 依實際檔名限縮成 *.ord / *.res。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "a406a4e7",
-          "date": "2026-09-01",
-          "message": "第四種頭型別 FolderBacklog：盯住檔案交換佇列的消化，首例 HCINI 儀器醫令/結果",
-          "body": "跟 DbBacklog 問同一個問題——「該被消化的東西有沒有卡住」——只是佇列長在\n資料夾不在資料表。掃第一層符合 WatchPattern 的檔案，看「最舊一個檔案等多久」\n（超過 StaleAfterMinutes 告警）與檔數（MaxBacklog，預設不看）；清空＝最健康。\n\n刻意設計（細節見 Docs/架構與擴充.md §5）：\n- 只掃第一層：error/backup 子資料夾放的是永遠不會被消化的檔案，掃進去紅到底\n- LastWriteTime 不用 CreationTime（file tunneling）；時鐘偏移吃進年齡，門檻要分鐘級\n- 掃描包在帶逾時的 Task（ScanTimeoutSeconds）：SMB 無回應不能拖垮整輪 fire-and-exit\n- 選配 ShareUserEnc/SharePasswordEnc（Utils/NetworkShare，WNetAddConnection2）：\n  SYSTEM 讀 UNC 的身分是機器帳號，對方共用沒開給它時帶帳密連，用完即斷、1219 沿用\n\n首兩顆頭：\\\\192.168.168.221\\queue 的 order\\IS1（DMS 醫令→HCINI 001O→IS1）與\nresult（儀器 RES→HCINI 001R→LIS）。⚠️ 佈署前置寫在 appsettings 註解：\n先驗 56.231 SYSTEM 讀不讀得到 221（2026-09-01 開發機網域帳號已確認被拒）、\n尖峰取樣校準門檻、清查陳年卡住的檔案。\n\n本機沙盒實測：空佇列/新鮮檔/pattern 排除半成品/45 分舊檔轉紅/子資料夾死檔\n被忽略/檔數超限轉紅/目錄不存在轉紅/漏設 WatchDir 轉紅，全數符合預期；\n真設定乾跑（拔告警管道）既有 10 顆頭全綠不受影響。\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ca735216",
-          "date": "2026-09-01",
-          "message": "佈署指南：補上 2026-09-01 重跑按鈕那次的佈署紀錄",
-          "body": "順帶記下一個反直覺的觀察：這次 robocopy 只複製 6 個檔 315KB，\n其餘 234 個 framework DLL 因為沒變而被跳過，所以沒有撞上 2 分鐘\n那一輪——上一次的事故（config 先到 code 後到）是因為整包 94MB\n都在複製。改動小的版本其實比想像中安全，但那不是可以依賴的性質，\n先停排程仍然是正解。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2b56b3be",
-          "date": "2026-09-01",
-          "message": "牆上的重跑按鈕：接下指令、驗過、交給排程",
-          "body": "Argus 那面牆現在會在紅磚上畫「↻ 重跑 KH」。這一端負責把按下去的\n那張單子接下來、驗過，再交給工作排程器。\n\n指令走「快照回應」而不是讓 Argus 打進來：那會多一個網路方向、多一\n條防火牆規則、多一組憑證，而 Cerberus 是 fire-and-exit，根本沒有在\n聽的東西。回應這條路已經通、已經驗過共用密鑰，方向也天生正確——\n拿得到指令的一定是當下真的在巡守的那個 process。代價是延遲最多一\n輪，對一件要跑 5~9 分鐘的事情可以接受。\n\n執行透過 schtasks 而不是直接開 process：巡守幾秒後就結束，冒煙要跑\n5~9 分鐘。站別走 rerun-target.txt 不走命令列，因為 schtasks /Run 不\n能帶參數。\n\nRerunRunner 是整條鏈唯一的檢查哨——牆上那顆按鈕沒有任何驗證（牆面\n頁是公開的，放密鑰進去等於沒有密鑰），所以 target 一律當成「內網上\n任何人都能送的字串」：頭要存在且有開放、形狀要像代號、要在白名單\n內。觸發失敗會把 rerun-target.txt 刪掉，否則那個排程之後不管為什麼\n被叫起來，都會拿過期的單子去正式站開測試單。\n\n按鈕只長在紅／黃的磚上。綠的沒有理由重跑；灰的（未到期、靜默窗）根\n本還沒判定，這時候給按鈕等於邀請人把「還沒到時間」跑成綠的。\n\n不受 Pack.BiteEnabled 管：那個 kill-switch 管的是看門狗自己動手，重\n跑是人明確按下去的。要關掉就把該顆頭的 Rerun 設回 null。\n\n順手修掉告警回應手冊裡的地雷：它叫人用 smoke.cmd TY 重跑，而那條路\n徑不寫 smoke-history.log——站修好了牆還是紅的。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cba4a083",
-          "date": "2026-09-03",
-          "message": "紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令",
-          "body": "告警回應手冊寫得很完整，但它躺在 repo 裡——紅燈亮著的時候沒有人會先\nclone 一份下來翻。指引要長在事故旁邊才算存在。\n\n每顆頭加 Runbook（Host／Path／Steps／Credential），跟 Rerun 一樣只在紅／黃\n時附進快照；checker 自己炸掉的「檢查失敗」也給，那種紅更需要知道它在看哪台。\n\n三條規矩：\n- 不放帳密。牆是公開頁面又掛在訪客看得到的地方，Credential 只寫去哪裡拿。\n  主機與排程路徑則是刻意放上去的，那幾分鐘比「訪客瞄到一個內網 IP」貴。\n- 不知道就標不知道：開頭寫 ? 的行牆上標黃寫「待查證」。HC010 與兩顆儀器\n  佇列的頭跑在哪台、怎麼安全重啟都還沒查證，照抄別顆頭的指令會把人送錯機器。\n- 綠燈不送：快照每輪都送、牆每 15 秒 polling，替一排綠燈附上沒人會讀的\n  步驟只是讓電視那條線白扛流量。\n\nHeadRunbook 用 set 不用 init：它跟同檔案其他契約不一樣，是從 appsettings\n綁進來的。設定綁定失敗是無聲的，結果會是牆上那塊磚沒有指引而沒人發現。\n\n12 顆頭全部填好，六站報告回傳連 DB 主機一起寫上——分部佈署時同一份設定\n就看得出各站在哪台。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "df27488b",
-          "date": "2026-09-04",
-          "message": "佇列頭第一步少了 net use：同仁照著跑會直接被拒",
-          "body": "2026-09-04 用 is1 實測整條路徑，抓到兩件事。\n\n一、磚上第一步直接叫人跑 Get-ChildItem 讀 \\192.168.168.221\\queue，\n但一般網域帳號沒有 session 時直接 Permission denied——同仁照著做會撞牆，\n而且看起來像資料夾掛了，往錯的方向查。補上 net use 當第一步。\n\n二、帳密指路本來寫「TakoDoko 搜 192.168.168.221」，但大章魚裡根本沒有那台物件\n（其他五個分部都有 HCINI，就台北沒有）。已建「[台北] InterFaceServer(221)」\n並掛上 is1 憑證，指路改成連物件名一起寫，搜到之後不用再猜是哪一筆。\nHC010 的指路同步改成兩個物件都指明（DB 在 168.225、機器在 221）。\n\n順帶把 Path 的括號補完整：「只看第一層；子資料夾是墳場，不算積壓」——\n實查兩個佇列第一層都只有 PRIORITY／error／tmp 這些子資料夾，\n第一次看的人容易以為佇列裡有東西。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "dd6b0a81",
-          "date": "2026-09-04",
-          "message": "合併 MR !34: 手冊補上 HC010 在哪、怎麼重啟（那段「待補」終於可以刪了）",
-          "body": "手冊補上 HC010 在哪、怎麼重啟（那段「待補」終於可以刪了）\n\nSee merge request ucl/ops/cerberus!34",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "2d591462",
-          "date": "2026-09-04",
-          "message": "手冊補上 HC010 在哪、怎麼重啟；佈署指南補上 09-04 三次佈署",
-          "body": "告警回應手冊那段「⚠️ 待補：HC010 跑在哪台機器、服務名是什麼、怎麼安全重啟」\n掛了很久，2026-09-04 實機查證了：\n\n    RDP 192.168.168.221 → 桌面 TaskLoader → 勾「HC010 產生醫令資料」→ Stop 再 Start\n\n同一支 TaskLoader 底下還有 HC001O（醫令產生）與 HC001R（檢驗結果收接），\n正好是儀器醫令／結果佇列那兩顆頭盯的東西，一起列成表。\n\n刻意保留一條警告，而且寫得比原本更明確：**知道在哪 ≠ 可以自己動**。\n它是 HCINI 的程式，重啟安不安全、會不會漏掉處理到一半的那批都還沒人驗證過。\n這一段補的是「不用再花時間找它在哪」，不是授權自己按下去——\n所以 appsettings 那顆頭的 Bite 仍然是 null。\n\n也提醒別照抄別顆頭的 Start-ScheduledTask：221 這三個是 TaskLoader 裡的任務，\n不是 Windows 排程也不是服務，那個指令對它們沒有意義。\n\n佈署指南補上 09-04 三次佈署，含這次的教訓：沒權限停排程時改成「先送 code、\n後送 config」兩趟，最壞情況降級成「新 code 配舊 config」（指引不出現），\n不會重演 08-31 那次六顆頭同時誤報。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "949a9e7e",
-          "date": "2026-09-04",
-          "message": "FalconCopy 重複鏈斷掉的判讀與修法（另一個 session 的未提交稿，原樣收進來）",
-          "body": "這批不是我寫的，內容一字未改，只是它在工作目錄裡躺了大半天沒進版控，\n今天要在同兩個檔上補 HC010 的查證結果，先把它落地免得被壓掉或混在一起。\n\n內容：告警回應手冊新增〈FalconCopy 專屬：每 18 分鐘規律叫一次＝重複鏈斷了〉，\n教人認出「黃報→綠報成對、每 17~18 分鐘一次」這個簽名；佈署指南補上 2026-09-03\n觸發器重錨定的紀錄，以及「停用→啟用不會恢復重複鏈」這個坑。\n順手把 SOP 裡的巡守間隔從 10 分改成 2 分（排程 08-31 就改了）。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "6e2db9ed",
-          "date": "2026-09-04",
-          "message": "合併 MR !33: 指引補到「照著就能動手」：佇列頭改以資料夾為起點，報告回傳補上 SQL",
-          "body": "指引補到「照著就能動手」：佇列頭改以資料夾為起點，報告回傳補上 SQL\n\nSee merge request ucl/ops/cerberus!33",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "3e38bfcb",
-          "date": "2026-09-04",
-          "message": "221 實機確認：三顆頭的主機與重啟位置都查到了，待查證記號全部拿掉",
-          "body": "使用者 RDP 上 192.168.168.221，桌面 TaskLoader UCL 的任務清單直接給出答案：\n\n  HC001O  醫令產生        Started\n  HC001R  檢驗結果收接    Started\n  HC010   產生醫令資料    Started\n\n三顆頭盯的東西全部掛在 221 的 TaskLoader 底下，連「怎麼重啟」都一併解決了——\n不是排程、不是服務，是那支 TaskLoader 的 Start/Stop。\n\n所以：\n- HC010 的 Host 從「? 疑似 221，未證實」變成確認，並註明它讀的 DB 仍在 168.225\n- 兩顆佇列頭的 Host 補上實際任務代號（HC001O／HC001R，不是先前簡寫的 001O／001R）\n- 三顆頭的第三步都改成具體位置：RDP 221 → 桌面 TaskLoader → 勾該任務 Stop 再 Start\n\n三個 ? 記號拿掉。理由是語意：? 代表「這行還沒查證」，位置現在查證了，\n剩下的「該不該動」是 HCINI 負責人的判斷，不是未知——留著 ? 會讓那個記號\n從「不知道」滑成「要小心」，兩種意思混在一起，記號就不可信了。\n「動之前先問 HCINI 負責人」改用一般文字寫在同一步裡。\n\n12 顆頭現在全部答得出：哪台主機／看哪裡／照著就能動手／帳密去哪拿。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e78fa4a5",
-          "date": "2026-09-04",
-          "message": "指引補到「照著就能動手」：兩顆佇列頭改以資料夾為起點，六站報告回傳補上 SQL",
-          "body": "上線後逐顆對同仁的要求（哪台主機／詳細資訊／指引）掃一遍，12 顆只有 3 顆完全\n達標。這次補掉其中 8 顆。\n\n儀器醫令／結果佇列：原本 Host 寫「? 001O 跑在哪台還沒查證」，但這兩顆頭的處置\n起點根本不是那台機器——它看的是 \\192.168.168.221 上的交換資料夾，走 SMB 直接\n看就好。改寫成以資料夾為起點，Steps 給可直接複製的 Get-ChildItem，「誰去重啟\n001O/001R」才留 ? 記號。\n\n報告回傳六站：原本只說「近 60 分依 HisVendorId 分組，找 Success=0 的那家」，\n沒給 SQL——而這顆頭的價值全在「是哪一家廠商」，沒 SQL 等於還是要回座位查。\n補上可直接貼進去跑的查詢，第二步接上判讀。\n\nHC010：補上「疑似 192.168.168.221」這條線索，但仍標 ? 未證實。221 開了 445/135/\n3389、1521 沒開（Oracle 確實在 168.225），與「HCINI 介接主機」一致，但沒有登入\n證實過。不知道就標不知道。\n\n兩顆佇列頭的帳密指路寫明「一般帳號直讀會被拒」——2026-09-04 實測 Permission\ndenied。少了這句，看牆的人會以為是資料夾掛了。\n\n⚠️ 改法留給後人：這兩顆佇列頭的步驟原本逐字相同，字串 replace 會同時改到兩邊\n（今天踩過）。要動 Runbook 請逐顆頭定位後整塊重寫。\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "deb62e7e",
-          "date": "2026-09-04",
-          "message": "合併 MR !31: 告警指引上牆：紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令",
-          "body": "告警指引上牆：紅燈旁邊直接寫出去哪台、看哪個檔、下哪一行指令\n\nSee merge request ucl/ops/cerberus!31",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "4299864a",
-          "date": "2026-09-09",
-          "message": "冒煙紅燈先排除冷啟動誤報：受害的其實是每天第一個上班的人",
-          "body": "2026-09-05 嘉義那次 FAIL(CY) 不是站壞，是夜間閒置把 w3wp 殺掉、\n早上第一個敲門的人吃冷啟動。當天 Warmup 24.3 秒、登入後首頁 66.2 秒\n撞上 30 秒導頁逾時；07:58 重跑首頁 0.3 秒就過。\n\n手冊本來寫「通常是真的有問題，不是測試壞掉」，照著查會拿著截圖\n找一個不存在的功能 bug。補一節怎麼一分鐘判掉它：翻該站 IIS log\n看 /Home/Warmup 的 time-taken，兩萬多毫秒＝冷啟動，幾百毫秒＝真紅。\n\n更要緊的是這不只是監控的問題。09-09 早上 07:22 嘉義一台工作站\n登入等了 24.3 秒，是真的同仁在等；他把站暖起來之後 07:34 的冒煙\n只花 120 毫秒。09-05 會紅只是那天沒人比冒煙先進站——每天都有人\n在吃這個延遲，冒煙只是剛好把它照出來的探針。\n\n一併收進根治做法（高雄 09-01、嘉義 09-09 已套用）與各站 Web-AppInit\n現況。桃園與台中還沒裝：既代表它們每天仍在冷啟動，也代表發佈時若把\n帶 applicationInitialization 的 web.config 推過去會整站 500。\n\n集區名的陷阱也寫進去：嘉義 port 80 的站台掛在 LisWeb_Test，\n叫 LisWeb 的集區服務的是 18600 舊站，改錯會動到不相干的站。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "6a321d43",
-          "date": "2026-09-10",
-          "message": "門檻 300 → 600 分：配合 lisweb 放寬判定窗（lisweb!1501）",
-          "body": "原本那塊磚一天有 22 小時是灰的，因為判定窗被縮成「平日 11 點與 18 點各一小時」。\n縮窗的原因不是「今天有沒有資料」這個問題會失效（它一整天都成立），\n而是這個 300 分的後備門檻：最後一筆早上 10:05 之後年齡一直長，到下午就會超標誤報。\n於是後備門檻反過來決定了判定窗。\n\n放寬後的窗是平日 11:00-16:59（看今天 06:00 起）與 17:00-23:59（看今天 16:00 起），\n實測 42 個完整平日的最壞年齡是早窗 487 分、晚窗 273 分，所以門檻要 600 分才夠。\n\n用注入時間對真實資料驗過 11 種情況：11:00/13:00/16:59/17:00/23:59 全綠、\n10:30 與週六日不判定，而 9/9 故障日在 17:00 正確抓到「16:00 起無資料」——\n比原本 18:00 早一小時，偵測沒有因為放寬而變差。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b1d38a7c",
-          "date": "2026-09-10",
-          "message": "啟用大門打卡機那顆頭：156.224 連得到差勤 DB，這是實測出來的",
-          "body": "lisweb!1500 已 merge 並佈到 docs。驗證結果：\n\n  curl -H 'X-Ops-Token: ...' https://docs.ucl.com.tw/api/Attendance/CardLogFreshness\n  -> HTTP 200, 83ms\n     {\"applicable\":0,\"lastSeen\":null,\"dbNow\":\"2026-09-10T12:52:21\",\"note\":\"非判定時段\"}\n\ndbNow 是 SMS_DB 真的 GETDATE() 回來的，所以這一行同時回答了今天一直問不出來的事：\n**156.224 連得到 192.168.168.127:1433**，而 56.230(15 秒 timeout)、56.231(32 秒失敗) 都不行。\n在端點上線前我沒有任何外部手段能確定這件事——那正是先做這支端點的第一個價值。\n\napplicable=0 也是對的：當時 12:52，不在 11 點／18 點的判定窗內。\n\n一併移掉 DisabledReason（啟用後那欄不會被讀，留著就是一句過期的話），\n並把註解改成記錄「已驗證」與判定時刻，外加那句代價：中午壞掉要等 18 點、週六壞掉要等週一。\n\nMinor 維持 true——刷卡不影響實驗室營運，牆上封頂在黃、不升級寄信。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "75443e55",
-          "date": "2026-09-10",
-          "message": "錯字：牆上那句「驗証」應為「驗證」",
-          "body": "上一版我用 unicode escape 寫中文時打錯碼位（U+8A3C「証」，台灣用的是 U+8B49「證」），\n三處都中：兩處註解、一處 DisabledReason——而最後那個會直接顯示在辦公室電視牆上。\n牆掛在訪客看得到的地方，錯字就是錯字。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cd102b2e",
-          "date": "2026-09-10",
-          "message": "連不到就請人代打：新增 HttpFreshness，打卡機那顆改走 docs 的端點",
-          "body": "56.231 連不到差勤 DB（1433 只放行辦公網段），56.230 實測也一樣擋。\n但 docs.ucl.com.tw（156.224，156.x 網段）連得到——於是由那邊的 LISWeb 開一支\napi/Attendance/CardLogFreshness 代打（lisweb!1500），Cerberus 問它要答案。\n\n## HttpFreshness\n\n契約跟 DbFreshness 的 SQL 四欄一一對應（applicable / lastSeen / dbNow / note），\n所以判定語意完全沒變，只是訊號來源從「自己查」變成「問別人」。\n\n三個刻意設計：\n\n**年齡仍由來源端的兩個值相減。** 這條比 DbFreshness 更重要，因為中間又多一台機器的時鐘。\n缺 dbNow 時**判故障而不是退回本機時間**——那種退讓會無聲地多吃一台機器的偏移。\n\n**「探測端點異常」與「無資料」是兩個 Headline。** 多一跳就多一種壞法（端點 500、\ntoken 過期、那台關機），而牆上寫「無資料」會讓人跑去查一台其實好好的讀卡機。\n兩者都亮燈（讀不到訊號一律當失去心跳），但必須指向不同的東西。\n\n**解密後的 token 會檢查是不是 ASCII。** DES 解密不驗證完整性：密文打錯一個字，\n解出來是亂位元組而不是例外，塞進標頭會讓 HttpClient 丟「連不上」——牆上指著網路、\n問題其實在設定。這條是本機實測抓到的，不是想像出來的。\n\n## 打卡機那顆頭\n\n型別 DbFreshness → HttpFreshness，移除 Provider/ConnStringEnc/FreshnessSql：\n判定 SQL 與「三個不可改的地方」現在住在 lisweb 的 AttendanceRepository，\n這裡不留副本（兩份遲早漂移）。處置指引改寫成「先分辨是端點壞還是資料真的沒進來」。\n\nMinor 維持 true——刷卡不影響實驗室營運，牆上封頂在黃、不升級寄信。\n仍然 Enabled:false，等 lisweb!1500 佈到 docs、我驗證通了才翻 true。\n\n## 驗證\n\n本機架 stub 端點跑真的 Cerberus.exe，11 種情況全部確認（隔離環境、Discord/Mail 留空、\n牆指向本機假接收端）：正常綠、超門檻黃、無資料黃、非判定時段灰、端點 503 / 缺 dbNow /\n401 / 密文壞掉 / 逾時 / 連不上 六種都回「探測端點異常」，以及一個刻意不設 Minor 的對照組\n確實是紅的——證明封頂是 Minor 在管，不是型別。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "5603a152",
-          "date": "2026-09-10",
-          "message": "診斷講得太寬了：不是 56.x 連不到 168.x，是 168.127 只放行辦公網段",
-          "body": "上一版寫「那台到 168.x 網段的路由／防火牆」，把要網路組做的事講成了開通一個網段。\n查下去發現同一台 Cerberus 的兩顆 FolderBacklog 頭每 2 分鐘成功掃\n\\192.168.168.221\\queue（SMB 445）——**56.231 到 192.168.168.0/24 的路由本來就通**。\n\n被擋的只有 TCP 1433 到 192.168.168.127。而且從辦公網段（169.x）那同一組連線字串連得到、\n168.127 的 445 對辦公網段也是關的——那台是「只開 1433、只放行辦公網段」的專用 SQL 主機。\n\n所以要的不是一個網段，是一條規則：在 192.168.168.127 開 TCP 1433 給 192.168.56.231。\n把精確的診斷寫回設定註解，省掉下一個人重查一遍。\n\n順帶記下「在 LIS 開個 API 讓 Cerberus 去 call」為什麼不是解法：\n56.230 跟 56.231 同在 56.x 機房網段，換 host 不會換到不同的防火牆結果。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "df1643c1",
-          "date": "2026-09-10",
-          "message": "「監控未上線」的主詞是誰看不出來，改成「還沒在看」",
-          "body": "走廊上看到「大門打卡機／監控未上線」，第一直覺是「打卡機沒上線」——\n意思正好相反，而且會害人跑去查一台其實好好的機器。真正要講的是\n**我們沒在看它**，主詞是看門狗不是打卡機。\n\n這面牆的動詞本來就是「看」（Cerberus 負責叫，Argus 負責看），\n用它把主詞放回自己身上就沒有誤讀空間。\n\n同時把 DisabledReason 裡的 IP 與埠號拿掉。那塊灰磚會長期掛在牆上，\n而牆在訪客與客戶看得到的地方——每天曬一組內網位址沒有必要，\n細節寫在 appsettings 的註解裡就夠了。牆上要的是「卡在什麼事情上」，\n不是「卡在哪個 socket」。這條規矩一併寫進 DisabledReason 的文件。\n\n沒填理由時的預設字也改了：從「這顆頭目前沒有在監控」改成明說\n「沒有填停用理由」——沒填本身就是設定沒做完，該讓它顯示出來而不是靜靜留白。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "3e3b1393",
-          "date": "2026-09-10",
-          "message": "停用的頭要留在牆上：把缺口藏起來就是自己製造假綠",
-          "body": "上一版把打卡機那顆停用之後，牆回到 12 塊全綠——但那件事一件都沒解決：\n資料還斷著、56.231 還是連不到門禁 DB。我把噪音關掉的同時，\n也把「這件事沒人在看」一起藏起來了，那正是設計準則第 1 條要防的東西。\n上一版註解寫「停用的頭刻意不上牆」是錯的，一併改掉。\n\n停用的頭現在照樣上牆：灰磚、headline 寫「監控未上線」、detail 寫 DisabledReason。\n不巡守、不告警，所以沒有 32 秒的卡頓、也不會再誤發 Discord。\n\n灰色是誠實的——這顆頭此刻確實沒有在被判定，跟靜默窗、未到期是同一件事。\n「系統說不適用」與「有人把它關了」的差別寫在字上，不靠顏色分：\n牆上多一種顏色的成本，遠高於多一行字。\n\n新增 DisabledReason，要求寫成「缺什麼、卡在誰身上」而不是「暫時關閉」——\n停用的頭沒有告警會催人，那句話是它唯一的聲音。打卡機那顆填的是：\n看門狗那台連不到 192.168.168.127:1433，需請網路開通，打卡機本身目前無人監看。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "14f95640",
-          "date": "2026-09-10",
-          "message": "看門狗那台連不到門禁 DB：加 Enabled 旗標，先把打卡機那顆擱著",
-          "body": "上一版佈上去才發現 **56.231 連不到 192.168.168.127**（SQL-64 / provider error 40），\n而且一次要卡 32 秒才失敗。開發機用同一組連線字串連得到，所以不是帳密或字串的問題，\n是那台到 168.x 網段的路由／防火牆——其他 SqlServer 頭連的 56.191、139.227 都是放行的網段。\n\n後果不只是那顆頭紅：每輪多花 32 秒，而且會固定進 Discord。已經誤發一則。\n\n## Enabled: false\n\n刪掉整段設定也能止血，但那會連同判定 SQL、門檻怎麼推出來的、處置指引一起帶走——\n那些是靠 30 天刷卡分布量出來的，刪掉下次要接回來得整個重做。所以加一個旗標把它擱著，\n1433 開通後翻回 true 就上線。\n\n停用的頭**不巡守、也不上牆**，刻意不顯示成灰磚：灰＝「現在問這個問題沒有意義」\n（靜默窗、未到期），是巡守的結果；停用是「我們決定先不看它」，是人的決定。\n混在同一個顏色裡，牆上就分不出這兩件事。每輪 log 留一行，免得關掉之後沒人記得。\n\n順帶把「開始巡守 N 顆頭」改成只算啟用的——log 的數字要對得上牆上的磚數，\n否則之後對帳的人會以為少了一塊。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "366cd4b1",
-          "date": "2026-09-10",
-          "message": "打卡機停了 23 小時沒人知道：加 DbFreshness，以及只亮到黃燈的次要頭",
-          "body": "2026-09-10 查 SMS_DB 時發現全公司 27 台讀卡機自 09-09 08:15 起完全沒有新資料，\n整整 23 小時無人察覺——沒有任何東西在看這條。\n\n## DbFreshness：問「這張表還在長嗎」\n\n`DbBacklog` 問的是「該被消化的東西卡住了嗎」，但沒有人在消化門禁刷卡紀錄，\n它只是該進來而沒進來。硬套積壓語意，牆上會出現「積壓 1 筆」——\n對走廊上看牆的人毫無意義。\n\n難的地方不在查詢，在**什麼時候問**。刷卡是陣發的，30 天實測這台門：\n平日 06–10 每天 10–26 筆（18 個平日沒一天是 0）、11–15 三十天總共只有 3 筆、\n16–17 每天 5–14 筆且 42 個平日的「下午第一筆」全部落在 16:09 前、週日掛零。\n\n當均勻心跳看只有兩種下場：門檻抓緊就每天中午誤報，放寬到吞得下最長空窗\n（單一門超過 5 小時）就等於沒在監控。所以判定時機交給 SQL 的第一欄決定——\n它看得到星期幾、幾點，也看得到其他 26 台門（用來分辨「只有這台壞」與「整套都停」）。\n不該判定時回 Suppressed 而不是綠：中午那四小時我們根本沒有訊號可看。\n\n代價寫進設定註解了：中午壞掉要等 18 時（約 6 小時），週六壞掉要等週一。\n這是「只看單一台門」的固有上限，不是門檻調得不夠緊。\n\n## Minor：不是每顆頭都該能亮紅\n\n門禁斷掉要修，但實驗室照常運作、報告照常發。這種頭跟 AuthoriseQueue 一樣亮紅的話，\n牆上的紅就開始貶值——走廊掃過去看到紅色卻不必衝過去，兩個月後真正該衝的那次\n也不會有人動。`Minor: true` 封頂在黃，並且不升級寄 Mail（Discord 照常叫）：\n既然是「今天內處理」，就不該在 60 分後寄信把人從別的事情上拉開。\n\n## 效能：踩過才知道的 76 倍\n\n`MAX(LogTime) ... WHERE CardTime >= DATEADD(...,GETDATE())` 因為最佳化器估不出\nGETDATE() 的筆數而退成整表掃描（144 萬列，實測 275ms）；改成\n`TOP 1 ... ORDER BY CardTime DESC` 走索引反向取第一筆後是 3.6ms。\n`CardTime <= GETDATE()` 也不是裝飾：少了它，任何一台讀卡機時鐘被設到未來\n就會永遠佔著「最新一筆」，牆上從此一片綠——正是這面牆最怕的假綠。\n\n兩支查 DB 的 checker 共用新的 Core/DbProbe.cs：「連線一定帶 timeout」這條規矩\n只能有一份，兩份實作遲早有一份會忘記補，而巡守是 fire-and-exit。\n\n## 驗證\n\n在隔離的暫存環境跑真的 Cerberus.exe（Discord/Mail 留空、牆指向本機假接收端、\n獨立 state.json），確認三件事：非判定時段回灰、該有資料卻沒有回黃（不是紅）、\nMinor 的頭撐過升級門檻只留 log 不寄信。過程中也逮到連線字串漏了\nTrustServerCertificate=True（Microsoft.Data.SqlClient v4 起預設加密），已補。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f006f537",
-          "date": "2026-09-11",
-          "message": "佈署紀錄補這次下架那一列",
-          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "6287d318",
-          "date": "2026-09-11",
-          "message": "下架大門打卡機那顆頭",
-          "body": "只看單一台門的判定時機太窄：平日只在 11 時與 18 時各判一次、週末完全不判，\n中午壞掉要等 6 小時、週六壞掉要等週一，牆上一天大半時間是灰的。\n一塊磚的成本是「每個經過走廊的人都要掃一眼」，這顆頭給的資訊量撐不起來。\n\n拿掉 appsettings.json 那顆 head（牆回到 12 顆）。checker（HttpFreshness／\nDbFreshness）與接入指南留著——型別本身沒問題，30 天的刷卡分布也是量出來的，\n哪天要改用整套讀卡機（不分門，實測平日 08–20 最長空窗 16 分）重做一顆時\n從那裡接著往下走。文件裡的打卡機範例改成歷史範例的語氣。\n\nlisweb 那支代打端點（api/Attendance/CardLogFreshness）暫時留著沒動，\n拿掉要排一次六站發佈，另外處理。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "350a35d8",
-          "date": "2026-10-01",
-          "message": "分部 HC010 上線後的待辦寫進文件：先記著，遇到再回來改",
-          "body": "佈署指南「佈署後待辦」補四條：台北 WallName 補地名、TakoDoko 分部 HCINI 物件補關鍵字、\n冒煙失敗時記下 ID_POLL_FLAG（分不出 HC010 死了還是慢了）、Oracle 可連線頭還要不要獨立做。\nREADME Roadmap 勾掉 HC010 擴分部，新增分部儀器佇列一條。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ba277033",
-          "date": "2026-10-01",
-          "message": "佈署紀錄補分部 HC010 翻啟用那一列",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d6c9cf4a",
-          "date": "2026-10-01",
-          "message": "分部 HC010 五顆頭翻啟用：56.231 實測五站 Oracle 1521 全通",
-          "body": "早上先以灰磚佈上，等的就是這一步——開發機連得到不算數（09-10 打卡機那顆的教訓）。\nRDP 56.231 用 TcpClient 測五站 1521，台中／桃園／新竹／嘉義／高雄全部 True；\n翻之前再查一次五站積壓皆 0，不會一啟用就紅。\n\nRunbook 裡 TaskLoader 那步仍標「?」：分部畫面還沒人實機看過，不擋上線。\n佈署指南的驗連線指令改成 TcpClient 版（Test-NetConnection 不通時要卡 20 秒左右）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "5b9ce0a8",
-          "date": "2026-10-01",
-          "message": "佈署紀錄補分部 HC010 那一列：牆 12 → 17 塊（5 塊灰磚）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0753e780",
-          "date": "2026-10-01",
-          "message": "分部也要看 HC010：五站各補一顆積壓頭，先擱著等 56.231 連線驗證",
-          "body": "今早 07:30 冒煙 FAIL(TC)：「等 hcini 生成檢驗單(ord)逾時」，正是台北 HC010 那顆頭在守的症狀，\n而五個分部完全沒有這顆頭。冒煙一天只看一次、只等 2.5 分，分不出死了還是慢了；\n測試單跑完就刪，事後 DB 也查不到當時卡在哪。08:00 查台中時當天一筆 BLG 都還沒有，\n佇列 0 不代表 HC010 活著——這正是需要整天每輪都看的理由。\n\n## 這次做了什麼\n\n複製台北那顆 DbBacklog，換五站連線字串（密文已 round-trip 解回驗證），全部 `Enabled: false`。\n已從開發機驗：五站都有 ALKEY4_BLG_TX_HDR，計畫皆 INDEX RANGE SCAN；當下五站積壓皆 0。\n\n跟台北不同：分部的 HCINI 跟 Oracle 同台（TakoDoko 查得），Runbook Host 照實寫。\nTaskLoader 那一步分部沒人實機看過，標「?」上牆。新竹另有一台叫 InterFaceServer(221) 的\n舊版 HCLAB CM，名字像台北 221 但無關，Runbook 裡寫明別被帶去那台。\n\n不設 Bite：HCINI 是廠商常駐程式，分部那台還同時是正式 Oracle。\n\n## 為什麼先擱著\n\n開發機連得到不算數——09-10 打卡機那顆就是開發機通、56.231 不通，上線每輪卡 32 秒外加誤發 Discord。\n56.231 到五站 SQL Server 是通的（報告回傳六顆頭），但 Oracle 是另一台另一個埠。\n翻 true 的步驟寫進佈署指南「佈署後待辦」。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e2bb7a37",
-          "date": "2026-10-01",
-          "message": "手冊補「Oracle 台北連不上」：09-08 那次只有 HC010 在叫，看起來像 HCINI 的事",
-          "body": "告警寫「查詢失敗 ORA-50000」時照 HC010 那段去 221 重啟 TaskLoader 沒用，\n真正連不上的是台北 Oracle。補上怎麼分辨、先通知誰、前 5 分鐘觀察、\nlistener log 怎麼讀，以及 listener log 照現在速度約 2027-04 撞 4 GB。\n三層防線表格記下這次事故尚未補強。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "075dd603",
-          "date": "2026-10-09",
-          "message": "佈署紀錄補 DB 頭同輪重試（MR !52）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b8cd6faa",
-          "date": "2026-10-09",
-          "message": "DB 頭連線錯誤同輪重試一次：抖一下不再告警",
-          "body": "一個月約十次告警是「中斷約 2 分」——只失敗一輪、下一輪自己好，全是\nORA-50000 timed out／SQL-53/64 這類連線錯誤（台北、高雄、台中、嘉義都有）。\n2026-10-09 16:42 台中 Oracle 連線逾時 15 秒那次就是這型，同一秒台中\nSQL Server 照樣查得到。\n\n- DbProbe.WithTransientRetry：只認連線類錯誤碼，清連線池、等 5 秒重試一次，\n  第二次也失敗才往上丟當失去心跳；表不存在／帳密錯不重試\n- 一輪最多重試 3 次：多顆頭同時連不上＝真出事，不該每顆都拖時間\n- 重試成功寫 Warn 留痕，同一站常抖就是該補的洞\n- 真故障仍在同一輪告警，不像「連兩輪才叫」會晚 2 分鐘\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b9de0d95",
-          "date": "2026-10-17",
-          "message": "feat(LogFreshness): 支援共用帳密（ShareUserEnc／SharePasswordEnc）與讀取逾時；新增 Chronos@台北、Chronos@台中 兩顆執行器心跳頭",
-          "body": "- LogFreshness 原本只能用跑 Cerberus 的身分讀 log，SYSTEM 對外是機器帳號，跨站 d$ 讀不到。\n  比照 FolderBacklog：帳密有設就先 WNetAddConnection2 再讀；整段讀取包在 ScanTimeoutSeconds 逾時裡，\n  對方主機無回應不會卡住整輪。沒設帳密的既有頭行為不變（只多了逾時）\n- Chronos 執行器（ucl/lis/schedule/chronos）心跳 |INFO|tick ok，log 10-17 起按日滾檔 chronos-*.log；\n  台北可撲咬（本機 \\Chronos\\Runner，Parallel 排程多叫一輪無害），台中跨站帶 administrator 密文、不撲咬\n- 本機以 harness 載入真實 appsettings 只跑 LogFreshness.Check 驗過：19 顆頭解析 OK、既有兩顆照常綠、\n  兩顆 Chronos 頭對舊檔名 chronos.log 判綠；目錄不存在／主機無回應（5 秒逾時）／密文壞掉都轉紅\n- 兩顆 Chronos 頭要等 10-20 兩站換上滾檔版執行器才會綠（現在站上還是單一 chronos.log）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "d6be27ec",
-          "date": "2026-10-17",
-          "message": "config: 登記血型同步、NHI 自費上傳兩顆 ScheduledRun 頭（先 Enabled: false）",
-          "body": "兩支夜間批次改成只在失敗時寄信，平常靠這兩顆頭判斷「今天跑了沒、結果如何」。\n心跳讀程式自己寫的 logs\\run-history.log（成功 \"OK(\"、失敗 \"FAIL(\"）。\n新版程式 10-17 才部署，隔天凌晨第一次執行後才有檔案，先灰磚，見到當天那行再翻 true。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f2409ad0",
-          "date": "2026-10-20",
-          "message": "config: Chronos 工作結果頭（台北、台中）＋ FalconCopy 撲咬改踢 Chronos 執行器",
-          "body": "- Chronos工作@台北／@台中（DbBacklog）：查 SCHEDULE_JOB，已啟用工作上次 FAIL／TIMEOUT、或鎖卡住超過逾時＋5 分，就算一筆；門檻 1 分。\n  一顆頭罩住該站所有搬進 Chronos 的工作，之後新增工作不用再加頭。連線沿用 HC010 頭的同一組密文。\n  （鎖卡住那條是 10-19 Data2Cloud 首輪的教訓：寫紀錄失敗沒解鎖，下一輪會被跳過，單看結果抓不到）\n- FalconCopy 10-20 07:15 起由 Chronos 觸發、舊排程已停用：撲咬改踢 \\Chronos\\Runner，Runbook 改指向排程維護頁與回退方式\n- 只改 appsettings，exe 不動（每輪重讀設定）。本機 harness 對兩站 DB 實跑：現況綠；條件改成 OK 模擬出事會轉紅（台北 6 筆、台中 1 筆）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ef16e28c",
-          "date": "2026-10-21",
-          "message": "config: OrderInSql 院所醫令收檔加盯 FP 收尾 B 組（0539／0235／0699／0272）——ExamOrder_Files、UCLOrder_Files 各一處",
-          "body": "OrderInSql docs/migrations/fp-retire-remaining-7.md 步驟 3：B 組 valid=0 之後檔進來沒人撿，偵測頭要先空跑一週。\n門檻 30 分、靜默 21:00-09:20（收尾前 FP 每 10 分撿一次）。由 gen-cerberus-heads.ps1 -Aggregate 重產，只多兩筆 Watches。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7ae9a81d",
-          "date": "2026-10-21",
-          "message": "feat(FolderBacklog): 多資料夾模式 Watches＋--check 模式；加 OrderInSql 院所醫令收檔／轉檔兩顆頭",
-          "body": "- HeadOptions.Watches：一顆頭看多個資料夾、牆上只佔一格。每筆自帶 QuietWindows／StaleAfterMinutes／Include／Exclude；\n  逐筆攔例外（一處讀不到不拖垮其他處）；同一共用根只連一次、用完即斷（避免重演 OrderInSql 10/20 的 session 外洩）\n- 多資料夾模式略過隱藏／系統檔：168.227 UCLOrder_Files 有個 2022 年的 Thumbs.db，下游 pull 永遠不會拉走它\n- --check \"<頭名>\"：只判活、印結果，不告警、不送牆、不動 state.json\n- OrderInSql醫令收檔@台北（168.227 來源 11 處）、OrderInSql醫令轉檔@台北（56.227 inbox 34 處），\n  由 OrderInSql repo tools/gen-cerberus-heads.ps1 -Aggregate 產生；帳密以 --encrypt 同一套 DES 加密\n- 本機驗證：兩顆頭對正式資料夾 --check 正常（1.5／2.2 秒）；假資料夾驗過積壓、排除、隱藏檔、讀不到、靜默窗五種情境\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "2d7ee9f9",
-          "date": "2026-10-22",
-          "message": "佈署紀錄補 FolderBacklog 改看「第一次看到」那一列",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "87df00c9",
-          "date": "2026-10-22",
-          "message": "FolderBacklog 年齡改從「第一次看到」算：搬進佇列的檔帶著來源時間戳，進來 30 秒被算成等了 261 分",
-          "body": "2026-10-22 16:12 院所醫令轉檔叫了一次「WEBORDER-XML：積壓 2 檔，最舊 261 分」，16:14 自動收隊。\n追下去：診所 2150 的醫令 XML 11:50 產生，16:11:55 才由 pull（robocopy /MOV /COPY:DAT）\n從 168.227 搬進 inbox，16:12:27 OrderInSql 就處理完——在佇列裡待不到 30 秒。\n年齡卻用檔案的 LastWriteTime 算，而 robocopy 連建立時間都保留來源的值，所以兩個時間戳都不能用。\n\n## 判斷錯在哪\n\n這顆頭要回答「檔在我們的佇列裡等了多久」，量的卻是「檔多久以前被寫出來」。\n台北 221 的儀器佇列是儀器直接寫檔，兩者相等，當初的實作就是照那個前提寫的；\nOrderInSql 的檔都是搬進來的，前提不成立，上游只要晚送就會誤報一次。\n\n## 改法\n\n新增 FileSightings（exe 旁 sightings.json）：每個資料夾記下每個檔第一次被看到的時間，年齡從那裡算。\n- 以資料夾為單位整份替換：這輪沒看到的檔＝已消化，記錄跟著清掉\n- 以檔名認檔、不含時間戳：卡住的檔若被上游一直覆寫，含時間戳會讓年齡每次歸零、永遠不叫\n- 靜默窗內沒掃的資料夾記錄原樣保留；3 天沒掃到才丟\n- 不併進 state.json：那份「有 key＝正在告警」，健康的佇列也得記檔\n- 附帶：年齡全用 Cerberus 的時鐘算，檔案伺服器時鐘偏移不再吃進年齡\n- 代價：剛開始看時（初次佈署、新資料夾），已經卡很久的檔最多晚一個門檻才叫\n- --check 只讀不寫 sightings.json\n\n本機模擬（Discord/Mail/牆皆留空，只走 console），單一與多資料夾兩種模式：\n5 小時前的檔剛進來 → 0 分不叫；待滿門檻 → 照樣叫；檔消化 → 收隊、記錄清空。\n--check 讀正式設定掃 56.227 的 34 處 inbox 正常，且沒寫出 sightings.json。\n\n## 一起改的\n\n- 院所醫令轉檔的 Runbook 第一步改成「先分真假」：開 /alert 看那條線的 inbox，檔已不見＝消化完了，\n  等下一輪收隊。原本三步都假設真的卡住，今天打開時檔已處理完，每一步都對不上，看的人找不到方向。\n- 佈署指令 /XF 加 sightings.json、.gitignore、README／架構與擴充 補說明。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "38071c04",
-          "date": "2026-10-28",
-          "message": "合併 MR !61: fix: 停用四顆誤報的秉坤頭（判定邏輯錯）",
-          "body": "fix: 停用四顆誤報的秉坤頭（判定邏輯錯）\n\nSee merge request ucl/ops/cerberus!61",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "686eab21",
-          "date": "2026-10-28",
-          "message": "fix: 停用四顆誤報的秉坤頭（判定邏輯錯）並寫明原因",
-          "body": "部署後首輪 07:52 四顆紅燈皆為誤報：\n- 平鎮醫令接收、同步 桃園→平鎮／平鎮→桃園：看「最後一筆距今多久」，\n  沒單或夜間無同步就紅；應改看「到了該處理的時間還沒處理」的積壓\n- 多餘同步實例：白名單漏 172.16.24.1（疑為桃園主機另一張網卡），門檻過緊\n保留三顆正常運作：建單分類蓋錯、建單參考值蓋錯、平鎮設定刷新機制。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "76682b0f",
-          "date": "2026-10-28",
-          "message": "合併 MR !60: feat: 秉坤雙站八顆頭（平鎮醫令接收、同步心跳、隊列、蓋錯設定、多餘實例、設定刷新）",
-          "body": "feat: 秉坤雙站八顆頭（平鎮醫令接收、同步心跳、隊列、蓋錯設定、多餘實例、設定刷新）\n\nSee merge request ucl/ops/cerberus!60",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "b70e16a5",
-          "date": "2026-10-28",
-          "message": "feat: 秉坤雙站八顆頭（平鎮醫令接收、兩向同步心跳、隊列積壓、蓋錯分類/參考值、多餘同步實例、平鎮設定刷新）",
-          "body": "依 dbLIS docs/05-秉坤監控接入Cerberus.md。SQL 已於兩站正式 DB 唯讀實測，八顆合計 <300 ms。\n- 平鎮醫令接收@秉坤：DbFreshness，上班時段 60 分沒新單就叫（10/27 曾停 90 分鐘）\n- 同步 桃園→平鎮／平鎮→桃園@秉坤：DbFreshness 看 SYNC_INBOX（UTC），30 分\n- 同步隊列積壓@秉坤桃園：DbBacklog 近 24 小時 PENDING/FAILED；先 Enabled=false，\n  桃園仍有數百筆 PENDING 待岑松清空後啟用\n- 建單分類蓋錯／建單參考值蓋錯@秉坤：DbBacklog 以單號日期前綴走 PK，10 分\n- 多餘同步實例@秉坤：DbBacklog 看非 172.16.27.23／1.34.169.127 的同步連線（10/27 clone VM 根因）\n- 平鎮設定刷新機制@秉坤：DbBacklog 守 SettingTriggersNewestTime 與 14 個 Tr_sys_*_changed，Minor\n部署前需在 56.231 驗證可連 60.251.173.208:1433 與 1.34.169.127:1401。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
           "tags": []
         }
       ],
@@ -27305,7 +27433,7 @@
     },
     {
       "name": "OfficialWebsites\\uclcloud-app",
-      "totalCommits": 43,
+      "totalCommits": 44,
       "commits": [
         {
           "hash": "8d8e4a75",
@@ -27648,6 +27776,14 @@
           "date": "2026-10-27",
           "message": "docs: Mac iOS 開發環境建置步驟與腳本",
           "body": "Xcode 26、Homebrew、CocoaPods、glab、Flutter 3.47.5 一支腳本裝完；\n文件寫第一次跑前要先有 GoogleService-Info.plist、Personal Team 不能加 Push capability、\n模擬器截圖與真機步驟、Mac 上 Claude Code 與 claude-config 的搬法。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f8660866",
+          "date": "2026-10-29",
+          "message": "docs(ios): 10-28 同仁 iPhone 15 推播測試報告歸檔，結果如預期（Personal Team 簽不了推播）",
+          "body": "- 測試報告移到 docs/iOS實機測試報告_20261028.docx\n- A 線 1.5 節補實測結果與三層原因（無 aps-environment、bundle id .devtest、APNs 金鑰未上傳）\n- 待辦補「無檢體算進項目數」待決\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
         }
@@ -30244,6 +30380,165 @@
       "type": "work"
     },
     {
+      "name": "dbLIS",
+      "totalCommits": 19,
+      "commits": [
+        {
+          "hash": "8faaca06",
+          "date": "2026-10-14",
+          "message": "docs: 新增系統總覽、部署手冊、開發環境與接手指南",
+          "body": "從程式碼、csproj 與 git 歷史整理出三份文件，讓負責同仁以外的人也能\n建起來、改需求、發版。推測而未實際驗證的步驟一律標（待確認），\n待負責同仁補正。不含任何帳密。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "244e8fe7",
+          "date": "2026-10-27",
+          "message": "docs: 新增秉坤 10 月雙站上線問題整理（根因、修正紀錄、比對結果）",
+          "body": "記錄 10/12 平鎮/桃園拆庫後兩週的問題與 10/27 的處理：\n- 問題一覽、優先順序、各方待辦\n- 附錄 A：設定表比對；分類表每 31 分鐘被還原的追查過程，根因為\n  PVE 上 clone 出來的還原 VM 自動啟動舊版同步程式；平鎮缺\n  SettingTriggersNewestTime 與 Tr_sys_*_changed 導致 LisManagement\n  快取不刷新；兩者已處理\n- 附錄 B：異常旗標與懷孕週數的維護方式\n- 附錄 C：單據/結果同步比對，桃園 SYNC_OUTBOX 69 萬筆 PENDING\n- 附錄 D：Anti-TPO 單位 memo\n- 所有資料修正皆附備份表名稱與還原 SQL\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "bb68af7f",
+          "date": "2026-10-27",
+          "message": "docs: 依本機實測更正 Debug 連線、建置步驟與客戶 DB 位址",
+          "body": "2026-10-15、10-27 實際 build、跑起 LisManagement、連過三家正式 DB 後修正：\n\n- Debug / DebugBK 組態連的是秉坤正式庫，不是測試庫；補上安全地在本機跑的做法\n- 補上第一次 build 會遇到的問題：SharedProject 位置、Word interop 15、\n  NuGet restore、CheckInReceive 與 TestResultReceive 建置失敗、bin/obj 被改動\n- 非 NuGet DLL 的實際位置（原本寫「根目錄」不正確）\n- 各客戶 DB 分成客戶端程式連的與 UCL 連的外部位址，帳密指向大章魚\n- 三家 dbLIS 表數不同（116 / 111 / 107），佐證 schema 不一致\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "31e499be",
+          "date": "2026-10-28",
+          "message": "docs(04): 比對明細改指向本機 D:\\tmp\\binkun-20261028（原 session 暫存區）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a9b5f81b",
+          "date": "2026-10-28",
+          "message": "docs: 秉坤外送項目看不到——查證非 dbLIS 問題，是台北分單去重複誤刪（附錄 E）",
+          "body": "- 一覽表加 #11；附錄 E 記 dbLIS→上傳檔→WebOrder→分單→HCLAB 各站查證結果與單號對照\n- 撞號序號由 dbLIS 外送清單每次匯出從 1001 起編，修法以分單系統為主\n- 根因與受影響名單見 OrderInSql docs/cases/2026-10-28-dedup-cli-info-collision.md（!497）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d1442761",
+          "date": "2026-10-28",
+          "message": "docs: 系統總覽補「資料怎麼流、哪裡容易出錯」；同步程式現況更新",
+          "body": "- 01 新增 §4：一張單的生命週期、建單時抄一份（name_type、參考值文字等）、\n  LisManagement 設定快取與 SettingTriggersNewestTime（四家客戶 DB 實測，\n  只有秉坤平鎮還原時漏掉）、外送清單撈單條件與科室來源；文件索引補 04–06\n- 04／06：桃園設定同步 10/28 08:09 起已見運作且結果正確；更正查詢時間 07:30\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "52a2e040",
+          "date": "2026-10-28",
+          "message": "docs: 新增秉坤同步程式 UclDbSync 維運手冊",
+          "body": "接手者視角：兩站跑在哪、同步哪些表與方向、設定主檔推送機制與 clone VM 教訓、\n跟醫令接收／LisManagement 快取／CONTEXT_INFO 記號的關係、判斷故障的 SQL、\n已知問題與出事時的處理順序。程式本身的操作手冊仍以 ucl/his/ucldbsync 為準。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "df4c8978",
+          "date": "2026-10-28",
+          "message": "docs: Cerberus 接入首輪誤報、停用原因與新候選檢查",
+          "body": "- 首輪四顆誤報（看「多久沒新資料」而非「該發生沒發生」），MR !61 停用\n- 新候選：收件時間仍 2910、退報到未刪、印了標籤無結果列、同步工作未送出\n- 往回套兩週：52 張收件時間仍 2910（外送清單撈不到）、2 張退報到殘留、\n  2 張無結果列，另列清單處理\n- HIS_SentLog 2024-06 起停用，回 HIS 無法從 DB 監控\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9eb60466",
+          "date": "2026-10-28",
+          "message": "docs: Cerberus 接入進度更新（密文已產、MR ucl/ops/cerberus!60 已開）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "2ad176e7",
+          "date": "2026-10-28",
+          "message": "docs: Cerberus 接入設計更正為八顆頭",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "0be3fd0c",
+          "date": "2026-10-28",
+          "message": "docs: 秉坤七顆 Cerberus 頭的 appsettings 片段（含 Runbook，連線密文留待 --encrypt 產生）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e50bda6c",
+          "date": "2026-10-28",
+          "message": "docs: 新增秉坤雙站監控接入 Cerberus 的設計（七顆頭、SQL、門檻、前置條件）",
+          "body": "依 ucl/ops/cerberus 接入指南設計七顆頭：平鎮醫令接收心跳、兩向同步心跳、\n同步隊列積壓、建單蓋錯分類／參考值、多餘同步實例、平鎮設定刷新機制。\nSQL 均已於兩站正式 DB 唯讀實跑並計時（合計 <300 ms）。\n列出暫不接的項目與替代做法、接入步驟。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c2375834",
+          "date": "2026-10-28",
+          "message": "docs: 秉坤問題整理補記同步程式 repo 與程式碼層面的根因確認",
+          "body": "- 同步程式 10/27 已上 ucl/his/ucldbsync；監控程式 repo 仍為空\n- 由 MasterDataSyncService 確認分類表被還原的機制：30 分鐘一次、\n  Local→Remote、只在 TY 站執行；clone VM 的 Local 是舊備份 DB\n- 桃園實例目前未推設定同步（平鎮仍是手動寫入值），需岑松確認\n- 收件時間修正在 LisManagement 印標籤路徑，10/28 平鎮仍有 4 張未生效\n- repo 衛生：appsettings.json 含明文密碼、.vs/ 進版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "03095f60",
+          "date": "2026-10-28",
+          "message": "docs: 秉坤問題整理補充外送清單科室空白的根因與修法建議",
+          "body": "- 一覽表新增 #10 外送清單「科室」空白：科室取自 bill_master.op_update\n  對應的帳號名稱，直接印標籤未存檔的單停在 RECEIVE 而空白；建議改取\n  PrintRecord 最後印標籤帳號，交岑松修 LisManagement\n- #2 收件時間：記錄 10/27 回報已修正，10/28 凌晨仍見佔位值待確認上版\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ed3c0cc4",
+          "date": "2026-10-29",
+          "message": "docs: 秉坤 server 三支程式與監控程式 DatabaseDataChecker 現況",
+          "body": "- 04：補岑松 10/12 切換紀錄（權限表、檢體管 view 漏匯當天補上）與 10/20 取消報到同步修正\n- 06：新增秉坤 server 上的同步／還原／監控三支程式；依 10/29 push 的原始碼說明\n  DatabaseDataChecker 比對項目、告警規則，以及兩個會寫正式資料的開關\n  （回寫、取消清理）未設 CONTEXT_INFO 的風險\n- 05：DatabaseDataChecker 已在跑且自發 Discord，建議改為跨站比對歸它、單站歸 Cerberus\n- 01 §4.3：平鎮 DB 還原漏掉的項目加上權限表與 view\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4295a9b4",
+          "date": "2026-10-29",
+          "message": "docs: 依負責同仁答覆補齊部署手冊與接手指南的待確認",
+          "body": "- 01/02：桃園發版選方案組態 Publish（sln 對到 PublishTaoyuan）；補平鎮 FTP 與 InstallUrl\n- 02 §3：發佈步驟改為已確認流程——發佈機 SharedProject 路徑、USB token 簽章、\n  FTP 上傳即生效不需搬檔、發版記 Discord\n- 02 §4/§5：CheckInReceive 現行 InstallUrl 與執行位置；讀卡機前置由客戶裝、\n  UCL 協助雲端安全模組與 SAM 檔；TestResultReceive 由 dennis 設定\n- 02 §7：現行憑證為 USB token「Union Clinical Laboratory」（2027-05-14 到期），\n  TemporaryKey.pfx 已不用\n- 03：Oracle 用 ManagedDataAccess（AnyCPU）；DBFunction.dll 可直接放 ImportDll；\n  GntDComm.dll 無程式引用；帳密清單加入 發佈規則.txt\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "32683b9f",
+          "date": "2026-10-29",
+          "message": "docs(03): 新機只裝 Build Tools 的建置坑——參考組件、SSDT、CSHISXLib",
+          "body": "- Expression.sqlproj 是 LisManagement 的 ProjectReference，不能卸載（更正原本建議）\n- 參考組件目錄只有 xml 的情況，以及 NuGet ReferenceAssemblies + TargetFrameworkRootPath 的做法\n- build 就需要 CSHISXLib 型別庫（相依專案），可用 RegisterTypeLibForUser 免 admin\n- 踩坑表補 MSB3644 / MSB4226 / CS0246，以及 Clean 刪掉 tracked obj 的說明\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "bc4b38c0",
+          "date": "2026-10-29",
+          "message": "chore: obj/ 編譯中間產物不再進版控",
+          "body": ".gitignore 的 !<專案>/** 反向規則把 7 個專案整個目錄（含 obj/）拉回追蹤，\n導致每次 build 就有幾十個檔案變更，sln 做一次 Clean 會刪掉 566 個 tracked 檔。\n\n- .gitignore 在反向規則之後加 **/obj/\n- git rm --cached 580 個 obj/ 檔（磁碟上不刪）\n- bin/ 不動\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1829702f",
+          "date": "2026-10-29",
+          "message": "docs: 秉坤審報告變慢——10/28 trigger 事件與 10/29 本機重現結果（附錄 F）",
+          "body": "- 04：一覽表新增 #12；附錄 F 記 10/28 TR_SYNC_report_detial_sec 全表掃描\n  （已修）、10/29 正式機唯讀量測與本機重現（開報告約 1 秒、完審約 2 秒）、\n  尚未驗證的 PDF 寫院內共用資料夾、BaseService 重讀 sys_company 與\n  GetReportMasters 狀態 1/3 整表載入\n- 06：第五節加「變慢時先查 trigger」SQL；已知問題加 trigger 改寫風險與\n  SYNC_OUTBOX 掃描成本\n- 03：dbLIS_BK 與正式庫的差異；本機重現效能問題的做法（XEvent + 背景操作畫面）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "HIS\\FMFselemium",
       "totalCommits": 18,
       "commits": [
@@ -30643,125 +30938,6 @@
           "message": "feat: WS76 異常通知項目不看操作者權限自動二審，記名 AUTOAUTHORISE",
           "body": "會議決議：行政審 WS76（異常通知時間）由系統自動二審，避免通知人員\n一審後等人補審造成報告延遲。\n\n- ExcludeQueue.json 新增 AutoAuthoriseWorkstations（WS76）與\n  AutoAuthoriseAccount（AUTOAUTHORISE，HCLAB 規則引擎自動二審用的既有系統帳號）\n- BuildDetailedMergeSql 新增選用參數 autoWorkstations，WS 條件多一段\n  OR wp.WP_CODE IN (:AUTO_WS_n)，自動放行站的項目不看操作者權限一律進二審佇列\n- _AddQueue：操作者沒二審站但有自動放行站時不再直接跳出；\n  佇列記名由 ResolveQueueUser 決定（有自己的二審站記操作者，否則記系統帳號）；\n  操作者沒二審站時 CTRLB 放寬不生效，維持原本範圍\n- 補 BuildMergeSqlTest 案例（SQL 產生 + 記名規則），19 tests pass\n- 台北庫實單 6090804314 唯讀模擬：無權限操作者只撈出 WS76 的 9751，\n  其餘 WS21/CL01/CTRLB 項目不夾帶\n\nAuthorise() 不查帳號權限，AUTOAUTHORISE 不需 WS_USERLIST 列。\n注意 AUTOAUTHORISE 在 USER_ACCOUNT 的 USER_NAME 為陳明輝，報告審核者會印此名。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "dbLIS",
-      "totalCommits": 14,
-      "commits": [
-        {
-          "hash": "8faaca06",
-          "date": "2026-10-14",
-          "message": "docs: 新增系統總覽、部署手冊、開發環境與接手指南",
-          "body": "從程式碼、csproj 與 git 歷史整理出三份文件，讓負責同仁以外的人也能\n建起來、改需求、發版。推測而未實際驗證的步驟一律標（待確認），\n待負責同仁補正。不含任何帳密。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "244e8fe7",
-          "date": "2026-10-27",
-          "message": "docs: 新增秉坤 10 月雙站上線問題整理（根因、修正紀錄、比對結果）",
-          "body": "記錄 10/12 平鎮/桃園拆庫後兩週的問題與 10/27 的處理：\n- 問題一覽、優先順序、各方待辦\n- 附錄 A：設定表比對；分類表每 31 分鐘被還原的追查過程，根因為\n  PVE 上 clone 出來的還原 VM 自動啟動舊版同步程式；平鎮缺\n  SettingTriggersNewestTime 與 Tr_sys_*_changed 導致 LisManagement\n  快取不刷新；兩者已處理\n- 附錄 B：異常旗標與懷孕週數的維護方式\n- 附錄 C：單據/結果同步比對，桃園 SYNC_OUTBOX 69 萬筆 PENDING\n- 附錄 D：Anti-TPO 單位 memo\n- 所有資料修正皆附備份表名稱與還原 SQL\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "bb68af7f",
-          "date": "2026-10-27",
-          "message": "docs: 依本機實測更正 Debug 連線、建置步驟與客戶 DB 位址",
-          "body": "2026-10-15、10-27 實際 build、跑起 LisManagement、連過三家正式 DB 後修正：\n\n- Debug / DebugBK 組態連的是秉坤正式庫，不是測試庫；補上安全地在本機跑的做法\n- 補上第一次 build 會遇到的問題：SharedProject 位置、Word interop 15、\n  NuGet restore、CheckInReceive 與 TestResultReceive 建置失敗、bin/obj 被改動\n- 非 NuGet DLL 的實際位置（原本寫「根目錄」不正確）\n- 各客戶 DB 分成客戶端程式連的與 UCL 連的外部位址，帳密指向大章魚\n- 三家 dbLIS 表數不同（116 / 111 / 107），佐證 schema 不一致\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "31e499be",
-          "date": "2026-10-28",
-          "message": "docs(04): 比對明細改指向本機 D:\\tmp\\binkun-20261028（原 session 暫存區）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "a9b5f81b",
-          "date": "2026-10-28",
-          "message": "docs: 秉坤外送項目看不到——查證非 dbLIS 問題，是台北分單去重複誤刪（附錄 E）",
-          "body": "- 一覽表加 #11；附錄 E 記 dbLIS→上傳檔→WebOrder→分單→HCLAB 各站查證結果與單號對照\n- 撞號序號由 dbLIS 外送清單每次匯出從 1001 起編，修法以分單系統為主\n- 根因與受影響名單見 OrderInSql docs/cases/2026-10-28-dedup-cli-info-collision.md（!497）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "d1442761",
-          "date": "2026-10-28",
-          "message": "docs: 系統總覽補「資料怎麼流、哪裡容易出錯」；同步程式現況更新",
-          "body": "- 01 新增 §4：一張單的生命週期、建單時抄一份（name_type、參考值文字等）、\n  LisManagement 設定快取與 SettingTriggersNewestTime（四家客戶 DB 實測，\n  只有秉坤平鎮還原時漏掉）、外送清單撈單條件與科室來源；文件索引補 04–06\n- 04／06：桃園設定同步 10/28 08:09 起已見運作且結果正確；更正查詢時間 07:30\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "52a2e040",
-          "date": "2026-10-28",
-          "message": "docs: 新增秉坤同步程式 UclDbSync 維運手冊",
-          "body": "接手者視角：兩站跑在哪、同步哪些表與方向、設定主檔推送機制與 clone VM 教訓、\n跟醫令接收／LisManagement 快取／CONTEXT_INFO 記號的關係、判斷故障的 SQL、\n已知問題與出事時的處理順序。程式本身的操作手冊仍以 ucl/his/ucldbsync 為準。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "df4c8978",
-          "date": "2026-10-28",
-          "message": "docs: Cerberus 接入首輪誤報、停用原因與新候選檢查",
-          "body": "- 首輪四顆誤報（看「多久沒新資料」而非「該發生沒發生」），MR !61 停用\n- 新候選：收件時間仍 2910、退報到未刪、印了標籤無結果列、同步工作未送出\n- 往回套兩週：52 張收件時間仍 2910（外送清單撈不到）、2 張退報到殘留、\n  2 張無結果列，另列清單處理\n- HIS_SentLog 2024-06 起停用，回 HIS 無法從 DB 監控\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "9eb60466",
-          "date": "2026-10-28",
-          "message": "docs: Cerberus 接入進度更新（密文已產、MR ucl/ops/cerberus!60 已開）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "2ad176e7",
-          "date": "2026-10-28",
-          "message": "docs: Cerberus 接入設計更正為八顆頭",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "0be3fd0c",
-          "date": "2026-10-28",
-          "message": "docs: 秉坤七顆 Cerberus 頭的 appsettings 片段（含 Runbook，連線密文留待 --encrypt 產生）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e50bda6c",
-          "date": "2026-10-28",
-          "message": "docs: 新增秉坤雙站監控接入 Cerberus 的設計（七顆頭、SQL、門檻、前置條件）",
-          "body": "依 ucl/ops/cerberus 接入指南設計七顆頭：平鎮醫令接收心跳、兩向同步心跳、\n同步隊列積壓、建單蓋錯分類／參考值、多餘同步實例、平鎮設定刷新機制。\nSQL 均已於兩站正式 DB 唯讀實跑並計時（合計 <300 ms）。\n列出暫不接的項目與替代做法、接入步驟。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c2375834",
-          "date": "2026-10-28",
-          "message": "docs: 秉坤問題整理補記同步程式 repo 與程式碼層面的根因確認",
-          "body": "- 同步程式 10/27 已上 ucl/his/ucldbsync；監控程式 repo 仍為空\n- 由 MasterDataSyncService 確認分類表被還原的機制：30 分鐘一次、\n  Local→Remote、只在 TY 站執行；clone VM 的 Local 是舊備份 DB\n- 桃園實例目前未推設定同步（平鎮仍是手動寫入值），需岑松確認\n- 收件時間修正在 LisManagement 印標籤路徑，10/28 平鎮仍有 4 張未生效\n- repo 衛生：appsettings.json 含明文密碼、.vs/ 進版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "03095f60",
-          "date": "2026-10-28",
-          "message": "docs: 秉坤問題整理補充外送清單科室空白的根因與修法建議",
-          "body": "- 一覽表新增 #10 外送清單「科室」空白：科室取自 bill_master.op_update\n  對應的帳號名稱，直接印標籤未存檔的單停在 RECEIVE 而空白；建議改取\n  PrintRecord 最後印標籤帳號，交岑松修 LisManagement\n- #2 收件時間：記錄 10/27 回報已修正，10/28 凌晨仍見佔位值待確認上版\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
           "tags": []
         }
       ],
@@ -32042,7 +32218,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 803,
+      "totalCommits": 805,
       "commits": [
         {
           "hash": "4bdff543",
@@ -38465,6 +38641,22 @@
           "date": "2026-10-28",
           "message": "docs: 每日工作紀錄 2026-10-27 (36 commits)",
           "body": "🤖 自動生成於 2026-10-28 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "25f94a96",
+          "date": "2026-10-29",
+          "message": "docs: 更新彙整資料 2026-10-29",
+          "body": "🤖 自動生成於 2026-10-29 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "0a9a1e0a",
+          "date": "2026-10-29",
+          "message": "docs: 每日工作紀錄 2026-10-28 (49 commits)",
+          "body": "🤖 自動生成於 2026-10-29 07:05",
           "category": "文檔",
           "tags": []
         }
@@ -50920,7 +51112,7 @@
     },
     {
       "name": "taipeigolf\\TaipeiGolf",
-      "totalCommits": 22,
+      "totalCommits": 23,
       "commits": [
         {
           "hash": "033b9cf6",
@@ -51096,6 +51288,14 @@
           "message": "修正每日備份半路無聲中斷：寫 log 改用 .NET AppendAllText",
           "body": "10/6、10/9、10/10、10/11 的 DB 備份都在 log 寫了 start 之後就沒下文。\n原因是這台的 Add-Content 連續寫入時約九成會丟「Stream was not readable」\n（推測是防毒即時掃描剛寫完的檔），在 ErrorActionPreference=Stop 下\n整支腳本直接中斷，連錯誤都來不及記。\n\n- backup-db.ps1：Log 與 db-counts.json 改用 [IO.File]::AppendAllText / WriteAllText\n- sync-content.ps1：同步紀錄改成一次 AppendAllText（原本逐行 Add-Content，有檔案異動時最容易中斷）\n\n實測 Add-Content 60 次失敗 56 次、AppendAllText 60 次 0 失敗；手動完整跑兩支皆 exit 0。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a41118b0",
+          "date": "2026-10-29",
+          "message": "backup-db: 支援 ODBC 18 版 sqlcmd/bcp（新電腦）",
+          "body": "ODBC 18 的 sqlcmd/bcp 預設強制加密並驗證伺服器憑證，本機 SQLEXPRESS 與正式機都是\n自簽憑證，連線被拒。sqlcmd 加 -C、bcp 加 -u 信任伺服器憑證（仍加密），使用者決定。\nbcp 舊版（15）沒有 -u，從 bcp 說明文字判斷要不要加；SQL 2025 附的 ODBC 18 bcp\n版本號是 17.0，不能用版本號判斷。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
           "tags": []
         }
       ],
