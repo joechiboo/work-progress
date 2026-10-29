@@ -1,0 +1,236 @@
+{
+  "date": "2026-10-29",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "d9aeddfe",
+          "time": "15:10",
+          "message": "chore: session 收尾備份 2026-10-29（uclcloud-app iOS 推播測試結論）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "4b84b52a",
+          "time": "14:49",
+          "message": "chore: session 收尾備份 2026-10-29（Apple 授權人確認連結進度、lisweb memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "645e5d0c",
+          "time": "14:07",
+          "message": "chore: session 收尾備份 2026-10-29（Cerberus AgeFromFirstSeen、robocopy 走 PowerShell；lisweb 三筆 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e890f719",
+          "time": "10:13",
+          "message": "memory(dbLIS): 新電腦 UCL26605 的 build 環境與安全執行方式",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f9ff33a8",
+          "time": "10:12",
+          "message": "memory(分單): 去重複監控狀態、docs 分支已併",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1dd45a26",
+          "time": "09:25",
+          "message": "memory: dbLIS 換機前最後同步（binkun 兩站拆分、本機執行）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9cb1db7a",
+          "time": "08:39",
+          "message": "lisweb-deploy: MSBuild 改用 vswhere 找（鎖 VS 2022）",
+          "body": "新電腦只裝 VS Build Tools 2022、不裝 VS Community，寫死 Community 路徑會找不到。\n鎖 [17.0,18.0)：舊機另有 VS 18 Build Tools，-latest 會挑到沒驗證過的那套。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c8f17cd4",
+          "time": "08:02",
+          "message": "memory: 分單 10.29 上線後監控改從新電腦開",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a9da5dbd",
+          "time": "07:16",
+          "message": "memory: 分單系統去重複跨病人誤刪 10/28 追蹤（換機前備份）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "dbLIS",
+      "commits": [
+        {
+          "hash": "ed3c0cc4",
+          "time": "12:33",
+          "message": "docs: 秉坤 server 三支程式與監控程式 DatabaseDataChecker 現況",
+          "body": "- 04：補岑松 10/12 切換紀錄（權限表、檢體管 view 漏匯當天補上）與 10/20 取消報到同步修正\n- 06：新增秉坤 server 上的同步／還原／監控三支程式；依 10/29 push 的原始碼說明\n  DatabaseDataChecker 比對項目、告警規則，以及兩個會寫正式資料的開關\n  （回寫、取消清理）未設 CONTEXT_INFO 的風險\n- 05：DatabaseDataChecker 已在跑且自發 Discord，建議改為跨站比對歸它、單站歸 Cerberus\n- 01 §4.3：平鎮 DB 還原漏掉的項目加上權限表與 view\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4295a9b4",
+          "time": "12:33",
+          "message": "docs: 依負責同仁答覆補齊部署手冊與接手指南的待確認",
+          "body": "- 01/02：桃園發版選方案組態 Publish（sln 對到 PublishTaoyuan）；補平鎮 FTP 與 InstallUrl\n- 02 §3：發佈步驟改為已確認流程——發佈機 SharedProject 路徑、USB token 簽章、\n  FTP 上傳即生效不需搬檔、發版記 Discord\n- 02 §4/§5：CheckInReceive 現行 InstallUrl 與執行位置；讀卡機前置由客戶裝、\n  UCL 協助雲端安全模組與 SAM 檔；TestResultReceive 由 dennis 設定\n- 02 §7：現行憑證為 USB token「Union Clinical Laboratory」（2027-05-14 到期），\n  TemporaryKey.pfx 已不用\n- 03：Oracle 用 ManagedDataAccess（AnyCPU）；DBFunction.dll 可直接放 ImportDll；\n  GntDComm.dll 無程式引用；帳密清單加入 發佈規則.txt\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "32683b9f",
+          "time": "10:13",
+          "message": "docs(03): 新機只裝 Build Tools 的建置坑——參考組件、SSDT、CSHISXLib",
+          "body": "- Expression.sqlproj 是 LisManagement 的 ProjectReference，不能卸載（更正原本建議）\n- 參考組件目錄只有 xml 的情況，以及 NuGet ReferenceAssemblies + TargetFrameworkRootPath 的做法\n- build 就需要 CSHISXLib 型別庫（相依專案），可用 RegisterTypeLibForUser 免 admin\n- 踩坑表補 MSB3644 / MSB4226 / CS0246，以及 Clean 刪掉 tracked obj 的說明\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "bc4b38c0",
+          "time": "10:01",
+          "message": "chore: obj/ 編譯中間產物不再進版控",
+          "body": ".gitignore 的 !<專案>/** 反向規則把 7 個專案整個目錄（含 obj/）拉回追蹤，\n導致每次 build 就有幾十個檔案變更，sln 做一次 Clean 會刪掉 566 個 tracked 檔。\n\n- .gitignore 在反向規則之後加 **/obj/\n- git rm --cached 580 個 obj/ 檔（磁碟上不刪）\n- bin/ 不動\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1829702f",
+          "time": "09:18",
+          "message": "docs: 秉坤審報告變慢——10/28 trigger 事件與 10/29 本機重現結果（附錄 F）",
+          "body": "- 04：一覽表新增 #12；附錄 F 記 10/28 TR_SYNC_report_detial_sec 全表掃描\n  （已修）、10/29 正式機唯讀量測與本機重現（開報告約 1 秒、完審約 2 秒）、\n  尚未驗證的 PDF 寫院內共用資料夾、BaseService 重讀 sys_company 與\n  GetReportMasters 狀態 1/3 整表載入\n- 06：第五節加「變慢時先查 trigger」SQL；已知問題加 trigger 改寫風險與\n  SYNC_OUTBOX 掃描成本\n- 03：dbLIS_BK 與正式庫的差異；本機重現效能問題的做法（XEvent + 背景操作畫面）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "60d040a7",
+          "time": "13:00",
+          "message": "fix(文管): 停用舊「品質文件上傳」(FileUpload/待處理區), 四階紀錄一律走 FMUpload",
+          "body": "- Menu 拿掉 JOY/ALICE 硬編的「品質文件上傳」卡片\n- Home/FileUpload 改導向 FMEntry; 刪除 FileUpload.cshtml 與 csproj 項目\n- Home/Upload 只保留 route=Correct (矯正中文件), 其他請求回 410\n- 移除 FILE_STATIC 流水號/寄信/LINE Notify(含寫死 token)/encrypt_ PDF 那段舊流程與 GetPendingFiles\n- 新增 Documents/Pages/FMUpload_上傳四階紀錄.md, 記錄兩個入口、根目錄規則與舊路線停用原因\n- DB: PERMISSION MODULE_CD='FileUpload' 另行 ACTIVE='N' (TP/TY/KH)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "6213931b",
+          "time": "12:47",
+          "message": "feat(FMUpload): 13485 四階紀錄上傳約束檔名＋改名功能",
+          "body": "- 聯合生技 XR 四階紀錄上傳改為「文件編號＋名稱＋後綴」組檔名：\n  輸入編號自動帶入文管系統名稱（去「母版」字樣、可調整），後綴預設今天\n- 檔名由後端組成並驗證：編號須為現行有效 XR 文件、名稱不可含 _、字元白名單\n- 檔案列表新增「改名」，限聯合生技文管成員，依登入帳號判斷；改名寫 LisWebLog\n- GetUploadFolder / CreateFolder / CheckFileExists / FMUploadFile 目的地\n  限制在四階紀錄根目錄內，擋任意路徑與 ..\n- 大安 ScanFiles 與 ISMS 紀錄維持原樣\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "1b0cc9e4",
+          "time": "12:26",
+          "message": "fix(XRA149): 列印後清空欄位時重新帶入簽名日期",
+          "body": "存檔列印後會清空所有 .pickvalue 文字欄位以便下一位受檢者填寫，\n簽名日期年/月/日也一起被清掉，但沒有重新呼叫 FillSignatureDateIfEmpty，\n櫃台必須重新整理頁面日期才會出現。比照「清除」鈕，清空後補帶當天日期。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "db66c746",
+          "time": "12:59",
+          "message": "佈署紀錄補 DbBacklog AgeFromFirstSeen（MR !62）那一列",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "134804a6",
+          "time": "12:49",
+          "message": "DbBacklog 年齡可選「跟第一次看到非空取小」（AgeFromFirstSeen）：重送的舊帳務帶著昨天的時間戳進佇列，兩分鐘消化完卻被算成等了 1220 分",
+          "body": "2026-10-29 12:40 HC010醫令產生@台北 叫了一次「積壓 1 筆，最舊一筆已等 1220.7 分」、12:42 自動收隊。\n12:38 那輪佇列還是空的，所以那筆是 12:38～12:40 之間才進佇列、帶著 2026-10-28 16:19:25 的\nID_UPDATE_ON（前一天的帳務被重送，或 ID_POLL_FLAG 被改回 'N' 但沒更新時間），兩分鐘內就被消化。\n告警上的「最後心跳 2026-10-28 16:19:25」也是那筆資料的時間戳，看起來像昨天下午就斷了。\n\n## 判斷錯在哪\n\n跟 10-22 FolderBacklog 搬檔那次（87df00c）同型：這顆頭要回答「在佇列裡等了多久」，\n量的卻是「資料自己的時間戳多舊」。HC010 的 ID_UPDATE_ON 是帳務更新時間，不是進佇列時間。\n\n## 改法\n\n- 新選項 `AgeFromFirstSeen`（預設 false）：年齡取「DB 端算的年齡」與「Cerberus 第一次看到佇列非空至今」\n  的較小值；記錄存 sightings.json（key `db:頭名`，借 FileSightings 的結構，不另開檔）。\n  取小而不是只看第一次看到：忙碌但健康的佇列會一直非空、每筆秒級消化，只看「非空持續多久」會誤判卡住。\n  真卡住兩個年齡都會長，照樣滿門檻就紅。\n- 不做全域：DbBacklog 共 19 顆頭，多數的第二欄就是事件時間；「平鎮設定刷新」那顆甚至刻意回一小時前\n  好讓它立刻紅，全域開會把它弄壞。只有六顆 HC010 開。\n- 告警內文開了這選項時多寫「資料時間戳 N 分前」，「最後心跳」改指第一次看到的時刻。\n- 代價同 FolderBacklog：初次佈署／sightings.json 被刪時，已卡很久的佇列最多晚一個門檻才叫。\n\n文件：架構與擴充（刻意設計）、接入指南（欄位表）、告警回應手冊（HC010 第一步加「分真假」）。\n本機 `--check` 台北／台中兩顆皆「佇列已清空」（空路徑）；非空取小的路徑待線上觀察。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "37a2fe0c",
+          "time": "08:01",
+          "message": "合併 MR !33: docs: 去重複誤刪善後追蹤＋10.29 上線後監控",
+          "body": "docs: 去重複誤刪善後追蹤＋10.29 上線後監控\n\nSee merge request ucl/twowayconnection/uclweborder!33",
+          "category": "合併MR"
+        },
+        {
+          "hash": "5b0fe8f7",
+          "time": "08:01",
+          "message": "docs: 10.29 上線紀錄＋去重複上線後監控查詢",
+          "body": "- docs/去重複_跨病人誤刪.md：10.29 上線結果、監控做法與在 Claude Code 開監控的指令\n- tests/dedup_audit_watch.sql：唯讀查今天去重複是否刪錯人(用稽核的病人欄位比對保留列)\n- 秉坤 7 張加做：使用者確認不用動\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "f8660866",
+          "time": "14:57",
+          "message": "docs(ios): 10-28 同仁 iPhone 15 推播測試報告歸檔，結果如預期（Personal Team 簽不了推播）",
+          "body": "- 測試報告移到 docs/iOS實機測試報告_20261028.docx\n- A 線 1.5 節補實測結果與三層原因（無 aps-environment、bundle id .devtest、APNs 金鑰未上傳）\n- 待辦補「無檢體算進項目數」待決\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "25f94a96",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-29",
+          "body": "🤖 自動生成於 2026-10-29 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "0a9a1e0a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-28 (49 commits)",
+          "body": "🤖 自動生成於 2026-10-29 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "taipeigolf\\TaipeiGolf",
+      "commits": [
+        {
+          "hash": "a41118b0",
+          "time": "08:49",
+          "message": "backup-db: 支援 ODBC 18 版 sqlcmd/bcp（新電腦）",
+          "body": "ODBC 18 的 sqlcmd/bcp 預設強制加密並驗證伺服器憑證，本機 SQLEXPRESS 與正式機都是\n自簽憑證，連線被拒。sqlcmd 加 -C、bcp 加 -u 信任伺服器憑證（仍加密），使用者決定。\nbcp 舊版（15）沒有 -u，從 bcp 說明文字判斷要不要加；SQL 2025 附的 ODBC 18 bcp\n版本號是 17.0，不能用版本號判斷。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 22,
+    "sideCommits": 3,
+    "totalCommits": 25
+  }
+}
