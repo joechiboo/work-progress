@@ -1,0 +1,330 @@
+{
+  "date": "2026-10-30",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "0fb2d4ae",
+          "time": "22:18",
+          "message": "chore: ParkFee claim-seat 部署狀態更新 2026-10-30",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "9ae3b1fb",
+          "time": "22:09",
+          "message": "chore: session 備份 2026-10-30 晚（ParkFee 主委回饋 docs/36 memory）",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "e18d8ed8",
+          "time": "21:15",
+          "message": "memory: uclcloud iOS 10-30 帳號開通、首個 build 上傳",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "995100b0",
+          "time": "16:01",
+          "message": "chore: session 收尾備份 2026-10-30（Cerberus 報告回傳降黃＋暫時略過上線）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "f04a7060",
+          "time": "14:59",
+          "message": "chore: ParkFee memory 更新 — 10/30 會後需求落地狀態",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7cece229",
+          "time": "14:54",
+          "message": "chore: memory 說明表 PDF 不合併",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "be8f42f0",
+          "time": "14:50",
+          "message": "chore: memory 補 A0 檔位置",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a8a0df2b",
+          "time": "14:46",
+          "message": "chore: session 收尾備份 2026-10-30 下午（ParkFee docs/35 橫式＋無障礙註記 memory）",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "516d203f",
+          "time": "08:52",
+          "message": "chore: Apple Developer 付款完成記錄 2026-10-30",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7a578b8f",
+          "time": "08:37",
+          "message": "chore: session 收尾備份 2026-10-30（ParkFee 10/29 臨時會三落差 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7a1232ba",
+          "time": "08:37",
+          "message": "chore: session 收尾備份 2026-10-30（ParkFee docs/35 說明表 memory）",
+          "body": "",
+          "category": "文檔"
+        },
+        {
+          "hash": "90d5a128",
+          "time": "08:35",
+          "message": "chore: session 收尾備份 2026-10-30（ParkFee 10/29 臨時會草案調整 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c273d248",
+          "time": "08:07",
+          "message": "chore: session 收尾備份 2026-10-30",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 13
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "7b188bae",
+          "time": "16:00",
+          "message": "佈署紀錄補 10-30 第二次發佈（略過當下轉黃、未署名文字）那一列",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "837452a7",
+          "time": "15:58",
+          "message": "略過回報文字未署名時不再出現「（（未署名）：…）」雙括號；名字空著就只寫原因",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "bfef3b4b",
+          "time": "15:55",
+          "message": "佈署紀錄補報告回傳第 4／5 欄＋暫時略過（MR !64、Argus !92）那一列",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6fc6f9f4",
+          "time": "15:50",
+          "message": "報告回傳告警寫出哪一家、對方主機連不到時降黃（DbBacklog 第 4／5 欄）；牆上「暫時略過」人工處置（Ack）",
+          "body": "2026-10-30 15:32 報告回傳@台北 紅了：凌醫（HisVendorId 12）api.zeromed.site:6913 連不到，\n15:00 起 105 筆全是「連線嘗試失敗…」，其他五家照常成功。這是對方主機的問題，我方做不了什麼，\n但告警只寫「積壓 89 筆」（還得自己查是哪家）、牆是紅的、每 30 分提醒、60 分後寄信。\n\n## 第一件：判定層自己分得出「對方的問題」\n\nDbBacklog 的 SQL 契約加選填第 4 欄（給人看的一句話，直接進 Discord 與牆）與第 5 欄\n（非 0＝這次降為黃：牆黃、不升級寄信、Discord 照發，Heartbeat.Degraded）。\n報告回傳六站的 SQL 改成按廠商回「凌醫 112 筆（全是連不到對方主機）」，\n降黃條件是卡住的每一家失敗訊息全是連線類、且同時段別家有成功（排除我方出口掛掉）。\nHTTP 500／HIS rejected 這類「對方收到但拒絕」仍紅。台北實測 70ms（舊 33ms）。\nDegraded 跟 Minor 走同一條待遇，差別是範圍：Minor 是頭的屬性，Degraded 是這一次判定的。\n\n## 第二件：人工判定後可以「暫時略過」\n\n牆上紅／黃的磚多一顆「⏸ 暫時略過」（Argus MR !92）：時長、原因（必填）、名字 →\n夾在快照回應裡跟重跑搭同班車 → AckRunner（唯一檢查哨：頭要存在、要正在告警、5~1440 分、原因截 80 字）\n→ 寫進 state.json 該頭的 AckUntil/AckNote/AckBy/AckAt → 回報 /api/ack/ack。\n到期前 EscalationEngine 只記 log、StatusMapper 封頂黃並把 HeadAck 送上牆；到期沒好清掉欄位立刻再叫；\n中途恢復整筆狀態移除、略過自然消失。Discord 留一則 ⏸ 灰色 embed（IHowler.Noted）。\n沒有牆也能按：`--ack \"<頭>\" <分鐘> \"<原因>\" [名字] [exe 目錄]` 丟 ack-pending.json，下一輪先刪再套。\n\n文件：接入指南 §2B①（第 4／5 欄）、架構與擴充、監控牆回報 §7、告警回應手冊（報告回傳專屬段、人工暫時略過段、速查表補六站）。\n本機 --check 報告回傳@台北：「失去心跳｜積壓 112 筆｜凌醫 112 筆（全是連不到對方主機）」。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "b3fa8a04",
+          "time": "15:57",
+          "message": "按下暫時略過的當下磚就先轉黃，不等地獄犬下一輪",
+          "body": "按下去到 Cerberus 下一輪把 ack 寫進快照最久 2 分鐘，這段時間紅色警報照響、音樂停著，\n而站在牆前面的人已經做完判斷了（2026-10-30 第一次實按就被問「可以不要等嗎」）。\nFeedBuilder 在那張單子還活著（pending／sent／ok）時把對應的紅磚畫成黃、其餘不動；\n被拒絕（failed）就回到 Cerberus 說的顏色，快照一帶 ack 就不插手。\n磚上文字仍是「已送出，等地獄犬」——跟著人的判斷走，但不假裝 Cerberus 已經同意。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f81a3539",
+          "time": "15:47",
+          "message": "feat(wall): ⏸ 磚上「暫時略過」——人工判定是對方的問題時，讓那顆頭黃一段時間、音樂繼續",
+          "body": "2026-10-30 15:32 報告回傳@台北 紅了：凌醫（HisVendorId 12）的 api.zeromed.site 連不上，105 筆全掛，\n其他五家廠商同時段照常成功。根因在對方、我們動不了，但紅燈會停音樂、每隔一陣子再響，\n催的是一個已經知道、也做不了什麼的人。被催久了的人會把聲音關掉，下一顆真的紅就沒人聽見。\n\n## 做法\n\n跟重跑同一條鏈、同一個模子：\n- 牆面 POST /api/ack {head, minutes, note, by} → AckStore 記一張（只在記憶體、一次一張、有冷卻）\n- Cerberus 下一輪送快照時，回應裡夾 ack（at-most-once，領走標 sent）\n- Cerberus 處理完 POST /api/ack/ack（驗密鑰）回報 ok/failed\n- 之後的快照 HeadStatus 多一欄 ack {until, note, by, at}，磚上寫「⏸ 人工略過中：理由・誰 幾點・至 幾點」\n\n牆不自己改顏色：略過的磚是 Cerberus 送成 yellow 的，顏色永遠只有一個來源。\n時長固定四檔（1／4／8／24 小時），原因必填 1~80 字，名字自填記在 localStorage。\n只對紅／黃且還沒略過的磚給按鈕；表單就地展開，不開 modal。\n\n本機 curl 走完整輪：壞請求 400、第二張 409、快照回應夾單一次、ack/ack 後 phase=ok、\n帶 ack 的黃磚 feed 原樣帶出、已略過的磚再按被擋。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "1e64c64f",
+          "time": "22:18",
+          "message": "docs(TODO): claim-seat 已部署並以真 API 驗 15 條路徑；CLAIM_WINDOW 已暫開、11/15 前須 unset",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "740ebd64",
+          "time": "22:15",
+          "message": "chore: 整理根目錄——收到的參考稿／截圖歸 private/reference、早版說明表 PDF 歸 docs/pdf/_archive，同步文件引用；.gitignore 補擋根目錄 png/jpg",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "05d3c51c",
+          "time": "22:09",
+          "message": "docs(36)+35+forms+app: 10/30 主委 LINE 回饋整合——說明表是綠否紅／115 年／協助限秘書經理／公告後 10 日內／直排字改橫排、紙本表小位號核對簽名、簽約期限 5→10 日",
+          "body": "- docs/36 新檔：主委原話逐條判讀、四張截圖標記判讀、文件／系統處理結果、待回覆項\n- docs/35 簡版→橫式→A0：是綠否紅、登記期間 115 年、需協助者由秘書／經理協助、免抽籤標籤橫排＋「12/1 公告後 10 日內簽約繳費」、簽約框「公告後 10 日內」、抽籤欄補第二部以上順序與重機限兩大位\n- 紙本登記表：抬頭 115 年、志願序標題、管理中心填寫區「確定小位號＋核對人員簽名」、無障礙核驗併受理列（仍一頁）\n- 系統：result.js signDeadline +5→+10（測試同步）、AllocateView 提示、bylaw-content 站內說明三處 10 日、RegisterView 無障礙註記補核驗句\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "80b57538",
+          "time": "14:58",
+          "message": "docs(forms): 紙本登記表無障礙位改「申請＋核驗」口徑——勾選不等於取得，攜證明核驗後由管理中心指派，未核驗視同未申請",
+          "body": "- 欄位「需無障礙位」→「申請無障礙位※」，格內註「需核驗證明」\n- 獨立說明一條（限持身心障礙證明且行動不便者、攜正本核驗、未核驗改一般抽籤、重機／工作人員不適用）\n- 填表人確認加一條（申請無障礙位適用）\n- 管理中心填寫區加「無障礙核驗」勾選，與志願小位核對併一行維持一頁\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "22c1f2f2",
+          "time": "14:57",
+          "message": "feat: 志願小位線上選定即鎖格（claim-seat）；重機限相鄰兩大位、不開放無障礙、一般機車抽完才抽重機（10/29 臨時會＋10/30 會後需求）",
+          "body": "志願小位（辦法伍二（五）；10/29 定「登記時直接選定、依登記順序」）\n- 新 Edge Function claim-seat：op claim/release；鎖＝locked_seat 主鍵互斥（23505＝被選走），\n  同時寫 vehicle 車位編號/車位類型=小/配位狀態=志願小位；擁有權驗證同 save-wishes；\n  限第 1 輛一般機車、非社宅/工作人員；未繳費可換格/放棄；時窗預設 2026-11-15..11-30（CLAIM_WINDOW 可覆蓋）\n- 伺服器端小位清單 _shared/seat-types.ts 由 scripts/build-seat-types-shared.mjs 自 b1-classification 產，含一致性測試\n- SelectView 加「志願小位」模式：點一格小位→選定並鎖定；已鎖＝綠；其他人地圖立刻不可點\n- distribute R1 拿掉志願小位自動配位分支，只認 preset 的車位編號（避免與線上/櫃台鎖定重複配位）\n- db/supabase-backend/local-backend 加 claimSeat；MeView 狀態色改依有位/已繳；RegisterView 勾選框限第 1 輛一般機車\n\n重機（10/29 批註＋10/30 會議）\n- HEAVY_PAIR_TYPES 改只含大位；takeHeavy 拿掉無障礙單格路徑\n- R0 排除重機、R1/R2+ 排除重機，新增獨立「重機」輪排在一般機車全部輪次之後（辦法肆五機車位足額）\n- SelectView 重機戶不再可點無障礙；check-roster 3.7 改驗兩格皆大位；docs/01、AllocateView 說明同步\n\n測試 232 綠。待做：部署 claim-seat、維護頁解鎖 108/194、公益位整批鎖定（見 TODO 10/30 段）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "46703f96",
+          "time": "14:54",
+          "message": "docs(README): 35 說明表 PDF 不再合併兩版、補 A0 檔說明",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0f8187e5",
+          "time": "14:46",
+          "message": "docs(README): 補 35 橫式列的 PDF 路徑",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9e778970",
+          "time": "14:45",
+          "message": "docs(35)+form: 說明表加橫式（A0 海報用）與無障礙機車位資格註記；登記表無障礙勾選限身心障礙證明、重機不顯示",
+          "body": "- docs/35 新增 A4 橫式（流程圖仍由上而下、右欄大 QR＋章位），經理 10/30 要求配合位置圖海報\n- 簡版／詳版／橫式登記欄加「無障礙機車位：限持身心障礙證明且行動不便之住戶，重機不適用」\n- RegisterView：身障勾選改「需無障礙位」＋資格註記，車種＝重機時不顯示且送出不帶（10/29 重機限相鄰兩個大位）\n- 紙本登記表註解同步：重機占相鄰兩個大位、不適用無障礙位\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ef9e460e",
+          "time": "14:37",
+          "message": "docs(10): 回填 10/29 臨時會——Q6 重機相鄰對改限大位（引擎待改）、Q20 一位多停刪除；TODO 加 HEAVY_PAIR_TYPES 改大位待辦",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "15543682",
+          "time": "08:36",
+          "message": "docs(35): 抽籤辦法說明表重繪（公告格式＋由上而下流程圖＋四階段泳道），簡版為正本、詳版附一戶多車走法；表格 A 依 10/29 決議刪除",
+          "body": "依 2026-10-29 臨時管委會（docs/34）：原說明表流程圖太複雜、表格 A 不另立。\n登記只有線上一種（長者由櫃台協助）、志願小車位於登記時直接選定免抽籤。\ndocs/pdf 另有簡版＋詳版合併 PDF 供經理／主委。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "489d02a2",
+          "time": "08:35",
+          "message": "docs(19/32): 依 10/29 臨時管委會批註調整草案——重機限相鄰兩個大位、簽約期限 5→10 日、志願小位登記時選定、承租→使用（社宅除外）、刪伍三（八）、附件二去貼紙欄；此輪異動黃底 v2 標示供追認",
+          "body": "- 標紅版：class=\"v2\" ＝ 10/8 例會通過版之後的異動（紅字＋黃底），圖例、要點 14 項與各款說明同步\n- build-bylaw-compare.mjs 認得 v2 → docs/32 橫式／直式／docx 重生（25→24 列，docx 黃色螢光）\n- docs/19 md 第 16 條彙整、docs/34 §4/§5 回填、TODO 5→10 與小位改制條目更新\n- 「重機 最後」批註意思未明，未動\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3686a9fd",
+          "time": "08:15",
+          "message": "fix(SeatMap): 手機版整頁被地圖撐到 1000px 寬 — 根元素加 min-w-0",
+          "body": "iPhone 模擬實測 /select：手機單欄 grid 的子項 min-width:auto，SeatMap 以初始\nzoom=1 的 1400px 底圖撐開容器，focusSeats 再依撐開後的寬度算縮放，整頁變\n1012px、手機瀏覽器整頁縮小、字很小。加 min-w-0 後視窗回 390px，地圖只在\noverflow 容器內可拖曳。/seat-admin 共用此元件一併修到。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "661abf7c",
+          "time": "08:09",
+          "message": "docs(34): 回填「手機選位被遮到」查明結果 — 是 demo 頁側欄擠掉地圖，10/30 已修上線",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7cb63959",
+          "time": "08:05",
+          "message": "fix(demo): 選位 demo 頁手機版面 — 側欄可收合、窄螢幕上下排列、進場聚焦車位區",
+          "body": "10/29 臨時管委會委員反映手機選位「被遮到」：側欄寫死 240px 永遠靠右，\n400px 寬視窗下地圖只剩一條縫。改為：\n- 側欄加收合／展開鈕，桌機收起縮成窄條\n- ≤700px 改上下排列、側欄在底部最高 45vh，手機預設收起只留一列\n- 進場捲到可點選車位座標中位數（停車場 L 形，外框中心是空的圖例區）\n- 高度改 100dvh，避開手機瀏覽器工具列\n座位資料未動，build-classification-from-demo.mjs 輸出不變。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "f5141d38",
+          "time": "08:03",
+          "message": "forms: 志願小位核對列改「已於系統確認該號無人登記並指派」，拿掉不存在的小位名冊；docs/04 櫃台流程同步",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "712c52e3",
+          "time": "08:03",
+          "message": "forms: 紙本登記表簽約繳費期限改「公告後 10 日內、逾期視同放棄」（5→10 統一）；docs/34 記確認、TODO 列其餘待同步處",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b20f0455",
+          "time": "07:58",
+          "message": "forms: 紙本登記表志願序改五欄滿版表格 ①–⑳、列印邊界對齊 Word 窄邊界 12.7mm、填寫列高放大；驗收標準改為窄邊界一頁近滿版（Edge 270mm／Word 269mm，邊界底 284mm）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "822ec8c9",
+          "time": "07:49",
+          "message": "forms: 紙本登記表滿版化——機車改 3 列、志願序加到 ⑮、字級列高放大；內容高 236mm 留 Word 標準邊界緩衝",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "61c2d760",
+          "time": "07:43",
+          "message": "forms: 紙本登記表志願小位改限機車 1＋登記時直接劃位（□是→小位號）、管理中心加核對列；docs/04 規格與 TODO 同步",
+          "body": "依 2026-10-29 臨時管委會（docs/34）：表格 A 不另立、志願小位限每戶第一部、依登記順序當場選定小位號碼。\n.doc／public 下載版同步自 html；Edge 轉 PDF 一頁、版心約 75%。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "69118ace",
+          "time": "07:42",
+          "message": "docs(34): 2026-10-29 臨時管委會掃描＋手寫批註文字化，供各 session 同步",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 20
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "fa41ea98",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-10-30",
+          "body": "🤖 自動生成於 2026-10-30 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "814d30a2",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-10-29 (25 commits)",
+          "body": "🤖 自動生成於 2026-10-30 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 19,
+    "sideCommits": 22,
+    "totalCommits": 41
+  }
+}
