@@ -1,15 +1,15 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-01",
-    "days": 546,
-    "weeks": 78.0
+    "end": "2026-11-02",
+    "days": 547,
+    "weeks": 78.1
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 6669,
+    "totalCommits": 6770,
     "projectCount": 103,
-    "dailyAverage": 12.2
+    "dailyAverage": 12.4
   },
   "projects": [
     {
@@ -11461,7 +11461,7 @@
     },
     {
       "name": "OrderInSql",
-      "totalCommits": 593,
+      "totalCommits": 600,
       "commits": [
         {
           "hash": "13ace8da",
@@ -16206,13 +16206,69 @@
           "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "25d7e575",
+          "date": "2026-11-02",
+          "message": "docs(known-problems): P-02 開發機已開 SMB1，可直接看 168.227 的 h$",
+          "body": "原文寫「開發機連不了、要 RDP」。2026-11-02 開發機啟用 SMB1 用戶端並實連通，\n檔案時間可以直接看；其他電腦仍連不了，指令本身照舊在 RDP 裡跑。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f9713d37",
+          "date": "2026-11-02",
+          "message": "docs(known-problems): P-02 同檔名重送 0078／1068 讓前處理 PHP 迴圈、Cube 拉不走",
+          "body": "11/2 院所醫令收檔亮紅的查證結果：來源 rename 撞名失敗、txt 每分鐘重寫、pull 永遠 HOLD。\n記下判讀步驟、人工排除方式與修法注意事項；修法待 PHP 負責人決定。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "24d150e0",
+          "date": "2026-11-02",
+          "message": "docs(cases): 0519 佑霖「10/1–10/2 沒資料」查證——我方鏈完整（133 張已分單、132 已發報告），缺口在報告回傳或待名單",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "6b4308f3",
+          "date": "2026-11-02",
+          "message": "docs(deploy): DEPLOY_LOG 34——!499 逐檔彈窗＋原檔下載 11/2 08:11 上線；TODO K／L 標已上線",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "fb105ed5",
+          "date": "2026-11-02",
+          "message": "docs(todo): backlog K／L 標記已做（!499）待部署",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8666980b",
+          "date": "2026-11-02",
+          "message": "feat(gui): 轉入結果逐檔回報＋非全成功彈窗、原檔下載（backlog K／L，11/2 同仁 memo）",
+          "body": "K 轉入結果看不懂／看不到\n- ImportReport 加 Files：每個檔的去向（成功／失敗／略過／留 inbox／已處理過／找不到）、\n  單數、新增／更新張數、原因。IOrderRepository 加 UpsertOrderWithOutcomeAsync（預設回 Unknown，\n  既有替身不用改）；SqlOrderRepository 兩條路徑都回報主檔是新增還是更新\n- 成功列 MessLog 尾綴「；寫入 N 張（新增 X、更新 Y）」，手動轉入稽核列同樣帶寫入張數；\n  ParseWriteCounts 讀得回來\n- 手動指定的檔不在 inbox 時反查 MessLog（IMessLogQuery.FindLatestMentionAsync，LIKE 轉義），\n  回「已於 hh:mm 處理成功、寫入 N 張」而不是 0/0/0——10/28 0519 補傳就是排程 5 秒前先吃掉了\n- GUI：_ImportResult 共用視窗，每個檔都「成功、有單、全是新單」才 toast，其餘開視窗逐檔列、\n  按「知道了」才關；一張新單都沒有的成功檔標「成功，但要注意」（0519 三次成功、0 新單）\n\nL 原檔下載\n- GET /api/units/{unit}/download?file&source：與 raw 共用 UnitFileResolver 守門、同權限，\n  寫一行 MessLog（只記檔名不記路徑，流量統計是用資料夾比對 MessText 的）\n- 線別頁、收檔進度頁的檔案列與試解析視窗各加「下載」\n\n測試 872 綠（新增 12：逐檔結果、尾綴讀寫、反查說法、LIKE 轉義）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9ce3886d",
+          "date": "2026-11-02",
+          "message": "docs(todo): backlog K／L——轉入結果逐檔回報＋非成功彈窗、GUI 下載原檔（11/2 同仁 memo）",
+          "body": "K：10/28 0519 補傳查證——排程 15:58:08 先吃掉檔，手動轉入 5 秒後回 0/0/0；\n   正式庫以該檔名反查 0 張（ansn 冪等，檔內的單 10/5–10/7 已寫 133 張），\n   三次「處理醫令成功」都是無新單，任何畫面看不到；0842 重送守門隔離的 toast 沒人看到。\n   做法：逐檔回報（含「已由排程於 hh:mm 處理、寫入 N 張」）、非全成功改成要按知道了的視窗。\nL：GET /api/units/{unit}/download，與 /raw 共用 ResolveUnitFile、同權限、寫 MessLog。\n兩項都在 OrderInSql 做、不改分單系統。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 252,
+      "totalCommits": 280,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -18229,6 +18285,230 @@
           "body": "",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "486ba2b6",
+          "date": "2026-11-02",
+          "message": "chore: memory 紙本表已同步經理 11/02 版",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2fd2ea5a",
+          "date": "2026-11-02",
+          "message": "chore: ParkFee session 收尾備份 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "632e046f",
+          "date": "2026-11-02",
+          "message": "chore: ParkFee 條文依經理 115/10/29 版更新 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0dae543e",
+          "date": "2026-11-02",
+          "message": "chore: ParkFee 經理 11/02 稿件出入 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f32db8c5",
+          "date": "2026-11-02",
+          "message": "chore: ParkFee 六支函式已部署 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1c4a3a29",
+          "date": "2026-11-02",
+          "message": "chore: ParkFee 11/15 清單與完整說明回饋 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "05717d3c",
+          "date": "2026-11-02",
+          "message": "chore: RiskPrediction-3H memory 改指向 pdf-to-md",
+          "body": "補上 411cf6e 訊息提到但實際漏掉的 memory 更新（路徑大小寫不符，未被加入）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "411cf6ec",
+          "date": "2026-11-02",
+          "message": "feat: 新增 pdf-to-md skill（PDF 轉 Markdown，標出不可信頁面）",
+          "body": "逐頁分出文字頁、掃描頁、OCR 文字層與亂碼頁，補回版面解析漏掉的行，\n標記無法解碼的符號、表格與圖片，並可把需要核對的頁面轉成 PNG。\n同步更新 RiskPrediction-3H memory 的 Windows PDF 做法。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b0083839",
+          "date": "2026-11-02",
+          "message": "chore: session 收尾備份 2026-11-02",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ff3c0888",
+          "date": "2026-11-02",
+          "message": "feat: 新增 basketball-highlights skill（打球精華剪輯）",
+          "body": "認球員、人眼核對誰傳誰投、虛擬鏡頭跟球剪片的流程；程式在 scoreboard 的\nml/scripts/highlight_*.py。memory 同步記錄 10-30 場的進度。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "85e223d9",
+          "date": "2026-11-02",
+          "message": "chore: ParkFee 鎖定修正待部署狀態 2026-11-02",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b5e58bb5",
+          "date": "2026-11-02",
+          "message": "chore: ParkFee 登記時窗待部署狀態 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ffbd1e9a",
+          "date": "2026-11-02",
+          "message": "chore: memory 說明表 Word 版與紙本表 .doc 同步規則",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bece84c9",
+          "date": "2026-11-02",
+          "message": "chore: ParkFee 無障礙改櫃台指派狀態更新 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6bfc307f",
+          "date": "2026-11-02",
+          "message": "chore: session 收尾備份 2026-11-02",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2f51dd67",
+          "date": "2026-11-02",
+          "message": "chore: session 收尾備份 2026-11-02",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "222a49f5",
+          "date": "2026-11-02",
+          "message": "memory: 開發機開 SMB1 用戶端後可直連 168.227（含重裝步驟與退役移除）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c3d58308",
+          "date": "2026-11-02",
+          "message": "chore: 更新 Cerberus memory 索引過時說法",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "08aeb80e",
+          "date": "2026-11-02",
+          "message": "chore: session 收尾備份 2026-11-02",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3bc02159",
+          "date": "2026-11-02",
+          "message": "chore: Cube HOLD 迴圈補上撞名查證結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f46cb7de",
+          "date": "2026-11-02",
+          "message": "chore: Cube HOLD 迴圈補上 PHP 讀碼結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "50f4030d",
+          "date": "2026-11-02",
+          "message": "chore: 補記開發機連不上 168.227 的原因（新機無 SMB1）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "afc1dcf8",
+          "date": "2026-11-02",
+          "message": "chore: 記錄 Cube 收檔 HOLD 迴圈判讀與未解項",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "01c2ffa1",
+          "date": "2026-11-02",
+          "message": "chore: session 收尾備份 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ecbe79b9",
+          "date": "2026-11-02",
+          "message": "memory: 檢驗雲存摺里程碑草稿已擬 2026-11-02",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "488fe401",
+          "date": "2026-11-02",
+          "message": "memory: 修正 uclcloud iOS 送審時間與 MR 狀態",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9d787872",
+          "date": "2026-11-02",
+          "message": "memory: uclcloud iOS 11-02 已送審",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "23025894",
+          "date": "2026-11-02",
+          "message": "memory: uclcloud iOS 11-02 推 MR !36 !38",
+          "body": "",
+          "category": "其他",
+          "tags": []
         }
       ],
       "type": "work"
@@ -20050,7 +20330,7 @@
     },
     {
       "name": "OnlineReport\\cmv-parent-portal",
-      "totalCommits": 171,
+      "totalCommits": 179,
       "commits": [
         {
           "hash": "76822722",
@@ -21418,6 +21698,70 @@
           "message": "docs：送檢單位兩條路（開新代碼／沿用 1931＋關 PMF 回傳）與不能直接沿用的原因；下一輪要問醫院的三件事（送檢流程、檢驗值回傳、LIS 串接）",
           "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "18d91c8d",
+          "date": "2026-11-02",
+          "message": "docs：把同站併行與醫院確認的待辦寫進文件（2026-11-02）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "83a27f5f",
+          "date": "2026-11-02",
+          "message": "docs：更新同站併行現況與外網狀態（2026-11-02 收尾）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4d9d988d",
+          "date": "2026-11-02",
+          "message": "合併 MR !118: docs：同站併行已在正式機開啟（2026-11-02）",
+          "body": "docs：同站併行已在正式機開啟（2026-11-02）\n\nSee merge request ucl/onlinereport/cmv-parent-portal!118",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "37188c70",
+          "date": "2026-11-02",
+          "message": "docs：同站併行已在正式機開啟（2026-11-02），記現況與還沒做的步驟",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8f8cc1f0",
+          "date": "2026-11-02",
+          "message": "合併 MR !117: 連線字串改放密文：照公司慣例用共用的 DES Cipher",
+          "body": "連線字串改放密文：照公司慣例用共用的 DES Cipher\n\nSee merge request ucl/onlinereport/cmv-parent-portal!117",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "d2d9e144",
+          "date": "2026-11-02",
+          "message": "連線字串改放密文：照公司慣例用共用的 DES Cipher（同 ucl-admin），2026-11-02",
+          "body": "使用者不要在 server 設定檔放明文連線字串。`ConnectionStrings:Cmv` 放密文，\n啟動時用 `EncryptionKey`（預設 USERKEY）解開；解不開就啟動失敗。本機 LocalDB\n維持明文，非開發環境出現明文會寫警告。\n\n- 加 `--encrypt-connection` 產生密文\n- 測試向量另外照公司演算法計算，對不上代表和其他專案不相容\n- 文件記錄 sql/16、sql/17 已於 2026-11-02 套到正式 DB\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "84f44cc0",
+          "date": "2026-11-02",
+          "message": "合併 MR !116: 同站併行：模擬開著時，醫師註冊與真帳號走正式 DB",
+          "body": "同站併行：模擬開著時，醫師註冊與真帳號走正式 DB\n\nSee merge request ucl/onlinereport/cmv-parent-portal!116",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "42d137ea",
+          "date": "2026-11-02",
+          "message": "同站併行：模擬開著時，醫師註冊與真帳號走正式 DB（Portal:Demo:LiveAccounts，2026-11-02）",
+          "body": "讓曹醫師等人邊試模擬、邊註冊正式帳號、上傳正式簽名，不另開站。預設關閉，\n沒開這個開關時行為不變。\n\n- 每個請求選資料庫（DataRouting）：家長端與 LIS API 維持模擬；/admin 依帳號\n  分流（.demo 走模擬），申請、忘記密碼、開通一律走正式；沒分類到的預設模擬\n- 模擬與正式的帳號 id 可能相同，所以登入 cookie、開通連結、表單 token 都分環境\n- 正式切換後，模擬時期的登入 cookie 自動登出\n- 模擬帳號的簽名頁提醒不要上傳正式簽名；正式帳號頁面有橫幅\n- sql/17 建第一個 UCL 管理者帳號（正式 DB 原本沒有步驟會建，沒人能審核）\n- 開 LIS 同步前必須關模擬（deployment.md「同站併行」）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
           "tags": []
         }
       ],
@@ -25828,7 +26172,7 @@
     },
     {
       "name": "Management\\AuditIntegration",
-      "totalCommits": 78,
+      "totalCommits": 79,
       "commits": [
         {
           "hash": "a46fcee3",
@@ -26451,6 +26795,14 @@
           "date": "2026-10-21",
           "message": "TODO：財產清冊已更新（M-034）、檔名更正；下一步找孝田正式稽核",
           "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cd041ffc",
+          "date": "2026-11-02",
+          "message": "檢驗雲存摺里程碑（XRS0602002）草稿：補 iOS 進度，待上架後填日期",
+          "body": "- 產生腳本與草稿納入版控（10-15 產出後一直未追蹤）\n- M5 Android 改已完成（上架日待填）、M6 iOS 寫入帳號申請到送審經過（10/21–10/30，上架日待填）\n- M8 預定 2027/01；M7 三項尚未動工，維持待處理\n- 執行說明補 Apple 帳號改由聯合生技申請、(四) iOS 版平台差異；總結補第二階段\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
         }
@@ -27082,7 +27434,7 @@
     },
     {
       "name": "LIS\\Schedule\\Chronos",
-      "totalCommits": 62,
+      "totalCommits": 63,
       "commits": [
         {
           "hash": "6441418f",
@@ -27579,13 +27931,21 @@
           "body": "- 七支已由 Chronos 接手滿一週，舊工作排程定義刪除（每月績效留 11-02 核對後刪）\n- D2C-Pdf* 五支（10-03 PDF 功能臨時工作，回填已完成）刪除，logs\\pdf-*.cmd 與 mktask.* 備份到\n  D:\\tmp\\chronos-task-backup-20261027\\_d2c-pdf-cmd 後刪（裡面寫死身分證號）\n- \\雙向連線與報告\\檢驗雲上傳（Data2CloudV2）只停用，觀察一週再刪\n- 56.231 自訂排程 79 → 35（Chronos 1、內部排程 12、雙向連線 22）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "1a2e2469",
+          "date": "2026-11-02",
+          "message": "docs(連線矩陣): 開發機開 SMB1 用戶端後可直連 168.227",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "OfficialWebsites\\uclcloud-app",
-      "totalCommits": 44,
+      "totalCommits": 47,
       "commits": [
         {
           "hash": "8d8e4a75",
@@ -27936,6 +28296,30 @@
           "date": "2026-10-29",
           "message": "docs(ios): 10-28 同仁 iPhone 15 推播測試報告歸檔，結果如預期（Personal Team 簽不了推播）",
           "body": "- 測試報告移到 docs/iOS實機測試報告_20261028.docx\n- A 線 1.5 節補實測結果與三層原因（無 aps-environment、bundle id .devtest、APNs 金鑰未上傳）\n- 待辦補「無檢體算進項目數」待決\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "30fd9f4a",
+          "date": "2026-11-02",
+          "message": "合併 MR !36: docs: App Store 年齡分級定案為「醫療資訊：偶爾／輕微」",
+          "body": "docs: App Store 年齡分級定案為「醫療資訊：偶爾／輕微」\n\nSee merge request ucl/officialwebsites/uclcloud-app!36",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "e5df9b71",
+          "date": "2026-11-02",
+          "message": "合併 MR !38: ios: 設定公司 Team（34KR9KNH92）與 Push Notifications entitlement",
+          "body": "ios: 設定公司 Team（34KR9KNH92）與 Push Notifications entitlement\n\nSee merge request ucl/officialwebsites/uclcloud-app!38",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "863545b2",
+          "date": "2026-11-02",
+          "message": "docs: App Store 供應地區台灣＋香港、截圖改 6.3 吋規格並附上傳版",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
         }
@@ -32370,7 +32754,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 811,
+      "totalCommits": 813,
       "commits": [
         {
           "hash": "4bdff543",
@@ -38859,13 +39243,29 @@
           "body": "🤖 自動生成於 2026-11-01 07:06",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "aacbeef0",
+          "date": "2026-11-02",
+          "message": "docs: 更新彙整資料 2026-11-02",
+          "body": "🤖 自動生成於 2026-11-02 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "38cfacb8",
+          "date": "2026-11-02",
+          "message": "docs: 每日工作紀錄 2026-11-01 (2 commits)",
+          "body": "🤖 自動生成於 2026-11-02 07:05",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "ParkFee",
-      "totalCommits": 363,
+      "totalCommits": 384,
       "commits": [
         {
           "hash": "caa33437",
@@ -41770,13 +42170,181 @@
           "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "d49f78b3",
+          "date": "2026-11-02",
+          "message": "docs(forms): 紙本登記表改經理 11/02 文字並同步網站下載版；補說明表 Word 版與收尾文檔",
+          "body": "- 紙本表 html／doc／public 下載版：標題、簽約證件、重機只登記不抽籤、無障礙限持有身心障礙者專用機車、自行車、志願序標題共 6 處，段落文字與經理稿逐段比對一致\n- 新增 docs/35 橫式 Word 版與 scripts/build-explainer-docx.py\n- docs/36 開頭標明已被 11/02 決定取代的項目；README 移除暫存區腳本指向、補 A0 產生指令；docs/04、TODO 跟上現況\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "70b4d096",
+          "date": "2026-11-02",
+          "message": "docs(TODO): 測試帳號預計提前到 11/10 關時窗驗證後清除",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "2bec2369",
+          "date": "2026-11-02",
+          "message": "docs+ui: 首頁車位數 317/330；docs/01 社宅不登記；docs/26 重機預期改為待安排與維護頁指派",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9f59ebb1",
+          "date": "2026-11-02",
+          "message": "fix(ui): 志願小位繳費文字改為一年 1,200 元、公告後 10 日內簽約繳費，不提繳費地點",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "74be5136",
+          "date": "2026-11-02",
+          "message": "fix(select): 志願小位面板改為公告後 10 日內繳費、移除重複提示、搶輸後清除選取",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2a8d8697",
+          "date": "2026-11-02",
+          "message": "docs(TODO): 把 11/15 前待辦整合到 🚦 清單，含收費流程定案期限與 Claude 可做項目",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8599fe9e",
+          "date": "2026-11-02",
+          "message": "docs(TODO): 記錄第二台車配大位試算通過",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5a9aa4d7",
+          "date": "2026-11-02",
+          "message": "docs: 記錄抽籤與收費流程方向——12/2 匯入一次、依登記收費含重機、12/10 繳清、12/15 分配（待經理確認）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4ce7dcd1",
+          "date": "2026-11-02",
+          "message": "docs(TODO): assign-seat 已部署，負面路徑以真 API 驗過",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "3fca8ee7",
+          "date": "2026-11-02",
+          "message": "feat: 依經理 11/02 文件調整——重機不抽籤列待安排、641–655 移出自行車池、無障礙資格文案",
+          "body": "- 配位引擎拿掉重機輪，重機列「待安排」、不算落選；抽重機邏輯移到 drawHeavy()，12/15 後用\n- 維護頁可指派重機相鄰兩個大位；assign-seat 支援兩格指派、一起解除，換格會放掉舊格的鎖（待部署）\n- 修維護頁按鈕把 click 事件當「強制」送出，公益位確認對話框原本不會出現\n- 自行車池回到 164 格，641–655 機車端續鎖、不配位\n- 登記頁、選位頁、配位頁、結果匯出、住戶頁、健檢、docs/01、docs/10 同步\n- TODO 記錄決定：時窗 11/10 關、第一部可排小位、兩輪抽籤待確認事項\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a1ba4c55",
+          "date": "2026-11-02",
+          "message": "fix(ui): 頁面文案移除 Supabase、後端、vehicle 等工程用語",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9da26db9",
+          "date": "2026-11-02",
+          "message": "fix(select): 已登入住戶不再顯示「未登入」提示",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "bd9de265",
+          "date": "2026-11-02",
+          "message": "docs(TODO): 志願小位搶位實測通過，記錄三個待修小問題",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b40e02de",
+          "date": "2026-11-02",
+          "message": "docs(辦法): 依經理 115/10/29 版更新條文對照——重機取消無障礙、肆十五維持原文、伍二（八）證件與線上登記、刪伍三（七）、增伍三（八）限停一輛、附件二欄位",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "2b161ca9",
+          "date": "2026-11-02",
+          "message": "docs(TODO): 記錄經理 11/02 稿件與系統的出入及待確認事項",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "fe46e888",
+          "date": "2026-11-02",
+          "message": "docs(TODO): 記錄 10/30 會議紀錄到位後要連動修正的條文與文件",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a91ad01b",
+          "date": "2026-11-02",
+          "message": "docs(TODO): 六支函式已部署並以真 API 驗證",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "333acc78",
+          "date": "2026-11-02",
+          "message": "docs(TODO): 彙整 11/15 前完整清單與 12/1 前待辦；健檢加無志願無電腦選號；文件簽約期限統一 10 日",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a38f5d5a",
+          "date": "2026-11-02",
+          "message": "fix: 櫃台指派不得蓋掉已掛車的車位，批次鎖定改只增減指定格",
+          "body": "避免住戶線上鎖定的志願小位被櫃台指派給第二人，或被批次操作洗掉。函式尚未部署，見 TODO。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e40220f1",
+          "date": "2026-11-02",
+          "message": "feat: 登記、修改、志願、選小位共用 11/15-11/30 時窗，管理員可在登記頁櫃台補登",
+          "body": "函式尚未部署，見 TODO。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "969bfbea",
+          "date": "2026-11-02",
+          "message": "feat: 無障礙位改由櫃台核驗後指派，引擎拿掉 Round 0；身障旗標只算申請",
+          "body": "未核驗者照一般抽籤、志願指名無障礙不配；check-roster 列尚未指派名單與超額預警。\n順手把簽約期限 10 日回寫 docs/01、docs/05，避免重生 bylaw-content 時退回 5 日。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "RiskPrediction-3H",
-      "totalCommits": 361,
+      "totalCommits": 366,
       "commits": [
         {
           "hash": "5d267176",
@@ -44664,6 +45232,46 @@
           "message": "docs(sci): 教授 10/25 語音逐字稿與 LINE 紀錄；TODO C0-8 照原論文＋手改重做",
           "body": "- 教授出國回來對照 10/09 版與手改紙本：部分重要段落被刪，要「原論文＋只套手改」、\n  分段換行照教授、先不要 AI 精簡；可拿回手改紙本當面討論\n- 初步比對：差異集中在摘要（原文留存 2%）、1.1、1.2（9/07 濃縮草稿沿用至今）\n- 決定：先拿回紙本（補掃 p.2–3）再逐頁比對\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "65bf6312",
+          "date": "2026-11-02",
+          "message": "docs(sci): 11/02 版已寄教授，TODO 與聯絡紀錄更新",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c24243ae",
+          "date": "2026-11-02",
+          "message": "fix(sci): 台帳 §1 六節待核項逐頁對掃描核完；4.4 首句與 7.1 三處還原定稿II 原文；重出寄教授 20261102 版",
+          "body": "- 2.5／3.2／4.2 缺段皆有教授刪除記號；3.4 為教授左緣改寫；4.1 鉛筆明寫刪除 → 標核准\n- 4.4 StratifiedGroupKFold 首句、7.1「學術層面」「穩健性驗證」兩段與第 2 段用語：紙本 p.18–19、p.68\n  零批註，是前版改寫掉的 → 還原原文，7.1 加〔※〕請教授裁示是否隨 6.5/6.6/SR 刪\n- 說明檔補第 5 點；寄教授 docx/pdf 重製（37 頁，欄位更新無 Error）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a2fc2b8f",
+          "date": "2026-11-02",
+          "message": "feat(sci): C0-8 判讀全部核定、1.4 照便條原字、參考文獻移 [4] 重編；出寄教授 20261102 版",
+          "body": "- 摘要：「血液」未劃掉、實為下一行插入「（多次）」；「只用」；1.1：「狀況」、「發病風險，一旦」、\n  「是降低三高疾病防治負擔的關鍵」（字面照插）；「價值，但是傳統的」維持\n- 1.4 第一段全照教授便條：消融（ablation）實驗、準確性、「完整」歸位、「進行」、「選擇的參考依據」、\n  Δ 特徵、「重要性（分析）」；整段轉黑字。1.3 三處塗改經紙本核過維持\n- 還原段落 15 段 42 個 run 補標楷體（原掉回新細明體）\n- 參考文獻 [4] Sun & Zheng 隨 1.1 第 2 段後半刪除後無引用 → 移除；SEQ/REF 欄位更新為 25 筆，\n  1.1 純文字引用同步改號，驗證全部對上\n- 寄教授/JISE_manuscript_Ch1-Ch7_20261102.{docx,pdf}（37 頁）＋ 20261102_給教授說明.md\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "39fd263d",
+          "date": "2026-11-02",
+          "message": "feat(sci): C0-8 摘要／1.1／1.2 照定稿II 原文＋教授手改還原；1.3／1.4 內容放反修正",
+          "body": "- 20_全本比對_教授批註.md：新舊掃描墨水比對（教授 9/22、9/30 後無新批註）、逐節留存率、\n  核准刪 vs 未核准被縮判定、四頁騰稿（摘要 i、p.1、p.2、p.3 便條）\n- 工作稿：三處還原，紅字只標教授手改字；10/09 版 1.3 與 1.4 內容對調修回\n  （便條明寫「換行後（這一段放應用貢獻）」）\n- 13_ 加被取代註記；TODO C0-8 → 待核 4 處判讀後出寄教授版\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b7ef43b0",
+          "date": "2026-11-02",
+          "message": "feat(sci): 教授 10/28 三處小修騰入＋Fig. 1 重畫；10/29 取回全份手改紙本掃描合併（87 頁）",
+          "body": "- 19_1028三處小修：式 (3) 第 (4) 點、Ch4 引言、Fig. 1 五處英文，騰進工作檔並寄教授 10/29 版\n- scans/20261029_教授批註_全本合併.pdf：依內文頁序合併兩份影印機輸出，書籤標來源；\n  p.2–3 與 1.3 Approach 手稿首次有影像；p.8/9 順序調正；p.14–19 用 10/09 掃描補；p.76 仍無\n- 兩份原始掃描照 README 規矩保留\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
           "tags": []
         }
       ],
@@ -48785,6 +49393,437 @@
       "type": "side"
     },
     {
+      "name": "scoreboard",
+      "totalCommits": 53,
+      "commits": [
+        {
+          "hash": "2932fc3c",
+          "date": "2026-10-22",
+          "message": "docs: 錄影改成每段 15 分鐘；手機設定補 UHD、不用動態模式",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "808c7130",
+          "date": "2026-10-22",
+          "message": "docs: 錄影指南加入手機設定表",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f0844fe2",
+          "date": "2026-10-22",
+          "message": "docs: 試錄改成按錄影前的現場自我檢查",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "cf115258",
+          "date": "2026-10-22",
+          "message": "docs: 腳架試過沒問題；正式錄前先試錄一兩分鐘",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ca0fc5a0",
+          "date": "2026-10-22",
+          "message": "docs: 背心要有號碼，補號碼大小、顏色、數字挑選建議",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ed9b8381",
+          "date": "2026-10-22",
+          "message": "docs: 連假錄影計畫、半場標記加隊伍欄、買背心重點",
+          "body": "- 錄影指南新增連假計畫：全場兩邊各一小時、半場兩個角度各半小時，含檔名\n- 容量與傳檔：三小時 4K 要 60 GB 起跳，改用傳輸線傳到電腦，不上傳 Drive\n- 標記格式：半場加第 4 欄「隊伍」我／對（現有程式只讀前兩欄，相容）\n- TODO：連假三步驟、蝦皮關鍵字與尺寸\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b17a127b",
+          "date": "2026-10-22",
+          "message": "docs: game_mode migration 已套用到 Supabase",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "2a577c99",
+          "date": "2026-10-22",
+          "message": "web: 全場／半場模式，全場點一下 +2",
+          "body": "- 計分手勢：全場點一下 +2、半場點一下 +1；上滑 +1、下滑 −1 兩種模式都一樣\n- 底部新增「全場／半場」按鈕：預設全場，按一下切換這場的模式，所有裝置透過 Realtime 同步\n- 紀錄與 LINE 分享文字標出（半場）\n- migration 20261022000000_game_mode.sql：games.mode（full／half），new_game 沿用上一場的模式\n- 資料庫還沒套用 migration 時網頁照常運作（當全場），切換半場會提示\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "da7e5219",
+          "date": "2026-10-22",
+          "message": "docs: 錄影指南加入兩種角度試錄比較",
+          "body": "- A 籃下底線後方往場內、B 場外邊線往場內，各錄 30 分鐘\n- 比較表：擺法、進球判定、誰出手與背心、三分、籃板、注意事項\n- TODO 錄影加入這一項\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "612d2e66",
+          "date": "2026-10-22",
+          "message": "docs: 背心判斷分三種結果，看不清楚的進球待確認",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8e6cea42",
+          "date": "2026-10-22",
+          "message": "docs: 鬥牛每球 1 分打到 6 分；只有我方穿背心，買三件",
+          "body": "- 辨識只分「有沒有穿背心」\n- 螢光黃／螢光綠，背上大號碼更好；早點買，半場錄影時穿著\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d1582b44",
+          "date": "2026-10-22",
+          "message": "docs: 半場鬥牛沒有三分，重點是判斷哪一隊進球",
+          "body": "- 待確認的進球不擋比賽，之後補點\n- 全自動：往回找出手的人；背心最準，沒背心就開打前點人分隊\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9d8439e4",
+          "date": "2026-10-22",
+          "message": "docs: TODO 加入功能順序與半場鬥牛模式",
+          "body": "- 功能順序：自動累積分數 → 三分球 → 籃板、助攻等個人數據\n- 錄影：同一支手機兩個籃框先後各錄一小時；半場鬥牛也可以錄\n- 全場、半場都要支援；新增「半場鬥牛模式」：先半自動確認隊伍，之後靠背心顏色\n- 待決定：鬥牛的計分方式與打到幾分\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5641d408",
+          "date": "2026-10-22",
+          "message": "docs: 決定計分制為一般 2 分、三分 3 分",
+          "body": "- App 自動進球本來就記 2 分，不用改\n- 網頁待辦：最近一筆改 3 分；手勢配合 2／3 分制（待確認）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7d87bb69",
+          "date": "2026-10-22",
+          "message": "docs: 決定打全場，一支手機對一個籃框",
+          "body": "- 待決定「全場還是半場」→ 全場，現有籃框對應隊伍的設計直接適用\n- 拿掉半場模式\n- 網頁待辦補「標出 1 號／2 號籃框」，換場對調寫清楚用途\n- 錄影補：兩支手機可兩個籃框同時錄、腳架放場外\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e8ffe442",
+          "date": "2026-10-22",
+          "message": "docs: TODO 改以自動計分為主線",
+          "body": "- 最上面列自動計分的 6 個步驟：錄影 → 實機裝 APK → 接 YOLO → 用影片評估 → 必要時訓練 → 實戰測試，寫清楚誰做、等什麼\n- 錄影、待決定事項、App 其他歸在主線底下\n- 已完成項目移到最下面\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "617f0323",
+          "date": "2026-10-22",
+          "message": "web: 比分放大到撐滿隊伍區塊，直向一律上下排",
+          "body": "- 比分字級改用 container query：依隊伍區塊寬高取較小者（66cqh／78cqw），三位數縮到 54cqw\n- 直向螢幕（含平板直放）一律上下排列，不再是細長兩欄\n- 實測比分高度：平板橫放 330→549px、平板直放 229→428px、手機直放 149→291px、電視 529→804px\n- LINE 分享文字：還沒有打完的場次時不印空的【戰績】\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e8c8d943",
+          "date": "2026-10-22",
+          "message": "web: 紀錄頁加「刪除這一天」",
+          "body": "- 清單最下面的虛線紅字按鈕，一次刪掉當天全部場次（一個請求標記所有加分為撤銷）\n- 確認視窗寫出日期與場數；有進行中的場次會提醒計分板會歸零\n- 「復原」救回整天，並跳回被刪的那一天\n- 單場刪除改用同一支 deleteGames\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "93af19fd",
+          "date": "2026-10-22",
+          "message": "web: 紀錄頁放大，中間捲動、按鈕固定",
+          "body": "- 紀錄對話框幾乎佔滿畫面（最寬 760px），字級依畫面短邊放大\n- 日期列與分享／關閉按鈕固定，只有戰績與場次捲動\n- 矮螢幕（手機橫放）三顆按鈕併成一排\n- 修正兩位數場次編號被切掉\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "50e0c6a8",
+          "date": "2026-10-22",
+          "message": "web: 紀錄可編輯、刪除，刪除後可復原",
+          "body": "- 紀錄頁點一場：改隊名、改比分、刪除這場\n- 改比分＝補手動加減分事件到指定比分，原本的事件不動（每筆 ±3，差太多拆多筆）\n- 刪除＝把該場未撤銷的加分全標成撤銷，比分 0:0 就不顯示；紀錄頁出現「復原」，只還原這次標記的事件\n- 提示改用 popover 放進 top layer，開著對話框時不再被蓋住\n- 不改資料庫 schema\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2c29f278",
+          "date": "2026-10-22",
+          "message": "web: 紀錄改成最新的在上、超過兩小時不顯示分鐘數",
+          "body": "- 各場比分最新的在上（進行中的那場排第一），編號仍照開打順序\n- LINE 分享文字同樣順序\n- 打了超過 120 分鐘多半是最後一場沒按開新局、隔天才結束，只顯示開局時間\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d2303743",
+          "date": "2026-10-22",
+          "message": "web: 紀錄顯示每場的開局時間與打了幾分鐘",
+          "body": "- 時間取自開新局的時間點（games.created_at／ended_at），不另外記錄\n- 紀錄頁與 LINE 分享文字都加上「19:32（18 分鐘）」\n- TODO：清除、編輯紀錄先記下，之後再做\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1ebce9ea",
+          "date": "2026-10-22",
+          "message": "docs: 新增 TODO，README 開發階段改指向 TODO",
+          "body": "- docs/TODO.md：待決定事項、錄影、網頁、個人數據、App、辨識訓練\n- README 原本的開發階段清單搬進 TODO，只留進度摘要與連結\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "bd464a17",
+          "date": "2026-10-22",
+          "message": "web: 比賽紀錄、開新局選隊伍、點隊名改名",
+          "body": "- 開新局改成對話框選兩隊，快選 A～D 與今天用過的隊名\n- 點隊名改這場的隊名，其他裝置透過 Realtime 跟著更新\n- 新增「紀錄」：依日期的各隊戰績、每場比分，可分享到 LINE 或複製文字\n- 凌晨 5 點前開的局算前一天；0:0 不列入；進行中的那場不算進戰績\n- 統計放在 src/records.js（純函式），不改資料庫 schema\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "10e6b746",
+          "date": "2026-10-22",
+          "message": "Redraw favicon as SVG basketball so it isn't clipped",
+          "body": "The emoji-as-text favicon overflowed its viewBox and rendered\ndifferently per OS emoji font.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f592025b",
+          "date": "2026-10-28",
+          "message": "docs: 傳檔改用隨身碟，補手機移動影片的步驟",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "94320a14",
+          "date": "2026-10-28",
+          "message": "docs: 影片改用隨身碟直接插手機轉存（exFAT、32 GB 以上）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e9e965c5",
+          "date": "2026-10-28",
+          "message": "docs: 連假錄影時程：週五半場（沒球衣也錄）、週六全場，影片先轉筆電",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "274da06a",
+          "date": "2026-11-02",
+          "message": "ml: 精華剪輯工具（追球與人、放大核對、虛擬鏡頭剪片）",
+          "body": "highlight_track 追進球前的球和人並輸出對照圖，highlight_zoom 放大關鍵幾秒，\nhighlight_render 照 plan.json 剪成 1080p：鏡頭跟球、字幕、慢動作。\n\n誰傳誰投由人工確認寫進 plan.json：自動判斷核對 4 顆錯 3 顆，場邊閒置的球也會\n被當成比賽球。plan.json 有球員名字，放在 datasets/ 不進版控。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "474ce064",
+          "date": "2026-11-02",
+          "message": "app: 手機籃網門檻改 0.025，加每幀記錄開關",
+          "body": "翻拍螢幕實測兩次真進球的峰值只有 0.029、0.034，預設 0.04 全部擋掉。\n`--dart-define=TRACE=true` 時把每一幀寫到 logcat，事後可以重播分析。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "25ccf74c",
+          "date": "2026-11-02",
+          "message": "ml: 指認介面加複查，挑出可能標錯或漏標的人框",
+          "body": "列出同畫面重複、組內最不像、路人裡最像這個人的三份清單。路人比對只拿組內\n最集中的一半當樣本，免得被標錯的那幾張帶偏。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4a74b57f",
+          "date": "2026-11-02",
+          "message": "ml: 完整指認後的認人測試與開打前登記模擬",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "72b5c7f0",
+          "date": "2026-11-02",
+          "message": "ml: 認人初測結果",
+          "body": "3 位已指認球員加上相似度門檻，能把出手者分成認得的人和其他人；樣本只有 15 位，尚未人工確認。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1fdce4f6",
+          "date": "2026-11-02",
+          "message": "ml: 指認介面改成看板：三人同頁、排除路人、拖曳轉群組、可收合",
+          "body": "上方固定球員和路人的欄，縮圖可拖曳或按數字鍵轉群組，也能多選、復原。\n待分類的群可整群排除（已分給球員的不受影響），群和欄都能收起來。\n\n路人的找相似只比最像的一張，也不套「同畫面只出現一次」，因為路人不只一個人。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f4d4ad74",
+          "date": "2026-11-02",
+          "message": "ml: 追出手者的可行性測試與結果",
+          "body": "從籃框往回追球：21 顆進球追到人 15 顆，其中約 12 顆看起來是舉手碰球的人，尚未人工確認。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "68d322f0",
+          "date": "2026-11-02",
+          "message": "docs: 週五機位移近",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "dead956e",
+          "date": "2026-11-02",
+          "message": "docs: 半場判斷隊伍不做語音",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d16db97d",
+          "date": "2026-11-02",
+          "message": "ml: 精華剪輯的球員指認工具（衣著找相似 + 本機介面）",
+          "body": "people_extract 抓出影片裡的人並存衣著特徵，people_label 開本機網頁讓人\n指認。分群分不乾淨（大家都穿深色），所以流程改成點幾張、找相似、人工確認。\n\n特徵只看分割遮罩內的顏色：沒摳背景時會被樹牆、綠板帶著跑；ResNet50 也一樣\n是照姿勢和背景分，不採用。\n\n球員名字由 --players 帶入，不寫進公開 repo。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7c8e4af2",
+          "date": "2026-11-02",
+          "message": "docs: TODO 列出半場判斷隊伍的選項",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a6ee3ea1",
+          "date": "2026-11-02",
+          "message": "app: 接上 YOLO 找球與進球判定，首頁可切全場／半場",
+          "body": "- 手機上即時找球：GPU 跑 640 輸入，S23 約 16 fps；判定邏輯移植自 ml/\n- 首頁加模式切換與架設步驟，橫拿或平板分兩欄，開始偵測固定在底部\n- 框選畫面加示意圖；籃框小於畫面 1/20 時提示\n- docs：手機規格的模擬結果與實測數字\n\n還沒用真的球驗證座標對齊，也還沒驗證手機反過來拿。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9ecaa377",
+          "date": "2026-11-02",
+          "message": "docs: TODO 加入用數據評價個人能力的目標",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a8a019dc",
+          "date": "2026-11-02",
+          "message": "app: release 不跑 R8，修 App 卡在啟動畫面",
+          "body": "shared_preferences_android 2.5 用 jnigen 依名稱呼叫 Kotlin 方法與協程類別，\n又沒附保留規則。R8 刪掉後，第一次讀設定就丟 NoSuchMethodError，main() 走不到\nrunApp，畫面永遠停在啟動圖。只有 release 版會發生。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "756be272",
+          "date": "2026-11-02",
+          "message": "ml: 轉檔流程固定 torch<2.15（litert-torch 的要求）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d411a012",
+          "date": "2026-11-02",
+          "message": "ml: 新增 YOLO 轉 TFLite 的 GitHub Actions",
+          "body": "Ultralytics 的 LiteRT 轉檔只支援 Linux x86 和 macOS。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e6a2237f",
+          "date": "2026-11-02",
+          "message": "docs: 更新 README 現況，加入罰球模式的規劃",
+          "body": "README 修正過時的手勢、進球判定參數與 CI 說明，進度改成實拍評估結果。\n罰球模式的出手判定先用 3v3 影片開發，專用影片留到最後驗證。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f0e72682",
+          "date": "2026-11-02",
+          "message": "app: 關閉 Kotlin 增量編譯，修 Windows 跨磁碟編譯失敗",
+          "body": "專案在 D 槽、Pub 快取在 C 槽時會報 \"this and base files have different roots\"。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5ba15253",
+          "date": "2026-11-02",
+          "message": "docs: 半場待確認的決策、TODO 進度與未完成項目",
+          "body": "- decisions：自動進球改全場 2、半場 1；記下待確認的設計與不採用開新局選模式的原因\n- TODO：打勾已完成項目，新增紀錄頁補點、實機驗證、提示條位置\n- README、supabase/README、app/README 同步\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a99732e3",
+          "date": "2026-11-02",
+          "message": "docs: TODO 加下次帶平板當計分板、防止螢幕自動關閉",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "765a133d",
+          "date": "2026-11-02",
+          "message": "ml: eval_video 用每幀的時間戳，不用「幀號 ÷ 平均幀率」",
+          "body": "手機錄影是可變幀率，10-30 半場 15 分鐘那段中段差到 1.9 秒，\n超過比對標記的 1 秒容許值，會把判對的進球算成一個漏判加一個誤判。\nOpenCV 的 CAP_PROP_POS_MSEC 和 ffprobe 讀到的時間戳逐幀一致。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "99a2beb1",
+          "date": "2026-11-02",
+          "message": "ml: 球從框上方到框下方的時間上限 0.7 → 1.0 秒",
+          "body": "10-30 半場第 1 段 0:11 一顆滾框後掉進的球，在網裡停了 0.8 秒才從網下出現，\n被 0.7 秒上限擋掉漏判。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "42917b5b",
+          "date": "2026-11-02",
+          "message": "ml: 籃網晃動從球在框上方起算，不再等球從網下出現",
+          "body": "實拍（10-30 半場）發現：球在網裡被網子擋住偵測不到，籃網晃最大的時候\n在球從網下出現之前，原本等球出現在框下方才開始看籃網，永遠看不到峰值，\n清楚的空心進球被擋掉。改為保留最近 max_transit_s 的籃網晃動值，\n建立待確認進球時從球在框上方那一刻起取峰值。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "781d012b",
+          "date": "2026-11-02",
+          "message": "docs: 實拍影片改放專案內 ml/datasets/videos/（不進 Git）",
+          "body": "10-30 半場 5 支、10-31 全場 6 支已搬進來，隨身碟不留檔。\n交付方式不再走 Google Drive。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a932b8eb",
+          "date": "2026-11-02",
+          "message": "半場自動進球待確認：計分板選隊伍才計分",
+          "body": "- migration 20261102000000_pending_goals.sql（已套用）：score_events.pending、隊伍可空；\n  半場自動進球先待確認，自動進球沒帶分數時全場 2、半場 1；撤銷跳過待確認\n- web：上方跳出「記給哪一隊？」，點隊名計分、「不算」略過；多台同時按只有一台生效\n- app：半場不用選籃框，進球帶 1 分、不帶隊伍；全場照舊\n\n移植自 claude/scoreboard-repo-init-jiwfmj，開新局對話框不採用（沿用 main 的全場／半場按鈕）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
       "name": "family-insurance",
       "totalCommits": 46,
       "commits": [
@@ -50589,237 +51628,6 @@
           "message": "v1.1.0: lab campaign, licence, English, shorter text",
           "body": "Lab mode: ten new levels where specimen tubes are fixed and the player\nbalances the rotor with a limited budget of water-filled spare tubes,\nthe way a bench technologist does. Each budget equals the brute-forced\nminimum and that minimum has a single solution (checked by a test), so\nthe limit is the puzzle. Lab progress and best scores are stored apart\nfrom the classic campaign.\n\nLicence: clearing all ten classic levels awards a Medical Technologist\nLicence with confetti, an issue date, a licence number, score stats\nand an optional nickname kept on the device. It is reachable from a\nheader badge and can be shared as an image through the system share\nsheet (share_plus; no new permissions). Clearing the lab campaign adds\na Lab Endorsed stamp.\n\nLocalization: gen-l10n with Traditional Chinese and English ARB\nfiles; English is the fallback for non-Chinese systems. Game state\nnow emits message ids rather than strings. On-screen copy is cut\nback: level title plus a spare-tube chip, no standing explanations,\nshorter hints, icons for first-try and continue.\n\nAlso: privacy policy mentions the local nickname and the share sheet\n(in-app and privacy.html, both languages), README and store release\nnotes updated, version 1.1.0+2.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012FyPKZF3GTH8ms9z86MyD7",
           "category": "其他",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
-      "name": "scoreboard",
-      "totalCommits": 28,
-      "commits": [
-        {
-          "hash": "2932fc3c",
-          "date": "2026-10-22",
-          "message": "docs: 錄影改成每段 15 分鐘；手機設定補 UHD、不用動態模式",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "808c7130",
-          "date": "2026-10-22",
-          "message": "docs: 錄影指南加入手機設定表",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "f0844fe2",
-          "date": "2026-10-22",
-          "message": "docs: 試錄改成按錄影前的現場自我檢查",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "cf115258",
-          "date": "2026-10-22",
-          "message": "docs: 腳架試過沒問題；正式錄前先試錄一兩分鐘",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ca0fc5a0",
-          "date": "2026-10-22",
-          "message": "docs: 背心要有號碼，補號碼大小、顏色、數字挑選建議",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ed9b8381",
-          "date": "2026-10-22",
-          "message": "docs: 連假錄影計畫、半場標記加隊伍欄、買背心重點",
-          "body": "- 錄影指南新增連假計畫：全場兩邊各一小時、半場兩個角度各半小時，含檔名\n- 容量與傳檔：三小時 4K 要 60 GB 起跳，改用傳輸線傳到電腦，不上傳 Drive\n- 標記格式：半場加第 4 欄「隊伍」我／對（現有程式只讀前兩欄，相容）\n- TODO：連假三步驟、蝦皮關鍵字與尺寸\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "b17a127b",
-          "date": "2026-10-22",
-          "message": "docs: game_mode migration 已套用到 Supabase",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "2a577c99",
-          "date": "2026-10-22",
-          "message": "web: 全場／半場模式，全場點一下 +2",
-          "body": "- 計分手勢：全場點一下 +2、半場點一下 +1；上滑 +1、下滑 −1 兩種模式都一樣\n- 底部新增「全場／半場」按鈕：預設全場，按一下切換這場的模式，所有裝置透過 Realtime 同步\n- 紀錄與 LINE 分享文字標出（半場）\n- migration 20261022000000_game_mode.sql：games.mode（full／half），new_game 沿用上一場的模式\n- 資料庫還沒套用 migration 時網頁照常運作（當全場），切換半場會提示\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "da7e5219",
-          "date": "2026-10-22",
-          "message": "docs: 錄影指南加入兩種角度試錄比較",
-          "body": "- A 籃下底線後方往場內、B 場外邊線往場內，各錄 30 分鐘\n- 比較表：擺法、進球判定、誰出手與背心、三分、籃板、注意事項\n- TODO 錄影加入這一項\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "612d2e66",
-          "date": "2026-10-22",
-          "message": "docs: 背心判斷分三種結果，看不清楚的進球待確認",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "8e6cea42",
-          "date": "2026-10-22",
-          "message": "docs: 鬥牛每球 1 分打到 6 分；只有我方穿背心，買三件",
-          "body": "- 辨識只分「有沒有穿背心」\n- 螢光黃／螢光綠，背上大號碼更好；早點買，半場錄影時穿著\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "d1582b44",
-          "date": "2026-10-22",
-          "message": "docs: 半場鬥牛沒有三分，重點是判斷哪一隊進球",
-          "body": "- 待確認的進球不擋比賽，之後補點\n- 全自動：往回找出手的人；背心最準，沒背心就開打前點人分隊\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "9d8439e4",
-          "date": "2026-10-22",
-          "message": "docs: TODO 加入功能順序與半場鬥牛模式",
-          "body": "- 功能順序：自動累積分數 → 三分球 → 籃板、助攻等個人數據\n- 錄影：同一支手機兩個籃框先後各錄一小時；半場鬥牛也可以錄\n- 全場、半場都要支援；新增「半場鬥牛模式」：先半自動確認隊伍，之後靠背心顏色\n- 待決定：鬥牛的計分方式與打到幾分\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "5641d408",
-          "date": "2026-10-22",
-          "message": "docs: 決定計分制為一般 2 分、三分 3 分",
-          "body": "- App 自動進球本來就記 2 分，不用改\n- 網頁待辦：最近一筆改 3 分；手勢配合 2／3 分制（待確認）\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "7d87bb69",
-          "date": "2026-10-22",
-          "message": "docs: 決定打全場，一支手機對一個籃框",
-          "body": "- 待決定「全場還是半場」→ 全場，現有籃框對應隊伍的設計直接適用\n- 拿掉半場模式\n- 網頁待辦補「標出 1 號／2 號籃框」，換場對調寫清楚用途\n- 錄影補：兩支手機可兩個籃框同時錄、腳架放場外\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e8ffe442",
-          "date": "2026-10-22",
-          "message": "docs: TODO 改以自動計分為主線",
-          "body": "- 最上面列自動計分的 6 個步驟：錄影 → 實機裝 APK → 接 YOLO → 用影片評估 → 必要時訓練 → 實戰測試，寫清楚誰做、等什麼\n- 錄影、待決定事項、App 其他歸在主線底下\n- 已完成項目移到最下面\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "617f0323",
-          "date": "2026-10-22",
-          "message": "web: 比分放大到撐滿隊伍區塊，直向一律上下排",
-          "body": "- 比分字級改用 container query：依隊伍區塊寬高取較小者（66cqh／78cqw），三位數縮到 54cqw\n- 直向螢幕（含平板直放）一律上下排列，不再是細長兩欄\n- 實測比分高度：平板橫放 330→549px、平板直放 229→428px、手機直放 149→291px、電視 529→804px\n- LINE 分享文字：還沒有打完的場次時不印空的【戰績】\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e8c8d943",
-          "date": "2026-10-22",
-          "message": "web: 紀錄頁加「刪除這一天」",
-          "body": "- 清單最下面的虛線紅字按鈕，一次刪掉當天全部場次（一個請求標記所有加分為撤銷）\n- 確認視窗寫出日期與場數；有進行中的場次會提醒計分板會歸零\n- 「復原」救回整天，並跳回被刪的那一天\n- 單場刪除改用同一支 deleteGames\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "93af19fd",
-          "date": "2026-10-22",
-          "message": "web: 紀錄頁放大，中間捲動、按鈕固定",
-          "body": "- 紀錄對話框幾乎佔滿畫面（最寬 760px），字級依畫面短邊放大\n- 日期列與分享／關閉按鈕固定，只有戰績與場次捲動\n- 矮螢幕（手機橫放）三顆按鈕併成一排\n- 修正兩位數場次編號被切掉\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "50e0c6a8",
-          "date": "2026-10-22",
-          "message": "web: 紀錄可編輯、刪除，刪除後可復原",
-          "body": "- 紀錄頁點一場：改隊名、改比分、刪除這場\n- 改比分＝補手動加減分事件到指定比分，原本的事件不動（每筆 ±3，差太多拆多筆）\n- 刪除＝把該場未撤銷的加分全標成撤銷，比分 0:0 就不顯示；紀錄頁出現「復原」，只還原這次標記的事件\n- 提示改用 popover 放進 top layer，開著對話框時不再被蓋住\n- 不改資料庫 schema\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2c29f278",
-          "date": "2026-10-22",
-          "message": "web: 紀錄改成最新的在上、超過兩小時不顯示分鐘數",
-          "body": "- 各場比分最新的在上（進行中的那場排第一），編號仍照開打順序\n- LINE 分享文字同樣順序\n- 打了超過 120 分鐘多半是最後一場沒按開新局、隔天才結束，只顯示開局時間\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d2303743",
-          "date": "2026-10-22",
-          "message": "web: 紀錄顯示每場的開局時間與打了幾分鐘",
-          "body": "- 時間取自開新局的時間點（games.created_at／ended_at），不另外記錄\n- 紀錄頁與 LINE 分享文字都加上「19:32（18 分鐘）」\n- TODO：清除、編輯紀錄先記下，之後再做\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "1ebce9ea",
-          "date": "2026-10-22",
-          "message": "docs: 新增 TODO，README 開發階段改指向 TODO",
-          "body": "- docs/TODO.md：待決定事項、錄影、網頁、個人數據、App、辨識訓練\n- README 原本的開發階段清單搬進 TODO，只留進度摘要與連結\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "bd464a17",
-          "date": "2026-10-22",
-          "message": "web: 比賽紀錄、開新局選隊伍、點隊名改名",
-          "body": "- 開新局改成對話框選兩隊，快選 A～D 與今天用過的隊名\n- 點隊名改這場的隊名，其他裝置透過 Realtime 跟著更新\n- 新增「紀錄」：依日期的各隊戰績、每場比分，可分享到 LINE 或複製文字\n- 凌晨 5 點前開的局算前一天；0:0 不列入；進行中的那場不算進戰績\n- 統計放在 src/records.js（純函式），不改資料庫 schema\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "10e6b746",
-          "date": "2026-10-22",
-          "message": "Redraw favicon as SVG basketball so it isn't clipped",
-          "body": "The emoji-as-text favicon overflowed its viewBox and rendered\ndifferently per OS emoji font.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f592025b",
-          "date": "2026-10-28",
-          "message": "docs: 傳檔改用隨身碟，補手機移動影片的步驟",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "94320a14",
-          "date": "2026-10-28",
-          "message": "docs: 影片改用隨身碟直接插手機轉存（exFAT、32 GB 以上）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e9e965c5",
-          "date": "2026-10-28",
-          "message": "docs: 連假錄影時程：週五半場（沒球衣也錄）、週六全場，影片先轉筆電",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
           "tags": []
         }
       ],
