@@ -1,0 +1,886 @@
+{
+  "date": "2026-11-03",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": "Management\\MiniMeet",
+      "commits": [
+        {
+          "hash": "23803e0b",
+          "time": "17:30",
+          "message": "docs: 補上本次收尾還沒進文件的事項",
+          "body": "- 新增 docs/testing.md：瀏覽器測試方式、踩雷點、已驗證與尚未驗證的項目\n- VM 部署要連的網站與 GitLab 帳號，寫進 deploy/README 與給網管的待追問\n- 記下已知的小問題與配色規則\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4e65245e",
+          "time": "17:27",
+          "message": "docs: 記下邀請連結不帶密碼的原因與跨分部實測對象",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8d87c0e6",
+          "time": "17:22",
+          "message": "docs: 修正過時內容，README 手機對策表補上目前進度",
+          "body": "- M0 文件：狀態、舊名 UCL Meet、頻寬與 Q3 改成網管回覆後的結論；\n  註明獨立 IP 沒有解決 HTTPS 與 TURN 共用 443 的問題\n- client/README：正式站憑證不再寫死 Let's Encrypt\n- README：需求清單對齊實作（固定會議清單、會議密碼、主持人移出），\n  手機對策表加「現況」欄，避免看起來像全部做完\n- ADR-001、ADR-002：補後續更新註記，不改原決定\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "de93de8f",
+          "time": "17:18",
+          "message": "修按鈕 hover 看不見，人員清單加移出圖示",
+          "body": "- 全域 hover 規則優先權過高，把「移出」與「複製邀請連結」的底色蓋成淡色，白字看不見。改用 :where 降低優先權，移出鈕 hover 轉品牌紅\n- 人員清單加移出圖示：只有主持人看得到，自己那列沒有，沿用同一個確認與移出流程\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b32fe707",
+          "time": "17:18",
+          "message": "正式環境部署設定：compose、Caddyfile、LiveKit 設定與部署步驟",
+          "body": "三個容器由 Caddy 統一對外，/livekit 去掉前綴轉給 LiveKit。金鑰與密碼只放環境變數，\n映像版本寫死。TURN 還沒開，11/12 內網試跑用不到。\n開發機用 Docker Desktop 跑過整套瀏覽器測試，還沒在 VM 上部署過。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c63aec07",
+          "time": "17:08",
+          "message": "後端沒回應時顯示明確訊息，並更新過時文件",
+          "body": "- 加入與快速登入在後端重啟或沒開時，改顯示「伺服器暫時沒有回應，請稍後再試」\n- README 移除已決定的分享規則待辦，排錯表補上這個情況\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "48c190e3",
+          "time": "17:10",
+          "message": "合併 MR !27: docs: README 憑證改為公司萬用憑證，移除已解決的分享待決定",
+          "body": "docs: README 憑證改為公司萬用憑證，移除已解決的分享待決定\n\nSee merge request ucl/management/mini-meet!27",
+          "category": "合併MR"
+        },
+        {
+          "hash": "0336464d",
+          "time": "17:07",
+          "message": "docs: README 憑證改為公司萬用憑證，移除已解決的分享待決定，補 Caddy 去前綴",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0700304b",
+          "time": "17:04",
+          "message": "主持人可以把人移出會議，對方若在分享，鎖定會跟著解除",
+          "body": "主持人在別人的格子上有「移出」鈕，確認後呼叫 LiveKit 的 RemoveParticipant。\n權限由 LiveKit 檢查 token 的 roomAdmin，一般參加者偽造請求會回 401。\n被移出的人會看到原因，不會直接跳回加入頁。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3f2dd328",
+          "time": "17:03",
+          "message": "合併 MR !22: docs(infra): 憑證改用公司萬用憑證，補網管回覆與追問",
+          "body": "docs(infra): 憑證改用公司萬用憑證，補網管回覆與追問\n\nSee merge request ucl/management/mini-meet!22",
+          "category": "合併MR"
+        },
+        {
+          "hash": "c0d7fbee",
+          "time": "17:03",
+          "message": "參與人員清單：顯示主持人、麥克風、鏡頭、分享與說話狀態，狀態即時更新",
+          "body": "- 控制列加「人員」按鈕並顯示人數，和聊天共用右側欄，一次開一個；手機全螢幕\n- 排序固定：主持人、自己、其他人依名字，開會時清單不會一直跳\n- 所有參加者都看得到；資料來自 LiveKit，不經後端\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "fc4b7f4f",
+          "time": "17:02",
+          "message": "同一時間只讓一人分享螢幕，每個人的主舞台都是同一人",
+          "body": "別人分享時按鈕停用並顯示「別人分享中」。選視窗時別人先開始，後來的人自動讓位；\n兩人幾乎同時按，等 1.5 秒後由 identity 較小的一方留下。主舞台改排序，不再各看各的。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "43738b0e",
+          "time": "16:58",
+          "message": "加入頁快速登入：Ctrl + Shift + 左鍵點標題，以主持人身分「總部六樓」進會議",
+          "body": "快捷鍵寫在前端任何人都查得到，所以不存密碼，由後端依來源 IP 判斷。\n- /api/quick-login：只接受 QUICK_LOGIN_ALLOWED_IPS 內的來源，留空就是關閉\n- 身分與名稱由伺服器決定，被拒絕時不透露會議 ID 是否存在\n- Vite 代理傳遞真實來源，同區網的手機不會被當成本機\n- 文件：server、client、deploy 的 README\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "beb1f954",
+          "time": "16:56",
+          "message": "docs(infra): 憑證改用公司萬用憑證，補網管回覆、追問與 UCLremote 共用的說明",
+          "body": "內網試跑沒有公網 IP，Let's Encrypt 簽不出來，所以改用公司萬用憑證。\n已回覆的問題改成記錄結果，並新增分部內網連接埠與憑證檔兩項追問。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "657b6c9d",
+          "time": "16:52",
+          "message": "後端改用 .NET 10，與前端合成一個服務，密碼改走 POST 並加上擋猜密碼",
+          "body": "- server/：驗密碼、發 LiveKit 進房憑證、提供前端網頁、/healthz；會議清單放設定，不用資料庫\n- 同一來源 10 分鐘內失敗 10 次暫時拒絕；正式環境拒絕用開發金鑰啟動\n- /api/token 改為 POST，密碼不再出現在網址與紀錄；移除 Vite 內發憑證的程式\n- deploy/Dockerfile：把前後端打包成一個 Linux 映像\n- 設定檔由 client/.env 搬到 server/.env\n- 文件：新增 server/README、ADR-003，更新根目錄、client、deploy 的 README\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "099d0b45",
+          "time": "16:51",
+          "message": "合併 MR !20: 會議室加「複製邀請連結」；README 拿掉分部欄位",
+          "body": "會議室加「複製邀請連結」；README 拿掉分部欄位\n\nSee merge request ucl/management/mini-meet!20",
+          "category": "合併MR"
+        },
+        {
+          "hash": "66a25725",
+          "time": "16:49",
+          "message": "會議室加「複製邀請連結」，產生 /會議ID 短網址；README 拿掉分部欄位",
+          "body": "連結只帶會議 ID，密碼另外給，主持人密碼不會因此外流。\nclipboard API 不能用時退回 execCommand，再不行就顯示網址讓人手動複製。\n分部欄位決定不做：名稱就看得出分部。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "09dca743",
+          "time": "16:46",
+          "message": "誰在說話的提示：說話者的格子外框亮綠色",
+          "body": "用 LiveKit 的 ActiveSpeakersChanged 事件。狀態跟 version 分開，\n換人說話時不會重新掛載音訊與影像；螢幕分享格不顯示。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7d6bc674",
+          "time": "16:39",
+          "message": "docs(infra): 補時程：11/12 幹部會議試跑、Zoom 合約 12/21 到期、倒推節點",
+          "body": "原本的時程 commit 在 MR !10 合併後才推上去，沒進 main，這裡補回。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a4598e76",
+          "time": "16:30",
+          "message": "docs(infra): TURN 網域名改為 meet-turn.ucl.com.tw",
+          "body": "turn.meet.ucl.com.tw 要多建一層 DNS，*.ucl.com.tw 萬用憑證也蓋不到。\n改成同一層的名稱，DNS 與憑證都不用多做。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0d0fbbfd",
+          "time": "15:58",
+          "message": "合併 MR !16: 參加者名字旁顯示靜音圖示",
+          "body": "參加者名字旁顯示靜音圖示\n\nSee merge request ucl/management/mini-meet!16",
+          "category": "合併MR"
+        },
+        {
+          "hash": "74148667",
+          "time": "15:56",
+          "message": "修裝置選單空白與英文錯誤：下拉一定對得到選項，訊息依實際原因顯示",
+          "body": "- LiveKit 沒裝置時回傳 default，對不到清單就顯示空白；改成對不到時退回清單內的項目\n- 沒權限時瀏覽器回傳空白 ID 的佔位項，不再當成真實裝置；喇叭顯示系統預設並提示原因\n- 鏡頭與麥克風錯誤分成找不到、沒權限、被佔用，不再顯示英文原文\n- 只缺一樣裝置時不再說只能收看；問題解決後訊息自動消失\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "34e7f98c",
+          "time": "15:53",
+          "message": "參加者名字旁顯示靜音圖示，全體靜音後看得出誰被關麥",
+          "body": "靜音或沒有麥克風的人，名字旁都掛 🔇，開麥後自動消失；螢幕分享格不顯示。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c6314fc9",
+          "time": "15:45",
+          "message": "配色改為招牌的酒紅配白，顯示名稱改為「大安聯合 遠端會議系統」",
+          "body": "- 品牌色取自大安聯合招牌（#8e1c3f），加入頁紅底白卡、會議室紅標題列白控制列，影片框維持黑底\n- 會議室內實心紅只留給「離開」，分享中、聊天開啟等啟用狀態改淡紅底紅框\n- 疊在影像上的名字標籤與專注鈕固定白字；名字標籤單行不折行，手機窄格不蓋畫面\n- 主持人全體靜音鈕的紫色、裝置設定的深色邊框改用主題色；加手機瀏覽器列 theme-color\n- 專案名與 GitLab 路徑維持 MiniMeet\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6d93b542",
+          "time": "15:38",
+          "message": "分享連結支援 /?ID 與 /ID 兩種簡寫，不只 ?room=",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "82dcfdc7",
+          "time": "15:38",
+          "message": "主持人全體靜音：主持人密碼進房即為主持人，token 帶 role=host",
+          "body": "- MEETING_ROOMS 第三欄為主持人密碼（可省略），用它進房的 token 屬性 role=host 並給 roomAdmin\n- 全體靜音走文字串流 topic 'control'，收到的人驗發送者屬性是 host 才關自己麥克風，之後可自行開麥\n- 主持人在標題列與參加者格上有「主持人」標籤；控制列多「全體靜音」鈕，只有主持人看得到\n- 已用 dev token API 實測三種密碼：host 9999 → role=host/roomAdmin，member 0000 → member，錯誤 → 403\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "67994b76",
+          "time": "15:35",
+          "message": "裝置設定：麥克風／鏡頭／喇叭可選、記住選擇、插拔即時更新；手機多鏡頭給翻轉鈕",
+          "body": "- DeviceSettings.vue：Room.getLocalDevices 列清單、switchActiveDevice 熱切換不斷線\n- 喇叭只在支援 setSinkId 的瀏覽器顯示（iOS Safari 沒有，提示由系統決定）\n- 進房時用上次選過的裝置當預設（audioCaptureDefaults / videoCaptureDefaults / audioOutput）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b9a8b1dc",
+          "time": "15:31",
+          "message": "合併 MR !11: feat/meeting id password",
+          "body": "feat/meeting id password\n\nSee merge request ucl/management/mini-meet!11",
+          "category": "合併MR"
+        },
+        {
+          "hash": "efb96edf",
+          "time": "15:27",
+          "message": "會議 ID＋密碼：Zoom 式固定會議 ID（3-3-4 顯示、空白自動去除）與數字密碼，密碼在 token API 驗；支援 ?room= 與 ?pwd= 分享連結",
+          "body": "會議清單放 .env 的 MEETING_ROOMS，真實值不進 repo。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7afba1aa",
+          "time": "15:26",
+          "message": "docs(infra): 回寫網管對 M0 申請的回覆，記錄決定與追問",
+          "body": "獨立公網 IP 可給、DNS 自管、憑證兩種皆可、Seednet 300/300 線；\n決定要獨立 IP、先用 Let's Encrypt；VM 尚未回覆，列四點追問。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1bc168c4",
+          "time": "15:24",
+          "message": "房內文字聊天：LiveKit 文字串流，電腦右側欄、手機全螢幕面板",
+          "body": "- ChatPanel：訊息列表自動捲到底、Enter／手機送出鍵發送、自己的訊息靠右\n- MeetingRoom 收發走 topic 'chat'，不經後端、不落地，離開房間即消失\n- 控制列加「聊天」鈕與未讀數；專注模式下隱藏面板\n- 電腦寬度以 grid-template-areas 開右側 320px 欄，手機改為 fixed 全螢幕覆蓋\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5a734be5",
+          "time": "15:23",
+          "message": "加入頁記住上次的房間名稱（localStorage），網址 ?room= 仍優先",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f8c08c93",
+          "time": "15:17",
+          "message": "開發機 HTTPS 讓手機能進：basic-ssl 自簽憑證、LiveKit WebSocket 經 Vite 代理掛同一 port、WS 位址支援相對路徑",
+          "body": "已驗證：https://localhost:5173 與 https://192.168.169.55:5173 頁面 200、/livekit 代理回 LiveKit 的 OK、WS upgrade 經代理到達 LiveKit。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4c2351fc",
+          "time": "15:11",
+          "message": "合併 MR !6: feat/screen share",
+          "body": "feat/screen share\n\nSee merge request ucl/management/mini-meet!6",
+          "category": "合併MR"
+        },
+        {
+          "hash": "54df588c",
+          "time": "15:11",
+          "message": "合併 MR !5: fix/no device ux",
+          "body": "fix/no device ux\n\nSee merge request ucl/management/mini-meet!5",
+          "category": "合併MR"
+        },
+        {
+          "hash": "3f336122",
+          "time": "15:11",
+          "message": "合併 MR !4: docs/m0 resource request",
+          "body": "docs/m0 resource request\n\nSee merge request ucl/management/mini-meet!4",
+          "category": "合併MR"
+        },
+        {
+          "hash": "fa0b2a7e",
+          "time": "15:08",
+          "message": "分享時的專注模式：收起標題列、鏡頭列、控制列並進全螢幕；滑鼠或觸控喚出退出鈕，Esc／分享結束自動退出",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8788f3ee",
+          "time": "15:05",
+          "message": "螢幕分享：主舞台＋鏡頭列配置，瀏覽器停止分享時同步狀態，手機無 getDisplayMedia 時隱藏按鈕",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "22076d56",
+          "time": "15:03",
+          "message": "沒有鏡頭或麥克風的電腦也能進會議：裝置分開開啟、訊息講清楚缺什麼、無畫面顯示名字首字",
+          "body": "症狀：開發機沒有攝影機，enableCameraAndMicrophone 整個失敗，畫面顯示「連線失敗」但其實房間已連上。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8f407cb2",
+          "time": "15:02",
+          "message": "docs(infra): M0 基礎設施資源申請清單與同仁 Q&A",
+          "body": "列出要向網管申請的 Linux VM、防火牆連接埠、DNS、憑證、頻寬項目，\n並整理同仁可能會問的問題（SSH 只開內網與手機使用的關係、為何要獨立公網 IP、\n內部 DNS 用途、UDP 範圍安全性等），結果回寫到檔內回覆紀錄。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d64ea828",
+          "time": "15:02",
+          "message": "LiveKit dev：設定 node_ip 為開發機區網 IP，修 Docker Desktop 下 ICE 連不上",
+          "body": "症狀：參加者進房 15 秒後被 removing participant without connection 踢掉。\n原因：容器把 172.18.0.2 與公司對外 IP 當 ICE 候選位址，瀏覽器連不到。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "527f9e66",
+          "time": "14:59",
+          "message": "合併 MR !2: feat/m1 livekit dev",
+          "body": "feat/m1 livekit dev\n\nSee merge request ucl/management/mini-meet!2",
+          "category": "合併MR"
+        },
+        {
+          "hash": "b0271d3d",
+          "time": "14:55",
+          "message": "專案名維持 MiniMeet，只有使用者看到的標題用 UCL Meet；GitLab 路徑改回 mini-meet",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "15f1252c",
+          "time": "14:54",
+          "message": "改名 UCL Meet：README、網頁標題、localStorage key；GitLab 專案已改為 ucl/management/ucl-meet",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9cdde9cf",
+          "time": "14:47",
+          "message": "gitignore：.env.* 排除 .env.example",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "56c2e7f1",
+          "time": "14:47",
+          "message": "M1：移除 Vite 範本殘留圖檔，補上 .env.example",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "372ebcef",
+          "time": "14:47",
+          "message": "M1：Vue 3 前端骨架（加入表單、會議室、參加者格、靜音／關鏡頭）＋ Vite dev token API",
+          "body": "- client/：Vite + Vue 3 + livekit-client；JoinForm / MeetingRoom / ParticipantTile\n- vite.config.js 的 dev middleware 代發 LiveKit token，介面與未來後端一致（GET /api/token?room=&name=）\n- iOS Safari 回前景重開鏡頭、手機單欄版面、本機不回放自己的聲音\n- 已驗證：npm run build 通過、/api/token 正常與 400 擋錯；LiveKit 容器 7880 回 OK\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "de0db195",
+          "time": "14:41",
+          "message": "M1：ADR-001/002（自寫 App、SFU 用 LiveKit）與 LiveKit 開發環境 compose",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2b474faa",
+          "time": "14:18",
+          "message": "README：Rust 放進選型評估、確認免安裝 web、網域暫定 meet.ucl.com.tw",
+          "body": "- 關於 Rust 一節：前端不適用、SFU 不建議自寫、後端 API 層可用，定案標準是維護性不是效能\n- M0 加網域與 DNS 管理者確認\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "66bb4614",
+          "time": "14:16",
+          "message": "README：加入不限內網與手機裝置兩個硬條件",
+          "body": "- 對外開放：TURN 改為必要項、443/TLS 後援、公開網域與 Let's Encrypt、房間密碼與短效 token、對外安全考量一節\n- 手機裝置：以響應式網頁為目標，列出 iOS Safari / Android Chrome 已知限制與對策，原生 App 列為不做\n- M0 加行動網路實測、TURN 流量對出口頻寬的影響；M1 改為辦公室電腦對 4G 手機\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9ea3c53d",
+          "time": "14:13",
+          "message": "README：改為公司專案定位（幹部會議、業務月會），加入 SFU 選型與基礎設施待確認事項",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d969cca9",
+          "time": "14:07",
+          "message": "Initial commit: 專案說明、範圍與里程碑",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 52
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "f5e5d39d",
+          "time": "19:00",
+          "message": "memory(ParkFee): 說明表流程圖 11/03 工作流",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3f736c17",
+          "time": "18:44",
+          "message": "chore: session 收尾備份 2026-11-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "64052bdd",
+          "time": "17:31",
+          "message": "chore: session 收尾備份 2026-11-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7723d943",
+          "time": "17:27",
+          "message": "chore: session 收尾備份 2026-11-03",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "30cf1b17",
+          "time": "17:26",
+          "message": "chore: 更新 MiniMeet 文件進度 2026-11-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cce6d77e",
+          "time": "17:26",
+          "message": "chore: session 收尾備份 2026-11-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7f92a658",
+          "time": "17:11",
+          "message": "memory(ParkFee): 社區幫自測回報狀態",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ad2bc391",
+          "time": "15:46",
+          "message": "memory(ParkFee): 兩輪抽籤、auto mode 限制、社區幫 11/03 狀態",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ed5c63c3",
+          "time": "12:08",
+          "message": "chore: 精華剪輯進度 2026-11-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "61f1cddb",
+          "time": "09:42",
+          "message": "chore: session 收尾備份 2026-11-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "704583b1",
+          "time": "09:21",
+          "message": "chore: session 收尾備份 2026-11-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3c0e6c9e",
+          "time": "08:09",
+          "message": "chore: session 收尾備份 2026-11-03",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c04cc844",
+          "time": "08:01",
+          "message": "chore: session 收尾備份 2026-11-03",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "dc0ab552",
+          "time": "07:27",
+          "message": "memory: 修正 uclcloud iOS 送審日期標示",
+          "body": "",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 14
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "c554738d",
+          "time": "08:09",
+          "message": "docs(music): /api/music/done 已經沒有 skipped 這一格",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "eb915241",
+          "time": "08:00",
+          "message": "feat(music): ⏭ 與 ✕ 對調——✕ 才是咖歌，⏭ 只是這次跳過",
+          "body": "上一版的 ⏭ 會把整首刪掉，✕ 只是搬進已撥。但紅色的 ✕ 看起來才像「以後不想聽」，\n而且遙控器台▲、語音都走 ⏭，語音一天會誤觸幾十次，不該碰得到刪除。\n\n現在：\n- ⏭（音樂列、卡片、列上、遙控器、語音、/api/music/skip）＝搬進已撥，不刪檔\n- ✕（/api/music/ban）＝這首的每一份連 mp3 一起刪。正在播放卡片、電視待播每一列、\n  座位的待播與播過每一列都有，所以不用等輪到才能咖。按兩下才算數（banConfirm）\n\n/api/music/done 拿掉 skipped，還開著舊頁面的電視按 ⏭ 也只會搬進已撥。\n\n順手修的：\n- 電視換歌就馬上回報正在播哪首，不等 30 秒輪詢。否則別台咖掉正在播的那首，\n  伺服器會判斷成沒在播、不叫電視換歌；調音量擋「正在播」也會判錯\n- mDoneFailed 不再留著伺服器清單上已經沒有的檔名，否則咖掉後重新點同一個檔名，\n  那台電視會看不到它\n\n本機實測：API 17 項、Chrome 實際點按 18 項（靜音檔，非真電視）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "d592a81c",
+          "time": "07:50",
+          "message": "docs(deploy): 排錯補上 soundbar 低鳴的排查順序",
+          "body": "2026-11-03 遇過一次，原因還沒確定，先記下觀察與下次的排查步驟。\n光纖不導電，不會經由這條線形成接地迴路，所以不用買隔離器。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "dbb172e8",
+          "time": "07:28",
+          "message": "feat(music): ⏭ 咖歌徹底化——這首的每一份連已撥、mp3、連結一起刪",
+          "body": "跳過原本只刪當下那一份。已撥裡同一首點過幾次就有幾份，續攤會撈到下一份、\n再轉一份 mp3，同一首要咖好幾次，看起來就像這個功能不存在。\n\n現在人按的 ⏭ 會刪掉待撥與已撥裡所有同一首的檔案（認法同 SongKey），加上快取那份 mp3。\n不做黑名單：刪光之後續攤就沒東西可撈，有人重新點就是一首新歌。\n\n連帶兩個行為改變：\n- 刪不掉不再退回已撥（退回去等於回到輪播）。先從待播清單拿掉、背景再試約 2 分鐘；\n  等的時候有人重點同一首，快取那份就留著。\n- 待撥裡同一首的另一份也一起刪，不再為它保留快取。\n\n本機實測（API＋暫存資料夾）22 項：三份一起刪、別首不受影響、續攤撈不到、\n上傳 mp3、正常播完／播不出來／✕ 都不刪、快取與上傳檔被咬住、咬住時重點、咖完再點。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "e7293e27",
+          "time": "19:09",
+          "message": "refactor(layout): A 區 17 頁改用 Bootstrap 5.3 layout",
+          "body": "CHG202609090003 技術債遷移第一批，舊頁換到 _Layout.Bootstrap53：\n- 只換 layout：FileLog、ClassAmounts、ScoreList、RawDataSearch、PatchNotes、\n  TPFileHistory、FMchkin、QualityMon、FMDL\n- 換 layout 並修 BS3 失效語法：DocumentList、Doctor/List、ReserChk、CDCImport、\n  Doctor/Setting、Overtime、BackToHome、ColorPrint\n\n_Layout.Bootstrap53 補上和舊 layout 的落差：測試庫橫幅(_TestDbBanner)、\nBT201 連結 tabindex=-1、內容區上方間距。\n\n新增 layout-migration 前後對照測試；更新遷移計畫文件（現況校正、A~F 分區、\n踩坑清單、測試結果）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "重構"
+        },
+        {
+          "hash": "faa86ec3",
+          "time": "19:09",
+          "message": "docs(problems): 記錄禾瑞帳務檔遺失導致報告查詢與雙向無資料",
+          "body": "6102974386 二審已完成，但 LT302 與健檢中心雙向都沒有資料。\n同仁查到帳務檔遺失；遺失來源尚未確認，文件列出可能路徑與查證 query。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "dbLIS",
+      "commits": [
+        {
+          "hash": "0a0d81a6",
+          "time": "08:00",
+          "message": "docs: 更正上一版超出證據的寫法（DatabaseDataChecker、Oracle、發版流程）",
+          "body": "- 06：比對項目依原始碼改寫（十張表筆數、bill_master、report_detial_sec 欄位）；\n  依 DatabaseInitializer.cs 更正回寫、清理對 TR_SYNC 的實際影響（看 55/56 與站別）；\n  15 分鐘與 3 天是程式預設值；還原程式的 repo 改為待確認\n- 05：「不重疊」更正，收件時間 2910 候選頭與 DatabaseDataChecker 目標相近\n- 03：Oracle 回復待確認，「不必另裝 client」不是負責同仁的原話；pfx 註明已改 token\n- 02：拿掉同仁沒說的「不需重啟 IIS」「只能在發佈機」「捷徑」\n- 01：不再斷定權限表與 view 是同一次還原漏掉\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "38d101d1",
+          "time": "19:39",
+          "message": "docs(TODO): 重機指派五步正式站實測通過",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "da5e2539",
+          "time": "19:37",
+          "message": "docs(TODO): 記錄重機指派實測結果，第 2 步待補",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7f625e02",
+          "time": "19:37",
+          "message": "docs(TODO): 重機指派測試步驟改用大位 247（240 是小位）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0b11eed9",
+          "time": "19:29",
+          "message": "docs: 繳費狀態定為 12/11 同步，解除未繳前重跑一次",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1bae2172",
+          "time": "19:29",
+          "message": "docs(TODO): 更正電腦選號現況——選位頁預設已勾，只登記未存志願者才是未同意",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "98807825",
+          "time": "19:06",
+          "message": "docs(TODO): 補電腦選號與簽約證件兩項待決定",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "bbf61a0b",
+          "time": "19:03",
+          "message": "docs(TODO): 經理 11/03 兩份文件與系統的連動判斷",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "01900c84",
+          "time": "19:00",
+          "message": "feat(docs/35): 說明表流程圖改全粗黑放大並重排左右（svg 來源＋只換圖腳本，文字維持經理版）；TODO 記 v2 待主委確認與登記確認表差異",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8648bc5f",
+          "time": "17:13",
+          "message": "docs: 待辦總表整合進 TODO 檔首（待回覆、待決定、11/10、11/14、12 月時程）；docs/00 時程對齊現況並加 12/11 回查列",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cd3a8c69",
+          "time": "17:11",
+          "message": "docs(社區幫): 記錄使用者回報後台自測 ok，列出尚待交回的結果；標明逾期狀態可能被回查腳本誤判",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "aced98ad",
+          "time": "15:45",
+          "message": "docs: 收工整理——TODO 檔首列下次待辦；更正 H6-293 刪除狀態、自家測試帳單上傳狀態與腳本失敗仍寫檔的錯誤記載，docs/37 標明匯出格式依據",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a8a62c77",
+          "time": "15:35",
+          "message": "docs: 繳費回查後端真 API 驗證通過，docs/37/00/TODO 收口",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ab4d6bd0",
+          "time": "15:32",
+          "message": "feat(pay): 0014 已套、assign-seat 已部署；新增 verify-pay.mjs 真 API 驗證腳本（Z99 標已繳→撤回，不留髒資料）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "08c8be53",
+          "time": "15:21",
+          "message": "docs(37): 修 migration 指令路徑",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6a831a0f",
+          "time": "15:20",
+          "message": "feat(pay): 12/11 繳費回查——assign-seat 加 op=pay 按戶批次標已繳（每台記 繳費來源／繳費時間，稽核 pay.batch 只記筆數）、migration 0014、維護頁顯示來源；import-paid-from-shequbang.mjs 讀社區幫匯出（乾跑預設／--apply／--undo，同戶部分未繳不標）；docs/37 §2 改為實際指令與上線前置",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ead5068e",
+          "time": "15:13",
+          "message": "docs: 列入「繳費狀態餵回系統」待開發（pay op＋匯入腳本，12/11 前）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0ddd6296",
+          "time": "14:52",
+          "message": "docs: 新增 37 社區幫出帳與繳費回查作業手冊（12/2 產檔上傳、12/11 回查餵系統、釋出未繳、財委對帳、待定六題）；14/24/README 改指向",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4997a736",
+          "time": "14:48",
+          "message": "feat(社區幫): 匯入腳本加 --roster 依登記名冊計費（有登記就算錢：每台依車種、社宅跳過、未配位也收）；docs/24 §3 寫 12/2 正式指令，TODO/docs/00 勾掉匯入腳本待辦",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "755735e0",
+          "time": "14:45",
+          "message": "docs(TODO): 社區幫自測帳單改用自家 H3-297 六樓、期限 12/10；11/03 匯入入口與未繳狀態值已驗；12/2 前須刪測試帳單",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ffd00a38",
+          "time": "14:38",
+          "message": "docs(社區幫): docs/24 §1 標示 11/03 範例檔欄位改版、§6 與 TODO 補 11/10 前自測匯入步驟",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9ccc5d92",
+          "time": "14:38",
+          "message": "feat(社區幫): 匯入檔改照 11/03 範例檔欄位（郵資、汽/機車清潔費合併、備註移位），範例檔可直接當門牌來源（剝 Excel = 包法）；自測檔重產、docs/24 與 TODO 同步",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "6dc7912a",
+          "time": "14:33",
+          "message": "docs(社區幫): 11/03 後台實查——繳費狀態用管理費列表匯出、匯入入口確認、對帳單與列表匯出格式記錄",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9d828598",
+          "time": "11:54",
+          "message": "feat(ops): 維護頁「未繳費」批次解除（可只看期限已過；assign-seat list 回傳簽約期限並部署）、配位頁可直接填簽約期限、eTag 白名單草稿腳本、巡邏頁物業說明；TODO 勾掉已完成與過期項",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "f9d6c7f3",
+          "time": "11:40",
+          "message": "feat(lottery): 兩段演練腳本 simulate-two-stage.mjs（12 項不變量）；第一輪也跑第 1 輛電腦選位；第二輪強制補位候選序用完取任一可用位、第 2 輛起可先取小位保留大位給重機（配位頁勾選預設開）；重機湊不到對不擋工作人員",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "02862c3a",
+          "time": "11:31",
+          "message": "docs(TODO): 時窗關閉路徑 11/03 已在正式站實打（verify-window 四項 403），secret 已設回開放",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "04472cbc",
+          "time": "11:29",
+          "message": "chore: 放行 supabase functions deploy 權限規則；publish-result merge 版已部署，TODO/docs 同步",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "10ed177a",
+          "time": "11:23",
+          "message": "feat(lottery): 兩輪抽籤——distribute 加 stage/onlyPaid/seqStart（第一輪只抽第 1 輛；第二輪電腦補位→第 2 輛起→重機相鄰兩大位→工作人員）、配位頁輪次單選、結果狀態「待第二輪／視同放棄」、publish-result merge 不蓋第一輪；新增 verify-locks.mjs；抽籤手冊補兩輪步驟",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e10c5a86",
+          "time": "11:10",
+          "message": "chore(locked): 移除 set-locked 相容舊版的完整清單欄位（函式 11/02 已改只認 op＋異動）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "084f3d72",
+          "time": "11:06",
+          "message": "chore(cleanup): 員工-Z99 列入測試帳號——清除 SQL 與 check-roster 3.5 加 員工-Z% 條件（11/10 清場時一起刪）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1f52a185",
+          "time": "10:20",
+          "message": "feat(scripts): 新增 verify-window.mjs 一鍵驗登記時窗——11/10 關窗後跑應四項被擋、admin 補登成功；TODO 第五步與 docs/00 改為用腳本，CLI 乾跑改 --read-only",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "9024180a",
+          "time": "10:05",
+          "message": "docs(00): 整併年度時程與進度為一份——115 年度實際時程表、辦法流程更新至 11/02 現況、系統現況與待開發；docs/13 封存並改所有指標",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "99ef61bb",
+          "time": "08:47",
+          "message": "docs(04): 紙本登記表注意事項改重機不抽籤、社宅不登記、工作人員付費",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 32
+    },
+    {
+      "name": "scoreboard",
+      "commits": [
+        {
+          "hash": "80bdda01",
+          "time": "09:34",
+          "message": "docs: 4K 分析實測與模擬結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7b6188a8",
+          "time": "09:21",
+          "message": "docs: TODO 加持續優化精華剪輯",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "重構"
+        },
+        {
+          "hash": "587959d1",
+          "time": "09:20",
+          "message": "docs: README 更新 App 找球的現況",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1d7bdac6",
+          "time": "09:13",
+          "message": "app: 鏡頭畫面鎖單一橫向，修手機反拿時座標顛倒",
+          "body": "Android 從橫向翻 180 度不算設定改變，相機外掛收不到通知，\n一直回報正拿，找球和籃網區都會讀到相反的位置。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0d5868e2",
+          "time": "09:00",
+          "message": "App 每幀記錄存成手機檔案；計分板防黑屏",
+          "body": "- 偵測時每幀寫到手機 files/trace/，打完球用 adb pull 拉回分析；取代只在暫存的 logcat 記錄\n- 計分板用 Wake Lock 保持螢幕常亮，回到前景重新要求，不支援或被拒就略過\n\n還沒在手機和平板上實測。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8b176f81",
+          "time": "08:57",
+          "message": "docs: README 與 TODO 補上球員指認和精華剪輯",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c12d9709",
+          "time": "08:49",
+          "message": "docs: 移除球員名字（公開 repo 不放真名）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "HomeCalc",
+      "commits": [
+        {
+          "hash": "e021f06c",
+          "time": "12:36",
+          "message": "chore: 更新 ETF 股價預設值（2026/11/03），持股改可由本地私人檔覆寫",
+          "body": "- 0050 股價：65.44 → 101.30\n- 0056 股價：36.64 → 53.85\n- 新增 src/private/ 本地覆寫機制（gitignore），持有股數可留在本地不進 repo\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b1b93897",
+          "time": "12:33",
+          "message": "fix: 方案比較標籤依正負號切換，不再把節省利息顯示成增加",
+          "body": "- 每月支出、還款期限、利息三項標籤與顏色改依比較結果動態切換\n- 每月支出差額補上絕對值，不再顯示負數\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8fa4d430",
+          "time": "12:28",
+          "message": "chore: 更新房貸本金餘額預設值（2026/11/03）",
+          "body": "- 房貸本金餘額：16,022,079 → 15,667,257（銀行實際餘額）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "091bfa8f",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-03",
+          "body": "🤖 自動生成於 2026-11-03 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "e9e79c58",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-02 (101 commits)",
+          "body": "🤖 自動生成於 2026-11-03 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 73,
+    "sideCommits": 44,
+    "totalCommits": 117
+  }
+}
