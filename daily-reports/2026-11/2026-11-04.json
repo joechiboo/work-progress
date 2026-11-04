@@ -1,0 +1,858 @@
+{
+  "date": "2026-11-04",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "1bed8fd5",
+          "time": "19:15",
+          "message": "chore: MiniMeet !42 合併後更新記憶",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0bb28d7d",
+          "time": "19:10",
+          "message": "chore: 記下 MiniMeet 正式站與 repo 的設定落差",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "71fcb62c",
+          "time": "18:48",
+          "message": "chore: MiniMeet 公網設定實測紀錄",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3e2833f6",
+          "time": "17:08",
+          "message": "memory: 1105 排程五站、56.231 WMSVC 已啟動",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "26c71eb4",
+          "time": "17:01",
+          "message": "lisweb-deploy: 修新竹密碼搜尋式誤抓站台表網址；1105 排程現況",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "57888bd4",
+          "time": "16:33",
+          "message": "chore: session 收尾備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9dc91a5f",
+          "time": "16:28",
+          "message": "docs: 新增設計知識 runbook（印刷出血、HTML 轉 PDF、三折頁、Banner）",
+          "body": "整合 pTau 海報與三折頁的出血尺寸、櫃檯看板的 box-shadow 色塊，\n以及散在各專案 memory 的圖示、配色、商店素材規格。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "1bad253a",
+          "time": "16:16",
+          "message": "chore: MiniMeet 介紹頁上線備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8025db3b",
+          "time": "16:14",
+          "message": "memory: !40 !51 已合",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "327f3027",
+          "time": "16:10",
+          "message": "chore: session 收尾備份 2026-11-04",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a6bdc63f",
+          "time": "16:07",
+          "message": "memory: 下載頁 !37 已上線",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "bd1e4394",
+          "time": "15:54",
+          "message": "memory: 看板 !39 已合",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "5c944f52",
+          "time": "15:50",
+          "message": "docs: 週五手機只拍精華，下週訓練認隊友",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "047cb326",
+          "time": "15:49",
+          "message": "docs: 自動認隊伍列為核心，週五改用手錶記分",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2316957e",
+          "time": "15:44",
+          "message": "memory: 櫃檯看板與 QR 下載頁 2026-11-04",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "d44911d9",
+          "time": "15:24",
+          "message": "chore: MiniMeet 與官網專案記憶備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c8bff203",
+          "time": "15:22",
+          "message": "docs: 週五平板先放地上，固定方式另開題",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "44f04c8e",
+          "time": "14:38",
+          "message": "docs: 手錶 runbook 補網路路徑，記錄週五網路配置",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7f839a63",
+          "time": "14:37",
+          "message": "docs: 手錶 runbook 記錄藍牙經手機上網實測通過",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5b6f19d4",
+          "time": "14:35",
+          "message": "docs: 手錶 runbook 修正螢幕長按的實測結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "79727c5c",
+          "time": "14:25",
+          "message": "docs: 手錶 runbook 補實體鍵與螢幕的其他按法",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a737c70c",
+          "time": "14:09",
+          "message": "docs: 新增 Wear OS 手錶 App 開發 runbook",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3696e4ae",
+          "time": "12:50",
+          "message": "chore: session 收尾備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "79b67536",
+          "time": "12:36",
+          "message": "chore: MiniMeet 正式站現況備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "bc334922",
+          "time": "12:26",
+          "message": "chore: session 收尾備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4b7f7670",
+          "time": "11:10",
+          "message": "chore: session 收尾備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8c06e37a",
+          "time": "08:56",
+          "message": "chore: session 收尾備份 2026-11-04（手錶 App 暫緩 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e2b5499c",
+          "time": "08:49",
+          "message": "chore: session 收尾備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "59d41f0c",
+          "time": "08:47",
+          "message": "memory: 績效兩筆已修正，記下決定與原值位置",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "1b1e465e",
+          "time": "08:45",
+          "message": "memory: BBS 績效兩筆離群值與 API 只 INSERT",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7bb34e99",
+          "time": "08:33",
+          "message": "memory: 每月績效收尾，台中已補傳、台北舊定義已刪",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "39ca7f77",
+          "time": "08:27",
+          "message": "chore: 精華核對要看到進球前 0.5 秒",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4fe99eb2",
+          "time": "08:25",
+          "message": "chore: session 收尾備份 2026-11-04",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "519f274c",
+          "time": "08:21",
+          "message": "memory: 每月績效 11-04 核對結果、血型與 NHI 頭上線、送 config 前先比線上",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2db66591",
+          "time": "07:55",
+          "message": "memory: 11-05 發佈計畫（lisweb2/桃園/桃園2/新竹 升 V2026.11.03.001）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "6e2f2579",
+          "time": "07:47",
+          "message": "memory: 台北報告順序卡在 lisweb2 未升版（Data2Cloud 打 lisweb2）",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 36
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "9e573682",
+          "time": "21:09",
+          "message": "docs(reports): 參考資料頁補上 eGFR 60–89 的年長者加註",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c6de6748",
+          "time": "20:57",
+          "message": "feat(reports): 參考資料頁與判讀卡同步定案標準，納入肝指數",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "7298697a",
+          "time": "20:44",
+          "message": "feat(reports): 判讀結果下方顯示依據與可點開的引用來源",
+          "body": "配合後端 HealthFindings，每個判讀發現都附依據與來源連結，符合 App Store 準則 1.4.1。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c30cbab7",
+          "time": "19:34",
+          "message": "docs: 退件紀錄記下項目說明先保留的決定",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6bdb67a1",
+          "time": "19:33",
+          "message": "feat(reports): 判讀卡只顯示有來源的發現，參考資料頁列出判讀標準",
+          "body": "配合後端不再回傳「健康」與亞健康風險：沒有發現時不顯示判讀卡。\n參考資料頁列出每條判讀標準與來源，移除只算相關、不支持門檻的 ALT 論文。\n示範資料與審核備註同步。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "80802d58",
+          "time": "19:19",
+          "message": "docs: 退件紀錄補上真實會員判讀盤點結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c6e5d774",
+          "time": "19:15",
+          "message": "docs: 退件紀錄補上審核帳號資料修正結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "9cce40e4",
+          "time": "19:12",
+          "message": "docs: 支援網址改聯絡頁、更新 Apple 帳號付款後收尾實況",
+          "body": "- appstore-listing：Guideline 1.5 退件，支援網址從網站首頁改成\n  cusCenter.asp（App Store Connect 已存）\n- B 線：自動續約、信用卡都不用處理，收據已存，續約提醒建在 2027-10-05\n- A 線：續約提醒的說明跟著 B 線更新\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cac7c072",
+          "time": "19:08",
+          "message": "docs: 退件紀錄補上血脂分級可能的來源時間點",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "96b916c3",
+          "time": "19:08",
+          "message": "docs: iOS 首次送審退件紀錄",
+          "body": "記錄 App Review 退件原因（準則 1.4.1、1.5）、判定標準查證結果、\n文獻比對、決定與待辦。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "32fb20ad",
+          "time": "19:03",
+          "message": "feat(reports): App 內加入資料來源與參考資料頁（App Store 準則 1.4.1）",
+          "body": "App Store 退件要求 App 內附上健康資訊的來源連結，且要容易找到。\n報告明細、單項趨勢、設定都加入口，開啟後列出參考值來源與相關公開資料。\n清單是相關資料，不是判定依據，頁面說明部分區間與資料不完全相同。\n\nbuild number 改為 2；商店資料更新支援網址與審核備註（準則 1.5）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "d562454d",
+          "time": "16:32",
+          "message": "fix(store): 櫃檯看板拿掉手機陰影，修正 PDF 色塊",
+          "body": "Edge 輸出 PDF 時把 box-shadow 存成 JPEG 灰階遮罩，手機周圍出現方塊狀色塊。\n拿掉陰影後重新輸出，PDF 內不再有 JPEG 遮罩；版面與 QR Code 不變。\nposter.html 開頭加註解，避免之後又加回陰影。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "422942e9",
+          "time": "16:09",
+          "message": "docs: 補台北順序卡 lisweb2、里程碑草稿現況、櫃檯看板與 iOS 連結步驟",
+          "body": "- 回饋待辦：台北 LT274Order 仍 404 的原因、11-04 各站版號、11-05 發佈計畫；補 iOS 推播兩個小修待決\n- 上架後待辦：草稿已補到送審（audit-integration !51）、簽核前必須成真的兩句、上架當天填 IOS_URL\n- README：櫃檯看板位置\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4e80a9ab",
+          "time": "15:44",
+          "message": "feat(store): 櫃檯 A4 看板，QR Code 掃描下載檢驗雲存摺",
+          "body": "QR Code 指向 https://www.uclcloud.com.tw/app/，由網站判斷手機系統再轉商店。\nposter.html 開頭註解有重產 PDF 的指令。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 14
+    },
+    {
+      "name": "Management\\MiniMeet",
+      "commits": [
+        {
+          "hash": "2f098383",
+          "time": "19:13",
+          "message": "docs: 記下 LiveKit 改用公網 IP，以及正式站與 repo 的設定落差",
+          "body": "曾聖惶在 VM 把 use_external_ip 改成 true，repo 還是 false。\n更新版本會蓋掉，LiveKit 下次重啟後外面的人就連不進來，先寫進部署文件。\n這次只改文件，yaml 還沒改。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "bb4d61d3",
+          "time": "16:27",
+          "message": "介紹頁依視窗自動放大內容，減少空白",
+          "body": "只把卡片撐開時，視窗比例一變就會空出來。改成每一頁算出放得下的最大比例，\n讓內容本身填滿頁面。手機與列印不受影響。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "19e275f6",
+          "time": "16:23",
+          "message": "介紹頁放大字級，卡片不再框大字小",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ea6bc988",
+          "time": "16:19",
+          "message": "介紹頁改成滿版，加上上一頁、下一頁按鈕",
+          "body": "原本鎖 16:9，視窗比例不同時兩側或上下會留空。改成頁面填滿視窗，\n多出來的高度分給卡片。手機是連續捲動，不顯示翻頁鈕。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1aee99f4",
+          "time": "16:14",
+          "message": "加上三頁簡報版的專案介紹：/about.html",
+          "body": "放在正式站，內容只寫一般介紹，內部細節留在 repo 文件。加上 noindex，\n不讓搜尋引擎收錄。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1d795ada",
+          "time": "12:35",
+          "message": "docs: 加上 TODO，記錄畫面閃爍、手機版面與尚未驗證的項目",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "dc6db104",
+          "time": "12:35",
+          "message": "合併 MR !33: docs: 補上本次收尾還沒進文件的事項",
+          "body": "docs: 補上本次收尾還沒進文件的事項\n\nSee merge request ucl/management/mini-meet!33",
+          "category": "合併MR"
+        },
+        {
+          "hash": "d89c5d60",
+          "time": "12:32",
+          "message": "手機看分享：專注模式可轉橫、兩指放大與拖曳",
+          "body": "直向時 16:9 的分享畫面只佔一條，進專注模式也放不大，看不到字。\n\n- 專注模式在 Android 嘗試鎖定橫向，轉不了就提示使用者自己轉\n- 兩指放大、單指拖曳、點兩下放大或還原，電腦不受影響\n- 放大改版面尺寸，不用 transform，adaptiveStream 才會依放大後的尺寸選畫質\n- 手機橫放且未進專注時隱藏鏡頭列，把高度給分享畫面，聲音不受影響\n- 使用說明補手機看簡報的操作與 UCL-Guest 連不進的說明\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "51d36704",
+          "time": "12:07",
+          "message": "docs: 修正外網現況，4G 實測連得到",
+          "body": "先前寫「只開放內網」與實測不符：手機從 Wi-Fi 切到 4G 後影音沒有中斷。\n只測過一支手機，也還沒有 TURN，文件寫明不保證所有電信都行。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "228826a3",
+          "time": "12:03",
+          "message": "加上網站圖示：酒紅底白色攝影機",
+          "body": "圖示由 client/scripts/generate_favicon.py 產生，要改色或改圖重跑即可。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a40de893",
+          "time": "12:03",
+          "message": "docs: 記錄正式站已部署，加上試跑計畫與使用說明",
+          "body": "- README、deploy、M0 文件更新到 2026-11-04 的部署現況\n- deploy 補換憑證步驟、buildx，以及 VM 目前不是 clone 的更新方式\n- 試跑計畫前置工作更新狀態\n- 使用說明補正式網址、同一間會議室多台電腦的回授對策\n- 使用說明拿掉快速登入：目前放行整段，不寫給一般同仁\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "616c487b",
+          "time": "21:09",
+          "message": "feat(report): eGFR 60–89 於 65 歲以上加註，ALT 落在參考區間內時說明採較嚴標準",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a02a599e",
+          "time": "20:57",
+          "message": "feat(report): 判讀改用報告原始值與公開標準，納入肝指數與 eGFR 60–89",
+          "body": "直接用報告的值判定，不再經過 subhealth_chk、subhealth_rel 與 OPDSubhealth 快取，\n也一併解決尿蛋白 1+ (Pos) 比對不到、舊代碼被忽略的問題。\nALT、AST 依 ACG 2017，AST 用各檢驗所參考上限的倍數；標籤改用貼近文獻的用語。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b35b97b3",
+          "time": "20:44",
+          "message": "feat(report): 判讀結果附依據與引用來源，並修正部署帶上舊檔",
+          "body": "App Store 準則 1.4.1 要求健康資訊附來源：API 新增 HealthFindings，\n每個判讀發現都帶判定依據與引用連結，網站顯示在結果下方。\n\n2026-11-04 部署曾帶上 repo 內的舊 dll，登入全壞但 pipeline 仍綠燈：\n- backend/publish、backend/obj 移出 repo，打包前先清空\n- 部署後驗證線上 commit 與 /api/Lab，失敗就紅燈\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "dafca376",
+          "time": "19:36",
+          "message": "合併 MR !38: fix(scripts): 審核帳號改用真實檢驗代碼，避免判讀一律顯示健康",
+          "body": "fix(scripts): 審核帳號改用真實檢驗代碼，避免判讀一律顯示健康\n\nSee merge request ucl/officialwebsites/cloudedleopard!38",
+          "category": "合併MR"
+        },
+        {
+          "hash": "637ccac5",
+          "time": "19:33",
+          "message": "fix(report): 判讀只回報有公開來源的發現，不再一律回傳健康",
+          "body": "沒有比對到判定標準的報告也會回傳「健康」，真實報告中有 8,522 份沒有任何項目比對到標準。\n改成只回報血糖、血脂、eGFR <60、尿蛋白陽性等有來源的發現；沒有發現就回空字串，前端不顯示。\n肝功能、肌酸酐、尿蛋白 +/-、eGFR 60–81.98、亞健康風險找不到來源，不再判讀。\n網站移除風險區塊並附上來源，整體狀態的「健康」改為「全部正常」。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8fa85098",
+          "time": "19:31",
+          "message": "fix(scripts): 補尿蛋白陽性的實際寫法，避免一律算正常",
+          "body": "subhealth_chk 6226 第 2 級只認 +、Pos 等寫法，實際資料是 1+ (Pos)、\n2+ (Pos)，比對不到就記 0。正式庫有 118 筆陽性（117 份報告、52 人）。\n新增標準列並清掉受影響的快取。\n\n腳本要等不再判讀 subhealth_rel 風險的改動部署後才能執行，否則會讓\n10 條找不到出處的尿蛋白風險規則開始作用。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "ae94495f",
+          "time": "19:18",
+          "message": "fix(scripts): 審核帳號改用真實檢驗代碼，避免判讀一律顯示健康 [skip ci]",
+          "body": "測試資料把代碼寫成 GLU、CHO 等，比對不到 subhealth_chk，判讀一律算成健康。\nALT、AST 品名改用「轉胺酵素」：ChkName 是 varchar，「酶」字會存成問號。\n正式庫的 playreview 已於 2026-11-04 手動更新，這裡同步腳本，避免重跑後還原。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "3a39c3b2",
+          "time": "15:44",
+          "message": "feat: 新增 /app/ App 下載頁，依手機系統轉到對應商店",
+          "body": "櫃檯看板的 QR Code 固定指向這頁，Android 轉 Google Play、iPhone 轉 App Store，\n電腦或無法判斷時顯示下載按鈕。用靜態檔不走 Vue，掃碼後開得快。\nApp Store 尚未上架，IOS_URL 留空時 iPhone 不轉址、顯示即將推出；上架後填一行即可，看板不用重印。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "6ff24f90",
+          "time": "08:25",
+          "message": "合併 MR !72: 佈署紀錄補 11-04 08:19 第二次送 config 與時序（取代 !71）",
+          "body": "佈署紀錄補 11-04 08:19 第二次送 config 與時序（取代 !71）\n\nSee merge request ucl/ops/cerberus!72",
+          "category": "合併MR"
+        },
+        {
+          "hash": "aeb50d93",
+          "time": "08:25",
+          "message": "佈署紀錄補 11-04 08:19 第二次送 config 與時序（取代 MR !71）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "be2b64e2",
+          "time": "08:20",
+          "message": "佈署紀錄補 11-04 啟用血型同步、NHI 兩顆頭那一列",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "6eb23ae2",
+          "time": "08:17",
+          "message": "合併 MR !68: Chronos工作頭補「該跑沒跑」與「執行器沒在排它」判定",
+          "body": "Chronos工作頭補「該跑沒跑」與「執行器沒在排它」判定\n\nSee merge request ucl/ops/cerberus!68",
+          "category": "合併MR"
+        },
+        {
+          "hash": "c7d665be",
+          "time": "08:16",
+          "message": "docs: 佈署紀錄補 11-04 Chronos工作頭「該跑沒跑」config 上線那一列",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2dff99b2",
+          "time": "08:14",
+          "message": "config: 啟用血型同步、NHI 自費上傳兩顆 ScheduledRun 頭",
+          "body": "10-17 先以 Enabled: false 佈上，等 run-history.log 出現再翻 true，這一步之後漏了。\n兩份紀錄 10-18～11-04 每天都有、沒有 FAIL，--check 兩顆都正常。\n\nNHI 這顆不涵蓋複製到 168.227 失敗（只記警告、仍寫 OK），註解寫明。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "69dbb4fb",
+          "time": "08:07",
+          "message": "Chronos工作@台北／@台中 補「該跑沒跑」與「執行器沒在排它」兩種判定",
+          "body": "原本只抓 ① 上次 FAIL／TIMEOUT ② 鎖卡住超過逾時＋5 分，工作悄悄沒被觸發時\n（執行器停了、cron 被改壞解析失敗、被跳過）DB 上沒有任何失敗紀錄，這顆頭一直綠。\n2026-10-21 收尾時程列為必補。\n\nBacklogSql 加兩種：\n③ 執行器沒在排它：NEXT_RUN_AT 過期 5 分還沒被推前。執行器每分鐘會把每支已啟用\n   工作的 NEXT_RUN_AT 寫成「現在之後的下一個時點」，過期＝執行器停了或這支 cron\n   解析失敗（執行器 log 只有 WARN）。\n④ 該跑沒跑：上次執行（或上次在維護頁改過）至今超過排程週期＋2 小時。週期由 cron\n   粗分：日／月／週欄全 * ＝每天、只限週幾＝每週、其餘＝每月；保守取大，不誤叫。\n第四欄 LISTAGG 寫出哪幾支、為什麼（「WebOrderArchive：該跑沒跑、Data2Cloud：FAIL」），\n直接進 Discord 與牆。Runbook 補兩種狀態的處理步驟。\n\n驗證：對台北（7 支）、台中（1 支）直接跑新 SQL，0 筆、四欄、<70ms；逐支算出的期限\n合理（每月績效 12-02 02:05、每日的隔天＋2h）；dotnet run -- --check 兩顆頭皆「佇列已清空」。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "765da0a2",
+          "time": "08:33",
+          "message": "docs: 每月績效收尾——台中 2026/10 已補傳、台北舊定義已刪；12-01 前決定告警",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ac578302",
+          "time": "08:20",
+          "message": "docs: 每月績效 11-04 核對——台北合理、舊定義待刪；台中 2026/10 沒進 BBS 待補傳",
+          "body": "另記：站上程式可能不是從 bill_detail 算（Mode=Oracle）；NHI 複製失敗仍寫 OK 列待辦。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c44ff08d",
+          "time": "08:16",
+          "message": "docs: 11-04 Cerberus 該跑沒跑 config 已上 56.231、PatchNote 653 已翻公開",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "08503419",
+          "time": "08:10",
+          "message": "docs: 11-04 三項收尾——台中驗收通過、lisweb 退役端點 MR !1614、Cerberus 該跑沒跑 MR !68",
+          "body": "- 台中一週驗收：近 14 天 369 筆候選、規則＋批次都沒觸發 0 筆；批次補過 122 張註解仍在\n- lisweb 1.5-7 退役六個檔 MR !1614（Ken review）\n- Cerberus Chronos工作兩顆頭加「執行器沒在排它」「該跑沒跑」MR !68；config 尚未送 56.231\n- PatchNote 653 翻公開待過目措辭\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "593a3af7",
+          "time": "08:06",
+          "message": "docs: 11/4 收尾——作戰圖 B 組改完成、TODO 加三條收尾待辦（放行記號過期、1110 重送、0705 隔離檔標記）、6b 卡 SMB 已解",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "015e1555",
+          "time": "07:53",
+          "message": "docs(6b): 11/4 補做每週逐張比對（10/17–11/3）——3,936 張表頭／建單者全對，15 張項目數不符全歸因人工加做；紅線 5 909/909",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "85d8b68f",
+          "time": "07:38",
+          "message": "docs(fp-retire): 11/4 07:35 B 組 valid=0 完成（0539／0235／0699／0272），Companys valid=1 歸零；步驟 6 確認",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "fe2f17d4",
+          "time": "15:30",
+          "message": "合併 MR !1615: fix(hdprint): 修正台中洗腎列印模式轉換",
+          "body": "fix(hdprint): 修正台中洗腎列印模式轉換\n\nSee merge request ucl/lis/lisweb!1615",
+          "category": "合併MR"
+        },
+        {
+          "hash": "52de4a31",
+          "time": "08:06",
+          "message": "chore(排程): 退役 DelayCommentBackfill 舊端點與 X-Schedule-Key 驗證（六個檔）",
+          "body": "2026-10-13 起台中檢體延誤註解補加的商業邏輯已搬進 Chronos 內建工作\n（Tasks/DelayCommentBackfillTask.cs，TASK 型），lisweb 只剩排程維護頁 GUI，\n這支 HTTP 端點 10-13 起就沒再被呼叫。台中一週驗收（11-04 查近 14 天候選\n0 筆漏加、批次補過的 122 張註解仍在）通過後依收尾時程退役。\n\n刪除：\n- Controllers/api/DelayCommentBackfillController.cs（POST api/Schedule/DelayCommentBackfill）\n- Repository/DelayCommentBackfillRepository.cs\n- Models/ViewModel/DelayCommentBackfillViewModel.cs\n- Files/DelayCommentBackfill.json\n- Filter/ScheduleApiKeyAuthorizeAttribute.cs（只有這支端點在用）\n- LISWeb.csproj 對應五行\n\n不動：ScheduleJobs 維護頁、SchemaModify 腳本、SYS_PARAMETER Schedule_ApiKey 列。\nlisweb 端點的補加路徑有 :comment 保留字 bug 從未實寫過，不修直接退役（執行計畫 1.5-7）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "e45187c4",
+          "time": "14:53",
+          "message": "feat: 嘉義靜平關於我們加入照片牆、證書牆與燈箱",
+          "body": "嘉義反映公司簡介照片太大、頁面拉很長，榮耀肯定的證書也一樣。\n- 公司簡介：第一張當大圖，其餘排右側\n- 榮耀肯定：證書完整顯示不裁切，附標題\n- 兩區共用燈箱，支援上一張/下一張、方向鍵、手機滑動\n\nabout.asp 全分部共用，只有 Corp_NO=04 才載入，其他分部輸出不變。\n內容由後台 CKEditor 編輯，存檔會濾掉 script 與自訂屬性，所以 JS 直接收區塊裡的 img，\n同仁增刪照片不用改程式。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "057e5a7e",
+          "time": "14:53",
+          "message": "chore: about.asp 納入版控（正式機原始版本）",
+          "body": "about.asp 原本被 webshop/shop/* 排除，修改不會留下紀錄。\n先以正式機 2026-11-04 改版前的內容建立基準，下一個 commit 才看得出實際改動。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "c088d121",
+          "time": "09:45",
+          "message": "feat(wall): 早會模式（週一到週五 09:00–09:05）——五分鐘倒數和三個問題",
+          "body": "每天早上的站立會議。牆換成藍色，放倒數和要講的三件事（昨天做了什麼、今天要做什麼、\n有沒有遇到困難），音樂暫停，09:05 從斷掉的地方接回去。週末不開。\n\n規矩跟午休一樣：警報照響、只在全綠時換皮（有狀況就回警報畫面）、「全部正常」不能省、\n到點收起待播清單、時間寫在 index.html。?standup=1 直接進早會看樣子。\n\n本機實測：Chrome 載入正式機即時資料（只讀），把時段改成下一分鐘實際等進出，18 項；\n星期與時段邊界 6 項＋預覽 1 項。真電視還沒試過暫停再接回去，走的是午休同一條路。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\upload-performance",
+      "commits": [
+        {
+          "hash": "c13f248a",
+          "time": "08:47",
+          "message": "docs: 記錄 API 只 INSERT、台中 10 月補傳、兩筆績效修正的原值",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "928e7b69",
+          "time": "16:13",
+          "message": "合併 MR !51: 檢驗雲存摺里程碑（XRS0602002）草稿：補 iOS 進度，待上架後填日期",
+          "body": "檢驗雲存摺里程碑（XRS0602002）草稿：補 iOS 進度，待上架後填日期\n\nSee merge request ucl/management/audit-integration!51",
+          "category": "合併MR"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "b7ca8ac0",
+          "time": "11:30",
+          "message": "feat(bylaw): 說明表換 11-4v5，管委會署名下移",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "631bf651",
+          "time": "11:28",
+          "message": "feat(bylaw): 說明表換 11-4v4，最後一列加管委會署名與電話",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b01b7174",
+          "time": "11:13",
+          "message": "feat(bylaw): 紙本表換成經理版登記確認表 PDF，管理中心區放大到 12pt",
+          "body": "build-bylaw 改複製 docs/forms/登記確認表-紙本.pdf；舊的 紙本登記表.doc 從站上移除。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "397f2a43",
+          "time": "10:37",
+          "message": "feat(bylaw): 下載區加入抽籤辦法說明表 PDF（11-4v2 有空白行版）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "24278d1f",
+          "time": "10:34",
+          "message": "docs(說明表): 定為有空白行版 11-4v2——流程圖字全部同大小、右欄黑字粗體、補流程圖下框線",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9794bdf5",
+          "time": "10:21",
+          "message": "docs(說明表): 主委要求流程圖三行說明改紅色",
+          "body": "限每戶第一部機車、依登記順序免抽籤、號碼已被選者請改選；docs/36 §5 同步。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cfbab2a8",
+          "time": "10:18",
+          "message": "docs(說明表): 主委選回 11-3v1，流程圖以 v1 為底重做並出有空白／無空白兩版待挑",
+          "body": "流程圖白底淺字改黑粗體、第二輪直線往下、虛線對齊表格橫線；eTag 行改紅。\n新增 build-explainer-variants.py 產兩版；TODO、README、docs/36 §5 同步。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "scoreboard",
+      "commits": [
+        {
+          "hash": "9b13c08a",
+          "time": "15:24",
+          "message": "docs: 週五平板先放地上，固定方式另開一項",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8611e015",
+          "time": "14:52",
+          "message": "watch: 新增 Galaxy Watch 手錶計分 App",
+          "body": "可以看比分、點螢幕或上下滑加減分、切換全場半場，下鍵連按兩下開新局。\n上鍵被系統攔走、下鍵長按會開 Samsung Wallet，所以都不拿來計分。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "5c9b79f8",
+          "time": "08:54",
+          "message": "docs: 計分板平板加吊在球架上的選項",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7721e82b",
+          "time": "08:29",
+          "message": "docs: 比賽日指南，整合器材、三台裝置擺放與開打前後流程",
+          "body": "計分板平板不放地上，改夾在圍網上；錄影指南的 3v3 架設段落移到 game-day.md\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8d19a4f6",
+          "time": "08:27",
+          "message": "docs: 補上手機版決策、週五準備與架設方式，更新過時內容",
+          "body": "- decisions：1080p、手機門檻、鏡頭鎖橫向、不跑 R8、每幀記錄存手機、半場走自動認人\n- recording-guide：3v3 跑 App 怎麼架；中場線太遠\n- TODO：連假計畫換成現況，加週五準備清單\n- README：模擬進球現況、轉檔要用 Actions、精華核對要看到進球前 0.5 秒\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "a869bbe1",
+          "time": "17:21",
+          "message": "docs(sci): 11/04 版先不寄、等教授下一批；TODO 與聯絡紀錄更新",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3dff9668",
+          "time": "17:18",
+          "message": "docs(sci): 整併 11/04 批註後的 Ch1–Ch7 20261104 版（docx＋pdf，尚未寄）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1f6b660b",
+          "time": "17:16",
+          "message": "feat(sci): 教授 11/04 p.10 批註騰入：Table 2／3 改名重排、4.3 首句改英文、Δ 特徵三點改寫＋新段",
+          "body": "- scans/20261104_教授批註_p10_*.jpg 存證；騰稿 21_1104_p10_Table2-3_特徵工程_教授批註.md\n- Table 2「資料欄位／變數」、表頭類別／欄位名稱；Table 3 表頭類別／特徵／數量、特徵依 Table 2 順序、刪合計列\n- 4.3 首句換教授英文句（Upon … and with …）；「設計理念」→「目的是」；三點去編號、許多／與判斷／\n  其相關症狀或特徵數值的／例如／空腹血糖值；新增「這些資訊很明顯的…另作說明和介紹」段\n- 三處判讀經使用者核：與判斷插在發展／不僅之間、with 插在 and／the research 之間、英文照放\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "1d5757f2",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-04",
+          "body": "🤖 自動生成於 2026-11-04 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "1c21aae1",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-03 (117 commits)",
+          "body": "🤖 自動生成於 2026-11-04 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 90,
+    "sideCommits": 17,
+    "totalCommits": 107
+  }
+}
