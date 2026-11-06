@@ -1,0 +1,353 @@
+{
+  "date": "2026-11-06",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "f947d43d",
+          "time": "14:52",
+          "message": "memory(ParkFee): 秘書講義走查與讀者更新",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a7a23666",
+          "time": "12:26",
+          "message": "chore(memory): RiskPrediction-3H 記錄 4.4／4.5 確定對調與 C0-12",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "0feb2794",
+          "time": "11:16",
+          "message": "chore: session 收尾備份 2026-11-06（ReportHtmlSync 轉檔失敗重試）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "0c97f4e0",
+          "time": "10:57",
+          "message": "chore: lisweb 記憶備份 2026-11-06",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "deef4d08",
+          "time": "10:50",
+          "message": "memory: ReportHtmlSync 轉檔失敗重試上線狀態（2026-11-06）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "b0da61a5",
+          "time": "08:44",
+          "message": "chore: Play 交易商狀態聲明記錄 2026-11-06",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "29887c0d",
+          "time": "08:20",
+          "message": "chore: session 收尾備份 2026-11-06",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e62c9006",
+          "time": "08:19",
+          "message": "MiniMeet memory：11/6 部署 !43",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "93222114",
+          "time": "08:10",
+          "message": "MiniMeet memory：頻寬機制 MR !43、yaml 落差狀態",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "ba8edd6f",
+          "time": "11:11",
+          "message": "docs: 舊文件補上失敗處理改版的說明，新站台上線要加狀態欄位",
+          "body": "2026-11-06 起排程把失敗記在 html_status、不再寫 ERROR 進 htmlContent，\n但多份舊文件還在描述舊行為，照著查會被誤導。\n\n- docs/5、docs/1 §8：新站台上線要跑 sql/add-html-status-columns.sql，\n  新版排程沒有這四欄會整支停擺\n- docs/1：台北換版只換三個檔的做法與 schedule-preview 預檢；\n  HTTP 逾時更正為 100 秒 (HttpClient 預設值)\n- docs/4：毒單佔道那一格補上新版的行為 (重試閘門)\n- docs/2、docs/architecture、docs/guides/3、4、README、troubleshooting skill：\n  開頭加註用 htmlContent LIKE 'ERROR:%' 算失敗的查詢在新版站台永遠是 0，改看 docs/8\n- docs/configuration：補 RetryDelaysMinutes、OutageMinFailures\n- todo.md：加台北觀察項 (失敗重試在正式環境還沒實際走過)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "03c14e18",
+          "time": "11:06",
+          "message": "docs: docs/7 定稿給 webreport、docs/8 補重試時機／效能／回退注意事項",
+          "body": "- docs/7：改寫成可以直接交給 webreport 維護者的版本 — 各站現況、失敗後排程會做什麼、\n  四條判斷規則、判斷不到的情況 (整批失敗)、備援渲染建議、分兩步上線、\n  與排程新舊版的相容性\n- docs/8：重試跟著排程一起跑 (沒有另外的 trigger)、重試的單沒有優先權；\n  台北換版前後的效能實測、想降低重試頻率時怎麼調、設定管不到的情況；\n  從新版退回舊版時要清 html_status\n- todo.md：docs/7 已定稿，待交給 Spark\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ea92922e",
+          "time": "10:47",
+          "message": "docs: 台北換版紀錄、Cerberus 監控只接台北與其他站的補法",
+          "body": "- docs/6：台北 2026-11-06 09:40 換到 main HEAD (失敗自動重試)，版本尺加 #10\n- docs/8：監控一節補回測結果、「目前只接台北」與替其他站補頭的步驟、\n  --check 驗證時踩到的坑\n- todo.md：台北換版與 Cerberus 台北那顆頭已完成；其他五站不急\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "98a5c0c2",
+          "time": "09:21",
+          "message": "feat: Cerberus 監控查詢 — 排程沒在跑、整批失敗、失敗積壓",
+          "body": "- sql/cerberus-html-sync-head.sql：每站一顆 DbBacklog 頭用的積壓查詢\n  (Cerberus 設定檔裡是同一段壓成一行)\n- 端到端測試加 s13，檢查查詢在四種狀態下的回報\n- 六站正式 DB 實測 (唯讀) 2～10 ms；用 2026-11-02 台北的資料回測，\n  事故開始後 15 分鐘會亮紅\n\nCerberus 那邊的設定尚未加。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ec139ee4",
+          "time": "09:14",
+          "message": "feat: 轉檔失敗自動重試，失敗不再寫進 htmlContent",
+          "body": "舊版失敗時把「ERROR: 無法抓取HTML」寫進 htmlContent：失敗的單永遠不會重試、\n網路報告查詢把錯誤字串當報告顯示、真正的例外被吞掉沒留下\n(2026-11-02 台北換憑證，2,390 張卡到人工清除)。\n\n- 失敗改記在 html_status / html_error / html_retry_count / html_next_retry，\n  htmlContent、CreateTime、EndTime 不動 (報告更新後重轉失敗時保留原本的 HTML)\n- 重試間隔 5 分、15 分、1 小時、4 小時、24 小時，用完標記為放棄 (3)；\n  已放棄的單在報告更新後重新開始。規則在 Utils/RetryPolicy\n- 撈單查詢加上重試閘門：還沒到重試時間的單不撈\n- 整批沒有任何一張成功且失敗達 OutageMinFailures (預設 5) 張時，視為渲染站台\n  問題：不記錄失敗狀態、不扣重試次數，下一輪照常再試\n- FetchHtmlContent 不再吞掉 HttpRequestException；失敗原因連同內層例外\n  寫進 html_error、execution_log.error_message 與批次 log\n- 新增端到端測試 tests/e2e (本機 SQL Express＋假的報告站台，12 個情境)\n- 文件：docs/8 轉檔失敗重試機制、docs/9 本機端到端測試\n\n需要 pat_resulth 已有四個狀態欄位 (六站已於 2026-11-06 加完)。\n新舊撈單查詢已在六站正式 DB 量過 (唯讀)，速度相同。尚未部署到任何一站。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "0aa9b564",
+          "time": "08:38",
+          "message": "feat: pat_resulth 新增 HTML 轉檔狀態欄位（六站已上線）＋給網路報告查詢的判斷規則",
+          "body": "起因：2026-11-02 台北 56.231 換 SSL 憑證後同步全滅 62 分鐘，2,390 張單的\nhtmlContent 被寫成「ERROR: 無法抓取HTML」，網路報告查詢把它當報告顯示，\n而且失敗永遠不會重試。\n\n- sql/add-html-status-columns.sql：新增 html_status、html_error、\n  html_retry_count、html_next_retry 四個可為 NULL 的欄位與一般索引\n  （不用篩選索引，避免 QUOTED_IDENTIFIER OFF 的舊寫入端失敗）。\n  2026-11-06 六站都已執行完成。\n- docs/7：給 webreport 的判斷規則與備援建議。\n- todo.md：後續待辦（排程重試、Spark 備援、Argus 監控）；\n  台北 2,396 張、台中 1 張 ERROR 已清除重轉。\n\n本次只有 DB 結構與文件，排程程式尚未改，新欄位目前全部是 NULL。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "9a5001ea",
+          "time": "10:36",
+          "message": "docs(BT402): 地址條補實際分批方式、排查步驟，修正欄位來源與截斷規則",
+          "body": "- 新增「實際怎麼分批印」：有沒有地址條取決於誰用什麼篩選跑批次（2026-10 實際批次、綉媚組不跑、月底組帳單沒勾只有 3 家）\n- 新增「查為什麼印出／沒印出某家」：BT101 設定、月結金額、IIS log、UPDATE_ON 陷阱\n- 欄位來源補郵寄分流（郵寄=Y 才印地址、沒印地址才印角碼）與 DBUNICODE 優先\n- 截斷規則改為現行 40 字＋四級縮字；按鈕帶入條件補期間、單位起訖、帳務備註\n- PrintBT402Address.cshtml 頂端註解同步（原本還寫抬頭用 RECEIPTHEADER）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "3e32b8dc",
+          "time": "10:28",
+          "message": "docs(BT402): 記錄地址條維持不判斷 PRINTBILL 的確認結論",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6cc012d4",
+          "time": "08:45",
+          "message": "feat(LT252/LT253/LT257): 外送轉入值預設鎖定，修改走 F5 或勾選解除",
+          "body": "新竹提出：儀器傳入的值要按 F5 才能改，但用「聯合檢驗電子檔轉入」批次匯入的\n台北外送值可以直接改，發報告時容易誤壓到而被改掉。\n\n批次匯入只寫結果值，資料上與手動輸入無異（OD_RESULT_SRC 仍是 N），因此改以\n「項目所屬工作站」判斷：站點在 Web.config 設定外送工作站代碼\n（ImportedResultLockWS，逗號分隔），項目屬於這些工作站且載入時已有值、尚未一審\n→ 結果欄唯讀，修改走既有的 F5 流程。還沒有值的項目照常可以手動輸入。\n\n- 新增共用腳本 Scripts/importedResultLock.js，LT252 / LT252B / LT253 / LT257 共用\n- 標題列新增「解除外送值鎖定」勾選框，勾選後可直接修改；換下一張報告自動恢復鎖定\n- 設定空值 = 不啟用（畫面不出現勾選框）；本次只開新竹（WS91 = Outlab - UCL）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4d38e736",
+          "time": "08:32",
+          "message": "docs(BT402): 變更歷史補上 06-22 單位起訖修正、郵寄分流與 09-14 付款模式「未設定」",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "0ff8b13f",
+          "time": "08:21",
+          "message": "feat(LT252): 姓名遮罩接站點 DataMaskingEnabled 開關，並記住個人「顯示個資」選擇",
+          "body": "- LT252/LT252B/LT253 原本寫死預設遮罩，不看 Web.config DataMaskingEnabled；\n  改為開關 false 的站（台中/高雄/新竹/嘉義）直接顯示全名、隱藏「顯示個資」按鈕、不記 UNMASK\n- 遮罩站（台北/桃園等）記住使用者上次的顯示/隱藏狀態（localStorage，依帳號區分），\n  下次進頁面沿用；沿用顯示狀態時每載入一筆報告照常記 UNMASK\n- mask.js 新增 PiiPreference 共用物件\n- 需求來源：新竹希望 LT252 病人姓名全部顯示\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "61cccea3",
+          "time": "10:46",
+          "message": "合併 MR !73: 新增頭「報告HTML轉檔@台北」：網路報告 HTML 轉檔的整批失敗／失敗積壓／排程沒在跑",
+          "body": "新增頭「報告HTML轉檔@台北」：網路報告 HTML 轉檔的整批失敗／失敗積壓／排程沒在跑\n\nSee merge request ucl/ops/cerberus!73",
+          "category": "合併MR"
+        },
+        {
+          "hash": "af4042dd",
+          "time": "10:45",
+          "message": "佈署紀錄：11-06 新增頭 報告HTML轉檔@台北，含 --check 驗證踩坑",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "280e9634",
+          "time": "10:41",
+          "message": "新增頭「報告HTML轉檔@台北」：網路報告 HTML 轉檔排程的整批失敗／失敗積壓／排程沒在跑",
+          "body": "ReportHtmlSync（56.231 每分鐘跑一次）壞掉時 process 照跑、log 照寫，只是每一張都失敗，\n看心跳抓不到。近 90 天兩次整批失敗都沒有人察覺：2026-08-31 lisweb2 app pool 停止（32 小時）、\n2026-11-02 換 SSL 憑證（61 分，2,390 張卡到 11-06 人工清除）。\n\nDbBacklog + SqlServer，連台北 HCLABx，SQL 依序判斷：\n  A. 超過 30 分沒有 execution_log        → 排程沒在跑（紅）\n  B. 最近一次成功之後出現 0 成功、失敗 ≥5 的批次 → 整批失敗（紅）\n  C. pat_resulth 有 html_status 2／3     → 失敗積壓（黃；達 100 張轉紅）\n\n用台北近 90 天的 execution_log 回測：只有上述兩次事故符合，零誤報。\n實測 23 logical reads、0.5 ms。本機 --check 回「正常｜佇列已清空」。\n\n目前只接台北，其他五站等分部反應類似問題再補；\nSQL 可讀版本與補法在 ReportHtmlSync repo（sql/cerberus-html-sync-head.sql、docs/8）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Management\\MiniMeet",
+      "commits": [
+        {
+          "hash": "8d9d2c73",
+          "time": "08:16",
+          "message": "合併 MR !43: 頻寬不足時的機制：只聽聲音、全體關鏡頭、網路不穩提示",
+          "body": "頻寬不足時的機制：只聽聲音、全體關鏡頭、網路不穩提示\n\nSee merge request ucl/management/mini-meet!43",
+          "category": "合併MR"
+        },
+        {
+          "hash": "deda35ea",
+          "time": "08:09",
+          "message": "頻寬不足時的機制：只聽聲音、全體關鏡頭、網路不穩提示、allow_pause",
+          "body": "- 只聽聲音：不收別人的鏡頭、關自己的鏡頭，聲音與分享照常，只影響自己\n- 連線品質持續變差 10 秒才提示，只問不自動切換；按「先不用」後 5 分鐘內不再問\n- 主持人可全體關鏡頭，對方之後可自行再開\n- livekit.prod.yaml：開啟 congestion_control.allow_pause；use_external_ip 補成正式站實際的 true，消除與 repo 的落差\n- 文件：部署說明、使用說明、測試紀錄、介紹頁\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "96f38f34",
+          "time": "08:16",
+          "message": "fix(wall): 略過中的磚不算「有事」——只剩它們時回到綠色、音樂照播",
+          "body": "暫時略過之後那塊磚是黃的，而音樂只在全綠時才播（musicCanPlay），所以略過了音樂還是停一整天，\n午休、早會、煙火也都被擋掉。README 當初寫「黃不停音樂」，程式沒做到。\n\n現在牆算狀態時跳過帶 ack 的頭（currentMode）：\n- 只剩略過中的磚：回到「全部正常」那一面，大字改成「N 項略過中・其餘正常」，\n  底下列出每一項的理由、誰、到幾點與倒數（最多三項）\n- 有別的頭在叫：照樣紅／黃、停音樂，略過中的磚排在後面，磚上也帶倒數\n- 到期或 Cerberus 收回 ack：那顆頭照它的顏色算，該叫的照叫\n\n按下略過到 Cerberus 確認之間（≤2 分）仍是黃的，這段沒動。\n\n本機實測：Chrome 載入正式機即時資料（只讀），15 項；另確認每秒那一輪照常跑、沒有例外。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "976cc06b",
+          "time": "15:56",
+          "message": "docs(TODO): 11/06 兩輪引擎演練全過、verify-pay 真 API 0 項不符",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f0966582",
+          "time": "15:36",
+          "message": "fix: 網站 A3 配置圖與選位示範頁「腳踏車」改「自行車」",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "520a39a4",
+          "time": "15:33",
+          "message": "fix(print-map): 配置圖「腳踏車」改「自行車」，與其他文件一致",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8ccb3a5e",
+          "time": "15:13",
+          "message": "feat(說明表): --seal-a0 印章放大成 A0 後為實際尺寸，與 B1 圖一致（經理 11/06 定）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8e4c150c",
+          "time": "14:51",
+          "message": "docs(秘書講義): 拿掉第 3 頁 D、E 段的待經理確認標註",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "41ba5983",
+          "time": "14:43",
+          "message": "docs(秘書講義): 拿掉第 4 頁「還沒定案」區塊",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5a552111",
+          "time": "14:31",
+          "message": "docs: 不另做秘書學習單，訓練照講義 38 上機（對象經理、財秘、兩位秘書）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "cfb4da1c",
+          "time": "14:28",
+          "message": "docs(秘書講義/訓練): 依正式站實測修正無障礙指派步驟",
+          "body": "- 指派後要再點一次該格才有「解除」；已佔用清單正確時顯示戶號與車號\n- 108、194 按鈕是「更新指派」，不可按「解除」，訓練不拿這兩格練\n- 修改登記寫出「編輯登記」「更新登記」\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "94cd3406",
+          "time": "14:27",
+          "message": "feat(print-map): --seal-scale 放大印章，A0 海報與說明表 A0 章一樣大；TODO 記印章大小送經理看",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "47fde394",
+          "time": "14:18",
+          "message": "feat(說明表): 加章版（--seal）與 A0 海報腳本；TODO 記經理加章需求與印章大小待定",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "4dccc2d8",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-06",
+          "body": "🤖 自動生成於 2026-11-06 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "c2505cd8",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-05 (65 commits)",
+          "body": "🤖 自動生成於 2026-11-06 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "RiskPrediction-3H",
+      "commits": [
+        {
+          "hash": "54e5435d",
+          "time": "12:26",
+          "message": "docs(sci): 教授 11/05 晚語音逐字稿（4.4／4.5 確定對調、Eq. 5–7 與 Precision 定義）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "scoreboard",
+      "commits": [
+        {
+          "hash": "f6f52437",
+          "time": "10:56",
+          "message": "docs: 自動認隊伍列為核心，週五改用手錶記分並拍精華",
+          "body": "- 半場自動認隊伍列為核心功能，整理目前各環節結果與缺口\n- 2026-11-06 不跑偵測 App：比分用手錶記，手機只錄 4K 拍精華與訓練資料\n- 下週訓練認隊友；用手錶記分當進球紀錄的想法\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 26,
+    "sideCommits": 14,
+    "totalCommits": 40
+  }
+}
