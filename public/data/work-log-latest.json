@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-05",
-    "days": 550,
-    "weeks": 78.6
+    "end": "2026-11-06",
+    "days": 551,
+    "weeks": 78.7
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7059,
+    "totalCommits": 7099,
     "projectCount": 105,
-    "dailyAverage": 12.8
+    "dailyAverage": 12.9
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1442,
+      "totalCommits": 1447,
       "commits": [
         {
           "hash": "a207ff46",
@@ -11551,6 +11551,46 @@
           "body": "份數 0 的報告頁面沒有內容，但仍會呼叫 print。新竹開交錯列印，每張 0 份\n的單各吐一張白紙。沒有可印內容時改為不送印；已列印狀態仍由後端更新，\n不會卡在 UNPRINT 清單。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "9a5001ea",
+          "date": "2026-11-06",
+          "message": "docs(BT402): 地址條補實際分批方式、排查步驟，修正欄位來源與截斷規則",
+          "body": "- 新增「實際怎麼分批印」：有沒有地址條取決於誰用什麼篩選跑批次（2026-10 實際批次、綉媚組不跑、月底組帳單沒勾只有 3 家）\n- 新增「查為什麼印出／沒印出某家」：BT101 設定、月結金額、IIS log、UPDATE_ON 陷阱\n- 欄位來源補郵寄分流（郵寄=Y 才印地址、沒印地址才印角碼）與 DBUNICODE 優先\n- 截斷規則改為現行 40 字＋四級縮字；按鈕帶入條件補期間、單位起訖、帳務備註\n- PrintBT402Address.cshtml 頂端註解同步（原本還寫抬頭用 RECEIPTHEADER）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3e32b8dc",
+          "date": "2026-11-06",
+          "message": "docs(BT402): 記錄地址條維持不判斷 PRINTBILL 的確認結論",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "6cc012d4",
+          "date": "2026-11-06",
+          "message": "feat(LT252/LT253/LT257): 外送轉入值預設鎖定，修改走 F5 或勾選解除",
+          "body": "新竹提出：儀器傳入的值要按 F5 才能改，但用「聯合檢驗電子檔轉入」批次匯入的\n台北外送值可以直接改，發報告時容易誤壓到而被改掉。\n\n批次匯入只寫結果值，資料上與手動輸入無異（OD_RESULT_SRC 仍是 N），因此改以\n「項目所屬工作站」判斷：站點在 Web.config 設定外送工作站代碼\n（ImportedResultLockWS，逗號分隔），項目屬於這些工作站且載入時已有值、尚未一審\n→ 結果欄唯讀，修改走既有的 F5 流程。還沒有值的項目照常可以手動輸入。\n\n- 新增共用腳本 Scripts/importedResultLock.js，LT252 / LT252B / LT253 / LT257 共用\n- 標題列新增「解除外送值鎖定」勾選框，勾選後可直接修改；換下一張報告自動恢復鎖定\n- 設定空值 = 不啟用（畫面不出現勾選框）；本次只開新竹（WS91 = Outlab - UCL）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "4d38e736",
+          "date": "2026-11-06",
+          "message": "docs(BT402): 變更歷史補上 06-22 單位起訖修正、郵寄分流與 09-14 付款模式「未設定」",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0ff8b13f",
+          "date": "2026-11-06",
+          "message": "feat(LT252): 姓名遮罩接站點 DataMaskingEnabled 開關，並記住個人「顯示個資」選擇",
+          "body": "- LT252/LT252B/LT253 原本寫死預設遮罩，不看 Web.config DataMaskingEnabled；\n  改為開關 false 的站（台中/高雄/新竹/嘉義）直接顯示全名、隱藏「顯示個資」按鈕、不記 UNMASK\n- 遮罩站（台北/桃園等）記住使用者上次的顯示/隱藏狀態（localStorage，依帳號區分），\n  下次進頁面沿用；沿用顯示狀態時每載入一筆報告照常記 UNMASK\n- mask.js 新增 PiiPreference 共用物件\n- 需求來源：新竹希望 LT252 病人姓名全部顯示\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
@@ -16388,7 +16428,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 354,
+      "totalCommits": 363,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -19218,6 +19258,78 @@
           "hash": "6967ff07",
           "date": "2026-11-05",
           "message": "chore: session 收尾備份 2026-11-05",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f947d43d",
+          "date": "2026-11-06",
+          "message": "memory(ParkFee): 秘書講義走查與讀者更新",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a7a23666",
+          "date": "2026-11-06",
+          "message": "chore(memory): RiskPrediction-3H 記錄 4.4／4.5 確定對調與 C0-12",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0feb2794",
+          "date": "2026-11-06",
+          "message": "chore: session 收尾備份 2026-11-06（ReportHtmlSync 轉檔失敗重試）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0c97f4e0",
+          "date": "2026-11-06",
+          "message": "chore: lisweb 記憶備份 2026-11-06",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "deef4d08",
+          "date": "2026-11-06",
+          "message": "memory: ReportHtmlSync 轉檔失敗重試上線狀態（2026-11-06）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b0da61a5",
+          "date": "2026-11-06",
+          "message": "chore: Play 交易商狀態聲明記錄 2026-11-06",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "29887c0d",
+          "date": "2026-11-06",
+          "message": "chore: session 收尾備份 2026-11-06",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e62c9006",
+          "date": "2026-11-06",
+          "message": "MiniMeet memory：11/6 部署 !43",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "93222114",
+          "date": "2026-11-06",
+          "message": "MiniMeet memory：頻寬機制 MR !43、yaml 落差狀態",
           "body": "",
           "category": "其他",
           "tags": []
@@ -24679,7 +24791,7 @@
     },
     {
       "name": "Argus",
-      "totalCommits": 115,
+      "totalCommits": 116,
       "commits": [
         {
           "hash": "dab29cf2",
@@ -25600,13 +25712,21 @@
           "body": "每天早上的站立會議。牆換成藍色，放倒數和要講的三件事（昨天做了什麼、今天要做什麼、\n有沒有遇到困難），音樂暫停，09:05 從斷掉的地方接回去。週末不開。\n\n規矩跟午休一樣：警報照響、只在全綠時換皮（有狀況就回警報畫面）、「全部正常」不能省、\n到點收起待播清單、時間寫在 index.html。?standup=1 直接進早會看樣子。\n\n本機實測：Chrome 載入正式機即時資料（只讀），把時段改成下一分鐘實際等進出，18 項；\n星期與時段邊界 6 項＋預覽 1 項。真電視還沒試過暫停再接回去，走的是午休同一條路。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "96f38f34",
+          "date": "2026-11-06",
+          "message": "fix(wall): 略過中的磚不算「有事」——只剩它們時回到綠色、音樂照播",
+          "body": "暫時略過之後那塊磚是黃的，而音樂只在全綠時才播（musicCanPlay），所以略過了音樂還是停一整天，\n午休、早會、煙火也都被擋掉。README 當初寫「黃不停音樂」，程式沒做到。\n\n現在牆算狀態時跳過帶 ack 的頭（currentMode）：\n- 只剩略過中的磚：回到「全部正常」那一面，大字改成「N 項略過中・其餘正常」，\n  底下列出每一項的理由、誰、到幾點與倒數（最多三項）\n- 有別的頭在叫：照樣紅／黃、停音樂，略過中的磚排在後面，磚上也帶倒數\n- 到期或 Cerberus 收回 ack：那顆頭照它的顏色算，該叫的照叫\n\n按下略過到 Cerberus 確認之間（≤2 分）仍是黃的，這段沒動。\n\n本機實測：Chrome 載入正式機即時資料（只讀），15 項；另確認每秒那一輪照常跑、沒有例外。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "Cerberus",
-      "totalCommits": 91,
+      "totalCommits": 94,
       "commits": [
         {
           "hash": "1f4dc257",
@@ -26335,6 +26455,717 @@
           "body": "原本只抓 ① 上次 FAIL／TIMEOUT ② 鎖卡住超過逾時＋5 分，工作悄悄沒被觸發時\n（執行器停了、cron 被改壞解析失敗、被跳過）DB 上沒有任何失敗紀錄，這顆頭一直綠。\n2026-10-21 收尾時程列為必補。\n\nBacklogSql 加兩種：\n③ 執行器沒在排它：NEXT_RUN_AT 過期 5 分還沒被推前。執行器每分鐘會把每支已啟用\n   工作的 NEXT_RUN_AT 寫成「現在之後的下一個時點」，過期＝執行器停了或這支 cron\n   解析失敗（執行器 log 只有 WARN）。\n④ 該跑沒跑：上次執行（或上次在維護頁改過）至今超過排程週期＋2 小時。週期由 cron\n   粗分：日／月／週欄全 * ＝每天、只限週幾＝每週、其餘＝每月；保守取大，不誤叫。\n第四欄 LISTAGG 寫出哪幾支、為什麼（「WebOrderArchive：該跑沒跑、Data2Cloud：FAIL」），\n直接進 Discord 與牆。Runbook 補兩種狀態的處理步驟。\n\n驗證：對台北（7 支）、台中（1 支）直接跑新 SQL，0 筆、四欄、<70ms；逐支算出的期限\n合理（每月績效 12-02 02:05、每日的隔天＋2h）；dotnet run -- --check 兩顆頭皆「佇列已清空」。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "61cccea3",
+          "date": "2026-11-06",
+          "message": "合併 MR !73: 新增頭「報告HTML轉檔@台北」：網路報告 HTML 轉檔的整批失敗／失敗積壓／排程沒在跑",
+          "body": "新增頭「報告HTML轉檔@台北」：網路報告 HTML 轉檔的整批失敗／失敗積壓／排程沒在跑\n\nSee merge request ucl/ops/cerberus!73",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "af4042dd",
+          "date": "2026-11-06",
+          "message": "佈署紀錄：11-06 新增頭 報告HTML轉檔@台北，含 --check 驗證踩坑",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "280e9634",
+          "date": "2026-11-06",
+          "message": "新增頭「報告HTML轉檔@台北」：網路報告 HTML 轉檔排程的整批失敗／失敗積壓／排程沒在跑",
+          "body": "ReportHtmlSync（56.231 每分鐘跑一次）壞掉時 process 照跑、log 照寫，只是每一張都失敗，\n看心跳抓不到。近 90 天兩次整批失敗都沒有人察覺：2026-08-31 lisweb2 app pool 停止（32 小時）、\n2026-11-02 換 SSL 憑證（61 分，2,390 張卡到 11-06 人工清除）。\n\nDbBacklog + SqlServer，連台北 HCLABx，SQL 依序判斷：\n  A. 超過 30 分沒有 execution_log        → 排程沒在跑（紅）\n  B. 最近一次成功之後出現 0 成功、失敗 ≥5 的批次 → 整批失敗（紅）\n  C. pat_resulth 有 html_status 2／3     → 失敗積壓（黃；達 100 張轉紅）\n\n用台北近 90 天的 execution_log 回測：只有上述兩次事故符合，零誤報。\n實測 23 logical reads、0.5 ms。本機 --check 回「正常｜佇列已清空」。\n\n目前只接台北，其他五站等分部反應類似問題再補；\nSQL 可讀版本與補法在 ReportHtmlSync repo（sql/cerberus-html-sync-head.sql、docs/8）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "totalCommits": 85,
+      "commits": [
+        {
+          "hash": "9cb8d2a0",
+          "date": "2025-09-03",
+          "message": "Add comprehensive project documentation",
+          "body": "- 新增專案概述和系統架構文檔",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f48227f1",
+          "date": "2025-09-05",
+          "message": "Restructure documentation with Chinese filenames and sequence numbers",
+          "body": "- Renamed all documentation files to Chinese with sequence numbering (1. xxxx)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5cc7f3db",
+          "date": "2025-09-05",
+          "message": "Add logging guide to documentation index",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9236ab36",
+          "date": "2025-09-05",
+          "message": "Add comprehensive logging and monitoring guide",
+          "body": "Create detailed logging documentation covering:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b7e0c737",
+          "date": "2025-09-05",
+          "message": "Replace real connection strings with example placeholders for security",
+          "body": "Security improvements in documentation:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c35cc5c5",
+          "date": "2025-09-05",
+          "message": "Restructure documentation with organized directory layout",
+          "body": "Major documentation reorganization:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4abee505",
+          "date": "2025-09-05",
+          "message": "Update README.md with comprehensive project documentation",
+          "body": "Replace default GitLab template with detailed project documentation:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e72075ff",
+          "date": "2025-09-05",
+          "message": "Add comprehensive API error handling documentation",
+          "body": "Add detailed section covering:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ce83918b",
+          "date": "2025-09-05",
+          "message": "Optimize database query with CTE for better performance",
+          "body": "Replace the original query with Common Table Expression (CTE) approach:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "369b9714",
+          "date": "2025-09-05",
+          "message": "Add deployment guide and publish build",
+          "body": "- Add comprehensive DEPLOYMENT_GUIDE.md with step-by-step instructions",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c09f0116",
+          "date": "2025-09-05",
+          "message": "Implement ReportHtmlConverter with encrypted connection string support",
+          "body": "- Add complete .NET 8 console application for HTML report conversion",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ef68862d",
+          "date": "2025-09-06",
+          "message": "Add comprehensive SQL analysis tools for processing time monitoring",
+          "body": "- Add analyze_processing_time.sql: Peak vs off-peak time analysis",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a0ab15eb",
+          "date": "2025-09-06",
+          "message": "Correct 2-year report processing timeline based on actual system capacity",
+          "body": "🔢 Corrected processing time calculations:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dd8916ff",
+          "date": "2025-09-06",
+          "message": "Reorganize performance report with clear processing capacity analysis",
+          "body": "📋 Restructured report sections:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d28e5406",
+          "date": "2025-09-06",
+          "message": "Update batch sizes for enhanced processing capacity",
+          "body": "📊 Increased batch processing capacity:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "435776a0",
+          "date": "2025-09-06",
+          "message": "Optimize database query performance and add Sunday full-day off-peak",
+          "body": "🚀 Database Query Optimization:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9e5f2dbf",
+          "date": "2025-09-06",
+          "message": "Fix corrupted connection string in appsettings.json",
+          "body": "- Restored correct encrypted connection string format",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "74660546",
+          "date": "2025-09-06",
+          "message": "Add comprehensive daily processing capacity analysis",
+          "body": "📊 Daily Processing Capacity:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2aca8bc7",
+          "date": "2025-09-06",
+          "message": "Add detailed hourly processing capacity analysis",
+          "body": "- Add comprehensive table showing hourly processing rates",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "65477f85",
+          "date": "2025-09-06",
+          "message": "Achieve 88% performance improvement with critical WHERE clause optimization",
+          "body": "🚀 Major breakthrough: Fixed database query bottleneck",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ed31a3b2",
+          "date": "2025-09-06",
+          "message": "Optimize report HTML conversion performance to meet 5-minute execution target",
+          "body": "Key improvements:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b180bcd2",
+          "date": "2025-09-06",
+          "message": "Implement major performance optimization to catch up with report review speed",
+          "body": "## Core Improvements",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2df4c619",
+          "date": "2025-09-09",
+          "message": "Merge feature/deployment-complete into master",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "66ae58ed",
+          "date": "2025-09-09",
+          "message": "Add Claude settings",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b0595ab9",
+          "date": "2025-09-09",
+          "message": "Update project documentation and maintenance queries",
+          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "08dbfd96",
+          "date": "2025-09-09",
+          "message": "Implement optimal priority-based record processing with deduplication",
+          "body": "Enhanced query strategy:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2bc1a327",
+          "date": "2025-09-09",
+          "message": "Fix compilation errors after database architecture optimization",
+          "body": "- Add TrxNum property to OrderRecord model for query compatibility",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b2bf3650",
+          "date": "2025-09-09",
+          "message": "Optimize database query architecture for complete record processing",
+          "body": "Major improvements:",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "61ed23a0",
+          "date": "2025-09-10",
+          "message": "Add .gitignore and remove build artifacts from repository",
+          "body": "- Add comprehensive .gitignore for .NET projects",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f023f5eb",
+          "date": "2025-09-10",
+          "message": "Fix connection string decryption issues and improve error handling",
+          "body": "- Add connection string validation in RunManualMode",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "017a9995",
+          "date": "2025-09-25",
+          "message": "Fix URL configuration and add error logging for deployment",
+          "body": "- Fix TokenService to use configurable ReportBaseUrl from appsettings.json",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "af5f2233",
+          "date": "2025-10-08",
+          "message": "feat: 新增桃園站台支援 - 使用舊網路報告系統轉換 HTML",
+          "body": "## 新功能",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7497ccb5",
+          "date": "2025-11-03",
+          "message": "feat: 新增批次執行日誌與自動清理機制",
+          "body": "## 主要變更",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "969a5b7d",
+          "date": "2025-11-04",
+          "message": "feat: 新增監控處理進度的 SQL 查詢腳本",
+          "body": "新增 monitor_progress.sql 包含：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "863bb474",
+          "date": "2025-11-04",
+          "message": "fix: 修正新舊系統判斷邏輯，根據 IsTaoyuanStation 設定",
+          "body": "修正內容：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "79a60a4f",
+          "date": "2025-11-04",
+          "message": "refactor: 簡化新舊系統判斷邏輯 & 修復編譯警告",
+          "body": "簡化判斷邏輯：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d9ebff3f",
+          "date": "2025-11-04",
+          "message": "fix: 改進桃園站台新舊系統判斷邏輯",
+          "body": "修改內容：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "60e47e41",
+          "date": "2025-11-04",
+          "message": "feat: 桃園站台新舊系統支援與診斷工具",
+          "body": "主要功能：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "aedf746e",
+          "date": "2025-11-07",
+          "message": "feat: 新增超級離峰時段配置 (00:00-07:00)",
+          "body": "- 新增 SuperOffPeakBatchSize: 1000 筆 (00:00-07:00)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "cc361658",
+          "date": "2025-11-07",
+          "message": "fix: 優化資料庫查詢效能，解決超時問題",
+          "body": "主要改進：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6e08dd69",
+          "date": "2025-11-08",
+          "message": "docs: 更新待辦事項，聚焦 Linux 環境與 Oracle Data Guard",
+          "body": "重新整理 todo.md，移除已完成或低優先級項目，聚焦於：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f4c1133e",
+          "date": "2025-11-08",
+          "message": "docs: 新增 Oracle 實時複寫方案評估文件",
+          "body": "新增完整的 Oracle-to-Oracle 複寫方案評估，優先推薦 Data Guard",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1feac282",
+          "date": "2025-11-08",
+          "message": "docs: 更新 README 反映最新時段配置",
+          "body": "- 新增時段配置表格",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "38feb5fe",
+          "date": "2025-11-08",
+          "message": "fix: 調整時段配置避免影響列印報告系統",
+          "body": "問題：同仁反應列印報告速度變慢",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1284eb83",
+          "date": "2025-12-12",
+          "message": "feat: 新增台中分部 (TC) 設定",
+          "body": "- 新增 DefaultConnectionTC 連線字串",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "beb1f46e",
+          "date": "2026-01-28",
+          "message": "feat: 新增紙張尺寸 (A4/B5) 支援 - 台中分部專用",
+          "body": "- 新增 PaperSizeService 啟動時從 API 取得 A4 單位清單",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f041d507",
+          "date": "2026-01-29",
+          "message": "fix: PaperSizeService 支援 XML 格式 API 回應解析",
+          "body": "API 回傳 XML (ArrayOfstring) 格式而非預期的 JSON，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e295eb70",
+          "date": "2026-01-29",
+          "message": "refactor: 重構專案結構 - 新增 Agent Skills 架構與腳本整理",
+          "body": "## Agent Skills 架構",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "05f07945",
+          "date": "2026-02-04",
+          "message": "fix: 儲存 HTML 時移除 window.print() 避免自動列印",
+          "body": "在 SaveHtmlContent 和 SaveHtmlContentBatch 存入 DB 前",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b48769f6",
+          "date": "2026-02-04",
+          "message": "feat: 新增桃園分部 (TY) 部署設定",
+          "body": "- IsTaoyuanStation: true",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3c57f8e8",
+          "date": "2026-02-04",
+          "message": "fix: 報告 URL 預設不自動列印 (goPrint=false)",
+          "body": "排程轉換 HTML 時不需要觸發 window.print()，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "cc2251bf",
+          "date": "2026-02-04",
+          "message": "fix: 醫令異動時自動重新轉換 HTML",
+          "body": "查詢條件新增 trx_dt > CreateTime 判斷，當 LIS 醫令異動",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8ba5ffd8",
+          "date": "2026-02-05",
+          "message": "docs: 新增髒資料清理 SQL 腳本供各分部使用",
+          "body": "- cleanup-window-print.sql: 清理自動列印",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "61e0232e",
+          "date": "2026-02-05",
+          "message": "fix: 移除 HTML 中禁止複製的 user-select CSS",
+          "body": "- DatabaseService: 新增 CleanHtmlContent 集中清理 HTML (window.print + user-select CSS)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "893013d9",
+          "date": "2026-02-27",
+          "message": "docs: 同步所有文件與程式碼一致",
+          "body": "修正文件中大量過時資訊，對齊實際程式碼：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1f8771cd",
+          "date": "2026-03-17",
+          "message": "feat: 放寬查詢下限至 2021-01-01 取代兩年滾動限制",
+          "body": "原本 trx_dt >= DATEADD(MONTH, -24, GETDATE()) 只轉兩年內資料，",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "834b4b39",
+          "date": "2026-05-20",
+          "message": "feat: URL 加上 isFax=Y 限制報告列印份數為 1",
+          "body": "借用 isFax 傳真模式的副作用強制份數=1，避免細菌類報告因尾碼",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f8dadd7d",
+          "date": "2026-07-01",
+          "message": "feat: 報告渲染去重 + 時段分級節流，解決 LIS 列印伺服器 CPU 過載",
+          "body": "LIS 團隊回報 ReportHtmlSync 排程造成列印伺服器 (56.230) CPU 過載、影響真人列印。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3da46664",
+          "date": "2026-07-02",
+          "message": "fix: 併發預設砍到 ≤2 + 部署指南整合 SMB 上版實務",
+          "body": "2026-07-02 事故:Heavy 併發 12 凌晨對撞 DB 夜間維護，把後端 listener 打爆。",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "ebcafc96",
+          "date": "2026-07-03",
+          "message": "docs: 2026-07-03 台中節流量能事故教訓 — Tiers 要按站台量能配",
+          "body": "- 台北保守值(50/併發2)照搬台中 → 時速 600 vs 進單 6k/hr,佇列積 21k",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e3f30216",
+          "date": "2026-07-03",
+          "message": "docs: 台中部署佈局實勘整合 + 2026-07-03 換版紀錄",
+          "body": "- 站台表補台中實際路徑 D:\\Schedule\\ReportHtmlSync（走 D$ share）、",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "821bc5c8",
+          "date": "2026-07-03",
+          "message": "fix: 異體字姓名存入 text 欄位變 '?' — 存檔前將非 Big5 字元轉 NCR",
+          "body": "pat_resulth.htmlContent 是 text (CP950)，SQL Server 隱式轉換把 Big5",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4fc903f6",
+          "date": "2026-07-20",
+          "message": "docs: 台北同步延遲 SLA — 常態 1~3 分、單次湧入 150 筆內 10 分鐘消化完",
+          "body": "含 7/20 切換日實測(6.0 分 → 2.7 分)與湧入門檻換算,7/21 全日資料驗證後定版",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e57652e5",
+          "date": "2026-07-20",
+          "message": "docs: 台北改高頻小批 — 每 1 分排程 + Tiers 10/15/30 定案",
+          "body": "- 吞吐與 5 分制相當或更高、白天 DB 併發 2→1、延遲 ~5 分 → ~1-2 分",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ea04e3d2",
+          "date": "2026-07-20",
+          "message": "docs: 同步延遲監控 — 審核到產生 HTML 的間隔量測機制",
+          "body": "- 監控 SQL(每小時統計/單筆追蹤/佇列深度) + SSMS 可直接跑的 sql/ 腳本",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "57799e0a",
+          "date": "2026-07-21",
+          "message": "docs: 延遲地板真因 — 上游 hcini + FalconCopy 兩跳同步管線",
+          "body": "補 docs/3 §2.1: trx_dt 記審核時刻,記錄經 ORD→hcini→hclitf→FalconCopy→mssql",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "21927398",
+          "date": "2026-07-21",
+          "message": "docs: 混合制風險盤點 + 毒單偵測 SQL",
+          "body": "- docs/4 §3.1: 三風險(毒單佔道/查詢翻倍/配額設定)含偵測與緩解、非風險說明",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a0805e7d",
+          "date": "2026-07-21",
+          "message": "docs: 同步延遲 SLA 定版 — 混合制通過 7/21 下午尖峰實戰",
+          "body": "兩日對比: 7/20 尖峰 1,992 張挨餓/最慘 193 分 → 7/21 尖峰(進單更大) 0 張/最慘 19 分。",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4484a6cf",
+          "date": "2026-07-21",
+          "message": "docs: 量能設計原則 — 「避峰→跟量」設計思維成篇",
+          "body": "- 新增 docs/4: 三旋鈕分工(併發=紅線/批次=跟量/配額=保底)、避峰前提",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "38137d0d",
+          "date": "2026-07-21",
+          "message": "feat: 混合制撈單 — 每批保留 OldestQuotaPerBatch 名額給等最久的單",
+          "body": "塞車時純後進先出會讓舊單被新單無限插隊 (7/20 台北 2,115 張 >30 分、",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8ac2b2d2",
+          "date": "2026-07-22",
+          "message": "docs: 上游斷線實際案例 — 2026-07-21 FalconCopy 停擺 56 分",
+          "body": "docs/3 §2.1 補實例:17:59-18:54 上游同步停擺,排程照跑/100% 成功但撈到空佇列,",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "07a7f42c",
+          "date": "2026-08-26",
+          "message": "fix: 設定檔改以 exe 所在資料夾為準，不再依賴工作目錄",
+          "body": "`LoadConfiguration()` 與 `DiagnoseConnection` 都用 `Directory.GetCurrentDirectory()`",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "05056cf0",
+          "date": "2026-08-26",
+          "message": "feat: 新竹 (HC) ReportHtmlConverter 首次部署",
+          "body": "新竹分部要上線報告 HTML 同步機制。本次完成 Converter 這條線的",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d8bab95b",
+          "date": "2026-08-27",
+          "message": "docs: 新站台上線檢查清單 — 新竹首次部署踩坑總結",
+          "body": "把新竹 (HC) 2026-08-26~27 首次部署的實際經驗整理成可重複執行的 SOP，",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "62026b6c",
+          "date": "2026-09-04",
+          "message": "docs: 各站部署版本紀錄 — 桃園換版與渲染分流實錄",
+          "body": "程式沒有版本號（csproj 未設 Version、assembly 恆為 1.0.0.0），各站跑哪一版\n先前只能靠翻對話與檔案日期猜。比照隔壁 FalconCopy repo 的做法建一份集中表。\n\ndocs/6（新增）：\n- 各站現況：台北 7/21、台中 7/03、新竹 8/26、桃園 8/27（本次補上 8 版）；\n  嘉義 192.168.0.229 另有一套從未盤點的部署，先列進表待查\n- 版本尺：9 個有實質程式變更的 commit 由新到舊編號，「落後幾版」照此計數\n- 認版本的三招：檔案大小指紋、.bak_<時間戳>、行為特徵\n- 桃園 8/25 雙排程事件量測結論：輪數確實砍半（576→288/日），但基數極小\n  （全日最多 1,168 張、一天只佔渲染站 20~25 分鐘），渲染耗時 0.15~0.27 秒\n  全程無惡化 → htmlConverter 不是 BT201 緩慢的原因\n- 桃園去重效益實測 = 0（倍率 1.00，一張單就是一列）——別把台北的效益套到別站\n- 換版後實得：user-select 禁止複製 CSS 不再寫入（新舊各抽 3 筆對照）\n- 渲染分流切換與驗法：token = Base64(order_no) 可手動比對新舊主機（MD5 相同）、\n  新主機冷啟動 18.7 秒、改打新站後用渲染站 IIS log 反證（batch log 不記 URL）\n\ndocs/1：\n- 修正桃園路徑（實際是 ReportHtmlSync，不是 ReportHtmlConverter）、補打包方式\n  與 DB（HCLABxOracle，同機另有空的 HCLABx）、渲染目標改 192.168.1.231\n- 站台表加註嘉義未盤點，並連向 docs/6\n\n.gitignore：排除 _deploy_*/ 與 _prod_backup_full/（單檔 exe 約 147MB）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c66af293",
+          "date": "2026-09-15",
+          "message": "docs: 高雄檔位收工後已還原為內建預設",
+          "body": "9/15 09:18 為加速 9 月重轉臨時把 Schedule 加大（Heavy 600/Medium 200/\nLight 150，併發維持 2），11:35 全部收工後還原 —— 平常進單約 343/天用不到\n大批次，縮小批次可把單輪 ERROR 覆寫的爆炸半徑從 200 筆降回 50 筆。\n\n- 高雄列：改記「無 Schedule 區塊 → 走內建預設」（同桃園），並註明加大版\n  另存為 appsettings.json.bigtiers_20260915_113518，日後大批 backfill 可\n  直接套回、做完再還原（同台中慣例）\n- 換版歷史同步註明臨時加大與還原\n\n驗證：11:35 那輪已回到 batch=50/併發2、成功率 100%，九月佇列 0。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e2935d11",
+          "date": "2026-09-15",
+          "message": "docs: 清舊報告改以 SQL REPLACE 為首選 — 高雄實測 8.4 分鐘搞定 17.7 萬筆",
+          "body": "原本把「重轉」當作修既存 htmlContent 的預設路徑，高雄實測後證明多數情況\n該用 SQL REPLACE：176,993 筆（2023-11~2026-07）8.4 分鐘清完、零渲染負載、\n沒有 ERROR 覆寫風險；同一批用重轉要約 2 天。\n\n新增「清舊報告：先想 REPLACE，重轉是例外」一節：\n- 兩法對照（速率 350 筆/秒 vs 2,400 筆/hr）與各自代價\n- REPLACE 修不了的三件事（異體字已存成 ?、細菌報告多份、渲染層改進）\n  → 慣例改為「近期用重轉拿完整修正，歷史資料用 REPLACE 快速止血」\n- 執行要點：務必分月跑（不分月的 LOB 掃描實測 2 分鐘 timeout）、\n  REPLACE 巢狀順序、殘留空 body{} 無害\n- ⚠ 絕對不要用 order_no 前綴圈範圍：高雄/新竹無分部前綴，且實測單號\n  6050405079(前綴 605) 的 trx_dt 落在 8 月，前綴與日期不對應\n- 驗收不能只看 user-select：onselectstart/oncontextmenu/oncopy/unselectable\n  也要查，最後仍要人眼開一張\n\n待辦同步更新：高雄 9 月以前標記完成；桃園那條改指向本節（先前寫的\n「全表 8GB、要排離峰」是不分月的估法）；補上高雄 2023-10 以前 3,938 筆\n從未轉過待決。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8d18a05f",
+          "date": "2026-09-15",
+          "message": "docs: 高雄補 Schedule 檔位，重轉範圍定為只做 9 月",
+          "body": "- 高雄列：appsettings 從「未動」改為記錄 09:18 補上的 Schedule 區塊\n  （Heavy 600 / Medium 200 / Light 150，全時段併發維持 2）。只放大批次不動\n  併發紅線 —— 高雄渲染 0.15 秒/張，Heavy 一輪約 45 秒遠在 5 分鐘窗內。\n  備份 appsettings.json.bak_20260915_091842\n- 換版歷史補上檔位調整與實際重轉範圍\n- 待辦：記下 2026-09-15 決議只重轉 9 月、9 月以前 161,122 筆暫緩，\n  並寫明理由（ERROR 覆寫風險 + 2 天曝險窗，參考 8/31 台北 2 萬筆前例）\n  與日後逐月執行的做法\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "08cb0fd7",
+          "date": "2026-09-15",
+          "message": "docs: 高雄盤點修正與換版紀錄 — 原記「無部署」有誤",
+          "body": "高雄反應報告無法複製。查出高雄一直有一套 htmlConverter 在跑，版本停在\n2025-11-03 `7497ccb`（全站最舊，落後 20+ 個 commit），缺 `61e0232`(user-select)\n與 `05f0794`(window.print)，已於 2026-09-15 換版並重轉 9 月 5,448 筆。\n\n- 第 1 節高雄列：由「無部署跡象」改為實測結果（139.229 與 LIS 同機、FDD、\n  DB 139.227/HCLABx、渲染打自己、備份資料夾）\n- 新增「高雄盤點修正」：記下推論錯誤的教訓 —— 別拿 FalconCopy 的部署紀錄\n  反推本程式；辨識舊版的特徵（仍寫 batch_execution.log、startup_error.log\n  是啟動追蹤不是錯誤）；⚠ 高雄同新竹**無分部前綴**，609=2026年9月，\n  清理 SQL 一律用 trx_dt 圈範圍\n- 新增「重轉整段期間的零停機做法」：撥回 CreateTime 觸發\n  `trx_dt > CreateTime` 重轉，舊 HTML 原地保留可看，取代清成 NULL 的做法\n  （5,448 筆消化數小時，清 NULL 等於半天查無報告）\n- 待辦補：高雄 9 月以前尚有 161,122 筆舊版產物待決定是否往前重轉\n- 修正上個 MR 帶進來的錯字：IIS log 範例的 UNC 路徑少一個反斜線\n- docs/1 站台表補高雄列\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "ba8edd6f",
+          "date": "2026-11-06",
+          "message": "docs: 舊文件補上失敗處理改版的說明，新站台上線要加狀態欄位",
+          "body": "2026-11-06 起排程把失敗記在 html_status、不再寫 ERROR 進 htmlContent，\n但多份舊文件還在描述舊行為，照著查會被誤導。\n\n- docs/5、docs/1 §8：新站台上線要跑 sql/add-html-status-columns.sql，\n  新版排程沒有這四欄會整支停擺\n- docs/1：台北換版只換三個檔的做法與 schedule-preview 預檢；\n  HTTP 逾時更正為 100 秒 (HttpClient 預設值)\n- docs/4：毒單佔道那一格補上新版的行為 (重試閘門)\n- docs/2、docs/architecture、docs/guides/3、4、README、troubleshooting skill：\n  開頭加註用 htmlContent LIKE 'ERROR:%' 算失敗的查詢在新版站台永遠是 0，改看 docs/8\n- docs/configuration：補 RetryDelaysMinutes、OutageMinFailures\n- todo.md：加台北觀察項 (失敗重試在正式環境還沒實際走過)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "03c14e18",
+          "date": "2026-11-06",
+          "message": "docs: docs/7 定稿給 webreport、docs/8 補重試時機／效能／回退注意事項",
+          "body": "- docs/7：改寫成可以直接交給 webreport 維護者的版本 — 各站現況、失敗後排程會做什麼、\n  四條判斷規則、判斷不到的情況 (整批失敗)、備援渲染建議、分兩步上線、\n  與排程新舊版的相容性\n- docs/8：重試跟著排程一起跑 (沒有另外的 trigger)、重試的單沒有優先權；\n  台北換版前後的效能實測、想降低重試頻率時怎麼調、設定管不到的情況；\n  從新版退回舊版時要清 html_status\n- todo.md：docs/7 已定稿，待交給 Spark\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ea92922e",
+          "date": "2026-11-06",
+          "message": "docs: 台北換版紀錄、Cerberus 監控只接台北與其他站的補法",
+          "body": "- docs/6：台北 2026-11-06 09:40 換到 main HEAD (失敗自動重試)，版本尺加 #10\n- docs/8：監控一節補回測結果、「目前只接台北」與替其他站補頭的步驟、\n  --check 驗證時踩到的坑\n- todo.md：台北換版與 Cerberus 台北那顆頭已完成；其他五站不急\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "98a5c0c2",
+          "date": "2026-11-06",
+          "message": "feat: Cerberus 監控查詢 — 排程沒在跑、整批失敗、失敗積壓",
+          "body": "- sql/cerberus-html-sync-head.sql：每站一顆 DbBacklog 頭用的積壓查詢\n  (Cerberus 設定檔裡是同一段壓成一行)\n- 端到端測試加 s13，檢查查詢在四種狀態下的回報\n- 六站正式 DB 實測 (唯讀) 2～10 ms；用 2026-11-02 台北的資料回測，\n  事故開始後 15 分鐘會亮紅\n\nCerberus 那邊的設定尚未加。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ec139ee4",
+          "date": "2026-11-06",
+          "message": "feat: 轉檔失敗自動重試，失敗不再寫進 htmlContent",
+          "body": "舊版失敗時把「ERROR: 無法抓取HTML」寫進 htmlContent：失敗的單永遠不會重試、\n網路報告查詢把錯誤字串當報告顯示、真正的例外被吞掉沒留下\n(2026-11-02 台北換憑證，2,390 張卡到人工清除)。\n\n- 失敗改記在 html_status / html_error / html_retry_count / html_next_retry，\n  htmlContent、CreateTime、EndTime 不動 (報告更新後重轉失敗時保留原本的 HTML)\n- 重試間隔 5 分、15 分、1 小時、4 小時、24 小時，用完標記為放棄 (3)；\n  已放棄的單在報告更新後重新開始。規則在 Utils/RetryPolicy\n- 撈單查詢加上重試閘門：還沒到重試時間的單不撈\n- 整批沒有任何一張成功且失敗達 OutageMinFailures (預設 5) 張時，視為渲染站台\n  問題：不記錄失敗狀態、不扣重試次數，下一輪照常再試\n- FetchHtmlContent 不再吞掉 HttpRequestException；失敗原因連同內層例外\n  寫進 html_error、execution_log.error_message 與批次 log\n- 新增端到端測試 tests/e2e (本機 SQL Express＋假的報告站台，12 個情境)\n- 文件：docs/8 轉檔失敗重試機制、docs/9 本機端到端測試\n\n需要 pat_resulth 已有四個狀態欄位 (六站已於 2026-11-06 加完)。\n新舊撈單查詢已在六站正式 DB 量過 (唯讀)，速度相同。尚未部署到任何一站。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0aa9b564",
+          "date": "2026-11-06",
+          "message": "feat: pat_resulth 新增 HTML 轉檔狀態欄位（六站已上線）＋給網路報告查詢的判斷規則",
+          "body": "起因：2026-11-02 台北 56.231 換 SSL 憑證後同步全滅 62 分鐘，2,390 張單的\nhtmlContent 被寫成「ERROR: 無法抓取HTML」，網路報告查詢把它當報告顯示，\n而且失敗永遠不會重試。\n\n- sql/add-html-status-columns.sql：新增 html_status、html_error、\n  html_retry_count、html_next_retry 四個可為 NULL 的欄位與一般索引\n  （不用篩選索引，避免 QUOTED_IDENTIFIER OFF 的舊寫入端失敗）。\n  2026-11-06 六站都已執行完成。\n- docs/7：給 webreport 的判斷規則與備援建議。\n- todo.md：後續待辦（排程重試、Spark 備援、Argus 監控）；\n  台北 2,396 張、台中 1 張 ERROR 已清除重轉。\n\n本次只有 DB 結構與文件，排程程式尚未改，新欄位目前全部是 NULL。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
@@ -26989,645 +27820,6 @@
           "message": "2026 內稽總結會議資料：總結報告草稿、OFI001～005、議程與會議記錄",
           "body": "報告結論暫定 0 個缺失、5 項待改善（OFI），11/11 開會決定要不要簽。\n當天文件收在 output/會議資料_20261111/，Word 可改、PDF 印出來簽；\nTODO 記 11/11 後的掃描與合併清單；索引補 XRA0802007 與外稽的紀錄方式。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "OnlineReport\\ReportHtmlSync",
-      "totalCommits": 79,
-      "commits": [
-        {
-          "hash": "9cb8d2a0",
-          "date": "2025-09-03",
-          "message": "Add comprehensive project documentation",
-          "body": "- 新增專案概述和系統架構文檔",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f48227f1",
-          "date": "2025-09-05",
-          "message": "Restructure documentation with Chinese filenames and sequence numbers",
-          "body": "- Renamed all documentation files to Chinese with sequence numbering (1. xxxx)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "5cc7f3db",
-          "date": "2025-09-05",
-          "message": "Add logging guide to documentation index",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "9236ab36",
-          "date": "2025-09-05",
-          "message": "Add comprehensive logging and monitoring guide",
-          "body": "Create detailed logging documentation covering:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b7e0c737",
-          "date": "2025-09-05",
-          "message": "Replace real connection strings with example placeholders for security",
-          "body": "Security improvements in documentation:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c35cc5c5",
-          "date": "2025-09-05",
-          "message": "Restructure documentation with organized directory layout",
-          "body": "Major documentation reorganization:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "4abee505",
-          "date": "2025-09-05",
-          "message": "Update README.md with comprehensive project documentation",
-          "body": "Replace default GitLab template with detailed project documentation:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e72075ff",
-          "date": "2025-09-05",
-          "message": "Add comprehensive API error handling documentation",
-          "body": "Add detailed section covering:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ce83918b",
-          "date": "2025-09-05",
-          "message": "Optimize database query with CTE for better performance",
-          "body": "Replace the original query with Common Table Expression (CTE) approach:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "369b9714",
-          "date": "2025-09-05",
-          "message": "Add deployment guide and publish build",
-          "body": "- Add comprehensive DEPLOYMENT_GUIDE.md with step-by-step instructions",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c09f0116",
-          "date": "2025-09-05",
-          "message": "Implement ReportHtmlConverter with encrypted connection string support",
-          "body": "- Add complete .NET 8 console application for HTML report conversion",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ef68862d",
-          "date": "2025-09-06",
-          "message": "Add comprehensive SQL analysis tools for processing time monitoring",
-          "body": "- Add analyze_processing_time.sql: Peak vs off-peak time analysis",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "a0ab15eb",
-          "date": "2025-09-06",
-          "message": "Correct 2-year report processing timeline based on actual system capacity",
-          "body": "🔢 Corrected processing time calculations:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "dd8916ff",
-          "date": "2025-09-06",
-          "message": "Reorganize performance report with clear processing capacity analysis",
-          "body": "📋 Restructured report sections:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d28e5406",
-          "date": "2025-09-06",
-          "message": "Update batch sizes for enhanced processing capacity",
-          "body": "📊 Increased batch processing capacity:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "435776a0",
-          "date": "2025-09-06",
-          "message": "Optimize database query performance and add Sunday full-day off-peak",
-          "body": "🚀 Database Query Optimization:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "9e5f2dbf",
-          "date": "2025-09-06",
-          "message": "Fix corrupted connection string in appsettings.json",
-          "body": "- Restored correct encrypted connection string format",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "74660546",
-          "date": "2025-09-06",
-          "message": "Add comprehensive daily processing capacity analysis",
-          "body": "📊 Daily Processing Capacity:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2aca8bc7",
-          "date": "2025-09-06",
-          "message": "Add detailed hourly processing capacity analysis",
-          "body": "- Add comprehensive table showing hourly processing rates",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "65477f85",
-          "date": "2025-09-06",
-          "message": "Achieve 88% performance improvement with critical WHERE clause optimization",
-          "body": "🚀 Major breakthrough: Fixed database query bottleneck",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ed31a3b2",
-          "date": "2025-09-06",
-          "message": "Optimize report HTML conversion performance to meet 5-minute execution target",
-          "body": "Key improvements:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b180bcd2",
-          "date": "2025-09-06",
-          "message": "Implement major performance optimization to catch up with report review speed",
-          "body": "## Core Improvements",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2df4c619",
-          "date": "2025-09-09",
-          "message": "Merge feature/deployment-complete into master",
-          "body": "",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "66ae58ed",
-          "date": "2025-09-09",
-          "message": "Add Claude settings",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b0595ab9",
-          "date": "2025-09-09",
-          "message": "Update project documentation and maintenance queries",
-          "body": "🤖 Generated with [Claude Code](https://claude.ai/code)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "08dbfd96",
-          "date": "2025-09-09",
-          "message": "Implement optimal priority-based record processing with deduplication",
-          "body": "Enhanced query strategy:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2bc1a327",
-          "date": "2025-09-09",
-          "message": "Fix compilation errors after database architecture optimization",
-          "body": "- Add TrxNum property to OrderRecord model for query compatibility",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "b2bf3650",
-          "date": "2025-09-09",
-          "message": "Optimize database query architecture for complete record processing",
-          "body": "Major improvements:",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "61ed23a0",
-          "date": "2025-09-10",
-          "message": "Add .gitignore and remove build artifacts from repository",
-          "body": "- Add comprehensive .gitignore for .NET projects",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f023f5eb",
-          "date": "2025-09-10",
-          "message": "Fix connection string decryption issues and improve error handling",
-          "body": "- Add connection string validation in RunManualMode",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "017a9995",
-          "date": "2025-09-25",
-          "message": "Fix URL configuration and add error logging for deployment",
-          "body": "- Fix TokenService to use configurable ReportBaseUrl from appsettings.json",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "af5f2233",
-          "date": "2025-10-08",
-          "message": "feat: 新增桃園站台支援 - 使用舊網路報告系統轉換 HTML",
-          "body": "## 新功能",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "7497ccb5",
-          "date": "2025-11-03",
-          "message": "feat: 新增批次執行日誌與自動清理機制",
-          "body": "## 主要變更",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "969a5b7d",
-          "date": "2025-11-04",
-          "message": "feat: 新增監控處理進度的 SQL 查詢腳本",
-          "body": "新增 monitor_progress.sql 包含：",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "863bb474",
-          "date": "2025-11-04",
-          "message": "fix: 修正新舊系統判斷邏輯，根據 IsTaoyuanStation 設定",
-          "body": "修正內容：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "79a60a4f",
-          "date": "2025-11-04",
-          "message": "refactor: 簡化新舊系統判斷邏輯 & 修復編譯警告",
-          "body": "簡化判斷邏輯：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "d9ebff3f",
-          "date": "2025-11-04",
-          "message": "fix: 改進桃園站台新舊系統判斷邏輯",
-          "body": "修改內容：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "60e47e41",
-          "date": "2025-11-04",
-          "message": "feat: 桃園站台新舊系統支援與診斷工具",
-          "body": "主要功能：",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "aedf746e",
-          "date": "2025-11-07",
-          "message": "feat: 新增超級離峰時段配置 (00:00-07:00)",
-          "body": "- 新增 SuperOffPeakBatchSize: 1000 筆 (00:00-07:00)",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "cc361658",
-          "date": "2025-11-07",
-          "message": "fix: 優化資料庫查詢效能，解決超時問題",
-          "body": "主要改進：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "6e08dd69",
-          "date": "2025-11-08",
-          "message": "docs: 更新待辦事項，聚焦 Linux 環境與 Oracle Data Guard",
-          "body": "重新整理 todo.md，移除已完成或低優先級項目，聚焦於：",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "f4c1133e",
-          "date": "2025-11-08",
-          "message": "docs: 新增 Oracle 實時複寫方案評估文件",
-          "body": "新增完整的 Oracle-to-Oracle 複寫方案評估，優先推薦 Data Guard",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "1feac282",
-          "date": "2025-11-08",
-          "message": "docs: 更新 README 反映最新時段配置",
-          "body": "- 新增時段配置表格",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "38feb5fe",
-          "date": "2025-11-08",
-          "message": "fix: 調整時段配置避免影響列印報告系統",
-          "body": "問題：同仁反應列印報告速度變慢",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "1284eb83",
-          "date": "2025-12-12",
-          "message": "feat: 新增台中分部 (TC) 設定",
-          "body": "- 新增 DefaultConnectionTC 連線字串",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "beb1f46e",
-          "date": "2026-01-28",
-          "message": "feat: 新增紙張尺寸 (A4/B5) 支援 - 台中分部專用",
-          "body": "- 新增 PaperSizeService 啟動時從 API 取得 A4 單位清單",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "f041d507",
-          "date": "2026-01-29",
-          "message": "fix: PaperSizeService 支援 XML 格式 API 回應解析",
-          "body": "API 回傳 XML (ArrayOfstring) 格式而非預期的 JSON，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "e295eb70",
-          "date": "2026-01-29",
-          "message": "refactor: 重構專案結構 - 新增 Agent Skills 架構與腳本整理",
-          "body": "## Agent Skills 架構",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "05f07945",
-          "date": "2026-02-04",
-          "message": "fix: 儲存 HTML 時移除 window.print() 避免自動列印",
-          "body": "在 SaveHtmlContent 和 SaveHtmlContentBatch 存入 DB 前",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "b48769f6",
-          "date": "2026-02-04",
-          "message": "feat: 新增桃園分部 (TY) 部署設定",
-          "body": "- IsTaoyuanStation: true",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "3c57f8e8",
-          "date": "2026-02-04",
-          "message": "fix: 報告 URL 預設不自動列印 (goPrint=false)",
-          "body": "排程轉換 HTML 時不需要觸發 window.print()，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "cc2251bf",
-          "date": "2026-02-04",
-          "message": "fix: 醫令異動時自動重新轉換 HTML",
-          "body": "查詢條件新增 trx_dt > CreateTime 判斷，當 LIS 醫令異動",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "8ba5ffd8",
-          "date": "2026-02-05",
-          "message": "docs: 新增髒資料清理 SQL 腳本供各分部使用",
-          "body": "- cleanup-window-print.sql: 清理自動列印",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "61e0232e",
-          "date": "2026-02-05",
-          "message": "fix: 移除 HTML 中禁止複製的 user-select CSS",
-          "body": "- DatabaseService: 新增 CleanHtmlContent 集中清理 HTML (window.print + user-select CSS)",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "893013d9",
-          "date": "2026-02-27",
-          "message": "docs: 同步所有文件與程式碼一致",
-          "body": "修正文件中大量過時資訊，對齊實際程式碼：",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1f8771cd",
-          "date": "2026-03-17",
-          "message": "feat: 放寬查詢下限至 2021-01-01 取代兩年滾動限制",
-          "body": "原本 trx_dt >= DATEADD(MONTH, -24, GETDATE()) 只轉兩年內資料，",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "834b4b39",
-          "date": "2026-05-20",
-          "message": "feat: URL 加上 isFax=Y 限制報告列印份數為 1",
-          "body": "借用 isFax 傳真模式的副作用強制份數=1，避免細菌類報告因尾碼",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "f8dadd7d",
-          "date": "2026-07-01",
-          "message": "feat: 報告渲染去重 + 時段分級節流，解決 LIS 列印伺服器 CPU 過載",
-          "body": "LIS 團隊回報 ReportHtmlSync 排程造成列印伺服器 (56.230) CPU 過載、影響真人列印。",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "3da46664",
-          "date": "2026-07-02",
-          "message": "fix: 併發預設砍到 ≤2 + 部署指南整合 SMB 上版實務",
-          "body": "2026-07-02 事故:Heavy 併發 12 凌晨對撞 DB 夜間維護，把後端 listener 打爆。",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "ebcafc96",
-          "date": "2026-07-03",
-          "message": "docs: 2026-07-03 台中節流量能事故教訓 — Tiers 要按站台量能配",
-          "body": "- 台北保守值(50/併發2)照搬台中 → 時速 600 vs 進單 6k/hr,佇列積 21k",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e3f30216",
-          "date": "2026-07-03",
-          "message": "docs: 台中部署佈局實勘整合 + 2026-07-03 換版紀錄",
-          "body": "- 站台表補台中實際路徑 D:\\Schedule\\ReportHtmlSync（走 D$ share）、",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "821bc5c8",
-          "date": "2026-07-03",
-          "message": "fix: 異體字姓名存入 text 欄位變 '?' — 存檔前將非 Big5 字元轉 NCR",
-          "body": "pat_resulth.htmlContent 是 text (CP950)，SQL Server 隱式轉換把 Big5",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "4fc903f6",
-          "date": "2026-07-20",
-          "message": "docs: 台北同步延遲 SLA — 常態 1~3 分、單次湧入 150 筆內 10 分鐘消化完",
-          "body": "含 7/20 切換日實測(6.0 分 → 2.7 分)與湧入門檻換算,7/21 全日資料驗證後定版",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e57652e5",
-          "date": "2026-07-20",
-          "message": "docs: 台北改高頻小批 — 每 1 分排程 + Tiers 10/15/30 定案",
-          "body": "- 吞吐與 5 分制相當或更高、白天 DB 併發 2→1、延遲 ~5 分 → ~1-2 分",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ea04e3d2",
-          "date": "2026-07-20",
-          "message": "docs: 同步延遲監控 — 審核到產生 HTML 的間隔量測機制",
-          "body": "- 監控 SQL(每小時統計/單筆追蹤/佇列深度) + SSMS 可直接跑的 sql/ 腳本",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "57799e0a",
-          "date": "2026-07-21",
-          "message": "docs: 延遲地板真因 — 上游 hcini + FalconCopy 兩跳同步管線",
-          "body": "補 docs/3 §2.1: trx_dt 記審核時刻,記錄經 ORD→hcini→hclitf→FalconCopy→mssql",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "21927398",
-          "date": "2026-07-21",
-          "message": "docs: 混合制風險盤點 + 毒單偵測 SQL",
-          "body": "- docs/4 §3.1: 三風險(毒單佔道/查詢翻倍/配額設定)含偵測與緩解、非風險說明",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "a0805e7d",
-          "date": "2026-07-21",
-          "message": "docs: 同步延遲 SLA 定版 — 混合制通過 7/21 下午尖峰實戰",
-          "body": "兩日對比: 7/20 尖峰 1,992 張挨餓/最慘 193 分 → 7/21 尖峰(進單更大) 0 張/最慘 19 分。",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "4484a6cf",
-          "date": "2026-07-21",
-          "message": "docs: 量能設計原則 — 「避峰→跟量」設計思維成篇",
-          "body": "- 新增 docs/4: 三旋鈕分工(併發=紅線/批次=跟量/配額=保底)、避峰前提",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "38137d0d",
-          "date": "2026-07-21",
-          "message": "feat: 混合制撈單 — 每批保留 OldestQuotaPerBatch 名額給等最久的單",
-          "body": "塞車時純後進先出會讓舊單被新單無限插隊 (7/20 台北 2,115 張 >30 分、",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "8ac2b2d2",
-          "date": "2026-07-22",
-          "message": "docs: 上游斷線實際案例 — 2026-07-21 FalconCopy 停擺 56 分",
-          "body": "docs/3 §2.1 補實例:17:59-18:54 上游同步停擺,排程照跑/100% 成功但撈到空佇列,",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "07a7f42c",
-          "date": "2026-08-26",
-          "message": "fix: 設定檔改以 exe 所在資料夾為準，不再依賴工作目錄",
-          "body": "`LoadConfiguration()` 與 `DiagnoseConnection` 都用 `Directory.GetCurrentDirectory()`",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "05056cf0",
-          "date": "2026-08-26",
-          "message": "feat: 新竹 (HC) ReportHtmlConverter 首次部署",
-          "body": "新竹分部要上線報告 HTML 同步機制。本次完成 Converter 這條線的",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "d8bab95b",
-          "date": "2026-08-27",
-          "message": "docs: 新站台上線檢查清單 — 新竹首次部署踩坑總結",
-          "body": "把新竹 (HC) 2026-08-26~27 首次部署的實際經驗整理成可重複執行的 SOP，",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "62026b6c",
-          "date": "2026-09-04",
-          "message": "docs: 各站部署版本紀錄 — 桃園換版與渲染分流實錄",
-          "body": "程式沒有版本號（csproj 未設 Version、assembly 恆為 1.0.0.0），各站跑哪一版\n先前只能靠翻對話與檔案日期猜。比照隔壁 FalconCopy repo 的做法建一份集中表。\n\ndocs/6（新增）：\n- 各站現況：台北 7/21、台中 7/03、新竹 8/26、桃園 8/27（本次補上 8 版）；\n  嘉義 192.168.0.229 另有一套從未盤點的部署，先列進表待查\n- 版本尺：9 個有實質程式變更的 commit 由新到舊編號，「落後幾版」照此計數\n- 認版本的三招：檔案大小指紋、.bak_<時間戳>、行為特徵\n- 桃園 8/25 雙排程事件量測結論：輪數確實砍半（576→288/日），但基數極小\n  （全日最多 1,168 張、一天只佔渲染站 20~25 分鐘），渲染耗時 0.15~0.27 秒\n  全程無惡化 → htmlConverter 不是 BT201 緩慢的原因\n- 桃園去重效益實測 = 0（倍率 1.00，一張單就是一列）——別把台北的效益套到別站\n- 換版後實得：user-select 禁止複製 CSS 不再寫入（新舊各抽 3 筆對照）\n- 渲染分流切換與驗法：token = Base64(order_no) 可手動比對新舊主機（MD5 相同）、\n  新主機冷啟動 18.7 秒、改打新站後用渲染站 IIS log 反證（batch log 不記 URL）\n\ndocs/1：\n- 修正桃園路徑（實際是 ReportHtmlSync，不是 ReportHtmlConverter）、補打包方式\n  與 DB（HCLABxOracle，同機另有空的 HCLABx）、渲染目標改 192.168.1.231\n- 站台表加註嘉義未盤點，並連向 docs/6\n\n.gitignore：排除 _deploy_*/ 與 _prod_backup_full/（單檔 exe 約 147MB）\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "c66af293",
-          "date": "2026-09-15",
-          "message": "docs: 高雄檔位收工後已還原為內建預設",
-          "body": "9/15 09:18 為加速 9 月重轉臨時把 Schedule 加大（Heavy 600/Medium 200/\nLight 150，併發維持 2），11:35 全部收工後還原 —— 平常進單約 343/天用不到\n大批次，縮小批次可把單輪 ERROR 覆寫的爆炸半徑從 200 筆降回 50 筆。\n\n- 高雄列：改記「無 Schedule 區塊 → 走內建預設」（同桃園），並註明加大版\n  另存為 appsettings.json.bigtiers_20260915_113518，日後大批 backfill 可\n  直接套回、做完再還原（同台中慣例）\n- 換版歷史同步註明臨時加大與還原\n\n驗證：11:35 那輪已回到 batch=50/併發2、成功率 100%，九月佇列 0。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e2935d11",
-          "date": "2026-09-15",
-          "message": "docs: 清舊報告改以 SQL REPLACE 為首選 — 高雄實測 8.4 分鐘搞定 17.7 萬筆",
-          "body": "原本把「重轉」當作修既存 htmlContent 的預設路徑，高雄實測後證明多數情況\n該用 SQL REPLACE：176,993 筆（2023-11~2026-07）8.4 分鐘清完、零渲染負載、\n沒有 ERROR 覆寫風險；同一批用重轉要約 2 天。\n\n新增「清舊報告：先想 REPLACE，重轉是例外」一節：\n- 兩法對照（速率 350 筆/秒 vs 2,400 筆/hr）與各自代價\n- REPLACE 修不了的三件事（異體字已存成 ?、細菌報告多份、渲染層改進）\n  → 慣例改為「近期用重轉拿完整修正，歷史資料用 REPLACE 快速止血」\n- 執行要點：務必分月跑（不分月的 LOB 掃描實測 2 分鐘 timeout）、\n  REPLACE 巢狀順序、殘留空 body{} 無害\n- ⚠ 絕對不要用 order_no 前綴圈範圍：高雄/新竹無分部前綴，且實測單號\n  6050405079(前綴 605) 的 trx_dt 落在 8 月，前綴與日期不對應\n- 驗收不能只看 user-select：onselectstart/oncontextmenu/oncopy/unselectable\n  也要查，最後仍要人眼開一張\n\n待辦同步更新：高雄 9 月以前標記完成；桃園那條改指向本節（先前寫的\n「全表 8GB、要排離峰」是不分月的估法）；補上高雄 2023-10 以前 3,938 筆\n從未轉過待決。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "8d18a05f",
-          "date": "2026-09-15",
-          "message": "docs: 高雄補 Schedule 檔位，重轉範圍定為只做 9 月",
-          "body": "- 高雄列：appsettings 從「未動」改為記錄 09:18 補上的 Schedule 區塊\n  （Heavy 600 / Medium 200 / Light 150，全時段併發維持 2）。只放大批次不動\n  併發紅線 —— 高雄渲染 0.15 秒/張，Heavy 一輪約 45 秒遠在 5 分鐘窗內。\n  備份 appsettings.json.bak_20260915_091842\n- 換版歷史補上檔位調整與實際重轉範圍\n- 待辦：記下 2026-09-15 決議只重轉 9 月、9 月以前 161,122 筆暫緩，\n  並寫明理由（ERROR 覆寫風險 + 2 天曝險窗，參考 8/31 台北 2 萬筆前例）\n  與日後逐月執行的做法\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "08cb0fd7",
-          "date": "2026-09-15",
-          "message": "docs: 高雄盤點修正與換版紀錄 — 原記「無部署」有誤",
-          "body": "高雄反應報告無法複製。查出高雄一直有一套 htmlConverter 在跑，版本停在\n2025-11-03 `7497ccb`（全站最舊，落後 20+ 個 commit），缺 `61e0232`(user-select)\n與 `05f0794`(window.print)，已於 2026-09-15 換版並重轉 9 月 5,448 筆。\n\n- 第 1 節高雄列：由「無部署跡象」改為實測結果（139.229 與 LIS 同機、FDD、\n  DB 139.227/HCLABx、渲染打自己、備份資料夾）\n- 新增「高雄盤點修正」：記下推論錯誤的教訓 —— 別拿 FalconCopy 的部署紀錄\n  反推本程式；辨識舊版的特徵（仍寫 batch_execution.log、startup_error.log\n  是啟動追蹤不是錯誤）；⚠ 高雄同新竹**無分部前綴**，609=2026年9月，\n  清理 SQL 一律用 trx_dt 圈範圍\n- 新增「重轉整段期間的零停機做法」：撥回 CreateTime 觸發\n  `trx_dt > CreateTime` 重轉，舊 HTML 原地保留可看，取代清成 NULL 的做法\n  （5,448 筆消化數小時，清 NULL 等於半天查無報告）\n- 待辦補：高雄 9 月以前尚有 161,122 筆舊版產物待決定是否往前重轉\n- 修正上個 MR 帶進來的錯字：IIS log 範例的 UNC 路徑少一個反斜線\n- docs/1 站台表補高雄列\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -29368,7 +29560,7 @@
     },
     {
       "name": "Management\\MiniMeet",
-      "totalCommits": 63,
+      "totalCommits": 65,
       "commits": [
         {
           "hash": "23803e0b",
@@ -29872,6 +30064,22 @@
           "message": "docs: 記錄正式站已部署，加上試跑計畫與使用說明",
           "body": "- README、deploy、M0 文件更新到 2026-11-04 的部署現況\n- deploy 補換憑證步驟、buildx，以及 VM 目前不是 clone 的更新方式\n- 試跑計畫前置工作更新狀態\n- 使用說明補正式網址、同一間會議室多台電腦的回授對策\n- 使用說明拿掉快速登入：目前放行整段，不寫給一般同仁\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8d9d2c73",
+          "date": "2026-11-06",
+          "message": "合併 MR !43: 頻寬不足時的機制：只聽聲音、全體關鏡頭、網路不穩提示",
+          "body": "頻寬不足時的機制：只聽聲音、全體關鏡頭、網路不穩提示\n\nSee merge request ucl/management/mini-meet!43",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "deda35ea",
+          "date": "2026-11-06",
+          "message": "頻寬不足時的機制：只聽聲音、全體關鏡頭、網路不穩提示、allow_pause",
+          "body": "- 只聽聲音：不收別人的鏡頭、關自己的鏡頭，聲音與分享照常，只影響自己\n- 連線品質持續變差 10 秒才提示，只問不自動切換；按「先不用」後 5 分鐘內不再問\n- 主持人可全體關鏡頭，對方之後可自行再開\n- livekit.prod.yaml：開啟 congestion_control.allow_pause；use_external_ip 補成正式站實際的 true，消除與 repo 的落差\n- 文件：部署說明、使用說明、測試紀錄、介紹頁\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
           "tags": []
         }
       ],
@@ -34496,7 +34704,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 819,
+      "totalCommits": 821,
       "commits": [
         {
           "hash": "4bdff543",
@@ -41049,13 +41257,29 @@
           "body": "🤖 自動生成於 2026-11-05 07:05",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "4dccc2d8",
+          "date": "2026-11-06",
+          "message": "docs: 更新彙整資料 2026-11-06",
+          "body": "🤖 自動生成於 2026-11-06 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c2505cd8",
+          "date": "2026-11-06",
+          "message": "docs: 每日工作紀錄 2026-11-05 (65 commits)",
+          "body": "🤖 自動生成於 2026-11-06 07:05",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "ParkFee",
-      "totalCommits": 431,
+      "totalCommits": 441,
       "commits": [
         {
           "hash": "caa33437",
@@ -44504,13 +44728,93 @@
           "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "976cc06b",
+          "date": "2026-11-06",
+          "message": "docs(TODO): 11/06 兩輪引擎演練全過、verify-pay 真 API 0 項不符",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f0966582",
+          "date": "2026-11-06",
+          "message": "fix: 網站 A3 配置圖與選位示範頁「腳踏車」改「自行車」",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "520a39a4",
+          "date": "2026-11-06",
+          "message": "fix(print-map): 配置圖「腳踏車」改「自行車」，與其他文件一致",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8ccb3a5e",
+          "date": "2026-11-06",
+          "message": "feat(說明表): --seal-a0 印章放大成 A0 後為實際尺寸，與 B1 圖一致（經理 11/06 定）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8e4c150c",
+          "date": "2026-11-06",
+          "message": "docs(秘書講義): 拿掉第 3 頁 D、E 段的待經理確認標註",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "41ba5983",
+          "date": "2026-11-06",
+          "message": "docs(秘書講義): 拿掉第 4 頁「還沒定案」區塊",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5a552111",
+          "date": "2026-11-06",
+          "message": "docs: 不另做秘書學習單，訓練照講義 38 上機（對象經理、財秘、兩位秘書）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "cfb4da1c",
+          "date": "2026-11-06",
+          "message": "docs(秘書講義/訓練): 依正式站實測修正無障礙指派步驟",
+          "body": "- 指派後要再點一次該格才有「解除」；已佔用清單正確時顯示戶號與車號\n- 108、194 按鈕是「更新指派」，不可按「解除」，訓練不拿這兩格練\n- 修改登記寫出「編輯登記」「更新登記」\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "94cd3406",
+          "date": "2026-11-06",
+          "message": "feat(print-map): --seal-scale 放大印章，A0 海報與說明表 A0 章一樣大；TODO 記印章大小送經理看",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "47fde394",
+          "date": "2026-11-06",
+          "message": "feat(說明表): 加章版（--seal）與 A0 海報腳本；TODO 記經理加章需求與印章大小待定",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "RiskPrediction-3H",
-      "totalCommits": 371,
+      "totalCommits": 372,
       "commits": [
         {
           "hash": "5d267176",
@@ -47478,6 +47782,14 @@
           "message": "fix(sci): 改回 11/02 誤還原的 4.4 首句與 7.1 三段；教授 11/05 語音逐字稿（4.4、4.5 對調考慮）",
           "body": "- 4.4 首句、7.1 第 2 段、學術層面、末段以 10/29 版段落復原：11/02 只對紙本批註，違反教授 10/09\n  口頭意見（不提 StratifiedGroupKFold、消融正名）；〔※〕註記刪除；[8] 恢復 REF 欄位\n- 1.4「消融（ablation）實驗」與摘要 stratified group k-fold validation 依使用者決定照教授手寫，不動\n- 逐字稿 20261105_4.4與4.5順序對調考慮；TODO 加 C0-10、C0-11；台帳更正 4.4、8.1 兩列\n- 寄教授 20261105 版（37 頁，欄位更新無 Error）；20261104 版含上述錯誤，不要寄\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "54e5435d",
+          "date": "2026-11-06",
+          "message": "docs(sci): 教授 11/05 晚語音逐字稿（4.4／4.5 確定對調、Eq. 5–7 與 Precision 定義）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
           "tags": []
         }
       ],
@@ -50674,7 +50986,7 @@
     },
     {
       "name": "scoreboard",
-      "totalCommits": 65,
+      "totalCommits": 66,
       "commits": [
         {
           "hash": "2932fc3c",
@@ -51193,6 +51505,14 @@
           "date": "2026-11-04",
           "message": "docs: 補上手機版決策、週五準備與架設方式，更新過時內容",
           "body": "- decisions：1080p、手機門檻、鏡頭鎖橫向、不跑 R8、每幀記錄存手機、半場走自動認人\n- recording-guide：3v3 跑 App 怎麼架；中場線太遠\n- TODO：連假計畫換成現況，加週五準備清單\n- README：模擬進球現況、轉檔要用 Actions、精華核對要看到進球前 0.5 秒\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f6f52437",
+          "date": "2026-11-06",
+          "message": "docs: 自動認隊伍列為核心，週五改用手錶記分並拍精華",
+          "body": "- 半場自動認隊伍列為核心功能，整理目前各環節結果與缺口\n- 2026-11-06 不跑偵測 App：比分用手錶記，手機只錄 4K 拍精華與訓練資料\n- 下週訓練認隊友；用手錶記分當進球紀錄的想法\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
         }
