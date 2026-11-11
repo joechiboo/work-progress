@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-10",
-    "days": 555,
-    "weeks": 79.3
+    "end": "2026-11-11",
+    "days": 556,
+    "weeks": 79.4
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7177,
+    "totalCommits": 7215,
     "projectCount": 105,
-    "dailyAverage": 12.9
+    "dailyAverage": 13.0
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1450,
+      "totalCommits": 1466,
       "commits": [
         {
           "hash": "a207ff46",
@@ -11615,6 +11615,134 @@
           "body": "台中反映轉檔單位 1062、1959 的就醫日帶採檢日沒生效。\n\n原因：\n- 1062 皓生醫院不在台中連動單位清單內\n- 連動只綁在就醫日欄位的 change 事件；轉檔(分單)進來的單就醫日已由匯入寫入，\n  開單時用 .val() 帶入不會觸發 change，同仁也不會去改那一欄，所以永遠不連動\n\n修改（皆為 BT201 前端）：\n- 台中連動單位清單加 1062，共 34 個\n- 存檔時補帶：適用單位就醫日有值、採檢日空白時，存檔前帶入就醫日；不覆蓋已填的採檢日\n- 適用單位採檢日與就醫日不同天時，採檢日欄位標黃並帶提示，只提醒不擋存檔\n- 適用單位判斷收斂為 是就醫日連動採檢日的單位()，三處共用\n\n手動改就醫日即覆蓋採檢日的既有行為不變。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "32f74735",
+          "date": "2026-11-11",
+          "message": "合併 MR !1640: feat(lt255): 新增單項與全部 rerun 回復",
+          "body": "feat(lt255): 新增單項與全部 rerun 回復\n\nSee merge request ucl/lis/lisweb!1640",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "9c939cac",
+          "date": "2026-11-11",
+          "message": "合併 MR !1638: feat(mb): 細菌危險數據清單重構效能、新增單位篩選與 Email 通報發信功能",
+          "body": "feat(mb): 細菌危險數據清單重構效能、新增單位篩選與 Email 通報發信功能\n\nSee merge request ucl/lis/lisweb!1638",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "12b7a74c",
+          "date": "2026-11-11",
+          "message": "docs(jquery): 記錄 PrintHIGHQStocks 補測結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "963d1464",
+          "date": "2026-11-11",
+          "message": "合併 MR !1626: feat(lt255): 優先顯示急件並調整百分比 Delta Check",
+          "body": "feat(lt255): 優先顯示急件並調整百分比 Delta Check\n\nSee merge request ucl/lis/lisweb!1626",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "7198d4ac",
+          "date": "2026-11-11",
+          "message": "合併 MR !1636: fix(lt255): 審核規則檢查使用實際結果值",
+          "body": "fix(lt255): 審核規則檢查使用實際結果值\n\nSee merge request ucl/lis/lisweb!1636",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "34504fab",
+          "date": "2026-11-11",
+          "message": "feat(LT270): 文字型結果(FTEXT)可直接顯示內容，以系統參數開關控制",
+          "body": "新竹反映 LT270 確認報告的備註只顯示「FTEXT」，舊系統是直接顯示內容(例: 溶血:2+)。\n\n- 新增系統參數 LT270_ShowFtextContent(BOOLEAN)；沒有這筆參數維持顯示 FTEXT，\n  發版與插參數不分先後。先試行新竹，其他站之後到 SysParameter 頁勾選即可\n- 只換顯示：輸入框的值仍是 \"FTEXT\"(存檔/審核/F5 審後修改照舊)，\n  上面疊一層顯示 ORD_FTR 內容，過長以 … 截斷、tooltip 顯示全文\n- F3 視窗改內容後即時同步\n- 開關開啟時結果欄 tooltip 改絕對定位，長全文不會把該列撐高\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "853debe1",
+          "date": "2026-11-11",
+          "message": "docs(jquery): 補版型共用差異、第三波分段與 pending 項目",
+          "body": "- 版型共用差異實測表；更正「內容變窄」的說法（一般頁面是 1170px 變寬到 1320px）\n- 第三波改成分段表，3a 做完後先告一段落\n- Bootstrap 3.3.7 升級 pending，記下重啟時要注意的事\n- 階段二補上待辦：packages.config、自閉合標籤、PrintHIGHQStocks\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "130efe04",
+          "date": "2026-11-11",
+          "message": "feat(BT410/BT403): 新竹收據公司紅章位移改 70px，章緣對齊地址行「1樓」",
+          "body": "Co-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "cfdd9bb2",
+          "date": "2026-11-11",
+          "message": "refactor(layout): 第三波 4 頁改用 Bootstrap 5.3 layout",
+          "body": "工單 CHG202609090003。INSChk、LR106、LR112、ChatRoom 改用\n_Layout.Bootstrap53，並調整 BS5 下失效的寫法：navbar-left、\nform-horizontal、col-md-offset、表格內 select 的 form-control、\n頁面覆寫的 .container 寬度。\n\nlayout-migration.spec.ts 加入這 4 頁。計畫文件補上第三波結果、\n其餘頁面現況，以及自閉合標籤（jQuery 3.5）的檢查結果。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "ab456b5f",
+          "date": "2026-11-11",
+          "message": "feat(BT410/BT403): 收據公司紅章位置可依站別微調，新竹右移 40px",
+          "body": "新增 appSettings[\"ReceiptCompanyStampOffset\"] (px)：正值往行尾 (螢幕預覽的右邊) 移，\n未設定為 0，沿用版型基準位置，台北輸出的 HTML 不變。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ccec4f30",
+          "date": "2026-11-11",
+          "message": "feat(BT403): 欄位選項新增「就醫日期」",
+          "body": "桃園需求：每月客戶明細表希望能多顯示就醫日期，但不是每個人都要，\n所以做成「欄位」那排的勾選框，預設不勾，不勾時帳單與原本完全相同。\n\n- 勾選後在「日期」右邊多一欄就醫日期 (BLG_TX_HDR.ID_VISIT_DT)\n- 畫面顯示、列印、匯出 Excel、Email 附檔一致生效\n- 該張單沒填就醫日期時留空白，不拿送檢日代替\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6a2cbae6",
+          "date": "2026-11-11",
+          "message": "feat(BT410/BT403): 新竹收據公司紅章換成高解析去背圖",
+          "body": "新竹提供蓋印掃描檔，裁切、轉正、去背後存成 360px 透明 PNG，\n取代原本暫用的報告紅章 (66x58)。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "dd56d42f",
+          "date": "2026-11-11",
+          "message": "feat(LT403W): 每日報告總結新增「加大行距」選項",
+          "body": "新竹反映列印出來不同筆資料間隔過小，不方便手寫結果。\n查詢頁加勾選框（記在瀏覽器），勾選後列印頁每列加高、\n不同檢體編號之間再多留空白；不勾選時版面不變。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "81fbdbb2",
+          "date": "2026-11-11",
+          "message": "feat(BT410/BT403): 收據公司紅章改依站別設定，新竹開放蓋章",
+          "body": "原本三處列印 (BT410 單張、拆分批次、BT403 月結) 寫死「台北才蓋」且圖檔寫死台北章，\n新竹畫面有「蓋公司紅章」勾選框但勾了不會蓋。\n\n- 新增 ReceiptStampHelper：章圖檔讀 appSettings[\"ReceiptCompanyStamp\"]，未設定時只有台北有預設圖\n- 有圖的站才蓋、才顯示勾選框；沒圖的站勾選框隱藏\n- 新竹 (Web.SJ_UCL.config) 設定 Images/新竹_公司紅章.bmp\n  (暫用報告紅章同一顆 66x58，放大會糊，待新竹提供高解析圖檔再換)\n- 台北行為不變\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7b95f445",
+          "date": "2026-11-11",
+          "message": "chore(jquery): packages.config 的 jQuery 由 3.3.1 改為 3.7.0",
+          "body": "工單 CHG202609090003。SonarQube 掃描（nuget restore 的 NU1902）\n持續回報 jQuery 3.3.1 的 3 筆弱點，來源是 packages.config 登記的\nNuGet 版本；MR!1617 只移除了 Scripts 底下的舊檔，沒有動到這裡。\n\n這個套件只有內容檔，csproj 沒有引用它的路徑，站上實際載入的\n已經是 jquery-3.7.0.js，所以不影響執行。\n\n計畫文件補上掃描來源與現況。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e7579dd6",
+          "date": "2026-11-11",
+          "message": "fix(DangerListV2): 醫療院所不套姓名樣態排除規則，並可勾選顯示被排除的檢體",
+          "body": "芮禾診所(0685)以匿名代碼當病患姓名(R1MADLER)，命中「研究計劃編號」樣態規則，\n6110901687 血小板 19 LL 沒出現在清單上。\n\n- 客戶分類為 診所/醫院/衛生所/婦產科 的單位不套樣態型姓名規則\n  (床號、動物單位、機台/入水口等關鍵字型規則仍全單位套用)\n- 新增「顯示被姓名規則排除的檢體」勾選框，放出的列在姓名旁標示「姓名排除」，\n  選擇依帳號記在瀏覽器\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
         }
       ],
       "type": "work"
@@ -16452,7 +16580,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 382,
+      "totalCommits": 388,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -19507,6 +19635,54 @@
           "date": "2026-11-10",
           "message": "chore: session 收尾備份 2026-11-10",
           "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ae25b24c",
+          "date": "2026-11-11",
+          "message": "新增 cacb-ssl-renew 腳本（Let's Encrypt 申請，SKILL.md 待補）＋ cacb 託管 memory 更新 SSL 現況",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7c8c503f",
+          "date": "2026-11-11",
+          "message": "memory: ReportHtmlSync 2026-11-11 五站換版與歷史回填",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7ee92fcf",
+          "date": "2026-11-11",
+          "message": "chore: session 收尾備份 2026-11-11",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d327190e",
+          "date": "2026-11-11",
+          "message": "chore: session 收尾備份 2026-11-11（收據公司紅章 memory）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3ada8c1a",
+          "date": "2026-11-11",
+          "message": "chore: session 收尾備份 2026-11-11（Delta Check 原廠定義 memory）",
+          "body": "Co-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0a29d2d5",
+          "date": "2026-11-11",
+          "message": "chore: session 收尾備份 2026-11-11 (lisweb LT270 FTEXT 顯示、MR reviewer 依主題分派)",
+          "body": "",
           "category": "其他",
           "tags": []
         }
@@ -25902,7 +26078,7 @@
     },
     {
       "name": "Cerberus",
-      "totalCommits": 100,
+      "totalCommits": 102,
       "commits": [
         {
           "hash": "1f4dc257",
@@ -26703,13 +26879,29 @@
           "body": "2026-11-10 新竹 5566 被回報掛了，實際是埠改成只收 HTTPS、官網連結還是 http://IP，\n診所點下去拿到 400。沒有排程失敗也沒有 log 停止，現有的頭都看不到。\n\n- SiteUp：對一組網址各 GET 一次，要求 2xx、憑證驗證通過、頁面含關鍵字；\n  連續打不開超過 StaleAfterMinutes 才算掛（起點存 sightings.json）；\n  憑證剩不到 CertWarnDays 天亮黃（Degraded）\n- 新頭探官網 ManageLogin.asp 上貼的六條連結，先以 Enabled: false 佈上，\n  待 56.231 實測連得到再啟用\n- README、接入指南 §2G、架構與擴充補上新型別\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "6796b432",
+          "date": "2026-11-11",
+          "message": "合併 MR !77: 補 11-11 佈署紀錄：FolderBacklog 讀不到寬限",
+          "body": "補 11-11 佈署紀錄：FolderBacklog 讀不到寬限\n\nSee merge request ucl/ops/cerberus!77",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "f52ed125",
+          "date": "2026-11-11",
+          "message": "補 11-11 佈署紀錄：FolderBacklog 讀不到寬限（MR !76）",
+          "body": "Co-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "OnlineReport\\ReportHtmlSync",
-      "totalCommits": 85,
+      "totalCommits": 91,
       "commits": [
         {
           "hash": "9cb8d2a0",
@@ -27389,6 +27581,54 @@
           "message": "feat: pat_resulth 新增 HTML 轉檔狀態欄位（六站已上線）＋給網路報告查詢的判斷規則",
           "body": "起因：2026-11-02 台北 56.231 換 SSL 憑證後同步全滅 62 分鐘，2,390 張單的\nhtmlContent 被寫成「ERROR: 無法抓取HTML」，網路報告查詢把它當報告顯示，\n而且失敗永遠不會重試。\n\n- sql/add-html-status-columns.sql：新增 html_status、html_error、\n  html_retry_count、html_next_retry 四個可為 NULL 的欄位與一般索引\n  （不用篩選索引，避免 QUOTED_IDENTIFIER OFF 的舊寫入端失敗）。\n  2026-11-06 六站都已執行完成。\n- docs/7：給 webreport 的判斷規則與備援建議。\n- todo.md：後續待辦（排程重試、Spark 備援、Argus 監控）；\n  台北 2,396 張、台中 1 張 ERROR 已清除重轉。\n\n本次只有 DB 結構與文件，排程程式尚未改，新欄位目前全部是 NULL。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3b392efd",
+          "date": "2026-11-11",
+          "message": "合併 MR !29: docs: 六站 html_status 回填完成、高雄補轉、台北補轉時程更正",
+          "body": "docs: 六站 html_status 回填完成、高雄補轉、台北補轉時程更正\n\nSee merge request ucl/onlinereport/reporthtmlsync!29",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "31f97eb4",
+          "date": "2026-11-11",
+          "message": "docs: 六站 html_status 回填完成、高雄補轉 2023 年漏轉的單、台北補轉時程更正",
+          "body": "- docs/7：六站回填完成時間；各站沒有 HTML 的報告數量；\n  桃園審核日期空白／1900-01-01 的特殊情況；高雄補轉中\n- docs/8：新竹／台中／台北回填結果；高雄 QueryLowerBoundDate=2023-06-01；\n  台北補轉時程更正為約一週（白天只有保留名額在補）\n- todo.md：更新進度\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8f89dab3",
+          "date": "2026-11-11",
+          "message": "docs: 六站都換新版後更新 docs/7，補舊資料修復方案",
+          "body": "- docs/7（給 webreport）：六站都是新版；歷史報告的狀態（有 HTML 填 1、\n  沒轉過的維持 NULL）；判斷規則加「沒有 HTML 且超過 1 小時 → 走備援」；\n  2024 年以前舊單號撞號的提醒；html_status 是 NULL 時不能出錯\n- docs/8：舊資料修復 — 更早的 ERROR 清除、台北 2025 年以後補轉（固定撈單下限）、\n  2024 年以前不補轉的理由、html_status 回填腳本與進度\n- 其他文件把「目前只有台北換到新版」改成六站都已換版\n- todo.md：更新舊資料修復的進度\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e4dca06a",
+          "date": "2026-11-11",
+          "message": "docs: 修正嘉義部署路徑少一個反斜線",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "369d155e",
+          "date": "2026-11-11",
+          "message": "合併 MR !26: docs: 五個分部換到含失敗自動重試的版本（2026-11-11）",
+          "body": "docs: 五個分部換到含失敗自動重試的版本（2026-11-11）\n\nSee merge request ucl/onlinereport/reporthtmlsync!26",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "c71b8d32",
+          "date": "2026-11-11",
+          "message": "docs: 五個分部換到含失敗自動重試的版本（2026-11-11），嘉義首次盤點",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
           "tags": []
         }
       ],
@@ -32241,7 +32481,7 @@
     },
     {
       "name": "OfficialWebsites\\ucl-admin",
-      "totalCommits": 25,
+      "totalCommits": 27,
       "commits": [
         {
           "hash": "45b8f623",
@@ -32440,6 +32680,22 @@
           "date": "2026-11-10",
           "message": "CKEditor 新增文字顏色與底色按鈕",
           "body": "四個編輯器頁面（檢驗目錄、檢驗新知、最新消息、公司基本資料）加上\nFontColor / FontBackgroundColor，色票共用 utils/editorColors.ts，\n一律輸出 hex。先前編輯器不認得顏色，存檔時會把舊資料的顏色洗掉。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "48a18fc6",
+          "date": "2026-11-11",
+          "message": "文檔：記載檢驗目錄編號 (InsuranceID) 規則",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "3e827fb9",
+          "date": "2026-11-11",
+          "message": "檢驗目錄編號留空自動產生；編輯器新增字級",
+          "body": "- 目錄編號 (InsuranceID) 是公開頁 ServiceQueryInfo.asp 的查詢鍵，\n  新後台新增時沒產生，導致官網搜得到但點不開。比照舊後台留空自動\n  產生 D + 中分類 + 3 位流水號，手填則檢查不可重複。\n- 四個 CKEditor 加 FontSize，用 px 數值 (舊公開頁沒載 CKEditor CSS，\n  class 型字級到前台無效)，supportAllValues 保留舊資料字級。\n- editorColors.ts 改名 editorConfig.ts。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
         }
@@ -33560,6 +33816,141 @@
       "type": "work"
     },
     {
+      "name": "OfficialWebsites\\臨床生化學會",
+      "totalCommits": 16,
+      "commits": [
+        {
+          "hash": "de33cd48",
+          "date": "2025-12-12",
+          "message": "將 index.htm 改為跳轉頁，統一導向 index.html",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b74669db",
+          "date": "2025-12-12",
+          "message": "更新首頁：學術演講置頂、照片改名避免快取",
+          "body": "- 學術演講消息移到最新消息最上方",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1dcca80f",
+          "date": "2025-12-12",
+          "message": "移除英文版頁面空的理監事名單選單",
+          "body": "英文版理監事名單頁面沒有實際內容，移除 About Us 選單中的",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "141b8426",
+          "date": "2025-12-12",
+          "message": "更新網站內容：首頁照片、IFCC logo、第15屆理監事名單",
+          "body": "- 更新首頁照片為新的團體照",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0f1dfe58",
+          "date": "2025-12-12",
+          "message": "Add README with project info",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "df9191bb",
+          "date": "2025-12-12",
+          "message": "Initial commit: 臨床生化學會官網",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "45c0b0f8",
+          "date": "2025-12-15",
+          "message": "更新聯絡方式秘書長資訊：郭靜穎 → 饒梓明",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6e53a216",
+          "date": "2025-12-15",
+          "message": "調整研討會議程表格結構以符合 Word 原稿設計",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e684cfc4",
+          "date": "2025-12-15",
+          "message": "新增學術演講 logo：IFCC、主辦單位、協辦單位",
+          "body": "- 上方加入 IFCC logo 及 \"Under the auspices of\" 文字",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b2e490b5",
+          "date": "2025-12-15",
+          "message": "更新首頁學術演講：加入完整議程表、調整樣式",
+          "body": "- 將 IFCC logo 替換為完整議程表",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c3d73919",
+          "date": "2025-12-22",
+          "message": "新增 APFCB logo 於首頁學術演講區塊",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "828a9b7b",
+          "date": "2026-06-01",
+          "message": "更新 README 託管資訊：實際掛在智邦代管 (211.72.207.202)，非內網 56.80",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f368b20c",
+          "date": "2026-11-11",
+          "message": "新增 SSL 免人工續約方案討論文件（docs/ssl-auto-renew.md）",
+          "body": "憑證只能手動貼進智邦後台、效期又將縮至 47 天，比較 Cloudflare / 搬主機 / 維持人工三案，列出需 IT 協助判斷的事項（TWNIC 帳號、Cloudflare 帳號、MX 指向公司郵件主機等）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f106b0ce",
+          "date": "2026-11-11",
+          "message": "啟用 HTTPS：Let's Encrypt 憑證＋http 自動轉址",
+          "body": "- 新增 .htaccess（智邦官方轉址語法，排除 /.well-known 以免影響續約驗證）\n- README 記錄 SSL 申請／安裝方式、生效時間與 curl UA 限制\n- README 新增 TODO：SSL 自動續約機制（優先試智邦內建驗證工具）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "05357baf",
+          "date": "2026-11-11",
+          "message": "README：代管到期日更新為 2028/08/14，補方案與 SSL 現況",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8bd1c3f5",
+          "date": "2026-11-11",
+          "message": "新增最新消息：2026/11/21 臨床生化檢驗諮詢研討會（附海報）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "LIS\\Schedule\\AuthoriseQueue",
       "totalCommits": 14,
       "commits": [
@@ -33784,109 +34175,6 @@
           "message": "docs: 新增 EmailService 維護指南",
           "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
           "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "OfficialWebsites\\臨床生化學會",
-      "totalCommits": 12,
-      "commits": [
-        {
-          "hash": "de33cd48",
-          "date": "2025-12-12",
-          "message": "將 index.htm 改為跳轉頁，統一導向 index.html",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b74669db",
-          "date": "2025-12-12",
-          "message": "更新首頁：學術演講置頂、照片改名避免快取",
-          "body": "- 學術演講消息移到最新消息最上方",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "1dcca80f",
-          "date": "2025-12-12",
-          "message": "移除英文版頁面空的理監事名單選單",
-          "body": "英文版理監事名單頁面沒有實際內容，移除 About Us 選單中的",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "141b8426",
-          "date": "2025-12-12",
-          "message": "更新網站內容：首頁照片、IFCC logo、第15屆理監事名單",
-          "body": "- 更新首頁照片為新的團體照",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0f1dfe58",
-          "date": "2025-12-12",
-          "message": "Add README with project info",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "df9191bb",
-          "date": "2025-12-12",
-          "message": "Initial commit: 臨床生化學會官網",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "45c0b0f8",
-          "date": "2025-12-15",
-          "message": "更新聯絡方式秘書長資訊：郭靜穎 → 饒梓明",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "6e53a216",
-          "date": "2025-12-15",
-          "message": "調整研討會議程表格結構以符合 Word 原稿設計",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e684cfc4",
-          "date": "2025-12-15",
-          "message": "新增學術演講 logo：IFCC、主辦單位、協辦單位",
-          "body": "- 上方加入 IFCC logo 及 \"Under the auspices of\" 文字",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b2e490b5",
-          "date": "2025-12-15",
-          "message": "更新首頁學術演講：加入完整議程表、調整樣式",
-          "body": "- 將 IFCC logo 替換為完整議程表",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c3d73919",
-          "date": "2025-12-22",
-          "message": "新增 APFCB logo 於首頁學術演講區塊",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "828a9b7b",
-          "date": "2026-06-01",
-          "message": "更新 README 託管資訊：實際掛在智邦代管 (211.72.207.202)，非內網 56.80",
-          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
           "tags": []
         }
       ],
@@ -35048,7 +35336,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 829,
+      "totalCommits": 831,
       "commits": [
         {
           "hash": "4bdff543",
@@ -41679,6 +41967,22 @@
           "date": "2026-11-10",
           "message": "docs: 每日工作紀錄 2026-11-09 (2 commits)",
           "body": "🤖 自動生成於 2026-11-10 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "dbde81b4",
+          "date": "2026-11-11",
+          "message": "docs: 更新彙整資料 2026-11-11",
+          "body": "🤖 自動生成於 2026-11-11 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5c179c1f",
+          "date": "2026-11-11",
+          "message": "docs: 每日工作紀錄 2026-11-10 (72 commits)",
+          "body": "🤖 自動生成於 2026-11-11 07:05",
           "category": "文檔",
           "tags": []
         }
