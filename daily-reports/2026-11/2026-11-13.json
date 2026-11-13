@@ -1,0 +1,338 @@
+{
+  "date": "2026-11-13",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "bed5cbce",
+          "time": "15:11",
+          "message": "MiniMeet memory：11/12 試跑成功",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "043e7bd4",
+          "time": "15:03",
+          "message": "memory: auto-karaoke 專案狀態",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c7f0bb9e",
+          "time": "14:11",
+          "message": "chore: session 收尾備份 2026-11-13（joechiboo.github.io 舊站存檔 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "2b2a3749",
+          "time": "14:10",
+          "message": "chore: session 收尾備份 2026-11-13",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8ba0c25b",
+          "time": "14:07",
+          "message": "basketball-highlights：補上用 soundstage 上傳 YouTube 的步驟",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2cdab27f",
+          "time": "12:23",
+          "message": "basketball-highlights：改成每場一份 clips.json，預設剪個人精華",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d3874a1b",
+          "time": "12:22",
+          "message": "chore: memory 修正平板型號",
+          "body": "",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "0495c909",
+          "time": "12:22",
+          "message": "chore: session 收尾備份 2026-11-13",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a1fbf209",
+          "time": "11:45",
+          "message": "chore: session 收尾備份 2026-11-13",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "253bda2c",
+          "time": "10:03",
+          "message": "chore: session 收尾備份 2026-11-13",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "746c72ab",
+          "time": "09:26",
+          "message": "memory(ParkFee): 11/13 開放前狀態",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "d2452453",
+          "time": "15:28",
+          "message": "合併 MR !1654: feat(hdpid): 加入 F9 開單快捷鍵與洗腎標籤操作改善",
+          "body": "feat(hdpid): 加入 F9 開單快捷鍵與洗腎標籤操作改善\n\nSee merge request ucl/lis/lisweb!1654",
+          "category": "合併MR"
+        },
+        {
+          "hash": "922e89c7",
+          "time": "08:53",
+          "message": "docs(layout): 補結案摘要（前因後果、結案時的版型現況、後續風險）；BT300 改回第三波收尾",
+          "body": "- 新增「結案摘要」：結案條件、時間線、各 layout 使用頁數（11-13 main 實數）、8 項後續風險（Bootstrap 3.3.7、多 layout 並存、新頁標準 layout 未定、外掛雙版本、jQuery 寫死多處、伺服器殘檔、其他掃描警告、外觀差異）\n- BT300：使用者 11-13 決定 11-16 起做，做完第三波就收（取代前一個 commit 的「移入階段四」）\n- 已遷頁數更正為 45 頁（_Layout.Bootstrap53 共 50 頁，含原有 5 頁）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8463db6c",
+          "time": "08:35",
+          "message": "docs(layout): 工單範圍調整 — 只處理 jQuery，版型遷移列技術債、Bootstrap 3.3.7 另開工單",
+          "body": "- 目的：補上 11-13 範圍調整與原因（11-03 實測舊頁早已跑 3.7.0，版型與 jQuery 無關）\n- 進度表、階段二：packages.config 已上線；9 站舊 jQuery 檔 11-13 實查都還在，列為本工單最後一項\n- 階段三、四標技術債；BT300 移入階段四，不再單獨做\n- Bootstrap 3.3.7 標另開工單\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7c53d4f3",
+          "time": "07:46",
+          "message": "docs(layout): 第三波 3b～3d-2 狀態同步、對照測試補 3 頁並修守門頁",
+          "body": "- 計畫文件：階段表、F 區表格、頁面清單、頁數統計更新為 !1649／!1650／!1651 已 merge，剩 BT300\n- layout-migration.spec.ts：加入 PrintCopy、LT482、XRW165List\n- 守門頁 TubeLocation 已於 !1649 移除，改用 FileLog（新舊 layout 都有測試庫橫幅）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "7bd2f2d0",
+          "time": "11:55",
+          "message": "合併 MR !53: 2026 內稽會後：OFI001～005 紀錄表、文件修訂送審檔、外訓證書對照表",
+          "body": "2026 內稽會後：OFI001～005 紀錄表、文件修訂送審檔、外訓證書對照表\n\nSee merge request ucl/management/audit-integration!53",
+          "category": "合併MR"
+        },
+        {
+          "hash": "2fd44b1d",
+          "time": "11:55",
+          "message": "2026 內稽會後：OFI001～005 紀錄表與改善資料、兩份文件修訂送審檔、外訓證書對照表",
+          "body": "- 內部稽核資料_20261113/：五張 OFI 紀錄表、OFI對照表.txt、OFI001 外稽建議事項及改善、\n  OFI004 績效管理說明 V1.1（FMApply 202611130001）、OFI005 查檢表 V1.1（202611130002）送審檔\n- 總結報告：結果表與待改善清單同步五張 OFI（0 缺失、5 項待改善）\n- 外訓證書對照表（證書掃描檔不進 repo，.gitignore 排除）\n- TODO 會後段落整理、文件位置索引補外稽紀錄與新資料夾\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Management\\MiniMeet",
+      "commits": [
+        {
+          "hash": "1c824593",
+          "time": "15:15",
+          "message": "docs: 11/12 幹部會議試跑結果與 11/11 外網實測",
+          "body": "- 試跑計畫填入結果：整場用本系統開完，.168 網段一開始連不上、網管調整後正常\n- 改公網 IP 後 UCL、UCL-Guest、4G 都連得上，更新 deploy/README、測試紀錄、使用說明\n- README 里程碑與狀態改到 11/30 業務月會\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "cd5ddc63",
+          "time": "10:35",
+          "message": "data: 嘉義靜平 12 項檢驗單位加註（只接受血清）",
+          "body": "正式 DB AllGoods_Contain 已直接更新 InspectionUnit 與 Anoce_date（更新日期），\n本檔記錄執行的 SQL、12 個 InsuranceID，以及更新前原值的還原 query。\nuclWebsite 無 CREATE TABLE 權限，未建備份表，原值寫死於檔尾。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "auto-karaoke",
+      "commits": [
+        {
+          "hash": "fafa661b",
+          "time": "14:58",
+          "message": "README：加歌流程與目前歌單",
+          "body": "- 加歌兩個條件（Argus 快取有 mp3、LRCLIB 有同步歌詞）與各種腳本結果的處理方式\n- 目前 12 首的 Argus 關鍵字、LRCLIB id、offset，換電腦可照表重抓\n- add_song.py：標題與關鍵字完全相同時優先採用\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "2acbf3ff",
+          "time": "14:55",
+          "message": "加歌腳本 tools/add_song.py",
+          "body": "從 Argus 快取下載 mp3、LRCLIB 抓同步歌詞並依長度挑選；長度差 > 2 秒只列候選不寫檔。\nArgus 網址從環境變數或 tools/local.env 讀（不進版控）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "d67c0fe0",
+          "time": "14:49",
+          "message": "字幕時間校正鈕、App 圖示",
+          "body": "- 播放畫面 －／＋ 鈕：字幕延後／提早 0.5 秒，每首各自記在 SharedPreferences，\n  按下後副標題顯示目前校正值 2 秒；字幕關閉時隱藏\n- 自適應 App 圖示（紫色漸層＋麥克風＋音符），含 Android 13 主題用單色版\n- README：重裝後 Auto 圖示快取錯亂的處理方式\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9f50cde1",
+          "time": "14:38",
+          "message": "字幕開關、封面印歌名＋歌手",
+          "body": "- 播放畫面右下角字幕按鈕（media3 自訂指令），關掉時標題/副標題換回歌名/歌手，狀態記在 SharedPreferences\n- ArtworkFactory：有副標題時 Auto 不顯示演出者，改把歌名＋歌手印在封面\n- 下載的歌詞也不進版控，只保留 sample*.lrc\n- README：Android Auto 選單實際中文名稱、DHU 疑難排解\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "e803935b",
+          "time": "12:48",
+          "message": "實機端對端測試、第二首範例歌詞、媒體鍵 receiver",
+          "body": "- KaraokeServiceTest：media3 與舊版 MediaBrowser 兩條路徑，驗證瀏覽、\n  歌詞同步、拖曳（實測約 60ms 更新）、間奏、多時間標籤、上下首\n- MediaButtonReceiver：藍牙／方向盤媒體鍵可喚醒續播\n- sample2.lrc；README 補測試音檔 ffmpeg 指令與 DHU 直接下載方式\n- 關閉 AGP 9.1 對 compileSdk 37 的未驗證警告\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1ee35603",
+          "time": "12:41",
+          "message": "Android Auto 卡拉 OK POC",
+          "body": "- media3 MediaLibraryService（No Activity），Android Auto 瀏覽／播放／上下首／拖曳\n- LrcParser：支援多時間標籤、ti/ar/offset，附單元測試\n- LyricSyncer：每 200ms 依位置同步，句子變了才用 replaceMediaItem 更新 metadata\n- 範例 sample.lrc；README 含側載、Android Auto 未知來源、DHU 測試步驟\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "6468ac54",
+          "time": "14:09",
+          "message": "運動區加入兩支半場個人精華（2026-10-30、2026-11-06）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7dc13c21",
+          "time": "12:51",
+          "message": "休閒頁創作區補回舊站的作品照片",
+          "body": "舊站 joechiboo.azurewebsites.net 的 Creating 輪播有 7 張照片，當初沒搬進\n這個 repo，改版後創作區只剩一張便利貼。從 Wayback Machine 2022 年存檔\n取回後，以拍立得形式貼在筆記本頁上，點選可開燈箱：\n\n- NFC 電子名片：設計稿、成品、感應、跳出聯絡人\n- Arduino 入門：Hello World、按鈕與 LED\n- 社交圈：圖示一張（原子頁未被存檔）\n\n聯絡人截圖上的電話與信箱已打馬賽克；圖片縮到長邊 1200px 以內。\n裝飾圖示移到右上角，避免壓到照片；手機版照片改兩欄。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "97a52b53",
+          "time": "12:38",
+          "message": "運動區加入兩支籃球影片：中距離、上籃",
+          "body": "籃球精華區放入兩支 YouTube 影片，取代原本的「精華剪輯中」提示；\n影片標題中英文各一份，日期欄改為可省略。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012qneQCa6KZ7S9cE9DwXHHA",
+          "category": "其他"
+        },
+        {
+          "hash": "4be430f0",
+          "time": "12:23",
+          "message": "休閒頁改版：繪畫、創作、運動、音樂各用不同風格的版面",
+          "body": "- 拿掉四張一樣的興趣卡片，每個興趣的介紹與「為什麼喜歡」移進\n  各自的區塊，文字內容不變\n- 繪畫：美術館風，米白牆面、畫框與襯紙、作品說明牌，燈箱沿用\n- 創作：筆記本風，方格紙背景、橫線筆記頁、便利貼\n- 運動：深色訓練日誌風，已完成的挑戰改成成就徽章，新增籃球精華\n  區（尚無影片時顯示剪輯中提示，之後在 sportsHighlights 加影片 ID）\n- 音樂：黑膠唱片風，唱片隨播放旋轉，右側曲目列表點選切換，演出\n  照片放在下方；點曲目才自動播放\n- 移除「未來目標」區塊；頂部加快速跳轉按鈕\n- 深色模式、手機版（畫作一排兩張）都有對應版面\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012qneQCa6KZ7S9cE9DwXHHA",
+          "category": "其他"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "e4e47864",
+          "time": "11:49",
+          "message": "feat: 每日備份排程已建；備份檢視 backup-review.mjs；CLI 輸出兩種格式都能解析",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "1e918e50",
+          "time": "11:16",
+          "message": "feat: 開放登記當天實測腳本 verify-opening.mjs（測試戶走完全流程後自刪）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "523f29fd",
+          "time": "09:26",
+          "message": "docs: 11/13 開放前狀態整合進 TODO 檔首與時間線",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f74cae37",
+          "time": "09:07",
+          "message": "fix(export-roster): 檔名改台北時間 YYYYMMDD-HHmm；TODO 記 11/13 總檢結果",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "8929e3ca",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-13",
+          "body": "🤖 自動生成於 2026-11-13 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "825f279b",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-12 (40 commits)",
+          "body": "🤖 自動生成於 2026-11-13 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "scoreboard",
+      "commits": [
+        {
+          "hash": "bb7925bf",
+          "time": "12:25",
+          "message": "ml: 精華改成每場一份 clips.json，可依球員篩出個人精華",
+          "body": "每顆進球記 shooter / assist / involved，highlight_render.py 加 --player\n篩出某人有參與的球、--dry-run 先列清單。一場只核對一次，全場版和\n個人版都從同一份資料產生，不必每種剪法各寫一份 plan。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "soundstage",
+      "commits": [
+        {
+          "hash": "2ed0eddb",
+          "time": "14:06",
+          "message": "實測確認：未過稽核的專案上傳後可在 Studio 改成公開",
+          "body": "TODO 的「能不能改成 public」標為已驗證；youtube-setup.md 的已知限制\n補上實測結果，並註明 API 直接設 public 還沒試過。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 19,
+    "sideCommits": 18,
+    "totalCommits": 37
+  }
+}
