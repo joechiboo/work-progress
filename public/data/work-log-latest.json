@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-12",
-    "days": 557,
-    "weeks": 79.6
+    "end": "2026-11-13",
+    "days": 558,
+    "weeks": 79.7
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7255,
-    "projectCount": 105,
-    "dailyAverage": 13.0
+    "totalCommits": 7292,
+    "projectCount": 106,
+    "dailyAverage": 13.1
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1479,
+      "totalCommits": 1483,
       "commits": [
         {
           "hash": "a207ff46",
@@ -11847,6 +11847,38 @@
           "body": "整張單只有一支尾碼22的管時，原本一律先補印一張原號標籤，\n與「加印原號標籤」開關無關，使用者無法關閉。\n新增「單管22補印原號」開關（預設 ON，維持原行為），\n切 OFF 後只印尾碼22那一張。單筆掃碼與批量列印標籤皆適用。\n\n需求來源：新竹（新穎生醫只做尿液 Microalb+Creatinine，每筆都多一張原號）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "d2452453",
+          "date": "2026-11-13",
+          "message": "合併 MR !1654: feat(hdpid): 加入 F9 開單快捷鍵與洗腎標籤操作改善",
+          "body": "feat(hdpid): 加入 F9 開單快捷鍵與洗腎標籤操作改善\n\nSee merge request ucl/lis/lisweb!1654",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "922e89c7",
+          "date": "2026-11-13",
+          "message": "docs(layout): 補結案摘要（前因後果、結案時的版型現況、後續風險）；BT300 改回第三波收尾",
+          "body": "- 新增「結案摘要」：結案條件、時間線、各 layout 使用頁數（11-13 main 實數）、8 項後續風險（Bootstrap 3.3.7、多 layout 並存、新頁標準 layout 未定、外掛雙版本、jQuery 寫死多處、伺服器殘檔、其他掃描警告、外觀差異）\n- BT300：使用者 11-13 決定 11-16 起做，做完第三波就收（取代前一個 commit 的「移入階段四」）\n- 已遷頁數更正為 45 頁（_Layout.Bootstrap53 共 50 頁，含原有 5 頁）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8463db6c",
+          "date": "2026-11-13",
+          "message": "docs(layout): 工單範圍調整 — 只處理 jQuery，版型遷移列技術債、Bootstrap 3.3.7 另開工單",
+          "body": "- 目的：補上 11-13 範圍調整與原因（11-03 實測舊頁早已跑 3.7.0，版型與 jQuery 無關）\n- 進度表、階段二：packages.config 已上線；9 站舊 jQuery 檔 11-13 實查都還在，列為本工單最後一項\n- 階段三、四標技術債；BT300 移入階段四，不再單獨做\n- Bootstrap 3.3.7 標另開工單\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7c53d4f3",
+          "date": "2026-11-13",
+          "message": "docs(layout): 第三波 3b～3d-2 狀態同步、對照測試補 3 頁並修守門頁",
+          "body": "- 計畫文件：階段表、F 區表格、頁面清單、頁數統計更新為 !1649／!1650／!1651 已 merge，剩 BT300\n- layout-migration.spec.ts：加入 PrintCopy、LT482、XRW165List\n- 守門頁 TubeLocation 已於 !1649 移除，改用 FileLog（新舊 layout 都有測試庫橫幅）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
@@ -16684,7 +16716,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 395,
+      "totalCommits": 406,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -19842,6 +19874,94 @@
           "hash": "9836a885",
           "date": "2026-11-12",
           "message": "chore: memory 更新（iOS 2.1(b) 資訊請求）2026-11-12",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bed5cbce",
+          "date": "2026-11-13",
+          "message": "MiniMeet memory：11/12 試跑成功",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "043e7bd4",
+          "date": "2026-11-13",
+          "message": "memory: auto-karaoke 專案狀態",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c7f0bb9e",
+          "date": "2026-11-13",
+          "message": "chore: session 收尾備份 2026-11-13（joechiboo.github.io 舊站存檔 memory）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2b2a3749",
+          "date": "2026-11-13",
+          "message": "chore: session 收尾備份 2026-11-13",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8ba0c25b",
+          "date": "2026-11-13",
+          "message": "basketball-highlights：補上用 soundstage 上傳 YouTube 的步驟",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2cdab27f",
+          "date": "2026-11-13",
+          "message": "basketball-highlights：改成每場一份 clips.json，預設剪個人精華",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d3874a1b",
+          "date": "2026-11-13",
+          "message": "chore: memory 修正平板型號",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0495c909",
+          "date": "2026-11-13",
+          "message": "chore: session 收尾備份 2026-11-13",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a1fbf209",
+          "date": "2026-11-13",
+          "message": "chore: session 收尾備份 2026-11-13",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "253bda2c",
+          "date": "2026-11-13",
+          "message": "chore: session 收尾備份 2026-11-13",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "746c72ab",
+          "date": "2026-11-13",
+          "message": "memory(ParkFee): 11/13 開放前狀態",
           "body": "",
           "category": "其他",
           "tags": []
@@ -28523,7 +28643,7 @@
     },
     {
       "name": "Management\\AuditIntegration",
-      "totalCommits": 81,
+      "totalCommits": 83,
       "commits": [
         {
           "hash": "a46fcee3",
@@ -29171,6 +29291,22 @@
           "message": "2026 內稽總結會議資料：總結報告草稿、OFI001～005、議程與會議記錄",
           "body": "報告結論暫定 0 個缺失、5 項待改善（OFI），11/11 開會決定要不要簽。\n當天文件收在 output/會議資料_20261111/，Word 可改、PDF 印出來簽；\nTODO 記 11/11 後的掃描與合併清單；索引補 XRA0802007 與外稽的紀錄方式。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7bd2f2d0",
+          "date": "2026-11-13",
+          "message": "合併 MR !53: 2026 內稽會後：OFI001～005 紀錄表、文件修訂送審檔、外訓證書對照表",
+          "body": "2026 內稽會後：OFI001～005 紀錄表、文件修訂送審檔、外訓證書對照表\n\nSee merge request ucl/management/audit-integration!53",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "2fd44b1d",
+          "date": "2026-11-13",
+          "message": "2026 內稽會後：OFI001～005 紀錄表與改善資料、兩份文件修訂送審檔、外訓證書對照表",
+          "body": "- 內部稽核資料_20261113/：五張 OFI 紀錄表、OFI對照表.txt、OFI001 外稽建議事項及改善、\n  OFI004 績效管理說明 V1.1（FMApply 202611130001）、OFI005 查檢表 V1.1（202611130002）送審檔\n- 總結報告：結果表與待改善清單同步五張 OFI（0 缺失、5 項待改善）\n- 外訓證書對照表（證書掃描檔不進 repo，.gitignore 排除）\n- TODO 會後段落整理、文件位置索引補外稽紀錄與新資料夾\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
           "tags": []
         }
       ],
@@ -30344,7 +30480,7 @@
     },
     {
       "name": "Management\\MiniMeet",
-      "totalCommits": 65,
+      "totalCommits": 66,
       "commits": [
         {
           "hash": "23803e0b",
@@ -30865,6 +31001,14 @@
           "body": "- 只聽聲音：不收別人的鏡頭、關自己的鏡頭，聲音與分享照常，只影響自己\n- 連線品質持續變差 10 秒才提示，只問不自動切換；按「先不用」後 5 分鐘內不再問\n- 主持人可全體關鏡頭，對方之後可自行再開\n- livekit.prod.yaml：開啟 congestion_control.allow_pause；use_external_ip 補成正式站實際的 true，消除與 repo 的落差\n- 文件：部署說明、使用說明、測試紀錄、介紹頁\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "1c824593",
+          "date": "2026-11-13",
+          "message": "docs: 11/12 幹部會議試跑結果與 11/11 外網實測",
+          "body": "- 試跑計畫填入結果：整場用本系統開完，.168 網段一開始連不上、網管調整後正常\n- 改公網 IP 後 UCL、UCL-Guest、4G 都連得上，更新 deploy/README、測試紀錄、使用說明\n- README 里程碑與狀態改到 11/30 業務月會\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
@@ -31302,7 +31446,7 @@
     },
     {
       "name": "OfficialWebsites\\ucl",
-      "totalCommits": 47,
+      "totalCommits": 48,
       "commits": [
         {
           "hash": "74807372",
@@ -31677,6 +31821,14 @@
           "date": "2026-11-12",
           "message": "chore: index.asp 納入版控（正式機原始版本）",
           "body": "與正式機 2026-05-18 版逐位元一致，之後首頁的修改才有基準可比。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cd5ddc63",
+          "date": "2026-11-13",
+          "message": "data: 嘉義靜平 12 項檢驗單位加註（只接受血清）",
+          "body": "正式 DB AllGoods_Contain 已直接更新 InspectionUnit 與 Anoce_date（更新日期），\n本檔記錄執行的 SQL、12 個 InsuranceID，以及更新前原值的還原 query。\nuclWebsite 無 CREATE TABLE 權限，未建備份表，原值寫死於檔尾。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
         }
@@ -35640,7 +35792,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 833,
+      "totalCommits": 835,
       "commits": [
         {
           "hash": "4bdff543",
@@ -42305,13 +42457,29 @@
           "body": "🤖 自動生成於 2026-11-12 07:05",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "8929e3ca",
+          "date": "2026-11-13",
+          "message": "docs: 更新彙整資料 2026-11-13",
+          "body": "🤖 自動生成於 2026-11-13 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "825f279b",
+          "date": "2026-11-13",
+          "message": "docs: 每日工作紀錄 2026-11-12 (40 commits)",
+          "body": "🤖 自動生成於 2026-11-13 07:05",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "ParkFee",
-      "totalCommits": 465,
+      "totalCommits": 469,
       "commits": [
         {
           "hash": "caa33437",
@@ -46032,6 +46200,38 @@
           "body": "- 原本把 H3-6 當成 3 樓第 6 戶，住戶實際是 H3 房型 6 樓；社區幫出帳的門牌換算跟著寫反，已改正\n- 登記時比對社區實際有的戶，填成門牌號碼、沒有的房型或樓層各給對應提示\n- 維護頁新增更正戶號（rename-household＋0016 migration），整戶資料一起搬並寫稽核\n- check-roster 改比對戶清單；講義與 docs/24、37 同步\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "e4e47864",
+          "date": "2026-11-13",
+          "message": "feat: 每日備份排程已建；備份檢視 backup-review.mjs；CLI 輸出兩種格式都能解析",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1e918e50",
+          "date": "2026-11-13",
+          "message": "feat: 開放登記當天實測腳本 verify-opening.mjs（測試戶走完全流程後自刪）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "523f29fd",
+          "date": "2026-11-13",
+          "message": "docs: 11/13 開放前狀態整合進 TODO 檔首與時間線",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f74cae37",
+          "date": "2026-11-13",
+          "message": "fix(export-roster): 檔名改台北時間 YYYYMMDD-HHmm；TODO 記 11/13 總檢結果",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
         }
       ],
       "type": "side"
@@ -49021,7 +49221,7 @@
     },
     {
       "name": "joechiboo.github.io",
-      "totalCommits": 173,
+      "totalCommits": 177,
       "commits": [
         {
           "hash": "e78a3ec4",
@@ -50405,6 +50605,38 @@
           "message": "feat: 作品集新增離心機配平，並修正 Health Tracker 錯字",
           "body": "- 新增 centrifuge-balance（id 45，趣味互動）：試管配平解謎，\n  文案帶出向量和為零與質因數之和的配平定理，並註明後續規劃 Flutter App。\n  repo 尚未開 GitHub Pages，暫時只放 GitHub 連結。\n- Health Tracker 標題與說明的「晦跑」更正為「晨跑」。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
           "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6468ac54",
+          "date": "2026-11-13",
+          "message": "運動區加入兩支半場個人精華（2026-10-30、2026-11-06）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7dc13c21",
+          "date": "2026-11-13",
+          "message": "休閒頁創作區補回舊站的作品照片",
+          "body": "舊站 joechiboo.azurewebsites.net 的 Creating 輪播有 7 張照片，當初沒搬進\n這個 repo，改版後創作區只剩一張便利貼。從 Wayback Machine 2022 年存檔\n取回後，以拍立得形式貼在筆記本頁上，點選可開燈箱：\n\n- NFC 電子名片：設計稿、成品、感應、跳出聯絡人\n- Arduino 入門：Hello World、按鈕與 LED\n- 社交圈：圖示一張（原子頁未被存檔）\n\n聯絡人截圖上的電話與信箱已打馬賽克；圖片縮到長邊 1200px 以內。\n裝飾圖示移到右上角，避免壓到照片；手機版照片改兩欄。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "97a52b53",
+          "date": "2026-11-13",
+          "message": "運動區加入兩支籃球影片：中距離、上籃",
+          "body": "籃球精華區放入兩支 YouTube 影片，取代原本的「精華剪輯中」提示；\n影片標題中英文各一份，日期欄改為可省略。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012qneQCa6KZ7S9cE9DwXHHA",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4be430f0",
+          "date": "2026-11-13",
+          "message": "休閒頁改版：繪畫、創作、運動、音樂各用不同風格的版面",
+          "body": "- 拿掉四張一樣的興趣卡片，每個興趣的介紹與「為什麼喜歡」移進\n  各自的區塊，文字內容不變\n- 繪畫：美術館風，米白牆面、畫框與襯紙、作品說明牌，燈箱沿用\n- 創作：筆記本風，方格紙背景、橫線筆記頁、便利貼\n- 運動：深色訓練日誌風，已完成的挑戰改成成就徽章，新增籃球精華\n  區（尚無影片時顯示剪輯中提示，之後在 sportsHighlights 加影片 ID）\n- 音樂：黑膠唱片風，唱片隨播放旋轉，右側曲目列表點選切換，演出\n  照片放在下方；點曲目才自動播放\n- 移除「未來目標」區塊；頂部加快速跳轉按鈕\n- 深色模式、手機版（畫作一排兩張）都有對應版面\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012qneQCa6KZ7S9cE9DwXHHA",
+          "category": "其他",
           "tags": []
         }
       ],
@@ -52218,7 +52450,7 @@
     },
     {
       "name": "scoreboard",
-      "totalCommits": 68,
+      "totalCommits": 69,
       "commits": [
         {
           "hash": "2932fc3c",
@@ -52761,6 +52993,14 @@
           "date": "2026-11-10",
           "message": "watch, web: 比分存手錶，藍牙直接送平板",
           "body": "2026-11-06 用手機熱點，平板完全收不到手錶的比分：兩邊原本只能經\nSupabase 互通，球場網路一斷就全停。\n\n- 手錶：比分存在本機，操作立刻生效，排隊上傳 Supabase，\n  帶 client_id 重送不重複計分\n- 手錶：當 BLE 周邊廣播比分，前景服務維持連線\n- 網頁：底部加 ⌚，用 Web Bluetooth 連手錶；連著時以手錶為準，\n  平板上的加減分交給手錶記，斷線退回雲端比分並自動重連\n\n手錶端只編譯過、還沒上錶；網頁端用假的藍牙裝置測過。\n上場前要做的事見 docs/game-day.md。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bb7925bf",
+          "date": "2026-11-13",
+          "message": "ml: 精華改成每場一份 clips.json，可依球員篩出個人精華",
+          "body": "每顆進球記 shooter / assist / involved，highlight_render.py 加 --player\n篩出某人有參與的球、--dry-run 先列清單。一場只核對一次，全場版和\n個人版都從同一份資料產生，不必每種剪法各寫一份 plan。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
         }
@@ -57222,6 +57462,125 @@
       "type": "side"
     },
     {
+      "name": "soundstage",
+      "totalCommits": 14,
+      "commits": [
+        {
+          "hash": "862e83fd",
+          "date": "2026-08-25",
+          "message": "新增 TODO.md：待辦盤點與真實檔案實測結論",
+          "body": "用真實素材（304 MB、2:28、h264 1920x1080 rotation=-90、AAC 48kHz",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "868c2b88",
+          "date": "2026-09-14",
+          "message": "CI 修正：setup-uv 改用完整版號",
+          "body": "上一個 commit 把 setup-uv 寫成 @v10，三組 job 全部在 Set up job 階段就\n失敗：Unable to resolve action `astral-sh/setup-uv@v10`, unable to find\nversion `v10`。\n\n原因是 astral-sh/setup-uv 的移動式 major 標籤只維護到 v7，最新發行版\n雖然是 v10.1.0 但沒有對應的 v10 標籤。gh api releases/latest 給的是完整\n版號，直接截成 major 就不存在了。\n\n改釘完整版號 v10.1.0（供應鏈安全上本來就比移動式標籤好）。\nactions/checkout@v7 有對應的 major 標籤，維持不變。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a15d67aa",
+          "date": "2026-09-14",
+          "message": "CI：升級 action 版本，清掉 Node.js 20 淘汰警告",
+          "body": "actions/checkout v4→v7、astral-sh/setup-uv v5→v10。原本兩個都還在\ntargeting Node.js 20，runner 已強制改用 Node 24 並在每次執行留下淘汰\n警告的註解。\n\n首次執行結果（三組全綠）：\n  ubuntu-latest  py3.11  65 passed\n  ubuntu-latest  py3.13  65 passed\n  windows-latest py3.13  64 passed, 1 xfailed\n\nLinux 與 Windows 差的那一個正是 test_save_credentials_is_private——\n它在 POSIX 上真的通過，在 Windows 上如預期 xfail。這個斷言在開發機\n（Windows）上永遠驗不到，等於 CI 補上了本機的盲點。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "eb1d49d2",
+          "date": "2026-09-14",
+          "message": "新增 GitHub Actions CI",
+          "body": "Ubuntu × Python 3.11／3.13 與 Windows × 3.13，三組都先裝 ffmpeg 再跑\npytest。\n\n裝 ffmpeg 不是為了好看：tests/ 裡有數個用 skipif(not HAS_FFMPEG) 擋住的\n整合測試（實際產出 mp4、用 ffprobe 驗串流長度、抽格驗畫面內容），本機\n順手跑 pytest 時常常整組被跳過。\n\n跑 Windows 也是刻意的。這個專案已經踩過兩個只在 Windows 出現的問題：\nchmod(0o600) 在 Windows 是無效操作、主控台 cp950 編碼撞到中日文。另外\ntest_save_credentials_is_private 標了 xfail(strict=True)，只有在 POSIX\n的 runner 上才會真的驗到那個斷言。\n\n用 --extra upload 安裝，OAuth 相關測試才不會被 skip。\nREADME 加上 CI badge。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ff791907",
+          "date": "2026-09-14",
+          "message": "README 改寫成作品集能看的樣子",
+          "body": "repo 沒有網站可看，README 就是門面。主要新增：\n\n- 兩張示意圖（波形樣式、靜態樣式），直接看得到產出長什麼樣\n- 開頭說明起因與一行指令的效果，取代原本乾巴巴的功能描述\n- 新增「工程筆記」一節，記錄這個專案真正有意思的部分：\n\n  * 包 ffmpeg 最難的不是組對指令，而是組錯時它不告訴你。開發過程踩到\n    四個 bug 全是同一類——退出碼 0、stderr 乾淨、終端印出成功，但輸出\n    是錯的。整理成對照表（症狀 / 根因 / 修法），全部只有拿真實檔案跑\n    才會浮現。\n  * 其中 -shortest 那個的反轉：-t 設成正好等於音訊長度會少掉最後一個\n    AAC frame，把 2 秒的溢出換成 64 毫秒的截斷，同樣靜默。\n  * 為什麼 ffmpeg.py 不執行 subprocess——一半的 bug 因此能用純函式測到。\n  * 為什麼波形用 showwavespic 而不是 showwaves。\n  * 為什麼參數驗證要排在外部相依檢查之前。\n\n- 補上 Windows 沒有 winget 時的 ffmpeg 來源\n- metadata 長度限制在本機先擋的說明\n- 註明只申請 youtube.upload 範圍，沒有讀取或修改既有影片的權限\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4f461540",
+          "date": "2026-09-14",
+          "message": "TODO：upload 路徑首次實跑成功",
+          "body": "2026-09-14 傳出第一支影片 https://youtu.be/bbVbvxobK-s\n（1.03 MB / 7 秒 / private），resumable upload 與 metadata 送出都正常。\n\n同時記錄一個驗證上的限制：只申請了 youtube.upload 範圍，沒有讀取權，\nvideos.list 會回 403 insufficientPermissions。這是正確的最小權限設計，\n但代表上傳結果只能去 YouTube Studio 人工確認，不能用 API 回查。\n\n剩餘未驗項目重新列過，並標註各自要等什麼條件才驗得到。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b4c310f6",
+          "date": "2026-09-14",
+          "message": "新增 docs/oauth-operations.md：OAuth 設定完成後的日常維運",
+          "body": "涵蓋設定完之後真正會遇到的事：\n\n- access token（1 小時）與 refresh token（測試模式 7 天）壽命不同，\n  搞混會誤判問題；每小時過期是無感的，7 天那個才會打擾到人\n- 重新授權是自動的。get_credentials() 三層處理會在 refresh 失敗時直接\n  開瀏覽器，upload / publish 都經過它，所以不需要先手動跑 auth，\n  指令會接續完成而不是中斷\n- 測試使用者的作用、上限 100、換帳號的步驟；不在名單上會看到\n  「存取遭到封鎖」而錯誤訊息不會說原因\n- 除了 7 天，改密碼 / 手動移除授權 / 改動 scope / 6 個月未使用也會失效\n- 什麼時候才值得脫離測試模式，以及代價\n\n順帶更新 TODO.md 的 C 項：OAuth 授權已實跑成功，但實際上傳一支影片\n仍未驗證，把待驗清單重新列過。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "61272791",
+          "date": "2026-09-14",
+          "message": "setup 文件：用戶端類型改用介面實際用詞「電腦版應用程式」",
+          "body": "Google Auth Platform 的正體中文介面顯示的是「電腦版應用程式」，\n不是文件原本寫的「桌面應用程式」，照著找會對不上。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e9d30acd",
+          "date": "2026-09-14",
+          "message": "setup 文件：發布狀態改為建議留在「測試」",
+          "body": "原本建議發布成正式版以避開 refresh token 7 天失效，但實測發現「發布應用\n程式」按鈕是鎖住的：Google 要求先在品牌頁補齊應用程式首頁、隱私權政策、\n服務條款連結與已授權網域，而網域還要先在 Search Console 驗證。對自用的\nCLI 工具等於要為此架一個網站。\n\n以「練完一首傳一支、一年幾次」的使用情境，7 天失效的實際代價只是上傳前\n多跑一次 soundstage auth（約 20 秒），比架網站划算。文件改為說明這個取捨，\n並註明什麼時候才真的該去發布（無人值守的排程自動上傳）。\n\n疑難排解補上「發布應用程式按鈕是灰的」這條，標明是正常現象。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4c3c1fde",
+          "date": "2026-09-14",
+          "message": "setup 文件改寫成 Google Auth Platform 新版介面",
+          "body": "Google 把單一頁面「OAuth 同意畫面」拆成左側多個分頁，照舊文件會找不到\n對應位置。補上新舊對照表，並把步驟重排成：\n\n  1 建專案+啟用 API / 2 品牌 / 3 資料存取權 / 4 目標對象\n  / 5 用戶端 / 6 放憑證 / 7 授權\n\n另外補一段：同意畫面是一個專案共用一份，開始設定前先看「用戶端」列表是否\n為空，確認沒有別的東西在用，再決定要不要另開專案。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "74b44176",
+          "date": "2026-09-14",
+          "message": "新增 docs/youtube-setup.md：YouTube 上傳一次性設定流程",
+          "body": "六個步驟，每步附檢查點（用 soundstage auth --status 確認進度），\n並記錄三個實際會擋住人的地方：\n\n- OAuth 同意畫面沒把自己加進測試使用者，授權會被擋且錯誤訊息不會說原因\n- 發布狀態停在「測試中」的話 refresh token 只活 7 天，自動化免談；\n  自用改成正式版不需要送 Google 驗證，只是會看到未驗證警告畫面\n- 未通過 API 稽核的專案，上傳的影片會被強制鎖成 private，不管 meta.yaml\n  設什麼；繞法是事後到 YouTube Studio 手動改\n\n另附疑難排解對照表、配額說明，以及《菊次郎の夏》的 Content ID 提醒。\nREADME 與 TODO.md C 項改為指向這份文件。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8e0c68c4",
+          "date": "2026-09-14",
+          "message": "實作波形視覺化（VisualStyle.WAVEFORM）",
+          "body": "CLI 走 --visual waveform，render 與 publish 都吃得到。\n\n刻意用 showwavespic（整首一張靜態波形 + 移動播放頭）而不是 showwaves\n（示波器）：showwaves 每格只畫 1/fps 秒的音訊，16kHz 在 30fps 下只有\n533 個取樣要鋪滿 1920 像素，畫面填不滿；而且每格只看得到 33 毫秒，\n讀不出樂曲的強弱結構。整首波形加播放頭反而看得出分句。\n\n過程中踩到兩個 ffmpeg 不報錯的坑，都已寫成測試釘住：\n\n1. blend 必須在 RGB 平面上做。走預設的 YUV 時，screen 會被套到色度\n   平面上，整個畫面變成洋紅色，而 ffmpeg 完全不報錯、輸出照樣成功。\n   兩路輸入進 blend 前都要 format=gbrp。\n\n2. 播放頭只能用 overlay，不能用 drawbox。drawbox 的運算式裡 t 是\n   「線寬」不是時間，n 根本沒定義；拿 t 當時間會算出畫面外的座標，\n   box 就無聲無息地消失，同樣不報錯。overlay 才有時間變數，所以\n   播放頭是一路獨立的 lavfi 白色長條輸入。\n\nshowwavespic 的底色是黑的，screen 混合時黑色不改變背景，等於免費\n去背，不需要 colorkey。\n\n另外新增 meta.yaml：《菊次郎の夏》Part I 的上傳 metadata 草稿，已用\n專案自己的載入器驗過長度限制。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b878e71a",
+          "date": "2026-09-14",
+          "message": "修正 -shortest 溢出與參數驗證順序",
+          "body": "A：輸出的影像軌會比音訊長約 2 秒（兩支真實素材分別是 2.06s 與 2.28s），\n尾巴多一段無聲畫面而 ffmpeg 照樣回報成功——與先前的 -map bug 同型的\n靜默錯誤輸出。\n\n新增 render/probe.py 用 ffprobe 探測音訊長度，RenderSpec 帶 duration\n欄位，指令改用 -t。-fflags +shortest 在新版 ffmpeg 已移除，\n-shortest_buf_duration 實測無效。\n\n關鍵細節：-t 必須比音訊長度多一點（_DURATION_EPSILON = 0.25）。切在\n正好的長度上，音訊編碼器會少輸出最後一格——實測 16kHz 的 AAC 少 64ms，\n等於把 2 秒的溢出換成 64 毫秒的截斷。多出來的部分由 -shortest 收掉。\n實測兩支素材音訊皆完整，影像分別短 8ms / 19ms，不到一格。\n\n探測一律用音訊軌自己的 duration 而非容器的 format duration：影片檔的\n容器長度以較長的串流為準，實測差 31ms。\n\nB：renderer.py 的 ffmpeg 存在檢查排在 RenderSpec 尺寸驗證之前，導致\n沒裝 ffmpeg 的機器上 test_odd_dimensions_rejected 必定失敗，且使用者\n打錯解析度會先被叫去裝 ffmpeg、裝完才看到真正的問題。檢查移到 spec\n建好之後，並加了 monkeypatch shutil.which 的測試把順序釘死。\n驗證：把 ffmpeg 移出 PATH 跑整套 → 47 passed / 0 failed（修正前 2 failed）。\n\n另外記錄一個裝了 --extra upload 才浮現的問題：save_credentials() 宣稱把\ntoken 權限設為 0600，但 Windows 不實作 POSIX 權限位元，chmod 是無效\n操作，實測落地是 0666。該測試在 Windows 標 xfail(strict=True)，POSIX\n照常驗；README 與 TODO.md D 項記下真正的修法方向（icacls）。\n\n.gitignore 補上錄音檔副檔名，避免素材進版控。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2ed0eddb",
+          "date": "2026-11-13",
+          "message": "實測確認：未過稽核的專案上傳後可在 Studio 改成公開",
+          "body": "TODO 的「能不能改成 public」標為已驗證；youtube-setup.md 的已知限制\n補上實測結果，並註明 API 直接設 public 還沒試過。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
       "name": "tempokid",
       "totalCommits": 13,
       "commits": [
@@ -57327,117 +57686,6 @@
           "message": "Make don drum audible on phone speakers; add 3/4 idea to roadmap",
           "body": "Phone speakers cannot reproduce the 140-70Hz fundamental, so the don",
           "category": "其他",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
-      "name": "soundstage",
-      "totalCommits": 13,
-      "commits": [
-        {
-          "hash": "862e83fd",
-          "date": "2026-08-25",
-          "message": "新增 TODO.md：待辦盤點與真實檔案實測結論",
-          "body": "用真實素材（304 MB、2:28、h264 1920x1080 rotation=-90、AAC 48kHz",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "868c2b88",
-          "date": "2026-09-14",
-          "message": "CI 修正：setup-uv 改用完整版號",
-          "body": "上一個 commit 把 setup-uv 寫成 @v10，三組 job 全部在 Set up job 階段就\n失敗：Unable to resolve action `astral-sh/setup-uv@v10`, unable to find\nversion `v10`。\n\n原因是 astral-sh/setup-uv 的移動式 major 標籤只維護到 v7，最新發行版\n雖然是 v10.1.0 但沒有對應的 v10 標籤。gh api releases/latest 給的是完整\n版號，直接截成 major 就不存在了。\n\n改釘完整版號 v10.1.0（供應鏈安全上本來就比移動式標籤好）。\nactions/checkout@v7 有對應的 major 標籤，維持不變。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "a15d67aa",
-          "date": "2026-09-14",
-          "message": "CI：升級 action 版本，清掉 Node.js 20 淘汰警告",
-          "body": "actions/checkout v4→v7、astral-sh/setup-uv v5→v10。原本兩個都還在\ntargeting Node.js 20，runner 已強制改用 Node 24 並在每次執行留下淘汰\n警告的註解。\n\n首次執行結果（三組全綠）：\n  ubuntu-latest  py3.11  65 passed\n  ubuntu-latest  py3.13  65 passed\n  windows-latest py3.13  64 passed, 1 xfailed\n\nLinux 與 Windows 差的那一個正是 test_save_credentials_is_private——\n它在 POSIX 上真的通過，在 Windows 上如預期 xfail。這個斷言在開發機\n（Windows）上永遠驗不到，等於 CI 補上了本機的盲點。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "eb1d49d2",
-          "date": "2026-09-14",
-          "message": "新增 GitHub Actions CI",
-          "body": "Ubuntu × Python 3.11／3.13 與 Windows × 3.13，三組都先裝 ffmpeg 再跑\npytest。\n\n裝 ffmpeg 不是為了好看：tests/ 裡有數個用 skipif(not HAS_FFMPEG) 擋住的\n整合測試（實際產出 mp4、用 ffprobe 驗串流長度、抽格驗畫面內容），本機\n順手跑 pytest 時常常整組被跳過。\n\n跑 Windows 也是刻意的。這個專案已經踩過兩個只在 Windows 出現的問題：\nchmod(0o600) 在 Windows 是無效操作、主控台 cp950 編碼撞到中日文。另外\ntest_save_credentials_is_private 標了 xfail(strict=True)，只有在 POSIX\n的 runner 上才會真的驗到那個斷言。\n\n用 --extra upload 安裝，OAuth 相關測試才不會被 skip。\nREADME 加上 CI badge。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "ff791907",
-          "date": "2026-09-14",
-          "message": "README 改寫成作品集能看的樣子",
-          "body": "repo 沒有網站可看，README 就是門面。主要新增：\n\n- 兩張示意圖（波形樣式、靜態樣式），直接看得到產出長什麼樣\n- 開頭說明起因與一行指令的效果，取代原本乾巴巴的功能描述\n- 新增「工程筆記」一節，記錄這個專案真正有意思的部分：\n\n  * 包 ffmpeg 最難的不是組對指令，而是組錯時它不告訴你。開發過程踩到\n    四個 bug 全是同一類——退出碼 0、stderr 乾淨、終端印出成功，但輸出\n    是錯的。整理成對照表（症狀 / 根因 / 修法），全部只有拿真實檔案跑\n    才會浮現。\n  * 其中 -shortest 那個的反轉：-t 設成正好等於音訊長度會少掉最後一個\n    AAC frame，把 2 秒的溢出換成 64 毫秒的截斷，同樣靜默。\n  * 為什麼 ffmpeg.py 不執行 subprocess——一半的 bug 因此能用純函式測到。\n  * 為什麼波形用 showwavespic 而不是 showwaves。\n  * 為什麼參數驗證要排在外部相依檢查之前。\n\n- 補上 Windows 沒有 winget 時的 ffmpeg 來源\n- metadata 長度限制在本機先擋的說明\n- 註明只申請 youtube.upload 範圍，沒有讀取或修改既有影片的權限\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "4f461540",
-          "date": "2026-09-14",
-          "message": "TODO：upload 路徑首次實跑成功",
-          "body": "2026-09-14 傳出第一支影片 https://youtu.be/bbVbvxobK-s\n（1.03 MB / 7 秒 / private），resumable upload 與 metadata 送出都正常。\n\n同時記錄一個驗證上的限制：只申請了 youtube.upload 範圍，沒有讀取權，\nvideos.list 會回 403 insufficientPermissions。這是正確的最小權限設計，\n但代表上傳結果只能去 YouTube Studio 人工確認，不能用 API 回查。\n\n剩餘未驗項目重新列過，並標註各自要等什麼條件才驗得到。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b4c310f6",
-          "date": "2026-09-14",
-          "message": "新增 docs/oauth-operations.md：OAuth 設定完成後的日常維運",
-          "body": "涵蓋設定完之後真正會遇到的事：\n\n- access token（1 小時）與 refresh token（測試模式 7 天）壽命不同，\n  搞混會誤判問題；每小時過期是無感的，7 天那個才會打擾到人\n- 重新授權是自動的。get_credentials() 三層處理會在 refresh 失敗時直接\n  開瀏覽器，upload / publish 都經過它，所以不需要先手動跑 auth，\n  指令會接續完成而不是中斷\n- 測試使用者的作用、上限 100、換帳號的步驟；不在名單上會看到\n  「存取遭到封鎖」而錯誤訊息不會說原因\n- 除了 7 天，改密碼 / 手動移除授權 / 改動 scope / 6 個月未使用也會失效\n- 什麼時候才值得脫離測試模式，以及代價\n\n順帶更新 TODO.md 的 C 項：OAuth 授權已實跑成功，但實際上傳一支影片\n仍未驗證，把待驗清單重新列過。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "61272791",
-          "date": "2026-09-14",
-          "message": "setup 文件：用戶端類型改用介面實際用詞「電腦版應用程式」",
-          "body": "Google Auth Platform 的正體中文介面顯示的是「電腦版應用程式」，\n不是文件原本寫的「桌面應用程式」，照著找會對不上。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e9d30acd",
-          "date": "2026-09-14",
-          "message": "setup 文件：發布狀態改為建議留在「測試」",
-          "body": "原本建議發布成正式版以避開 refresh token 7 天失效，但實測發現「發布應用\n程式」按鈕是鎖住的：Google 要求先在品牌頁補齊應用程式首頁、隱私權政策、\n服務條款連結與已授權網域，而網域還要先在 Search Console 驗證。對自用的\nCLI 工具等於要為此架一個網站。\n\n以「練完一首傳一支、一年幾次」的使用情境，7 天失效的實際代價只是上傳前\n多跑一次 soundstage auth（約 20 秒），比架網站划算。文件改為說明這個取捨，\n並註明什麼時候才真的該去發布（無人值守的排程自動上傳）。\n\n疑難排解補上「發布應用程式按鈕是灰的」這條，標明是正常現象。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "4c3c1fde",
-          "date": "2026-09-14",
-          "message": "setup 文件改寫成 Google Auth Platform 新版介面",
-          "body": "Google 把單一頁面「OAuth 同意畫面」拆成左側多個分頁，照舊文件會找不到\n對應位置。補上新舊對照表，並把步驟重排成：\n\n  1 建專案+啟用 API / 2 品牌 / 3 資料存取權 / 4 目標對象\n  / 5 用戶端 / 6 放憑證 / 7 授權\n\n另外補一段：同意畫面是一個專案共用一份，開始設定前先看「用戶端」列表是否\n為空，確認沒有別的東西在用，再決定要不要另開專案。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "74b44176",
-          "date": "2026-09-14",
-          "message": "新增 docs/youtube-setup.md：YouTube 上傳一次性設定流程",
-          "body": "六個步驟，每步附檢查點（用 soundstage auth --status 確認進度），\n並記錄三個實際會擋住人的地方：\n\n- OAuth 同意畫面沒把自己加進測試使用者，授權會被擋且錯誤訊息不會說原因\n- 發布狀態停在「測試中」的話 refresh token 只活 7 天，自動化免談；\n  自用改成正式版不需要送 Google 驗證，只是會看到未驗證警告畫面\n- 未通過 API 稽核的專案，上傳的影片會被強制鎖成 private，不管 meta.yaml\n  設什麼；繞法是事後到 YouTube Studio 手動改\n\n另附疑難排解對照表、配額說明，以及《菊次郎の夏》的 Content ID 提醒。\nREADME 與 TODO.md C 項改為指向這份文件。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "8e0c68c4",
-          "date": "2026-09-14",
-          "message": "實作波形視覺化（VisualStyle.WAVEFORM）",
-          "body": "CLI 走 --visual waveform，render 與 publish 都吃得到。\n\n刻意用 showwavespic（整首一張靜態波形 + 移動播放頭）而不是 showwaves\n（示波器）：showwaves 每格只畫 1/fps 秒的音訊，16kHz 在 30fps 下只有\n533 個取樣要鋪滿 1920 像素，畫面填不滿；而且每格只看得到 33 毫秒，\n讀不出樂曲的強弱結構。整首波形加播放頭反而看得出分句。\n\n過程中踩到兩個 ffmpeg 不報錯的坑，都已寫成測試釘住：\n\n1. blend 必須在 RGB 平面上做。走預設的 YUV 時，screen 會被套到色度\n   平面上，整個畫面變成洋紅色，而 ffmpeg 完全不報錯、輸出照樣成功。\n   兩路輸入進 blend 前都要 format=gbrp。\n\n2. 播放頭只能用 overlay，不能用 drawbox。drawbox 的運算式裡 t 是\n   「線寬」不是時間，n 根本沒定義；拿 t 當時間會算出畫面外的座標，\n   box 就無聲無息地消失，同樣不報錯。overlay 才有時間變數，所以\n   播放頭是一路獨立的 lavfi 白色長條輸入。\n\nshowwavespic 的底色是黑的，screen 混合時黑色不改變背景，等於免費\n去背，不需要 colorkey。\n\n另外新增 meta.yaml：《菊次郎の夏》Part I 的上傳 metadata 草稿，已用\n專案自己的載入器驗過長度限制。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b878e71a",
-          "date": "2026-09-14",
-          "message": "修正 -shortest 溢出與參數驗證順序",
-          "body": "A：輸出的影像軌會比音訊長約 2 秒（兩支真實素材分別是 2.06s 與 2.28s），\n尾巴多一段無聲畫面而 ffmpeg 照樣回報成功——與先前的 -map bug 同型的\n靜默錯誤輸出。\n\n新增 render/probe.py 用 ffprobe 探測音訊長度，RenderSpec 帶 duration\n欄位，指令改用 -t。-fflags +shortest 在新版 ffmpeg 已移除，\n-shortest_buf_duration 實測無效。\n\n關鍵細節：-t 必須比音訊長度多一點（_DURATION_EPSILON = 0.25）。切在\n正好的長度上，音訊編碼器會少輸出最後一格——實測 16kHz 的 AAC 少 64ms，\n等於把 2 秒的溢出換成 64 毫秒的截斷。多出來的部分由 -shortest 收掉。\n實測兩支素材音訊皆完整，影像分別短 8ms / 19ms，不到一格。\n\n探測一律用音訊軌自己的 duration 而非容器的 format duration：影片檔的\n容器長度以較長的串流為準，實測差 31ms。\n\nB：renderer.py 的 ffmpeg 存在檢查排在 RenderSpec 尺寸驗證之前，導致\n沒裝 ffmpeg 的機器上 test_odd_dimensions_rejected 必定失敗，且使用者\n打錯解析度會先被叫去裝 ffmpeg、裝完才看到真正的問題。檢查移到 spec\n建好之後，並加了 monkeypatch shutil.which 的測試把順序釘死。\n驗證：把 ffmpeg 移出 PATH 跑整套 → 47 passed / 0 failed（修正前 2 failed）。\n\n另外記錄一個裝了 --extra upload 才浮現的問題：save_credentials() 宣稱把\ntoken 權限設為 0600，但 Windows 不實作 POSIX 權限位元，chmod 是無效\n操作，實測落地是 0666。該測試在 Windows 標 xfail(strict=True)，POSIX\n照常驗；README 與 TODO.md D 項記下真正的修法方向（icacls）。\n\n.gitignore 補上錄音檔副檔名，避免素材進版控。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -58433,6 +58681,61 @@
           "message": "docs: 每日工作紀錄 2025-11-14 (42 commits)",
           "body": "🤖 自動生成於 2025-11-15 07:05",
           "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
+      "name": "auto-karaoke",
+      "totalCommits": 6,
+      "commits": [
+        {
+          "hash": "fafa661b",
+          "date": "2026-11-13",
+          "message": "README：加歌流程與目前歌單",
+          "body": "- 加歌兩個條件（Argus 快取有 mp3、LRCLIB 有同步歌詞）與各種腳本結果的處理方式\n- 目前 12 首的 Argus 關鍵字、LRCLIB id、offset，換電腦可照表重抓\n- add_song.py：標題與關鍵字完全相同時優先採用\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2acbf3ff",
+          "date": "2026-11-13",
+          "message": "加歌腳本 tools/add_song.py",
+          "body": "從 Argus 快取下載 mp3、LRCLIB 抓同步歌詞並依長度挑選；長度差 > 2 秒只列候選不寫檔。\nArgus 網址從環境變數或 tools/local.env 讀（不進版控）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d67c0fe0",
+          "date": "2026-11-13",
+          "message": "字幕時間校正鈕、App 圖示",
+          "body": "- 播放畫面 －／＋ 鈕：字幕延後／提早 0.5 秒，每首各自記在 SharedPreferences，\n  按下後副標題顯示目前校正值 2 秒；字幕關閉時隱藏\n- 自適應 App 圖示（紫色漸層＋麥克風＋音符），含 Android 13 主題用單色版\n- README：重裝後 Auto 圖示快取錯亂的處理方式\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9f50cde1",
+          "date": "2026-11-13",
+          "message": "字幕開關、封面印歌名＋歌手",
+          "body": "- 播放畫面右下角字幕按鈕（media3 自訂指令），關掉時標題/副標題換回歌名/歌手，狀態記在 SharedPreferences\n- ArtworkFactory：有副標題時 Auto 不顯示演出者，改把歌名＋歌手印在封面\n- 下載的歌詞也不進版控，只保留 sample*.lrc\n- README：Android Auto 選單實際中文名稱、DHU 疑難排解\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e803935b",
+          "date": "2026-11-13",
+          "message": "實機端對端測試、第二首範例歌詞、媒體鍵 receiver",
+          "body": "- KaraokeServiceTest：media3 與舊版 MediaBrowser 兩條路徑，驗證瀏覽、\n  歌詞同步、拖曳（實測約 60ms 更新）、間奏、多時間標籤、上下首\n- MediaButtonReceiver：藍牙／方向盤媒體鍵可喚醒續播\n- sample2.lrc；README 補測試音檔 ffmpeg 指令與 DHU 直接下載方式\n- 關閉 AGP 9.1 對 compileSdk 37 的未驗證警告\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1ee35603",
+          "date": "2026-11-13",
+          "message": "Android Auto 卡拉 OK POC",
+          "body": "- media3 MediaLibraryService（No Activity），Android Auto 瀏覽／播放／上下首／拖曳\n- LrcParser：支援多時間標籤、ti/ar/offset，附單元測試\n- LyricSyncer：每 200ms 依位置同步，句子變了才用 replaceMediaItem 更新 metadata\n- 範例 sample.lrc；README 含側載、Android Auto 未知來源、DHU 測試步驟\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
           "tags": []
         }
       ],
