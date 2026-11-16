@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-15",
-    "days": 560,
-    "weeks": 80.0
+    "end": "2026-11-16",
+    "days": 561,
+    "weeks": 80.1
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7297,
+    "totalCommits": 7351,
     "projectCount": 106,
-    "dailyAverage": 13.0
+    "dailyAverage": 13.1
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1483,
+      "totalCommits": 1497,
       "commits": [
         {
           "hash": "a207ff46",
@@ -11879,6 +11879,118 @@
           "body": "- 計畫文件：階段表、F 區表格、頁面清單、頁數統計更新為 !1649／!1650／!1651 已 merge，剩 BT300\n- layout-migration.spec.ts：加入 PrintCopy、LT482、XRW165List\n- 守門頁 TubeLocation 已於 !1649 移除，改用 FileLog（新舊 layout 都有測試庫橫幅）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "3c36ea11",
+          "date": "2026-11-16",
+          "message": "docs(account): 密碼明碼改雜湊的五階段推進流程",
+          "body": "LIS 兩欄兼容上線 → 批次補雜湊(台北先行) → 外部系統調整(FGA 稽核找出讀明碼的程式)\n→ 統計保留明碼帳號(USER_PWD_PLAIN_KEEP) → 清空舊欄位。\n更正：階段 5 需再上版，寫入端改成只有保留名單才寫 PASSWORD，否則改密碼會把明碼寫回去。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "0e0a13b2",
+          "date": "2026-11-16",
+          "message": "docs(account): 記錄 PASSWORD_HASH DDL 七個 DB 已全部執行",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8a528709",
+          "date": "2026-11-16",
+          "message": "feat(account): 密碼改存 PBKDF2 雜湊（第一階段：PASSWORD_HASH 與明碼欄位並存）",
+          "body": "USER_ACCOUNT 新增 PASSWORD_HASH，登入、驗舊密碼、細菌覆核、文管簽到改走\nPasswordRepository 兩欄相容驗證；變更密碼、個人設定、SU101 兩欄同步寫。\n舊欄位有值時以它為準（登入結果與改版前相同，順手回填雜湊），\n舊欄位清空後自動只看雜湊；站台未跑 DDL 時自動退回只用舊欄位。\n\n順手修掉的明碼外洩：\n- GET api/User 回傳 JSON 帶 PASSWORD 明碼\n- 變更密碼系統紀錄(LisWebLog)寫入新密碼明碼\n- 登入/個人設定經 OracleHelper，錯誤/慢查詢 log 與 Discord 告警會帶密碼參數\n\n另修文管簽到 CheckID（OracleCommand 誤用 SqlParameter，原本必 500）。\n\n第二階段（清空舊欄位）前置條件見 Documents/Problems/密碼明碼儲存.md\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ad9cadd0",
+          "date": "2026-11-16",
+          "message": "feat(LT252): 一審工作站參數支援 ALL（整站不限制），新竹改用 ALL",
+          "body": "Release_LimitedWorkStations = ALL 時，沒有「允許在 WS76/WS91 以外釋出報告」\n權限的帳號也能一審所有工作站（LT252/LT252B/LT253/LT255，含 LT252B 後端檢查）。\n新竹決定先整站取消行政/技術的一審區分，INSERT 腳本的值改為 ALL。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "cf45d61e",
+          "date": "2026-11-16",
+          "message": "feat(LT252): 無跨站釋出權限者可一審的工作站改讀系統參數",
+          "body": "SU101「允許在 WS76/WS91 以外釋出報告」不勾時，LT252/LT252B/LT253/LT255\n能一審的工作站原本寫死 WS76,WS91,WS33,WS96,WS45。\n改讀 SYS_PARAMETER 的 Release_LimitedWorkStations（逗號分隔），\n沒有這筆參數就沿用原本五個工作站，各站行為不變。\n\n起因：新竹行政人員要一審外送/耗材工作站 WS77、WS92~WS99，\n但不適合直接開放全部工作站。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "0e831e72",
+          "date": "2026-11-16",
+          "message": "docs(Problems): 補上刪單同步網路報告的正式庫實測結果",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "dd82dbfd",
+          "date": "2026-11-16",
+          "message": "fix(BT300): 開過行事曆後查詢結果沒有填上、總計加倍",
+          "body": "行事曆開過之後頁面上會多出它自己的表格。原本用 $(\"table tbody\") 塞資料、\n用 $(\"#檢體編號\") 找列，資料會被塞進行事曆的表格，找列時又先找到那一份，\n畫面上的列全部停在「沒開單」的紅底，總計分母變兩倍（例：70/142）。\n舊版型也會發生，與換版無關。\n\n改成一律用 #summaryTable 指定這頁的表格；計畫文件補上真實資料的對照結果。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d7bb4397",
+          "date": "2026-11-16",
+          "message": "fix(BT201): 刪除已有結果的單改由 HC010 刪 ORD，網路報告查詢才會同步刪除",
+          "body": "有檢驗值的單原本由 LISWeb 先刪 ORD_HDR，HC010 處理 B03 時讀不到 ORD_HDR，\n寫出單號/單位/病人全空的 DELETE 墓碑，網路端舊結果殘留，EVENTLOG 還記成 L01。\n\n改成 LISWeb 只把 ORD_HDR.OH_ORD_STATUS 設回 '1'，由 HC010 走未審路線：\n寫完整墓碑、記 L03、刪 ORD+HORD。LAB_SPL_CHK/DV_VALIDATE/ORD_DECLARE 仍由 LISWeb 刪。\n找不到 ORD_HDR 時退回原本的 DeleteORD。HasValDel:false（健檢中心）不受影響。\n\n尚未在測試庫實跑。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e7a1d55b",
+          "date": "2026-11-16",
+          "message": "feat(LT274): 細菌報告份數改為只看 BT201 列印份數，MB 規則改在開單/簽收時連動",
+          "body": "- LT274 細菌版型（系統參數 LT274_MbCopiesByPrintCopies = Y）只讀該張單的 ID_PRINT_COPIES，不再於列印時查 MB 規則\n- BT201 key 到細菌項目 (TEST_ITEM.TI_TEST_GRP = 'MB') 時，依單位的 MB/ALL 規則連動調整列印份數欄位，之後仍可人工修改；逐項目 Regular 規則優先\n- 簽收 (CheckIn) 時同樣把 MB 規則寫進含細菌項目的單\n- 參數沒開時行為不變\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "4738968b",
+          "date": "2026-11-16",
+          "message": "docs(jquery): 進度段落日期改為 2026-11-16",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f7fe0f27",
+          "date": "2026-11-16",
+          "message": "docs(jquery): 補 BT300 遷移結果與 9 站刪舊 jQuery 檔紀錄",
+          "body": "- 第三波 3d-3（BT300）結果、測試範圍與沒驗到的項目；踩坑清單補 6 項\n- 9 站伺服器舊 jQuery 檔 2026-11-16 已刪：做法、備份位置、驗證結果\n- 頁數與進度表同步（_Layout.Bootstrap53 51 頁、BS3 系列 235 頁；3b～3d-2 已隨 V2026.11.16.001 上線）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "91645b46",
+          "date": "2026-11-16",
+          "message": "refactor(layout): BT300 改用 Bootstrap 5.3 layout（第三波 3d-3）",
+          "body": "- 改用 _Layout.Bootstrap53；bootstrap-select 換 1.14（複選），按鈕寬度維持跟著內容變寬\n- form-inline、navbar-right 在 Bootstrap 5 已無作用：欄位排列與右上角三顆按鈕改用頁面樣式與 .row 欄位\n- 列底色改用 --bs-table-bg／--bs-table-bg-state（BS5 底色畫在 td）；table-success 在 BS3 沒有顏色，維持白底\n- 下拉搜尋框 Enter 選取後補 refresh，收起下拉改用 Dropdown 元件\n- 對照測試頁面清單加入 BT300\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "850553d0",
+          "date": "2026-11-16",
+          "message": "docs(Problems): 刪單未同步網路報告改為建議方案 1（有值的單改由 HC010 刪）",
+          "body": "OH_ORD_STATUS 在 ORD_HDR 上，現行 DeleteORD 會先把它刪掉。建議改成有值的單\nLISWeb 不刪 ORD/HORD，只把 OH_ORD_STATUS 設回 '1'，由 HC010 寫墓碑、記 L03 並刪除。\n補上實作步驟、實作前要確認的事項與不涵蓋的情況。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a6c7c196",
+          "date": "2026-11-16",
+          "message": "docs(Problems): 刪除已有結果的單，網路報告查詢未同步刪除",
+          "body": "BT201 刪除有檢驗值的單時，LISWeb 先刪 ORD_HDR，HC010 處理 B03 讀不到 ORD_HDR，\n寫出 ORDER_NO/LOC/PAT 全空的 DELETE 墓碑，FalconCopy 搬不過去，網路端舊結果殘留。\n附 PAT_RESULTH Y/N 對照、EVENTLOG 指紋（B03 後 HC010 記 L01 而非 L03）、影響範圍、\n健檢中心依賴 HC010 status 守門的說明，以及三種修法方向待決。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
@@ -16716,7 +16828,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 406,
+      "totalCommits": 422,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -19963,6 +20075,134 @@
           "date": "2026-11-13",
           "message": "memory(ParkFee): 11/13 開放前狀態",
           "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2be1bced",
+          "date": "2026-11-16",
+          "message": "memory(ParkFee): 純自行車戶可加機車、限制只算失敗",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "aee9ff73",
+          "date": "2026-11-16",
+          "message": "chore: session 收尾備份 2026-11-16（二）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "654e17e4",
+          "date": "2026-11-16",
+          "message": "chore: session 收尾備份 2026-11-16",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "40e7863f",
+          "date": "2026-11-16",
+          "message": "memory(ParkFee): 純自行車戶空白車號登入",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "907d247e",
+          "date": "2026-11-16",
+          "message": "chore: session 收尾備份 2026-11-16",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a8c70582",
+          "date": "2026-11-16",
+          "message": "memory(ParkFee): 先看問題再動手",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4a502381",
+          "date": "2026-11-16",
+          "message": "chore: session 收尾備份 2026-11-16",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b4b1f44f",
+          "date": "2026-11-16",
+          "message": "memory(ParkFee): 公開 repo 不放住戶個資",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a523e0e7",
+          "date": "2026-11-16",
+          "message": "memory: HC print-copies rule audit",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9fb35402",
+          "date": "2026-11-16",
+          "message": "memory: LT274 MB copies HC no reply",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dd45baee",
+          "date": "2026-11-16",
+          "message": "memory(lisweb): Tickit #473 驗收通過（新版 range 更新每天讀取 -99.8%）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "98b3c4a5",
+          "date": "2026-11-16",
+          "message": "memory(lisweb): !1631/!1632/!1633 已 merge 進 V2026.11.12.001；worktree 已清",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "97e410a8",
+          "date": "2026-11-16",
+          "message": "chore: memory 更新（iOS build 4 修正已合）2026-11-16",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "07d82f5e",
+          "date": "2026-11-16",
+          "message": "MiniMeet memory：!44 已合併",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6a763ebd",
+          "date": "2026-11-16",
+          "message": "chore: memory 更新（iOS 第四次退件、送審歷程文件）2026-11-16",
+          "body": "",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f1384ddd",
+          "date": "2026-11-16",
+          "message": "lisweb: V2026.11.16.001 排程發佈戰績+相關 memory 更新",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
         }
@@ -27940,7 +28180,7 @@
     },
     {
       "name": "OfficialWebsites\\uclcloud-app",
-      "totalCommits": 87,
+      "totalCommits": 91,
       "commits": [
         {
           "hash": "8d8e4a75",
@@ -28634,6 +28874,38 @@
           "hash": "8f04326e",
           "date": "2026-11-12",
           "message": "docs(ios): 第三次審查回饋：Apple 要求說明商業模式（準則 2.1(b)），附回覆草稿",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "43f62a5c",
+          "date": "2026-11-16",
+          "message": "合併 MR !60: fix(ios): App 內標誌與啟動畫面改成和圖示同一張雲豹（準則 2.3.8）",
+          "body": "fix(ios): App 內標誌與啟動畫面改成和圖示同一張雲豹（準則 2.3.8）\n\nSee merge request ucl/officialwebsites/uclcloud-app!60",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "34107eb7",
+          "date": "2026-11-16",
+          "message": "fix(ios): App 內標誌與啟動畫面改成和圖示同一張雲豹（App Store 準則 2.3.8）",
+          "body": "build 1.0.0 (3) 於 2026-11-13 被退：App 圖示看起來像預留位置、彼此不一致。\nApp 圖示本身沒有漏換，可疑的是 App 內用了通用書本圖示、啟動畫面仍是範本空白圖。\n\n- 登入頁、過場畫面的書本圖示換成雲豹（assets/images/，與 App 圖示同一來源）\n- iOS 啟動畫面換成綠底雲豹，storyboard 底色改 #42B883\n- 過場畫面底色對齊圖示的綠色\n- 版本 1.0.0+4；退件紀錄補上處理與回覆草稿\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6ca8f8d0",
+          "date": "2026-11-16",
+          "message": "合併 MR !59: docs(ios): 送審歷程與退件原因總整理；第四次退件（2.3.8）",
+          "body": "docs(ios): 送審歷程與退件原因總整理；第四次退件（2.3.8）\n\nSee merge request ucl/officialwebsites/uclcloud-app!59",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "6e9a449f",
+          "date": "2026-11-16",
+          "message": "docs(ios): 送審歷程與退件原因總整理；記錄第四次退件（準則 2.3.8 圖示）",
           "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
@@ -35792,7 +36064,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 839,
+      "totalCommits": 843,
       "commits": [
         {
           "hash": "4bdff543",
@@ -42505,13 +42777,45 @@
           "body": "🤖 自動生成於 2026-11-15 07:05",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "67ae8f09",
+          "date": "2026-11-16",
+          "message": "docs: 更新彙整資料 2026-11-16",
+          "body": "🤖 自動生成於 2026-11-16 15:58",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a4222306",
+          "date": "2026-11-16",
+          "message": "docs: 每日工作紀錄 2026-11-15 (3 commits)",
+          "body": "🤖 自動生成於 2026-11-16 15:58",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d35b20eb",
+          "date": "2026-11-16",
+          "message": "docs: 更新彙整資料 2026-11-16",
+          "body": "🤖 自動生成於 2026-11-16 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e7f63f40",
+          "date": "2026-11-16",
+          "message": "docs: 每日工作紀錄 2026-11-15 (2 commits)",
+          "body": "🤖 自動生成於 2026-11-16 07:05",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "ParkFee",
-      "totalCommits": 470,
+      "totalCommits": 482,
       "commits": [
         {
           "hash": "caa33437",
@@ -46272,6 +46576,102 @@
           "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VPfdjZT2RGgEbZ4PhrMAxZ",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "22c26b5d",
+          "date": "2026-11-16",
+          "message": "feat: 純自行車戶線上可加機車（稽核記新增車號）；空白車號次數限制改為只算失敗",
+          "body": "櫃台同一台電腦幫多人登入、住戶換頁自動重抓都會累計成功次數，原本會被誤鎖。\n加機車的濫用（掛到鄰居戶下搶第一輪）留到 11/30 從稽核撈出確認。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "246f91aa",
+          "date": "2026-11-16",
+          "message": "docs(TODO): 純自行車戶登入方式的秘書通知",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f6f1adf9",
+          "date": "2026-11-16",
+          "message": "fix(登入): 不在登入頁公開純自行車戶可空白車號登入，只在登記完成畫面告知",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "97d9435c",
+          "date": "2026-11-16",
+          "message": "docs: 純自行車戶空白車號登入的規則、風險與實測結果；docs/40 補登入紀錄查法",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "6016282f",
+          "date": "2026-11-16",
+          "message": "feat: 純自行車戶車號欄留空即可登入、線上修改自行車；新增登入紀錄表與防掃描次數限制",
+          "body": "使用者定（11/16）：自行車沒有車牌，原本純自行車戶只能臨櫃修改。改為戶號＋空白車號即可登入。\n保護：同一網路位址一小時 30 次上限（不鎖住戶帳號）、只能改自行車不能加機車、電話遮住且不能線上改、\n每次登入寫 login_log（0017）、每次修改寫稽核。偽造 X-Forwarded-For 不會被採用（已實測）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7067dafe",
+          "date": "2026-11-16",
+          "message": "docs(TODO): 大群反映逐題結論、代步車照辦法不能登記、清潔費提案方向",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "649ae27c",
+          "date": "2026-11-16",
+          "message": "docs(TODO): 大群反映整理（自行車重複登記、登入訊息、已承租字樣、分區爭議）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4d016723",
+          "date": "2026-11-16",
+          "message": "docs(TODO): 住戶 LINE 反映整理（棟別分配、平面圖、兩台機車）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "01d4f0fc",
+          "date": "2026-11-16",
+          "message": "docs: 名冊頁警示與刪除整合進時間線；docs/40 更新管理密碼可刪除整戶",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "dd781df9",
+          "date": "2026-11-16",
+          "message": "feat(名冊): 需聯繫確認加「容易落選」——不同意電腦選號且有效志願少於 5 格",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "60a6aaef",
+          "date": "2026-11-16",
+          "message": "docs(TODO): 名冊刪除功能實測通過",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ee81999b",
+          "date": "2026-11-16",
+          "message": "feat(名冊): 需聯繫確認警示、刪除整戶；登記時檢查車號格式、同一台車不能登記兩戶",
+          "body": "開放登記一天半後檢查出：同戶用錯戶號與正確戶號各登記一次、同一台車因連字號有無掛兩戶、\n車號欄被填成非車牌內容。名冊頁標黃並寫明要聯繫確認什麼，可刪除整戶（已繳費不給刪、\n釋出車位、寫稽核）。TODO 記 11/16 檢查結果，含個資的明細放 private/。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "side"
@@ -49261,7 +49661,7 @@
     },
     {
       "name": "joechiboo.github.io",
-      "totalCommits": 177,
+      "totalCommits": 178,
       "commits": [
         {
           "hash": "e78a3ec4",
@@ -50676,6 +51076,14 @@
           "date": "2026-11-13",
           "message": "休閒頁改版：繪畫、創作、運動、音樂各用不同風格的版面",
           "body": "- 拿掉四張一樣的興趣卡片，每個興趣的介紹與「為什麼喜歡」移進\n  各自的區塊，文字內容不變\n- 繪畫：美術館風，米白牆面、畫框與襯紙、作品說明牌，燈箱沿用\n- 創作：筆記本風，方格紙背景、橫線筆記頁、便利貼\n- 運動：深色訓練日誌風，已完成的挑戰改成成就徽章，新增籃球精華\n  區（尚無影片時顯示剪輯中提示，之後在 sportsHighlights 加影片 ID）\n- 音樂：黑膠唱片風，唱片隨播放旋轉，右側曲目列表點選切換，演出\n  照片放在下方；點曲目才自動播放\n- 移除「未來目標」區塊；頂部加快速跳轉按鈕\n- 深色模式、手機版（畫作一排兩張）都有對應版面\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012qneQCa6KZ7S9cE9DwXHHA",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1f44c097",
+          "date": "2026-11-16",
+          "message": "作品集加入車上卡拉OK（Android Auto）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
         }
@@ -56430,7 +56838,7 @@
     },
     {
       "name": "taipeigolf\\TaipeiGolf",
-      "totalCommits": 23,
+      "totalCommits": 24,
       "commits": [
         {
           "hash": "033b9cf6",
@@ -56614,6 +57022,14 @@
           "message": "backup-db: 支援 ODBC 18 版 sqlcmd/bcp（新電腦）",
           "body": "ODBC 18 的 sqlcmd/bcp 預設強制加密並驗證伺服器憑證，本機 SQLEXPRESS 與正式機都是\n自簽憑證，連線被拒。sqlcmd 加 -C、bcp 加 -u 信任伺服器憑證（仍加密），使用者決定。\nbcp 舊版（15）沒有 -u，從 bcp 說明文字判斷要不要加；SQL 2025 附的 ODBC 18 bcp\n版本號是 17.0，不能用版本號判斷。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0b65f3fe",
+          "date": "2026-11-16",
+          "message": "新增主機搬遷評估文件：降低 MochaHost 年費",
+          "body": "記錄前因（年費、資安維護負擔）、現況盤點、網站與郵件方案比較，\n以及 2027 年先搬郵件再搬網站到 Cloudflare 的預計時程。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
           "tags": []
         }
       ],
@@ -58483,6 +58899,77 @@
       "type": "side"
     },
     {
+      "name": "auto-karaoke",
+      "totalCommits": 8,
+      "commits": [
+        {
+          "hash": "fafa661b",
+          "date": "2026-11-13",
+          "message": "README：加歌流程與目前歌單",
+          "body": "- 加歌兩個條件（Argus 快取有 mp3、LRCLIB 有同步歌詞）與各種腳本結果的處理方式\n- 目前 12 首的 Argus 關鍵字、LRCLIB id、offset，換電腦可照表重抓\n- add_song.py：標題與關鍵字完全相同時優先採用\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2acbf3ff",
+          "date": "2026-11-13",
+          "message": "加歌腳本 tools/add_song.py",
+          "body": "從 Argus 快取下載 mp3、LRCLIB 抓同步歌詞並依長度挑選；長度差 > 2 秒只列候選不寫檔。\nArgus 網址從環境變數或 tools/local.env 讀（不進版控）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d67c0fe0",
+          "date": "2026-11-13",
+          "message": "字幕時間校正鈕、App 圖示",
+          "body": "- 播放畫面 －／＋ 鈕：字幕延後／提早 0.5 秒，每首各自記在 SharedPreferences，\n  按下後副標題顯示目前校正值 2 秒；字幕關閉時隱藏\n- 自適應 App 圖示（紫色漸層＋麥克風＋音符），含 Android 13 主題用單色版\n- README：重裝後 Auto 圖示快取錯亂的處理方式\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9f50cde1",
+          "date": "2026-11-13",
+          "message": "字幕開關、封面印歌名＋歌手",
+          "body": "- 播放畫面右下角字幕按鈕（media3 自訂指令），關掉時標題/副標題換回歌名/歌手，狀態記在 SharedPreferences\n- ArtworkFactory：有副標題時 Auto 不顯示演出者，改把歌名＋歌手印在封面\n- 下載的歌詞也不進版控，只保留 sample*.lrc\n- README：Android Auto 選單實際中文名稱、DHU 疑難排解\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e803935b",
+          "date": "2026-11-13",
+          "message": "實機端對端測試、第二首範例歌詞、媒體鍵 receiver",
+          "body": "- KaraokeServiceTest：media3 與舊版 MediaBrowser 兩條路徑，驗證瀏覽、\n  歌詞同步、拖曳（實測約 60ms 更新）、間奏、多時間標籤、上下首\n- MediaButtonReceiver：藍牙／方向盤媒體鍵可喚醒續播\n- sample2.lrc；README 補測試音檔 ffmpeg 指令與 DHU 直接下載方式\n- 關閉 AGP 9.1 對 compileSdk 37 的未驗證警告\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1ee35603",
+          "date": "2026-11-13",
+          "message": "Android Auto 卡拉 OK POC",
+          "body": "- media3 MediaLibraryService（No Activity），Android Auto 瀏覽／播放／上下首／拖曳\n- LrcParser：支援多時間標籤、ti/ar/offset，附單元測試\n- LyricSyncer：每 200ms 依位置同步，句子變了才用 replaceMediaItem 更新 metadata\n- 範例 sample.lrc；README 含側載、Android Auto 未知來源、DHU 測試步驟\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c11b06f6",
+          "date": "2026-11-16",
+          "message": "加歌腳本改用通用的 mp3 來源設定",
+          "body": "ARGUS_URL 改名 MP3_SOURCE_URL，README 與腳本說明不再綁特定伺服器，\n改寫清楚來源要提供的兩個端點（清單、下載），沒有來源也能手動放 mp3。\n\n驗證：python tools/add_song.py --help 正常；行為不變，只換設定名稱與文字\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7a44cc31",
+          "date": "2026-11-16",
+          "message": "多歌單分頁、order.txt 排序、循環播放鈕",
+          "body": "- songs/ 底下每個子資料夾是一份歌單，在 Android Auto 顯示成上方分頁\n  （根目錄仍是主歌單「歌曲」）；點歌時只把那份歌單放進播放清單\n- order.txt 指定歌單順序，`*` 代表其他沒列到的歌，新歌不用改檔\n- 播放畫面加循環鈕（預設整份歌單循環），狀態存在 SharedPreferences，\n  其他控制端改 repeatMode 也走 onRepeatModeChanged 同一條路\n- add_song.py 加 --playlist，把歌放進子資料夾歌單\n- .gitignore 改用 songs/**/*.mp3、*.lrc：原本只擋根目錄，\n  子資料夾歌單的歌曲檔會被當成新檔案納入版控\n\n驗證：./gradlew testDebugUnitTest 19 個測試全過（新增 SongOrderTest 4 個）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        }
+      ],
+      "type": "side"
+    },
+    {
       "name": "LiveSheet\\LiveSheet",
       "totalCommits": 7,
       "commits": [
@@ -58721,61 +59208,6 @@
           "message": "docs: 每日工作紀錄 2025-11-14 (42 commits)",
           "body": "🤖 自動生成於 2025-11-15 07:05",
           "category": "文檔",
-          "tags": []
-        }
-      ],
-      "type": "side"
-    },
-    {
-      "name": "auto-karaoke",
-      "totalCommits": 6,
-      "commits": [
-        {
-          "hash": "fafa661b",
-          "date": "2026-11-13",
-          "message": "README：加歌流程與目前歌單",
-          "body": "- 加歌兩個條件（Argus 快取有 mp3、LRCLIB 有同步歌詞）與各種腳本結果的處理方式\n- 目前 12 首的 Argus 關鍵字、LRCLIB id、offset，換電腦可照表重抓\n- add_song.py：標題與關鍵字完全相同時優先採用\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2acbf3ff",
-          "date": "2026-11-13",
-          "message": "加歌腳本 tools/add_song.py",
-          "body": "從 Argus 快取下載 mp3、LRCLIB 抓同步歌詞並依長度挑選；長度差 > 2 秒只列候選不寫檔。\nArgus 網址從環境變數或 tools/local.env 讀（不進版控）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d67c0fe0",
-          "date": "2026-11-13",
-          "message": "字幕時間校正鈕、App 圖示",
-          "body": "- 播放畫面 －／＋ 鈕：字幕延後／提早 0.5 秒，每首各自記在 SharedPreferences，\n  按下後副標題顯示目前校正值 2 秒；字幕關閉時隱藏\n- 自適應 App 圖示（紫色漸層＋麥克風＋音符），含 Android 13 主題用單色版\n- README：重裝後 Auto 圖示快取錯亂的處理方式\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "9f50cde1",
-          "date": "2026-11-13",
-          "message": "字幕開關、封面印歌名＋歌手",
-          "body": "- 播放畫面右下角字幕按鈕（media3 自訂指令），關掉時標題/副標題換回歌名/歌手，狀態記在 SharedPreferences\n- ArtworkFactory：有副標題時 Auto 不顯示演出者，改把歌名＋歌手印在封面\n- 下載的歌詞也不進版控，只保留 sample*.lrc\n- README：Android Auto 選單實際中文名稱、DHU 疑難排解\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e803935b",
-          "date": "2026-11-13",
-          "message": "實機端對端測試、第二首範例歌詞、媒體鍵 receiver",
-          "body": "- KaraokeServiceTest：media3 與舊版 MediaBrowser 兩條路徑，驗證瀏覽、\n  歌詞同步、拖曳（實測約 60ms 更新）、間奏、多時間標籤、上下首\n- MediaButtonReceiver：藍牙／方向盤媒體鍵可喚醒續播\n- sample2.lrc；README 補測試音檔 ffmpeg 指令與 DHU 直接下載方式\n- 關閉 AGP 9.1 對 compileSdk 37 的未驗證警告\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "1ee35603",
-          "date": "2026-11-13",
-          "message": "Android Auto 卡拉 OK POC",
-          "body": "- media3 MediaLibraryService（No Activity），Android Auto 瀏覽／播放／上下首／拖曳\n- LrcParser：支援多時間標籤、ti/ar/offset，附單元測試\n- LyricSyncer：每 200ms 依位置同步，句子變了才用 replaceMediaItem 更新 metadata\n- 範例 sample.lrc；README 含側載、Android Auto 未知來源、DHU 測試步驟\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
           "tags": []
         }
       ],
