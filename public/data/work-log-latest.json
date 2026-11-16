@@ -7,7 +7,7 @@
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7296,
+    "totalCommits": 7297,
     "projectCount": 106,
     "dailyAverage": 13.0
   },
@@ -42511,7 +42511,7 @@
     },
     {
       "name": "ParkFee",
-      "totalCommits": 469,
+      "totalCommits": 470,
       "commits": [
         {
           "hash": "caa33437",
@@ -46263,6 +46263,14 @@
           "message": "fix(export-roster): 檔名改台北時間 YYYYMMDD-HHmm；TODO 記 11/13 總檢結果",
           "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "de4cf571",
+          "date": "2026-11-15",
+          "message": "merge: origin/main 併入（11/10 清場後時間線以 main 為準）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VPfdjZT2RGgEbZ4PhrMAxZ",
+          "category": "其他",
           "tags": []
         }
       ],
