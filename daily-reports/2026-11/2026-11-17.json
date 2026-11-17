@@ -1,0 +1,501 @@
+{
+  "date": "2026-11-17",
+  "weekday": "二",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "271dba5f",
+          "time": "16:02",
+          "message": "memory(ParkFee): storedPlate、範例不用住戶車號",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "4618143d",
+          "time": "12:42",
+          "message": "chore: session 收尾備份 2026-11-17",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "18dd5684",
+          "time": "12:41",
+          "message": "chore: session 收尾備份 2026-11-17",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "9b037df5",
+          "time": "12:37",
+          "message": "memory(ParkFee): 建置失敗不准推",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "25d73768",
+          "time": "12:27",
+          "message": "memory(ParkFee): 名冊已處理、車牌規則、漏清車號",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "67f70881",
+          "time": "12:16",
+          "message": "chore: memory 更新（iOS build 4 於 11-17 重送）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "fb9f982f",
+          "time": "12:01",
+          "message": "chore: session 收尾備份 2026-11-17（慢性病風險試算上線、uclcloud 部署 memory）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7a48f182",
+          "time": "11:27",
+          "message": "memory: ReportHtmlSync 撈單整表掃描根因與 FORCESEEK",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "56d28abd",
+          "time": "11:18",
+          "message": "memory: 修正被跳脫字元吃掉的 Data2Cloud log 路徑",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "478db2f8",
+          "time": "11:17",
+          "message": "memory: webshell 事件收 session 待辦（Data2Cloud 首跑、169.53、T1 排除路徑、回信）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "14b5c0a5",
+          "time": "11:09",
+          "message": "runbook: 補 IIS 請求篩選關上傳入口的做法；memory 更新入口已關",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "1472ebb1",
+          "time": "10:58",
+          "message": "memory: ReportHtmlSync 台北換上撈單備援",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e5163ac7",
+          "time": "10:49",
+          "message": "memory: ReportHtmlSync 11/17 事故收尾、撈單備援、台北索引",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a97f3410",
+          "time": "10:40",
+          "message": "新增資安事件處理 runbook、補大章魚踩坑；更新 sa 停用後的 memory",
+          "body": "- runbooks/security-incident-response.md：找 webshell、隔離、查 IIS log、\n  同機風險盤點、連線字串盤點、SQL Server 檢查、換帳密順序、踩過的坑\n- runbooks/tako-bulk-import.md：/api/credentials 網頁看不到、搜尋不比對\n  帳號名稱、Python 字串裡的 Windows 路徑\n- CLAUDE.md：加 runbook 觸發詞\n- memory：156.224 的 sa 已停用，各系統改用專用帳號\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4444d8e7",
+          "time": "10:03",
+          "message": "memory: ReportHtmlSync 11/16 台北撈單逾時事故與 Cerberus 修正",
+          "body": "",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "2f9493ee",
+          "time": "08:57",
+          "message": "memory(lisweb): 更新索引與進行中項目",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "af77a19d",
+          "time": "08:57",
+          "message": "memory(lisweb): 台北每月電子轉入比例統計; draft MR 回饋",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "2351bb1a",
+          "time": "08:40",
+          "message": "chore: session 收尾備份 2026-11-17",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 18
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "f25590d7",
+          "time": "11:16",
+          "message": "合併 MR !13: 關閉舊後台與前台的上傳入口（IIS 請求篩選）",
+          "body": "關閉舊後台與前台的上傳入口（IIS 請求篩選）\n\nSee merge request ucl/officialwebsites/ucl!13",
+          "category": "合併MR"
+        },
+        {
+          "hash": "71a42d30",
+          "time": "11:13",
+          "message": "docs: T1 不能整個後台限內網（前台引用三個路徑）；56.231 盤點與 LISWeb w2w 結論",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "987b164d",
+          "time": "11:09",
+          "message": "fix: 用 IIS 請求篩選關閉舊後台與前台的上傳入口",
+          "body": "舊後台沒有獨立站台，上傳漏洞在傳統 ASP，不移除任何程式檔，改在 5 個資料夾\n加 web.config（requestFiltering/denyUrlSequences，回 404.5）：\n- webshop/shopmanager-area/：upload、uptest（含 aspx 子程式）\n- Script/、HtmlEdit/、webshop/upload/：upload\n- webshop/shop/：opinion_upload（前台意見信箱上傳）\n\n依據：5 個資料夾內會寫檔的程式 46 支，只有 uptest.asp 網址不含 upload；\n近 60 天網址含 upload 的請求全是掃描器。2026-11-17 11:06 已部署正式機，\n20 個網址驗證（9 個上傳程式 200→404.5，其他 11 頁不變）。\n本機 repo 原有的 webshop/shop/web.config（開目錄瀏覽，正式機沒有）換成正式機版本並加白名單。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7d49437c",
+          "time": "10:47",
+          "message": "合併 MR !12: 官網知識庫下架（典匠著作權來信）＋ webshell 事件紀錄",
+          "body": "官網知識庫下架（典匠著作權來信）＋ webshell 事件紀錄\n\nSee merge request ucl/officialwebsites/ucl!12",
+          "category": "合併MR"
+        },
+        {
+          "hash": "341a73e2",
+          "time": "10:21",
+          "message": "docs: webshell 事件－檢驗雲/Data2Cloud/OPD 自助改用專用帳號、sa 已停用",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "fb216882",
+          "time": "10:04",
+          "message": "docs: webshell 事件補 156.224 全機風險、SQL Server 檢查與換密碼進度",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3656d3c0",
+          "time": "09:25",
+          "message": "fix: 左側選單留空的 hidet4_div，修正認識聯合等選單點了沒反應",
+          "body": "知識庫區塊整個拿掉後，hidet1/3/5() 收合其他區塊時找不到 hidet4_div，JS 報錯中斷，\n「認識聯合」「服務項目」「最新消息」都無法展開。補一個隱藏的空 ul 佔位。\n2026-11-17 已部署正式機。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "067159ce",
+          "time": "09:09",
+          "message": "docs: goodstype/02.jpg 已搬到隔離區（webshell 事件 T3 完成）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a322114d",
+          "time": "09:03",
+          "message": "data: 首頁 p-tau 訊息拿掉知識庫連結；補 webshell 事件 log 調查",
+          "body": "- db-scripts/2026-11-ptau-message-remove-knowledge-link.sql：allshopmovement\n  MoveID 260508111256 第一行改純文字、保留兩個檢驗項目連結（含還原 query），\n  2026-11-17 已在正式 DB 執行\n- webshell 事件：IIS log 查到 2026-01-30 投放器被 POST 一次（研判存活探測）、\n  上傳程式 2025-07 起無成功 POST；goodstype/02.jpg 確認未被使用（T3）、新增 T10\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "50ef90ec",
+          "time": "08:33",
+          "message": "docs: 典匠資訊著作權來信處理紀錄、舊官網 webshell 事件紀錄",
+          "body": "- docs/legal/2026-11-16-imagedj-copyright-claim.md：來信內容、查證結果\n  （臨床檢驗項目.pdf 第 5 頁尿杯照片）、知識庫下架範圍與狀態、回覆建議\n- docs/security/2026-11-17-webshell-incident.md：uploadinfo 內 2023-02 植入的\n  webshell、已隔離、研判入口為未驗證身分的上傳程式、追蹤事項 T1~T9\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b833cc31",
+          "time": "08:30",
+          "message": "feat: 官網知識庫停止服務（典匠資訊著作權來信）",
+          "body": "負責人決定整個知識庫下架：\n- knowledge.asp / knowledge01.asp 改為「已停止服務」頁（410 Gone + noindex，3 秒回首頁）\n- leftmenu.asp / leftmenu_ServiceQueryInfo.asp 的知識庫選單區塊以 If False 停用\n- sitemap.xml 移除 96 筆知識庫網址\n\n附件資料夾 uploadinfo/knowledge 已搬到正式機站台外隔離區（不在 git）。\n2026-11-17 已部署正式機，原檔備份於 d:\\ucl\\_backup_knowledge_20261117\\。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8facf40d",
+          "time": "08:28",
+          "message": "chore: 追蹤 webshop/shop/leftmenu*.asp（正式機現行版）",
+          "body": "兩支左側選單 include 原本在 .gitignore 盲區，內容與正式機 2026-11-17 版本一致，\n先以原版入庫，下一個 commit 再做知識庫下架的修改。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 12
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b3bbf3ea",
+          "time": "10:25",
+          "message": "feat(password): 階段 2 批次補雜湊工具 Backfill-PasswordHash.ps1＋台北執行紀錄",
+          "body": "- SchemaModify/密碼雜湊/Backfill-PasswordHash.ps1：六站＋測試機通用\n  - 直接編譯 Helper/PasswordHasher.cs，與 LISWeb 登入同一份演算法\n  - 預設預覽，-Apply 寫入，-VerifyOnly 逐筆驗證，-Resync 重算不一致\n  - 條件式 UPDATE（PASSWORD＋PASSWORD_HASH 皆比對讀到的值）防撞車\n  - 不輸出明碼與雜湊\n- 文檔：進度表更新（階段 1 已上、階段 2 台北完成、階段 3 工單 #496）、5.2 用法與執行紀錄\n- 已執行：測試機 157 筆、台北 515 筆（略過 2 筆＝執行中登入已自行回填），台北 578 筆逐筆驗證全部相符\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8eb7356a",
+          "time": "09:58",
+          "message": "feat(BT401): 業績報表加「緊湊列印」選項（新竹）",
+          "body": "新竹反映舊系統縮 50% 列印字仍正常、一頁可印較多列；新系統是網頁表格，\n瀏覽器縮放只會把字等比縮小（8px），無法靠縮放達到同樣效果。\n\n- BT401 畫面加「緊湊列印」勾選框，預設不勾，勾選狀態記在個人瀏覽器\n- 勾選時列印頁改 13px 字級 + 行距 1.15，A4 每頁約 65 列（預設約 38 列）\n- 不勾（或未帶 compact 參數）版面與原本完全相同，其他分部不受影響\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "9386cb26",
+          "time": "08:47",
+          "message": "feat(LT274): 細菌份數規則保留列印時查詢，與開單/簽收連動並存；補文檔",
+          "body": "HCLAB.BT201 批量匯入的單不經過 LISWeb BT201，連動帶不到份數，\n列印當下查 MB 規則要留著，否則這些單會漏印。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "309f0b88",
+          "time": "08:31",
+          "message": "feat(LT274): 細菌報告份數改為只看 BT201 列印份數，MB 規則改在開單/簽收時連動",
+          "body": "- LT274 細菌版型（系統參數 LT274_MbCopiesByPrintCopies = Y）只讀該張單的 ID_PRINT_COPIES，不再於列印時查 MB 規則\n- BT201 key 到細菌項目 (TEST_ITEM.TI_TEST_GRP = 'MB') 時，依單位的 MB/ALL 規則連動調整列印份數欄位，之後仍可人工修改；逐項目 Regular 規則優先\n- 簽收 (CheckIn) 時同樣把 MB 規則寫進含細菌項目的單\n- 參數沒開時行為不變\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "5e9c2b02",
+          "time": "08:39",
+          "message": "docs(建單路徑): 補 HCLab BT201 不寫 B01、B01/B02 由 BLG 是否存在決定、每月電子轉入比例統計",
+          "body": "- 第一節：補「沒有 B01＝HCLab 桌面版 BT201」與 AUTOREG 補資料寫 B01 [W]\n- 第三節：LISWeb 存檔寫 B01/B02 看 _ExistBLG，HCLab 的單在 LISWeb 存檔寫 B02，不會被算成手開；[B] 批量修改不可當來源\n- 第四節：陷阱 8（2026-11-16 一度誤判）\n- 新增第八節：每月電子轉入比例口徑、SQL、EVENTLOG 90 天時限、2026-10 台北結果（電子 63.7%）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "79b36223",
+          "time": "07:38",
+          "message": "docs(smoke): 補排程冒煙時序設計（為什麼維持 07:30、跟發佈撞車的對策）",
+          "body": "- 釐清兩種冒煙：發佈後驗收（發佈流程內建）vs 每日排程（寫 history、Cerberus 燈號）\n- 早上時序表：07:00 到班/發佈 → 07:30 冒煙 → 08:00 行政\n- 記錄 2026-11-17 決策：維持 07:30；07:45、06:45+07:50 補驗兩案不採用的理由\n- 撞車對策：發佈避開 07:28–07:38、重跑方式、待做的失敗站自動重跑\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8a3816bb",
+          "time": "07:28",
+          "message": "fix(build): csproj 移除已刪除的線上考核 view（Correct/ScoreList/Testscore）",
+          "body": "!1660 刪除了 Views/Home/Correct.cshtml、ScoreList.cshtml、Testscore.cshtml，\n但 LISWeb.csproj 仍保留三行 <Content Include>，發佈打包時\n（Microsoft.Web.Publishing.targets 複製到 PackageTmp）找不到檔案而失敗：\n\"Could not find file 'Views\\Home\\Correct.cshtml'\"。\n一般 build 不會報錯，要到 Publish 才會失敗，V2026.11.17.001 發新竹時發現。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OnlineReport\\ReportHtmlSync",
+      "commits": [
+        {
+          "hash": "0049d85c",
+          "time": "11:26",
+          "message": "docs: 撈單查詢被選成整表掃描的根本原因與 FORCESEEK；台北部署與索引整理紀錄",
+          "body": "- docs/8：新增「撈單查詢的執行計畫」— 台北資料庫高估待轉的單，排程越健康越容易\n  被選成整表掃描 (11/16、11/17 兩次)；解法是 PickupTableHint=FORCESEEK，只有台北設。\n  事故紀錄的原因一併更正\n- docs/6：台北 11:21 換版並加 PickupTableHint；版本尺 #12\n- docs/1、設定說明、docs/9：補新設定與 s16\n- sql/taipei-index-consolidation.sql：記錄實際做了什麼、留下哪些、為什麼不再往下刪\n- todo.md 更新\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9fcc0097",
+          "time": "11:20",
+          "message": "合併 MR !35: feat: 撈單查詢可設定資料表提示（台北用 FORCESEEK），提示失效時自動退回",
+          "body": "feat: 撈單查詢可設定資料表提示（台北用 FORCESEEK），提示失效時自動退回\n\nSee merge request ucl/onlinereport/reporthtmlsync!35",
+          "category": "合併MR"
+        },
+        {
+          "hash": "d1d0fcd4",
+          "time": "11:20",
+          "message": "feat: 撈單查詢可設定資料表提示 (台北用 FORCESEEK)，提示失效時自動退回",
+          "body": "台北資料庫把「近 1 個月還沒轉的單」高估成 20 萬列。待轉的單很少時 (排程健康時)，\n它算出整表掃描比走索引便宜，每次撈單掃 2,400 萬列：2026-11-16 逾時 17 小時、\n11-17 刪索引觸發重新編譯後每輪 3～4 秒。強制走索引查找實測 3～5 ms。\n\n- AppSettings.PickupTableHint：加在 pat_resulth 的資料表提示，預設空白。\n  其他站索引不同，加了可能變慢，所以做成設定\n- 嘗試順序：帶提示 → 不帶提示 → 縮小成最近幾天；前一個出錯或逾時才試下一個，\n  原因寫進 execution_log\n- 提示只接受英數、底線、括號、逗號、空白\n- e2e 加 s16，16 個情境通過\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e13ff92b",
+          "time": "10:57",
+          "message": "合併 MR !34: docs: 台北換到含撈單備援的版本（2026-11-17）",
+          "body": "docs: 台北換到含撈單備援的版本（2026-11-17）\n\nSee merge request ucl/onlinereport/reporthtmlsync!34",
+          "category": "合併MR"
+        },
+        {
+          "hash": "577ebd66",
+          "time": "10:56",
+          "message": "docs: 台北換到含撈單備援的版本（2026-11-17 10:52）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "edaf927a",
+          "time": "10:33",
+          "message": "feat: 撈單查詢出錯或逾時時改撈最近 3 天；記錄撈單耗時",
+          "body": "2026-11-16 台北撈單查詢被資料庫換成整表掃描，每次逾時，排程停擺 17 小時。\nhtmlContent 是 text 欄位、放不進索引，沒辦法靠索引保證計畫不會再被選錯，\n所以由排程自己防：\n\n- 撈單出錯或逾時 → 改用最近 PickupFallbackDays (預設 3) 天再撈一次，\n  原因寫進 execution_log.error_message 與批次 log\n- 每輪在批次 log 記撈單查詢耗時\n- sql/taipei-index-consolidation.sql：台北只收失敗單的小索引 (已建)，\n  重複的舊索引待確認後再刪\n- e2e 加 s15，15 個情境通過\n- docs/8 事故紀錄更正與備援說明\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "707efa0c",
+          "time": "10:02",
+          "message": "fix: Cerberus 監控補上「排程自己出錯」；記錄 11/16 台北撈單逾時事故",
+          "body": "2026-11-16 16:46 起台北撈單查詢逾時 (11/11 為補轉改的固定下限 2025-01-01)，\n排程 17 小時沒有轉出任何報告，11/17 09:51 還原設定後恢復。\n這種批次是 0 成功、0 失敗，原本的監控條件沒涵蓋，Cerberus 完全沒叫。\n\n- sql/cerberus-html-sync-head.sql：B 條件加上「0 成功且 error_message 有值」；\n  正常的空批次會重置這個計數 (不影響整批失敗的計數)\n- tests/e2e：加 s14，14 個情境通過\n- docs/8：事故紀錄、監控表補一列；todo.md 更新\n\n用事故資料回測：16:50 進入計時；11/2 換憑證那次仍然抓得到；平常時段為 0。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "02f26f29",
+          "time": "11:27",
+          "message": "合併 MR !45: docs: 慢性病風險試算文件與維運指引",
+          "body": "docs: 慢性病風險試算文件與維運指引\n\nSee merge request ucl/officialwebsites/cloudedleopard!45",
+          "category": "合併MR"
+        },
+        {
+          "hash": "a68d27d1",
+          "time": "11:27",
+          "message": "docs: 新增慢性病風險試算文件；維運手冊、資料庫說明與 CLAUDE.md 加指引 [skip ci]",
+          "body": "- docs/慢性病風險試算.md：功能、架構、設定、使用紀錄、故障排除、國健署 API 摘要、待辦\n- 維運手冊：國健署帳密位置、失敗時先查 ChronicRiskLogs；維運紀錄補 2026-11-17 建表\n- 資料庫結構說明：新增 ChronicRiskLogs\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "6c74028a",
+          "time": "11:05",
+          "message": "test(chronic-risk): 整合測試走完整後端；隱私權政策補慢性病風險試算",
+          "body": "- ChronicRiskEndpointTests 把後端跑起來打 /api/ChronicRisk：路由、JWT、DI、JSON 格式；\n  設 HPA_RISK_ACCOUNT／HPA_RISK_PASSWORD 時另實打國健署\n- 隱私權政策 4.4：試算數值傳送國健署計算、本站不保存\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8e3ca539",
+          "time": "10:56",
+          "message": "feat(health-assistant): 健康小幫手加入十年慢性病風險試算（國健署模型）",
+          "body": "- 後端 ChronicRiskController 代為呼叫國健署 Web API allmodel，原值回傳不分級\n- 僅登入的一般會員可試算，頁面其餘功能維持免登入\n- 帶入會員性別年齡與最近一次報告的血糖血脂\n- 已有病史的項目不顯示風險值；35–70 歲以外加註並拿掉同齡平均\n- ChronicRiskLogs 只記使用紀錄（不存健康數值），並限制每位會員每日次數\n- 帳密由 ChronicRisk:Account／Password 設定，未設定時回 503\n\n部署前需在 uclw2w 執行 backend/Scripts/13_create_chronic_risk_logs.sql\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "551cce12",
+          "time": "12:16",
+          "message": "合併 MR !64: docs(ios): 更正 build 4 重送時間（11-17 12:13 才重新提交）",
+          "body": "docs(ios): 更正 build 4 重送時間（11-17 12:13 才重新提交）\n\nSee merge request ucl/officialwebsites/uclcloud-app!64",
+          "category": "合併MR"
+        },
+        {
+          "hash": "058cd363",
+          "time": "12:16",
+          "message": "docs(ios): 更正 build 4 重送時間：11-16 只送了回覆，11-17 12:13 才重新提交",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c705337d",
+          "time": "11:27",
+          "message": "合併 MR !63: docs: 慢性疾病風險值整合改寫成三條路線總覽",
+          "body": "docs: 慢性疾病風險值整合改寫成三條路線總覽\n\nSee merge request ucl/officialwebsites/uclcloud-app!63",
+          "category": "合併MR"
+        },
+        {
+          "hash": "3c8e90d0",
+          "time": "11:27",
+          "message": "docs: 慢性疾病風險值整合改寫成三條路線總覽（網站試算已上線）",
+          "body": "- 路線 A 網站試算 2026-11-17 上線，細節移到 cloudedleopard docs/慢性病風險試算.md\n- 路線 B App 試算待國健署答覆；列出 App 端要補的事\n- 路線 C 報告顯示 LIS 8831–8835 擱置，保留資料盤點與待主任決定事項\n- 帳號、正式機對外 IP、國健署提問清單\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "60bae78a",
+          "time": "10:03",
+          "message": "合併 MR !78: 報告HTML轉檔@台北：補上「排程自己出錯」的判斷",
+          "body": "報告HTML轉檔@台北：補上「排程自己出錯」的判斷\n\nSee merge request ucl/ops/cerberus!78",
+          "category": "合併MR"
+        },
+        {
+          "hash": "4c1a7aba",
+          "time": "10:03",
+          "message": "報告HTML轉檔@台北：補上「排程自己出錯」的判斷（11-16 撈單逾時 17 小時沒叫）",
+          "body": "0 成功且 error_message 有值的批次也算壞批次；正常的空批次會重置計數。\n已於 11-17 10:01 上線，回測與測試見 ReportHtmlSync。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "ca96abbc",
+          "time": "16:02",
+          "message": "docs(TODO): 舊式車牌登記不進去的原因與修正",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "b610b244",
+          "time": "16:01",
+          "message": "fix(車號): 保留住戶打的連字號位置（舊式車牌前段字母數字混合被拆錯）；登入與身分驗證忽略連字號比對",
+          "body": "舊式車牌如 K12-345 原本被整理成 K-12345、再被判格式不對而無法登記（11/17 住戶回報）。\n資料庫已存的車號不變；登入、改志願、維護頁指派改用 storedPlate 忽略連字號位置找實際存的車號。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "bfdce2f7",
+          "time": "12:41",
+          "message": "docs(TODO): 已處理按鈕移到維護欄、11/17 登記現況",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "1e596d6c",
+          "time": "12:36",
+          "message": "fix(名冊): 修正換行字串造成的建置失敗",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "de336e16",
+          "time": "12:35",
+          "message": "fix(名冊): 「已處理」移到右邊維護欄，跟修改登記、更正戶號、刪除放一起；一次標記整戶",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "3976bb3d",
+          "time": "12:25",
+          "message": "feat(名冊): 警示可標「已處理」（roster_review）；車牌規則放寬為兩邊各 2–5 碼（掛牌電動機車）",
+          "body": "秘書 11/17 回報：同電話三戶是家人代填、2 碼＋5 碼是電動機車真車牌。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "20130327",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-17",
+          "body": "🤖 自動生成於 2026-11-17 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "ceaa4ab7",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-16 (54 commits)",
+          "body": "🤖 自動生成於 2026-11-17 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 54,
+    "sideCommits": 8,
+    "totalCommits": 62
+  }
+}
