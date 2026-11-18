@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-17",
-    "days": 562,
-    "weeks": 80.3
+    "end": "2026-11-18",
+    "days": 563,
+    "weeks": 80.4
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7413,
+    "totalCommits": 7447,
     "projectCount": 106,
     "dailyAverage": 13.2
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1504,
+      "totalCommits": 1514,
       "commits": [
         {
           "hash": "a207ff46",
@@ -12047,6 +12047,86 @@
           "body": "!1660 刪除了 Views/Home/Correct.cshtml、ScoreList.cshtml、Testscore.cshtml，\n但 LISWeb.csproj 仍保留三行 <Content Include>，發佈打包時\n（Microsoft.Web.Publishing.targets 複製到 PackageTmp）找不到檔案而失敗：\n\"Could not find file 'Views\\Home\\Correct.cshtml'\"。\n一般 build 不會報錯，要到 Publish 才會失敗，V2026.11.17.001 發新竹時發現。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "563a9f5e",
+          "date": "2026-11-18",
+          "message": "feat(BT404): 客戶送檢統計表可指定多個不連號的客戶編號並跨單位合併",
+          "body": "台北業務需求: 同集團多個客戶編號 (例: 國泰健管 0128/0195/0121/0130/0129/0186/0131)\n要整合成一份送檢統計表準備新年度合約, 但編號不連號, 原本只能填區間。\n\n- 新增「指定多個編號」欄位 (逗號/頓號/空白分隔), 有填時取代區間; 顯示/列印/匯出/整合excel 都適用\n- 「整合excel」在指定多個編號時多一張「跨單位合併」工作表: 同檢驗項目跨單位加總數量/總價/FREE/實收,\n  各單位單價不同時單價欄並列\n- 沒填該欄位時行為與原本完全相同\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5cb39310",
+          "date": "2026-11-18",
+          "message": "docs(db): 補監控（Cerberus MR!79 兩顆黃燈）與空間預留原則、要跟 IT 確認的事項",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a6d18c79",
+          "date": "2026-11-18",
+          "message": "docs(db): 補追蹤工單 #501 與前次事件 #137（6 月同型，當時稱另有非 RMAN 備份，待確認）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "60be426d",
+          "date": "2026-11-18",
+          "message": "docs(db): 補全庫備份連續失敗（11-08 起，E 槽滿）＋ SYSTEM/AUD$ 詳細整理評估",
+          "body": "- 第 0 節：RMAN DB FULL 11 次失敗（ORA-19502），最後成功資料檔備份 11-07；E 槽 287 GB 舊備份片未清；DELETE OBSOLETE 處置與監控\n- 第 2 節：AUD$ 時間/動作分布、無讀者、限制（ARCHIVELOG、INIT_CLEANUP 會自動搬表、需 SYSDBA、SYSTEM 檔縮不回）、方案比較、保留期量級、執行步驟\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7475774b",
+          "date": "2026-11-18",
+          "message": "docs(db): 台北表空間容量評估——HCLAB 約三週滿、AUD$ 佔滿 SYSTEM",
+          "body": "- HCLAB：407.4/413.7 GB，約 270 MB/天，估 12 月上旬滿；新增資料檔 SQL 與前置條件（D 槽空間待確認）\n- SYSTEM：AUD$ 48.3 GB（2010 起未清、每天約 15 萬筆登入登出稽核）；來源分布、各站概況\n- 處置方案：保留期 → 清理（TRUNCATE vs CLEAN_AUDIT_TRAIL）→ 搬出 SYSTEM → 定期清理 → 減量\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e3da2523",
+          "date": "2026-11-18",
+          "message": "feat(SigninINVNO): 分部簽收後不跳檢體去向提示 (6F / 綠豆豆 ...)",
+          "body": "簽收完成後跳出的檢體去向提示，是依台北的項目代碼與工作站代碼寫死的。\n分部的代碼對不上，例如新竹 ANA、全血砷的工作站是 WS93，被判成台北的 6F；\nFibrinogen 被判成綠豆豆，每刷一管都要多按一次確認。\n\n新竹 (SJ)、台中 (TC)、高雄 (KH)、桃園 (TY)、集英 (JY) 不再跳這個提示，\n台北與健檢站台維持原樣。標籤列印張數不在這次範圍。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e975ddb3",
+          "date": "2026-11-18",
+          "message": "feat(LT225W): 新增內部站 WS01~12 快選按鈕 (新竹)",
+          "body": "新竹要列「內部檢驗項目要外送台北」的清單時，得把 WS01~WS12 一個一個加進工作站。\n比照既有的「外送站 WS91~97」按鈕加一顆「內部站 WS01~12」，按下去一次選好。\n\n- 兩顆按鈕共用 selectWsRange(from, to)\n- 一樣只在新竹 (UCL_SITE=SJ) 顯示\n- 清單裡沒有的工作站自動略過；按下去會取代目前已選的工作站 (與外送站按鈕行為一致)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "07c9e874",
+          "date": "2026-11-18",
+          "message": "feat(SigninINVNO): 簽收時提示未對應項目 (UNKNOWN TEST) 的院方項目名稱",
+          "body": "分單系統轉入的醫令若未對應到聯合代碼，簽收清單只顯示 UNKNOWN TEST，\n行政要等整批簽完看未對應清單才知道是什麼項目，檢體可能已送錯樓層。\n\n- 簽收當下若該單含未對應項目，提示框列出院方項目名稱 (可多筆)\n- 簽收/缺檢清單的檢驗項目欄標註【未對應：...】\n- 整張單只有未對應項目而查無醫令時，訊息一併帶出院方項目名稱\n- 院方未提供項目名稱的單位，退回顯示院方代碼\n\n資料取自頁面載入時已撈回的未對應清單 (UCL_CODE 空白且 Cancel=0)，\n刷檢體時不增加任何查詢。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "fd4f365e",
+          "date": "2026-11-18",
+          "message": "feat(PrintCopy): 列印份數設定頁加查詢按鈕、查詢狀態提示與分類總覽",
+          "body": "- 查詢按鈕＋狀態列：切換單位/分類後看得出是查完沒資料，還是還沒查到\n- 分類總覽：不分單位列出該分類底下所有單位的設定，點一列切到該單位\n  （原本只能一間一間選，看不出哪些單位有設細菌份數 MB）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "84c9e279",
+          "date": "2026-11-18",
+          "message": "docs(Problems): 刪單未同步網路報告改由 HC010 修正，撤回 LISWeb 方案 1 程式",
+          "body": "- HC010 負責人判定為 HC010 問題，11-16 約 12:25 已上台北；LISWeb 維持原本刪 ORD 的做法\n- BLGRepository.Delete 還原為 main 版本（撤回 d7bb43977 的程式部分）\n- 文件補上處理結果：修正上線時間、11-17 冒煙單驗證、新單事件碼改記 L02（刻意）、尚未處理項目\n- 修正冒煙流程描述：冒煙沒有二審，網路端只收到空白項目\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
         }
       ],
       "type": "work"
@@ -16884,7 +16964,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 440,
+      "totalCommits": 451,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -20404,6 +20484,94 @@
           "message": "chore: session 收尾備份 2026-11-17",
           "body": "",
           "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "768e59f0",
+          "date": "2026-11-18",
+          "message": "chore: session 收尾備份 2026-11-18（午前）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f31c8deb",
+          "date": "2026-11-18",
+          "message": "chore: session 收尾備份 2026-11-18（下午）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9975d77a",
+          "date": "2026-11-18",
+          "message": "chore: session 收尾備份 2026-11-18",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "5f1a755e",
+          "date": "2026-11-18",
+          "message": "memory(lisweb): 台北表空間/全備失敗、密碼雜湊進度",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "28b002c3",
+          "date": "2026-11-18",
+          "message": "runbook(tickit-api): 依 api-docs v2026-11-11 補 create_ticket / get_ticket / list_tickets / similar_tickets / search_users",
+          "body": "",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f3537a25",
+          "date": "2026-11-18",
+          "message": "chore: session 收尾備份 2026-11-18（陽大附醫簽收分部不跳提示）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8d5defc9",
+          "date": "2026-11-18",
+          "message": "chore: session 收尾備份 2026-11-18",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "10eedac7",
+          "date": "2026-11-18",
+          "message": "D:\\tmp 改用 INDEX.md 登記，清理時以索引為準",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "24dabd00",
+          "date": "2026-11-18",
+          "message": "branch-cleanup: 加上 D:\\tmp 暫存盤點步驟",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4698b3cb",
+          "date": "2026-11-18",
+          "message": "chore: session 收尾備份 2026-11-18",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ef2f47aa",
+          "date": "2026-11-18",
+          "message": "memory(lisweb): 刪單網路報告同步 HC010 修正驗證、MR!1656 結案；其他進行中項目更新",
+          "body": "",
+          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -25863,7 +26031,7 @@
     },
     {
       "name": "Argus",
-      "totalCommits": 116,
+      "totalCommits": 120,
       "commits": [
         {
           "hash": "dab29cf2",
@@ -26792,13 +26960,45 @@
           "body": "暫時略過之後那塊磚是黃的，而音樂只在全綠時才播（musicCanPlay），所以略過了音樂還是停一整天，\n午休、早會、煙火也都被擋掉。README 當初寫「黃不停音樂」，程式沒做到。\n\n現在牆算狀態時跳過帶 ack 的頭（currentMode）：\n- 只剩略過中的磚：回到「全部正常」那一面，大字改成「N 項略過中・其餘正常」，\n  底下列出每一項的理由、誰、到幾點與倒數（最多三項）\n- 有別的頭在叫：照樣紅／黃、停音樂，略過中的磚排在後面，磚上也帶倒數\n- 到期或 Cerberus 收回 ack：那顆頭照它的顏色算，該叫的照叫\n\n按下略過到 Cerberus 確認之間（≤2 分）仍是黃的，這段沒動。\n\n本機實測：Chrome 載入正式機即時資料（只讀），15 項；另確認每秒那一輪照常跑、沒有例外。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "5c7afde8",
+          "date": "2026-11-18",
+          "message": "fix(music): 電視待播清單只在全綠時開——有狀況就收起來，恢復再打開",
+          "body": "!100 讓電視的待播清單預設打開，但沒看牆的狀態：黃色時重整，清單照樣彈出來蓋在黃磚上，\n而那時候根本不播音樂。\n\n- qAutoOpen 加一條：不是全綠不開\n- qModeEdge：牆離開全綠（黃、紅、失聯）就收起待播清單，回到全綠再自己打開\n- 只管轉換的那一刻：有狀況時有人自己按開清單（要取消一首、調順序）不會被馬上收掉\n- 只在 ?music=1 的畫面；座位上的畫面不受影響\n\n本機實測：暫存資料夾起一份、Chrome 實際跑，26 項（綠／黃／紅／失聯之間切換、\n黃色時手動開、午休結束時牆是黃的、座位畫面）。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f8fc729c",
+          "date": "2026-11-18",
+          "message": "docs: 監控來源表補上台北 Oracle 全庫備份與表空間（2026-11-18 上牆）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "12a9a3a4",
+          "date": "2026-11-18",
+          "message": "fix(wall): 有狀況時磚和底下的小標籤疊在一起——正常的項目收成一行摘要",
+          "body": "2026-11-18 多了兩顆黃燈（台北 DB 全庫備份、表空間），牆上的磚直接疊在底下那排小標籤上，整面讀不出來。\n有狀況時正常的項目是一項一個小標籤；監控項目從十幾個長到 37 個，那一排佔掉五六行，\nmain 被擠到比磚矮，而 main 沒有 overflow，磚就畫到 strip 上面去了。\n\n- 底下只留一行摘要：「其餘 N 項正常・N 項不適用・看清單」（點下去是完整清單）\n- fitCards：磚放不下時逐級讓出空間——省略處置指引 → 收緊版（字小一級）→ 從最後面收掉，\n  底下用黃字寫「還有 N 項有狀況沒顯示」。不再有被切一半或疊在一起的磚\n- main 加 overflow: hidden 當最後一道；視窗大小變了重排\n\n本機實測：Chrome 載入正式機即時資料（只讀），1916x898 與 1920x1080，2／4／9 張磚，12 項，\n量每張磚的邊界都在 main 裡、main 不蓋到底下那排、那排不蓋到時間軸。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "316a3192",
+          "date": "2026-11-18",
+          "message": "feat(music): 電視（?music=1）待播清單預設打開，午休、早會結束自己開回來",
+          "body": "那台是拿來看「現在播什麼、接下來是誰」的，但清單每天清晨重載後就收著，午休 13:00 收起來之後\n也不會回來，都要有人走過去按開。\n\nqAutoOpen：開機（含清晨重載）、午休結束、早會結束時打開待播清單。\n- 只在 ?music=1 的畫面；座位上的畫面照舊不自己開（那裡的清單是某個人按開的）\n- 別的面板開著、或正在午休／早會／煙火時不開\n- 有人按 ✕ 收掉就維持收著，到下一個時點才再開；18:00 煙火之後不再開，隔天重載才回來\n\n本機實測：暫存資料夾起一份、Chrome 實際跑，15 項（開機、午休與早會進出、按 ✕、不搶別的面板、\n開機就在午休、座位畫面不受影響）。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "Cerberus",
-      "totalCommits": 104,
+      "totalCommits": 111,
       "commits": [
         {
           "hash": "1f4dc257",
@@ -27630,6 +27830,62 @@
           "message": "報告HTML轉檔@台北：補上「排程自己出錯」的判斷（11-16 撈單逾時 17 小時沒叫）",
           "body": "0 成功且 error_message 有值的批次也算壞批次；正常的空批次會重置計數。\n已於 11-17 10:01 上線，回測與測試見 ReportHtmlSync。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1896f936",
+          "date": "2026-11-18",
+          "message": "合併 MR !81: 台北 DB 全庫備份的處置步驟照 IT 的回覆更新",
+          "body": "台北 DB 全庫備份的處置步驟照 IT 的回覆更新\n\nSee merge request ucl/ops/cerberus!81",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "3689aabd",
+          "date": "2026-11-18",
+          "message": "台北 DB 全庫備份的處置步驟照 IT 的回覆更新（保留政策 REDUNDANCY 1、腳本清理順序、另有其他備份）",
+          "body": "曾聖惶 2026-11-18（Tickit #501）回覆：\n- RMAN 保留政策改成 REDUNDANCY 1，手動清過舊備份\n- 備份腳本：先 CROSSCHECK／DELETE EXPIRED，寫完新全備才 DELETE OBSOLETE（新的沒成功前保留舊的）\n- RMAN 不是唯一備份：每日／每月 DMP、VM 全機備份、異機備份\n\n牆上原本寫「保留政策 RECOVERY WINDOW 1 DAYS」與「DELETE OBSOLETE 應在寫新備份之前執行（待查證）」，\n兩句都不對了。只改這顆頭的 Runbook，判斷邏輯不動。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "31980d97",
+          "date": "2026-11-18",
+          "message": "補 11-18 佈署紀錄：台北 Oracle 全庫備份＋表空間兩顆頭（MR !79）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6c0c95fd",
+          "date": "2026-11-18",
+          "message": "合併 MR !79: feat(head): 台北 Oracle 全庫備份＋表空間監控（皆黃燈）",
+          "body": "feat(head): 台北 Oracle 全庫備份＋表空間監控（皆黃燈）\n\nSee merge request ucl/ops/cerberus!79",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "18257e9e",
+          "date": "2026-11-18",
+          "message": "feat(head): 新增「Oracle表空間@台北」（HCLAB/SYSTEM/SYSAUX 剩餘空間，Minor）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1ccab2a5",
+          "date": "2026-11-18",
+          "message": "feat(head): Oracle全庫備份@台北 標為 Minor（牆上最多黃燈、不升級寄信）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "18ecc012",
+          "date": "2026-11-18",
+          "message": "feat(head): 新增「Oracle全庫備份@台北」DbFreshness 頭",
+          "body": "台北 RMAN DB FULL 自 2026-11-08 起每天失敗（E:\\ARCHIVE_LOG 滿，ORA-19502），連續 11 天無人察覺。\n看最後一次成功 DB FULL 距今，門檻 26 小時；第四欄帶最近一次全備狀態與最後資料檔備份時間。\n本機 --check 驗過（目前判失去心跳＝正確），查詢 122ms。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
           "tags": []
         }
       ],
@@ -36496,7 +36752,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 845,
+      "totalCommits": 847,
       "commits": [
         {
           "hash": "4bdff543",
@@ -43255,6 +43511,22 @@
           "date": "2026-11-17",
           "message": "docs: 每日工作紀錄 2026-11-16 (54 commits)",
           "body": "🤖 自動生成於 2026-11-17 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "4d56d524",
+          "date": "2026-11-18",
+          "message": "docs: 更新彙整資料 2026-11-18",
+          "body": "🤖 自動生成於 2026-11-18 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "bbcd1b8e",
+          "date": "2026-11-18",
+          "message": "docs: 每日工作紀錄 2026-11-17 (62 commits)",
+          "body": "🤖 自動生成於 2026-11-18 07:05",
           "category": "文檔",
           "tags": []
         }
