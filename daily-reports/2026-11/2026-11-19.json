@@ -1,0 +1,359 @@
+{
+  "date": "2026-11-19",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "b4aa3023",
+          "time": "15:47",
+          "message": "docs(password): 5.4/5.5 改寫停寫明碼開關與保留名單（改用系統參數，不另建表）",
+          "body": "- 5.4 保留名單改存 Password_PlainKeepUsers；FGA 未開 EXTENDED 故無 USER_ID，改從 V$SQL 字面值或問負責人\n- 5.5 停寫開關用法、安全預設、測試結果；清除步驟先開開關再 UPDATE\n- 現況一覽 #12 更新\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e2d438c7",
+          "time": "15:45",
+          "message": "feat(account): 停寫明碼開關（密碼雜湊階段 5 前提，預設關閉）",
+          "body": "改密碼時要不要把明碼寫進 USER_ACCOUNT.PASSWORD 改由系統參數決定，\n平常關著、行為不變；到該站要清除舊欄位時才一併打開。\n\n- PasswordRepository.ShouldWritePlain / PlainForStore：\n  Password_StopWritePlain = Y 且帳號不在 Password_PlainKeepUsers 名單 → PASSWORD 寫 NULL，只留雜湊\n  參數不存在、沒有 PASSWORD_HASH 欄位、讀參數失敗 → 一律照舊寫明碼（不讓人改完密碼兩欄都空）\n- 套用三處寫入：ChangePassword、SaveBasicInfo、SU101 PostUserAccount（含新建帳號）\n- 存檔但沒改密碼時兩欄不動；已存在的明碼不會因開關而被清\n- SchemaModify：建立兩個參數（預設 N／空白），可以先跑\n- 測試機 21 項整合測試全過\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "818ae3b6",
+          "time": "15:11",
+          "message": "style(ScheduleJobs): 紀錄／執行結果改浮動視窗，不再接在表格最下面",
+          "body": "- 「紀錄」「試跑」「立即執行」改開在畫面中間的浮動視窗，免往下捲找\n- 遮罩點一下或 Esc 關閉；開著時表格對應那列標底色\n- 紀錄表頭固定；點「輸出」在該列下方展開完整內容（JSON 排版），再點收起\n- 純前端，API 不動\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5edcdbe2",
+          "time": "14:53",
+          "message": "合併 MR !1686: fix(lt353): 修正日期區間統計並固定圖表標題位置",
+          "body": "fix(lt353): 修正日期區間統計並固定圖表標題位置\n\nSee merge request ucl/lis/lisweb!1686",
+          "category": "合併MR"
+        },
+        {
+          "hash": "5ae3e2e5",
+          "time": "14:37",
+          "message": "docs(BT403): 記住個人設定 (localStorage) 的評估結果, 未實作",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "988bdc8e",
+          "time": "14:31",
+          "message": "feat(BT403): 欄位/收據設定收進彈窗、畫面清單補健保點數欄",
+          "body": "- 右上新增「欄位設定」「收據設定」兩顆按鈕, 原本散在表單與右上的勾選框收進彈窗\n  - 欄位設定: 欄位勾選、健保價顯示模式、選項 (各附說明)\n  - 收據設定: 收據日期、列印兩份、拆成多張+每張上限、蓋公司紅章\n  - 收據設定按鈕旁顯示蓋不蓋紅章; 勾了拆成多張時按鈕變色提醒\n- 健保碼預設勾選\n- 畫面清單補健保點數欄 (原本只有列印/匯出有, 勾了畫面沒反應)\n- 移除「清除」「離開」按鈕\n- 收據日期清空時收據上的日期留白 (原本印出「中華民國 0 年 月 日」)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4a1e5387",
+          "time": "12:47",
+          "message": "feat(BT403): 收據拆成多張、收據金額可扣健保價 (桃園)",
+          "body": "- 收據拆成多張: 畫面勾選 + 每張上限, 超過上限的單位收據拆成多張\n  (編號 -1/-2..., 排法與 BT410 拆分收據相同), 沒超過的照原樣; 預設不勾\n- 收據金額 = 收費 - 健保價: 系統參數 BT403_ReceiptNetOfNHI_Units 列出的單位才套用\n  (ALL = 全站, 沒設 = 不啟用); 帳單總計下方多印應收金額; 健保價選 No 時整批不印並提示;\n  相減 <= 0 不開收據\n- 列印頁改由收據紀錄決定每張的編號/金額/日期; 兩份同頁時拆分的各張各佔一張紙\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "6983b637",
+          "time": "11:21",
+          "message": "合併 MR !1683: feat(hd): 改善洗腎醫令列印與病患資料維護",
+          "body": "feat(hd): 改善洗腎醫令列印與病患資料維護\n\nSee merge request ucl/lis/lisweb!1683",
+          "category": "合併MR"
+        },
+        {
+          "hash": "9219c45f",
+          "time": "10:41",
+          "message": "docs(BT410/Problems): 收據列印一律有紀錄、0482 查不到收據調查紀錄",
+          "body": "- BT410 頁面文件: 存檔 API 回傳 id、列印頁只認 ID、各收據列印路徑規則、單位查詢比對編號\n- NotificationPlatform 介接規格: ReceiptPdf 只接受 receiptNo, 查無回 404\n- Problems: 0482 查不到收據的證據鏈 (BBS CustUpdateLog / IIS log / BILL_PRINT_LOG)、已修缺口、待會計決定事項\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7da694f3",
+          "time": "10:34",
+          "message": "feat(BT404): 新增「各單位加總成一張表」選項，多個客戶編號的送檢資料加總在同一張表",
+          "body": "台北業務補充需求: 國泰健管多個客戶編號要看「整體」送檢量, 不是一個單位一段/一張分頁。\nMR!1677 只有「整合excel」會自動多一張跨單位合併 sheet, 畫面/列印/匯出仍是分開的。\n\n- BT404「指定多個編號」旁加勾選框「各單位加總成一張表」, 預設不勾 (不勾行為與原本相同)\n- 勾選時 顯示/列印/匯出/整合excel 都只出一張表: 同檢驗項目跨單位加總數量/總價/FREE/實收,\n  各單位單價不同時單價欄並列 (例 97.50 / 150.00), 最後一列總計; 列印表頭列出合併了哪些單位\n- 區間模式也可勾選\n- 加總邏輯抽成 ReportBT404.MergeAcrossUnits 共用; 移除 MR!1677「整合excel 自動多一張跨單位合併」,\n  改由勾選框控制\n- 列印頁移除未使用且會因多單價字串炸掉的 Double.Parse(PRICE)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "92ca4b5c",
+          "time": "10:30",
+          "message": "fix(BT403/BT410/BT101): 印收據一律先寫紀錄、單位查詢補編號比對、單位設定異動紀錄補齊",
+          "body": "收據 (RECEIPTS)\n- BT403: 只對「這次真的會印出收據頁」(PRINTBILL=Y 且 PRINTRECEIPT=Y) 的單位配號寫紀錄,\n  原本只看 PRINTRECEIPT, 不印帳單的單位會被寫進沒印出來的收據\n- BT403: 收據頁印的編號改用寫進 RECEIPTS 的編號 (原本 view 自組基本編號, 重印加日期去重後紙本與紀錄不一致)\n- BT403: 寫紀錄失敗整批不印 (原本 catch 吞掉只寫 NLog, 收據照印); 寫入改同一交易並帶 DBCODE\n- PrintBT410 只認 RECEIPTS.ID 從 DB 讀資料, 不再吃網址帶抬頭/金額 (原本不存檔、不登入都印得出來)\n- ReceiptPdf 只接受已存在的收據編號, 查無回 404 (NotificationPlatform 本來就只帶 receiptNo)\n- BT410 存檔 API 回傳 ID, 單張列印/補印改帶 ID\n- BT410 查詢選單位時, DBCODE 空的舊紀錄改從編號 (帳號4碼+單位碼+民國年月) 認單位\n\n單位設定異動紀錄 (BBS.dbo.CustUpdateLog, 沿用既有表與格式)\n- BT101 存檔: 改成存檔前後各讀一次 DB 再比對, 存檔失敗不記、表單沒帶的欄位不再被記成清空;\n  修正每次寫兩筆重複紀錄、只改客戶主檔欄位時不記、catch 內型別轉錯\n- 刪除單位、客戶備註 (AddNotes)、批次改列印帳單 (BatchUPD) 補寫異動紀錄\n- 舊端點 api/Batch/UpdateUnits 改走參數化實作, 刪除字串拼接 SQL 的 BatchRepository.UpdateUnits\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "25db1527",
+          "time": "10:17",
+          "message": "refactor(BT201): 就醫日帶入採檢日的送檢單位改由系統參數設定",
+          "body": "台中單位清單原本寫死在 BT201.cshtml，0831 起已改四次（3 → 33 → 34 → 40 個），\n每次都要改程式、上版或熱抽換。改成系統參數 BT201_VisitDTToColDT_Units（頁面 BT201）：\n- 逗號分隔的單位代碼 → 只有這些單位連動；ALL → 全部單位；沒有這筆 / 空白 → 不連動\n- 讀參數失敗也是不連動（連動會覆蓋採檢日，不能失敗時變成全部單位都蓋）\n- 拿掉 Web.config AutoVisitDTToColDT 開關與 LabUniform 判台中，只看參數\n\n台中初始 40 個單位見 SchemaModify/系統設定/HCLAB.SYS_PARAMETER_BT201_VisitDTToColDT_Units.sql，\n要先插參數再上程式（程式先上的話台中會暫時全部不連動）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "重構"
+        },
+        {
+          "hash": "31f1296a",
+          "time": "10:02",
+          "message": "docs(password): 文件最前面加「階段 3 現況一覽」總表（21 項來源、負責人與狀態）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "892109b6",
+          "time": "09:56",
+          "message": "fix(BT201): 台中就醫日帶入採檢日的送檢單位再加 6 個（共 40 個）",
+          "body": "台中 1119 提供：1211 東勢區農會附設農民醫院、1452 成美醫院、\n1964 南投縣南投市衛生所(FOBT)、7069 名間鄉衛生所(健保FOBT)、\n2046/7046 光仁骨外科診所。皆已對台中 DEBTOR 查證，為新增（原 34 個保留）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "abdc5a41",
+          "time": "09:49",
+          "message": "docs(password): 四台主機 IIS 實看結果——未認領來源全數對到系統",
+          "body": "- 56.92 .NET v4.5＝Regist 系統 /API（WebApiService 查姓名撈整筆，不比對密碼）\n- 56.92 OnlineReport＝網路報告查詢 API（FGA 誤判，登入走 SQL Server）\n- 56.229 WebForInside＝UclProjectSupportInside API（實看確認）\n- 56.229 UclSettingSexBio＝UclUnitConfig.Web（真的讀密碼，負責人待確認）\n- 56.230 .Net 7.0＝線上考核\n- 56.231 SYSTEM＝Chronos CmvSyncTask（推定 FGA 誤判）\n- 5.3.1 補 FGA「會多報不會漏報」：複雜多表 LEFT JOIN 會誤記，每個來源要對回語法\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "688c2610",
+          "time": "08:34",
+          "message": "docs(password): 盤點更新——HCLAB_web 完成、LisWeb2 已升版、SampleCheckin 實為 UclProjectSupportInside API",
+          "body": "- HCLAB_web 2026-11-18 完成（!46、php8 !19，七站）\n- LisWeb2 2026-11-19 升 V2026.11.19.001\n- SampleCheckin 本身不連 DB，登入走 UclProjectSupportInside API（LogInBaseControl 共用登入，列出兩處讀明碼位置）\n- 56.229 WebForInside 推定即此 API；56.231 上 2023-07 起無流量的同名站台已自 IIS 移除\n- 補主機名稱↔IP 對照表\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b3475f71",
+          "time": "07:58",
+          "message": "docs(password): 階段 3 盤點結果（台北 FGA 首日）與調整清單",
+          "body": "- 5.3 改寫：階段 3 分盤點→要求調整→最後才清空（使用者定）\n- 5.3.1 FGA 政策 PWD_PLAIN_READ 實際設定；不可加 EXTENDED（會把登入密碼綁定值寫進稽核表）\n- 5.3.2 首日 112,637 筆：依機器／執行身分列出來源，6 個待認領；interface server 22 小時 0 筆\n- 5.3.3 LISWeb 自己的 SELECT * 佔 99%，待改成明列欄位\n- 5.3.4 調整清單、負責人與狀態（Tickit #496）\n- 進度表：階段 2 其他站等台北清空後再做\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 17
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "1d2bdcff",
+          "time": "12:31",
+          "message": "memory(lisweb): 核血被擋=事後補病人編號血型同步漏掉；血型排程已由 Chronos 觸發",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "5bec511b",
+          "time": "11:04",
+          "message": "chore: session 收尾備份 2026-11-19",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "42600082",
+          "time": "10:51",
+          "message": "chore: memory 記 AuthoriseQueue MR !12",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "b81c7a86",
+          "time": "10:50",
+          "message": "chore: session 收尾備份 2026-11-19",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "7913e603",
+          "time": "10:42",
+          "message": "chore: memory 更新 BT404 本機站台已關",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "d752d05e",
+          "time": "10:42",
+          "message": "chore: session 收尾備份 2026-11-19 (BT404 各單位加總成一張表 MR!1684)",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "aef03c76",
+          "time": "10:25",
+          "message": "chore: session 收尾備份 2026-11-19",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "45fd2146",
+          "time": "09:42",
+          "message": "chore: session 收尾備份 2026-11-19（LocalPrintHttpService V2026.11.19.01 發佈狀態）",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "f9bc2ae5",
+          "time": "08:57",
+          "message": "合併 MR !34: fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明",
+          "body": "fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明\n\nSee merge request ucl/lis/localprinthttpservice!34",
+          "category": "合併MR"
+        },
+        {
+          "hash": "7d19fd34",
+          "time": "08:56",
+          "message": "fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明至 V2026.11.19.01",
+          "body": "8 月起的部署包 appsettings.json 都帶 \"SpecialSigns\": \"\"，install.bat 更新時\n保留工作站既有設定檔、只改版次，欄位存在就不會套用類別預設值。結果 !32\n補回的洗腎特殊符號預設清單只對全新安裝的站生效，既有站更新後清單仍是空的。\n\n- TscLabelPrintService：SpecialSigns 為空白時改用 PrinterSettings.DefaultSpecialSigns\n- 預設清單收斂成 PrinterSettings.DefaultSpecialSigns 常數，舊版入口共用\n- scripts/更新步驟說明.txt：版次與「本次更新內容」同步至 V2026.11.19.01（!33 漏改）\n- docs/INSTALL.md：版本紀錄補上本項\n\nV2026.11.19.01 尚未放上 NAS、未發到任何工作站，故沿用同一版次。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "f67c5f37",
+          "time": "08:48",
+          "message": "合併 MR !33: fix(套組列印): 安裝版 CopyPrint 套組未套用剝紙與份數設定；版次 V2026.11.19.01",
+          "body": "fix(套組列印): 安裝版 CopyPrint 套組未套用剝紙與份數設定；版次 V2026.11.19.01\n\nSee merge request ucl/lis/localprinthttpservice!33",
+          "category": "合併MR"
+        },
+        {
+          "hash": "bf7e0589",
+          "time": "08:36",
+          "message": "fix(套組列印): 安裝版逐組套用剝紙、份數等設定；版次 V2026.11.19.01",
+          "body": "LISWeb Home/CopyPrint 的成人健檢、ABCD檢、自訂套組送出的網址只帶\nUCL_TNO 與 package_string，列印設定都在每一組裡\n（號碼,份數,peel,upsideDown,small,sideLabel,swapBackForth）。\n\n安裝版原本只取每組的號碼，其餘設定讀網址參數，結果：\n- peel 一律 false，有剝紙器的站一次把整疊標籤吐出\n- 份數固定 1，ABCD檢原碼只印 1 張\n- 上下顛倒、小標籤、側邊條碼、前後對調的勾選無效\n- 套組只有一組（沒有 *）時走單張流程，尾碼被丟掉\n\n改為逐組套用組內設定，份數是同一個號碼印 N 張，行為對齊舊版主控台程式。\nAPI-SPEC 的套組分隔符號由分號更正為 *。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "82166f92",
+          "time": "15:21",
+          "message": "補 11-19 佈署紀錄：Chronos 工作頭分級＋牆上重跑按鈕（MR !82、Argus MR !104）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c529d9f3",
+          "time": "15:13",
+          "message": "feat(chronos): 第一次失敗降黃＋牆上重跑按鈕（Data2Cloud）",
+          "body": "起因：11-19 15:00 Data2Cloud 新竹 DB 瞬斷（ORA-50201）一輪 FAIL 就亮紅，\n但下一輪會自己重抓當日增量；補跑還得進 LISWeb 排程維護頁。\n\n- Chronos工作@台北／台中 SQL 加第五欄：有問題的工作全部都是「第一次」\n  FAIL/TIMEOUT 時降黃（上一筆非 SKIPPED 紀錄是 OK）；連續兩次以上、鎖卡住、\n  執行器沒在排它、該跑沒跑照樣紅。第四欄標「（第一次）／（連續兩次以上）」\n- Rerun 新增 SQL 觸發（Rerun.Sql，目標綁 :target）、AllowAll、AfterNote；\n  TargetPattern 認不到 Headline 時改認 Detail，且收全部符合\n- Chronos工作@台北 開按鈕：寫 SCHEDULE_JOB.RUN_REQUEST（同維護頁「立即執行」），\n  白名單只有 Data2Cloud、不給全部重跑\n- 目標形狀上限 8 → 32 碼（JOB_CODE）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "f483d18e",
+          "time": "10:51",
+          "message": "feat: 新竹 AuthoriseQueue 升級成新版，補分部佈署前置檢查",
+          "body": "- config/HC：新竹專屬的 exe.config（HCLAB 192.168.1.225、BBS 192.168.1.229、\n  AuthoriseAfterRelease=0、CTL_FLAG2_WS=0）、ExcludeQueue.json（空清單）、\n  NLog.config（Seq Site=HC）、工作排程定義（11.229 \\自訂排程\\AuthoriseQueue，\n  SYSTEM，:01/:31 兩個觸發）\n- SchemaModify：新增 20261119 BBS OD_TESTCODE_LIST 100→4000；\n  20260813／20260909 補新竹執行紀錄\n- 分部佈署前置檢查.md＋scripts/check-branch-readiness.ps1（09-09 起草）：\n  各站差異實測、逐站檢查清單；第 3 節補「先確認有沒有舊版在跑」與真實佇列驗證，\n  第 6 節是新竹升級紀錄\n- README／DEPLOY／修改歷程：改成台北＋新竹兩站，說明新竹設定在 config/HC\n\n背景：新竹 2023-09 起就有舊版 consumer 在 11.229 跑（只做一審、沒有 BBS 備份），\n只查 L20 誤判成沒上。2026-11-19 原地升級，新版接管 LOCKED_AT 為 NULL 的鎖，\n所以新舊兩支不能並存。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b877222c",
+          "time": "07:51",
+          "message": "docs: 部署 zip 移到 _releases 並補版本對照表",
+          "body": "- DEPLOY.md 打包腳本 zip 改輸出到 _releases\\，新增 1.4 已發佈版本對照（zip↔commit↔重點↔DDL）\n- 更正「repo 裡也有各版 zip」：zip 含台北加密連線字串，從未進 git，只在打包機本機\n- .gitignore 排除 _package/、_releases/；修正最後一行 FodyWeavers.xsd 與 _incident/ 黏行失效\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "7eec5e55",
+          "time": "15:13",
+          "message": "feat(rerun): 重跑觸發後的說明改由 Cerberus 給（rerun.note）",
+          "body": "Chronos 工作頭（2026-11-19 起）也有重跑按鈕，接下來會怎樣跟冒煙不同；\n沒給 note 時維持冒煙原本的「約 5~9 分鐘」。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "HIS\\SexBioOrderApi",
+      "commits": [
+        {
+          "hash": "fba5d63b",
+          "time": "16:01",
+          "message": "feat(login): 密碼雜湊兩欄相容登入＋部署文件與發佈腳本",
+          "body": "LIS 正在把 USER_ACCOUNT 的明碼（PASSWORD）改成雜湊（PASSWORD_HASH），最後會清除明碼。\n這支 API 的登入原本只比對明碼，清除後就登不進去，所以改成兩欄相容（規則與 LISWeb 相同）。\n\n- 新增 Repository/HcLabPasswordVerifier：PASSWORD 有值照舊比對（不分大小寫，維持原行為）；\n  為 NULL 時改驗 PASSWORD_HASH（PBKDF2-SHA256，分大小寫）；沒有雜湊欄位的 DB 退回只用明碼。\n  明碼比對在 DB 端做，不撈進程式；只讀不寫雜湊。\n- LogInBaseControl.LogIn 改用它；帳號不存在時原本 NullReferenceException（500），改為「登入失敗」\n- WebApiService DBAccess 查姓名改成只選 USER_NAME（原本撈出整筆帳號含明碼）\n- Service/UclProjectSupportInsideService.Login 不在 csproj 內（不會編譯、沒人呼叫），未改\n- docs/DEPLOY.md：部署位置、編譯參數、bat\\年\\月日\\Old|New 慣例、發佈、冒煙、退版\n- scripts/deploy-inside.ps1：漂移檢查→編譯→發佈前冒煙→備份並發佈→發佈後冒煙，失敗自動退版\n- scripts/smoke-inside.ps1：登入與簽收相關只讀功能測試\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\blood-type-sync",
+      "commits": [
+        {
+          "hash": "fedf43ad",
+          "time": "12:26",
+          "message": "fix: 補漏查詢——報告發出後才補病人編號的單也同步血型到會員主檔",
+          "body": "日期查詢只看昨天審核的報告且排除病人編號 00/0，洗腎單先用 00 開單、\n報告發出後才補身分證的個案永遠同步不到，BT201 開核血被「無血型歷史紀錄」擋下\n(2026-11-19 行政反映 6111900643，台北累積 45 位)。\n\n每次執行多跑一輪補漏：ORD 內已發出的合法血型結果、病人編號有效、\n會員主檔對應血型欄位為空者，照原規則寫入。同病人不同單結果不同則不寫只記警告。\n可用 BloodTypeSync:CatchUpEnabled 關閉（預設開）；--tno-prefix 模式不跑。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\Chronos",
+      "commits": [
+        {
+          "hash": "a3d13257",
+          "time": "12:32",
+          "message": "docs(README): 補 Chronos 跟底下排程的關係、跟工作排程器的差別；狀態列更新到 11-04",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "942acf8a",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-19",
+          "body": "🤖 自動生成於 2026-11-19 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "7d745a5c",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-18 (34 commits)",
+          "body": "🤖 自動生成於 2026-11-19 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "4ebd67db",
+          "time": "11:04",
+          "message": "docs(TODO): 11/19 登記現況",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 37,
+    "sideCommits": 3,
+    "totalCommits": 40
+  }
+}
