@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-19",
-    "days": 564,
-    "weeks": 80.6
+    "end": "2026-11-20",
+    "days": 565,
+    "weeks": 80.7
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7487,
+    "totalCommits": 7526,
     "projectCount": 107,
     "dailyAverage": 13.3
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1531,
+      "totalCommits": 1536,
       "commits": [
         {
           "hash": "a207ff46",
@@ -12263,13 +12263,53 @@
           "body": "- 5.3 改寫：階段 3 分盤點→要求調整→最後才清空（使用者定）\n- 5.3.1 FGA 政策 PWD_PLAIN_READ 實際設定；不可加 EXTENDED（會把登入密碼綁定值寫進稽核表）\n- 5.3.2 首日 112,637 筆：依機器／執行身分列出來源，6 個待認領；interface server 22 小時 0 筆\n- 5.3.3 LISWeb 自己的 SELECT * 佔 99%，待改成明列欄位\n- 5.3.4 調整清單、負責人與狀態（Tickit #496）\n- 進度表：階段 2 其他站等台北清空後再做\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "acbfc44f",
+          "date": "2026-11-20",
+          "message": "fix(BT201): 申報資料原處方案件等欄位說明文字未隨載入的代碼更新",
+          "body": "GetTax / getSameTNO_Data 載入既有申報資料時只填值不觸發 change，\n右側說明停在預設值或上一張單（桃園光文：原處方案件 E1 卻顯示 04「西醫慢性病」）。\n申報值本身正確，只是顯示錯誤。\n\n- 原處方案件 / 案件分類 / 案件來源註記的說明查詢抽成 refreshDe*Desc()，只改說明不連動其他欄位\n- TaxModal 開窗時重刷三格說明；getSameTNO_Data（modal 已開）帶入後也重刷\n- 不直接補 .change()：DE_ORI 的 change 會把案件分類洗回 1/2\n- 順修：案件分類查詢 complete 誤判 DE_CLINC；查不到代碼時清空說明而非保留舊文字；代碼先 trim\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "624aba55",
+          "date": "2026-11-20",
+          "message": "docs(Problems): UclUnitConfig.Web 負責人岑松、interface server 不受影響",
+          "body": "Dennis 確認 interface server 帳密寫死在程式設定，不讀 USER_ACCOUNT.PASSWORD，移到已排除。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f25a4b10",
+          "date": "2026-11-20",
+          "message": "docs(Problems): 台北表空間評估補上 IT 處理結果（11-20 確認）",
+          "body": "全備恢復、HCLAB 加資料檔剩 36.1 GB、AUD$ 已清並移到 SYSAUX、Cerberus 兩顆頭已佈署；\n剩 purge job、備份腳本原因、門檻定案。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "bbb74d38",
+          "date": "2026-11-20",
+          "message": "docs(Problems): 密碼明碼清除盤點第二輪＋每日快照工作",
+          "body": "- 現況一覽更新：Tickit 已換相容版；HCLAB_web 登入已換，但同台 apache 有一支沒進版控的\n  PHP（推測是申報工具）仍讀明碼；UclProjectSupportInside 代寫 MR!25（sexbioorderapi）；\n  interface server 47 小時 0 筆；停寫開關 MR!1689 已 merge\n- 5.3.1：FGA 只能看誰讀、看不出誰改好（相容版也讀 PASSWORD），改看 V$SQL 有沒有讀\n  PASSWORD_HASH；觀察期延到至少 2026-12-15；完成條件改用每日快照\n- 新增 Chronos 工作 PwdPlainAudit（56.231 一天三次）：V$SQL 讀明碼語法累積清單＋FGA 每日來源\n  - 腳本 Documents/Problems/密碼明碼儲存_scripts/pwd-plain-audit.ps1\n  - 登記 SQL SchemaModify/密碼雜湊/Chronos_明碼讀取每日快照登記_20261120.sql（台北已執行、已啟用）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "da73cd93",
+          "date": "2026-11-20",
+          "message": "feat(SigninINVNO): 整組外送的套檢簽收只印一張原號標籤（系統參數）",
+          "body": "新竹 P004 尿總砷含 Creatinine (Urine) 9016（尾碼 22），簽收會印原號與 22 兩張，\n但新竹的 P004 整管送台北，22 那張用不到（Tickit #497）。\n\n- 新增系統參數 SIGNIN_ORIGINAL_LABEL_ONLY_ITEMS（逗號分隔套檢代碼）\n- 清單內的套檢，細項不帶 TI_LABNO_SUFFIX，併入原號標籤\n- 判斷在套檢層級：同一細項在其他套檢仍照主檔尾碼\n- Post 兩段 SQL 與 PostV2 同步；參數未設定時 SQL 與原本相同\n- 附新竹參數腳本（SchemaModify/系統設定）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "OrderInSql",
-      "totalCommits": 603,
+      "totalCommits": 608,
       "commits": [
         {
           "hash": "13ace8da",
@@ -17094,13 +17134,53 @@
           "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "ca48cb6f",
+          "date": "2026-11-20",
+          "message": "docs(cases): 0743 查案補檔名開頭形式掃描（56.227 共 10,118 檔）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d2c3b49d",
+          "date": "2026-11-20",
+          "message": "docs(cases): 0743 查案補上線結果與未處理的缺口（黏在一起的雙前綴）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "8986d2e4",
+          "date": "2026-11-20",
+          "message": "docs(deploy-log): 修正第 35 列 staging 路徑（跳脫字元寫成 tab）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e21f8178",
+          "date": "2026-11-20",
+          "message": "docs(deploy-log): 補 11-20 10:53 部署（!507 FileNameExcluded 單位前綴只比檔名開頭）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "20259664",
+          "date": "2026-11-20",
+          "message": "fix(pipeline): FileNameExcluded 的單位前綴只比檔名開頭",
+          "body": "ansn／UNIMAX 設 FileNameExcluded=1120-,0539- 擋別家的檔，但比對是「檔名含」。\n2026-11-20 0743-PHYSICIANORDER-20261120-1.xls 因日期 2026[1120-]1 命中，\n被當成 1120 的檔略過（標成刻意排除、不記 Warning），排程與手動轉入都不收，\n卡在 inbox 直到人工改檔名。\n\n字串是「四碼數字＋-」時改用 StartsWith；Parsing_、.tmp、病理委外清單維持 Contains。\n設定檔不用改。查案紀錄：docs/cases/2026-11-20-0743-date-hits-1120-exclude.md\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 459,
+      "totalCommits": 468,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -20773,6 +20853,78 @@
           "body": "",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "c4816c22",
+          "date": "2026-11-20",
+          "message": "chore: session 收尾備份 2026-11-20",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1b0188ac",
+          "date": "2026-11-20",
+          "message": "chore: session 收尾備份 2026-11-20",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3f0497a0",
+          "date": "2026-11-20",
+          "message": "chore: session 收尾備份 2026-11-20",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ef3a8d34",
+          "date": "2026-11-20",
+          "message": "chore: LocalPrintHttpService 部署點統一為 0.常用捷徑的紀錄",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1fba608a",
+          "date": "2026-11-20",
+          "message": "chore: session 收尾備份 2026-11-20",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8053ffd8",
+          "date": "2026-11-20",
+          "message": "memory: 密碼明碼清除 FGA 第二輪、每日快照工作；SexBioOrderApi 專案 memory；project-locations 補 UclProjectSupportInside",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "73400eda",
+          "date": "2026-11-20",
+          "message": "chore: memory 更新（iOS 第 6 輪送出）2026-11-20",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dcd0ca82",
+          "date": "2026-11-20",
+          "message": "chore: memory 更新（註冊頁說明上線）2026-11-20",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "114ce36a",
+          "date": "2026-11-20",
+          "message": "chore: memory 更新（iOS 第五次退件 5.1.1(v)）2026-11-20",
+          "body": "",
+          "category": "其他",
+          "tags": []
         }
       ],
       "type": "work"
@@ -24032,6 +24184,1117 @@
       "type": "work"
     },
     {
+      "name": "TwowayConnection\\分單系統",
+      "totalCommits": 138,
+      "commits": [
+        {
+          "hash": "d9c88e57",
+          "date": "2026-01-23",
+          "message": "Phase 1 效能優化與死結修復",
+          "body": "效能優化：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2d36d7dd",
+          "date": "2026-01-23",
+          "message": "新增舊系統核心問題記錄與效能優化計畫",
+          "body": "- 舊系統核心問題.md：記錄死結、取消轉入、效能問題",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c6b5b850",
+          "date": "2026-01-23",
+          "message": "新增效能修復與重構文件",
+          "body": "修復:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "732cb05e",
+          "date": "2026-01-24",
+          "message": "v2.4.1: 修正頁碼顯示被截斷問題",
+          "body": "- 增加底部邊距 (20mm) 讓頁碼有足夠空間",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6076cfcb",
+          "date": "2026-01-24",
+          "message": "v2.4: 快速列印格式微調",
+          "body": "- 增加行高 (padding 8px)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "621a2528",
+          "date": "2026-01-24",
+          "message": "更新文件：新增 todo 清單、調整重構計畫分工",
+          "body": "- 新增 docs/todo.md",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "726f28fc",
+          "date": "2026-01-24",
+          "message": "v2.3: 快速列印格式優化",
+          "body": "- 分單號碼移至第一欄並加藍色",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "8cc9ff4d",
+          "date": "2026-01-24",
+          "message": "v2.2: 快速列印顏色提示修正",
+          "body": "- 快速列印加入紅/黃底色顯示未對應項目",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3352772c",
+          "date": "2026-01-24",
+          "message": "新增快速列印功能與 UI 優化",
+          "body": "- 新增快速列印按鈕（前端 JavaScript 直接列印，不需等待）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c3d8212c",
+          "date": "2026-01-26",
+          "message": "v2.8: 快速列印優化與分單排序修正",
+          "body": "- 快速列印：病患資料使用 tbody 包裹，避免跨頁切割",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "850c56ec",
+          "date": "2026-01-26",
+          "message": "新增開發環境設定與公衛代碼功能文件",
+          "body": "- LinkedServer設定指南.md: 完整本地開發環境設定（SQL Server Express、測試資料庫、Linked Server）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e6e7c70c",
+          "date": "2026-01-26",
+          "message": "Merge branch '加入遺漏的檔案'",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cd6e87ee",
+          "date": "2026-01-26",
+          "message": "v2.5: 快速列印格式大幅調整",
+          "body": "- 移除分單號碼獨立欄位 (9欄)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7ccf76b9",
+          "date": "2026-01-27",
+          "message": "v2.12: 修正切換單位時快速列印資料不同步問題",
+          "body": "- 隱藏 txtUNIT_CODE，統一使用 ddlUNITDATA 選擇單位",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "aed83079",
+          "date": "2026-01-27",
+          "message": "v2.12: 修正快速列印欄位索引",
+          "body": "- 因 v2.11 新增勾選框欄位，快速列印的 cell index 需要 +1",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "46aa6896",
+          "date": "2026-01-27",
+          "message": "v2.11.1: 修正全選勾選框影響轉入HCLAB的問題",
+          "body": "- toggleSelectAll 只影響列印勾選框 (chkPrint class)",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3108705a",
+          "date": "2026-01-27",
+          "message": "v2.11: 標籤部份列印功能與取消轉入修正",
+          "body": "- 標籤部份列印：新增病患勾選框與全選功能",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "29acabc2",
+          "date": "2026-01-27",
+          "message": "v2.10: 取消轉入改善 - B03 機制與排除已簽收",
+          "body": "- 使用 B03 機制觸發 LIS 刪除 Oracle 資料",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1de9fe9a",
+          "date": "2026-01-28",
+          "message": "v2.13: 修正多印N張姓名標籤功能",
+          "body": "- btnQuery_Click 加入 PrintNameLabelCount 設定邏輯",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "c9dea24b",
+          "date": "2026-01-29",
+          "message": "docs: 更新站台配置資訊（姿飴/B1/孝田對應 WebOrder1-3 及 TSC DT2205）",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "98b2ad42",
+          "date": "2026-01-29",
+          "message": "v2.14: 按檔案批量勾選/取消勾選功能",
+          "body": "- 三個 Master 查詢加入 filename 子查詢",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c00fc284",
+          "date": "2026-02-05",
+          "message": "v2.15: 查詢排序改為按分單號碼優先，與預覽列印一致",
+          "body": "- Query_PhysicianOrderM 加入 MinTNO 子查詢",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "65ce709d",
+          "date": "2026-02-24",
+          "message": "v2.16: 取消分單/取消轉入支援按檔案篩選勾選",
+          "body": "- 新增 GetCheckedSNList() 收集被勾選的 SN",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b875a42a",
+          "date": "2026-02-26",
+          "message": "UNITDATA: 新增項目列印設定介面 + 設定文檔",
+          "body": "- 單位維護頁面新增「列印設定」按鈕，可管理 UNITPrintSetting",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "21f8397e",
+          "date": "2026-02-26",
+          "message": "v2.26: 刪除分單部份刪除、顯示分單進度、項目列印設定、HCLAB→LIS、多項修正",
+          "body": "新功能：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e2c4f708",
+          "date": "2026-02-27",
+          "message": "DISTRIBUTE: 還原按鈕順序為原始排列",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "d822b486",
+          "date": "2026-03-02",
+          "message": "v2.27: 轉入LIS改進 — skippedTNOs重試、ADD_ITEM去重、還原部份選取",
+          "body": "- 轉入LIS：新增 skippedTNOs 邏輯，重試時比對身分證號跳過已轉入的",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0ef30d8e",
+          "date": "2026-03-04",
+          "message": "v3.03: 部份選取支援(分單/轉入/取消/刪除) + ID_TNO補零 + SQL測試",
+          "body": "- 部份選取機制：JS collectCheckedRows() + HiddenField + GetCheckedSNList()",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2e22fd53",
+          "date": "2026-03-05",
+          "message": "fix: EVENTLOG SaveBatch 移除 Replace 與 q'[]' 混用，避免 ORA-06550",
+          "body": "原本 Replace(\"'\", \"''\") 搭配 q'[...]' 使用，當 comment 含特定字元時",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0829e197",
+          "date": "2026-03-05",
+          "message": "v3.05: 更新版號 + 版本更新記錄",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8ab3ebfa",
+          "date": "2026-03-05",
+          "message": "v3.04: 更新版號 3.04 / 2026/03/05",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3e179285",
+          "date": "2026-03-05",
+          "message": "v3.04: 新增去重複醫令功能 (btnDedup)",
+          "body": "同事反映單位傳多個檔案內容重複或檔案本身有重複項目，導致 PhysicianOrderD 出現重複記錄。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "41e15539",
+          "date": "2026-03-09",
+          "message": "fix: select_PhysicianOrderM 加 M.UTI_UNIT_CODE 過濾，修正跨單位病患無法配號",
+          "body": "- select_PhysicianOrderM 原本只過濾 D.UTI_UNIT_CODE，未過濾 M.UTI_UNIT_CODE",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2e2cac89",
+          "date": "2026-03-09",
+          "message": "v3.09: 更新版號 3.09 / 2026/03/09",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "90bd2703",
+          "date": "2026-03-10",
+          "message": "v3.11: 快速列印依勾選結果過濾",
+          "body": "- quickPrint() 加入 checkbox 判斷，只列印勾選的病患",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "6bc12e25",
+          "date": "2026-03-31",
+          "message": "v3.31: fix ORA-00917 SaveBatch 單引號跳脫，錯誤訊息增加 TNO 明細",
+          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2679b9fd",
+          "date": "2026-04-10",
+          "message": "ui: 統一各頁面標題列寬度對齊菜單列",
+          "body": "將 9 個 aspx 頁面的標題 div 從 width:98% 改為 width:100%; box-sizing:border-box，",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "dfded9db",
+          "date": "2026-04-10",
+          "message": "v4.10: EVENTLOG bind params 修正、去重複改留後面、移至指定日期功能",
+          "body": "- EVENTLOG.SaveBatch: 改用 Oracle array binding + BindByName + NVarchar2",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "17d68a89",
+          "date": "2026-04-25",
+          "message": "fix: 移至指定日期移除 CANCEL=0 條件",
+          "body": "CANCEL 欄位除了「取消」還有「隱藏」的含義，批次搬移時應",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6ac96c2f",
+          "date": "2026-04-27",
+          "message": "chore: AddressTo2 改填 support，AddressTo3 清空",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "667dbd8d",
+          "date": "2026-04-27",
+          "message": "chore: 移除 AddressTo2 中的 austynwu (離職)",
+          "body": "值清空保留 key，原本 SendMail 會略過空白項。實際生效需手動更新",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "55c9c79b",
+          "date": "2026-04-27",
+          "message": "v4.28: 修正批次分單範圍尾數遺漏 + clone 腳本納入 CANCEL=1",
+          "body": "- 批次分單 off-by-one bug：起迄號碼最後一號永遠拿不到",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "63536924",
+          "date": "2026-04-27",
+          "message": "docs: 新增 56.228 IIS 目錄結構、SQL 查詢、單位代碼資料維護操作說明",
+          "body": "- deployment-info.md: 補上 Server 2 (56.228) IIS 目錄結構與備份位置",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "43d4ec03",
+          "date": "2026-04-27",
+          "message": "v4.27: 更新版號 4.27 / 2026/04/27",
+          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "aa1ac1c1",
+          "date": "2026-05-14",
+          "message": "v5.14: 移至指定日期改用 SN 過濾，修正無檔名單位無法搬移",
+          "body": "- 原本依 filename 過濾，當 filename 為 NULL 時 IN (...) 永遠 match 不到",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "2e3ac3f4",
+          "date": "2026-05-22",
+          "message": "fix: 1 號站 URL alias 沒有 1 (/WebOrder/ 而非 /WebOrder1/)",
+          "body": "IIS alias: WebOrder, WebOrder2, WebOrder3",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f7f55394",
+          "date": "2026-05-22",
+          "message": "feat: 加部署自動化 (4 站 web.config + Deploy-FenDan.ps1)",
+          "body": "- deploy/configs/Web.WebOrder{1,2,3,4}.config：4 個 IIS 站台各自完整 web.config",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e0cb101e",
+          "date": "2026-05-22",
+          "message": "feat: 顯示登入人「代號 (姓名)」 + SSOLogin.aspx BOM 修正",
+          "body": "- SSOLogin.aspx 改存 UTF-8 BOM (原本沒 BOM 導致 ASP.NET 用 Big5 解析中文崩潰)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "dd0893ed",
+          "date": "2026-05-22",
+          "message": "chore: EVENTLOG 識別碼 [D] 改為 [分單]",
+          "body": "更直觀標示來源系統，避免將來看 log 還要記憶 [D] 代表什麼",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8b6eb053",
+          "date": "2026-05-22",
+          "message": "feat: 接 LIS SSO 取代假登入，EVENTLOG/ORD_DECLARE 寫入真實操作人",
+          "body": "- 移除 MenuControl Page_Load 從 web.config 強塞假身份的邏輯",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "764f70c2",
+          "date": "2026-05-25",
+          "message": "chore: bump v5.25.02 — 登出按鈕移到登入人旁邊",
+          "body": "- 位置從版本標籤前移到「登入人 (姓名)」緊接著",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "50ea9c54",
+          "date": "2026-05-25",
+          "message": "fix: MenuControl 加上登出按鈕",
+          "body": "原本 MenuControl.ascx 漏放登出 LinkButton，雖然 code-behind 有 lbtnLogout_Click handler 但無 UI 觸發。SSO 上線後使用者需要可以主動登出 (同時清分單 Session + 跳 LIS LogOut)。",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "45dd6e48",
+          "date": "2026-05-25",
+          "message": "fix: Deploy-FenDan.ps1 加 UTF-8 BOM",
+          "body": "沒 BOM 時 PowerShell 5.1 預設用 cp950 解析，中文字串會壞掉導致 ParseError",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b2625836",
+          "date": "2026-05-25",
+          "message": "chore: bump v5.25 + 版本更新記錄加入 SSO 條目",
+          "body": "- MenuControl.ascx 版本標籤: 5.14 → 5.25 (2026/05/25)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7ec3dd28",
+          "date": "2026-05-25",
+          "message": "On feat/sso-jwt: localhost SSO test config",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b1497457",
+          "date": "2026-05-25",
+          "message": "index on feat/sso-jwt: 2e3ac3f fix: 1 號站 URL alias 沒有 1 (/WebOrder/ 而非 /WebOrder1/)",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e1b56f8f",
+          "date": "2026-06-29",
+          "message": "refactor: 月統計姓名改直接 JOIN Oracle USER_ACCOUNT，移除 DistUserMap",
+          "body": "USER_ACCOUNT(LIS 使用者表, USER_ID/USER_NAME)與 EVENTLOG 同在 HCLAB Oracle，",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "42dad421",
+          "date": "2026-06-29",
+          "message": "feat: 分單作業多項調整 + 配號查詢/每月統計 (v6.30)",
+          "body": "(1) 配號 200 號上限：起迄號碼旁加「限制200號內」checkbox，前端擋 迄-起+1>200，取消勾選可放行",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f80af922",
+          "date": "2026-06-30",
+          "message": "fix: CheckTransferOverlap 的 IN 子句也改參數化(review: 李宗勳)",
+          "body": "重疊提示查詢的 snIn 漏了參數化，改用 AddInParams。至此 7.1 新增的 4 處 IN",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "1e8424a6",
+          "date": "2026-06-30",
+          "message": "test: smoke test 實跑通過 6/6 (真實 SSO + 完整 lifecycle + DB 斷言)",
+          "body": "- 登入/grid/按鈕 selector 全部實跑收斂(data-sn 定位列、預設全選先取消)",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "30a737a7",
+          "date": "2026-06-30",
+          "message": "test: 新增分單系統 lifecycle smoke test 骨架 (Playwright)",
+          "body": "配號→分單→轉入→取消轉入→取消分單，走完回到原點(自我清理、可重複)。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "394c081c",
+          "date": "2026-06-30",
+          "message": "fix: 刪除/去重複/point2還原 的 IN 子句改參數化(防 SQL injection)",
+          "body": "新增 AddInParams() helper：把值清單轉成 @p0,@p1,... 佔位並綁進參數，取代原本",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6e84f736",
+          "date": "2026-06-30",
+          "message": "docs: todo.md 更新 — point2 標記完成、補「老預檢整批中止改逐筆」、重複醫令進度",
+          "body": "2026/06/30 測試發現老預檢(v2.27)撞一筆內容不同就整批中止，新增逐筆改善 TODO。",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1e5f7915",
+          "date": "2026-06-30",
+          "message": "chore: 版號 6.30.05 → 7.1（預計 2026/07/01 上版）",
+          "body": "明天(7/1)上版，7.1 = 已上 6.30.03 之後累積的 B03(6.30.04) + 撞號/刪除/稽核強化(原 6.30.05) 一起上。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "be7ef398",
+          "date": "2026-06-30",
+          "message": "feat: v6.30.05 撞號/刪除後續強化(point2 + 重疊 + 刪除稽核) — 未部署",
+          "body": "轉入 LIS:",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7cfde1fe",
+          "date": "2026-06-30",
+          "message": "feat: v6.30.04 取消轉入寫 B03 EVENTLOG + 收斂 B03 回主線",
+          "body": "- CancelHCLAB_Click 退 LIS 成功後寫 B03 EVENTLOG(含操作人)，與轉入(B01)對稱",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "121d43ad",
+          "date": "2026-06-30",
+          "message": "docs: 部署文檔補上部署腳本與熱抽換機制",
+          "body": "deployment-info.md 新增「部署方式與機制」：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9b4389ec",
+          "date": "2026-06-30",
+          "message": "docs: 撞號事故的延後項整合進 todo.md",
+          "body": "#4 分單撞號/轉入失敗處理：point 2(轉入失敗不寫 EVENTLOG/不設 TO_ORA)、",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e6714585",
+          "date": "2026-06-30",
+          "message": "fix: v6.30.03 緊急修正分單撞號(ORA-00001)",
+          "body": "根因：CHECK_PhysicianOrderD_By10Number 用 Delivers_DT(送檢日期)過濾，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "91b78e5f",
+          "date": "2026-06-30",
+          "message": "fix: v6.30.02 — 撤回部分 6.30 防禦性改動",
+          "body": "經查 6062509093 異常源頭在匯入端(OrderInSql)非分單系統，撤回：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "353baced",
+          "date": "2026-06-30",
+          "message": "docs: 記錄 6062509093 排查的兩個後續 TODO",
+          "body": "整合進 docs/todo.md「後續優化方向 #4 重複醫令/重複匯入處理」：",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "380dec4d",
+          "date": "2026-06-30",
+          "message": "feat: 取消轉入 LIS 寫 B03 EVENTLOG（含操作人）+ v7.1",
+          "body": "CancelHCLAB_Click 退 LIS 成功後，對每個被取消的 TNO 寫一筆 EL_EV_CODE='B03' EVENTLOG，",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "70c59be0",
+          "date": "2026-06-30",
+          "message": "fix: 填入 WebOrder4 實際標籤機 PRNName (DT2205-112)",
+          "body": "repo 的 Web.WebOrder4.config 還是佔位符 DT2205-XXX，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4f33682f",
+          "date": "2026-06-30",
+          "message": "feat: 首頁改 logo（雙擊叫出刪除分單）、刪除分單改隱藏、選單掛新頁",
+          "body": "- 刪除分單按鈕改為預設隱藏（display:none 的 span），保留刪單能力但防誤按",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "34d41236",
+          "date": "2026-06-30",
+          "message": "docs: 補上 SysMenu INSERT（把配號查詢/每月統計掛上選單）",
+          "body": "查到 SysMenu 結構（root/name/menuid/url，root='' 為最上層），",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "29000adf",
+          "date": "2026-06-30",
+          "message": "fix: checkRange200 移出 <head>，修正 AjaxToolkit「無法修改 Controls 集合」錯誤",
+          "body": "含 <%= ClientID %> 的 JS 放在 <head runat=server> 會讓 head 變成「含程式碼區塊」，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "dbd1744b",
+          "date": "2026-07-01",
+          "message": "fix: v7.1.02 重疊提示排除空白/'00' 的 ID(避免匿名檢體誤判)",
+          "body": "7.1 上線後 0925 新竹聯合狂跳「已被別張單轉入過」：CheckTransferOverlap 用 M.ID",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d3b3cef3",
+          "date": "2026-07-01",
+          "message": "docs: 分單數量統計資料來源說明(用 EVENTLOG 免建表；釐清與 DistAuditLog 差別)",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "950a2e0e",
+          "date": "2026-07-02",
+          "message": "feat: v7.2 開放分單前人工改號/重新配號",
+          "body": "行政遇多配號/回傳補單時可自行改 TNO。解封既有的編輯/下一號按鈕：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5bae7d58",
+          "date": "2026-07-03",
+          "message": "fix: 手動改號的存檔時機改到「轉入」(分單=依起迄重新配號，兩者互斥)",
+          "body": "實測發現：分單是依號碼起迄重新配號(必填起迄、且會蓋掉手動輸入)，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "773ea70e",
+          "date": "2026-07-03",
+          "message": "feat: 分單前改號改為直接打字(分單時一併存) + 修 gvListM debug alert",
+          "body": "5碼列的號碼欄直接開放輸入(淡黃底提示)，按「分單」時 SaveManualTnoEdits",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a3c5d9cf",
+          "date": "2026-07-03",
+          "message": "feat: v7.3 開放已轉入單改號(與 LIS 對齊) + 拔掉下一號按鈕",
+          "body": "LIS 端已把單號處理好時，可回來把分單系統 ID_TNO 改成一致(檢驗值",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "655f34ac",
+          "date": "2026-07-03",
+          "message": "feat: v7.3 開放已轉入單改號(與 LIS 對齊，便於檢驗值回傳)",
+          "body": "LIS 端已把單號處理好時，可回來把分單系統 ID_TNO 改成一致。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "69aeb2a8",
+          "date": "2026-07-16",
+          "message": "chore: 撤回版本記錄那節(DB-only 調整不進版)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ca64187a",
+          "date": "2026-07-16",
+          "message": "chore: 關閉配號查詢/每月統計選單(SysMenu 拔 menuid 9/10，僅 DB)",
+          "body": "v6.30 掛上的兩頁確定不需要，從 WebOrder.SysMenu 移除(4 站共用 DB，",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "22af0f4c",
+          "date": "2026-07-22",
+          "message": "docs: SOP 補註日常開發用 VS Code(VS2022 僅為 MSBuild 來源)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "092a8914",
+          "date": "2026-07-22",
+          "message": "docs: 建立編譯與發佈SOP(不需VS2019、兩行指令完成)",
+          "body": "- 新增 編譯與發佈SOP.md：MSBuild(VS2022)+targeting pack 需求、",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d9212be7",
+          "date": "2026-07-22",
+          "message": "fix: WebOrder1 標籤機 PRNName 同步線上實況(DT2205-125 → 122)",
+          "body": "行政搬家後線上 config 已於 7/6 直接改為 DT2205-122，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "54a41b7a",
+          "date": "2026-07-22",
+          "message": "fix: v7.22 已轉入改號排除同單兄弟醫令(修「同單兩筆改同號」誤擋)",
+          "body": "單位2187回報：兩筆醫令共用 6072112414 要改成 LIS 端的 6072002651，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e569db84",
+          "date": "2026-09-02",
+          "message": "fix: 頁首版號更新 9.02(9.02 上版時漏改 MenuControl.ascx)",
+          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4261c2f6",
+          "date": "2026-09-02",
+          "message": "fix: 重疊提示查詢死結修正(CheckTransferOverlap 反覆失敗)",
+          "body": "- CheckTransferOverlap 查詢加 WITH (NOLOCK)：純提示性檢查不拿 S 鎖，\n  不再與 PHP 清理排程互卡成死結犧牲者\n- SQLToolkit.getDataTable(paraC) throw 保留 inner exception，\n  Error_Log 才看得到真正原因(死結/逾時)而非只有 SQL 本文\n- docs/sql 補覆蓋索引腳本(已於 9/2 在 PRD 建立，查詢 8s→30ms)\n- 版本更新記錄 9.02\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "33ac37e0",
+          "date": "2026-09-07",
+          "message": "docs/deploy: 台中 WebOrder_Test 改為測試「資料庫」— 還原腳本、測試站 config 指測試庫、Oracle 待決",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "34fdf04e",
+          "date": "2026-09-07",
+          "message": "docs/deploy: 台中加常設測試站 /WebOrder_Test（獨立資料夾＋SsoSys=FenDanTCTest，同一把 JwtKey）",
+          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e982edd1",
+          "date": "2026-09-07",
+          "message": "docs: 台中換版改為「新版直接上 /WebOrder、舊版退到 /WebOrder2」＋ SysMenu 相對路徑腳本",
+          "body": "- URL 由 IIS app 虛擬路徑決定，切換日只改 /WebOrder 與 /WebOrder2 的實體路徑與 pool，\n  同仁網址/書籤/LisWeb 入口不變；回復是同兩行反做\n- 新增 docs/sql/tc_sysmenu_relative_url.sql：台中 SysMenu 寫死 /WebOrder/xxx，改成台北式相對路徑，\n  新舊兩站才各自正確（可重複執行、附還原）\n- FenDanTC_URL 改為 /WebOrder/SSOLogin.aspx；步驟表補 appcmd 指令、回復步驟與並存注意點\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "2bc060cb",
+          "date": "2026-09-07",
+          "message": "docs/deploy: 台中現役站定位完成（33.228 HCLAB:8080 /WebOrder → D:\\WebOrder）＋ WebOrder3 新站材料",
+          "body": "- 33.228（TCWEBEXTRA）實查：現役 = HCLAB 站台 8080 的 /WebOrder → D:\\WebOrder（DLL 2023-08-29，\n  pool HCLAB CLR4 32-bit，9/5 有 246 次 DISTRIBUTE 流量）；/WebOrder2 為 2024-01 build 無流量\n- 現役資料夾內 37 個 .cs 與 repo 基線 4f74dca 逐檔 0 差異、DLL 反組譯無台中獨有邏輯、標記檔只差\n  基線新增的兩欄 → 「台中專屬邏輯」風險正式排除\n- 現役 D:\\WebOrder 與 WebOrder2 已備份至 \\192.168.33.229\\d$\\backup\\TC228_*_20260907\n- 新增 deploy/configs/Web.TC-WebOrder3.config（台北 9.02 結構 + 台中現役值，密碼/JwtKey 佔位）\n- 新增 docs/sql/tc_sys_parameter_fendan.sql（台中 Oracle SYS_PARAMETER FenDanTC_* 四筆，可重複執行）\n- 新增 deploy/Inspect-FenDanHost.ps1（在分部主機本機跑的盤點＋備份腳本，UTF-8 BOM）\n- 換版步驟改為：HCLAB 站下新增 app /WebOrder3 → D:\\WebOrder3、新 pool WebOrder3（32-bit）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1be5fc98",
+          "date": "2026-09-07",
+          "message": "docs: 更正台中現況 — 現役站在 33.228（TCWEBEXTRA），33.229 是死站；DB 前置 4/5 已跑",
+          "body": "- 33.227 dm_exec_sessions 證實連 WebOrder 的 .NET 程式來自 TCWEBEXTRA（1.228=33.228）\n- 33.229 的 WebOrder/WebOrder2：port 81、IIS log 止於 2023-09-01、config 指向高雄 139.x → 死站，\n  先前的備份與反組譯比對對象是死站，標記為待用 33.228 現役 DLL 重做\n- 33.227 已跑 UNITPrintSetting / UNITDATA.prePrintLableOrnot / DistAuditLog / IX 索引（驗證通過），\n  SysMenu 腳本留到切換日\n- 補記台中轉檔為 OrderInSQL_keelung，每 10 分鐘噴 .lnk 解析與字串截斷錯誤（交 OrderInSql）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9c4154e0",
+          "date": "2026-09-07",
+          "message": "docs: 台中反組譯比對結論、WebOrder2 備份完成、補 UNITDATA.prePrintLableOrnot 前置腳本",
+          "body": "- 台中 WebOrder2 的 UCLWeb.dll 與 repo 基線 4f74dca 編出的 DLL 同用 ilspycmd 反組譯比對：\n  54 檔一對一、無台中獨有方法/SQL → 台中是同血脈較舊快照，「含台中專屬邏輯」風險排除\n- WebOrder2 已 robocopy 到 \\192.168.33.229\\d$\\backup\\WebOrder2_20260907（185 檔）\n- 比對抓到台中 UNITDATA 缺 prePrintLableOrnot 欄（新版選單位會例外），新增\n  docs/sql/alter_UNITDATA_prePrintLableOrnot.sql（可重複執行），DB 前置由 4 項改 5 項\n- 指紋 SQL 加 has_preprint_col\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d8ed4027",
+          "date": "2026-09-07",
+          "message": "docs: 各分部發佈狀況盤點 — 台中自成一套（33.229 舊站 2023 build、33.227 DB）與換版方案",
+          "body": "- 新增 docs/各分部發佈狀況.md：各分部站台/DB/版本總表、台中站台與 DB 物件比對、\n  升級風險表、「舊站保留、另建新站」換版步驟、下次盤點用的指令與 SQL\n- deployment-info.md 開頭加連結，註明台中不是 56.228 環境\n- 起因：1062 皓生同人合併需求查證時發現台中 WebOrder 不在台北 56.191\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f6b8fe12",
+          "date": "2026-09-08",
+          "message": "docs: 台中 9.08 SSO profile「tp」已上線（2026-09-08 下午）— 台北資訊室經 33.228 走台北 lisweb 登入",
+          "body": "- 各分部發佈狀況：台中列改 9.08、現役資料夾 D:\\WebOrder3；步驟表加第 9 步（部署內容、備份位置、\n  台北 Oracle FenDanTC_TP_* 四筆、Playwright 端對端結果、回復方式）\n- Watch-FenDanTC.ps1 標籤 9.02 → 9.08\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "78979bb3",
+          "date": "2026-09-08",
+          "message": "feat: v9.08 SSO profile — 台中站同時接台中 LisWeb 與台北 lisweb(台北資訊室經 33.228 進站可登入)",
+          "body": "台北資訊室開 http://192.168.33.228:8080/WebOrder/ 會被導去台中 LisWeb 1.229(台北連不到)，\n手改網址走 33.229 也因台北帳號不在台中 Oracle 而登不進去。\n\n- SessionList: 新增 SSO profile。決定順序 ?sso=<name>(寫 cookie；?sso= 清除) → cookie →\n  SsoProfileHosts 依 Host 前綴自動判定 → 預設。appSettings 先找 <key>.<profile>，沒設定退回原 key，\n  既有站台不加新 key 行為不變。未定義的 profile 一律忽略(cookie/query 不可信)。同請求只解析一次。\n- JwtVerifier: JwtIssuer 可用 ; 或 , 列多個 issuer，任一相符即通過(金鑰同一把)。\n- SSOLogin / MenuControl 登出 / CheckSession / Default 全部改走 GetSsoSetting。\n- 台中 config: JwtIssuer 加 https://lisweb.ucl.com.tw；SsoProfileHosts=tp=192.168.33.；\n  SsoSys.tp=FenDanTC_TP、LisSsoUrl.tp/LisLogoutUrl.tp 指台北 lisweb。\n- 台北 Oracle 前置: docs/sql/tp_sys_parameter_fendan_tc_tp.sql(FenDanTC_TP_* 四筆，回呼 33.228)。\n- 版號 9.02 → 9.08；版本更新記錄補 9.08。\n\n已驗證: Release 編譯通過；JwtVerifier 多 issuer 5 案例 PASS；本機 IIS Express 對\nquery/cookie/Host/清除/未定義 profile/CheckSession 7 條路徑 redirect 與 Set-Cookie 全部符合預期。\n台北四站 config 不需改動。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "233b30fa",
+          "date": "2026-09-08",
+          "message": "ops: 新增台中上線後健康檢查腳本 Watch-FenDanTC.ps1",
+          "body": "唯讀、可重複跑，一次看完：\n- 兩個站台 HTTP（新版 /WebOrder 應 302 導 SSO、舊版 /WebOrder2 應 200）\n- Error_Log 新錯（可調回看分鐘數）\n- 近一週分單／轉入量（量突然掉下來就是警訊）\n- DistAuditLog 改號／刪除\n- 今日 10 碼單號重複（撞號徵兆）\n- IIS log 5xx\n\n2026-09-08 08:30 基準全綠。腳本必須存成 UTF-8 with BOM，否則 PS 5.1 會讀成 ANSI 導致語法錯誤。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "621aa887",
+          "date": "2026-09-08",
+          "message": "docs: 台中 9.02 已上線（2026-09-08）— /WebOrder 換新版、舊版 1.1 留在 /WebOrder2",
+          "body": "切換結果：\n- /WebOrder  -> D:\\WebOrder3（新版 9.02，沿用 pool HCLAB）\n- /WebOrder2 -> D:\\WebOrder （舊版 1.1，pool WebOrder2）\n- tc_sysmenu_relative_url.sql 已跑（11 筆絕對路徑改相對）\n- 驗證：SSOLogin 回呼成功、DISTRIBUTE 連續 200、舊站仍可進、Error_Log 兩小時 0 筆\n\n兩個踩雷點寫進文檔：\n- 台中 Oracle 原本沒有任何 FenDan* 參數 → 「登入後回不來」的元凶；LisWeb 參數有 5 分鐘快取\n- appcmd 不在 PATH 且 /[path='/'] 在 PowerShell 會被解析掉 → 改用 WebAdministration 的 Set-ItemProperty\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7b48edff",
+          "date": "2026-09-08",
+          "message": "docs: 台中新版已推到 D:\\WebOrder3；切換簡化為兩行 appcmd（沿用現役 pool）",
+          "body": "- 步驟 3 完成：repo main 的 build 推到 33.228 D:\\WebOrder3（56 檔、18 aspx、9 dll），\n  Web.config 在目標機以現役 D:\\WebOrder\\Web.config 的值產生，只有 SSO 六項是新的；\n  JwtKey 現產、不進 repo。未掛 IIS，現役站未受影響。\n- 步驟 4 取消建新 App Pool：實查 pool HCLAB（v4.0 / x86=true / ApplicationPoolIdentity）\n  只服務 /WebOrder 一個應用程式，切換時沿用即可 → 身分、ACL、位元數不變，也省掉 H: 槽權限風險。\n- 步驟 6/7 改成兩行 appcmd（只改 physicalPath）與對應回復指令。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "443c4cf8",
+          "date": "2026-09-08",
+          "message": "test: 台中測試庫 smoke test 6/6 PASS，順修 smoke test 兩個時序/預期 bug",
+          "body": "實測（開發機 9.02 + 台中測試庫 33.227 WebOrder_Test，單位 1062 皓生 2026/09/07）：\n配號→轉入 LIS→取消轉入→取消分單 全數通過，新版吃台中真實規則（246 條 DivideTNORule、\n台中單位/項目對照）沒問題。\n\nsmoke test 修正：\n- queryGrid()：txtTestDay 是 AutoPostBack=\"True\"，填完日期後直接點「查詢」會被 blur 觸發的\n  postback 吃掉（__EVENTTARGET=txtTestDay），回 200 但 btnQuery_Click 從沒執行、grid 空的。\n  改成先等日期的 postback 完成再點。\n- TNO10：10 碼的日期段來自轉入當下（HCLAB_ID_DateRule(DateTime.Now)），不是送檢日期；\n  原本寫死用 FENDAN_DATE，測舊批次一定失敗。改用今天，可用 FENDAN_TNO_DATE 覆蓋。\n- README 補「對分部測試庫跑」的完整指令與三個踩雷點。\n\n順帶實證兩件事（已寫進 docs/各分部發佈狀況.md）：\n- 32 位元是硬需求：64 位元 IIS Express 直接 BadImageFormatException（Oracle.DataAccess 是 x86）\n  → 台中新站 App Pool 必須開 32-bit\n- 台中 SysMenu 的絕對路徑 /WebOrder/xxx 在別的路徑下全部連不到 → 切換日必跑 tc_sysmenu_relative_url.sql\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "85f0071a",
+          "date": "2026-09-08",
+          "message": "合併 MR !15: docs/test: 台中換版策略定案（新版上 /WebOrder、舊版退 /WebOrder2）＋ 測試庫 WebOrder_Test",
+          "body": "docs/test: 台中換版策略定案（新版上 /WebOrder、舊版退 /WebOrder2）＋ 測試庫 WebOrder_Test\n\nSee merge request ucl/twowayconnection/uclweborder!15",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "4cae81db",
+          "date": "2026-09-08",
+          "message": "test: 台中測試庫 WebOrder_Test 建好，開發機改對台中真實資料驗新版",
+          "body": "- 33.227 還原 WebOrder_Test（用 9/8 凌晨正式庫備份；134,952 筆主檔一致、4 項前置物件與\n  246 條 DivideTNORule 都在），正式庫 WebOrder 未動\n- 開發機 UCLWeb/Web.config 的 DEV 連線改指 33.227 / WebOrder_Test（該檔為 skip-worktree、\n  本機專用不進版控，文檔已註明各機自行修改）；Oracle 仍是台北測試 56.225，轉入只寫測試 LIS\n- tests/smoke/helpers/db.js 支援 FENDAN_SQL_USER/PASS 走 SQL 驗證（跨網域測試庫用），\n  playwright.config.js 補環境變數說明\n- 新增 tests/tc_reset_for_test.sql：把指定單位+送檢日還原成未分單（擋非 WebOrder_Test 執行），\n  已對 1062 / 2026-09-07 跑過（21 人 30 筆，看得到 5 個人各被拆成 2 張單）\n- 新增 docs/sql/tc_sys_parameter_fendan_local.sql（選配：讓開發機走台中 LisWeb SSO）\n- 文檔步驟 5 改為「開發機 + 測試庫」，並列出留到切換日才驗的三項\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4a0f2e8a",
+          "date": "2026-09-17",
+          "message": "fix: CUST_MASTER 更新改用繫結變數，修正地址含單引號的 ORA-00933",
+          "body": "Error_Log A236(2026/09/16)：病人地址含一個單引號，\nCUST_MASTER_HCLAB.Update 的拼接式 SQL 字串常值提前收掉 → ORA-00933。\n\nUpdate / SAVE 兩個方法的所有欄位改用繫結變數，並設 BindByName = true\n(ODP.NET 預設位置繫結，多參數會錯位)。原本僅 DBNAME 為異體字走\n:UnicodeString，其餘皆拼接，等同 SQL injection 破口。\n\n生日維持 to_date(:BIRTH_DATE,'yyyy/MM/dd')，只把值改為繫結，行為不變。\n\n註：此為靜默失敗 — DISTRIBUTE.aspx.cs 未檢查 Update() 回傳值，\n分單轉入本身照常成功，僅客戶主檔未更新。\n\n版號 9.17。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3a4c2bf7",
+          "date": "2026-09-18",
+          "message": "feat: 代碼未對應的項目改以 UNKNOWN TEST 轉入 LIS (v9.22)",
+          "body": "分單畫面紅色(UCL_CODE 空)的明細，轉入時原本是靜默丟棄：不寫 Oracle、\n不擋轉入、EVENTLOG 的 [分單]OI= 也看不到，但 SQL Server 照樣標成 TO_ORA=1，\n之後分單畫面(查詢條件 TO_ORA=0)再也看不到它，對應維護畫面的回填\n(updatePOD_newItemCode，條件 UCL_CODE='')也救不回來 —— 行政要等帳務缺項才發現。\n\n改成比照公衛系統：寫一筆 'UNKNOW' 佔位碼(6 碼，HCLAB.ITEM_MASTERH 既有項目)\n到 BLG_TX_DTL，價 0、健保沿用該筆原本判定、不展開 BLG_PKG_ITEM；\n同時登記到 DbOnlineReservation 的 Customer_UnMapTestCode(單位×院內碼×名稱)\n與 Customer_UCLOrderHaveUnTestCode(單號×院內碼)，行政才能在 LISWeb\n「代碼對應」看到對方代碼與名稱並補正。\n\n登記時機刻意放在該單 _CreateAllBLG 成功之後：撞號失敗的單會還原 TO_ORA，\n先登記只會在代碼對應畫面留下查無 HDR 的孤兒列。登記失敗(例如院內碼超過\n欄位的 10 碼)只記 Error_Log 並在結果訊息提示通知 IT，不擋轉入。\n\n轉入前多一次 confirm「本次有 N 項代碼未對應」，提示但不擋。原本的重疊提示\n併進同一個 confirm 共用 confirmTransfer 參數 —— 分開問的話第二次 postback\n的 EVENTARGUMENT 不同，前一個檢查會重跑，變成問不完。\n\n順手修掉 UCL_CODE='NA'：這是對應維護標記的「不使用」，以前被當一般代碼寫進\nOracle(BLG_TX_DTL 已累積 84 筆 ITD_ITEM_CODE='NA')。現在不轉入，畫面也改成\n灰底「不轉入」而不是紅色。\n\n取消轉入時把該單號的登記標成已完成，不要繼續掛在代碼對應畫面上；Oracle 的\nUNKNOW 明細仍留著 —— 取消轉入本來就不刪任何 BLG_TX_DTL。\n\n⚠ 需搭配 LISWeb 的代碼對應調整，且 LISWeb 要先上，否則行政一送出就會撞\nOrderDetail 對 [Order] 的外鍵。上版前每個分部各確認一次該站 HCLAB 有\nITEM_MASTERH.IMH_CODE='UNKNOW'(BLG_TX_DTL 無外鍵，缺了不報錯只是顯示不出名稱)。\n\nsmoke test 補上 UNKNOW/NA 的斷言；登記表的斷言預設跳過，要驗請用\nFENDAN_DBONLINE_SQL 明確指定測試庫(repo 的 Web.config 指向正式庫)。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c7972a52",
+          "date": "2026-09-21",
+          "message": "docs(smoke): 記錄 9.22 實跑結果與本機 DbOnlineReservation 副本建法",
+          "body": "順帶標註 login.js 寫死的預設密碼已過期 —— 一定要用環境變數帶，\nLIS 登入頁會累計錯誤次數鎖帳號，別盲試。密碼放個人 reference 不進 repo。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "95d3efe4",
+          "date": "2026-09-21",
+          "message": "fix: 轉入前 confirm 的 postback 引數沒註冊 event validation",
+          "body": "把重疊提示的引數從 confirmOverlap 改名成 confirmTransfer 時，漏了同步更新\nRender() 裡的 RegisterForEventValidation。DISTRIBUTE.aspx 有\nEnableEventValidation=\"true\"，未註冊的引數會被擋成\n「無效的回傳或回呼引數」(ArgumentException) —— 使用者按下確定後整頁 500，\n轉入完全不會發生。\n\nsmoke test 實跑抓到：測試批次有未對應項目 → 跳 confirm → 按確定 → 500，\nTO_ORA 停在 0。原本的 confirmOverlap 是有註冊的，是這次改名改歪。\n\n改法：抽成 CONFIRM_TRANSFER_ARG 常數，Render() 與 btnHCLAB_Click 共用同一個\n字串，杜絕兩邊再寫歪。\n\n順帶修 smoke helper：登記表那顆 DB 通常跟 WebOrder 不同台(例如 WebOrder 在\n分部測試庫、登記表在本機)，驗證方式要能各自指定，原本共用一組帳密是寫漏的。\n新增 FENDAN_DBONLINE_USER / FENDAN_DBONLINE_PASS，沒給就走 Windows 驗證。\n\n實跑結果：台中測試庫 1062 + 本機 DbOnlineReservation 副本，7/7 PASS。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "26c0662c",
+          "date": "2026-09-21",
+          "message": "fix: 未對應登記的 @@ROWCOUNT 先存變數再判斷",
+          "body": "IF @@ROWCOUNT = 0 AND NOT EXISTS (...) 有求值順序的隱患:\nT-SQL 不保證 AND 兩側的順序, 讓 NOT EXISTS 的子查詢先跑就會把 @@ROWCOUNT\n蓋成子查詢的筆數, 變成該 INSERT 的時候沒 INSERT。\n實測這台是左到右求值所以沒踩到, 但那不是可以依賴的行為。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0d2b9dc3",
+          "date": "2026-09-21",
+          "message": "fix: 未對應登記的 @@ROWCOUNT 先存變數再判斷",
+          "body": "IF @@ROWCOUNT = 0 AND NOT EXISTS (...) 有求值順序的隱患:\nT-SQL 不保證 AND 兩側的順序, 讓 NOT EXISTS 的子查詢先跑就會把 @@ROWCOUNT\n蓋成子查詢的筆數, 變成該 INSERT 的時候沒 INSERT。\n實測這台是左到右求值所以沒踩到, 但那不是可以依賴的行為。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "87755cb5",
+          "date": "2026-09-22",
+          "message": "docs: 轉入LIS 跳錯誤頁的根因與除錯路徑(ADD_ITEM 回空清單)",
+          "body": "2026-09-22 同仁反映 0235 轉入 LIS 跳錯誤頁。查出來是長年既有問題，\n不是當天上的 v9.22 造成的 —— 伺服器事件記錄裡同一個例外有 29 筆，\n最早回溯到 2026-01-30，橫跨四個站台。\n\n根因是 ADD_TEST_ITEM 有一條 UTI_UCL 沒加引號(0235 的 `2081,P215`)，\n被原樣拼進 `UCL_CODE in (...)` 後 SQL Server 把 P215 當欄位名而拋錯,\ngetDataTable 吃掉例外回 null，ADD_ITEM 走「傳一個空的LIST」的早退,\n呼叫端下一行直接取 [0] → ArgumentOutOfRangeException，且不在任何\ntry/catch 內 → Error_Log 沒紀錄、IIS log 只看到 customErrors 的 200。\n\n資料已修(全庫恢復 0 筆壞規則)，程式面的空清單地雷另開 MR。\n\n文件也記下這類「跳錯誤頁但 Error_Log 沒東西」的查法：\nDCOM/RPC 連不上時，改用 SMB 把 Application.evtx 抓回本機再\nGet-WinEvent -Path 解析，順便能用歷史發生時間判斷是不是新版造成的。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1470f752",
+          "date": "2026-09-23",
+          "message": "docs: PHP 配對工具先不下架，確認分單版可行後再處理",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "0cb902d1",
+          "date": "2026-09-23",
+          "message": "feat: 配對面板加「找候選單號」，移植 OrderMappingManager.php 的比對分析",
+          "body": "原本配對要操作的人自己知道單號(先去 LIS 查)。PHP 工具會直接列出候選，\n沒補這步的話同仁還是會回去用 PHP，無法達成「只留一個入口」。\n\n「找候選單號」到 LIS 找同單位、同一個病人(身分證號，沒有就用姓名)、\n送檢日前後 7 天的單，最多 20 張，逐張比對項目：\n- 符合度沿用 PHP：項目重疊比例 × 70 + max(0, 30 − 日期差 × 5)\n- 分列會配對的項目 / 醫令有 LIS 沒有 / LIS 多出的項目\n- 完全重疊綠底；按「帶入」填入單號並自動查核\n- 唯一候選且完全重疊時直接帶入並查核(比照 PHP 預設勾選)，仍要人按確認才寫入\n\n與 PHP 的差異：\n- 未簽收的單不會漏：LIS 未簽收的單 ID_TRX_DT 停在 9999-12-31，PHP 直接拿它\n  比日期，剛開還沒簽收的單全部找不到；改用 ID_UPDATE_ON(比照 LISWeb CodeMap)\n- 不要求至少一個項目重疊才列出：LIS 那張單可能還沒補上這個項目\n- 單位同時比送檢與 UNIT_Corr 收費單位(PHP 只比送檢，台北 180 組會查不到)\n- 沿用 PHP 的代碼特例對照 D081 ↔ 9478(只影響比對)\n\n驗證：tno-mapping.spec.js 新增 3b(LIS 單設成未簽收仍找得到、按帶入填入並查核)，\n連同原本 smoke 共 14/14 PASS。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "20f6aed5",
+          "date": "2026-09-23",
+          "message": "合併 MR !26: feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (v9.29, CHG202609220003)",
+          "body": "feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (v9.29, CHG202609220003)\n\nSee merge request ucl/twowayconnection/uclweborder!26",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "4f00a928",
+          "date": "2026-09-23",
+          "message": "chore: 版號改為 9.29(2026/09/29 下週二上線)",
+          "body": "9/25 中秋、9/28 教師節連假，改到 9/29 台北＋台中一起上。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a3adab1e",
+          "date": "2026-09-23",
+          "message": "feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (工單 CHG202609220003)",
+          "body": "台中皓生補醫令：同一個病人 LIS 已經有一張單(分單開的、手開的、或照紙本開的)，\n晚到／補進來的電子醫令沒辦法再填同一個單號，檢驗值回不去。原本只能用 HCLAB_web\n的 OrderMappingManager.php 直接改 DB，繞過分單所有檢查。\n\n病人列多一欄「配對單號」：輸入 LIS 既有的 10 碼 → 查核 → 勾項目 → 確認。\n只更新 WebOrder：ID_TNO = 既有單號、TO_ORA = 1(= LIS 已有資料，分單不必處理 BLG)，\n不寫 Oracle。\n\n查核(確認時伺服器端再跑一次)：\n- LIS BLG_TX_HDR 要有這張單\n- 同一個病人：身分證號兩邊都有就比身分證號；任一邊沒有就改比姓名。\n  既有的改單號檢查遇到沒身分證號是直接略過，紙本單常見這種情況，照搬會變成\n  任何單號都配得上去\n- 分單系統裡這個單號沒掛在別的病人(同一個病人持有是正常的，那就是原本那張單)\n- 單位不同(比對送檢與 UNIT_Corr 收費單位)需勾確認\n- LIS 那張單沒有該項目時只警告：配對後不會再轉入，要先在 LIS 補上\n\n工具列「配對查詢/取消」：只列出最後一筆 DistAuditLog 是 MAP_TNO 的明細，\n一般轉入的不會出現也不會被改到；取消後回到未分單、LIS 不動。一般轉入要退回\n仍用「取消轉入LIS」，兩者語意不同，畫面上有寫明。\n\n配對／取消都跟 DistAuditLog(MAP_TNO / UNMAP_TNO) 在同一個交易 —— 取消配對\n要靠這筆稽核判斷來源，沒寫進去就不算配對成功。\n\n資料存取集中在新檔 DML/TnoMapping_DML.cs。評估文件(原 !24)一併帶進來並\n改寫成定案與實作說明。\n\n驗證：新增 tests/smoke/tno-mapping.spec.js(台中測試庫 1062 同一病人兩張 SN：\n正常轉入 A、LIS 不存在擋、別的病人擋、B 配對到 A 且 LIS 明細數不變、取消配對\n只列 B)，連同原本的 smoke 共 13/13 PASS。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6a2885bf",
+          "date": "2026-09-23",
+          "message": "fix: 加項規則查詢失敗不再讓整張單轉不進去 (v9.23)",
+          "body": "ADD_ITEM 用 getDataTable() 查加項規則，回 null 代表這句查詢「拋了例外」\n(沒有資料是另一條 Rows.Count == 0)。原本這裡 return 一個空的 List，\n呼叫端下一行就 addListString[0] → ArgumentOutOfRangeException。\n\n那個例外不在任何 try/catch 內，所以三個常看的地方都沒訊號：\nError_Log 沒紀錄、IIS log 只看到 customErrors 導向後的 200、\n畫面只有一句「執行階段錯誤」。2026-01-30 起共 29 次、橫跨四個站台、\n咬了八個月沒人查得出來。\n\n修法：\n- null 分支改成跳過該條規則並寫 Error_Log，不再 return 空 List。\n  改完 ADD_ITEM 只剩單一出口、必定回滿 4 個元素。\n- 呼叫端加防護：元素不足就記錄並視為「本單無加項」，不讓它整頁掛掉。\n\n這條早退路徑從來沒有成功回傳過 —— 每次走到都是呼叫端當場崩潰，\n所以沒有既有行為需要保留。\n\n觸發物(0235 的 ADD_TEST_ITEM 少了引號)已於 2026-09-22 修掉資料，\n但那句查詢逾時或死結同樣回 null，這裡才是根治。\n\n驗證：台中測試庫 1062 + 本機 DbOnlineReservation 副本 smoke test 7/7 PASS。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b96cda62",
+          "date": "2026-09-23",
+          "message": "docs: 醫令配對回單號的需求與整合評估 (CHG202609220003)",
+          "body": "台中皓生漏項目補醫令，補進來的醫令掛不回已完成的 10 碼單號，檢驗值回不去。\n李宗勳已有 PHP 工具 OrderMappingManager.php(HCLAB_web !41 v2 兩地共用)，\n評估把功能整合進分單系統。\n\n盤點結果：\n- 分單系統要把明細掛到「已存在且已轉入」的單號卡 5 關，其中第 3 關\n  (BLG_TX_HDR 已存在就擋)就是古孟畇說的「只能用在空單上」\n- 但需要的零件都在：Update_TransferredTNO 的驗證正好是「新號碼必須\n  已存在於 LIS + 同 PID + 排除同單 + 寫 DistAuditLog」，只是入口被\n  cbTO_ORA.Checked 鎖住；BLG_TX_DTL.checkDataExist 也已支援加項去重\n- 規模不大：台中近 14 天只有 1 張，故建議先做「能手動掛上去」，\n  自動配對建議等觀察實際頻率再說\n\n文件另含對 !41 的 review 建議(已另貼到該 MR)。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e2668bdf",
+          "date": "2026-09-24",
+          "message": "合併 MR !27: feat: 配對面板加「找候選單號」，移植 PHP 的比對分析 (v9.29)",
+          "body": "feat: 配對面板加「找候選單號」，移植 PHP 的比對分析 (v9.29)\n\nSee merge request ucl/twowayconnection/uclweborder!27",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "cb759031",
+          "date": "2026-09-29",
+          "message": "chore: 版號改為 9.30(2026/09/30 台北上線)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ba76ef14",
+          "date": "2026-09-29",
+          "message": "fix: Error_Log 寫自建 Exception 時 @source 為 null 導致 INSERT 失敗",
+          "body": "自己 new 出來沒 throw 過的 Exception，Source 是 null；AddWithValue(null)\n不會送出參數，INSERT Error_Log 會拋 8178「必須有參數 '@source'」，\nError_Log.Insert 再把例外往外丟。\n\n實際案例 (2026/09/24 A271, TNO 6092414385)：院內碼超過 10 碼，\nIsCodeWritable 要記一筆「略過登記」卻在寫 log 時炸掉，例外穿出\nUnMapTestCode_DML 被轉入 LIS 的 catch 接住 → 該單 Oracle 已寫成功，\n畫面卻報「部分資料轉入失敗」，同單後續未對應碼也沒登記。\n\n- Error_Log.Insert 兩個多載：Source 為 null 時改用空字串\n  （同時修好 DISTRIBUTE 兩處 ADD_ITEM 防呆 log 的同款問題）\n- UnMapTestCode_DML 所有寫 log 改走 LogQuietly，守住「絕不往外拋」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e39ef978",
+          "date": "2026-09-30",
+          "message": "feat: 未對應登記院內碼上限 10 → 50 碼（DB 前置：alter_DbOnline_UnitTestCode_50.sql）",
+          "body": "DbOnlineReservation 三張 Customer_* 登記表的 UnitTestCode 是公衛 API 開的 varchar(10)，\n分單院內碼欄位是 50 碼（實際最長 25），超過的登記不進去、CodeMap 看不到院內碼，\n且每張單記兩筆 Error_Log。已與公衛同仁確認可放寬（2026/09/30）。\n\n- docs/sql/alter_DbOnline_UnitTestCode_50.sql：拆 PK → ALTER COLUMN → 建回 PK，可重複執行，各分部先跑\n- UnMapTestCode_DML.UnitTestCodeMaxLen 10 → 50\n- SharedProject DDL 同步（sharedproject!28）\n- 發佈 SOP 前置檢查表補一列\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b6037de8",
+          "date": "2026-09-30",
+          "message": "fix: BLG_TX_HDR 寫入時跳脫電話/身分證/檢體標示的單引號 (ORA-00917)",
+          "body": "單位 0886 病人 TEL1 內容是單引號，_CreateAllBLG 直接拼字串變成 ''' 導致\nORA-00917 遺漏逗號，該單轉入兩次都失敗。ID_PTELNO / ID_PID / ID_INVNO\n比照 ID_PADDR1 加 Replace(\"'\", \"''\")，_Create 與 _CreateAllBLG 兩處都改。\n版號 10.01（2026/10/01 上線）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "df5e5d13",
+          "date": "2026-09-30",
+          "message": "合併 MR !28: fix: Error_Log 寫自建 Exception 時 @source 為 null 導致轉入 LIS 誤報失敗 (v9.30)",
+          "body": "fix: Error_Log 寫自建 Exception 時 @source 為 null 導致轉入 LIS 誤報失敗 (v9.30)\n\nSee merge request ucl/twowayconnection/uclweborder!28",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "2dab4c56",
+          "date": "2026-10-01",
+          "message": "合併 MR !29: fix: 轉入 LIS 單引號跳脫 (ORA-00917)＋未對應登記院內碼上限放寬到 50 碼 (v10.01)",
+          "body": "fix: 轉入 LIS 單引號跳脫 (ORA-00917)＋未對應登記院內碼上限放寬到 50 碼 (v10.01)\n\nSee merge request ucl/twowayconnection/uclweborder!29",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "8ebc1edd",
+          "date": "2026-10-19",
+          "message": "合併 MR !31: fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面 (v10.20)",
+          "body": "fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面 (v10.20)\n\nSee merge request ucl/twowayconnection/uclweborder!31",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "12285785",
+          "date": "2026-10-19",
+          "message": "chore: 版號改為 10.20(2026/10/20 台北上線)",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2edbc291",
+          "date": "2026-10-19",
+          "message": "test: 去重複孤兒細項的本地實測（setup SQL + Playwright）",
+          "body": "- tests/dedup_orphan_setup.sql：透過 Linked Server 唯讀正式庫，在本地 SQLEXPRESS 還原\n  0247 2026/10/16 去重複前狀態(16 條碼 × 2 份主單、29 筆被刪列照原 SN/SN_D 還原)\n- tests/smoke/dedup-orphan.spec.js：按去重複後不可留下整張只剩隱藏列的主單；\n  含對照組(還有可見項目的單，隱藏細項要保留)；EXPECT_OLD=1 驗舊版可重現\n- 實測：main 重現 11 張孤兒；本修正 0 張、DEDUP_ORPHAN 44 筆、對照組保留；\n  既有 lifecycle smoke 6 passed\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "53724b23",
+          "date": "2026-10-19",
+          "message": "fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面",
+          "body": "醫院上傳的套檢是「套檢列 + 隱藏細項列」(細項由 OrderCheckJob 設 CANCEL=1)。\n同一條碼傳兩次時，去重複只比 CANCEL=0，刪掉重複套檢列後隱藏細項留下；\n整張只剩隱藏列時 PHP_ALL_CANCEL 會全部改回顯示 → 套檢變成一堆細項\n(2026/10/16 0247 基隆醫院 12 張單 52 筆)。\n\n- 刪完只剩隱藏列的主單，隱藏列一併刪除(稽核 DEDUP_ORPHAN)；有已轉入列不動\n- 已配號的優先保留(原本 ORDER BY SN DESC，SN 是 GUID 等於隨機)\n- 確認框顯示連帶刪除的隱藏細項數、要刪資料中的已配號筆數\n- tests/dedup_orphan_dryrun.sql 唯讀模擬：0247 10/16 抓到的 52 筆與實際被翻開的逐筆一致，\n  其他 4 個單位日 0 筆\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "a9976c33",
+          "date": "2026-10-19",
+          "message": "docs: 各分部發佈狀況更新 —— 台北 10.01、台中 9.29（10.01 DB 前置已完成）",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "654e38bb",
+          "date": "2026-10-28",
+          "message": "docs: 去重複跨病人誤刪 10/28 追蹤（處理現況、3528、OrderCheckJob）",
+          "body": "- 秉坤 23 張：補做 13 張已人工補單，加做 7 張未處理；0926 Zinc 已補\n- 3528 每天 (D)(E) 兩檔序號重編，10/27、10/28 同樣誤刪；整理觸發條件\n- 順帶發現 OrderCheckJob 隱藏 3528 P228/P217/2460，待檢驗回覆\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "765410f1",
+          "date": "2026-10-28",
+          "message": "fix: 去重複把不同病人的醫令當重複刪掉 (v10.29)",
+          "body": "2026/10/27 秉坤(1021/1102)按去重複刪 29 項，全部是別的病人，13 張單整張被刪光；\n0926 聯明 10/16 也被刪 3 項。\n\n根因：重複 key 從 v3.04 起以 id_cli_info(檢體註解)當病人識別。安慎線把採檢序號\n寫進這欄、每個檔從 1001 重編，同一天收好幾批就對到不同病人。\n\n- 重複 key 改成 病人(身分證/姓名+生日)+條碼+項目+院內碼，不再使用檢體註解\n- 防呆：同一組病人資料不一致整組不刪，確認框列出\n- 確認框病人後面帶條碼\n- 稽核多存 PatientID/PatientName/ID_INVNO；稽核與刪除同一交易，稽核失敗就不刪\n- DB 前置：docs/sql/alter_DistAuditLog_patient.sql(sqlcmd 加 -f 65001)\n\n本地驗證(tests/dedup_crosspatient_setup.sql + tests/smoke/dedup-crosspatient.spec.js)：\nmain 重現 24 筆跨病人誤刪；本修正只刪 2 筆對照組真重複、防呆組不刪、拿掉稽核欄位時\n一筆不刪；回歸 dedup-orphan(0247) 與 lifecycle smoke 皆通過。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "37a2fe0c",
+          "date": "2026-10-29",
+          "message": "合併 MR !33: docs: 去重複誤刪善後追蹤＋10.29 上線後監控",
+          "body": "docs: 去重複誤刪善後追蹤＋10.29 上線後監控\n\nSee merge request ucl/twowayconnection/uclweborder!33",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "5b0fe8f7",
+          "date": "2026-10-29",
+          "message": "docs: 10.29 上線紀錄＋去重複上線後監控查詢",
+          "body": "- docs/去重複_跨病人誤刪.md：10.29 上線結果、監控做法與在 Claude Code 開監控的指令\n- tests/dedup_audit_watch.sql：唯讀查今天去重複是否刪錯人(用稽核的病人欄位比對保留列)\n- 秉坤 7 張加做：使用者確認不用動\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c06d7700",
+          "date": "2026-11-20",
+          "message": "test(自動減項): 端對端測試 + 前置腳本，文檔補實測結果",
+          "body": "本機 IIS Express → 台北測試庫(56.191 WebOrder_Test) → 測試 LIS(56.225)，\n用朴子 2026/11/19 真實醫令，8 項全過：\n- 命中組(2081+P215)：LIS 只有 P215、SEQ=1，EVENTLOG 有「[分單]自動減項=2081」\n- 對照組(只有 2081)：照常轉入、沒有減項紀錄\n- 被減的那列在 PhysicianOrderD 視同已轉入(TO_ORA=1)，取消轉入時隨整張單退回\n\n文檔補上：重跑方式、測試環境備忘(台北測試庫補了缺的表、本機 WebOrder 已不在、\n測試庫有前人留下的減項規則)、上版前要確認各站有 UTI_DELETE_ITEM 欄位(台中測試庫沒有)。\n\n尚未正式編譯(本機無 4.0 targeting pack)、尚未上版。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "63bc7a8b",
+          "date": "2026-11-20",
+          "message": "feat(轉入LIS): 自動減項 — 依 ADD_TEST_ITEM 規則不帶重複項目",
+          "body": "朴子醫院(0147)同時開 PSA(2081) 和 Free PSA/PSA(P215)，P215 已含 PSA(2381)，\nPSA 被重複檢驗、重複計價。先前靠現場人工拿掉，2026-08~11 共 87 張單漏掉。\n\n沿用 ADD_TEST_ITEM：UTI_UCL 的項目全部在單上時，UTI_DELETE_ITEM 列的項目不轉入 LIS。\n- 比對「這張單即將轉入的項目」(含自動加項)，以單號為單位\n- 被減項目不寫 BLG_TX_DTL / BLG_PKG_ITEM，EVENTLOG B01 多一筆「[分單]自動減項=」\n- 防呆：會把整張單減光、規則查詢失敗、任何例外 → 不做減項照原樣轉入\n- ADD_ITEM 跳過「無加項且無急件」的規則，避免純減項規則把急件旗標蓋回 R\n\n尚未實際轉入測試、尚未上版；規則資料也還沒下。細節與測試步驟見 docs/自動減項.md。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "TwowayConnection\\VisionReportHub",
       "totalCommits": 137,
       "commits": [
@@ -25129,1101 +26392,6 @@
           "message": "fix(doudian): 高雄檢驗所代碼改為 JY07350064",
           "body": "豆點回報 HEXAM IDNO 送的 9401020012 不是高雄所（是照抄展望的值）。\n正式機 HisVendors.DefaultConfig 已於 2026-10-13 16:21 改好；\n這裡同步建置 SQL 與文件，避免重建時又帶錯。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "錯誤修正",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "TwowayConnection\\分單系統",
-      "totalCommits": 136,
-      "commits": [
-        {
-          "hash": "d9c88e57",
-          "date": "2026-01-23",
-          "message": "Phase 1 效能優化與死結修復",
-          "body": "效能優化：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "2d36d7dd",
-          "date": "2026-01-23",
-          "message": "新增舊系統核心問題記錄與效能優化計畫",
-          "body": "- 舊系統核心問題.md：記錄死結、取消轉入、效能問題",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c6b5b850",
-          "date": "2026-01-23",
-          "message": "新增效能修復與重構文件",
-          "body": "修復:",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "732cb05e",
-          "date": "2026-01-24",
-          "message": "v2.4.1: 修正頁碼顯示被截斷問題",
-          "body": "- 增加底部邊距 (20mm) 讓頁碼有足夠空間",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "6076cfcb",
-          "date": "2026-01-24",
-          "message": "v2.4: 快速列印格式微調",
-          "body": "- 增加行高 (padding 8px)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "621a2528",
-          "date": "2026-01-24",
-          "message": "更新文件：新增 todo 清單、調整重構計畫分工",
-          "body": "- 新增 docs/todo.md",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "726f28fc",
-          "date": "2026-01-24",
-          "message": "v2.3: 快速列印格式優化",
-          "body": "- 分單號碼移至第一欄並加藍色",
-          "category": "重構",
-          "tags": []
-        },
-        {
-          "hash": "8cc9ff4d",
-          "date": "2026-01-24",
-          "message": "v2.2: 快速列印顏色提示修正",
-          "body": "- 快速列印加入紅/黃底色顯示未對應項目",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "3352772c",
-          "date": "2026-01-24",
-          "message": "新增快速列印功能與 UI 優化",
-          "body": "- 新增快速列印按鈕（前端 JavaScript 直接列印，不需等待）",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c3d8212c",
-          "date": "2026-01-26",
-          "message": "v2.8: 快速列印優化與分單排序修正",
-          "body": "- 快速列印：病患資料使用 tbody 包裹，避免跨頁切割",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "850c56ec",
-          "date": "2026-01-26",
-          "message": "新增開發環境設定與公衛代碼功能文件",
-          "body": "- LinkedServer設定指南.md: 完整本地開發環境設定（SQL Server Express、測試資料庫、Linked Server）",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "e6e7c70c",
-          "date": "2026-01-26",
-          "message": "Merge branch '加入遺漏的檔案'",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cd6e87ee",
-          "date": "2026-01-26",
-          "message": "v2.5: 快速列印格式大幅調整",
-          "body": "- 移除分單號碼獨立欄位 (9欄)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7ccf76b9",
-          "date": "2026-01-27",
-          "message": "v2.12: 修正切換單位時快速列印資料不同步問題",
-          "body": "- 隱藏 txtUNIT_CODE，統一使用 ddlUNITDATA 選擇單位",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "aed83079",
-          "date": "2026-01-27",
-          "message": "v2.12: 修正快速列印欄位索引",
-          "body": "- 因 v2.11 新增勾選框欄位，快速列印的 cell index 需要 +1",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "46aa6896",
-          "date": "2026-01-27",
-          "message": "v2.11.1: 修正全選勾選框影響轉入HCLAB的問題",
-          "body": "- toggleSelectAll 只影響列印勾選框 (chkPrint class)",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "3108705a",
-          "date": "2026-01-27",
-          "message": "v2.11: 標籤部份列印功能與取消轉入修正",
-          "body": "- 標籤部份列印：新增病患勾選框與全選功能",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "29acabc2",
-          "date": "2026-01-27",
-          "message": "v2.10: 取消轉入改善 - B03 機制與排除已簽收",
-          "body": "- 使用 B03 機制觸發 LIS 刪除 Oracle 資料",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "1de9fe9a",
-          "date": "2026-01-28",
-          "message": "v2.13: 修正多印N張姓名標籤功能",
-          "body": "- btnQuery_Click 加入 PrintNameLabelCount 設定邏輯",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "c9dea24b",
-          "date": "2026-01-29",
-          "message": "docs: 更新站台配置資訊（姿飴/B1/孝田對應 WebOrder1-3 及 TSC DT2205）",
-          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "98b2ad42",
-          "date": "2026-01-29",
-          "message": "v2.14: 按檔案批量勾選/取消勾選功能",
-          "body": "- 三個 Master 查詢加入 filename 子查詢",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "c00fc284",
-          "date": "2026-02-05",
-          "message": "v2.15: 查詢排序改為按分單號碼優先，與預覽列印一致",
-          "body": "- Query_PhysicianOrderM 加入 MinTNO 子查詢",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "65ce709d",
-          "date": "2026-02-24",
-          "message": "v2.16: 取消分單/取消轉入支援按檔案篩選勾選",
-          "body": "- 新增 GetCheckedSNList() 收集被勾選的 SN",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b875a42a",
-          "date": "2026-02-26",
-          "message": "UNITDATA: 新增項目列印設定介面 + 設定文檔",
-          "body": "- 單位維護頁面新增「列印設定」按鈕，可管理 UNITPrintSetting",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "21f8397e",
-          "date": "2026-02-26",
-          "message": "v2.26: 刪除分單部份刪除、顯示分單進度、項目列印設定、HCLAB→LIS、多項修正",
-          "body": "新功能：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "e2c4f708",
-          "date": "2026-02-27",
-          "message": "DISTRIBUTE: 還原按鈕順序為原始排列",
-          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "d822b486",
-          "date": "2026-03-02",
-          "message": "v2.27: 轉入LIS改進 — skippedTNOs重試、ADD_ITEM去重、還原部份選取",
-          "body": "- 轉入LIS：新增 skippedTNOs 邏輯，重試時比對身分證號跳過已轉入的",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0ef30d8e",
-          "date": "2026-03-04",
-          "message": "v3.03: 部份選取支援(分單/轉入/取消/刪除) + ID_TNO補零 + SQL測試",
-          "body": "- 部份選取機制：JS collectCheckedRows() + HiddenField + GetCheckedSNList()",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2e22fd53",
-          "date": "2026-03-05",
-          "message": "fix: EVENTLOG SaveBatch 移除 Replace 與 q'[]' 混用，避免 ORA-06550",
-          "body": "原本 Replace(\"'\", \"''\") 搭配 q'[...]' 使用，當 comment 含特定字元時",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "0829e197",
-          "date": "2026-03-05",
-          "message": "v3.05: 更新版號 + 版本更新記錄",
-          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "8ab3ebfa",
-          "date": "2026-03-05",
-          "message": "v3.04: 更新版號 3.04 / 2026/03/05",
-          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "3e179285",
-          "date": "2026-03-05",
-          "message": "v3.04: 新增去重複醫令功能 (btnDedup)",
-          "body": "同事反映單位傳多個檔案內容重複或檔案本身有重複項目，導致 PhysicianOrderD 出現重複記錄。",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "41e15539",
-          "date": "2026-03-09",
-          "message": "fix: select_PhysicianOrderM 加 M.UTI_UNIT_CODE 過濾，修正跨單位病患無法配號",
-          "body": "- select_PhysicianOrderM 原本只過濾 D.UTI_UNIT_CODE，未過濾 M.UTI_UNIT_CODE",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "2e2cac89",
-          "date": "2026-03-09",
-          "message": "v3.09: 更新版號 3.09 / 2026/03/09",
-          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "90bd2703",
-          "date": "2026-03-10",
-          "message": "v3.11: 快速列印依勾選結果過濾",
-          "body": "- quickPrint() 加入 checkbox 判斷，只列印勾選的病患",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "6bc12e25",
-          "date": "2026-03-31",
-          "message": "v3.31: fix ORA-00917 SaveBatch 單引號跳脫，錯誤訊息增加 TNO 明細",
-          "body": "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "2679b9fd",
-          "date": "2026-04-10",
-          "message": "ui: 統一各頁面標題列寬度對齊菜單列",
-          "body": "將 9 個 aspx 頁面的標題 div 從 width:98% 改為 width:100%; box-sizing:border-box，",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "dfded9db",
-          "date": "2026-04-10",
-          "message": "v4.10: EVENTLOG bind params 修正、去重複改留後面、移至指定日期功能",
-          "body": "- EVENTLOG.SaveBatch: 改用 Oracle array binding + BindByName + NVarchar2",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "17d68a89",
-          "date": "2026-04-25",
-          "message": "fix: 移至指定日期移除 CANCEL=0 條件",
-          "body": "CANCEL 欄位除了「取消」還有「隱藏」的含義，批次搬移時應",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "6ac96c2f",
-          "date": "2026-04-27",
-          "message": "chore: AddressTo2 改填 support，AddressTo3 清空",
-          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "667dbd8d",
-          "date": "2026-04-27",
-          "message": "chore: 移除 AddressTo2 中的 austynwu (離職)",
-          "body": "值清空保留 key，原本 SendMail 會略過空白項。實際生效需手動更新",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "55c9c79b",
-          "date": "2026-04-27",
-          "message": "v4.28: 修正批次分單範圍尾數遺漏 + clone 腳本納入 CANCEL=1",
-          "body": "- 批次分單 off-by-one bug：起迄號碼最後一號永遠拿不到",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "63536924",
-          "date": "2026-04-27",
-          "message": "docs: 新增 56.228 IIS 目錄結構、SQL 查詢、單位代碼資料維護操作說明",
-          "body": "- deployment-info.md: 補上 Server 2 (56.228) IIS 目錄結構與備份位置",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "43d4ec03",
-          "date": "2026-04-27",
-          "message": "v4.27: 更新版號 4.27 / 2026/04/27",
-          "body": "Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "aa1ac1c1",
-          "date": "2026-05-14",
-          "message": "v5.14: 移至指定日期改用 SN 過濾，修正無檔名單位無法搬移",
-          "body": "- 原本依 filename 過濾，當 filename 為 NULL 時 IN (...) 永遠 match 不到",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "2e3ac3f4",
-          "date": "2026-05-22",
-          "message": "fix: 1 號站 URL alias 沒有 1 (/WebOrder/ 而非 /WebOrder1/)",
-          "body": "IIS alias: WebOrder, WebOrder2, WebOrder3",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "f7f55394",
-          "date": "2026-05-22",
-          "message": "feat: 加部署自動化 (4 站 web.config + Deploy-FenDan.ps1)",
-          "body": "- deploy/configs/Web.WebOrder{1,2,3,4}.config：4 個 IIS 站台各自完整 web.config",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "e0cb101e",
-          "date": "2026-05-22",
-          "message": "feat: 顯示登入人「代號 (姓名)」 + SSOLogin.aspx BOM 修正",
-          "body": "- SSOLogin.aspx 改存 UTF-8 BOM (原本沒 BOM 導致 ASP.NET 用 Big5 解析中文崩潰)",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "dd0893ed",
-          "date": "2026-05-22",
-          "message": "chore: EVENTLOG 識別碼 [D] 改為 [分單]",
-          "body": "更直觀標示來源系統，避免將來看 log 還要記憶 [D] 代表什麼",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "8b6eb053",
-          "date": "2026-05-22",
-          "message": "feat: 接 LIS SSO 取代假登入，EVENTLOG/ORD_DECLARE 寫入真實操作人",
-          "body": "- 移除 MenuControl Page_Load 從 web.config 強塞假身份的邏輯",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "764f70c2",
-          "date": "2026-05-25",
-          "message": "chore: bump v5.25.02 — 登出按鈕移到登入人旁邊",
-          "body": "- 位置從版本標籤前移到「登入人 (姓名)」緊接著",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "50ea9c54",
-          "date": "2026-05-25",
-          "message": "fix: MenuControl 加上登出按鈕",
-          "body": "原本 MenuControl.ascx 漏放登出 LinkButton，雖然 code-behind 有 lbtnLogout_Click handler 但無 UI 觸發。SSO 上線後使用者需要可以主動登出 (同時清分單 Session + 跳 LIS LogOut)。",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "45dd6e48",
-          "date": "2026-05-25",
-          "message": "fix: Deploy-FenDan.ps1 加 UTF-8 BOM",
-          "body": "沒 BOM 時 PowerShell 5.1 預設用 cp950 解析，中文字串會壞掉導致 ParseError",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "b2625836",
-          "date": "2026-05-25",
-          "message": "chore: bump v5.25 + 版本更新記錄加入 SSO 條目",
-          "body": "- MenuControl.ascx 版本標籤: 5.14 → 5.25 (2026/05/25)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7ec3dd28",
-          "date": "2026-05-25",
-          "message": "On feat/sso-jwt: localhost SSO test config",
-          "body": "",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b1497457",
-          "date": "2026-05-25",
-          "message": "index on feat/sso-jwt: 2e3ac3f fix: 1 號站 URL alias 沒有 1 (/WebOrder/ 而非 /WebOrder1/)",
-          "body": "",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "e1b56f8f",
-          "date": "2026-06-29",
-          "message": "refactor: 月統計姓名改直接 JOIN Oracle USER_ACCOUNT，移除 DistUserMap",
-          "body": "USER_ACCOUNT(LIS 使用者表, USER_ID/USER_NAME)與 EVENTLOG 同在 HCLAB Oracle，",
-          "category": "重構",
-          "tags": []
-        },
-        {
-          "hash": "42dad421",
-          "date": "2026-06-29",
-          "message": "feat: 分單作業多項調整 + 配號查詢/每月統計 (v6.30)",
-          "body": "(1) 配號 200 號上限：起迄號碼旁加「限制200號內」checkbox，前端擋 迄-起+1>200，取消勾選可放行",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "f80af922",
-          "date": "2026-06-30",
-          "message": "fix: CheckTransferOverlap 的 IN 子句也改參數化(review: 李宗勳)",
-          "body": "重疊提示查詢的 snIn 漏了參數化，改用 AddInParams。至此 7.1 新增的 4 處 IN",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "1e8424a6",
-          "date": "2026-06-30",
-          "message": "test: smoke test 實跑通過 6/6 (真實 SSO + 完整 lifecycle + DB 斷言)",
-          "body": "- 登入/grid/按鈕 selector 全部實跑收斂(data-sn 定位列、預設全選先取消)",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "30a737a7",
-          "date": "2026-06-30",
-          "message": "test: 新增分單系統 lifecycle smoke test 骨架 (Playwright)",
-          "body": "配號→分單→轉入→取消轉入→取消分單，走完回到原點(自我清理、可重複)。",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "394c081c",
-          "date": "2026-06-30",
-          "message": "fix: 刪除/去重複/point2還原 的 IN 子句改參數化(防 SQL injection)",
-          "body": "新增 AddInParams() helper：把值清單轉成 @p0,@p1,... 佔位並綁進參數，取代原本",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "6e84f736",
-          "date": "2026-06-30",
-          "message": "docs: todo.md 更新 — point2 標記完成、補「老預檢整批中止改逐筆」、重複醫令進度",
-          "body": "2026/06/30 測試發現老預檢(v2.27)撞一筆內容不同就整批中止，新增逐筆改善 TODO。",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1e5f7915",
-          "date": "2026-06-30",
-          "message": "chore: 版號 6.30.05 → 7.1（預計 2026/07/01 上版）",
-          "body": "明天(7/1)上版，7.1 = 已上 6.30.03 之後累積的 B03(6.30.04) + 撞號/刪除/稽核強化(原 6.30.05) 一起上。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "be7ef398",
-          "date": "2026-06-30",
-          "message": "feat: v6.30.05 撞號/刪除後續強化(point2 + 重疊 + 刪除稽核) — 未部署",
-          "body": "轉入 LIS:",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "7cfde1fe",
-          "date": "2026-06-30",
-          "message": "feat: v6.30.04 取消轉入寫 B03 EVENTLOG + 收斂 B03 回主線",
-          "body": "- CancelHCLAB_Click 退 LIS 成功後寫 B03 EVENTLOG(含操作人)，與轉入(B01)對稱",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "121d43ad",
-          "date": "2026-06-30",
-          "message": "docs: 部署文檔補上部署腳本與熱抽換機制",
-          "body": "deployment-info.md 新增「部署方式與機制」：",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "9b4389ec",
-          "date": "2026-06-30",
-          "message": "docs: 撞號事故的延後項整合進 todo.md",
-          "body": "#4 分單撞號/轉入失敗處理：point 2(轉入失敗不寫 EVENTLOG/不設 TO_ORA)、",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e6714585",
-          "date": "2026-06-30",
-          "message": "fix: v6.30.03 緊急修正分單撞號(ORA-00001)",
-          "body": "根因：CHECK_PhysicianOrderD_By10Number 用 Delivers_DT(送檢日期)過濾，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "91b78e5f",
-          "date": "2026-06-30",
-          "message": "fix: v6.30.02 — 撤回部分 6.30 防禦性改動",
-          "body": "經查 6062509093 異常源頭在匯入端(OrderInSql)非分單系統，撤回：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "353baced",
-          "date": "2026-06-30",
-          "message": "docs: 記錄 6062509093 排查的兩個後續 TODO",
-          "body": "整合進 docs/todo.md「後續優化方向 #4 重複醫令/重複匯入處理」：",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "380dec4d",
-          "date": "2026-06-30",
-          "message": "feat: 取消轉入 LIS 寫 B03 EVENTLOG（含操作人）+ v7.1",
-          "body": "CancelHCLAB_Click 退 LIS 成功後，對每個被取消的 TNO 寫一筆 EL_EV_CODE='B03' EVENTLOG，",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "70c59be0",
-          "date": "2026-06-30",
-          "message": "fix: 填入 WebOrder4 實際標籤機 PRNName (DT2205-112)",
-          "body": "repo 的 Web.WebOrder4.config 還是佔位符 DT2205-XXX，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "4f33682f",
-          "date": "2026-06-30",
-          "message": "feat: 首頁改 logo（雙擊叫出刪除分單）、刪除分單改隱藏、選單掛新頁",
-          "body": "- 刪除分單按鈕改為預設隱藏（display:none 的 span），保留刪單能力但防誤按",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "34d41236",
-          "date": "2026-06-30",
-          "message": "docs: 補上 SysMenu INSERT（把配號查詢/每月統計掛上選單）",
-          "body": "查到 SysMenu 結構（root/name/menuid/url，root='' 為最上層），",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "29000adf",
-          "date": "2026-06-30",
-          "message": "fix: checkRange200 移出 <head>，修正 AjaxToolkit「無法修改 Controls 集合」錯誤",
-          "body": "含 <%= ClientID %> 的 JS 放在 <head runat=server> 會讓 head 變成「含程式碼區塊」，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "dbd1744b",
-          "date": "2026-07-01",
-          "message": "fix: v7.1.02 重疊提示排除空白/'00' 的 ID(避免匿名檢體誤判)",
-          "body": "7.1 上線後 0925 新竹聯合狂跳「已被別張單轉入過」：CheckTransferOverlap 用 M.ID",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "d3b3cef3",
-          "date": "2026-07-01",
-          "message": "docs: 分單數量統計資料來源說明(用 EVENTLOG 免建表；釐清與 DistAuditLog 差別)",
-          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "950a2e0e",
-          "date": "2026-07-02",
-          "message": "feat: v7.2 開放分單前人工改號/重新配號",
-          "body": "行政遇多配號/回傳補單時可自行改 TNO。解封既有的編輯/下一號按鈕：",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "5bae7d58",
-          "date": "2026-07-03",
-          "message": "fix: 手動改號的存檔時機改到「轉入」(分單=依起迄重新配號，兩者互斥)",
-          "body": "實測發現：分單是依號碼起迄重新配號(必填起迄、且會蓋掉手動輸入)，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "773ea70e",
-          "date": "2026-07-03",
-          "message": "feat: 分單前改號改為直接打字(分單時一併存) + 修 gvListM debug alert",
-          "body": "5碼列的號碼欄直接開放輸入(淡黃底提示)，按「分單」時 SaveManualTnoEdits",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "a3c5d9cf",
-          "date": "2026-07-03",
-          "message": "feat: v7.3 開放已轉入單改號(與 LIS 對齊) + 拔掉下一號按鈕",
-          "body": "LIS 端已把單號處理好時，可回來把分單系統 ID_TNO 改成一致(檢驗值",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "655f34ac",
-          "date": "2026-07-03",
-          "message": "feat: v7.3 開放已轉入單改號(與 LIS 對齊，便於檢驗值回傳)",
-          "body": "LIS 端已把單號處理好時，可回來把分單系統 ID_TNO 改成一致。",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "69aeb2a8",
-          "date": "2026-07-16",
-          "message": "chore: 撤回版本記錄那節(DB-only 調整不進版)",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ca64187a",
-          "date": "2026-07-16",
-          "message": "chore: 關閉配號查詢/每月統計選單(SysMenu 拔 menuid 9/10，僅 DB)",
-          "body": "v6.30 掛上的兩頁確定不需要，從 WebOrder.SysMenu 移除(4 站共用 DB，",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "22af0f4c",
-          "date": "2026-07-22",
-          "message": "docs: SOP 補註日常開發用 VS Code(VS2022 僅為 MSBuild 來源)",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "092a8914",
-          "date": "2026-07-22",
-          "message": "docs: 建立編譯與發佈SOP(不需VS2019、兩行指令完成)",
-          "body": "- 新增 編譯與發佈SOP.md：MSBuild(VS2022)+targeting pack 需求、",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "d9212be7",
-          "date": "2026-07-22",
-          "message": "fix: WebOrder1 標籤機 PRNName 同步線上實況(DT2205-125 → 122)",
-          "body": "行政搬家後線上 config 已於 7/6 直接改為 DT2205-122，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "54a41b7a",
-          "date": "2026-07-22",
-          "message": "fix: v7.22 已轉入改號排除同單兄弟醫令(修「同單兩筆改同號」誤擋)",
-          "body": "單位2187回報：兩筆醫令共用 6072112414 要改成 LIS 端的 6072002651，",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "e569db84",
-          "date": "2026-09-02",
-          "message": "fix: 頁首版號更新 9.02(9.02 上版時漏改 MenuControl.ascx)",
-          "body": "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "4261c2f6",
-          "date": "2026-09-02",
-          "message": "fix: 重疊提示查詢死結修正(CheckTransferOverlap 反覆失敗)",
-          "body": "- CheckTransferOverlap 查詢加 WITH (NOLOCK)：純提示性檢查不拿 S 鎖，\n  不再與 PHP 清理排程互卡成死結犧牲者\n- SQLToolkit.getDataTable(paraC) throw 保留 inner exception，\n  Error_Log 才看得到真正原因(死結/逾時)而非只有 SQL 本文\n- docs/sql 補覆蓋索引腳本(已於 9/2 在 PRD 建立，查詢 8s→30ms)\n- 版本更新記錄 9.02\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "33ac37e0",
-          "date": "2026-09-07",
-          "message": "docs/deploy: 台中 WebOrder_Test 改為測試「資料庫」— 還原腳本、測試站 config 指測試庫、Oracle 待決",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "34fdf04e",
-          "date": "2026-09-07",
-          "message": "docs/deploy: 台中加常設測試站 /WebOrder_Test（獨立資料夾＋SsoSys=FenDanTCTest，同一把 JwtKey）",
-          "body": "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e982edd1",
-          "date": "2026-09-07",
-          "message": "docs: 台中換版改為「新版直接上 /WebOrder、舊版退到 /WebOrder2」＋ SysMenu 相對路徑腳本",
-          "body": "- URL 由 IIS app 虛擬路徑決定，切換日只改 /WebOrder 與 /WebOrder2 的實體路徑與 pool，\n  同仁網址/書籤/LisWeb 入口不變；回復是同兩行反做\n- 新增 docs/sql/tc_sysmenu_relative_url.sql：台中 SysMenu 寫死 /WebOrder/xxx，改成台北式相對路徑，\n  新舊兩站才各自正確（可重複執行、附還原）\n- FenDanTC_URL 改為 /WebOrder/SSOLogin.aspx；步驟表補 appcmd 指令、回復步驟與並存注意點\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "2bc060cb",
-          "date": "2026-09-07",
-          "message": "docs/deploy: 台中現役站定位完成（33.228 HCLAB:8080 /WebOrder → D:\\WebOrder）＋ WebOrder3 新站材料",
-          "body": "- 33.228（TCWEBEXTRA）實查：現役 = HCLAB 站台 8080 的 /WebOrder → D:\\WebOrder（DLL 2023-08-29，\n  pool HCLAB CLR4 32-bit，9/5 有 246 次 DISTRIBUTE 流量）；/WebOrder2 為 2024-01 build 無流量\n- 現役資料夾內 37 個 .cs 與 repo 基線 4f74dca 逐檔 0 差異、DLL 反組譯無台中獨有邏輯、標記檔只差\n  基線新增的兩欄 → 「台中專屬邏輯」風險正式排除\n- 現役 D:\\WebOrder 與 WebOrder2 已備份至 \\192.168.33.229\\d$\\backup\\TC228_*_20260907\n- 新增 deploy/configs/Web.TC-WebOrder3.config（台北 9.02 結構 + 台中現役值，密碼/JwtKey 佔位）\n- 新增 docs/sql/tc_sys_parameter_fendan.sql（台中 Oracle SYS_PARAMETER FenDanTC_* 四筆，可重複執行）\n- 新增 deploy/Inspect-FenDanHost.ps1（在分部主機本機跑的盤點＋備份腳本，UTF-8 BOM）\n- 換版步驟改為：HCLAB 站下新增 app /WebOrder3 → D:\\WebOrder3、新 pool WebOrder3（32-bit）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1be5fc98",
-          "date": "2026-09-07",
-          "message": "docs: 更正台中現況 — 現役站在 33.228（TCWEBEXTRA），33.229 是死站；DB 前置 4/5 已跑",
-          "body": "- 33.227 dm_exec_sessions 證實連 WebOrder 的 .NET 程式來自 TCWEBEXTRA（1.228=33.228）\n- 33.229 的 WebOrder/WebOrder2：port 81、IIS log 止於 2023-09-01、config 指向高雄 139.x → 死站，\n  先前的備份與反組譯比對對象是死站，標記為待用 33.228 現役 DLL 重做\n- 33.227 已跑 UNITPrintSetting / UNITDATA.prePrintLableOrnot / DistAuditLog / IX 索引（驗證通過），\n  SysMenu 腳本留到切換日\n- 補記台中轉檔為 OrderInSQL_keelung，每 10 分鐘噴 .lnk 解析與字串截斷錯誤（交 OrderInSql）\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "9c4154e0",
-          "date": "2026-09-07",
-          "message": "docs: 台中反組譯比對結論、WebOrder2 備份完成、補 UNITDATA.prePrintLableOrnot 前置腳本",
-          "body": "- 台中 WebOrder2 的 UCLWeb.dll 與 repo 基線 4f74dca 編出的 DLL 同用 ilspycmd 反組譯比對：\n  54 檔一對一、無台中獨有方法/SQL → 台中是同血脈較舊快照，「含台中專屬邏輯」風險排除\n- WebOrder2 已 robocopy 到 \\192.168.33.229\\d$\\backup\\WebOrder2_20260907（185 檔）\n- 比對抓到台中 UNITDATA 缺 prePrintLableOrnot 欄（新版選單位會例外），新增\n  docs/sql/alter_UNITDATA_prePrintLableOrnot.sql（可重複執行），DB 前置由 4 項改 5 項\n- 指紋 SQL 加 has_preprint_col\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "d8ed4027",
-          "date": "2026-09-07",
-          "message": "docs: 各分部發佈狀況盤點 — 台中自成一套（33.229 舊站 2023 build、33.227 DB）與換版方案",
-          "body": "- 新增 docs/各分部發佈狀況.md：各分部站台/DB/版本總表、台中站台與 DB 物件比對、\n  升級風險表、「舊站保留、另建新站」換版步驟、下次盤點用的指令與 SQL\n- deployment-info.md 開頭加連結，註明台中不是 56.228 環境\n- 起因：1062 皓生同人合併需求查證時發現台中 WebOrder 不在台北 56.191\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "f6b8fe12",
-          "date": "2026-09-08",
-          "message": "docs: 台中 9.08 SSO profile「tp」已上線（2026-09-08 下午）— 台北資訊室經 33.228 走台北 lisweb 登入",
-          "body": "- 各分部發佈狀況：台中列改 9.08、現役資料夾 D:\\WebOrder3；步驟表加第 9 步（部署內容、備份位置、\n  台北 Oracle FenDanTC_TP_* 四筆、Playwright 端對端結果、回復方式）\n- Watch-FenDanTC.ps1 標籤 9.02 → 9.08\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "78979bb3",
-          "date": "2026-09-08",
-          "message": "feat: v9.08 SSO profile — 台中站同時接台中 LisWeb 與台北 lisweb(台北資訊室經 33.228 進站可登入)",
-          "body": "台北資訊室開 http://192.168.33.228:8080/WebOrder/ 會被導去台中 LisWeb 1.229(台北連不到)，\n手改網址走 33.229 也因台北帳號不在台中 Oracle 而登不進去。\n\n- SessionList: 新增 SSO profile。決定順序 ?sso=<name>(寫 cookie；?sso= 清除) → cookie →\n  SsoProfileHosts 依 Host 前綴自動判定 → 預設。appSettings 先找 <key>.<profile>，沒設定退回原 key，\n  既有站台不加新 key 行為不變。未定義的 profile 一律忽略(cookie/query 不可信)。同請求只解析一次。\n- JwtVerifier: JwtIssuer 可用 ; 或 , 列多個 issuer，任一相符即通過(金鑰同一把)。\n- SSOLogin / MenuControl 登出 / CheckSession / Default 全部改走 GetSsoSetting。\n- 台中 config: JwtIssuer 加 https://lisweb.ucl.com.tw；SsoProfileHosts=tp=192.168.33.；\n  SsoSys.tp=FenDanTC_TP、LisSsoUrl.tp/LisLogoutUrl.tp 指台北 lisweb。\n- 台北 Oracle 前置: docs/sql/tp_sys_parameter_fendan_tc_tp.sql(FenDanTC_TP_* 四筆，回呼 33.228)。\n- 版號 9.02 → 9.08；版本更新記錄補 9.08。\n\n已驗證: Release 編譯通過；JwtVerifier 多 issuer 5 案例 PASS；本機 IIS Express 對\nquery/cookie/Host/清除/未定義 profile/CheckSession 7 條路徑 redirect 與 Set-Cookie 全部符合預期。\n台北四站 config 不需改動。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "233b30fa",
-          "date": "2026-09-08",
-          "message": "ops: 新增台中上線後健康檢查腳本 Watch-FenDanTC.ps1",
-          "body": "唯讀、可重複跑，一次看完：\n- 兩個站台 HTTP（新版 /WebOrder 應 302 導 SSO、舊版 /WebOrder2 應 200）\n- Error_Log 新錯（可調回看分鐘數）\n- 近一週分單／轉入量（量突然掉下來就是警訊）\n- DistAuditLog 改號／刪除\n- 今日 10 碼單號重複（撞號徵兆）\n- IIS log 5xx\n\n2026-09-08 08:30 基準全綠。腳本必須存成 UTF-8 with BOM，否則 PS 5.1 會讀成 ANSI 導致語法錯誤。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "621aa887",
-          "date": "2026-09-08",
-          "message": "docs: 台中 9.02 已上線（2026-09-08）— /WebOrder 換新版、舊版 1.1 留在 /WebOrder2",
-          "body": "切換結果：\n- /WebOrder  -> D:\\WebOrder3（新版 9.02，沿用 pool HCLAB）\n- /WebOrder2 -> D:\\WebOrder （舊版 1.1，pool WebOrder2）\n- tc_sysmenu_relative_url.sql 已跑（11 筆絕對路徑改相對）\n- 驗證：SSOLogin 回呼成功、DISTRIBUTE 連續 200、舊站仍可進、Error_Log 兩小時 0 筆\n\n兩個踩雷點寫進文檔：\n- 台中 Oracle 原本沒有任何 FenDan* 參數 → 「登入後回不來」的元凶；LisWeb 參數有 5 分鐘快取\n- appcmd 不在 PATH 且 /[path='/'] 在 PowerShell 會被解析掉 → 改用 WebAdministration 的 Set-ItemProperty\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "7b48edff",
-          "date": "2026-09-08",
-          "message": "docs: 台中新版已推到 D:\\WebOrder3；切換簡化為兩行 appcmd（沿用現役 pool）",
-          "body": "- 步驟 3 完成：repo main 的 build 推到 33.228 D:\\WebOrder3（56 檔、18 aspx、9 dll），\n  Web.config 在目標機以現役 D:\\WebOrder\\Web.config 的值產生，只有 SSO 六項是新的；\n  JwtKey 現產、不進 repo。未掛 IIS，現役站未受影響。\n- 步驟 4 取消建新 App Pool：實查 pool HCLAB（v4.0 / x86=true / ApplicationPoolIdentity）\n  只服務 /WebOrder 一個應用程式，切換時沿用即可 → 身分、ACL、位元數不變，也省掉 H: 槽權限風險。\n- 步驟 6/7 改成兩行 appcmd（只改 physicalPath）與對應回復指令。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "443c4cf8",
-          "date": "2026-09-08",
-          "message": "test: 台中測試庫 smoke test 6/6 PASS，順修 smoke test 兩個時序/預期 bug",
-          "body": "實測（開發機 9.02 + 台中測試庫 33.227 WebOrder_Test，單位 1062 皓生 2026/09/07）：\n配號→轉入 LIS→取消轉入→取消分單 全數通過，新版吃台中真實規則（246 條 DivideTNORule、\n台中單位/項目對照）沒問題。\n\nsmoke test 修正：\n- queryGrid()：txtTestDay 是 AutoPostBack=\"True\"，填完日期後直接點「查詢」會被 blur 觸發的\n  postback 吃掉（__EVENTTARGET=txtTestDay），回 200 但 btnQuery_Click 從沒執行、grid 空的。\n  改成先等日期的 postback 完成再點。\n- TNO10：10 碼的日期段來自轉入當下（HCLAB_ID_DateRule(DateTime.Now)），不是送檢日期；\n  原本寫死用 FENDAN_DATE，測舊批次一定失敗。改用今天，可用 FENDAN_TNO_DATE 覆蓋。\n- README 補「對分部測試庫跑」的完整指令與三個踩雷點。\n\n順帶實證兩件事（已寫進 docs/各分部發佈狀況.md）：\n- 32 位元是硬需求：64 位元 IIS Express 直接 BadImageFormatException（Oracle.DataAccess 是 x86）\n  → 台中新站 App Pool 必須開 32-bit\n- 台中 SysMenu 的絕對路徑 /WebOrder/xxx 在別的路徑下全部連不到 → 切換日必跑 tc_sysmenu_relative_url.sql\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "85f0071a",
-          "date": "2026-09-08",
-          "message": "合併 MR !15: docs/test: 台中換版策略定案（新版上 /WebOrder、舊版退 /WebOrder2）＋ 測試庫 WebOrder_Test",
-          "body": "docs/test: 台中換版策略定案（新版上 /WebOrder、舊版退 /WebOrder2）＋ 測試庫 WebOrder_Test\n\nSee merge request ucl/twowayconnection/uclweborder!15",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "4cae81db",
-          "date": "2026-09-08",
-          "message": "test: 台中測試庫 WebOrder_Test 建好，開發機改對台中真實資料驗新版",
-          "body": "- 33.227 還原 WebOrder_Test（用 9/8 凌晨正式庫備份；134,952 筆主檔一致、4 項前置物件與\n  246 條 DivideTNORule 都在），正式庫 WebOrder 未動\n- 開發機 UCLWeb/Web.config 的 DEV 連線改指 33.227 / WebOrder_Test（該檔為 skip-worktree、\n  本機專用不進版控，文檔已註明各機自行修改）；Oracle 仍是台北測試 56.225，轉入只寫測試 LIS\n- tests/smoke/helpers/db.js 支援 FENDAN_SQL_USER/PASS 走 SQL 驗證（跨網域測試庫用），\n  playwright.config.js 補環境變數說明\n- 新增 tests/tc_reset_for_test.sql：把指定單位+送檢日還原成未分單（擋非 WebOrder_Test 執行），\n  已對 1062 / 2026-09-07 跑過（21 人 30 筆，看得到 5 個人各被拆成 2 張單）\n- 新增 docs/sql/tc_sys_parameter_fendan_local.sql（選配：讓開發機走台中 LisWeb SSO）\n- 文檔步驟 5 改為「開發機 + 測試庫」，並列出留到切換日才驗的三項\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "4a0f2e8a",
-          "date": "2026-09-17",
-          "message": "fix: CUST_MASTER 更新改用繫結變數，修正地址含單引號的 ORA-00933",
-          "body": "Error_Log A236(2026/09/16)：病人地址含一個單引號，\nCUST_MASTER_HCLAB.Update 的拼接式 SQL 字串常值提前收掉 → ORA-00933。\n\nUpdate / SAVE 兩個方法的所有欄位改用繫結變數，並設 BindByName = true\n(ODP.NET 預設位置繫結，多參數會錯位)。原本僅 DBNAME 為異體字走\n:UnicodeString，其餘皆拼接，等同 SQL injection 破口。\n\n生日維持 to_date(:BIRTH_DATE,'yyyy/MM/dd')，只把值改為繫結，行為不變。\n\n註：此為靜默失敗 — DISTRIBUTE.aspx.cs 未檢查 Update() 回傳值，\n分單轉入本身照常成功，僅客戶主檔未更新。\n\n版號 9.17。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "3a4c2bf7",
-          "date": "2026-09-18",
-          "message": "feat: 代碼未對應的項目改以 UNKNOWN TEST 轉入 LIS (v9.22)",
-          "body": "分單畫面紅色(UCL_CODE 空)的明細，轉入時原本是靜默丟棄：不寫 Oracle、\n不擋轉入、EVENTLOG 的 [分單]OI= 也看不到，但 SQL Server 照樣標成 TO_ORA=1，\n之後分單畫面(查詢條件 TO_ORA=0)再也看不到它，對應維護畫面的回填\n(updatePOD_newItemCode，條件 UCL_CODE='')也救不回來 —— 行政要等帳務缺項才發現。\n\n改成比照公衛系統：寫一筆 'UNKNOW' 佔位碼(6 碼，HCLAB.ITEM_MASTERH 既有項目)\n到 BLG_TX_DTL，價 0、健保沿用該筆原本判定、不展開 BLG_PKG_ITEM；\n同時登記到 DbOnlineReservation 的 Customer_UnMapTestCode(單位×院內碼×名稱)\n與 Customer_UCLOrderHaveUnTestCode(單號×院內碼)，行政才能在 LISWeb\n「代碼對應」看到對方代碼與名稱並補正。\n\n登記時機刻意放在該單 _CreateAllBLG 成功之後：撞號失敗的單會還原 TO_ORA，\n先登記只會在代碼對應畫面留下查無 HDR 的孤兒列。登記失敗(例如院內碼超過\n欄位的 10 碼)只記 Error_Log 並在結果訊息提示通知 IT，不擋轉入。\n\n轉入前多一次 confirm「本次有 N 項代碼未對應」，提示但不擋。原本的重疊提示\n併進同一個 confirm 共用 confirmTransfer 參數 —— 分開問的話第二次 postback\n的 EVENTARGUMENT 不同，前一個檢查會重跑，變成問不完。\n\n順手修掉 UCL_CODE='NA'：這是對應維護標記的「不使用」，以前被當一般代碼寫進\nOracle(BLG_TX_DTL 已累積 84 筆 ITD_ITEM_CODE='NA')。現在不轉入，畫面也改成\n灰底「不轉入」而不是紅色。\n\n取消轉入時把該單號的登記標成已完成，不要繼續掛在代碼對應畫面上；Oracle 的\nUNKNOW 明細仍留著 —— 取消轉入本來就不刪任何 BLG_TX_DTL。\n\n⚠ 需搭配 LISWeb 的代碼對應調整，且 LISWeb 要先上，否則行政一送出就會撞\nOrderDetail 對 [Order] 的外鍵。上版前每個分部各確認一次該站 HCLAB 有\nITEM_MASTERH.IMH_CODE='UNKNOW'(BLG_TX_DTL 無外鍵，缺了不報錯只是顯示不出名稱)。\n\nsmoke test 補上 UNKNOW/NA 的斷言；登記表的斷言預設跳過，要驗請用\nFENDAN_DBONLINE_SQL 明確指定測試庫(repo 的 Web.config 指向正式庫)。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c7972a52",
-          "date": "2026-09-21",
-          "message": "docs(smoke): 記錄 9.22 實跑結果與本機 DbOnlineReservation 副本建法",
-          "body": "順帶標註 login.js 寫死的預設密碼已過期 —— 一定要用環境變數帶，\nLIS 登入頁會累計錯誤次數鎖帳號，別盲試。密碼放個人 reference 不進 repo。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "95d3efe4",
-          "date": "2026-09-21",
-          "message": "fix: 轉入前 confirm 的 postback 引數沒註冊 event validation",
-          "body": "把重疊提示的引數從 confirmOverlap 改名成 confirmTransfer 時，漏了同步更新\nRender() 裡的 RegisterForEventValidation。DISTRIBUTE.aspx 有\nEnableEventValidation=\"true\"，未註冊的引數會被擋成\n「無效的回傳或回呼引數」(ArgumentException) —— 使用者按下確定後整頁 500，\n轉入完全不會發生。\n\nsmoke test 實跑抓到：測試批次有未對應項目 → 跳 confirm → 按確定 → 500，\nTO_ORA 停在 0。原本的 confirmOverlap 是有註冊的，是這次改名改歪。\n\n改法：抽成 CONFIRM_TRANSFER_ARG 常數，Render() 與 btnHCLAB_Click 共用同一個\n字串，杜絕兩邊再寫歪。\n\n順帶修 smoke helper：登記表那顆 DB 通常跟 WebOrder 不同台(例如 WebOrder 在\n分部測試庫、登記表在本機)，驗證方式要能各自指定，原本共用一組帳密是寫漏的。\n新增 FENDAN_DBONLINE_USER / FENDAN_DBONLINE_PASS，沒給就走 Windows 驗證。\n\n實跑結果：台中測試庫 1062 + 本機 DbOnlineReservation 副本，7/7 PASS。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "26c0662c",
-          "date": "2026-09-21",
-          "message": "fix: 未對應登記的 @@ROWCOUNT 先存變數再判斷",
-          "body": "IF @@ROWCOUNT = 0 AND NOT EXISTS (...) 有求值順序的隱患:\nT-SQL 不保證 AND 兩側的順序, 讓 NOT EXISTS 的子查詢先跑就會把 @@ROWCOUNT\n蓋成子查詢的筆數, 變成該 INSERT 的時候沒 INSERT。\n實測這台是左到右求值所以沒踩到, 但那不是可以依賴的行為。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "0d2b9dc3",
-          "date": "2026-09-21",
-          "message": "fix: 未對應登記的 @@ROWCOUNT 先存變數再判斷",
-          "body": "IF @@ROWCOUNT = 0 AND NOT EXISTS (...) 有求值順序的隱患:\nT-SQL 不保證 AND 兩側的順序, 讓 NOT EXISTS 的子查詢先跑就會把 @@ROWCOUNT\n蓋成子查詢的筆數, 變成該 INSERT 的時候沒 INSERT。\n實測這台是左到右求值所以沒踩到, 但那不是可以依賴的行為。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "87755cb5",
-          "date": "2026-09-22",
-          "message": "docs: 轉入LIS 跳錯誤頁的根因與除錯路徑(ADD_ITEM 回空清單)",
-          "body": "2026-09-22 同仁反映 0235 轉入 LIS 跳錯誤頁。查出來是長年既有問題，\n不是當天上的 v9.22 造成的 —— 伺服器事件記錄裡同一個例外有 29 筆，\n最早回溯到 2026-01-30，橫跨四個站台。\n\n根因是 ADD_TEST_ITEM 有一條 UTI_UCL 沒加引號(0235 的 `2081,P215`)，\n被原樣拼進 `UCL_CODE in (...)` 後 SQL Server 把 P215 當欄位名而拋錯,\ngetDataTable 吃掉例外回 null，ADD_ITEM 走「傳一個空的LIST」的早退,\n呼叫端下一行直接取 [0] → ArgumentOutOfRangeException，且不在任何\ntry/catch 內 → Error_Log 沒紀錄、IIS log 只看到 customErrors 的 200。\n\n資料已修(全庫恢復 0 筆壞規則)，程式面的空清單地雷另開 MR。\n\n文件也記下這類「跳錯誤頁但 Error_Log 沒東西」的查法：\nDCOM/RPC 連不上時，改用 SMB 把 Application.evtx 抓回本機再\nGet-WinEvent -Path 解析，順便能用歷史發生時間判斷是不是新版造成的。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1470f752",
-          "date": "2026-09-23",
-          "message": "docs: PHP 配對工具先不下架，確認分單版可行後再處理",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "0cb902d1",
-          "date": "2026-09-23",
-          "message": "feat: 配對面板加「找候選單號」，移植 OrderMappingManager.php 的比對分析",
-          "body": "原本配對要操作的人自己知道單號(先去 LIS 查)。PHP 工具會直接列出候選，\n沒補這步的話同仁還是會回去用 PHP，無法達成「只留一個入口」。\n\n「找候選單號」到 LIS 找同單位、同一個病人(身分證號，沒有就用姓名)、\n送檢日前後 7 天的單，最多 20 張，逐張比對項目：\n- 符合度沿用 PHP：項目重疊比例 × 70 + max(0, 30 − 日期差 × 5)\n- 分列會配對的項目 / 醫令有 LIS 沒有 / LIS 多出的項目\n- 完全重疊綠底；按「帶入」填入單號並自動查核\n- 唯一候選且完全重疊時直接帶入並查核(比照 PHP 預設勾選)，仍要人按確認才寫入\n\n與 PHP 的差異：\n- 未簽收的單不會漏：LIS 未簽收的單 ID_TRX_DT 停在 9999-12-31，PHP 直接拿它\n  比日期，剛開還沒簽收的單全部找不到；改用 ID_UPDATE_ON(比照 LISWeb CodeMap)\n- 不要求至少一個項目重疊才列出：LIS 那張單可能還沒補上這個項目\n- 單位同時比送檢與 UNIT_Corr 收費單位(PHP 只比送檢，台北 180 組會查不到)\n- 沿用 PHP 的代碼特例對照 D081 ↔ 9478(只影響比對)\n\n驗證：tno-mapping.spec.js 新增 3b(LIS 單設成未簽收仍找得到、按帶入填入並查核)，\n連同原本 smoke 共 14/14 PASS。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "20f6aed5",
-          "date": "2026-09-23",
-          "message": "合併 MR !26: feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (v9.29, CHG202609220003)",
-          "body": "feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (v9.29, CHG202609220003)\n\nSee merge request ucl/twowayconnection/uclweborder!26",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "4f00a928",
-          "date": "2026-09-23",
-          "message": "chore: 版號改為 9.29(2026/09/29 下週二上線)",
-          "body": "9/25 中秋、9/28 教師節連假，改到 9/29 台北＋台中一起上。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "a3adab1e",
-          "date": "2026-09-23",
-          "message": "feat: 配對既有單號 —— 補醫令掛回 LIS 已存在的單號 (工單 CHG202609220003)",
-          "body": "台中皓生補醫令：同一個病人 LIS 已經有一張單(分單開的、手開的、或照紙本開的)，\n晚到／補進來的電子醫令沒辦法再填同一個單號，檢驗值回不去。原本只能用 HCLAB_web\n的 OrderMappingManager.php 直接改 DB，繞過分單所有檢查。\n\n病人列多一欄「配對單號」：輸入 LIS 既有的 10 碼 → 查核 → 勾項目 → 確認。\n只更新 WebOrder：ID_TNO = 既有單號、TO_ORA = 1(= LIS 已有資料，分單不必處理 BLG)，\n不寫 Oracle。\n\n查核(確認時伺服器端再跑一次)：\n- LIS BLG_TX_HDR 要有這張單\n- 同一個病人：身分證號兩邊都有就比身分證號；任一邊沒有就改比姓名。\n  既有的改單號檢查遇到沒身分證號是直接略過，紙本單常見這種情況，照搬會變成\n  任何單號都配得上去\n- 分單系統裡這個單號沒掛在別的病人(同一個病人持有是正常的，那就是原本那張單)\n- 單位不同(比對送檢與 UNIT_Corr 收費單位)需勾確認\n- LIS 那張單沒有該項目時只警告：配對後不會再轉入，要先在 LIS 補上\n\n工具列「配對查詢/取消」：只列出最後一筆 DistAuditLog 是 MAP_TNO 的明細，\n一般轉入的不會出現也不會被改到；取消後回到未分單、LIS 不動。一般轉入要退回\n仍用「取消轉入LIS」，兩者語意不同，畫面上有寫明。\n\n配對／取消都跟 DistAuditLog(MAP_TNO / UNMAP_TNO) 在同一個交易 —— 取消配對\n要靠這筆稽核判斷來源，沒寫進去就不算配對成功。\n\n資料存取集中在新檔 DML/TnoMapping_DML.cs。評估文件(原 !24)一併帶進來並\n改寫成定案與實作說明。\n\n驗證：新增 tests/smoke/tno-mapping.spec.js(台中測試庫 1062 同一病人兩張 SN：\n正常轉入 A、LIS 不存在擋、別的病人擋、B 配對到 A 且 LIS 明細數不變、取消配對\n只列 B)，連同原本的 smoke 共 13/13 PASS。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "6a2885bf",
-          "date": "2026-09-23",
-          "message": "fix: 加項規則查詢失敗不再讓整張單轉不進去 (v9.23)",
-          "body": "ADD_ITEM 用 getDataTable() 查加項規則，回 null 代表這句查詢「拋了例外」\n(沒有資料是另一條 Rows.Count == 0)。原本這裡 return 一個空的 List，\n呼叫端下一行就 addListString[0] → ArgumentOutOfRangeException。\n\n那個例外不在任何 try/catch 內，所以三個常看的地方都沒訊號：\nError_Log 沒紀錄、IIS log 只看到 customErrors 導向後的 200、\n畫面只有一句「執行階段錯誤」。2026-01-30 起共 29 次、橫跨四個站台、\n咬了八個月沒人查得出來。\n\n修法：\n- null 分支改成跳過該條規則並寫 Error_Log，不再 return 空 List。\n  改完 ADD_ITEM 只剩單一出口、必定回滿 4 個元素。\n- 呼叫端加防護：元素不足就記錄並視為「本單無加項」，不讓它整頁掛掉。\n\n這條早退路徑從來沒有成功回傳過 —— 每次走到都是呼叫端當場崩潰，\n所以沒有既有行為需要保留。\n\n觸發物(0235 的 ADD_TEST_ITEM 少了引號)已於 2026-09-22 修掉資料，\n但那句查詢逾時或死結同樣回 null，這裡才是根治。\n\n驗證：台中測試庫 1062 + 本機 DbOnlineReservation 副本 smoke test 7/7 PASS。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "b96cda62",
-          "date": "2026-09-23",
-          "message": "docs: 醫令配對回單號的需求與整合評估 (CHG202609220003)",
-          "body": "台中皓生漏項目補醫令，補進來的醫令掛不回已完成的 10 碼單號，檢驗值回不去。\n李宗勳已有 PHP 工具 OrderMappingManager.php(HCLAB_web !41 v2 兩地共用)，\n評估把功能整合進分單系統。\n\n盤點結果：\n- 分單系統要把明細掛到「已存在且已轉入」的單號卡 5 關，其中第 3 關\n  (BLG_TX_HDR 已存在就擋)就是古孟畇說的「只能用在空單上」\n- 但需要的零件都在：Update_TransferredTNO 的驗證正好是「新號碼必須\n  已存在於 LIS + 同 PID + 排除同單 + 寫 DistAuditLog」，只是入口被\n  cbTO_ORA.Checked 鎖住；BLG_TX_DTL.checkDataExist 也已支援加項去重\n- 規模不大：台中近 14 天只有 1 張，故建議先做「能手動掛上去」，\n  自動配對建議等觀察實際頻率再說\n\n文件另含對 !41 的 review 建議(已另貼到該 MR)。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e2668bdf",
-          "date": "2026-09-24",
-          "message": "合併 MR !27: feat: 配對面板加「找候選單號」，移植 PHP 的比對分析 (v9.29)",
-          "body": "feat: 配對面板加「找候選單號」，移植 PHP 的比對分析 (v9.29)\n\nSee merge request ucl/twowayconnection/uclweborder!27",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "cb759031",
-          "date": "2026-09-29",
-          "message": "chore: 版號改為 9.30(2026/09/30 台北上線)",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ba76ef14",
-          "date": "2026-09-29",
-          "message": "fix: Error_Log 寫自建 Exception 時 @source 為 null 導致 INSERT 失敗",
-          "body": "自己 new 出來沒 throw 過的 Exception，Source 是 null；AddWithValue(null)\n不會送出參數，INSERT Error_Log 會拋 8178「必須有參數 '@source'」，\nError_Log.Insert 再把例外往外丟。\n\n實際案例 (2026/09/24 A271, TNO 6092414385)：院內碼超過 10 碼，\nIsCodeWritable 要記一筆「略過登記」卻在寫 log 時炸掉，例外穿出\nUnMapTestCode_DML 被轉入 LIS 的 catch 接住 → 該單 Oracle 已寫成功，\n畫面卻報「部分資料轉入失敗」，同單後續未對應碼也沒登記。\n\n- Error_Log.Insert 兩個多載：Source 為 null 時改用空字串\n  （同時修好 DISTRIBUTE 兩處 ADD_ITEM 防呆 log 的同款問題）\n- UnMapTestCode_DML 所有寫 log 改走 LogQuietly，守住「絕不往外拋」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "e39ef978",
-          "date": "2026-09-30",
-          "message": "feat: 未對應登記院內碼上限 10 → 50 碼（DB 前置：alter_DbOnline_UnitTestCode_50.sql）",
-          "body": "DbOnlineReservation 三張 Customer_* 登記表的 UnitTestCode 是公衛 API 開的 varchar(10)，\n分單院內碼欄位是 50 碼（實際最長 25），超過的登記不進去、CodeMap 看不到院內碼，\n且每張單記兩筆 Error_Log。已與公衛同仁確認可放寬（2026/09/30）。\n\n- docs/sql/alter_DbOnline_UnitTestCode_50.sql：拆 PK → ALTER COLUMN → 建回 PK，可重複執行，各分部先跑\n- UnMapTestCode_DML.UnitTestCodeMaxLen 10 → 50\n- SharedProject DDL 同步（sharedproject!28）\n- 發佈 SOP 前置檢查表補一列\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b6037de8",
-          "date": "2026-09-30",
-          "message": "fix: BLG_TX_HDR 寫入時跳脫電話/身分證/檢體標示的單引號 (ORA-00917)",
-          "body": "單位 0886 病人 TEL1 內容是單引號，_CreateAllBLG 直接拼字串變成 ''' 導致\nORA-00917 遺漏逗號，該單轉入兩次都失敗。ID_PTELNO / ID_PID / ID_INVNO\n比照 ID_PADDR1 加 Replace(\"'\", \"''\")，_Create 與 _CreateAllBLG 兩處都改。\n版號 10.01（2026/10/01 上線）。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "df5e5d13",
-          "date": "2026-09-30",
-          "message": "合併 MR !28: fix: Error_Log 寫自建 Exception 時 @source 為 null 導致轉入 LIS 誤報失敗 (v9.30)",
-          "body": "fix: Error_Log 寫自建 Exception 時 @source 為 null 導致轉入 LIS 誤報失敗 (v9.30)\n\nSee merge request ucl/twowayconnection/uclweborder!28",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "2dab4c56",
-          "date": "2026-10-01",
-          "message": "合併 MR !29: fix: 轉入 LIS 單引號跳脫 (ORA-00917)＋未對應登記院內碼上限放寬到 50 碼 (v10.01)",
-          "body": "fix: 轉入 LIS 單引號跳脫 (ORA-00917)＋未對應登記院內碼上限放寬到 50 碼 (v10.01)\n\nSee merge request ucl/twowayconnection/uclweborder!29",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "8ebc1edd",
-          "date": "2026-10-19",
-          "message": "合併 MR !31: fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面 (v10.20)",
-          "body": "fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面 (v10.20)\n\nSee merge request ucl/twowayconnection/uclweborder!31",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "12285785",
-          "date": "2026-10-19",
-          "message": "chore: 版號改為 10.20(2026/10/20 台北上線)",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2edbc291",
-          "date": "2026-10-19",
-          "message": "test: 去重複孤兒細項的本地實測（setup SQL + Playwright）",
-          "body": "- tests/dedup_orphan_setup.sql：透過 Linked Server 唯讀正式庫，在本地 SQLEXPRESS 還原\n  0247 2026/10/16 去重複前狀態(16 條碼 × 2 份主單、29 筆被刪列照原 SN/SN_D 還原)\n- tests/smoke/dedup-orphan.spec.js：按去重複後不可留下整張只剩隱藏列的主單；\n  含對照組(還有可見項目的單，隱藏細項要保留)；EXPECT_OLD=1 驗舊版可重現\n- 實測：main 重現 11 張孤兒；本修正 0 張、DEDUP_ORPHAN 44 筆、對照組保留；\n  既有 lifecycle smoke 6 passed\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "53724b23",
-          "date": "2026-10-19",
-          "message": "fix: 去重複後套檢的隱藏細項變成獨立醫令回到畫面",
-          "body": "醫院上傳的套檢是「套檢列 + 隱藏細項列」(細項由 OrderCheckJob 設 CANCEL=1)。\n同一條碼傳兩次時，去重複只比 CANCEL=0，刪掉重複套檢列後隱藏細項留下；\n整張只剩隱藏列時 PHP_ALL_CANCEL 會全部改回顯示 → 套檢變成一堆細項\n(2026/10/16 0247 基隆醫院 12 張單 52 筆)。\n\n- 刪完只剩隱藏列的主單，隱藏列一併刪除(稽核 DEDUP_ORPHAN)；有已轉入列不動\n- 已配號的優先保留(原本 ORDER BY SN DESC，SN 是 GUID 等於隨機)\n- 確認框顯示連帶刪除的隱藏細項數、要刪資料中的已配號筆數\n- tests/dedup_orphan_dryrun.sql 唯讀模擬：0247 10/16 抓到的 52 筆與實際被翻開的逐筆一致，\n  其他 4 個單位日 0 筆\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "a9976c33",
-          "date": "2026-10-19",
-          "message": "docs: 各分部發佈狀況更新 —— 台北 10.01、台中 9.29（10.01 DB 前置已完成）",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "654e38bb",
-          "date": "2026-10-28",
-          "message": "docs: 去重複跨病人誤刪 10/28 追蹤（處理現況、3528、OrderCheckJob）",
-          "body": "- 秉坤 23 張：補做 13 張已人工補單，加做 7 張未處理；0926 Zinc 已補\n- 3528 每天 (D)(E) 兩檔序號重編，10/27、10/28 同樣誤刪；整理觸發條件\n- 順帶發現 OrderCheckJob 隱藏 3528 P228/P217/2460，待檢驗回覆\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "765410f1",
-          "date": "2026-10-28",
-          "message": "fix: 去重複把不同病人的醫令當重複刪掉 (v10.29)",
-          "body": "2026/10/27 秉坤(1021/1102)按去重複刪 29 項，全部是別的病人，13 張單整張被刪光；\n0926 聯明 10/16 也被刪 3 項。\n\n根因：重複 key 從 v3.04 起以 id_cli_info(檢體註解)當病人識別。安慎線把採檢序號\n寫進這欄、每個檔從 1001 重編，同一天收好幾批就對到不同病人。\n\n- 重複 key 改成 病人(身分證/姓名+生日)+條碼+項目+院內碼，不再使用檢體註解\n- 防呆：同一組病人資料不一致整組不刪，確認框列出\n- 確認框病人後面帶條碼\n- 稽核多存 PatientID/PatientName/ID_INVNO；稽核與刪除同一交易，稽核失敗就不刪\n- DB 前置：docs/sql/alter_DistAuditLog_patient.sql(sqlcmd 加 -f 65001)\n\n本地驗證(tests/dedup_crosspatient_setup.sql + tests/smoke/dedup-crosspatient.spec.js)：\nmain 重現 24 筆跨病人誤刪；本修正只刪 2 筆對照組真重複、防呆組不刪、拿掉稽核欄位時\n一筆不刪；回歸 dedup-orphan(0247) 與 lifecycle smoke 皆通過。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "37a2fe0c",
-          "date": "2026-10-29",
-          "message": "合併 MR !33: docs: 去重複誤刪善後追蹤＋10.29 上線後監控",
-          "body": "docs: 去重複誤刪善後追蹤＋10.29 上線後監控\n\nSee merge request ucl/twowayconnection/uclweborder!33",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "5b0fe8f7",
-          "date": "2026-10-29",
-          "message": "docs: 10.29 上線紀錄＋去重複上線後監控查詢",
-          "body": "- docs/去重複_跨病人誤刪.md：10.29 上線結果、監控做法與在 Claude Code 開監控的指令\n- tests/dedup_audit_watch.sql：唯讀查今天去重複是否刪錯人(用稽核的病人欄位比對保留列)\n- 秉坤 7 張加做：使用者確認不用動\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
           "tags": []
         }
       ],
@@ -28932,7 +29100,7 @@
     },
     {
       "name": "OfficialWebsites\\uclcloud-app",
-      "totalCommits": 95,
+      "totalCommits": 101,
       "commits": [
         {
           "hash": "8d8e4a75",
@@ -29693,13 +29861,61 @@
           "body": "- 路線 A 網站試算 2026-11-17 上線，細節移到 cloudedleopard docs/慢性病風險試算.md\n- 路線 B App 試算待國健署答覆；列出 App 端要補的事\n- 路線 C 報告顯示 LIS 8831–8835 擱置，保留資料盤點與待主任決定事項\n- 帳號、正式機對外 IP、國健署提問清單\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "912c1d9b",
+          "date": "2026-11-20",
+          "message": "合併 MR !67: docs(ios): 5.1.1(v) 已回覆並重新提交審查（2026-11-20）",
+          "body": "docs(ios): 5.1.1(v) 已回覆並重新提交審查（2026-11-20）\n\nSee merge request ucl/officialwebsites/uclcloud-app!67",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "c60c645c",
+          "date": "2026-11-20",
+          "message": "docs(ios): 5.1.1(v) 已回覆並重新提交審查（2026-11-20 07:25，第 6 輪）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5c1a001f",
+          "date": "2026-11-20",
+          "message": "合併 MR !66: docs(ios): 註冊頁身分證字號說明已上線",
+          "body": "docs(ios): 註冊頁身分證字號說明已上線\n\nSee merge request ucl/officialwebsites/uclcloud-app!66",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "3284b19c",
+          "date": "2026-11-20",
+          "message": "docs(ios): 註冊頁身分證字號說明已上線（cloudedleopard !46）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9911532a",
+          "date": "2026-11-20",
+          "message": "合併 MR !65: docs(ios): 第五次退件（5.1.1(v) 註冊必填身分證字號）",
+          "body": "docs(ios): 第五次退件（5.1.1(v) 註冊必填身分證字號）\n\nSee merge request ucl/officialwebsites/uclcloud-app!65",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "10db7202",
+          "date": "2026-11-20",
+          "message": "docs(ios): 第五次退件（準則 5.1.1(v) 註冊必填身分證字號）：判斷、處理與回覆草稿",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "Management\\AuditIntegration",
-      "totalCommits": 83,
+      "totalCommits": 85,
       "commits": [
         {
           "hash": "a46fcee3",
@@ -30362,6 +30578,22 @@
           "date": "2026-11-13",
           "message": "2026 內稽會後：OFI001～005 紀錄表與改善資料、兩份文件修訂送審檔、外訓證書對照表",
           "body": "- 內部稽核資料_20261113/：五張 OFI 紀錄表、OFI對照表.txt、OFI001 外稽建議事項及改善、\n  OFI004 績效管理說明 V1.1（FMApply 202611130001）、OFI005 查檢表 V1.1（202611130002）送審檔\n- 總結報告：結果表與待改善清單同步五張 OFI（0 缺失、5 項待改善）\n- 外訓證書對照表（證書掃描檔不進 repo，.gitignore 排除）\n- TODO 會後段落整理、文件位置索引補外稽紀錄與新資料夾\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "183a26b4",
+          "date": "2026-11-20",
+          "message": "合併 MR !54: 2026 內稽：OFI004、005 發行後填寫紀錄表；外訓證書對照表更新",
+          "body": "2026 內稽：OFI004、005 發行後填寫紀錄表；外訓證書對照表更新\n\nSee merge request ucl/management/audit-integration!54",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "19f147fd",
+          "date": "2026-11-20",
+          "message": "2026 內稽：OFI004、005 文件修訂已發行，紀錄表下半部填寫；楊廠長外訓證書入表",
+          "body": "- OFI004（績效管理說明 V1.1）、OFI005（查檢表 V1.1）11/17 發行，紀錄表填矯正措施、原因分析、完成日期\n- OFI001 綉媚已簽回，待賴主任結案；OFI002 銷貨單仍未補\n- 外訓證書對照表：楊盛南 13485 內稽、14971、儀器校正、醫材技術人員訓練證書（掃描檔不進 repo）\n- 文件位置索引：2027 起查檢表從文管最新版本區下載\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
         }
@@ -32079,7 +32311,7 @@
     },
     {
       "name": "OfficialWebsites\\ucl",
-      "totalCommits": 60,
+      "totalCommits": 63,
       "commits": [
         {
           "hash": "74807372",
@@ -32560,13 +32792,37 @@
           "body": "兩支左側選單 include 原本在 .gitignore 盲區，內容與正式機 2026-11-17 版本一致，\n先以原版入庫，下一個 commit 再做知識庫下架的修改。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "93c2b483",
+          "date": "2026-11-20",
+          "message": "docs: 典匠著作權案－記錄 11-20 和解報價與系爭 PDF 存取量",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c856e6e1",
+          "date": "2026-11-20",
+          "message": "合併 MR !14: docs: 典匠著作權案－記錄 11-18 存證信函",
+          "body": "docs: 典匠著作權案－記錄 11-18 存證信函\n\nSee merge request ucl/officialwebsites/ucl!14",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "1e268ee8",
+          "date": "2026-11-20",
+          "message": "docs: 典匠著作權案－記錄 11-18 存證信函內容與 email 差異",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "OfficialWebsites\\uclcloud",
-      "totalCommits": 57,
+      "totalCommits": 58,
       "commits": [
         {
           "hash": "a8d8d68f",
@@ -33023,6 +33279,325 @@
           "body": "- 後端 ChronicRiskController 代為呼叫國健署 Web API allmodel，原值回傳不分級\n- 僅登入的一般會員可試算，頁面其餘功能維持免登入\n- 帶入會員性別年齡與最近一次報告的血糖血脂\n- 已有病史的項目不顯示風險值；35–70 歲以外加註並拿掉同齡平均\n- ChronicRiskLogs 只記使用紀錄（不存健康數值），並限制每位會員每日次數\n- 帳密由 ChronicRisk:Account／Password 設定，未設定時回 503\n\n部署前需在 uclw2w 執行 backend/Scripts/13_create_chronic_risk_logs.sql\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
+        },
+        {
+          "hash": "33603ab3",
+          "date": "2026-11-20",
+          "message": "feat(register): 註冊頁說明為什麼需要身分證字號（App Store 準則 5.1.1(v)）",
+          "body": "iOS build 1.0.0 (4) 於 2026-11-19 被退：註冊必填身分證字號，Apple 認為與核心功能無關。\n報告是以身分證字號比對的，沒有它帳號裡不會有任何報告，所以維持必填，\n在欄位下方說明用途。註冊頁在 App 內以網頁開啟，審核員看得到。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "totalCommits": 38,
+      "commits": [
+        {
+          "hash": "80333b9f",
+          "date": "2025-05-15",
+          "message": "預設不啟動富盈模式 PID支援中文傳入 嘗試解決異體字 a. TSCLIB_DLL.windowsfontU b. 若遇到 bug (text[0] == 0) 的情況 call 舊的  TSCLIB_DLL.windowsfont",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "177af3e5",
+          "date": "2025-06-26",
+          "message": "拆分 QRCode & tno",
+          "body": "QRCode 邏輯 tno_itemCode_Year",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "010a8596",
+          "date": "2025-06-26",
+          "message": "1. 新增 QRCode 列印模式 2. 切一個 function 讓以後中文字可以輸出異體字 3. 增加uri註解幫助以後測試",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "cd77e182",
+          "date": "2025-07-11",
+          "message": "拔掉 time sleep 讓他更順暢",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "89a6fa40",
+          "date": "2025-11-20",
+          "message": "Merge branch 'fix/TSC_CLS' into 'main'",
+          "body": "fix:[PrintTNO]記憶清除不完全",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "fc86e619",
+          "date": "2026-01-08",
+          "message": "feat: 新增 Windows Service 版本 (.NET 10)",
+          "body": "- 將原本 Console App 重構為 Windows Service，消除視窗顯示",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "80251230",
+          "date": "2026-01-09",
+          "message": "fix: 修正中文姓名第一碼為0時無法顯示的問題",
+          "body": "使用 PrintText 智慧方法自動判斷是否使用 WindowsFontUnicode",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4eaed88a",
+          "date": "2026-01-09",
+          "message": "docs: 新增專案文檔",
+          "body": "- README.md: 專案說明與快速開始指南",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "45ea3d48",
+          "date": "2026-01-09",
+          "message": "fix: 新增舊版 API 參數兼容性",
+          "body": "- TNO: 兼容 tno, UCL_TNO, ID_TNO",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "581acb80",
+          "date": "2026-01-10",
+          "message": "Merge branch 'chore/build-release-script' into 'main'",
+          "body": "chore: add build-release script and update gitignore",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "152f27b0",
+          "date": "2026-01-10",
+          "message": "chore: add build-release script and update gitignore",
+          "body": "- Add build-release.bat for packaging release bundle",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "7933188a",
+          "date": "2026-07-21",
+          "message": "feat(install): install.bat自動保留各站appsettings.json, 更新統一走移除重裝",
+          "body": "- 安裝腳本產生器: xcopy前暫存既有appsettings.json、複製後還原",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f95f25a7",
+          "date": "2026-07-21",
+          "message": "docs(INSTALL): review修訂—展開install.bat逐步說明(URL ACL用途)、更新加備份/回退、驗證加時間戳; build-release.bat自封裝旗標改true與csproj一致",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1b09bb18",
+          "date": "2026-07-21",
+          "message": "docs(INSTALL): 補NAS部署點與runtime備援說明",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "41edabef",
+          "date": "2026-07-21",
+          "message": "docs: 新增工作站安裝與更新指南 INSTALL.md",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "057d7caf",
+          "date": "2026-07-21",
+          "message": "docs(API-SPEC): 補病歷號縮字與12碼上限說明",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9893bdf1",
+          "date": "2026-07-21",
+          "message": "fix(QRCode標籤): 病歷號上限改12碼，實測第13碼會切到DataMatrix",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "462348c2",
+          "date": "2026-07-21",
+          "message": "fix(QRCode標籤): 病歷號超過9碼縮小字體，避免擠到DataMatrix",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "d1e0732b",
+          "date": "2026-07-21",
+          "message": "feat(QRCode標籤): 新增病歷號列印、姓名不截3字、單位名稱上限7字",
+          "body": "- CustomTextLabelData 新增 Apid 欄位，query 參數 apid（空值或 00 不印）",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b1c52af0",
+          "date": "2026-08-17",
+          "message": "docs: 新增工作站更新步驟說明 txt (隨部署包放 NAS)",
+          "body": "給工作站同仁看的簡易版步驟，重點提醒：",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8be7dab4",
+          "date": "2026-08-17",
+          "message": "docs: 補 NAS 部署包更新慣例與多台工作站更新程序",
+          "body": "- NAS 部署點結構與 backup\\<YYYYMMDD>\\ 備份慣例（更新前先備份被取代的舊版）",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "6423c344",
+          "date": "2026-08-17",
+          "message": "chore: 版次更新 V2026.08.17.01 (TNO標籤 seqNo/noBarcode)",
+          "body": "各站更新後可由 ?control=version 確認是否為含簽收序號功能的版本。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8e78e926",
+          "date": "2026-08-17",
+          "message": "feat: TNO標籤支援簽收序號(seqNo)與不印條碼(noBarcode)參數",
+          "body": "亞東H WS45 病理簽收需求：標籤不印條碼，改在條碼位置印大字簽收序號。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "374a6234",
+          "date": "2026-08-18",
+          "message": "docs: 同步 V2026.08.18.03 版次至更新步驟說明與 INSTALL 版本紀錄",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "13d20a17",
+          "date": "2026-08-18",
+          "message": "chore: 版次 V2026.08.18.03 (單位名稱三段式字級)",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b56b5bc3",
+          "date": "2026-08-18",
+          "message": "feat(QRCode標籤): 單位名稱超過12字再縮至字級15",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7d5cd2ec",
+          "date": "2026-08-18",
+          "message": "feat(QRCode標籤): 單位名稱超過7字縮小字級；版次 V2026.08.18.02",
+          "body": "字級 30→20，可容納約 11 個全形字，同姓名/病歷號既有做法。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e3d8df89",
+          "date": "2026-08-18",
+          "message": "Merge main (V2026.08.18.01) into feature/qrcode-label-unitlen",
+          "body": "",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c810e6aa",
+          "date": "2026-08-18",
+          "message": "docs: 同步 V2026.08.18.01 版次至更新步驟說明與 INSTALL 版本紀錄",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ecb40e59",
+          "date": "2026-08-18",
+          "message": "chore: 版次更新 V2026.08.18.01 (TY標籤檢體管名代號修正)",
+          "body": "含 song 8/18 修正：生化/紫頭管名帶英文代號時保留完整名稱、管名 0 印空白。",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f1a8ffe6",
+          "date": "2026-08-18",
+          "message": "feat(QRCode標籤): 單位名稱截斷改由 unitLen 參數控制（未帶=7、0=不截斷）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "499fda61",
+          "date": "2026-08-19",
+          "message": "feat(QRCode標籤): 新增 sideNo 參數控制側邊編號；版次 V2026.08.19.01",
+          "body": "附加報告（QRCode）標籤右上前 5 碼＋右緣直式後 5 碼的側邊編號，",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f9bc2ae5",
+          "date": "2026-11-19",
+          "message": "合併 MR !34: fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明",
+          "body": "fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明\n\nSee merge request ucl/lis/localprinthttpservice!34",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "7d19fd34",
+          "date": "2026-11-19",
+          "message": "fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明至 V2026.11.19.01",
+          "body": "8 月起的部署包 appsettings.json 都帶 \"SpecialSigns\": \"\"，install.bat 更新時\n保留工作站既有設定檔、只改版次，欄位存在就不會套用類別預設值。結果 !32\n補回的洗腎特殊符號預設清單只對全新安裝的站生效，既有站更新後清單仍是空的。\n\n- TscLabelPrintService：SpecialSigns 為空白時改用 PrinterSettings.DefaultSpecialSigns\n- 預設清單收斂成 PrinterSettings.DefaultSpecialSigns 常數，舊版入口共用\n- scripts/更新步驟說明.txt：版次與「本次更新內容」同步至 V2026.11.19.01（!33 漏改）\n- docs/INSTALL.md：版本紀錄補上本項\n\nV2026.11.19.01 尚未放上 NAS、未發到任何工作站，故沿用同一版次。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f67c5f37",
+          "date": "2026-11-19",
+          "message": "合併 MR !33: fix(套組列印): 安裝版 CopyPrint 套組未套用剝紙與份數設定；版次 V2026.11.19.01",
+          "body": "fix(套組列印): 安裝版 CopyPrint 套組未套用剝紙與份數設定；版次 V2026.11.19.01\n\nSee merge request ucl/lis/localprinthttpservice!33",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "bf7e0589",
+          "date": "2026-11-19",
+          "message": "fix(套組列印): 安裝版逐組套用剝紙、份數等設定；版次 V2026.11.19.01",
+          "body": "LISWeb Home/CopyPrint 的成人健檢、ABCD檢、自訂套組送出的網址只帶\nUCL_TNO 與 package_string，列印設定都在每一組裡\n（號碼,份數,peel,upsideDown,small,sideLabel,swapBackForth）。\n\n安裝版原本只取每組的號碼，其餘設定讀網址參數，結果：\n- peel 一律 false，有剝紙器的站一次把整疊標籤吐出\n- 份數固定 1，ABCD檢原碼只印 1 張\n- 上下顛倒、小標籤、側邊條碼、前後對調的勾選無效\n- 套組只有一組（沒有 *）時走單張流程，尾碼被丟掉\n\n改為逐組套用組內設定，份數是同一個號碼印 N 張，行為對齊舊版主控台程式。\nAPI-SPEC 的套組分隔符號由分號更正為 *。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "3065d8ef",
+          "date": "2026-11-20",
+          "message": "合併 MR !35: docs(INSTALL): NAS 部署點統一為 0.常用捷徑",
+          "body": "docs(INSTALL): NAS 部署點統一為 0.常用捷徑\n\nSee merge request ucl/lis/localprinthttpservice!35",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "2f2317ae",
+          "date": "2026-11-20",
+          "message": "docs(INSTALL): NAS 部署點統一為 0.常用捷徑，說明暫放區已停用",
+          "body": "2026-08 起的版本（08.17、08.18、08.19、11.19）都只放到\n\\Ucl-shared\\暫放資料夾\\0004 資訊部\\，各站實際取用的\n\\Ucl-shared\\0.常用捷徑\\0.標籤列印服務\\ 一直停在 V2026.07.28.01，\n修正發了工作站卻拿不到（2026-11-20 台北回報才發現）。\n\n- 部署點改寫為 0.常用捷徑 那個路徑，註明 IP 寫法是同一處\n- 警告不要再放暫放區；該資料夾已刪除、原處留捷徑\n- 放完要從部署點本身讀版次確認\n- 補上 NAS 上說明檔的實際檔名\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
@@ -33325,301 +33900,6 @@
           "message": "feat(AutoUpload): 只在有單位失敗時寄執行報告，改寫 run-history.log 心跳給 Cerberus",
           "body": "- 原本全部成功、0 筆也天天寄信，久了沒人看；沒跑則根本沒有信，不會有人察覺\n- 每次執行在 logs/run-history.log 補一行：成功 \"OK(5/5) …\"、失敗 \"FAIL(1/5) … 失敗單位\"、例外 \"FAIL(例外) …\"\n- 例外路徑原本不寄信也沒人知道（NLog mail target 讀的 Notification.SmtpServer 沒設），現在由 Cerberus 抓\n- dry-run 不寫心跳；對應 Cerberus 頭「NHI自費上傳@台北」\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
           "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "LIS\\LocalPrintHttpService",
-      "totalCommits": 36,
-      "commits": [
-        {
-          "hash": "80333b9f",
-          "date": "2025-05-15",
-          "message": "預設不啟動富盈模式 PID支援中文傳入 嘗試解決異體字 a. TSCLIB_DLL.windowsfontU b. 若遇到 bug (text[0] == 0) 的情況 call 舊的  TSCLIB_DLL.windowsfont",
-          "body": "",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "177af3e5",
-          "date": "2025-06-26",
-          "message": "拆分 QRCode & tno",
-          "body": "QRCode 邏輯 tno_itemCode_Year",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "010a8596",
-          "date": "2025-06-26",
-          "message": "1. 新增 QRCode 列印模式 2. 切一個 function 讓以後中文字可以輸出異體字 3. 增加uri註解幫助以後測試",
-          "body": "",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "cd77e182",
-          "date": "2025-07-11",
-          "message": "拔掉 time sleep 讓他更順暢",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "89a6fa40",
-          "date": "2025-11-20",
-          "message": "Merge branch 'fix/TSC_CLS' into 'main'",
-          "body": "fix:[PrintTNO]記憶清除不完全",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "fc86e619",
-          "date": "2026-01-08",
-          "message": "feat: 新增 Windows Service 版本 (.NET 10)",
-          "body": "- 將原本 Console App 重構為 Windows Service，消除視窗顯示",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "80251230",
-          "date": "2026-01-09",
-          "message": "fix: 修正中文姓名第一碼為0時無法顯示的問題",
-          "body": "使用 PrintText 智慧方法自動判斷是否使用 WindowsFontUnicode",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "4eaed88a",
-          "date": "2026-01-09",
-          "message": "docs: 新增專案文檔",
-          "body": "- README.md: 專案說明與快速開始指南",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "45ea3d48",
-          "date": "2026-01-09",
-          "message": "fix: 新增舊版 API 參數兼容性",
-          "body": "- TNO: 兼容 tno, UCL_TNO, ID_TNO",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "581acb80",
-          "date": "2026-01-10",
-          "message": "Merge branch 'chore/build-release-script' into 'main'",
-          "body": "chore: add build-release script and update gitignore",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "152f27b0",
-          "date": "2026-01-10",
-          "message": "chore: add build-release script and update gitignore",
-          "body": "- Add build-release.bat for packaging release bundle",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "7933188a",
-          "date": "2026-07-21",
-          "message": "feat(install): install.bat自動保留各站appsettings.json, 更新統一走移除重裝",
-          "body": "- 安裝腳本產生器: xcopy前暫存既有appsettings.json、複製後還原",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "f95f25a7",
-          "date": "2026-07-21",
-          "message": "docs(INSTALL): review修訂—展開install.bat逐步說明(URL ACL用途)、更新加備份/回退、驗證加時間戳; build-release.bat自封裝旗標改true與csproj一致",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1b09bb18",
-          "date": "2026-07-21",
-          "message": "docs(INSTALL): 補NAS部署點與runtime備援說明",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "41edabef",
-          "date": "2026-07-21",
-          "message": "docs: 新增工作站安裝與更新指南 INSTALL.md",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "057d7caf",
-          "date": "2026-07-21",
-          "message": "docs(API-SPEC): 補病歷號縮字與12碼上限說明",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "9893bdf1",
-          "date": "2026-07-21",
-          "message": "fix(QRCode標籤): 病歷號上限改12碼，實測第13碼會切到DataMatrix",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "462348c2",
-          "date": "2026-07-21",
-          "message": "fix(QRCode標籤): 病歷號超過9碼縮小字體，避免擠到DataMatrix",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "d1e0732b",
-          "date": "2026-07-21",
-          "message": "feat(QRCode標籤): 新增病歷號列印、姓名不截3字、單位名稱上限7字",
-          "body": "- CustomTextLabelData 新增 Apid 欄位，query 參數 apid（空值或 00 不印）",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b1c52af0",
-          "date": "2026-08-17",
-          "message": "docs: 新增工作站更新步驟說明 txt (隨部署包放 NAS)",
-          "body": "給工作站同仁看的簡易版步驟，重點提醒：",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "8be7dab4",
-          "date": "2026-08-17",
-          "message": "docs: 補 NAS 部署包更新慣例與多台工作站更新程序",
-          "body": "- NAS 部署點結構與 backup\\<YYYYMMDD>\\ 備份慣例（更新前先備份被取代的舊版）",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "6423c344",
-          "date": "2026-08-17",
-          "message": "chore: 版次更新 V2026.08.17.01 (TNO標籤 seqNo/noBarcode)",
-          "body": "各站更新後可由 ?control=version 確認是否為含簽收序號功能的版本。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "8e78e926",
-          "date": "2026-08-17",
-          "message": "feat: TNO標籤支援簽收序號(seqNo)與不印條碼(noBarcode)參數",
-          "body": "亞東H WS45 病理簽收需求：標籤不印條碼，改在條碼位置印大字簽收序號。",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "374a6234",
-          "date": "2026-08-18",
-          "message": "docs: 同步 V2026.08.18.03 版次至更新步驟說明與 INSTALL 版本紀錄",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "13d20a17",
-          "date": "2026-08-18",
-          "message": "chore: 版次 V2026.08.18.03 (單位名稱三段式字級)",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "b56b5bc3",
-          "date": "2026-08-18",
-          "message": "feat(QRCode標籤): 單位名稱超過12字再縮至字級15",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "7d5cd2ec",
-          "date": "2026-08-18",
-          "message": "feat(QRCode標籤): 單位名稱超過7字縮小字級；版次 V2026.08.18.02",
-          "body": "字級 30→20，可容納約 11 個全形字，同姓名/病歷號既有做法。",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "e3d8df89",
-          "date": "2026-08-18",
-          "message": "Merge main (V2026.08.18.01) into feature/qrcode-label-unitlen",
-          "body": "",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c810e6aa",
-          "date": "2026-08-18",
-          "message": "docs: 同步 V2026.08.18.01 版次至更新步驟說明與 INSTALL 版本紀錄",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ecb40e59",
-          "date": "2026-08-18",
-          "message": "chore: 版次更新 V2026.08.18.01 (TY標籤檢體管名代號修正)",
-          "body": "含 song 8/18 修正：生化/紫頭管名帶英文代號時保留完整名稱、管名 0 印空白。",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "f1a8ffe6",
-          "date": "2026-08-18",
-          "message": "feat(QRCode標籤): 單位名稱截斷改由 unitLen 參數控制（未帶=7、0=不截斷）",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "499fda61",
-          "date": "2026-08-19",
-          "message": "feat(QRCode標籤): 新增 sideNo 參數控制側邊編號；版次 V2026.08.19.01",
-          "body": "附加報告（QRCode）標籤右上前 5 碼＋右緣直式後 5 碼的側邊編號，",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "f9bc2ae5",
-          "date": "2026-11-19",
-          "message": "合併 MR !34: fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明",
-          "body": "fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明\n\nSee merge request ucl/lis/localprinthttpservice!34",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "7d19fd34",
-          "date": "2026-11-19",
-          "message": "fix(特殊符號): SpecialSigns 空字串時退回預設清單；同步更新步驟說明至 V2026.11.19.01",
-          "body": "8 月起的部署包 appsettings.json 都帶 \"SpecialSigns\": \"\"，install.bat 更新時\n保留工作站既有設定檔、只改版次，欄位存在就不會套用類別預設值。結果 !32\n補回的洗腎特殊符號預設清單只對全新安裝的站生效，既有站更新後清單仍是空的。\n\n- TscLabelPrintService：SpecialSigns 為空白時改用 PrinterSettings.DefaultSpecialSigns\n- 預設清單收斂成 PrinterSettings.DefaultSpecialSigns 常數，舊版入口共用\n- scripts/更新步驟說明.txt：版次與「本次更新內容」同步至 V2026.11.19.01（!33 漏改）\n- docs/INSTALL.md：版本紀錄補上本項\n\nV2026.11.19.01 尚未放上 NAS、未發到任何工作站，故沿用同一版次。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "f67c5f37",
-          "date": "2026-11-19",
-          "message": "合併 MR !33: fix(套組列印): 安裝版 CopyPrint 套組未套用剝紙與份數設定；版次 V2026.11.19.01",
-          "body": "fix(套組列印): 安裝版 CopyPrint 套組未套用剝紙與份數設定；版次 V2026.11.19.01\n\nSee merge request ucl/lis/localprinthttpservice!33",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "bf7e0589",
-          "date": "2026-11-19",
-          "message": "fix(套組列印): 安裝版逐組套用剝紙、份數等設定；版次 V2026.11.19.01",
-          "body": "LISWeb Home/CopyPrint 的成人健檢、ABCD檢、自訂套組送出的網址只帶\nUCL_TNO 與 package_string，列印設定都在每一組裡\n（號碼,份數,peel,upsideDown,small,sideLabel,swapBackForth）。\n\n安裝版原本只取每組的號碼，其餘設定讀網址參數，結果：\n- peel 一律 false，有剝紙器的站一次把整疊標籤吐出\n- 份數固定 1，ABCD檢原碼只印 1 張\n- 上下顛倒、小標籤、側邊條碼、前後對調的勾選無效\n- 套組只有一組（沒有 *）時走單張流程，尾碼被丟掉\n\n改為逐組套用組內設定，份數是同一個號碼印 N 張，行為對齊舊版主控台程式。\nAPI-SPEC 的套組分隔符號由分號更正為 *。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -35361,6 +35641,149 @@
       "type": "work"
     },
     {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "totalCommits": 17,
+      "commits": [
+        {
+          "hash": "1ed627bb",
+          "date": "2026-05-28",
+          "message": "fix;修復排程吊死導致 ACTIVE 鎖卡住問題",
+          "body": "1. 全部 SQL 加 CommandTimeout = 60 秒，避免遇到 Oracle lock 或網路問題無限等待",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9b6a5aa5",
+          "date": "2026-06-01",
+          "message": "docs;新增 DEPLOY.md 部署流程文件",
+          "body": "涵蓋 build、打包 (slim package)、部署 (停排程→備份→抄檔→啟排程)、",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8a1ca129",
+          "date": "2026-06-01",
+          "message": "fix;補上 Connection.Open() 的 timeout 保護",
+          "body": "1. 新增 OpenWithTimeout(IDbConnection) 包 cn.Open()，預設 15 秒",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "dfea3b97",
+          "date": "2026-06-01",
+          "message": "fix;消除 ORA-01400 雜訊與 NLog 歸檔改進",
+          "body": "1. BuildDefaultMergeSql / BuildDetailedMergeSql 在 USING 外加 WHERE OD_TESTCODE_LIST IS NOT NULL",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4f8ed3e4",
+          "date": "2026-06-24",
+          "message": "docs(queue): memo 補 2026-06-02 Queue 機制改進 TODO 與 log 路徑說明",
+          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "80052eea",
+          "date": "2026-06-24",
+          "message": "feat(queue): 自動補二審 eventlog 標記 [Auto] 區分人工/系統審核",
+          "body": "一審完自動補的二審(_AddQueue)借用空著的 WS_CODE 欄標 'AUTO',",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3fec124e",
+          "date": "2026-07-09",
+          "message": "docs: 7/8 佇列卡住事件定案與排程工作必要設定",
+          "body": "- memo.txt 補 2026-07-09 事件記錄：根因在 Task Scheduler",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "eeb658ab",
+          "date": "2026-08-13",
+          "message": "docs: README 導覽補可靠性三層防線準則連結（Cerberus repo）",
+          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "2747dbd1",
+          "date": "2026-08-13",
+          "message": "docs: 部署備份只留最近一組，備份前先清舊 .bak_*",
+          "body": "rollback 只會用上一版；歷次 .bak 越積越多（現場已清掉 20260601 組）。",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ae2bd81f",
+          "date": "2026-08-13",
+          "message": "feat: AuthoriseSchedule 鎖改租約制（原子取鎖＋逾時接管＋歸屬釋放）",
+          "body": "舊鎖三問題：stale lock 只能人工解、SELECT+UPDATE 非原子、",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "16d9ef9e",
+          "date": "2026-08-13",
+          "message": "feat: 加 [Heartbeat] 心跳行，接入 Cerberus 看門狗監控",
+          "body": "- Main finally 在 [Run] End 之後補一行「[Heartbeat] OK, result=...」，",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7cbff470",
+          "date": "2026-09-09",
+          "message": "fix: 佇列 USER 欄加寬 10→15，補 AUTOAUTHORISE 記名的 DDL 與踩坑記錄",
+          "body": "WS76 自動二審上線後實測發現 AUTOAUTHORISE（13 碼）塞不進佇列表的 USER 欄，\n串著炸了兩次，兩次都是整筆交易 rollback + 佇列列清不掉 + 每分鐘無限重試：\n\n1. Oracle AuthoriseQueue.USER 原 VARCHAR2(10) → ORA-12899 炸在 Release()\n   內排二審那步，把整筆一審一起 rollback，項目停在 OD_ACTION_FLAG='N'、\n   只有 L14 沒有 L06。\n2. 修掉第一顆後，SQL Server BBS.AuthoriseQueue_Log.[USER] 原 varchar(10)\n   在二審寫備份時截斷，_BackupQueueToBbs 會 throw，整筆二審 rollback、停在 L06。\n\n同庫 USER_ACCOUNT.USER_ID、EVENTLOG.EL_USERID、ORD_DTL.OD_UPDATE_BY 本來\n就都是 15，是這兩張佇列表當初開窄了。加寬 VARCHAR 是 metadata-only，不鎖表、\n不影響現有資料，舊版 exe 也不受影響。\n\n- 新增 SchemaModify/20260909_AuthoriseQueue_UserColumnWidth.sql：Oracle 與\n  SQL Server 兩段 DDL，比照 20260813 租約鎖那支的格式，註明佈新版 exe 前先執行。\n- README 第 3 節：兩張表補欄寬說明，並記備份寫失敗會連帶 rollback 整筆二審。\n- README 第 5 節：補「資訊部帳號都有 All 會走預設分支，用自己的帳號測永遠測不到\n  自動放行路徑，要用沒有二審站的行政帳號」。\n- 修改歷程補這次的事故經過與各分部執行狀態。\n\nOracle 側六分部＋測試機已全數執行；SQL Server 側目前只完成台北 BBS\n（192.168.56.191），其他分部若有各自的 BBS，推版前要比照加寬。\n\n驗證：TNO 6090929003 以 A257（歐陽萱，行政、無二審站）一審 WS76 的 9751，\nL06 記 A257、L20 記 AUTOAUTHORISE [Auto]，OD_UPDATE_BY=AUTOAUTHORISE，\n報告簽署人印陳明輝，佇列清空。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f53f3537",
+          "date": "2026-09-09",
+          "message": "docs: DEPLOY 備份清單補 ExcludeQueue.json，並記無 RDP 時的佈署做法",
+          "body": "2026-09-09 佈 WS76 自動二審時發現的兩個文件缺口：\n\n- 備份清單原本只列 4 個檔，漏了 ExcludeQueue.json。它是會隨版本改內容的\n  設定檔，rollback 時要和 exe 成對還原，否則新 exe 配舊 json（或反之）\n  雖然不會壞資料，但等於改動沒生效、又不易察覺。\n- 補記遠端能力邊界：d$ 讀寫可行，但 schtasks 遠端一律 Access denied，\n  停用/啟用排程只能 RDP。附上無法 RDP 時走每分鐘執行空檔覆蓋的做法與\n  中間狀態安全性分析。\n- rollback 範例日期改成這次的備份 20260909。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "e2b7e8cd",
+          "date": "2026-09-09",
+          "message": "feat: WS76 異常通知項目不看操作者權限自動二審，記名 AUTOAUTHORISE",
+          "body": "會議決議：行政審 WS76（異常通知時間）由系統自動二審，避免通知人員\n一審後等人補審造成報告延遲。\n\n- ExcludeQueue.json 新增 AutoAuthoriseWorkstations（WS76）與\n  AutoAuthoriseAccount（AUTOAUTHORISE，HCLAB 規則引擎自動二審用的既有系統帳號）\n- BuildDetailedMergeSql 新增選用參數 autoWorkstations，WS 條件多一段\n  OR wp.WP_CODE IN (:AUTO_WS_n)，自動放行站的項目不看操作者權限一律進二審佇列\n- _AddQueue：操作者沒二審站但有自動放行站時不再直接跳出；\n  佇列記名由 ResolveQueueUser 決定（有自己的二審站記操作者，否則記系統帳號）；\n  操作者沒二審站時 CTRLB 放寬不生效，維持原本範圍\n- 補 BuildMergeSqlTest 案例（SQL 產生 + 記名規則），19 tests pass\n- 台北庫實單 6090804314 唯讀模擬：無權限操作者只撈出 WS76 的 9751，\n  其餘 WS21/CL01/CTRLB 項目不夾帶\n\nAuthorise() 不查帳號權限，AUTOAUTHORISE 不需 WS_USERLIST 列。\n注意 AUTOAUTHORISE 在 USER_ACCOUNT 的 USER_NAME 為陳明輝，報告審核者會印此名。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "f483d18e",
+          "date": "2026-11-19",
+          "message": "feat: 新竹 AuthoriseQueue 升級成新版，補分部佈署前置檢查",
+          "body": "- config/HC：新竹專屬的 exe.config（HCLAB 192.168.1.225、BBS 192.168.1.229、\n  AuthoriseAfterRelease=0、CTL_FLAG2_WS=0）、ExcludeQueue.json（空清單）、\n  NLog.config（Seq Site=HC）、工作排程定義（11.229 \\自訂排程\\AuthoriseQueue，\n  SYSTEM，:01/:31 兩個觸發）\n- SchemaModify：新增 20261119 BBS OD_TESTCODE_LIST 100→4000；\n  20260813／20260909 補新竹執行紀錄\n- 分部佈署前置檢查.md＋scripts/check-branch-readiness.ps1（09-09 起草）：\n  各站差異實測、逐站檢查清單；第 3 節補「先確認有沒有舊版在跑」與真實佇列驗證，\n  第 6 節是新竹升級紀錄\n- README／DEPLOY／修改歷程：改成台北＋新竹兩站，說明新竹設定在 config/HC\n\n背景：新竹 2023-09 起就有舊版 consumer 在 11.229 跑（只做一審、沒有 BBS 備份），\n只查 L20 誤判成沒上。2026-11-19 原地升級，新版接管 LOCKED_AT 為 NULL 的鎖，\n所以新舊兩支不能並存。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "b877222c",
+          "date": "2026-11-19",
+          "message": "docs: 部署 zip 移到 _releases 並補版本對照表",
+          "body": "- DEPLOY.md 打包腳本 zip 改輸出到 _releases\\，新增 1.4 已發佈版本對照（zip↔commit↔重點↔DDL）\n- 更正「repo 裡也有各版 zip」：zip 含台北加密連線字串，從未進 git，只在打包機本機\n- .gitignore 排除 _package/、_releases/；修正最後一行 FodyWeavers.xsd 與 _incident/ 黏行失效\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d26b881f",
+          "date": "2026-11-20",
+          "message": "docs: 分部佈署前置檢查補危險值設定盤點（新竹 9016 事件）",
+          "body": "- 分部佈署前置檢查.md\n  - 2.4 一審重算旗標與原廠判斷的差異、為什麼不改程式、台北／新竹實測清單\n  - 第 3 節清單加「檢驗設定」三項\n  - 6.4 新竹升級當天 9016 尿液肌酸酐多標兩筆危險值的經過與決定\n- scripts/check-branch-readiness.ps1\n  - 第 6 項：列出危險值與正常範圍矛盾（CONFLICT）或相等（EQUAL）的\n    TR_RANGE 項目與近 30 天筆數，摘要表多一欄\n\n背景：BackendTrFlag=1 時消化程式的 HH／LL 條件比 HCLAB 原廠寬，\n「危險值上限 <= 正常上限」的設定在原廠邏輯下不標、升級後開始標。\n台北靠這個行為報藥物濃度危險值，所以不改程式，改成佈署前盤點設定。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "label-printing",
       "totalCommits": 16,
       "commits": [
@@ -35625,141 +36048,6 @@
           "message": "新增最新消息：2026/11/21 臨床生化檢驗諮詢研討會（附海報）",
           "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "LIS\\Schedule\\AuthoriseQueue",
-      "totalCommits": 16,
-      "commits": [
-        {
-          "hash": "1ed627bb",
-          "date": "2026-05-28",
-          "message": "fix;修復排程吊死導致 ACTIVE 鎖卡住問題",
-          "body": "1. 全部 SQL 加 CommandTimeout = 60 秒，避免遇到 Oracle lock 或網路問題無限等待",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "9b6a5aa5",
-          "date": "2026-06-01",
-          "message": "docs;新增 DEPLOY.md 部署流程文件",
-          "body": "涵蓋 build、打包 (slim package)、部署 (停排程→備份→抄檔→啟排程)、",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "8a1ca129",
-          "date": "2026-06-01",
-          "message": "fix;補上 Connection.Open() 的 timeout 保護",
-          "body": "1. 新增 OpenWithTimeout(IDbConnection) 包 cn.Open()，預設 15 秒",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "dfea3b97",
-          "date": "2026-06-01",
-          "message": "fix;消除 ORA-01400 雜訊與 NLog 歸檔改進",
-          "body": "1. BuildDefaultMergeSql / BuildDetailedMergeSql 在 USING 外加 WHERE OD_TESTCODE_LIST IS NOT NULL",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "4f8ed3e4",
-          "date": "2026-06-24",
-          "message": "docs(queue): memo 補 2026-06-02 Queue 機制改進 TODO 與 log 路徑說明",
-          "body": "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "80052eea",
-          "date": "2026-06-24",
-          "message": "feat(queue): 自動補二審 eventlog 標記 [Auto] 區分人工/系統審核",
-          "body": "一審完自動補的二審(_AddQueue)借用空著的 WS_CODE 欄標 'AUTO',",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "3fec124e",
-          "date": "2026-07-09",
-          "message": "docs: 7/8 佇列卡住事件定案與排程工作必要設定",
-          "body": "- memo.txt 補 2026-07-09 事件記錄：根因在 Task Scheduler",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "eeb658ab",
-          "date": "2026-08-13",
-          "message": "docs: README 導覽補可靠性三層防線準則連結（Cerberus repo）",
-          "body": "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "2747dbd1",
-          "date": "2026-08-13",
-          "message": "docs: 部署備份只留最近一組，備份前先清舊 .bak_*",
-          "body": "rollback 只會用上一版；歷次 .bak 越積越多（現場已清掉 20260601 組）。",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ae2bd81f",
-          "date": "2026-08-13",
-          "message": "feat: AuthoriseSchedule 鎖改租約制（原子取鎖＋逾時接管＋歸屬釋放）",
-          "body": "舊鎖三問題：stale lock 只能人工解、SELECT+UPDATE 非原子、",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "16d9ef9e",
-          "date": "2026-08-13",
-          "message": "feat: 加 [Heartbeat] 心跳行，接入 Cerberus 看門狗監控",
-          "body": "- Main finally 在 [Run] End 之後補一行「[Heartbeat] OK, result=...」，",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "7cbff470",
-          "date": "2026-09-09",
-          "message": "fix: 佇列 USER 欄加寬 10→15，補 AUTOAUTHORISE 記名的 DDL 與踩坑記錄",
-          "body": "WS76 自動二審上線後實測發現 AUTOAUTHORISE（13 碼）塞不進佇列表的 USER 欄，\n串著炸了兩次，兩次都是整筆交易 rollback + 佇列列清不掉 + 每分鐘無限重試：\n\n1. Oracle AuthoriseQueue.USER 原 VARCHAR2(10) → ORA-12899 炸在 Release()\n   內排二審那步，把整筆一審一起 rollback，項目停在 OD_ACTION_FLAG='N'、\n   只有 L14 沒有 L06。\n2. 修掉第一顆後，SQL Server BBS.AuthoriseQueue_Log.[USER] 原 varchar(10)\n   在二審寫備份時截斷，_BackupQueueToBbs 會 throw，整筆二審 rollback、停在 L06。\n\n同庫 USER_ACCOUNT.USER_ID、EVENTLOG.EL_USERID、ORD_DTL.OD_UPDATE_BY 本來\n就都是 15，是這兩張佇列表當初開窄了。加寬 VARCHAR 是 metadata-only，不鎖表、\n不影響現有資料，舊版 exe 也不受影響。\n\n- 新增 SchemaModify/20260909_AuthoriseQueue_UserColumnWidth.sql：Oracle 與\n  SQL Server 兩段 DDL，比照 20260813 租約鎖那支的格式，註明佈新版 exe 前先執行。\n- README 第 3 節：兩張表補欄寬說明，並記備份寫失敗會連帶 rollback 整筆二審。\n- README 第 5 節：補「資訊部帳號都有 All 會走預設分支，用自己的帳號測永遠測不到\n  自動放行路徑，要用沒有二審站的行政帳號」。\n- 修改歷程補這次的事故經過與各分部執行狀態。\n\nOracle 側六分部＋測試機已全數執行；SQL Server 側目前只完成台北 BBS\n（192.168.56.191），其他分部若有各自的 BBS，推版前要比照加寬。\n\n驗證：TNO 6090929003 以 A257（歐陽萱，行政、無二審站）一審 WS76 的 9751，\nL06 記 A257、L20 記 AUTOAUTHORISE [Auto]，OD_UPDATE_BY=AUTOAUTHORISE，\n報告簽署人印陳明輝，佇列清空。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "f53f3537",
-          "date": "2026-09-09",
-          "message": "docs: DEPLOY 備份清單補 ExcludeQueue.json，並記無 RDP 時的佈署做法",
-          "body": "2026-09-09 佈 WS76 自動二審時發現的兩個文件缺口：\n\n- 備份清單原本只列 4 個檔，漏了 ExcludeQueue.json。它是會隨版本改內容的\n  設定檔，rollback 時要和 exe 成對還原，否則新 exe 配舊 json（或反之）\n  雖然不會壞資料，但等於改動沒生效、又不易察覺。\n- 補記遠端能力邊界：d$ 讀寫可行，但 schtasks 遠端一律 Access denied，\n  停用/啟用排程只能 RDP。附上無法 RDP 時走每分鐘執行空檔覆蓋的做法與\n  中間狀態安全性分析。\n- rollback 範例日期改成這次的備份 20260909。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "e2b7e8cd",
-          "date": "2026-09-09",
-          "message": "feat: WS76 異常通知項目不看操作者權限自動二審，記名 AUTOAUTHORISE",
-          "body": "會議決議：行政審 WS76（異常通知時間）由系統自動二審，避免通知人員\n一審後等人補審造成報告延遲。\n\n- ExcludeQueue.json 新增 AutoAuthoriseWorkstations（WS76）與\n  AutoAuthoriseAccount（AUTOAUTHORISE，HCLAB 規則引擎自動二審用的既有系統帳號）\n- BuildDetailedMergeSql 新增選用參數 autoWorkstations，WS 條件多一段\n  OR wp.WP_CODE IN (:AUTO_WS_n)，自動放行站的項目不看操作者權限一律進二審佇列\n- _AddQueue：操作者沒二審站但有自動放行站時不再直接跳出；\n  佇列記名由 ResolveQueueUser 決定（有自己的二審站記操作者，否則記系統帳號）；\n  操作者沒二審站時 CTRLB 放寬不生效，維持原本範圍\n- 補 BuildMergeSqlTest 案例（SQL 產生 + 記名規則），19 tests pass\n- 台北庫實單 6090804314 唯讀模擬：無權限操作者只撈出 WS76 的 9751，\n  其餘 WS21/CL01/CTRLB 項目不夾帶\n\nAuthorise() 不查帳號權限，AUTOAUTHORISE 不需 WS_USERLIST 列。\n注意 AUTOAUTHORISE 在 USER_ACCOUNT 的 USER_NAME 為陳明輝，報告審核者會印此名。\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "f483d18e",
-          "date": "2026-11-19",
-          "message": "feat: 新竹 AuthoriseQueue 升級成新版，補分部佈署前置檢查",
-          "body": "- config/HC：新竹專屬的 exe.config（HCLAB 192.168.1.225、BBS 192.168.1.229、\n  AuthoriseAfterRelease=0、CTL_FLAG2_WS=0）、ExcludeQueue.json（空清單）、\n  NLog.config（Seq Site=HC）、工作排程定義（11.229 \\自訂排程\\AuthoriseQueue，\n  SYSTEM，:01/:31 兩個觸發）\n- SchemaModify：新增 20261119 BBS OD_TESTCODE_LIST 100→4000；\n  20260813／20260909 補新竹執行紀錄\n- 分部佈署前置檢查.md＋scripts/check-branch-readiness.ps1（09-09 起草）：\n  各站差異實測、逐站檢查清單；第 3 節補「先確認有沒有舊版在跑」與真實佇列驗證，\n  第 6 節是新竹升級紀錄\n- README／DEPLOY／修改歷程：改成台北＋新竹兩站，說明新竹設定在 config/HC\n\n背景：新竹 2023-09 起就有舊版 consumer 在 11.229 跑（只做一審、沒有 BBS 備份），\n只查 L20 誤判成沒上。2026-11-19 原地升級，新版接管 LOCKED_AT 為 NULL 的鎖，\n所以新舊兩支不能並存。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "b877222c",
-          "date": "2026-11-19",
-          "message": "docs: 部署 zip 移到 _releases 並補版本對照表",
-          "body": "- DEPLOY.md 打包腳本 zip 改輸出到 _releases\\，新增 1.4 已發佈版本對照（zip↔commit↔重點↔DDL）\n- 更正「repo 裡也有各版 zip」：zip 含台北加密連線字串，從未進 git，只在打包機本機\n- .gitignore 排除 _package/、_releases/；修正最後一行 FodyWeavers.xsd 與 _incident/ 黏行失效\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "文檔",
           "tags": []
         }
       ],
@@ -36994,6 +37282,29 @@
       "type": "work"
     },
     {
+      "name": "HIS\\SexBioOrderApi",
+      "totalCommits": 2,
+      "commits": [
+        {
+          "hash": "fba5d63b",
+          "date": "2026-11-19",
+          "message": "feat(login): 密碼雜湊兩欄相容登入＋部署文件與發佈腳本",
+          "body": "LIS 正在把 USER_ACCOUNT 的明碼（PASSWORD）改成雜湊（PASSWORD_HASH），最後會清除明碼。\n這支 API 的登入原本只比對明碼，清除後就登不進去，所以改成兩欄相容（規則與 LISWeb 相同）。\n\n- 新增 Repository/HcLabPasswordVerifier：PASSWORD 有值照舊比對（不分大小寫，維持原行為）；\n  為 NULL 時改驗 PASSWORD_HASH（PBKDF2-SHA256，分大小寫）；沒有雜湊欄位的 DB 退回只用明碼。\n  明碼比對在 DB 端做，不撈進程式；只讀不寫雜湊。\n- LogInBaseControl.LogIn 改用它；帳號不存在時原本 NullReferenceException（500），改為「登入失敗」\n- WebApiService DBAccess 查姓名改成只選 USER_NAME（原本撈出整筆帳號含明碼）\n- Service/UclProjectSupportInsideService.Login 不在 csproj 內（不會編譯、沒人呼叫），未改\n- docs/DEPLOY.md：部署位置、編譯參數、bat\\年\\月日\\Old|New 慣例、發佈、冒煙、退版\n- scripts/deploy-inside.ps1：漂移檢查→編譯→發佈前冒煙→備份並發佈→發佈後冒煙，失敗自動退版\n- scripts/smoke-inside.ps1：登入與簽收相關只讀功能測試\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c655c403",
+          "date": "2026-11-20",
+          "message": "docs: 補 README 與站台文件",
+          "body": "- README.md：專案組成、動手前注意事項、API 一覽、編譯、文件索引\n- docs/SITES.md：56.92／56.229 站台、環境、線上目錄與各環境目前版本（2026-11-20 讀線上 IIS 設定盤點），分部站台標未驗證\n- docs/未對應代碼_UNKNOW機制.md：診所 HIS 院內碼未對應時的 UNKNOW 機制（2026-09-18 整理）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "Common\\WebApiService",
       "totalCommits": 1,
       "commits": [
@@ -37039,23 +37350,8 @@
       "type": "work"
     },
     {
-      "name": "HIS\\SexBioOrderApi",
-      "totalCommits": 1,
-      "commits": [
-        {
-          "hash": "fba5d63b",
-          "date": "2026-11-19",
-          "message": "feat(login): 密碼雜湊兩欄相容登入＋部署文件與發佈腳本",
-          "body": "LIS 正在把 USER_ACCOUNT 的明碼（PASSWORD）改成雜湊（PASSWORD_HASH），最後會清除明碼。\n這支 API 的登入原本只比對明碼，清除後就登不進去，所以改成兩欄相容（規則與 LISWeb 相同）。\n\n- 新增 Repository/HcLabPasswordVerifier：PASSWORD 有值照舊比對（不分大小寫，維持原行為）；\n  為 NULL 時改驗 PASSWORD_HASH（PBKDF2-SHA256，分大小寫）；沒有雜湊欄位的 DB 退回只用明碼。\n  明碼比對在 DB 端做，不撈進程式；只讀不寫雜湊。\n- LogInBaseControl.LogIn 改用它；帳號不存在時原本 NullReferenceException（500），改為「登入失敗」\n- WebApiService DBAccess 查姓名改成只選 USER_NAME（原本撈出整筆帳號含明碼）\n- Service/UclProjectSupportInsideService.Login 不在 csproj 內（不會編譯、沒人呼叫），未改\n- docs/DEPLOY.md：部署位置、編譯參數、bat\\年\\月日\\Old|New 慣例、發佈、冒煙、退版\n- scripts/deploy-inside.ps1：漂移檢查→編譯→發佈前冒煙→備份並發佈→發佈後冒煙，失敗自動退版\n- scripts/smoke-inside.ps1：登入與簽收相關只讀功能測試\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
       "name": "work-progress",
-      "totalCommits": 849,
+      "totalCommits": 851,
       "commits": [
         {
           "hash": "4bdff543",
@@ -43846,6 +44142,22 @@
           "date": "2026-11-19",
           "message": "docs: 每日工作紀錄 2026-11-18 (34 commits)",
           "body": "🤖 自動生成於 2026-11-19 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "92101c49",
+          "date": "2026-11-20",
+          "message": "docs: 更新彙整資料 2026-11-20",
+          "body": "🤖 自動生成於 2026-11-20 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "6cb1b61f",
+          "date": "2026-11-20",
+          "message": "docs: 每日工作紀錄 2026-11-19 (40 commits)",
+          "body": "🤖 自動生成於 2026-11-20 07:05",
           "category": "文檔",
           "tags": []
         }
