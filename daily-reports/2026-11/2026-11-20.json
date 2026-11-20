@@ -1,0 +1,358 @@
+{
+  "date": "2026-11-20",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "c4816c22",
+          "time": "15:48",
+          "message": "chore: session 收尾備份 2026-11-20",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "1b0188ac",
+          "time": "11:06",
+          "message": "chore: session 收尾備份 2026-11-20",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "3f0497a0",
+          "time": "10:27",
+          "message": "chore: session 收尾備份 2026-11-20",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "ef3a8d34",
+          "time": "10:22",
+          "message": "chore: LocalPrintHttpService 部署點統一為 0.常用捷徑的紀錄",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "1fba608a",
+          "time": "09:20",
+          "message": "chore: session 收尾備份 2026-11-20",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "8053ffd8",
+          "time": "08:54",
+          "message": "memory: 密碼明碼清除 FGA 第二輪、每日快照工作；SexBioOrderApi 專案 memory；project-locations 補 UclProjectSupportInside",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "73400eda",
+          "time": "07:26",
+          "message": "chore: memory 更新（iOS 第 6 輪送出）2026-11-20",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "dcd0ca82",
+          "time": "07:17",
+          "message": "chore: memory 更新（註冊頁說明上線）2026-11-20",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "114ce36a",
+          "time": "07:07",
+          "message": "chore: memory 更新（iOS 第五次退件 5.1.1(v)）2026-11-20",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "912c1d9b",
+          "time": "07:26",
+          "message": "合併 MR !67: docs(ios): 5.1.1(v) 已回覆並重新提交審查（2026-11-20）",
+          "body": "docs(ios): 5.1.1(v) 已回覆並重新提交審查（2026-11-20）\n\nSee merge request ucl/officialwebsites/uclcloud-app!67",
+          "category": "合併MR"
+        },
+        {
+          "hash": "c60c645c",
+          "time": "07:26",
+          "message": "docs(ios): 5.1.1(v) 已回覆並重新提交審查（2026-11-20 07:25，第 6 輪）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5c1a001f",
+          "time": "07:17",
+          "message": "合併 MR !66: docs(ios): 註冊頁身分證字號說明已上線",
+          "body": "docs(ios): 註冊頁身分證字號說明已上線\n\nSee merge request ucl/officialwebsites/uclcloud-app!66",
+          "category": "合併MR"
+        },
+        {
+          "hash": "3284b19c",
+          "time": "07:17",
+          "message": "docs(ios): 註冊頁身分證字號說明已上線（cloudedleopard !46）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9911532a",
+          "time": "07:07",
+          "message": "合併 MR !65: docs(ios): 第五次退件（5.1.1(v) 註冊必填身分證字號）",
+          "body": "docs(ios): 第五次退件（5.1.1(v) 註冊必填身分證字號）\n\nSee merge request ucl/officialwebsites/uclcloud-app!65",
+          "category": "合併MR"
+        },
+        {
+          "hash": "10db7202",
+          "time": "07:07",
+          "message": "docs(ios): 第五次退件（準則 5.1.1(v) 註冊必填身分證字號）：判斷、處理與回覆草稿",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "acbfc44f",
+          "time": "10:29",
+          "message": "fix(BT201): 申報資料原處方案件等欄位說明文字未隨載入的代碼更新",
+          "body": "GetTax / getSameTNO_Data 載入既有申報資料時只填值不觸發 change，\n右側說明停在預設值或上一張單（桃園光文：原處方案件 E1 卻顯示 04「西醫慢性病」）。\n申報值本身正確，只是顯示錯誤。\n\n- 原處方案件 / 案件分類 / 案件來源註記的說明查詢抽成 refreshDe*Desc()，只改說明不連動其他欄位\n- TaxModal 開窗時重刷三格說明；getSameTNO_Data（modal 已開）帶入後也重刷\n- 不直接補 .change()：DE_ORI 的 change 會把案件分類洗回 1/2\n- 順修：案件分類查詢 complete 誤判 DE_CLINC；查不到代碼時清空說明而非保留舊文字；代碼先 trim\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "624aba55",
+          "time": "09:11",
+          "message": "docs(Problems): UclUnitConfig.Web 負責人岑松、interface server 不受影響",
+          "body": "Dennis 確認 interface server 帳密寫死在程式設定，不讀 USER_ACCOUNT.PASSWORD，移到已排除。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f25a4b10",
+          "time": "09:01",
+          "message": "docs(Problems): 台北表空間評估補上 IT 處理結果（11-20 確認）",
+          "body": "全備恢復、HCLAB 加資料檔剩 36.1 GB、AUD$ 已清並移到 SYSAUX、Cerberus 兩顆頭已佈署；\n剩 purge job、備份腳本原因、門檻定案。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "bbb74d38",
+          "time": "08:53",
+          "message": "docs(Problems): 密碼明碼清除盤點第二輪＋每日快照工作",
+          "body": "- 現況一覽更新：Tickit 已換相容版；HCLAB_web 登入已換，但同台 apache 有一支沒進版控的\n  PHP（推測是申報工具）仍讀明碼；UclProjectSupportInside 代寫 MR!25（sexbioorderapi）；\n  interface server 47 小時 0 筆；停寫開關 MR!1689 已 merge\n- 5.3.1：FGA 只能看誰讀、看不出誰改好（相容版也讀 PASSWORD），改看 V$SQL 有沒有讀\n  PASSWORD_HASH；觀察期延到至少 2026-12-15；完成條件改用每日快照\n- 新增 Chronos 工作 PwdPlainAudit（56.231 一天三次）：V$SQL 讀明碼語法累積清單＋FGA 每日來源\n  - 腳本 Documents/Problems/密碼明碼儲存_scripts/pwd-plain-audit.ps1\n  - 登記 SQL SchemaModify/密碼雜湊/Chronos_明碼讀取每日快照登記_20261120.sql（台北已執行、已啟用）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "da73cd93",
+          "time": "07:38",
+          "message": "feat(SigninINVNO): 整組外送的套檢簽收只印一張原號標籤（系統參數）",
+          "body": "新竹 P004 尿總砷含 Creatinine (Urine) 9016（尾碼 22），簽收會印原號與 22 兩張，\n但新竹的 P004 整管送台北，22 那張用不到（Tickit #497）。\n\n- 新增系統參數 SIGNIN_ORIGINAL_LABEL_ONLY_ITEMS（逗號分隔套檢代碼）\n- 清單內的套檢，細項不帶 TI_LABNO_SUFFIX，併入原號標籤\n- 判斷在套檢層級：同一細項在其他套檢仍照主檔尾碼\n- Post 兩段 SQL 與 PostV2 同步；參數未設定時 SQL 與原本相同\n- 附新竹參數腳本（SchemaModify/系統設定）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "OrderInSql",
+      "commits": [
+        {
+          "hash": "ca48cb6f",
+          "time": "11:04",
+          "message": "docs(cases): 0743 查案補檔名開頭形式掃描（56.227 共 10,118 檔）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d2c3b49d",
+          "time": "10:57",
+          "message": "docs(cases): 0743 查案補上線結果與未處理的缺口（黏在一起的雙前綴）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "8986d2e4",
+          "time": "10:55",
+          "message": "docs(deploy-log): 修正第 35 列 staging 路徑（跳脫字元寫成 tab）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "e21f8178",
+          "time": "10:54",
+          "message": "docs(deploy-log): 補 11-20 10:53 部署（!507 FileNameExcluded 單位前綴只比檔名開頭）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "20259664",
+          "time": "10:40",
+          "message": "fix(pipeline): FileNameExcluded 的單位前綴只比檔名開頭",
+          "body": "ansn／UNIMAX 設 FileNameExcluded=1120-,0539- 擋別家的檔，但比對是「檔名含」。\n2026-11-20 0743-PHYSICIANORDER-20261120-1.xls 因日期 2026[1120-]1 命中，\n被當成 1120 的檔略過（標成刻意排除、不記 Warning），排程與手動轉入都不收，\n卡在 inbox 直到人工改檔名。\n\n字串是「四碼數字＋-」時改用 StartsWith；Parsing_、.tmp、病理委外清單維持 Contains。\n設定檔不用改。查案紀錄：docs/cases/2026-11-20-0743-date-hits-1120-exclude.md\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "93c2b483",
+          "time": "14:23",
+          "message": "docs: 典匠著作權案－記錄 11-20 和解報價與系爭 PDF 存取量",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c856e6e1",
+          "time": "10:59",
+          "message": "合併 MR !14: docs: 典匠著作權案－記錄 11-18 存證信函",
+          "body": "docs: 典匠著作權案－記錄 11-18 存證信函\n\nSee merge request ucl/officialwebsites/ucl!14",
+          "category": "合併MR"
+        },
+        {
+          "hash": "1e268ee8",
+          "time": "10:55",
+          "message": "docs: 典匠著作權案－記錄 11-18 存證信函內容與 email 差異",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "LIS\\LocalPrintHttpService",
+      "commits": [
+        {
+          "hash": "3065d8ef",
+          "time": "10:26",
+          "message": "合併 MR !35: docs(INSTALL): NAS 部署點統一為 0.常用捷徑",
+          "body": "docs(INSTALL): NAS 部署點統一為 0.常用捷徑\n\nSee merge request ucl/lis/localprinthttpservice!35",
+          "category": "合併MR"
+        },
+        {
+          "hash": "2f2317ae",
+          "time": "10:22",
+          "message": "docs(INSTALL): NAS 部署點統一為 0.常用捷徑，說明暫放區已停用",
+          "body": "2026-08 起的版本（08.17、08.18、08.19、11.19）都只放到\n\\Ucl-shared\\暫放資料夾\\0004 資訊部\\，各站實際取用的\n\\Ucl-shared\\0.常用捷徑\\0.標籤列印服務\\ 一直停在 V2026.07.28.01，\n修正發了工作站卻拿不到（2026-11-20 台北回報才發現）。\n\n- 部署點改寫為 0.常用捷徑 那個路徑，註明 IP 寫法是同一處\n- 警告不要再放暫放區；該資料夾已刪除、原處留捷徑\n- 放完要從部署點本身讀版次確認\n- 補上 NAS 上說明檔的實際檔名\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Management\\AuditIntegration",
+      "commits": [
+        {
+          "hash": "183a26b4",
+          "time": "15:48",
+          "message": "合併 MR !54: 2026 內稽：OFI004、005 發行後填寫紀錄表；外訓證書對照表更新",
+          "body": "2026 內稽：OFI004、005 發行後填寫紀錄表；外訓證書對照表更新\n\nSee merge request ucl/management/audit-integration!54",
+          "category": "合併MR"
+        },
+        {
+          "hash": "19f147fd",
+          "time": "15:47",
+          "message": "2026 內稽：OFI004、005 文件修訂已發行，紀錄表下半部填寫；楊廠長外訓證書入表",
+          "body": "- OFI004（績效管理說明 V1.1）、OFI005（查檢表 V1.1）11/17 發行，紀錄表填矯正措施、原因分析、完成日期\n- OFI001 綉媚已簽回，待賴主任結案；OFI002 銷貨單仍未補\n- 外訓證書對照表：楊盛南 13485 內稽、14971、儀器校正、醫材技術人員訓練證書（掃描檔不進 repo）\n- 文件位置索引：2027 起查檢表從文管最新版本區下載\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "c06d7700",
+          "time": "15:54",
+          "message": "test(自動減項): 端對端測試 + 前置腳本，文檔補實測結果",
+          "body": "本機 IIS Express → 台北測試庫(56.191 WebOrder_Test) → 測試 LIS(56.225)，\n用朴子 2026/11/19 真實醫令，8 項全過：\n- 命中組(2081+P215)：LIS 只有 P215、SEQ=1，EVENTLOG 有「[分單]自動減項=2081」\n- 對照組(只有 2081)：照常轉入、沒有減項紀錄\n- 被減的那列在 PhysicianOrderD 視同已轉入(TO_ORA=1)，取消轉入時隨整張單退回\n\n文檔補上：重跑方式、測試環境備忘(台北測試庫補了缺的表、本機 WebOrder 已不在、\n測試庫有前人留下的減項規則)、上版前要確認各站有 UTI_DELETE_ITEM 欄位(台中測試庫沒有)。\n\n尚未正式編譯(本機無 4.0 targeting pack)、尚未上版。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "63bc7a8b",
+          "time": "15:38",
+          "message": "feat(轉入LIS): 自動減項 — 依 ADD_TEST_ITEM 規則不帶重複項目",
+          "body": "朴子醫院(0147)同時開 PSA(2081) 和 Free PSA/PSA(P215)，P215 已含 PSA(2381)，\nPSA 被重複檢驗、重複計價。先前靠現場人工拿掉，2026-08~11 共 87 張單漏掉。\n\n沿用 ADD_TEST_ITEM：UTI_UCL 的項目全部在單上時，UTI_DELETE_ITEM 列的項目不轉入 LIS。\n- 比對「這張單即將轉入的項目」(含自動加項)，以單號為單位\n- 被減項目不寫 BLG_TX_DTL / BLG_PKG_ITEM，EVENTLOG B01 多一筆「[分單]自動減項=」\n- 防呆：會把整張單減光、規則查詢失敗、任何例外 → 不做減項照原樣轉入\n- ADD_ITEM 跳過「無加項且無急件」的規則，避免純減項規則把急件旗標蓋回 R\n\n尚未實際轉入測試、尚未上版；規則資料也還沒下。細節與測試步驟見 docs/自動減項.md。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "HIS\\SexBioOrderApi",
+      "commits": [
+        {
+          "hash": "c655c403",
+          "time": "09:18",
+          "message": "docs: 補 README 與站台文件",
+          "body": "- README.md：專案組成、動手前注意事項、API 一覽、編譯、文件索引\n- docs/SITES.md：56.92／56.229 站台、環境、線上目錄與各環境目前版本（2026-11-20 讀線上 IIS 設定盤點），分部站台標未驗證\n- docs/未對應代碼_UNKNOW機制.md：診所 HIS 院內碼未對應時的 UNKNOW 機制（2026-09-18 整理）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "d26b881f",
+          "time": "08:26",
+          "message": "docs: 分部佈署前置檢查補危險值設定盤點（新竹 9016 事件）",
+          "body": "- 分部佈署前置檢查.md\n  - 2.4 一審重算旗標與原廠判斷的差異、為什麼不改程式、台北／新竹實測清單\n  - 第 3 節清單加「檢驗設定」三項\n  - 6.4 新竹升級當天 9016 尿液肌酸酐多標兩筆危險值的經過與決定\n- scripts/check-branch-readiness.ps1\n  - 第 6 項：列出危險值與正常範圍矛盾（CONFLICT）或相等（EQUAL）的\n    TR_RANGE 項目與近 30 天筆數，摘要表多一欄\n\n背景：BackendTrFlag=1 時消化程式的 HH／LL 條件比 HCLAB 原廠寬，\n「危險值上限 <= 正常上限」的設定在原廠邏輯下不標、升級後開始標。\n台北靠這個行為報藥物濃度危險值，所以不改程式，改成佈署前盤點設定。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "33603ab3",
+          "time": "07:05",
+          "message": "feat(register): 註冊頁說明為什麼需要身分證字號（App Store 準則 5.1.1(v)）",
+          "body": "iOS build 1.0.0 (4) 於 2026-11-19 被退：註冊必填身分證字號，Apple 認為與核心功能無關。\n報告是以身分證字號比對的，沒有它帳號裡不會有任何報告，所以維持必填，\n在欄位下方說明用途。註冊頁在 App 內以網頁開啟，審核員看得到。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "92101c49",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-20",
+          "body": "🤖 自動生成於 2026-11-20 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "6cb1b61f",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-19 (40 commits)",
+          "body": "🤖 自動生成於 2026-11-20 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 37,
+    "sideCommits": 2,
+    "totalCommits": 39
+  }
+}
