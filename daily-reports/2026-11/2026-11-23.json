@@ -1,0 +1,387 @@
+{
+  "date": "2026-11-23",
+  "weekday": "一",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "3934f0ff",
+          "time": "18:53",
+          "message": "chore: memory 記新竹 EL_COMMENT 修正與 MR !14",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7b416b00",
+          "time": "18:49",
+          "message": "chore: memory 更新（iOS 已按發佈）2026-11-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c3982c2a",
+          "time": "18:45",
+          "message": "chore: memory 更新（iOS 通過審查）2026-11-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "7d3e1b72",
+          "time": "15:41",
+          "message": "chore: session 收尾備份 2026-11-23（ParkFee 名冊健檢放行、代改住戶登記做法）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "ff3d9693",
+          "time": "15:37",
+          "message": "memory(分單): 11/24 上版前一併加 SN_D 索引",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "fabb9d2a",
+          "time": "15:25",
+          "message": "chore: session 收尾備份 2026-11-23（分單 11.24 回寫失敗自救、死結成因）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "143d1b3d",
+          "time": "15:23",
+          "message": "chore: session 收尾備份 2026-11-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "4fd7d7dc",
+          "time": "08:18",
+          "message": "chore: session 收尾備份 2026-11-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "783f5ee5",
+          "time": "08:09",
+          "message": "memory: branch-cleanup 11-23（D:\\tmp 備份搬 D:\\Backup 路徑更新、schedlog 已 merge）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "dacc2fdd",
+          "time": "08:08",
+          "message": "chore: session 收尾備份 2026-11-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "90ede890",
+          "time": "08:02",
+          "message": "chore: session 收尾備份 2026-11-23 (0482 收據紀錄缺口 memory 更新)",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "fb09be6e",
+          "time": "08:02",
+          "message": "chore: session 收尾備份 2026-11-23",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "14158459",
+          "time": "07:49",
+          "message": "chore: session 收尾備份 2026-11-23（Inside 上線、北榮康帳密外洩記錄）",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 13
+    },
+    {
+      "name": "3dprinter",
+      "commits": [
+        {
+          "hash": "91756e49",
+          "time": "15:10",
+          "message": "P001：記錄 v005 試裝結果（套管變粗，模組裝不回標籤機）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "cd4c956e",
+          "time": "12:52",
+          "message": "P001：v005 外側面加刻版號與變體標示（5A／5B），取代斜角記號",
+          "body": "依使用者指示直接在 v005 上修改並重建；先前的 v005 未曾列印。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "16732676",
+          "time": "12:47",
+          "message": "P001：記錄 v004 試裝結果，建 v005（缺口下移、勾內縮、免支撐）",
+          "body": "v004 已實際送印並試裝：雙腳款套得上，單腳款夾不住（停止發展）；\n使用者回報缺口太高、勾太外推、支撐面不平。\n\nv005：\n- 缺口從臂的 +Y 邊緣往下切進臂寬，A 深 3.6、B 深 4.1（照片估算）\n- 勾內縮約 1.6 mm，外側指加寬到 3.0\n- 內側貼床免支撐，只在內側開凸肋槽；另一片側板用鏡像\n\nHANDOVER：實際送印改為已實測。加入 3 張試裝照片與交接紀錄。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "c07da424",
+          "time": "11:28",
+          "message": "P001：v004 套管開槽避開凸肋、勾座削薄以卡進鋼條溝槽",
+          "body": "依 v003 試裝結果與 2026-11-23 的補量測建 v004：\n- 套管上下兩面開 2.8 mm 槽，讓斷臂中間的凸肋通過；兩面都開以保留\n  另一片側板也斷時可用\n- 勾座削薄到 1.6 mm、置中於臂厚中心（鋼條溝槽寬 2.0）\n- 一個 STL 含 A（-Y 側有薄壁）、B（-Y 側開放）兩個變體\n\nbuild verified；試切約 8.3 分鐘、0.6 g（未含支撐，trial_only）。\nREADME 補上凸肋與鋼條的量測結果、v004 設計說明與 TODO 進度；\ndecisions.md 加三筆決定；加入 12 張量測照片與本輪交接紀錄。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "ebfdf1bc",
+          "time": "10:52",
+          "message": "P001：第二台 Bambu Studio 已連上 H2D，補量測項目代號與印表機現況",
+          "body": "- README：TODO 勾掉「連上 H2D」，量測清單加上代號 R1–R5、S1–S6\n- HANDOVER：記錄 2026-11-23 的 HMS 網路錯誤提示與 AMS 現況\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "f3d87705",
+          "time": "10:24",
+          "message": "P001：v004 耗材優先用黃色",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "3309cf35",
+          "time": "10:24",
+          "message": "P001：加入下一步 TODO，記錄送印電腦與耗材顏色的決定",
+          "body": "- README 新增第 6 節「下一步 TODO」，後續章節順延編號\n- decisions.md：試裝件耗材顏色不限；v004 從第二台電腦的 Bambu Studio 送印\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "60d57e2c",
+          "time": "10:12",
+          "message": "修正非系統管理員執行 setup.ps1 時鎖定 Runtime/private 權限失敗",
+          "body": "protect_directory 設定目錄 ACL 時沒有指定區段，.NET 會連 SACL 一起寫入，\n一般使用者沒有 SeSecurityPrivilege，init_workspace.py 因此失敗。\n改為只寫 DACL（AccessControlSections::Access）。\n\nHANDOVER 第 8 節補上這筆本地修改紀錄。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "f20a554a",
+          "time": "09:58",
+          "message": "P001：記錄 v003 試裝結果與兩個待解問題，加入試裝照片",
+          "body": "- README 新增「v003 試裝紀錄」：套管被斷臂旁凸肋擋住、卡槽與鋼條不合，\n  並列出開 v004 前要補量的項目\n- brief.md 追加試裝回饋\n- Inputs/photos 加入 309249–309252 四張試裝照片\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "c4c08fa7",
+          "time": "15:22",
+          "message": "docs(SOP): LISWeb 系統操作手冊摘要式重寫（SOP9270，32 個功能）",
+          "body": "- Documents/SOP/LISWeb系統操作手冊.md：依帳務篇（行政）／檢驗篇（技術）／其他三部分，\n  每個功能固定寫「用途、會影響這頁的設定、對照表、操作重點、相關功能」，\n  只寫畫面上看不出來的事，不再逐一介紹畫面欄位\n- Documents/Projects/操作說明重啟：現況盤點與寫法設計\n\n內容依程式判讀撰寫，尚未逐條實測，待各組審閱。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ada02fdf",
+          "time": "10:14",
+          "message": "docs(Problems): BT201 項目超過 39 項存檔後缺項（原因與待確認事項）",
+          "body": "畫面寫死 39 列，載入時第 40 項起靜默丟棄、存檔後明細被刪。\n後端與 DB 無此上限；HC010 端與當初限制原因待 Mars 確認。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f9f52936",
+          "time": "07:48",
+          "message": "feat(SU101): Actions Control 權限勾選框加上影響範圍說明",
+          "body": "新竹詢問 SU101 各權限勾選框影響哪些地方，原本畫面上只有原廠英文提示，\n且 Permission5/6/8/9/10 的英文提示誤寫成 Edit Results (All levels)。\n\n- 每個勾選框的滑鼠提示改為中文影響範圍說明 + 原廠英文名稱\n  （LISWeb 未使用的 13 項明確標示勾不勾都沒有差別）\n- F2 操作說明新增第 3 頁籤「Actions Control 權限」完整對照表\n- Actions Control 標題旁加提示與開啟說明的連結\n- 新增文檔 Documents/Pages/SU101_ActionsControl_權限勾選說明.md\n  （含旗標欄位位置、程式讀取位置與已知落差）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ca32542f",
+          "time": "07:46",
+          "message": "docs(Problems): 北榮康 ClickOnce 安裝站可下載到 HCLAB 資料庫帳密",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "266ca973",
+          "time": "07:34",
+          "message": "docs(Problems): UclProjectSupportInside 兩欄相容登入 2026-11-23 上線（#3 ✅）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a2ac7dcd",
+          "time": "07:25",
+          "message": "合併 MR !1692: fix(BT201): 申報資料原處方案件等欄位說明文字未隨載入的代碼更新",
+          "body": "fix(BT201): 申報資料原處方案件等欄位說明文字未隨載入的代碼更新\n\nSee merge request ucl/lis/lisweb!1692",
+          "category": "合併MR"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "c27fdd46",
+          "time": "15:39",
+          "message": "docs: PhysicianOrderD 為什麼沒有 SN_D 索引、實測與加索引的評估",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ec3ac7ef",
+          "time": "15:37",
+          "message": "docs: PhysicianOrderD 加 SN_D 索引的 SQL（未執行，預計 11/24 上版前跑）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "120022fa",
+          "time": "15:21",
+          "message": "fix(轉入LIS): 回寫改走主鍵定位，不再平行掃整張表",
+          "body": "回寫 UPDATE 原本只用 SN_D 當條件，沒有索引可用，正式庫會平行掃約 200 萬筆，\n掃描途中跟 OrderCheckJob 的大批更新互卡成死結。條件多帶主單 SN 後變成主鍵 Seek。\n改到的筆數比預期少時退回只用 SN_D 重跑一次並記 Error_Log。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "baf504e1",
+          "time": "15:06",
+          "message": "fix(轉入LIS): 回寫失敗的單可再按一次轉入補回，並逐筆留稽核 (v11.24)",
+          "body": "2026/11/23 0637 轉入 19 張，LIS 已寫入，但回寫分單的 UPDATE 撞到死結，\n分單停在 5 碼未轉入、印不出標籤；該單位沒有身分證號，再按轉入又被當成撞號擋下。\n\n- 兩邊都沒有身分證號時改比「單位+條碼」，相同就跳過不重寫、補上轉入狀態\n- 回寫死結重試改為最多 5 次、等待逐次加倍(共約 8 秒)\n- 回寫失敗的訊息改成可照做的說明，且這時不自動列印標籤\n- 回寫失敗逐筆寫 DistAuditLog(WRITEBACK_FAIL)，補上狀態時寫 WRITEBACK_FIXED\n- 端對端測試 transfer-writeback-recover.spec.js、文檔、版號 11.24\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "eda07db5",
+          "time": "07:39",
+          "message": "合併 MR !34: feat(轉入LIS): 自動減項 — 依 ADD_TEST_ITEM 規則不帶重複項目",
+          "body": "feat(轉入LIS): 自動減項 — 依 ADD_TEST_ITEM 規則不帶重複項目\n\nSee merge request ucl/twowayconnection/uclweborder!34",
+          "category": "合併MR"
+        },
+        {
+          "hash": "bad4493c",
+          "time": "07:33",
+          "message": "chore(版本): 11.23 自動減項 — 版號、版本更新記錄、無 targeting pack 時的編譯方式",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 6
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "1c3bcbdb",
+          "time": "18:49",
+          "message": "docs(ios): 11-23 通過當天已按發佈",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "108e497d",
+          "time": "18:45",
+          "message": "docs(ios): 第六輪通過審查（2026-11-23），列出上架後待辦",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "HIS\\SexBioOrderApi",
+      "commits": [
+        {
+          "hash": "36ca74d1",
+          "time": "07:31",
+          "message": "docs(deploy): 補 2026-11-23 發佈紀錄",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\AuthoriseQueue",
+      "commits": [
+        {
+          "hash": "df72f10b",
+          "time": "18:52",
+          "message": "fix: 新竹／嘉義 EVENTLOG.EL_COMMENT 加寬到 1000，補各站現況",
+          "body": "- 新增 SchemaModify/20261123_EventLog_CommentWidth.sql（新竹、嘉義已執行）\n- 分部佈署前置檢查.md：第 3 節加 EL_COMMENT 寬度檢查、第 6 節補修正紀錄、\n  新增第 7 節各站現況（每站都有 consumer，只有台北、新竹是新版）\n- 修改歷程.md 補 2026-11-23\n\n背景：新版事件註解多了頁面後綴，新竹欄位只有 100 bytes，8438 這類長文字\n結果會 ORA-12899，一審卡在佇列無限重試（同仁回報一審出來、二審按不進去）。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "48cf6ef2",
+          "time": "18:49",
+          "message": "feat(app): 下載頁填上 App Store 連結（iOS 版 2026-11-23 過審）",
+          "body": "iPhone 掃櫃檯 QR 會直接轉到 App Store，不再顯示「即將推出」。\n要等 App Store 商店頁上線後才合併，否則連結會是 404。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "dfea8621",
+          "time": "15:33",
+          "message": "docs: 11/20 名冊健檢結果（11/23 跑）、H7-5 自行車改機車",
+          "body": "- docs/00：健檢 321 戶，需處理 2 項（無障礙未核驗 1、工作人員不在名單 4），鎖定 203＝71＋已選小位 132\n- TODO：H7-5 於 11/15 登記時 2 碼＋5 碼電動機車牌被舊規則擋、改登自行車；已用 app_update_household 改為機車（audit 584），其他戶無同樣情形\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3446c18f",
+          "time": "07:51",
+          "message": "docs(TODO): 11/18 管委會兩項決議、清空白自行車、11/23 登記現況",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "c1f078b0",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-23",
+          "body": "🤖 自動生成於 2026-11-23 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "db10338a",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-22 (2 commits)",
+          "body": "🤖 自動生成於 2026-11-23 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "auto-karaoke",
+      "commits": [
+        {
+          "hash": "5bbce601",
+          "time": "15:21",
+          "message": "README：歌單換〈光年之外〉→〈告白氣球〉，小孩歌單加 Chicken Banana",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "summary": {
+    "workCommits": 39,
+    "sideCommits": 5,
+    "totalCommits": 44
+  }
+}
