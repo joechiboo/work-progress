@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-23",
-    "days": 568,
-    "weeks": 81.1
+    "end": "2026-11-24",
+    "days": 569,
+    "weeks": 81.3
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7574,
+    "totalCommits": 7605,
     "projectCount": 108,
-    "dailyAverage": 13.3
+    "dailyAverage": 13.4
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1542,
+      "totalCommits": 1546,
       "commits": [
         {
           "hash": "a207ff46",
@@ -12351,6 +12351,38 @@
           "body": "fix(BT201): 申報資料原處方案件等欄位說明文字未隨載入的代碼更新\n\nSee merge request ucl/lis/lisweb!1692",
           "category": "合併MR",
           "tags": []
+        },
+        {
+          "hash": "8d50e7a7",
+          "date": "2026-11-24",
+          "message": "feat(SsoTo): 新增選用的權限門禁 {sys}_RequireModule，並接入大章魚",
+          "body": "SsoTo 原本只檢查有沒有登入，選單權限擋不住使用者自己打 /Home/SsoTo?sys=xxx。\n新增選用參數 {sys}_RequireModule：有設定時，使用者沒有該 MODULE_CD 權限就回 403 不發 token；\n通過時 token 多帶 mod claim，讓驗證端能確認門禁確實檢查過。\n沒設這筆參數的既有系統行為不變。\n\n- HomeController.SsoTo：讀 {sys}_RequireModule，走既有的 PermissionCache 判斷\n- JwtHelper.GenerateSsoToken：新增選用參數 verifiedModule（mod claim）\n- Menu / FunctionMenu：外部節點對照新增 TAKODOKO → SsoTo?sys=TakoDoko\n- SchemaModify：大章魚的選單節點、權限（只開資訊室）與 5 筆 SYS_PARAMETER（台北）\n- 文檔：SSO_跨站台_JWT.md 補 4.4 與已接入清單；新增 SSO_待接入清單.md（周邊系統登入方式盤點）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "80bf0a72",
+          "date": "2026-11-24",
+          "message": "feat(SysParameter): 系統參數頁開放給有頁面權限的非資訊人員，並加上異動紀錄",
+          "body": "- 權限：資訊人員維持全部功能；所屬群組有 SysParameter 頁面權限的非資訊人員\n  可看、可改「非僅資訊」參數的參數值（不能新增、停用、改其他欄位）\n- 僅資訊參數：代碼含 JwtKey/ApiKey/Secret/Token/Password/Pwd/AllowIp/Alert_Dc，\n  或頁面為 SSO/SsoTo，非資訊人員看不到也改不到\n- list/value/detail/pages 原本不用登入就能讀，改為要登入且有權限\n- 異動紀錄：存檔/停用時比對 DB 前後差異，寫 BBS LisWebLog (Page=SysParameter)；\n  機密值不記明文；畫面加單一參數與全部參數的異動紀錄視窗\n- 清單的參數值/說明等改為 escape 後輸出；關鍵字同時比對代碼與說明、不分大小寫\n- BT403_ReceiptNetOfNHI_Units 支援排除寫法 (ALL,-單位)\n- 文檔與桃園參數腳本\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c7494d79",
+          "date": "2026-11-24",
+          "message": "feat(BT403): 健保碼欄位改為預設不勾選",
+          "body": "- 欄位設定的「健保碼」預設不勾，畫面清單、列印、匯出 Excel 預設不帶健保碼欄\n- 畫面清單的健保價小計改跟著「健保價」選項走，不再綁在健保碼勾選上\n  （否則健保碼預設不勾後，選了健保價小計會是空白）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "35fe5c85",
+          "date": "2026-11-24",
+          "message": "docs(Problems): 醫令異動歷程不足與紀錄保留期限（現況盤點與方向）",
+          "body": "新竹 LT274 漏印追查時發現列印份數異動查不到歷程。盤點 BT201 修改存檔\n有無留紀錄的欄位、EVENTLOG 與 BBS LisWebLog 的資料量與保留範圍，並列出\n歷程記法、存放位置、保留期限三個待討論方向。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
@@ -17228,7 +17260,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 481,
+      "totalCommits": 492,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -21077,6 +21109,94 @@
           "body": "",
           "category": "其他",
           "tags": []
+        },
+        {
+          "hash": "ef8d4642",
+          "date": "2026-11-24",
+          "message": "fix: 分單 MEMORY 索引路徑字元",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f9456d3d",
+          "date": "2026-11-24",
+          "message": "chore: session 收尾備份 2026-11-24（分單 11.24 首日觀察、操作手冊共用夾）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "08a0565f",
+          "date": "2026-11-24",
+          "message": "memory: 修正 SOP9270 記錄的路徑字元",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "6c9e75ae",
+          "date": "2026-11-24",
+          "message": "chore: session 收尾備份 2026-11-24（SOP9270 手冊）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c4df77fc",
+          "date": "2026-11-24",
+          "message": "chore: session 收尾備份 2026-11-24",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "59765834",
+          "date": "2026-11-24",
+          "message": "memory: 手冊括號偏好",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "aa2f3886",
+          "date": "2026-11-24",
+          "message": "memory: 分單操作手冊改 SOP 版型",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "b831b8aa",
+          "date": "2026-11-24",
+          "message": "memory: 分單系統操作手冊",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "63ed1ee0",
+          "date": "2026-11-24",
+          "message": "memory+runbook: 大章魚 iOS 物件、描述 500 字上限",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "21ed33aa",
+          "date": "2026-11-24",
+          "message": "memory: 分單 11.24 與 SN_D 索引已上台北",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2f2477ad",
+          "date": "2026-11-24",
+          "message": "memory(uclcloud-app): iOS 11-23 上架，下載頁 IOS_URL 已上線",
+          "body": "",
+          "category": "其他",
+          "tags": []
         }
       ],
       "type": "work"
@@ -24337,7 +24457,7 @@
     },
     {
       "name": "TwowayConnection\\分單系統",
-      "totalCommits": 144,
+      "totalCommits": 149,
       "commits": [
         {
           "hash": "d9c88e57",
@@ -25489,6 +25609,46 @@
           "message": "chore(版本): 11.23 自動減項 — 版號、版本更新記錄、無 targeting pack 時的編譯方式",
           "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c1bbfc9f",
+          "date": "2026-11-24",
+          "message": "docs(操作手冊): 整理括號——設定表改三欄（設定／在哪裡設／影響）、相關功能與台中註記不用括號",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "92b6281c",
+          "date": "2026-11-24",
+          "message": "docs(操作手冊): 分單作業章開頭加每日四步流程（查詢、分號、轉入、列印）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ead3a1e9",
+          "date": "2026-11-24",
+          "message": "docs: 分單系統操作手冊（摘要式，19 個功能，對應 11.24）",
+          "body": "每個功能固定寫用途、會影響這頁的設定、操作重點與容易誤會的地方，\n另列顏色與訊息對照表；不逐一介紹畫面欄位。\n內容依程式與版本更新記錄整理，尚未逐條實測，待分單行政與資訊室確認。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b7b71729",
+          "date": "2026-11-24",
+          "message": "合併 MR !36: docs: 11.24 上版與 SN_D 索引的執行結果",
+          "body": "docs: 11.24 上版與 SN_D 索引的執行結果\n\nSee merge request ucl/twowayconnection/uclweborder!36",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "0f6bfa8d",
+          "date": "2026-11-24",
+          "message": "docs: 11.24 已上台北四站、SN_D 索引已建立（實際耗時與大小）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
           "tags": []
         }
       ],
@@ -28485,7 +28645,7 @@
     },
     {
       "name": "OfficialWebsites\\uclcloud-app",
-      "totalCommits": 103,
+      "totalCommits": 108,
       "commits": [
         {
           "hash": "8d8e4a75",
@@ -29307,6 +29467,46 @@
           "hash": "108e497d",
           "date": "2026-11-23",
           "message": "docs(ios): 第六輪通過審查（2026-11-23），列出上架後待辦",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "5715b0ef",
+          "date": "2026-11-24",
+          "message": "docs: 分部通知訊息、上架後待辦補齊",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "822972bc",
+          "date": "2026-11-24",
+          "message": "docs: README 與 Android 發版紀錄的 iOS 狀態改為已上架",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f200560e",
+          "date": "2026-11-24",
+          "message": "docs(ios): Firebase 已回填 App Store ID",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7b680456",
+          "date": "2026-11-24",
+          "message": "docs(ios): 大章魚 iOS 物件已建，.p8 附件待從 Mac 上傳",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "85aa8165",
+          "date": "2026-11-24",
+          "message": "docs(ios): 11-23 App Store 上架，下載頁 iPhone 連結已接上",
           "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "文檔",
           "tags": []
@@ -33038,7 +33238,7 @@
     },
     {
       "name": "OfficialWebsites\\uclcloud",
-      "totalCommits": 59,
+      "totalCommits": 60,
       "commits": [
         {
           "hash": "a8d8d68f",
@@ -33510,6 +33710,14 @@
           "message": "feat(app): 下載頁填上 App Store 連結（iOS 版 2026-11-23 過審）",
           "body": "iPhone 掃櫃檯 QR 會直接轉到 App Store，不再顯示「即將推出」。\n要等 App Store 商店頁上線後才合併，否則連結會是 404。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "40379c39",
+          "date": "2026-11-24",
+          "message": "合併 MR !47: feat(app): 下載頁填上 App Store 連結",
+          "body": "feat(app): 下載頁填上 App Store 連結\n\nSee merge request ucl/officialwebsites/cloudedleopard!47",
+          "category": "合併MR",
           "tags": []
         }
       ],
@@ -36706,6 +36914,93 @@
       "type": "work"
     },
     {
+      "name": "TakoDoko",
+      "totalCommits": 10,
+      "commits": [
+        {
+          "hash": "d55b85ab",
+          "date": "2026-05-08",
+          "message": "chore: 整理部署文件與 script",
+          "body": "- LinuxDeployment.md 開頭新增「TL;DR — 日常更新部署」段落，",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "630318bf",
+          "date": "2026-05-08",
+          "message": "feat: 搜尋範圍新增「全選/取消全選」切換按鈕",
+          "body": "預設搜尋範圍只勾「名稱、關鍵字」，使用者若想用 IP 或網址搜尋",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "fb491ead",
+          "date": "2026-05-08",
+          "message": "On main: wip-unrelated-pre-pr",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4cb46b00",
+          "date": "2026-05-08",
+          "message": "index on main: b641ac1 Merge branch 'fix/token-expiry-and-refresh-token' into 'main'",
+          "body": "",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "38156b47",
+          "date": "2026-05-18",
+          "message": "hotfix: 修部署 script 在 PS 5.1 上的兩個執行問題",
+          "body": "實測 deploy-frontend.ps1 在 Windows PowerShell 5.1 跑不起來，修兩件事：",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "87659964",
+          "date": "2026-05-18",
+          "message": "feat: 新增一鍵部署 script",
+          "body": "- scripts/deploy/deploy-frontend.ps1：npm build + scp dist",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1fd3a07e",
+          "date": "2026-05-18",
+          "message": "chore: bump frontend v1.4.1 + 補強發版流程文件",
+          "body": "- frontend v1.4.0 → v1.4.1（含「全選 / 取消全選」按鈕）",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ce84eb78",
+          "date": "2026-07-03",
+          "message": "feat: 登入相關頁面背景改為海底水族箱風格（v1.4.2）",
+          "body": "同仁反映紫色漸層背景不好看；章魚應該住海裡，改成藍色海洋。",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e040ac12",
+          "date": "2026-07-23",
+          "message": "fix: 修正 HTTP 正式站複製密碼失效，改用 useCopyToClipboard fallback（v1.4.3）",
+          "body": "正式站走 http://192.168.56.179，非安全來源下瀏覽器沒有 navigator.clipboard，",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8c90a5d6",
+          "date": "2026-11-24",
+          "message": "feat: 改由 LISWeb SSO 登入（v1.4.0 / v1.5.0）",
+          "body": "一般使用者從 LISWeb 功能選單進來直接登入；帳密登入只留給設定檔列出的緊急帳號。\n以 Sso:Enabled 開關控制，預設關閉，關閉時行為與舊版相同。\n\n後端\n- POST /api/auth/sso：驗 LISWeb 發的 HS256 token（簽章、發行者、對象、效期），\n  並要求 mod claim 等於設定值。LISWeb 只有檢查過選單權限才會帶 mod，\n  所以 LISWeb 端的門禁參數被拿掉時這裡會拒絕，而不是放行\n- 同一張 token 只能換一次（jti 以 SET NX 記在 Redis）\n- App_Users 新增 AU_LisAccount，SSO 靠它找人；同名帳號不自動認領（比對不分大小寫）\n- 沒對應過的 LIS 帳號第一次進來建立「待驗證」帳號，系統管理員啟用後才能用\n- SSO 工作階段上限 Sso:MaxSessionHours（預設 12 小時），避免靠 refresh 無限續用\n- SSO 啟用後關閉自行註冊與邀請註冊；/api/auth/register 原本不需登入即可建立成員帳號\n- 啟用但設定不完整（缺金鑰、缺 RequiredModule、沒有緊急帳號）時服務不啟動\n\n前端\n- 登入頁在 SSO 啟用時改為「從 LISWeb 登入」，帳密表單收起只給緊急帳號\n- 新增 /sso/callback：先把 token 從網址列拿掉再送出\n- 使用者管理新增「LIS 帳號」欄位\n- 移除把登入帳密印到 console 的除錯程式碼\n\n上線步驟見 docs/LISWeb_SSO登入.md。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "AI\\exosome-research",
       "totalCommits": 10,
       "commits": [
@@ -36787,85 +37082,6 @@
           "message": "chore: 專案骨架、比較表 schema、LINE 設定紀錄",
           "body": "外泌體研究助理：定期搜尋 UC-MSC Exosome 生產流程論文，萃取成比較表，\n透過 LINE 推週報的 Hermes agent。結構與慣例比照 juju。\n\npaper-scout、weekly-report 先定規格，實作留 TODO。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "其他",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "TakoDoko",
-      "totalCommits": 9,
-      "commits": [
-        {
-          "hash": "d55b85ab",
-          "date": "2026-05-08",
-          "message": "chore: 整理部署文件與 script",
-          "body": "- LinuxDeployment.md 開頭新增「TL;DR — 日常更新部署」段落，",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "630318bf",
-          "date": "2026-05-08",
-          "message": "feat: 搜尋範圍新增「全選/取消全選」切換按鈕",
-          "body": "預設搜尋範圍只勾「名稱、關鍵字」，使用者若想用 IP 或網址搜尋",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "fb491ead",
-          "date": "2026-05-08",
-          "message": "On main: wip-unrelated-pre-pr",
-          "body": "",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "4cb46b00",
-          "date": "2026-05-08",
-          "message": "index on main: b641ac1 Merge branch 'fix/token-expiry-and-refresh-token' into 'main'",
-          "body": "",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "38156b47",
-          "date": "2026-05-18",
-          "message": "hotfix: 修部署 script 在 PS 5.1 上的兩個執行問題",
-          "body": "實測 deploy-frontend.ps1 在 Windows PowerShell 5.1 跑不起來，修兩件事：",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "87659964",
-          "date": "2026-05-18",
-          "message": "feat: 新增一鍵部署 script",
-          "body": "- scripts/deploy/deploy-frontend.ps1：npm build + scp dist",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "1fd3a07e",
-          "date": "2026-05-18",
-          "message": "chore: bump frontend v1.4.1 + 補強發版流程文件",
-          "body": "- frontend v1.4.0 → v1.4.1（含「全選 / 取消全選」按鈕）",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ce84eb78",
-          "date": "2026-07-03",
-          "message": "feat: 登入相關頁面背景改為海底水族箱風格（v1.4.2）",
-          "body": "同仁反映紫色漸層背景不好看；章魚應該住海裡，改成藍色海洋。",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "e040ac12",
-          "date": "2026-07-23",
-          "message": "fix: 修正 HTTP 正式站複製密碼失效，改用 useCopyToClipboard fallback（v1.4.3）",
-          "body": "正式站走 http://192.168.56.179，非安全來源下瀏覽器沒有 navigator.clipboard，",
-          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -37670,7 +37886,7 @@
     },
     {
       "name": "work-progress",
-      "totalCommits": 857,
+      "totalCommits": 859,
       "commits": [
         {
           "hash": "4bdff543",
@@ -44527,13 +44743,29 @@
           "body": "🤖 自動生成於 2026-11-23 07:05",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "3730968b",
+          "date": "2026-11-24",
+          "message": "docs: 更新彙整資料 2026-11-24",
+          "body": "🤖 自動生成於 2026-11-24 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "6787bd4a",
+          "date": "2026-11-24",
+          "message": "docs: 每日工作紀錄 2026-11-23 (44 commits)",
+          "body": "🤖 自動生成於 2026-11-24 07:05",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "ParkFee",
-      "totalCommits": 491,
+      "totalCommits": 493,
       "commits": [
         {
           "hash": "caa33437",
@@ -48461,6 +48693,22 @@
           "message": "docs(TODO): 11/18 管委會兩項決議、清空白自行車、11/23 登記現況",
           "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7f4a3086",
+          "date": "2026-11-24",
+          "message": "feat(抽籤): 自行車第 2 輛起留到第二輪",
+          "body": "第一輪只抽每戶第 1 輛自行車，第 2 輛起列待第二輪；第二輪用剩餘車位\n依輛次抽，順序號另外接續。一次跑完的行為不變。\n\n第二輪讀名冊時把自行車車位轉回內部編號：發佈寫回的是地面號碼，\n不轉會認不出已占用的格子而重複配位。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "1bff64c7",
+          "date": "2026-11-24",
+          "message": "feat(出帳): 獨立帳單改回物業月結檔欄位、收費類別改「2027年機車清潔費第N輪」",
+          "body": "經理 11/24 指定金額記在獨立的「機車清潔費」欄（汽車、機車分兩欄），\n收費類別用「2027年機車清潔費」。輪次是回查分輪需要而保留。\n原社區幫範例檔格式留作 --format template 備援。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
           "tags": []
         }
       ],
