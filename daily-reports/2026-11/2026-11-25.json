@@ -1,0 +1,443 @@
+{
+  "date": "2026-11-25",
+  "weekday": "三",
+  "work_projects": [
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "a7701d90",
+          "time": "17:33",
+          "message": "feat(DangerListV2): 杏嘉補「異常細胞有發現即通報」，依嘉義回覆定案",
+          "body": "- 新規則型態 present：數值 > 0 或填了「未發現」以外的文字即通報\n- Abnormal cell 對應 Promyelocyte 8485 / Others 8488 / Other cells seen 8489 / Immature cell 8496\n- Blast 8486 改用 present\n- 設計文件補嘉義行政六點回覆與處理方式\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "274a519b",
+          "time": "17:29",
+          "message": "feat(BT403): 欄位設定加「緊湊列印」選項，縮小明細行距減少頁數",
+          "body": "新竹反映 BT403 明細頁數比舊系統多（同一份 32 頁 vs 26 頁）。\n列數相同，差在行距：新系統每列 25px，A4 每頁約 41 列。\n\n- 欄位設定彈窗「選項」加「緊湊列印」勾選框，預設不勾，記在個人瀏覽器\n  (localStorage BT403_compactPrint)\n- 勾選時列印網址帶 compact=1，明細行距 25px → 20px（字級不變），\n  每頁約 51 列；頁數由既有 script 依實際列高計算，不需另改\n- 不勾時版面完全不變；收據頁不受影響；沒有 DB 參數\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "35f3c93a",
+          "time": "16:58",
+          "message": "feat(DangerListV2): 杏嘉診所（嘉義 4285/5285）改用院方自訂危險值門檻",
+          "body": "院方醫師提出自己的危險值通報表，不再沿用杏昌集團標準。\n- 前端：嘉義從集團共用規則拆出，另建 xingJiaRules\n- 嘉義 SQL：多撈 GOT/GPT/Na/Platelet/Ammonia/Blast\n- 台北 0313、高雄 5168/5169 不變\n- 設計文件補門檻對照與近 180 天影響試算（新增 15 筆、減少 1 筆）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "6fe5181f",
+          "time": "15:00",
+          "message": "合併 MR !1710: feat(lr351): 支援全部項目連續列印並完善旗標與曲線顯示",
+          "body": "feat(lr351): 支援全部項目連續列印並完善旗標與曲線顯示\n\nSee merge request ucl/lis/lisweb!1710",
+          "category": "合併MR"
+        },
+        {
+          "hash": "22e3ad0a",
+          "time": "14:08",
+          "message": "feat(BT403): 排序選項右側加回「清除條件」按鈕",
+          "body": "MR!1685 把設定收進彈窗時連同「清除」一起移除，使用者反映還是需要。\n\n- 位置改在條件區最後一列（排序選項右側），離右上的顯示/列印/匯出遠一點\n- 重設範圍: 帳別、日期、客戶編號、篩選條件、項目篩選、排序，並清空下方清單\n  （舊版沒重設項目篩選與排序，這次補上）\n- 不動「欄位設定」「收據設定」兩個彈窗的內容\n- 清單只清 AccountingTable，不再用 \"table tbody\" 連列印記錄彈窗一起清\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "044b6fd0",
+          "time": "12:56",
+          "message": "fix(BT201): 數量/單價事件改委派綁定，補列後的小計、總數、總計才會計算",
+          "body": "原本直接綁在載入時的 39 列上，動態補上的列（超過 39 項、F4 刪除後補回的列）\n不會算小計：第 40 項起「收費」空白、頁尾總數停在 39、總計少算。\n存檔資料不受影響（只存數量與單價），純畫面顯示。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "9c6e9a52",
+          "time": "12:42",
+          "message": "feat(BT101): 收據格式可依單位設定，BT403 輸入單位時自動帶出",
+          "body": "桃園需求：診所每月收據的出法固定，不想每個月在 BT403 收據設定重勾。\n\n- BT101 新增「收據格式」一列：列印兩份、拆成多張＋每張上限、蓋公司紅章\n  （紅章只在本站有章圖檔時出現），存 DEBTOR_DETAIL.RECEIPT_SETTING（JSON）\n- BT403 客戶編號輸入單一單位時，把該單位的設定帶進「收據設定」彈窗並提示帶了什麼；\n  列印前仍可臨時調整。一次印多個單位時不逐家套用，維持照畫面設定\n- 新欄位要各分部跑 DDL（SchemaModify/Debtor_detail.txt）。沒加欄位的分部\n  BT101 不顯示該列、讀寫都略過，不影響原本功能\n- 異動沿用既有 CustUpdateLog（存檔前後比對）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "312b58ce",
+          "time": "12:34",
+          "message": "docs(Problems): BT201 超過 39 項 — 補測試環境端到端冒煙結果",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f227979b",
+          "time": "12:16",
+          "message": "docs(Problems): BT201 超過 39 項 — 補千涵回覆（舊系統列印報告的限制）與新竹試行步驟",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "21fe732f",
+          "time": "10:44",
+          "message": "docs(LT274): 更正逐次列印紀錄現況（台北有 BBS WKSTN_PLOG，新竹缺表已補建）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "249c8a42",
+          "time": "09:34",
+          "message": "docs(Problems): WKSTN_PLOG 每晚清除的執行者是 HC002C，且整張單一起刪（補 Mars 說明與實測）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e975352f",
+          "time": "08:20",
+          "message": "fix(LR111/BT112): 帳務套餐與檢驗 Profile 同代碼並存時 LR111 可讀取，BT112 擋單項代碼建套餐",
+          "body": "Tickit #536（新竹）：P245／P240／P242／P243 在 LR111 跳「為套餐，請勿重複新增」讀不到，\n原因是讀取前只看 ITEM_MASTERH.IMH_TYPE，是 P 就擋，沒看檢驗項目是否已存在。\n\n- LR111 讀取：檢驗項目已存在就放行並顯示提示；帳務是套餐且檢驗端沒有該代碼才擋\n- LR111 存檔：帳務是套餐的代碼不回寫 ITEM_MASTERH 的名稱與啟用狀態（避免蓋掉 BT112 的套餐名稱）\n- BT112：代碼已是帳務單項時不可建立為套餐（輸入代碼時與存檔時各擋一次）\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "632ac8e2",
+          "time": "08:09",
+          "message": "docs(Problems): 報告已列印狀態會消失（WKSTN_PLOG 被刪除）初稿",
+          "body": "已列印與否是看 WKSTN_PLOG 的 ALL 列旗標。盤點誰在刪：每晚定期清除\n約 15 天前的列（量最大，來源程式未查到）、醫令退回未完成時整張刪、\n重驗與刪項目。列出影響與方向。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "5aa0fae9",
+          "time": "08:04",
+          "message": "docs(LT274): 補 11-24 再次漏印的時間軸與列印無逐次紀錄",
+          "body": "- 2009/2102 四張單：大單之後 2 秒、6 秒送出的兩張沒出紙\n- 操作者確認 11-23 的份數 0 是手動改的\n- LT274 沒寫 REPORT_ACCESS_LOG 的 PRINT，列印次數查不到\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a757e6d8",
+          "time": "08:00",
+          "message": "docs(LT274): 交錯列印漏印與略過訊息（新竹 2026-11-23 追查紀錄）",
+          "body": "- 同病人第二個號碼沒印：當下份數為 2，原因未明，推測固定等待 2 秒\n- 份數變 0 是反映後才發生，項目連動已逐一排除\n- 略過訊息一律寫份數 0、沒送印卻標已列印\n- 醫令異動歷程文件補後續負責人\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "2bba2433",
+          "time": "07:58",
+          "message": "docs(Problems): BT201 超過 39 項 — 補 Mars 回覆與定案做法（參數控制，先開新竹）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "b6d5df0e",
+          "time": "07:58",
+          "message": "feat(BT201): 超過 39 項補列改由系統參數 BT201_AllowOver39Items 控制（先開新竹）",
+          "body": "沒有這筆參數時維持只列 39 項，發版不影響其他站。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "97506df2",
+          "time": "07:57",
+          "message": "fix(BT201): 項目超過 39 項時補列，不再靜默丟棄第 40 項以後的明細",
+          "body": "畫面寫死 39 列，載入單子（含複製單）時第 40 項起找不到列，\n存檔後帳務明細被刪且無提示（新竹 2197，41 項剩 39 項）。\nupdRow 改為列數不足時自動補列，並多留一列空白供續打。\n\nHC010 端無 39 項假設（Mars 確認）；收據/BT401/BT403 超過 39 項的版面尚未實測。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7cfa77c4",
+          "time": "07:29",
+          "message": "合併 MR !1699: docs(Problems): 醫令異動歷程不足與紀錄保留期限",
+          "body": "docs(Problems): 醫令異動歷程不足與紀錄保留期限\n\nSee merge request ucl/lis/lisweb!1699",
+          "category": "合併MR"
+        },
+        {
+          "hash": "f2df6d51",
+          "time": "07:29",
+          "message": "合併 MR !1702: feat(SsoTo): 新增選用的權限門禁 {sys}_RequireModule，並接入大章魚",
+          "body": "feat(SsoTo): 新增選用的權限門禁 {sys}_RequireModule，並接入大章魚\n\nSee merge request ucl/lis/lisweb!1702",
+          "category": "合併MR"
+        }
+      ],
+      "count": 20
+    },
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "59f4532b",
+          "time": "14:11",
+          "message": "chore: session 收尾備份 2026-11-25",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "731a7a6b",
+          "time": "11:29",
+          "message": "docs: 專案索引更新 OverTimePrompt 說明",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "be7adb9f",
+          "time": "11:28",
+          "message": "docs: 重建本機專案索引（2026-11-25）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f3ce1734",
+          "time": "10:45",
+          "message": "chore: memory 更新（新竹 BBS 列印紀錄表補建）2026-11-25",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "478de4e8",
+          "time": "09:34",
+          "message": "chore: memory 更新（PLOG 清除執行者 HC002C）2026-11-25",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "8c56f5bf",
+          "time": "09:30",
+          "message": "memory(uclcloud-app): 查正式庫改用 uclcloud_api",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "52487acc",
+          "time": "08:50",
+          "message": "memory(lisweb): LR111 帳務套餐與檢驗 Profile 並存 (Tickit#536, MR!1708)",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "afab0959",
+          "time": "08:09",
+          "message": "chore: memory 更新（PLOG 列印狀態清除）2026-11-25",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "75fb7a57",
+          "time": "08:01",
+          "message": "chore: session 收尾備份 2026-11-25",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c98df0f6",
+          "time": "07:53",
+          "message": "chore: session 收尾備份 2026-11-25（lisweb V2026.11.25.001 發佈後 memory 更新）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "ef41444b",
+          "time": "09:11",
+          "message": "docs: 11-25 XSS 紀錄－其餘 8 支測試頁與複製檔已移到隔離區",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "3808e876",
+          "time": "08:41",
+          "message": "docs: 修正備份路徑",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "8e889b71",
+          "time": "08:40",
+          "message": "docs: 11-25 XSS 紀錄－ServiceQueryInfo 已部署正式機",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "39b15718",
+          "time": "08:12",
+          "message": "合併 MR !16: fix: ServiceQueryInfo strsearch 輸出編碼；11-25 XSS 通報紀錄",
+          "body": "fix: ServiceQueryInfo strsearch 輸出編碼；11-25 XSS 通報紀錄\n\nSee merge request ucl/officialwebsites/ucl!16",
+          "category": "合併MR"
+        },
+        {
+          "hash": "9341bcc4",
+          "time": "08:11",
+          "message": "fix: ServiceQueryInfo strsearch 輸出編碼；記錄 11-25 XSS 通報與測試頁下架",
+          "body": "- ServiceQueryInfo.asp include security.asp，兩處 strsearch 改 SecHtml\n- 通報的 ServiceQuery.asp 已於 10-12 修補，實測不成立\n- 正式機遺留的 ServiceQuery_test.asp / ServiceQueryInfo_test.asp 有同樣的洞，\n  已移到 d:\\ucl\\_quarantine_20261125\\\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "bfa4f332",
+          "time": "12:48",
+          "message": "docs: App 使用狀況加 11-25 中午的數字",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f6b3f6e9",
+          "time": "10:38",
+          "message": "docs: 同仁用的註冊流程說明（含畫面截圖）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9318fdd5",
+          "time": "10:29",
+          "message": "docs: 同仁來電應對說明與 md 轉 Word 腳本",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9e638678",
+          "time": "09:32",
+          "message": "feat(tool): App 使用狀況統計腳本與宣傳前基準數字",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "TwowayConnection\\分單系統",
+      "commits": [
+        {
+          "hash": "6127ab5c",
+          "time": "08:03",
+          "message": "合併 MR !38: docs(自動減項): 11.23 上線紀錄＋上線後觀察",
+          "body": "docs(自動減項): 11.23 上線紀錄＋上線後觀察\n\nSee merge request ucl/twowayconnection/uclweborder!38",
+          "category": "合併MR"
+        },
+        {
+          "hash": "35f3b793",
+          "time": "08:03",
+          "message": "docs(自動減項): 11.23 上線紀錄＋上線後觀察（正式環境尚未命中，2081 在分單前就被藏掉）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "ed27e0ce",
+          "time": "07:29",
+          "message": "合併 MR !37: docs: 分單系統操作手冊（摘要式，19 個功能）",
+          "body": "docs: 分單系統操作手冊（摘要式，19 個功能）\n\nSee merge request ucl/twowayconnection/uclweborder!37",
+          "category": "合併MR"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "3b1cf312",
+          "time": "19:20",
+          "message": "補 11-25 佈署紀錄：報告回傳收隊改看成功（MR !84）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a33a6cc8",
+          "time": "19:17",
+          "message": "fix(報告回傳): 收隊改成要看到成功，不再因失敗滑出 60 分鐘窗而假恢復",
+          "body": "2026-11-25 18:07 預防醫學基金會 API 整站 502，台北 8 筆失敗後沒有新報告要送，\n19:09 失敗滑出 60 分鐘窗，頭自己判成「佇列已清空」：發了收隊通知、牆上剛按的\n暫時略過也被清掉，而對方實際上還掛著。\n\n- 六顆報告回傳頭的 BacklogSql：點火條件不變（某家最後一次成功之後、60 分內 5 筆\n  首次失敗），點火後掛到該家出現新的 Success，最長回看 24 小時\n- 降黃的訊息樣式補 returned 502/503/504（預防那支不是寫 HTTP 502）\n- 「同時段別家有成功」改成「那一波開始之後有任何一家成功過」\n- Runbook 步驟、告警回應手冊、架構與擴充同步\n\n回測六站近 45 天：新規則零誤報；凌醫 10-30 那次由 4 段（中間假收隊 3 次）變成\n連續一段 56 小時。純「自上次成功累積 5 筆」會在 11-11 凌晨誤報預防的 UID 格式\n錯誤 8 小時，所以保留 60 分內 5 筆當點火條件。\n台北實測 85ms、TransferLogs logical reads 408（舊版同時段 82）。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "LIS\\ucl_assessys",
+      "commits": [
+        {
+          "hash": "b756bc79",
+          "time": "15:05",
+          "message": "fix(sso): 金鑰移出版控、FileLog 簽章規則對齊 LISWeb、修正站台判斷順序",
+          "body": "- appsettings / SQL 腳本：清空 SSO 金鑰與 OpenAI ApiKey，改由環境變數\n  ASSESSYS_SSO_KEY / OPENAI_API_KEY 提供\n- SQL 腳本：移除「現值 >= 32 字元就保留」判斷，舊金鑰剛好 32 字元會寫不進新值\n- SignDoc：SigninType / remark / 部門比照 LISWeb TrySigninLog (mode 0)，\n  不再寫死 N / B\n- SSOLogin：Referer 優先於 MainSystemSite Cookie，避免前次登入的 Cookie\n  蓋過本次來源站台\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "62dfc5f6",
+          "time": "15:01",
+          "message": "合併 MR !27: feat(sso): 實作 LISWeb/Docs 跨系統 SSO 單一登入與 BBS FileLog 直接簽核",
+          "body": "feat(sso): 實作 LISWeb/Docs 跨系統 SSO 單一登入與 BBS FileLog 直接簽核\n\nSee merge request ucl/lis/ucl_assessys!27",
+          "category": "合併MR"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Management\\OverTimePrompt",
+      "commits": [
+        {
+          "hash": "beaa4c97",
+          "time": "11:28",
+          "message": "docs: README 首句改寫，讓專案索引搜得到人事／飛騰",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d9f6f634",
+          "time": "11:28",
+          "message": "docs: 整理為飛騰人資系統文件庫，補用戶端安裝說明",
+          "body": "- README 新增 Scs.NET Client 安裝網址與注意事項、相關位置與歸檔原則\n- 依主題搬進 加班超時／出勤統計／出勤修復 三個資料夾\n- 新增資料表索引、飛騰寫入路徑評估、2025 原廠課程講義\n- 補 2025-11 至 2026-02 各月加班超時名單\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "6b2d9b3c",
+          "time": "19:24",
+          "message": "fix(wall): 按下暫時略過的當下警報音就停，不等帶 ack 的快照回來",
+          "body": "帶 ack 的快照要等 Cerberus 來領單＋下一輪回報（最久約 4 分鐘），這段期間\n磚還是黃／紅的，警報音檔（黃色是一整段曲子）會繼續放，像是沒按到。\n2026-11-25 19:20 報告回傳@台北 實際遇到。\n\n- maybeAlert：還在叫的磚全是略過單指到的那一塊時先收聲（顏色不動）\n- 旁邊還有別的紅黃磚照叫；單子被拒絕或過期沒下文，馬上再響一次\n- 點唱機不變，仍等磚真的帶 ack 回來\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "TakoDoko",
+      "commits": [
+        {
+          "hash": "b7d96f57",
+          "time": "07:28",
+          "message": "合併 MR !9: feat: 改由 LISWeb SSO 登入（v1.4.0 / v1.5.0）",
+          "body": "feat: 改由 LISWeb SSO 登入（v1.4.0 / v1.5.0）\n\nSee merge request ucl/takodoko!9",
+          "category": "合併MR"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "c63c90bc",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-25",
+          "body": "🤖 自動生成於 2026-11-25 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "36ec4c73",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-24 (31 commits)",
+          "body": "🤖 自動生成於 2026-11-25 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 50,
+    "sideCommits": 2,
+    "totalCommits": 52
+  }
+}
