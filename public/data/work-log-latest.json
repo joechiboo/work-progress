@@ -1,20 +1,20 @@
 {
   "period": {
     "start": "2025-05-05",
-    "end": "2026-11-25",
-    "days": 570,
-    "weeks": 81.4
+    "end": "2026-11-26",
+    "days": 571,
+    "weeks": 81.6
   },
   "author": "UCL\\joechiboo",
   "summary": {
-    "totalCommits": 7657,
-    "projectCount": 109,
-    "dailyAverage": 13.4
+    "totalCommits": 7715,
+    "projectCount": 110,
+    "dailyAverage": 13.5
   },
   "projects": [
     {
       "name": "lisweb",
-      "totalCommits": 1566,
+      "totalCommits": 1575,
       "commits": [
         {
           "hash": "a207ff46",
@@ -12543,6 +12543,78 @@
           "body": "feat(SsoTo): 新增選用的權限門禁 {sys}_RequireModule，並接入大章魚\n\nSee merge request ucl/lis/lisweb!1702",
           "category": "合併MR",
           "tags": []
+        },
+        {
+          "hash": "92c61334",
+          "date": "2026-11-26",
+          "message": "docs(報告封存): 待辦標記 MR!1722 已開",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d8f658c0",
+          "date": "2026-11-26",
+          "message": "docs(報告封存): 超過兩年報告封存與調閱系統評估與設計（台北）",
+          "body": "幹部會議決議「超過兩年的報告要封存，調閱需主管同意」的評估與設計草案：\n- README：影響評估、台北容量實測、封存庫設計、每日封存規則、保留項目、\n  報告原貌凍結、資料分級、好處與風險、2027-01 AORD 單號衝突、待辦清單\n- 調閱流程設計.md／調閱系統頁面規劃.md：申請、核准、查看流程與頁面\n- 調閱流程討論稿.html（A4 一頁）、調閱系統設計稿.html（架構圖、流程、demo）\n\n尚未實作；多項待幹部會議、品保、帳務確認（見 README 第 11 節）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7c7c6942",
+          "date": "2026-11-26",
+          "message": "feat(文管): 上傳後 PDF 轉好才進初審（轉檔閘門）",
+          "body": "上傳的檔還在「待處理區\\轉檔區」＝PDF 尚未轉好：\n- 初審（Stage 2）不列入審核清單（GetUnfinishStage）與待辦數（HomeController 四處）\n- 申請人端顯示「轉檔中，完成後送交初審」取代「初審中」\n- 不刪任何檔案；轉檔區讀不到時不擋（維持原行為）；轉檔區清單快取 30 秒\n- 站別開關 FMConvertGateEnabled：預設關，台北（Release）與 Debug 開（只有台北 56.229 有轉檔排程）\n\n背景：轉檔排程故障時審核者看得到待辦卻打不開 PDF，SOP9270（202611260001）因此被退件\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "d7f12a46",
+          "date": "2026-11-26",
+          "message": "合併 MR !1719: fix(lt351): 修正基本品管旗標因倍數捨入而漏判",
+          "body": "fix(lt351): 修正基本品管旗標因倍數捨入而漏判\n\nSee merge request ucl/lis/lisweb!1719",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "84f67153",
+          "date": "2026-11-26",
+          "message": "fix(BT101): 沒存過設定的單位，開立收據／列印帳單顯示為打勾",
+          "body": "帳務報表對 DEBTOR_DETAIL 沒有資料的單位，把開立收據與列印帳單當成 Y；\nBT101 開啟同一個單位卻顯示兩個都沒勾，改別的欄位存檔後就被寫成 N，\n該單位從此整批列印不出帳單與收據。\n\n新竹 313 家因此變成 N／N（2026-11-26 已用 SQL 改回 Y 並補異動紀錄）。\n\n改為只有明確存過 N 才不勾，畫面與報表一致。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "7a8e907b",
+          "date": "2026-11-26",
+          "message": "docs(Problems): 密碼明碼清除盤點第三輪＋台北資訊室先行清除",
+          "body": "- 現況一覽更新到 2026-11-26：Inside V$SQL 已確認、申報 PHP 看來已改、\n  考核系統與 UclUnitConfig.Web 完成，新增 #5b UclMenuPortalSong（進行中）\n- 5.3.2 第三輪：新來源 uclhappydwl、資料庫自動維護（SQL Tuning Advisor）列排除\n- 5.4 保留名單：千涵、Mars；程式帳號與原廠程式使用者待定\n- 5.5 2026-11-25 台北資訊室 19 個帳號先行清除的紀錄，及全部清除前待定事項\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d1b53a40",
+          "date": "2026-11-26",
+          "message": "docs(Problems): BT201 超過 39 項 — 新竹 2026-11-26 開參數試行",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c64c1890",
+          "date": "2026-11-26",
+          "message": "docs(LT274): 補各分部 BBS 列印紀錄表現況（六站皆有，新竹補建後已寫入）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "d7ff1c91",
+          "date": "2026-11-26",
+          "message": "docs(LT274): 補各分部 BBS 列印紀錄表現況（六站皆有，新竹補建後已寫入）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "work"
@@ -17420,7 +17492,7 @@
     },
     {
       "name": ".claude (工具設定)",
-      "totalCommits": 502,
+      "totalCommits": 524,
       "commits": [
         {
           "hash": "a28f8e09",
@@ -21435,6 +21507,182 @@
           "date": "2026-11-25",
           "message": "chore: session 收尾備份 2026-11-25（lisweb V2026.11.25.001 發佈後 memory 更新）",
           "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1e7ffb40",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26（SMA 統計 memory）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "8cc5cb29",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "54005843",
+          "date": "2026-11-26",
+          "message": "memory: uclw2w 資料表收斂計畫",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "69736cc5",
+          "date": "2026-11-26",
+          "message": "memory: 查正式庫改從 reference 讀密碼",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "48bc893e",
+          "date": "2026-11-26",
+          "message": "memory: 大章魚 SSO 上線日改為 11-26",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "aaeffe19",
+          "date": "2026-11-26",
+          "message": "runbook+memory: 大章魚改 SSO，帳密登入只剩 local 帳號",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4775219b",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26（ParkFee 出帳格式、自行車兩輪）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e2c84a36",
+          "date": "2026-11-26",
+          "message": "skill: fm-doc-apply 文管文件申請送件（Claude in Chrome）+ SOP9270 送件狀態",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "306c75b8",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26（ucl 典匠協議書）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "1a0cadb9",
+          "date": "2026-11-26",
+          "message": "chore: memory－MR !24 已合併",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "937a2385",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26（ucl 官網：隔離區索引、CKFinder IIS log 查詢）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0656b51f",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26（ucl 官網：專業社群搬會員訊息、站內搜尋）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4bbb0399",
+          "date": "2026-11-26",
+          "message": "chore: memory－MR !22 已合併",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "94128232",
+          "date": "2026-11-26",
+          "message": "chore: CKFinder 關閉紀錄、runbook 擋副檔名做法 2026-11-26",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "c08f6081",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26（CKFinder 入口、ucl-admin 盤點、runbook 掃描教訓）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0856345d",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e3adbf88",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "703babf2",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26（大章魚 SSO 開啟 session）",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "a4127fc3",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26（SMA 查詢 session）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "4106b574",
+          "date": "2026-11-26",
+          "message": "chore: memory 更新（MR!1716）2026-11-26",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "12a38e37",
+          "date": "2026-11-26",
+          "message": "chore: memory 更新（各分部 BBS 列印紀錄表）2026-11-26",
+          "body": "",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "9959872b",
+          "date": "2026-11-26",
+          "message": "chore: session 收尾備份 2026-11-26",
+          "body": "",
           "category": "其他",
           "tags": []
         }
@@ -28006,7 +28254,7 @@
     },
     {
       "name": "Cerberus",
-      "totalCommits": 115,
+      "totalCommits": 116,
       "commits": [
         {
           "hash": "1f4dc257",
@@ -28927,13 +29175,21 @@
           "body": "2026-11-25 18:07 預防醫學基金會 API 整站 502，台北 8 筆失敗後沒有新報告要送，\n19:09 失敗滑出 60 分鐘窗，頭自己判成「佇列已清空」：發了收隊通知、牆上剛按的\n暫時略過也被清掉，而對方實際上還掛著。\n\n- 六顆報告回傳頭的 BacklogSql：點火條件不變（某家最後一次成功之後、60 分內 5 筆\n  首次失敗），點火後掛到該家出現新的 Success，最長回看 24 小時\n- 降黃的訊息樣式補 returned 502/503/504（預防那支不是寫 HTTP 502）\n- 「同時段別家有成功」改成「那一波開始之後有任何一家成功過」\n- Runbook 步驟、告警回應手冊、架構與擴充同步\n\n回測六站近 45 天：新規則零誤報；凌醫 10-30 那次由 4 段（中間假收隊 3 次）變成\n連續一段 56 小時。純「自上次成功累積 5 筆」會在 11-11 凌晨誤報預防的 UID 格式\n錯誤 8 小時，所以保留 60 分內 5 筆當點火條件。\n台北實測 85ms、TransferLogs logical reads 408（舊版同時段 82）。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "錯誤修正",
           "tags": []
+        },
+        {
+          "hash": "3881e399",
+          "date": "2026-11-26",
+          "message": "新增文管轉檔三顆頭（灰磚，等新版轉檔程式部署後啟用）",
+          "body": "- 文管轉檔積壓@台北（FolderBacklog，大安聯合＋聯合生技兩個轉檔區，20 分）：轉失敗＝檔一直留在轉檔區\n- 文管轉檔排程@台北／@聯合生技（LogFreshness，心跳「本輪結束」，10 分；聯合生技設次要）：排程沒在跑\n- 靜默窗 20:00-08:30 配合排程時段；lis-web-docs 用文管帳號密文連線；不設 Bite（InteractiveToken 排程，跨機 DCOM 無權限）\n\n起因：2026-11-21~26 56.229 Word COM 起不來，文管轉檔全掛 6 天沒人知道。\n本機 dotnet Cerberus.dll --check 三顆都讀得到：積壓 2 檔（10/16 兩份）、心跳頭「找不到本輪結束」（舊版程式還沒有這行，符合預期）。\n本機注意：已有到 56.229 的其他帳號 SMB session 時，連線回 1219 要 20 秒以上，會讓檢查逾時；56.231 SYSTEM 無此問題。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
         }
       ],
       "type": "work"
     },
     {
       "name": "OfficialWebsites\\uclcloud-app",
-      "totalCommits": 112,
+      "totalCommits": 114,
       "commits": [
         {
           "hash": "8d8e4a75",
@@ -29829,6 +30085,22 @@
           "message": "feat(tool): App 使用狀況統計腳本與宣傳前基準數字",
           "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
           "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "156692fd",
+          "date": "2026-11-26",
+          "message": "docs: App 使用狀況加註冊人數基準",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f32bc930",
+          "date": "2026-11-26",
+          "message": "docs: App 使用狀況加 11-26 數字",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
           "tags": []
         }
       ],
@@ -31337,6 +31609,645 @@
       "type": "work"
     },
     {
+      "name": "OfficialWebsites\\ucl",
+      "totalCommits": 79,
+      "commits": [
+        {
+          "hash": "74807372",
+          "date": "2025-12-17",
+          "message": "更新 README 及新增防垃圾郵件文檔",
+          "body": "- 更新 README.md 專案簡介",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "25622150",
+          "date": "2025-12-17",
+          "message": "新增防機器人機制說明文檔",
+          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "a38ab11e",
+          "date": "2025-12-17",
+          "message": "新增聯絡表單防機器人機制",
+          "body": "- Honeypot 隱藏欄位",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "84582213",
+          "date": "2025-12-17",
+          "message": "新增聯絡表單防機器人機制",
+          "body": "- Honeypot 隱藏欄位",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "c040a3ec",
+          "date": "2025-12-17",
+          "message": "新增聯絡表單防機器人機制",
+          "body": "- Honeypot 隱藏欄位",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e7a0d555",
+          "date": "2026-01-02",
+          "message": "加強前端表單驗證",
+          "body": "- 新增姓名必填檢查",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "2cc7a5b9",
+          "date": "2026-01-02",
+          "message": "加強防垃圾郵件機制",
+          "body": "- 新增 User-Agent 檢查（阻擋空白或可疑的 UA）",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cbe7b90d",
+          "date": "2026-01-28",
+          "message": "新增 Google 重新索引指南文檔",
+          "body": "說明如何透過 Search Console 請求重新索引",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "4de0c7f4",
+          "date": "2026-01-28",
+          "message": "修復 knowledge01.asp itemid 前導零問題",
+          "body": "- 修改參數類型從 adInteger 改為 adVarChar",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8973f598",
+          "date": "2026-01-28",
+          "message": "SEO 優化：動態頁面標題",
+          "body": "- news_info.asp: 標題改為「文章標題 - 商店名稱」",
+          "category": "重構",
+          "tags": []
+        },
+        {
+          "hash": "40cdfaef",
+          "date": "2026-01-28",
+          "message": "新增 Sitemap 產生流程文檔",
+          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "eb882f24",
+          "date": "2026-01-28",
+          "message": "更新 sitemap.xml 並新增 robots.txt",
+          "body": "- 使用 Screaming Frog 重新爬取產生新的 sitemap",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "079632c6",
+          "date": "2026-01-28",
+          "message": "新增 Open Graph 標籤以解決 Bing 顯示錯誤 logo 問題",
+          "body": "- 在 meta.asp 加入 og:image, og:title 等標籤",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "9322849f",
+          "date": "2026-01-28",
+          "message": "修正 ManageLogin.asp 頁面標題",
+          "body": "- 將 title 改為固定「醫療院所登入」，改善 SEO 顯示",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "0c4e78ad",
+          "date": "2026-05-18",
+          "message": "新增首頁訊息與知識庫維護指南及 SQL 紀錄",
+          "body": "- docs/news-and-knowledge-maintenance.md：allshopmovement 與 Knowledge 兩表維護 SOP、HTML 範本、GoodsID 對照、錯誤排除",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5d031e0f",
+          "date": "2026-05-27",
+          "message": "AI回覆 改走 C 方案：只寄給 ittest，客戶不收表單副本",
+          "body": "由 ittest 端 AI 讀 body 後自行 compose 給客戶 email；Reply-To 仍保留客戶 email 當備援。",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "76595439",
+          "date": "2026-05-27",
+          "message": "gmailsend 加 BCC 參數，AI回覆 路徑 ittest 改密件副本",
+          "body": "- FunChar.asp: gmailsend 加第 7 參數 BccMail",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "0cd03789",
+          "date": "2026-05-27",
+          "message": "聯絡我們類別 radio 可點 label 選取，加大可點範圍",
+          "body": "把每個 radio + 文字包進 <label class=\"kind-opt\">，配 cursor:pointer 樣式",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "e1744175",
+          "date": "2026-05-27",
+          "message": "gmailsend 加 ReplyTo 覆寫參數，AI回覆 路徑回信直達客戶",
+          "body": "- FunChar.asp: gmailsend 加第 6 參數 ReplyToOverride，空字串維持原本行為",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "3a68850b",
+          "date": "2026-05-27",
+          "message": "聯絡我們新增 AI 回覆類別並新增 SMB 部署指南",
+          "body": "- cusCenter.asp 加 \"AI回覆\" radio (value=4)，header/footer 改用共用 include",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "e315998f",
+          "date": "2026-06-02",
+          "message": "新增 webshop/shop 版控盲區與上版注意事項文檔",
+          "body": "- docs/webshop-shop-version-control.md：說明該目錄大多沒納入 git、prod 常被直接改，本機副本易過時；附改檔/部署/同步回 git 的鐵則與漂移快檢腳本",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "bed0cf82",
+          "date": "2026-06-02",
+          "message": "ServiceQueryInfo 參考區間圖片去除上方多餘空白，並納入版控",
+          "body": "- figure.image margin 1em auto → 0 auto，移除 CKEditor 圖片(參考區間表格)上方多出的空白",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "762953f1",
+          "date": "2026-06-08",
+          "message": "更新 info_ucl@ucl.com.tw 寄信密碼",
+          "body": "gmailsend 內 mail_pwd 改為新密碼",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "ea3011a5",
+          "date": "2026-10-12",
+          "message": "docs: 加入 XSS 同類寫法掃描腳本（追蹤事項 T1~T3 用）",
+          "body": "用法：python docs/security/xss_scan.py <repo根目錄> <輸出.json>\n依 public / admin / dead-copy 分類列出 Request→未編碼輸出的疑似點（啟發式，含誤判）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "9a0e9db6",
+          "date": "2026-10-12",
+          "message": "docs: XSS 矯正紀錄補上 CSP 工單 Tickit #409",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "41c2287e",
+          "date": "2026-10-12",
+          "message": "docs: XSS 矯正紀錄補上修補後實測結果與部署過程",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "af6439bb",
+          "date": "2026-10-12",
+          "message": "fix: security.asp 註解中的 %> 會提早結束 ASP 區塊；補上部署後驗證紀錄",
+          "body": "檔頭註解範例 `<%=SecUrl(x)%>` 的 %> 讓後面的函式定義被當成 HTML 輸出，\n並排測試時攔下，未影響正式頁面。ISO 紀錄補上修補後實測結果與部署過程。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "b2b7dda5",
+          "date": "2026-10-12",
+          "message": "docs: XSS 矯正措施紀錄、部署與驗證腳本",
+          "body": "docs/security/2026-10-12-xss-remediation.md 供 ISO 27001 矯正措施紀錄使用，\n修補後驗證欄位待部署後補上。附部署腳本（stage/swap/rollback/cleanup）、\n驗證腳本與修補前基準結果。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "f37c3e88",
+          "date": "2026-10-12",
+          "message": "fix: 修補官網反射型 XSS（OBB-2118656）及同類輸入輸出問題",
+          "body": "新增 include/security.asp 共用函式：依輸出情境編碼（SecHtml/SecUrl/SecJs）、\n白名單輸入驗證（SecId/SecReqId/SecReqInt/SecReqText/SecLocalUrl）。\n\n- ServiceQuery.asp（OBB-2118656）：strsearch/MiddleID/GoodstypeID 驗證後\n  依 HTML 屬性、HTML 內文、URL 參數分別編碼；page/MaxPerPage 改整數白名單，\n  非數字不再 500\n- search/product/hot_goods/new_goods/sale/video.asp：同樣模式；另修補\n  strsearch、GoodstypeID、Middle_Item_ID_s、shopid cookie 直接串入 SQL 的注入\n- knowledge.asp：TypeName 輸出編碼、typeid 白名單\n- login.asp、webshopLogin.asp：getPage/pathstr/questr/path 限站內相對路徑\n  （同時阻擋 open redirect），隱藏欄位與 JS 字串輸出編碼\n- dealers/login.asp：URL 隱藏欄位輸出編碼\n- bank/show.asp、webshop/shop/show.asp：OutNo 白名單（同時阻擋 SQL 注入），\n  HTML/JS/URL 輸出編碼\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "f1350a42",
+          "date": "2026-10-12",
+          "message": "chore: 匯入 webshop/shop 正式機現行版本以便追蹤 XSS 修補",
+          "body": "ServiceQuery/search/product/hot_goods/new_goods/sale/video/knowledge/login/show.asp\n原本被 .gitignore 排除，先以正式機 (\\192.168.156.224\\d$\\ucl\\web) 現行版\n原樣入庫並加入白名單，下一個 commit 才是修補，diff 才看得出改了什麼。\nlogin.asp 正式機版與本機舊副本不同，以正式機為準。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "943b5c6a",
+          "date": "2026-10-13",
+          "message": "合併 MR !6: chore/sync login banner knowledge table css",
+          "body": "chore/sync login banner knowledge table css\n\nSee merge request ucl/officialwebsites/ucl!6",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "a10aee4e",
+          "date": "2026-10-13",
+          "message": "fix: 衛教知識頁補上 CKEditor 5 表格格線樣式",
+          "body": "- 內容區加 .knowledge-content class，補 figure.table / td / th 的框線與內距\n- 編輯器內靠 .ck-content CSS 畫線，公開頁沒有該樣式導致表格無格線\n- 此樣式自 2026-06-05 已在正式機上線，本次補入版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "4326cd33",
+          "date": "2026-10-13",
+          "message": "feat: 舊後台登入頁加入新版後台導引橫幅、頁尾改資訊室版權",
+          "body": "- 登入框下方加橫幅連到新版後台 http://192.168.156.224:8080/\n- 頁尾移除外包商「風華國際顧問」聯絡資訊，改為「© 大安聯合醫事檢驗所 資訊室」\n- 中文以 HTML entity 寫入，檔案維持 Big5；此版自 2026-06-05 已在正式機上線，本次補入版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "32cd0d47",
+          "date": "2026-10-13",
+          "message": "feat: 醫療院所登入頁「診所健保上傳」新增桃園連結",
+          "body": "- 診所健保上傳區塊新增桃園聯合醫事檢驗所 https://servty.ucl.com.tw:5566/\n- 同步 prod 既有漂移：台中健保上傳改 report.uml.com.tw、報告查詢區塊的「桃園(舊)」hclab 連結\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6ef72626",
+          "date": "2026-10-15",
+          "message": "docs: 冒充 OBB 信說明補上 unsubscribe 陷阱與檢查連結實際網址",
+          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ba0e3ed6",
+          "date": "2026-10-15",
+          "message": "docs: 冒充 Open Bug Bounty 漏洞通知信的辨識與處理說明",
+          "body": "2026-10-13 info@/contact@/help@ 收到寄件網域 mx-openbugbounty.org 的假通知，\n報告編號 OBB-5673736 在 OBB 官網為 404，確認為冒充信。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "e45187c4",
+          "date": "2026-11-04",
+          "message": "feat: 嘉義靜平關於我們加入照片牆、證書牆與燈箱",
+          "body": "嘉義反映公司簡介照片太大、頁面拉很長，榮耀肯定的證書也一樣。\n- 公司簡介：第一張當大圖，其餘排右側\n- 榮耀肯定：證書完整顯示不裁切，附標題\n- 兩區共用燈箱，支援上一張/下一張、方向鍵、手機滑動\n\nabout.asp 全分部共用，只有 Corp_NO=04 才載入，其他分部輸出不變。\n內容由後台 CKEditor 編輯，存檔會濾掉 script 與自訂屬性，所以 JS 直接收區塊裡的 img，\n同仁增刪照片不用改程式。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "057e5a7e",
+          "date": "2026-11-04",
+          "message": "chore: about.asp 納入版控（正式機原始版本）",
+          "body": "about.asp 原本被 webshop/shop/* 排除，修改不會留下紀錄。\n先以正式機 2026-11-04 改版前的內容建立基準，下一個 commit 才看得出實際改動。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "096384fa",
+          "date": "2026-11-10",
+          "message": "合併 MR !8: fix: 診所健保上傳新竹連結改為 https 網域",
+          "body": "fix: 診所健保上傳新竹連結改為 https 網域\n\nSee merge request ucl/officialwebsites/ucl!8",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "7357b5bf",
+          "date": "2026-11-10",
+          "message": "fix: 醫療院所登入頁「診所健保上傳」新竹連結改為 https 網域",
+          "body": "新竹 5566 的埠已改成只收 HTTPS（*.ucl.com.tw 憑證，2026-11-01 簽發），\n原連結 http://60.250.200.133:5566/ 點下去回 400 Bad Request\n（The plain HTTP request was sent to HTTPS port），2026-11-10 被回報為「5566 掛了」。\n\n改為 https://servhc.ucl.com.tw:5566/：公開 DNS 指向同一個 IP，憑證名稱相符。\n不能只把 http 改成 https 留著 IP，憑證對不上 IP，瀏覽器會跳警告。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "5ebce268",
+          "date": "2026-11-12",
+          "message": "合併 MR !10: docs: 首頁影片換成個資遮罩版",
+          "body": "docs: 首頁影片換成個資遮罩版\n\nSee merge request ucl/officialwebsites/ucl!10",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "e01ab038",
+          "date": "2026-11-12",
+          "message": "docs: 首頁影片換成個資遮罩版，記錄遮罩設定",
+          "body": "舊片試管標籤上有病人姓名與身分證字號，改上傳遮罩版（youtu.be/YMgMOzt6VPU）。\n遮罩設定檔放 docs/home-banner-video/masks.json。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "30dff438",
+          "date": "2026-11-12",
+          "message": "合併 MR !9: feat: 首頁 banner 支援 YouTube 影片燈箱",
+          "body": "feat: 首頁 banner 支援 YouTube 影片燈箱\n\nSee merge request ucl/officialwebsites/ucl!9",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "2c82a28f",
+          "date": "2026-11-12",
+          "message": "docs: 記錄影片 banner 對應的資料列與原值",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "20aae5d1",
+          "date": "2026-11-12",
+          "message": "docs: 首頁 banner 影片燈箱的維護說明與 banner 原始檔",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "1bc54d54",
+          "date": "2026-11-12",
+          "message": "feat: 首頁 banner 連結為 YouTube 時改在本頁以燈箱播放",
+          "body": "後台首頁 banner 的連結填 YouTube 網址，點擊即在本頁開燈箱播放，\n可按 ×、點暗色背景或 Esc 關閉；JS 未載入時照舊另開分頁。\n換片或下架都在後台處理，不需改程式。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "7b72af25",
+          "date": "2026-11-12",
+          "message": "chore: index.asp 納入版控（正式機原始版本）",
+          "body": "與正式機 2026-05-18 版逐位元一致，之後首頁的修改才有基準可比。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "cd5ddc63",
+          "date": "2026-11-13",
+          "message": "data: 嘉義靜平 12 項檢驗單位加註（只接受血清）",
+          "body": "正式 DB AllGoods_Contain 已直接更新 InspectionUnit 與 Anoce_date（更新日期），\n本檔記錄執行的 SQL、12 個 InsuranceID，以及更新前原值的還原 query。\nuclWebsite 無 CREATE TABLE 權限，未建備份表，原值寫死於檔尾。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "f25590d7",
+          "date": "2026-11-17",
+          "message": "合併 MR !13: 關閉舊後台與前台的上傳入口（IIS 請求篩選）",
+          "body": "關閉舊後台與前台的上傳入口（IIS 請求篩選）\n\nSee merge request ucl/officialwebsites/ucl!13",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "71a42d30",
+          "date": "2026-11-17",
+          "message": "docs: T1 不能整個後台限內網（前台引用三個路徑）；56.231 盤點與 LISWeb w2w 結論",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "987b164d",
+          "date": "2026-11-17",
+          "message": "fix: 用 IIS 請求篩選關閉舊後台與前台的上傳入口",
+          "body": "舊後台沒有獨立站台，上傳漏洞在傳統 ASP，不移除任何程式檔，改在 5 個資料夾\n加 web.config（requestFiltering/denyUrlSequences，回 404.5）：\n- webshop/shopmanager-area/：upload、uptest（含 aspx 子程式）\n- Script/、HtmlEdit/、webshop/upload/：upload\n- webshop/shop/：opinion_upload（前台意見信箱上傳）\n\n依據：5 個資料夾內會寫檔的程式 46 支，只有 uptest.asp 網址不含 upload；\n近 60 天網址含 upload 的請求全是掃描器。2026-11-17 11:06 已部署正式機，\n20 個網址驗證（9 個上傳程式 200→404.5，其他 11 頁不變）。\n本機 repo 原有的 webshop/shop/web.config（開目錄瀏覽，正式機沒有）換成正式機版本並加白名單。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "7d49437c",
+          "date": "2026-11-17",
+          "message": "合併 MR !12: 官網知識庫下架（典匠著作權來信）＋ webshell 事件紀錄",
+          "body": "官網知識庫下架（典匠著作權來信）＋ webshell 事件紀錄\n\nSee merge request ucl/officialwebsites/ucl!12",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "341a73e2",
+          "date": "2026-11-17",
+          "message": "docs: webshell 事件－檢驗雲/Data2Cloud/OPD 自助改用專用帳號、sa 已停用",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "fb216882",
+          "date": "2026-11-17",
+          "message": "docs: webshell 事件補 156.224 全機風險、SQL Server 檢查與換密碼進度",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "3656d3c0",
+          "date": "2026-11-17",
+          "message": "fix: 左側選單留空的 hidet4_div，修正認識聯合等選單點了沒反應",
+          "body": "知識庫區塊整個拿掉後，hidet1/3/5() 收合其他區塊時找不到 hidet4_div，JS 報錯中斷，\n「認識聯合」「服務項目」「最新消息」都無法展開。補一個隱藏的空 ul 佔位。\n2026-11-17 已部署正式機。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "067159ce",
+          "date": "2026-11-17",
+          "message": "docs: goodstype/02.jpg 已搬到隔離區（webshell 事件 T3 完成）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a322114d",
+          "date": "2026-11-17",
+          "message": "data: 首頁 p-tau 訊息拿掉知識庫連結；補 webshell 事件 log 調查",
+          "body": "- db-scripts/2026-11-ptau-message-remove-knowledge-link.sql：allshopmovement\n  MoveID 260508111256 第一行改純文字、保留兩個檢驗項目連結（含還原 query），\n  2026-11-17 已在正式 DB 執行\n- webshell 事件：IIS log 查到 2026-01-30 投放器被 POST 一次（研判存活探測）、\n  上傳程式 2025-07 起無成功 POST；goodstype/02.jpg 確認未被使用（T3）、新增 T10\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "50ef90ec",
+          "date": "2026-11-17",
+          "message": "docs: 典匠資訊著作權來信處理紀錄、舊官網 webshell 事件紀錄",
+          "body": "- docs/legal/2026-11-16-imagedj-copyright-claim.md：來信內容、查證結果\n  （臨床檢驗項目.pdf 第 5 頁尿杯照片）、知識庫下架範圍與狀態、回覆建議\n- docs/security/2026-11-17-webshell-incident.md：uploadinfo 內 2023-02 植入的\n  webshell、已隔離、研判入口為未驗證身分的上傳程式、追蹤事項 T1~T9\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "b833cc31",
+          "date": "2026-11-17",
+          "message": "feat: 官網知識庫停止服務（典匠資訊著作權來信）",
+          "body": "負責人決定整個知識庫下架：\n- knowledge.asp / knowledge01.asp 改為「已停止服務」頁（410 Gone + noindex，3 秒回首頁）\n- leftmenu.asp / leftmenu_ServiceQueryInfo.asp 的知識庫選單區塊以 If False 停用\n- sitemap.xml 移除 96 筆知識庫網址\n\n附件資料夾 uploadinfo/knowledge 已搬到正式機站台外隔離區（不在 git）。\n2026-11-17 已部署正式機，原檔備份於 d:\\ucl\\_backup_knowledge_20261117\\。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8facf40d",
+          "date": "2026-11-17",
+          "message": "chore: 追蹤 webshop/shop/leftmenu*.asp（正式機現行版）",
+          "body": "兩支左側選單 include 原本在 .gitignore 盲區，內容與正式機 2026-11-17 版本一致，\n先以原版入庫，下一個 commit 再做知識庫下架的修改。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "93c2b483",
+          "date": "2026-11-20",
+          "message": "docs: 典匠著作權案－記錄 11-20 和解報價與系爭 PDF 存取量",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "c856e6e1",
+          "date": "2026-11-20",
+          "message": "合併 MR !14: docs: 典匠著作權案－記錄 11-18 存證信函",
+          "body": "docs: 典匠著作權案－記錄 11-18 存證信函\n\nSee merge request ucl/officialwebsites/ucl!14",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "1e268ee8",
+          "date": "2026-11-20",
+          "message": "docs: 典匠著作權案－記錄 11-18 存證信函內容與 email 差異",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "ef41444b",
+          "date": "2026-11-25",
+          "message": "docs: 11-25 XSS 紀錄－其餘 8 支測試頁與複製檔已移到隔離區",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "3808e876",
+          "date": "2026-11-25",
+          "message": "docs: 修正備份路徑",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "8e889b71",
+          "date": "2026-11-25",
+          "message": "docs: 11-25 XSS 紀錄－ServiceQueryInfo 已部署正式機",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "39b15718",
+          "date": "2026-11-25",
+          "message": "合併 MR !16: fix: ServiceQueryInfo strsearch 輸出編碼；11-25 XSS 通報紀錄",
+          "body": "fix: ServiceQueryInfo strsearch 輸出編碼；11-25 XSS 通報紀錄\n\nSee merge request ucl/officialwebsites/ucl!16",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "9341bcc4",
+          "date": "2026-11-25",
+          "message": "fix: ServiceQueryInfo strsearch 輸出編碼；記錄 11-25 XSS 通報與測試頁下架",
+          "body": "- ServiceQueryInfo.asp include security.asp，兩處 strsearch 改 SecHtml\n- 通報的 ServiceQuery.asp 已於 10-12 修補，實測不成立\n- 正式機遺留的 ServiceQuery_test.asp / ServiceQueryInfo_test.asp 有同樣的洞，\n  已移到 d:\\ucl\\_quarantine_20261125\\\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "50c75f42",
+          "date": "2026-11-26",
+          "message": "合併 MR !25: docs: 典匠案議價結果、報價單與協議書稿",
+          "body": "docs: 典匠案議價結果、報價單與協議書稿\n\nSee merge request ucl/officialwebsites/ucl!25",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "e6090ee5",
+          "date": "2026-11-26",
+          "message": "docs: 典匠案議價結果、報價單與協議書稿（第十一、十二節）",
+          "body": "- 2026-11-25 以 1 萬元（含稅）談成和解＋AIB012028 永久授權\n- 2026-11-26 協議書稿條文摘要、與原訂條件的對照、本所回覆\n- 待辦新增 11-30 發票、匯款與用印\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "0962e676",
+          "date": "2026-11-26",
+          "message": "docs: webshell 事件第九節－補 IIS log 查詢結果，新增 T12（CKFinder 廣告 PDF）",
+          "body": "- IWEB.ASP：2025-07-11 起的 IIS log 沒有被存取的紀錄（僅 11-20 隔離後的驗證請求）\n- 發現外部以 FileUpload 匿名上傳 21 個越南文廣告 PDF，仍在站台內，列為 T12\n- 1.txt 沒有對應的 connector 上傳請求，更正原敘述\n- 索引同步：IWEB.ASP 一項寫明結論，新增廣告 PDF 待隔離\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6fe48b46",
+          "date": "2026-11-26",
+          "message": "docs: 搜尋框位置與 11-26 備份資料夾",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "a3165fec",
+          "date": "2026-11-26",
+          "message": "feat: 訊息列表頁加上搜尋框，搜尋框提示文字改為「搜尋檢驗項目或訊息」",
+          "body": "- news.asp：原本留空的搜尋區塊放進搜尋框（送到 ServiceQuery.asp）\n- index.asp：placeholder「檢驗項目查詢」改掉，搜尋範圍已不只檢驗項目\n- ServiceQuery.asp、ServiceQueryInfo.asp：補上同樣的 placeholder\n- docs：搜尋框位置、備份索引\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8c582057",
+          "date": "2026-11-26",
+          "message": "chore: 追蹤 webshop/shop/news.asp（正式機現行版）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "23c79d6f",
+          "date": "2026-11-26",
+          "message": "docs: webshell 事件第九節－CKFinder 匿名上傳入口 11-26 關閉",
+          "body": "- 11-20 發現 ckfinder/config.asp 為 CheckAuthentication = true，任何人可上傳\n- 11-26 舊後台停用後：CheckAuthentication 改 false；userfiles 加 web.config 擋程式副檔名（404.7）\n- 記錄第一版 web.config 因 .asa 重複造成 500.19 約 10 秒的踩坑\n- 隔離區索引：_quarantine_20261120 補上來源事件，新增 _backup_ckfinder_20261126\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "6a6e7d4c",
+          "date": "2026-11-26",
+          "message": "合併 MR !21: docs: 備份索引補上 11-26 搜尋頁原檔；webshell 事件新增 T11",
+          "body": "docs: 備份索引補上 11-26 搜尋頁原檔；webshell 事件新增 T11\n\nSee merge request ucl/officialwebsites/ucl!21",
+          "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "52b2ceb0",
+          "date": "2026-11-26",
+          "message": "docs: 備份索引補上 11-26 搜尋頁原檔；webshell 事件新增 T11（DB 可疑資料表）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "8ad94bef",
+          "date": "2026-11-26",
+          "message": "feat: 站內搜尋加上會員訊息／聯合訊息；專業社群兩篇文章搬到會員訊息",
+          "body": "知識庫 11-17 下架時，「專業社群」分類（採檢須知、危機值、檢驗表單）\n跟著入口一起從官網消失，11-26 有院所來電找危急值通報文件。\n\n- ServiceQuery.asp：有關鍵字時另外比對 allshopmovement（MoveType 2、3）\n  的標題與內文，結果列在檢驗項目上方的「相關訊息」區塊；參數化查詢，\n  沒有符合就不輸出\n- db-scripts：新增兩則會員訊息（危險數據通知、採檢須知）的 INSERT 與還原\n- docs：記錄背景、處理方式與搜尋範圍\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "6dd1a4b9",
+          "date": "2026-11-26",
+          "message": "docs: 新增正式機隔離區與備份資料夾索引",
+          "body": "彙整 d:\\ucl\\ 底下 4 個 _quarantine_* 與 4 個 _backup_* 資料夾的內容、來源事件與可否清除。\n_quarantine_20261120（ckfinder）先前沒有任何紀錄，列出盤點結果與待補事項。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "OnlineReport\\FalconCopy",
       "totalCommits": 77,
       "commits": [
@@ -31954,557 +32865,6 @@
           "message": "略過空白 ORDER_NO 的 PAT_RESULTH，消除每輪一行的假警告",
           "body": "台北 error log 每輪都會出現一行\n「ORDER_NO  查無未處理資料（可能已被其他實例處理）」（約每天 280 行），\n實際上不是錯誤，也不是別的實例造成的：\n\n- 有一批 PRH_ORDER_NO 空白的 RESULTH（台北現有 1303 筆，經查證是\n  QC／品管資料：TEST_CODE 9001~9003、LAB_NO 6xxxxx29001、無 PAT_ID），\n  本來就不該進網路報告查詢。\n- 偵測查詢的 ROW_NUMBER() PARTITION BY PRH_ORDER_NO 會把所有 NULL 併成\n  同一個分割，所以每輪固定帶回其中一筆。\n- 帶著空字串去查 WHERE PRH_ORDER_NO = :order_no 時，Oracle 的 '' 等同\n  NULL，永遠 0 筆 → 白跑一次 Oracle 往返、記一行假警告、且永遠標不成\n  已處理，下一輪再來一次。\n\n處理：\n- 組 affectedOrderNos 時就排除空白單號，改以 Info 記錄略過筆數。\n- 原本那行競態訊息（單號在偵測後才被標記完成）降級為 Info：它會自行\n  補回，不需人工介入，不該進 error log（nlog 是 Warn 以上寫 errorFile）。\n- 不動 Oracle 端的 PRH_TRX_STATUS：該 flag 可能有其他消費者，程式端\n  略過後已無任何成本。\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
           "category": "其他",
-          "tags": []
-        }
-      ],
-      "type": "work"
-    },
-    {
-      "name": "OfficialWebsites\\ucl",
-      "totalCommits": 68,
-      "commits": [
-        {
-          "hash": "74807372",
-          "date": "2025-12-17",
-          "message": "更新 README 及新增防垃圾郵件文檔",
-          "body": "- 更新 README.md 專案簡介",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "25622150",
-          "date": "2025-12-17",
-          "message": "新增防機器人機制說明文檔",
-          "body": "🤖 Generated with [Claude Code](https://claude.com/claude-code)",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "a38ab11e",
-          "date": "2025-12-17",
-          "message": "新增聯絡表單防機器人機制",
-          "body": "- Honeypot 隱藏欄位",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "84582213",
-          "date": "2025-12-17",
-          "message": "新增聯絡表單防機器人機制",
-          "body": "- Honeypot 隱藏欄位",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "c040a3ec",
-          "date": "2025-12-17",
-          "message": "新增聯絡表單防機器人機制",
-          "body": "- Honeypot 隱藏欄位",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "e7a0d555",
-          "date": "2026-01-02",
-          "message": "加強前端表單驗證",
-          "body": "- 新增姓名必填檢查",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "2cc7a5b9",
-          "date": "2026-01-02",
-          "message": "加強防垃圾郵件機制",
-          "body": "- 新增 User-Agent 檢查（阻擋空白或可疑的 UA）",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cbe7b90d",
-          "date": "2026-01-28",
-          "message": "新增 Google 重新索引指南文檔",
-          "body": "說明如何透過 Search Console 請求重新索引",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "4de0c7f4",
-          "date": "2026-01-28",
-          "message": "修復 knowledge01.asp itemid 前導零問題",
-          "body": "- 修改參數類型從 adInteger 改為 adVarChar",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "8973f598",
-          "date": "2026-01-28",
-          "message": "SEO 優化：動態頁面標題",
-          "body": "- news_info.asp: 標題改為「文章標題 - 商店名稱」",
-          "category": "重構",
-          "tags": []
-        },
-        {
-          "hash": "40cdfaef",
-          "date": "2026-01-28",
-          "message": "新增 Sitemap 產生流程文檔",
-          "body": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "eb882f24",
-          "date": "2026-01-28",
-          "message": "更新 sitemap.xml 並新增 robots.txt",
-          "body": "- 使用 Screaming Frog 重新爬取產生新的 sitemap",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "079632c6",
-          "date": "2026-01-28",
-          "message": "新增 Open Graph 標籤以解決 Bing 顯示錯誤 logo 問題",
-          "body": "- 在 meta.asp 加入 og:image, og:title 等標籤",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "9322849f",
-          "date": "2026-01-28",
-          "message": "修正 ManageLogin.asp 頁面標題",
-          "body": "- 將 title 改為固定「醫療院所登入」，改善 SEO 顯示",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "0c4e78ad",
-          "date": "2026-05-18",
-          "message": "新增首頁訊息與知識庫維護指南及 SQL 紀錄",
-          "body": "- docs/news-and-knowledge-maintenance.md：allshopmovement 與 Knowledge 兩表維護 SOP、HTML 範本、GoodsID 對照、錯誤排除",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "5d031e0f",
-          "date": "2026-05-27",
-          "message": "AI回覆 改走 C 方案：只寄給 ittest，客戶不收表單副本",
-          "body": "由 ittest 端 AI 讀 body 後自行 compose 給客戶 email；Reply-To 仍保留客戶 email 當備援。",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "76595439",
-          "date": "2026-05-27",
-          "message": "gmailsend 加 BCC 參數，AI回覆 路徑 ittest 改密件副本",
-          "body": "- FunChar.asp: gmailsend 加第 7 參數 BccMail",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "0cd03789",
-          "date": "2026-05-27",
-          "message": "聯絡我們類別 radio 可點 label 選取，加大可點範圍",
-          "body": "把每個 radio + 文字包進 <label class=\"kind-opt\">，配 cursor:pointer 樣式",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "e1744175",
-          "date": "2026-05-27",
-          "message": "gmailsend 加 ReplyTo 覆寫參數，AI回覆 路徑回信直達客戶",
-          "body": "- FunChar.asp: gmailsend 加第 6 參數 ReplyToOverride，空字串維持原本行為",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "3a68850b",
-          "date": "2026-05-27",
-          "message": "聯絡我們新增 AI 回覆類別並新增 SMB 部署指南",
-          "body": "- cusCenter.asp 加 \"AI回覆\" radio (value=4)，header/footer 改用共用 include",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "e315998f",
-          "date": "2026-06-02",
-          "message": "新增 webshop/shop 版控盲區與上版注意事項文檔",
-          "body": "- docs/webshop-shop-version-control.md：說明該目錄大多沒納入 git、prod 常被直接改，本機副本易過時；附改檔/部署/同步回 git 的鐵則與漂移快檢腳本",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "bed0cf82",
-          "date": "2026-06-02",
-          "message": "ServiceQueryInfo 參考區間圖片去除上方多餘空白，並納入版控",
-          "body": "- figure.image margin 1em auto → 0 auto，移除 CKEditor 圖片(參考區間表格)上方多出的空白",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "762953f1",
-          "date": "2026-06-08",
-          "message": "更新 info_ucl@ucl.com.tw 寄信密碼",
-          "body": "gmailsend 內 mail_pwd 改為新密碼",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "ea3011a5",
-          "date": "2026-10-12",
-          "message": "docs: 加入 XSS 同類寫法掃描腳本（追蹤事項 T1~T3 用）",
-          "body": "用法：python docs/security/xss_scan.py <repo根目錄> <輸出.json>\n依 public / admin / dead-copy 分類列出 Request→未編碼輸出的疑似點（啟發式，含誤判）。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "9a0e9db6",
-          "date": "2026-10-12",
-          "message": "docs: XSS 矯正紀錄補上 CSP 工單 Tickit #409",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "41c2287e",
-          "date": "2026-10-12",
-          "message": "docs: XSS 矯正紀錄補上修補後實測結果與部署過程",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "af6439bb",
-          "date": "2026-10-12",
-          "message": "fix: security.asp 註解中的 %> 會提早結束 ASP 區塊；補上部署後驗證紀錄",
-          "body": "檔頭註解範例 `<%=SecUrl(x)%>` 的 %> 讓後面的函式定義被當成 HTML 輸出，\n並排測試時攔下，未影響正式頁面。ISO 紀錄補上修補後實測結果與部署過程。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "b2b7dda5",
-          "date": "2026-10-12",
-          "message": "docs: XSS 矯正措施紀錄、部署與驗證腳本",
-          "body": "docs/security/2026-10-12-xss-remediation.md 供 ISO 27001 矯正措施紀錄使用，\n修補後驗證欄位待部署後補上。附部署腳本（stage/swap/rollback/cleanup）、\n驗證腳本與修補前基準結果。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "f37c3e88",
-          "date": "2026-10-12",
-          "message": "fix: 修補官網反射型 XSS（OBB-2118656）及同類輸入輸出問題",
-          "body": "新增 include/security.asp 共用函式：依輸出情境編碼（SecHtml/SecUrl/SecJs）、\n白名單輸入驗證（SecId/SecReqId/SecReqInt/SecReqText/SecLocalUrl）。\n\n- ServiceQuery.asp（OBB-2118656）：strsearch/MiddleID/GoodstypeID 驗證後\n  依 HTML 屬性、HTML 內文、URL 參數分別編碼；page/MaxPerPage 改整數白名單，\n  非數字不再 500\n- search/product/hot_goods/new_goods/sale/video.asp：同樣模式；另修補\n  strsearch、GoodstypeID、Middle_Item_ID_s、shopid cookie 直接串入 SQL 的注入\n- knowledge.asp：TypeName 輸出編碼、typeid 白名單\n- login.asp、webshopLogin.asp：getPage/pathstr/questr/path 限站內相對路徑\n  （同時阻擋 open redirect），隱藏欄位與 JS 字串輸出編碼\n- dealers/login.asp：URL 隱藏欄位輸出編碼\n- bank/show.asp、webshop/shop/show.asp：OutNo 白名單（同時阻擋 SQL 注入），\n  HTML/JS/URL 輸出編碼\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "f1350a42",
-          "date": "2026-10-12",
-          "message": "chore: 匯入 webshop/shop 正式機現行版本以便追蹤 XSS 修補",
-          "body": "ServiceQuery/search/product/hot_goods/new_goods/sale/video/knowledge/login/show.asp\n原本被 .gitignore 排除，先以正式機 (\\192.168.156.224\\d$\\ucl\\web) 現行版\n原樣入庫並加入白名單，下一個 commit 才是修補，diff 才看得出改了什麼。\nlogin.asp 正式機版與本機舊副本不同，以正式機為準。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "943b5c6a",
-          "date": "2026-10-13",
-          "message": "合併 MR !6: chore/sync login banner knowledge table css",
-          "body": "chore/sync login banner knowledge table css\n\nSee merge request ucl/officialwebsites/ucl!6",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "a10aee4e",
-          "date": "2026-10-13",
-          "message": "fix: 衛教知識頁補上 CKEditor 5 表格格線樣式",
-          "body": "- 內容區加 .knowledge-content class，補 figure.table / td / th 的框線與內距\n- 編輯器內靠 .ck-content CSS 畫線，公開頁沒有該樣式導致表格無格線\n- 此樣式自 2026-06-05 已在正式機上線，本次補入版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "4326cd33",
-          "date": "2026-10-13",
-          "message": "feat: 舊後台登入頁加入新版後台導引橫幅、頁尾改資訊室版權",
-          "body": "- 登入框下方加橫幅連到新版後台 http://192.168.156.224:8080/\n- 頁尾移除外包商「風華國際顧問」聯絡資訊，改為「© 大安聯合醫事檢驗所 資訊室」\n- 中文以 HTML entity 寫入，檔案維持 Big5；此版自 2026-06-05 已在正式機上線，本次補入版控\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "32cd0d47",
-          "date": "2026-10-13",
-          "message": "feat: 醫療院所登入頁「診所健保上傳」新增桃園連結",
-          "body": "- 診所健保上傳區塊新增桃園聯合醫事檢驗所 https://servty.ucl.com.tw:5566/\n- 同步 prod 既有漂移：台中健保上傳改 report.uml.com.tw、報告查詢區塊的「桃園(舊)」hclab 連結\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "6ef72626",
-          "date": "2026-10-15",
-          "message": "docs: 冒充 OBB 信說明補上 unsubscribe 陷阱與檢查連結實際網址",
-          "body": "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ba0e3ed6",
-          "date": "2026-10-15",
-          "message": "docs: 冒充 Open Bug Bounty 漏洞通知信的辨識與處理說明",
-          "body": "2026-10-13 info@/contact@/help@ 收到寄件網域 mx-openbugbounty.org 的假通知，\n報告編號 OBB-5673736 在 OBB 官網為 404，確認為冒充信。\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "e45187c4",
-          "date": "2026-11-04",
-          "message": "feat: 嘉義靜平關於我們加入照片牆、證書牆與燈箱",
-          "body": "嘉義反映公司簡介照片太大、頁面拉很長，榮耀肯定的證書也一樣。\n- 公司簡介：第一張當大圖，其餘排右側\n- 榮耀肯定：證書完整顯示不裁切，附標題\n- 兩區共用燈箱，支援上一張/下一張、方向鍵、手機滑動\n\nabout.asp 全分部共用，只有 Corp_NO=04 才載入，其他分部輸出不變。\n內容由後台 CKEditor 編輯，存檔會濾掉 script 與自訂屬性，所以 JS 直接收區塊裡的 img，\n同仁增刪照片不用改程式。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "057e5a7e",
-          "date": "2026-11-04",
-          "message": "chore: about.asp 納入版控（正式機原始版本）",
-          "body": "about.asp 原本被 webshop/shop/* 排除，修改不會留下紀錄。\n先以正式機 2026-11-04 改版前的內容建立基準，下一個 commit 才看得出實際改動。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "096384fa",
-          "date": "2026-11-10",
-          "message": "合併 MR !8: fix: 診所健保上傳新竹連結改為 https 網域",
-          "body": "fix: 診所健保上傳新竹連結改為 https 網域\n\nSee merge request ucl/officialwebsites/ucl!8",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "7357b5bf",
-          "date": "2026-11-10",
-          "message": "fix: 醫療院所登入頁「診所健保上傳」新竹連結改為 https 網域",
-          "body": "新竹 5566 的埠已改成只收 HTTPS（*.ucl.com.tw 憑證，2026-11-01 簽發），\n原連結 http://60.250.200.133:5566/ 點下去回 400 Bad Request\n（The plain HTTP request was sent to HTTPS port），2026-11-10 被回報為「5566 掛了」。\n\n改為 https://servhc.ucl.com.tw:5566/：公開 DNS 指向同一個 IP，憑證名稱相符。\n不能只把 http 改成 https 留著 IP，憑證對不上 IP，瀏覽器會跳警告。\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "5ebce268",
-          "date": "2026-11-12",
-          "message": "合併 MR !10: docs: 首頁影片換成個資遮罩版",
-          "body": "docs: 首頁影片換成個資遮罩版\n\nSee merge request ucl/officialwebsites/ucl!10",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "e01ab038",
-          "date": "2026-11-12",
-          "message": "docs: 首頁影片換成個資遮罩版，記錄遮罩設定",
-          "body": "舊片試管標籤上有病人姓名與身分證字號，改上傳遮罩版（youtu.be/YMgMOzt6VPU）。\n遮罩設定檔放 docs/home-banner-video/masks.json。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "30dff438",
-          "date": "2026-11-12",
-          "message": "合併 MR !9: feat: 首頁 banner 支援 YouTube 影片燈箱",
-          "body": "feat: 首頁 banner 支援 YouTube 影片燈箱\n\nSee merge request ucl/officialwebsites/ucl!9",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "2c82a28f",
-          "date": "2026-11-12",
-          "message": "docs: 記錄影片 banner 對應的資料列與原值",
-          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "20aae5d1",
-          "date": "2026-11-12",
-          "message": "docs: 首頁 banner 影片燈箱的維護說明與 banner 原始檔",
-          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "1bc54d54",
-          "date": "2026-11-12",
-          "message": "feat: 首頁 banner 連結為 YouTube 時改在本頁以燈箱播放",
-          "body": "後台首頁 banner 的連結填 YouTube 網址，點擊即在本頁開燈箱播放，\n可按 ×、點暗色背景或 Esc 關閉；JS 未載入時照舊另開分頁。\n換片或下架都在後台處理，不需改程式。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "7b72af25",
-          "date": "2026-11-12",
-          "message": "chore: index.asp 納入版控（正式機原始版本）",
-          "body": "與正式機 2026-05-18 版逐位元一致，之後首頁的修改才有基準可比。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "cd5ddc63",
-          "date": "2026-11-13",
-          "message": "data: 嘉義靜平 12 項檢驗單位加註（只接受血清）",
-          "body": "正式 DB AllGoods_Contain 已直接更新 InspectionUnit 與 Anoce_date（更新日期），\n本檔記錄執行的 SQL、12 個 InsuranceID，以及更新前原值的還原 query。\nuclWebsite 無 CREATE TABLE 權限，未建備份表，原值寫死於檔尾。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "f25590d7",
-          "date": "2026-11-17",
-          "message": "合併 MR !13: 關閉舊後台與前台的上傳入口（IIS 請求篩選）",
-          "body": "關閉舊後台與前台的上傳入口（IIS 請求篩選）\n\nSee merge request ucl/officialwebsites/ucl!13",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "71a42d30",
-          "date": "2026-11-17",
-          "message": "docs: T1 不能整個後台限內網（前台引用三個路徑）；56.231 盤點與 LISWeb w2w 結論",
-          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "987b164d",
-          "date": "2026-11-17",
-          "message": "fix: 用 IIS 請求篩選關閉舊後台與前台的上傳入口",
-          "body": "舊後台沒有獨立站台，上傳漏洞在傳統 ASP，不移除任何程式檔，改在 5 個資料夾\n加 web.config（requestFiltering/denyUrlSequences，回 404.5）：\n- webshop/shopmanager-area/：upload、uptest（含 aspx 子程式）\n- Script/、HtmlEdit/、webshop/upload/：upload\n- webshop/shop/：opinion_upload（前台意見信箱上傳）\n\n依據：5 個資料夾內會寫檔的程式 46 支，只有 uptest.asp 網址不含 upload；\n近 60 天網址含 upload 的請求全是掃描器。2026-11-17 11:06 已部署正式機，\n20 個網址驗證（9 個上傳程式 200→404.5，其他 11 頁不變）。\n本機 repo 原有的 webshop/shop/web.config（開目錄瀏覽，正式機沒有）換成正式機版本並加白名單。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "7d49437c",
-          "date": "2026-11-17",
-          "message": "合併 MR !12: 官網知識庫下架（典匠著作權來信）＋ webshell 事件紀錄",
-          "body": "官網知識庫下架（典匠著作權來信）＋ webshell 事件紀錄\n\nSee merge request ucl/officialwebsites/ucl!12",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "341a73e2",
-          "date": "2026-11-17",
-          "message": "docs: webshell 事件－檢驗雲/Data2Cloud/OPD 自助改用專用帳號、sa 已停用",
-          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "fb216882",
-          "date": "2026-11-17",
-          "message": "docs: webshell 事件補 156.224 全機風險、SQL Server 檢查與換密碼進度",
-          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "3656d3c0",
-          "date": "2026-11-17",
-          "message": "fix: 左側選單留空的 hidet4_div，修正認識聯合等選單點了沒反應",
-          "body": "知識庫區塊整個拿掉後，hidet1/3/5() 收合其他區塊時找不到 hidet4_div，JS 報錯中斷，\n「認識聯合」「服務項目」「最新消息」都無法展開。補一個隱藏的空 ul 佔位。\n2026-11-17 已部署正式機。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "067159ce",
-          "date": "2026-11-17",
-          "message": "docs: goodstype/02.jpg 已搬到隔離區（webshell 事件 T3 完成）",
-          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "a322114d",
-          "date": "2026-11-17",
-          "message": "data: 首頁 p-tau 訊息拿掉知識庫連結；補 webshell 事件 log 調查",
-          "body": "- db-scripts/2026-11-ptau-message-remove-knowledge-link.sql：allshopmovement\n  MoveID 260508111256 第一行改純文字、保留兩個檢驗項目連結（含還原 query），\n  2026-11-17 已在正式 DB 執行\n- webshell 事件：IIS log 查到 2026-01-30 投放器被 POST 一次（研判存活探測）、\n  上傳程式 2025-07 起無成功 POST；goodstype/02.jpg 確認未被使用（T3）、新增 T10\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "50ef90ec",
-          "date": "2026-11-17",
-          "message": "docs: 典匠資訊著作權來信處理紀錄、舊官網 webshell 事件紀錄",
-          "body": "- docs/legal/2026-11-16-imagedj-copyright-claim.md：來信內容、查證結果\n  （臨床檢驗項目.pdf 第 5 頁尿杯照片）、知識庫下架範圍與狀態、回覆建議\n- docs/security/2026-11-17-webshell-incident.md：uploadinfo 內 2023-02 植入的\n  webshell、已隔離、研判入口為未驗證身分的上傳程式、追蹤事項 T1~T9\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "b833cc31",
-          "date": "2026-11-17",
-          "message": "feat: 官網知識庫停止服務（典匠資訊著作權來信）",
-          "body": "負責人決定整個知識庫下架：\n- knowledge.asp / knowledge01.asp 改為「已停止服務」頁（410 Gone + noindex，3 秒回首頁）\n- leftmenu.asp / leftmenu_ServiceQueryInfo.asp 的知識庫選單區塊以 If False 停用\n- sitemap.xml 移除 96 筆知識庫網址\n\n附件資料夾 uploadinfo/knowledge 已搬到正式機站台外隔離區（不在 git）。\n2026-11-17 已部署正式機，原檔備份於 d:\\ucl\\_backup_knowledge_20261117\\。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "功能開發",
-          "tags": []
-        },
-        {
-          "hash": "8facf40d",
-          "date": "2026-11-17",
-          "message": "chore: 追蹤 webshop/shop/leftmenu*.asp（正式機現行版）",
-          "body": "兩支左側選單 include 原本在 .gitignore 盲區，內容與正式機 2026-11-17 版本一致，\n先以原版入庫，下一個 commit 再做知識庫下架的修改。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-          "category": "其他",
-          "tags": []
-        },
-        {
-          "hash": "93c2b483",
-          "date": "2026-11-20",
-          "message": "docs: 典匠著作權案－記錄 11-20 和解報價與系爭 PDF 存取量",
-          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "c856e6e1",
-          "date": "2026-11-20",
-          "message": "合併 MR !14: docs: 典匠著作權案－記錄 11-18 存證信函",
-          "body": "docs: 典匠著作權案－記錄 11-18 存證信函\n\nSee merge request ucl/officialwebsites/ucl!14",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "1e268ee8",
-          "date": "2026-11-20",
-          "message": "docs: 典匠著作權案－記錄 11-18 存證信函內容與 email 差異",
-          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "ef41444b",
-          "date": "2026-11-25",
-          "message": "docs: 11-25 XSS 紀錄－其餘 8 支測試頁與複製檔已移到隔離區",
-          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "3808e876",
-          "date": "2026-11-25",
-          "message": "docs: 修正備份路徑",
-          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "錯誤修正",
-          "tags": []
-        },
-        {
-          "hash": "8e889b71",
-          "date": "2026-11-25",
-          "message": "docs: 11-25 XSS 紀錄－ServiceQueryInfo 已部署正式機",
-          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "文檔",
-          "tags": []
-        },
-        {
-          "hash": "39b15718",
-          "date": "2026-11-25",
-          "message": "合併 MR !16: fix: ServiceQueryInfo strsearch 輸出編碼；11-25 XSS 通報紀錄",
-          "body": "fix: ServiceQueryInfo strsearch 輸出編碼；11-25 XSS 通報紀錄\n\nSee merge request ucl/officialwebsites/ucl!16",
-          "category": "合併MR",
-          "tags": []
-        },
-        {
-          "hash": "9341bcc4",
-          "date": "2026-11-25",
-          "message": "fix: ServiceQueryInfo strsearch 輸出編碼；記錄 11-25 XSS 通報與測試頁下架",
-          "body": "- ServiceQueryInfo.asp include security.asp，兩處 strsearch 改 SecHtml\n- 通報的 ServiceQuery.asp 已於 10-12 修補，實測不成立\n- 正式機遺留的 ServiceQuery_test.asp / ServiceQueryInfo_test.asp 有同樣的洞，\n  已移到 d:\\ucl\\_quarantine_20261125\\\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
-          "category": "錯誤修正",
           "tags": []
         }
       ],
@@ -33598,7 +33958,7 @@
     },
     {
       "name": "OfficialWebsites\\uclcloud",
-      "totalCommits": 60,
+      "totalCommits": 62,
       "commits": [
         {
           "hash": "a8d8d68f",
@@ -34078,6 +34438,22 @@
           "message": "合併 MR !47: feat(app): 下載頁填上 App Store 連結",
           "body": "feat(app): 下載頁填上 App Store 連結\n\nSee merge request ucl/officialwebsites/cloudedleopard!47",
           "category": "合併MR",
+          "tags": []
+        },
+        {
+          "hash": "518d517e",
+          "date": "2026-11-26",
+          "message": "chore: uclw2w 盤點腳本",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他",
+          "tags": []
+        },
+        {
+          "hash": "bf3534ad",
+          "date": "2026-11-26",
+          "message": "docs: uclw2w 資料表收斂計畫與盤點清單",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
           "tags": []
         }
       ],
@@ -38292,8 +38668,23 @@
       "type": "work"
     },
     {
+      "name": "LIS\\Schedule\\wordtopdf_filemanagement",
+      "totalCommits": 1,
+      "commits": [
+        {
+          "hash": "1f20ca4c",
+          "date": "2026-11-26",
+          "message": "fix(wordtopdf): 有密碼文件不再卡死、單檔逾時保護、每輪心跳",
+          "body": "- 開檔帶假密碼：有密碼的 Word/Excel/PowerPoint 立刻失敗，不跳出隱藏的密碼對話框\n  （DisplayAlerts 管不到密碼對話框，舊版遇到會整支卡死、之後排程全部略過）\n  Excel 只帶開啟密碼，帶 WriteResPassword 會連一般檔都開不了\n- 單檔逾時（convertTimeoutSeconds，預設 300 秒）：只結束本次新開的 Office 程序並記為失敗\n- 每輪結束寫「本輪結束 待處理/成功/失敗」心跳，空轉不再寫「無資料」，供 Cerberus 監控\n- 56.229 隔離資料夾實測紀錄寫入 README\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        }
+      ],
+      "type": "work"
+    },
+    {
       "name": "work-progress",
-      "totalCommits": 861,
+      "totalCommits": 863,
       "commits": [
         {
           "hash": "4bdff543",
@@ -45182,13 +45573,29 @@
           "body": "🤖 自動生成於 2026-11-25 07:05",
           "category": "文檔",
           "tags": []
+        },
+        {
+          "hash": "aea4cc39",
+          "date": "2026-11-26",
+          "message": "docs: 更新彙整資料 2026-11-26",
+          "body": "🤖 自動生成於 2026-11-26 07:05",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "efea54fe",
+          "date": "2026-11-26",
+          "message": "docs: 每日工作紀錄 2026-11-25 (52 commits)",
+          "body": "🤖 自動生成於 2026-11-26 07:05",
+          "category": "文檔",
+          "tags": []
         }
       ],
       "type": "side"
     },
     {
       "name": "ParkFee",
-      "totalCommits": 493,
+      "totalCommits": 501,
       "commits": [
         {
           "hash": "caa33437",
@@ -49131,6 +49538,70 @@
           "date": "2026-11-24",
           "message": "feat(出帳): 獨立帳單改回物業月結檔欄位、收費類別改「2027年機車清潔費第N輪」",
           "body": "經理 11/24 指定金額記在獨立的「機車清潔費」欄（汽車、機車分兩欄），\n收費類別用「2027年機車清潔費」。輪次是回查分輪需要而保留。\n原社區幫範例檔格式留作 --format template 備援。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "ac0edf61",
+          "date": "2026-11-26",
+          "message": "docs(TODO): 11/26 經理定 12/1 時地、公告分棟、兩輪模擬結果、工作人員自行車待定",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "08f8f32f",
+          "date": "2026-11-26",
+          "message": "feat(結果公告): --by-tower 分 AB/CD/EF/GH 棟各一份；第二輪公告版只列本輪新配",
+          "body": "- 經理 11/26：公告依 AB、CD、EF、GH 棟列表，張貼在各棟海報旁；店面另一份。\n- 第二輪公告說明補「只列第二輪新分配」「自行車車位不足列未中」。\n- 配位頁第二輪下載公告版 CSV 比照發佈濾掉輪次 0（第一輪帶進來的已配位），\n  否則第二輪公告會把第一輪的人重貼一次；完整版照舊全列。\n- docs/00：12/1 13:00 EF 閱覽室門前長桌區、分棟公告指令。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "3457f7c0",
+          "date": "2026-11-26",
+          "message": "feat(名冊): 志願小位與車位對不上標紅（不能按已處理）；健檢加第 11 項",
+          "body": "- smallSeatProblem：志願小位狀態有格號，但勾被取消、或掛在第 2 輛以後 → 紅色警示，寫明兩條路\n  （要＝勾回志願小位，不要＝維護頁解除該格）。資料改好才消失，不吃「已處理」。\n- 名冊頁：紅底整列、上方「抽籤前必須處理 N 戶」；已處理按鈕略過紅色警示。\n- check-roster 第 11 項同一規則（11/28 健檢用）。真實名冊 132 台志願小位只抓到 D7-11、C5-12。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發",
+          "tags": []
+        },
+        {
+          "hash": "5bf9ff82",
+          "date": "2026-11-26",
+          "message": "docs(TODO): 11/26 志願小位釋放修正已上線、D7-11/C5-12 待住戶回覆",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9dfe5e4d",
+          "date": "2026-11-26",
+          "message": "fix(登記): 取消志願小位一併釋放車位；改登記稽核記改前改後",
+          "body": "- 0019 app_update_household：原本是線上志願小位（旗標 true）、這次取消勾選 → 釋放 locked_seat、清空車位欄位；\n  已繳費者拒絕。櫃台指派的小位旗標多為 false，用 true→false 判斷不會誤放。\n  順手補還原 繳費來源／繳費時間（0014 新增後 0012 漏了，12/2 起編輯會清空）。回傳改前快照與釋放清單。\n- update-household：每次修改都寫稽核（含住戶自改），detail 記改前／改後車輛摘要（車號末 4 碼）與釋放的小位。\n- audit actor：只有真的用管理員密碼才記 password，H3-6 等管理員戶號記戶號（原本一律記 password）。\n- 登記頁：取消勾選已選定小位的車時，提示送出後會釋放該格。\n\n起因：D7-11（239）、C5-12（58）住戶線上選位後秘書代改取消勾選，格子仍鎖著，抽籤時第 1 輛被跳過。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "af7f9943",
+          "date": "2026-11-26",
+          "message": "docs(TODO): 11/26 E1-10 輛次對調（小位 467 回第 1 輛）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔",
+          "tags": []
+        },
+        {
+          "hash": "7212ec19",
+          "date": "2026-11-26",
+          "message": "fix(結果公告): 加棟別欄後 A4 右欄配位方式被裁，縮欄寬",
+          "body": "棟別只印字母、儲存格左右留白 4→2px、兩欄間距 6→4mm、表格字級 9pt、配位方式 8pt。\n以 710px（A4 扣邊界可印寬）截圖確認兩欄都完整。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正",
+          "tags": []
+        },
+        {
+          "hash": "9327e546",
+          "date": "2026-11-26",
+          "message": "feat(結果公告): 加棟別欄、自行車待第二輪分段、浮水印文字可換",
+          "body": "- 經理 11/26 要求公告列棟別、戶號、車號、車位號：戶號前加棟別欄（S 開頭印店面）\n- 自行車第 2 輛起（11/24 改兩輪）原被列進「未配到車位」，改獨立一段「自行車：待第二輪」\n- --watermark <文字> 換浮水印（給經理的模擬版印「模擬」）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
           "category": "功能開發",
           "tags": []
         }
