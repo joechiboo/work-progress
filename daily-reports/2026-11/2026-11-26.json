@@ -1,0 +1,473 @@
+{
+  "date": "2026-11-26",
+  "weekday": "四",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "1e7ffb40",
+          "time": "17:47",
+          "message": "chore: session 收尾備份 2026-11-26（SMA 統計 memory）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8cc5cb29",
+          "time": "17:11",
+          "message": "chore: session 收尾備份 2026-11-26",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "54005843",
+          "time": "16:35",
+          "message": "memory: uclw2w 資料表收斂計畫",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "69736cc5",
+          "time": "15:50",
+          "message": "memory: 查正式庫改從 reference 讀密碼",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "48bc893e",
+          "time": "15:48",
+          "message": "memory: 大章魚 SSO 上線日改為 11-26",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "aaeffe19",
+          "time": "15:47",
+          "message": "runbook+memory: 大章魚改 SSO，帳密登入只剩 local 帳號",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "4775219b",
+          "time": "12:00",
+          "message": "chore: session 收尾備份 2026-11-26（ParkFee 出帳格式、自行車兩輪）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e2c84a36",
+          "time": "11:15",
+          "message": "skill: fm-doc-apply 文管文件申請送件（Claude in Chrome）+ SOP9270 送件狀態",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "306c75b8",
+          "time": "10:58",
+          "message": "chore: session 收尾備份 2026-11-26（ucl 典匠協議書）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "1a0cadb9",
+          "time": "10:52",
+          "message": "chore: memory－MR !24 已合併",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "937a2385",
+          "time": "10:44",
+          "message": "chore: session 收尾備份 2026-11-26（ucl 官網：隔離區索引、CKFinder IIS log 查詢）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "0656b51f",
+          "time": "10:38",
+          "message": "chore: session 收尾備份 2026-11-26（ucl 官網：專業社群搬會員訊息、站內搜尋）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "4bbb0399",
+          "time": "10:26",
+          "message": "chore: memory－MR !22 已合併",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "94128232",
+          "time": "10:25",
+          "message": "chore: CKFinder 關閉紀錄、runbook 擋副檔名做法 2026-11-26",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c08f6081",
+          "time": "10:15",
+          "message": "chore: session 收尾備份 2026-11-26（CKFinder 入口、ucl-admin 盤點、runbook 掃描教訓）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "0856345d",
+          "time": "10:13",
+          "message": "chore: session 收尾備份 2026-11-26",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "e3adbf88",
+          "time": "10:13",
+          "message": "chore: session 收尾備份 2026-11-26",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "703babf2",
+          "time": "07:42",
+          "message": "chore: session 收尾備份 2026-11-26（大章魚 SSO 開啟 session）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a4127fc3",
+          "time": "07:36",
+          "message": "chore: session 收尾備份 2026-11-26（SMA 查詢 session）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4106b574",
+          "time": "07:34",
+          "message": "chore: memory 更新（MR!1716）2026-11-26",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "12a38e37",
+          "time": "07:33",
+          "message": "chore: memory 更新（各分部 BBS 列印紀錄表）2026-11-26",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "9959872b",
+          "time": "07:31",
+          "message": "chore: session 收尾備份 2026-11-26",
+          "body": "",
+          "category": "其他"
+        }
+      ],
+      "count": 22
+    },
+    {
+      "name": "OfficialWebsites\\ucl",
+      "commits": [
+        {
+          "hash": "50c75f42",
+          "time": "10:55",
+          "message": "合併 MR !25: docs: 典匠案議價結果、報價單與協議書稿",
+          "body": "docs: 典匠案議價結果、報價單與協議書稿\n\nSee merge request ucl/officialwebsites/ucl!25",
+          "category": "合併MR"
+        },
+        {
+          "hash": "e6090ee5",
+          "time": "10:53",
+          "message": "docs: 典匠案議價結果、報價單與協議書稿（第十一、十二節）",
+          "body": "- 2026-11-25 以 1 萬元（含稅）談成和解＋AIB012028 永久授權\n- 2026-11-26 協議書稿條文摘要、與原訂條件的對照、本所回覆\n- 待辦新增 11-30 發票、匯款與用印\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "0962e676",
+          "time": "10:43",
+          "message": "docs: webshell 事件第九節－補 IIS log 查詢結果，新增 T12（CKFinder 廣告 PDF）",
+          "body": "- IWEB.ASP：2025-07-11 起的 IIS log 沒有被存取的紀錄（僅 11-20 隔離後的驗證請求）\n- 發現外部以 FileUpload 匿名上傳 21 個越南文廣告 PDF，仍在站台內，列為 T12\n- 1.txt 沒有對應的 connector 上傳請求，更正原敘述\n- 索引同步：IWEB.ASP 一項寫明結論，新增廣告 PDF 待隔離\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "6fe48b46",
+          "time": "10:26",
+          "message": "docs: 搜尋框位置與 11-26 備份資料夾",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a3165fec",
+          "time": "10:26",
+          "message": "feat: 訊息列表頁加上搜尋框，搜尋框提示文字改為「搜尋檢驗項目或訊息」",
+          "body": "- news.asp：原本留空的搜尋區塊放進搜尋框（送到 ServiceQuery.asp）\n- index.asp：placeholder「檢驗項目查詢」改掉，搜尋範圍已不只檢驗項目\n- ServiceQuery.asp、ServiceQueryInfo.asp：補上同樣的 placeholder\n- docs：搜尋框位置、備份索引\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8c582057",
+          "time": "10:26",
+          "message": "chore: 追蹤 webshop/shop/news.asp（正式機現行版）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "23c79d6f",
+          "time": "10:25",
+          "message": "docs: webshell 事件第九節－CKFinder 匿名上傳入口 11-26 關閉",
+          "body": "- 11-20 發現 ckfinder/config.asp 為 CheckAuthentication = true，任何人可上傳\n- 11-26 舊後台停用後：CheckAuthentication 改 false；userfiles 加 web.config 擋程式副檔名（404.7）\n- 記錄第一版 web.config 因 .asa 重複造成 500.19 約 10 秒的踩坑\n- 隔離區索引：_quarantine_20261120 補上來源事件，新增 _backup_ckfinder_20261126\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "6a6e7d4c",
+          "time": "10:20",
+          "message": "合併 MR !21: docs: 備份索引補上 11-26 搜尋頁原檔；webshell 事件新增 T11",
+          "body": "docs: 備份索引補上 11-26 搜尋頁原檔；webshell 事件新增 T11\n\nSee merge request ucl/officialwebsites/ucl!21",
+          "category": "合併MR"
+        },
+        {
+          "hash": "52b2ceb0",
+          "time": "10:20",
+          "message": "docs: 備份索引補上 11-26 搜尋頁原檔；webshell 事件新增 T11（DB 可疑資料表）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8ad94bef",
+          "time": "10:16",
+          "message": "feat: 站內搜尋加上會員訊息／聯合訊息；專業社群兩篇文章搬到會員訊息",
+          "body": "知識庫 11-17 下架時，「專業社群」分類（採檢須知、危機值、檢驗表單）\n跟著入口一起從官網消失，11-26 有院所來電找危急值通報文件。\n\n- ServiceQuery.asp：有關鍵字時另外比對 allshopmovement（MoveType 2、3）\n  的標題與內文，結果列在檢驗項目上方的「相關訊息」區塊；參數化查詢，\n  沒有符合就不輸出\n- db-scripts：新增兩則會員訊息（危險數據通知、採檢須知）的 INSERT 與還原\n- docs：記錄背景、處理方式與搜尋範圍\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "6dd1a4b9",
+          "time": "10:14",
+          "message": "docs: 新增正式機隔離區與備份資料夾索引",
+          "body": "彙整 d:\\ucl\\ 底下 4 個 _quarantine_* 與 4 個 _backup_* 資料夾的內容、來源事件與可否清除。\n_quarantine_20261120（ckfinder）先前沒有任何紀錄，列出盤點結果與待補事項。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 11
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "92c61334",
+          "time": "19:54",
+          "message": "docs(報告封存): 待辦標記 MR!1722 已開",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d8f658c0",
+          "time": "19:53",
+          "message": "docs(報告封存): 超過兩年報告封存與調閱系統評估與設計（台北）",
+          "body": "幹部會議決議「超過兩年的報告要封存，調閱需主管同意」的評估與設計草案：\n- README：影響評估、台北容量實測、封存庫設計、每日封存規則、保留項目、\n  報告原貌凍結、資料分級、好處與風險、2027-01 AORD 單號衝突、待辦清單\n- 調閱流程設計.md／調閱系統頁面規劃.md：申請、核准、查看流程與頁面\n- 調閱流程討論稿.html（A4 一頁）、調閱系統設計稿.html（架構圖、流程、demo）\n\n尚未實作；多項待幹部會議、品保、帳務確認（見 README 第 11 節）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7c7c6942",
+          "time": "17:40",
+          "message": "feat(文管): 上傳後 PDF 轉好才進初審（轉檔閘門）",
+          "body": "上傳的檔還在「待處理區\\轉檔區」＝PDF 尚未轉好：\n- 初審（Stage 2）不列入審核清單（GetUnfinishStage）與待辦數（HomeController 四處）\n- 申請人端顯示「轉檔中，完成後送交初審」取代「初審中」\n- 不刪任何檔案；轉檔區讀不到時不擋（維持原行為）；轉檔區清單快取 30 秒\n- 站別開關 FMConvertGateEnabled：預設關，台北（Release）與 Debug 開（只有台北 56.229 有轉檔排程）\n\n背景：轉檔排程故障時審核者看得到待辦卻打不開 PDF，SOP9270（202611260001）因此被退件\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "d7f12a46",
+          "time": "15:41",
+          "message": "合併 MR !1719: fix(lt351): 修正基本品管旗標因倍數捨入而漏判",
+          "body": "fix(lt351): 修正基本品管旗標因倍數捨入而漏判\n\nSee merge request ucl/lis/lisweb!1719",
+          "category": "合併MR"
+        },
+        {
+          "hash": "84f67153",
+          "time": "10:23",
+          "message": "fix(BT101): 沒存過設定的單位，開立收據／列印帳單顯示為打勾",
+          "body": "帳務報表對 DEBTOR_DETAIL 沒有資料的單位，把開立收據與列印帳單當成 Y；\nBT101 開啟同一個單位卻顯示兩個都沒勾，改別的欄位存檔後就被寫成 N，\n該單位從此整批列印不出帳單與收據。\n\n新竹 313 家因此變成 N／N（2026-11-26 已用 SQL 改回 Y 並補異動紀錄）。\n\n改為只有明確存過 N 才不勾，畫面與報表一致。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "7a8e907b",
+          "time": "09:33",
+          "message": "docs(Problems): 密碼明碼清除盤點第三輪＋台北資訊室先行清除",
+          "body": "- 現況一覽更新到 2026-11-26：Inside V$SQL 已確認、申報 PHP 看來已改、\n  考核系統與 UclUnitConfig.Web 完成，新增 #5b UclMenuPortalSong（進行中）\n- 5.3.2 第三輪：新來源 uclhappydwl、資料庫自動維護（SQL Tuning Advisor）列排除\n- 5.4 保留名單：千涵、Mars；程式帳號與原廠程式使用者待定\n- 5.5 2026-11-25 台北資訊室 19 個帳號先行清除的紀錄，及全部清除前待定事項\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d1b53a40",
+          "time": "07:37",
+          "message": "docs(Problems): BT201 超過 39 項 — 新竹 2026-11-26 開參數試行",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c64c1890",
+          "time": "07:33",
+          "message": "docs(LT274): 補各分部 BBS 列印紀錄表現況（六站皆有，新竹補建後已寫入）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "d7ff1c91",
+          "time": "07:33",
+          "message": "docs(LT274): 補各分部 BBS 列印紀錄表現況（六站皆有，新竹補建後已寫入）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 9
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud",
+      "commits": [
+        {
+          "hash": "518d517e",
+          "time": "17:11",
+          "message": "chore: uclw2w 盤點腳本",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "bf3534ad",
+          "time": "16:35",
+          "message": "docs: uclw2w 資料表收斂計畫與盤點清單",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "156692fd",
+          "time": "16:12",
+          "message": "docs: App 使用狀況加註冊人數基準",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "f32bc930",
+          "time": "15:50",
+          "message": "docs: App 使用狀況加 11-26 數字",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "3881e399",
+          "time": "17:49",
+          "message": "新增文管轉檔三顆頭（灰磚，等新版轉檔程式部署後啟用）",
+          "body": "- 文管轉檔積壓@台北（FolderBacklog，大安聯合＋聯合生技兩個轉檔區，20 分）：轉失敗＝檔一直留在轉檔區\n- 文管轉檔排程@台北／@聯合生技（LogFreshness，心跳「本輪結束」，10 分；聯合生技設次要）：排程沒在跑\n- 靜默窗 20:00-08:30 配合排程時段；lis-web-docs 用文管帳號密文連線；不設 Bite（InteractiveToken 排程，跨機 DCOM 無權限）\n\n起因：2026-11-21~26 56.229 Word COM 起不來，文管轉檔全掛 6 天沒人知道。\n本機 dotnet Cerberus.dll --check 三顆都讀得到：積壓 2 檔（10/16 兩份）、心跳頭「找不到本輪結束」（舊版程式還沒有這行，符合預期）。\n本機注意：已有到 56.229 的其他帳號 SMB session 時，連線回 1219 要 20 秒以上，會讓檢查逾時；56.231 SYSTEM 無此問題。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "LIS\\Schedule\\wordtopdf_filemanagement",
+      "commits": [
+        {
+          "hash": "1f20ca4c",
+          "time": "17:39",
+          "message": "fix(wordtopdf): 有密碼文件不再卡死、單檔逾時保護、每輪心跳",
+          "body": "- 開檔帶假密碼：有密碼的 Word/Excel/PowerPoint 立刻失敗，不跳出隱藏的密碼對話框\n  （DisplayAlerts 管不到密碼對話框，舊版遇到會整支卡死、之後排程全部略過）\n  Excel 只帶開啟密碼，帶 WriteResPassword 會連一般檔都開不了\n- 單檔逾時（convertTimeoutSeconds，預設 300 秒）：只結束本次新開的 Office 程序並記為失敗\n- 每輪結束寫「本輪結束 待處理/成功/失敗」心跳，空轉不再寫「無資料」，供 Cerberus 監控\n- 56.229 隔離資料夾實測紀錄寫入 README\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "ac0edf61",
+          "time": "14:56",
+          "message": "docs(TODO): 11/26 經理定 12/1 時地、公告分棟、兩輪模擬結果、工作人員自行車待定",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "08f8f32f",
+          "time": "14:56",
+          "message": "feat(結果公告): --by-tower 分 AB/CD/EF/GH 棟各一份；第二輪公告版只列本輪新配",
+          "body": "- 經理 11/26：公告依 AB、CD、EF、GH 棟列表，張貼在各棟海報旁；店面另一份。\n- 第二輪公告說明補「只列第二輪新分配」「自行車車位不足列未中」。\n- 配位頁第二輪下載公告版 CSV 比照發佈濾掉輪次 0（第一輪帶進來的已配位），\n  否則第二輪公告會把第一輪的人重貼一次；完整版照舊全列。\n- docs/00：12/1 13:00 EF 閱覽室門前長桌區、分棟公告指令。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3457f7c0",
+          "time": "14:48",
+          "message": "feat(名冊): 志願小位與車位對不上標紅（不能按已處理）；健檢加第 11 項",
+          "body": "- smallSeatProblem：志願小位狀態有格號，但勾被取消、或掛在第 2 輛以後 → 紅色警示，寫明兩條路\n  （要＝勾回志願小位，不要＝維護頁解除該格）。資料改好才消失，不吃「已處理」。\n- 名冊頁：紅底整列、上方「抽籤前必須處理 N 戶」；已處理按鈕略過紅色警示。\n- check-roster 第 11 項同一規則（11/28 健檢用）。真實名冊 132 台志願小位只抓到 D7-11、C5-12。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "5bf9ff82",
+          "time": "14:41",
+          "message": "docs(TODO): 11/26 志願小位釋放修正已上線、D7-11/C5-12 待住戶回覆",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "9dfe5e4d",
+          "time": "14:19",
+          "message": "fix(登記): 取消志願小位一併釋放車位；改登記稽核記改前改後",
+          "body": "- 0019 app_update_household：原本是線上志願小位（旗標 true）、這次取消勾選 → 釋放 locked_seat、清空車位欄位；\n  已繳費者拒絕。櫃台指派的小位旗標多為 false，用 true→false 判斷不會誤放。\n  順手補還原 繳費來源／繳費時間（0014 新增後 0012 漏了，12/2 起編輯會清空）。回傳改前快照與釋放清單。\n- update-household：每次修改都寫稽核（含住戶自改），detail 記改前／改後車輛摘要（車號末 4 碼）與釋放的小位。\n- audit actor：只有真的用管理員密碼才記 password，H3-6 等管理員戶號記戶號（原本一律記 password）。\n- 登記頁：取消勾選已選定小位的車時，提示送出後會釋放該格。\n\n起因：D7-11（239）、C5-12（58）住戶線上選位後秘書代改取消勾選，格子仍鎖著，抽籤時第 1 輛被跳過。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "af7f9943",
+          "time": "12:56",
+          "message": "docs(TODO): 11/26 E1-10 輛次對調（小位 467 回第 1 輛）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7212ec19",
+          "time": "12:15",
+          "message": "fix(結果公告): 加棟別欄後 A4 右欄配位方式被裁，縮欄寬",
+          "body": "棟別只印字母、儲存格左右留白 4→2px、兩欄間距 6→4mm、表格字級 9pt、配位方式 8pt。\n以 710px（A4 扣邊界可印寬）截圖確認兩欄都完整。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "9327e546",
+          "time": "12:07",
+          "message": "feat(結果公告): 加棟別欄、自行車待第二輪分段、浮水印文字可換",
+          "body": "- 經理 11/26 要求公告列棟別、戶號、車號、車位號：戶號前加棟別欄（S 開頭印店面）\n- 自行車第 2 輛起（11/24 改兩輪）原被列進「未配到車位」，改獨立一段「自行車：待第二輪」\n- --watermark <文字> 換浮水印（給經理的模擬版印「模擬」）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 8
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "aea4cc39",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-26",
+          "body": "🤖 自動生成於 2026-11-26 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "efea54fe",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-25 (52 commits)",
+          "body": "🤖 自動生成於 2026-11-26 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 48,
+    "sideCommits": 10,
+    "totalCommits": 58
+  }
+}
