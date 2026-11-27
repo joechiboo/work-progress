@@ -1,0 +1,580 @@
+{
+  "date": "2026-11-27",
+  "weekday": "五",
+  "work_projects": [
+    {
+      "name": ".claude (工具設定)",
+      "commits": [
+        {
+          "hash": "7ee11eac",
+          "time": "18:45",
+          "message": "chore: VoteBox 推上 GitLab，memory 更新",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "2bddfd1c",
+          "time": "18:42",
+          "message": "chore: VoteBox memory 補營運操作指引",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "ff4ea564",
+          "time": "18:40",
+          "message": "chore: session 收尾備份 2026-11-27（VoteBox 投票系統、外泌體站取代）",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "c7e73853",
+          "time": "16:15",
+          "message": "專案索引加 lumen-interiors；gh token workflow scope 標記已解決",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "36dd2415",
+          "time": "14:07",
+          "message": "memory: LINE 通知 11-24 已發",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "a1e72028",
+          "time": "12:45",
+          "message": "chore: session 收尾備份 2026-11-27",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "76d6afa3",
+          "time": "12:45",
+          "message": "chore: session 收尾備份 2026-11-27",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "bc51f7cc",
+          "time": "12:22",
+          "message": "chore: session 收尾備份 2026-11-27",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "4c8a2385",
+          "time": "12:20",
+          "message": "fix(tickit): 錯誤時保留 API 回應內容；回填 token 實測結果",
+          "body": "- tickit.ps1：Write-Error 在 Stop 模式下會吞掉回應，改寫 stderr 後 exit 1\n- runbook：Bearer 不需 CSRF、附件上傳路徑、api-docs 不吃 token\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "bc76dbc8",
+          "time": "11:14",
+          "message": "feat(tickit): 新增 tickit skill，改用個人 API token",
+          "body": "Tickit 2026-11-27 上線個人 API token（Bearer），不再需要貼 PHPSESSID。\n- skills/tickit：薄入口 + scripts/tickit.ps1（Bearer/UTF-8/錯誤處理/附件上傳）\n- runbooks/tickit-api.md：認證段改 token 為主，session cookie 降為備援，移除 Oracle 取密碼與長期方案\n- CLAUDE.md：Tickit 段落精簡並指向 skill\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "4d2778c6",
+          "time": "10:33",
+          "message": "runbook: Wear OS 自製錶面（Watch Face Format）做法與坑",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "402fde60",
+          "time": "10:23",
+          "message": "chore: session 收尾備份 2026-11-27",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "a6f175d9",
+          "time": "08:52",
+          "message": "chore: session 收尾備份 2026-11-27",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "37c2a6f5",
+          "time": "08:40",
+          "message": "chore: session 收尾備份 2026-11-27",
+          "body": "",
+          "category": "其他"
+        },
+        {
+          "hash": "1c43bb1d",
+          "time": "08:40",
+          "message": "chore: session 收尾備份 2026-11-27（BT201 超過 39 項）",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 15
+    },
+    {
+      "name": "OnlineReport\\report-archive",
+      "commits": [
+        {
+          "hash": "1852ac93",
+          "time": "11:22",
+          "message": "docs: 登入改為從網路報告查詢帶過來，驗證碼先不做",
+          "body": "- 院所在網路報告查詢（webreport，PHP）登入後點入，以一次性通行票換調閱 API 權杖\n- login 表沒有 email 欄位，驗證碼與院所寄信 v1 不做\n- 記下網路報告查詢原始碼位置（停顯與入口都改在 webreport）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "a2302abf",
+          "time": "11:21",
+          "message": "feat(web): favicon、頁面路徑列",
+          "body": "- favicon：紫底報告加鑰匙孔，產生腳本在 assets/favicon/generate.py\n- 申請明細、報告檢視改用路徑列（我的申請 › 申請編號 › 報告）取代返回連結\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "a868c3ff",
+          "time": "10:50",
+          "message": "feat: 報告檢視與下載 PDF（有快照的報告）",
+          "body": "- db/004：報告快照（gzip HTML）、資源表（樣式、章，依內容雜湊去重）、對照表\n- Api：看報告與下載 PDF，每次重新檢查（帳號、已核准未過期、單在申請內、單位仍屬帳號），\n  通過與被拒都寫紀錄；快照去除 script、內嵌樣式與章、加浮水印\n- PDF 用伺服器上的 Edge／Chrome 轉檔（PuppeteerSharp），不連網、不執行 script\n- Web：報告檢視頁（隔離框架、上一張／下一張、下載 PDF），申請明細的查看與下載按鈕\n- 沒有快照的報告（需重新產製）尚未支援\n- Tests：共 93 個\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "fd23d929",
+          "time": "10:36",
+          "message": "feat(web): 登入頁與申請頁加「為什麼要申請」說明",
+          "body": "說明調閱要申請的原因（保護病人個資、降低外洩風險、留紀錄）；調閱原因欄位加提示。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "8a6315b1",
+          "time": "10:23",
+          "message": "feat(web): 送檢單位顯示名稱、手機版面",
+          "body": "- 送檢單位改顯示名稱（代碼為輔），申請頁區塊改名並加說明\n- 手機寬度下表格改成一筆一張卡片、單選直排、送出按鈕放大\n- 登入資料不完整（舊 cookie）視為未登入\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b5948941",
+          "time": "10:12",
+          "message": "feat(web): 申請調閱、我的申請、申請明細三頁",
+          "body": "- Web：開發用假登入（非開發環境不能登入）、申請調閱（C3）、我的申請（C4）、\n  申請明細（C5，含撤回與依原內容再申請）；每頁都要登入，閒置 15 分鐘登出\n- Api：申請清單與明細補上院所自己填的內容；清單裡的指定病人值遮住中段\n- Tests：網站整合測試 9 個（網站 → API → SQL Server 全程實跑），共 67 個\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "707ee015",
+          "time": "10:00",
+          "message": "feat: 封存庫建表腳本與申請流程四個端點",
+          "body": "- db/001–003：申請、申請明細、調閱紀錄、核准人、封存報告表頭（草稿）；\n  建立／撤回／同意退回的預存程序；archive_api、archive_lisweb 兩個角色\n- Api：送出申請、我的申請、申請明細、撤回（看報告、下載 PDF 仍回 501）\n- 登入未實作：開發環境用標頭指定身分，其他環境一律 401\n- 整合測試 18 個：啟動 API 並在本機 SQL Server 建暫時資料庫實測，含資料庫權限\n- db/dev：本機開發資料庫建立腳本與假資料；Api.http 手動測試檔\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "2425f8df",
+          "time": "09:47",
+          "message": "style(docs): 流程說明的調閱系統方塊改淡紫，與設計稿一致",
+          "body": "Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "9253a0cb",
+          "time": "09:25",
+          "message": "feat: .NET 10 專案骨架（Core／Api／Web／Archiver／Tests）",
+          "body": "- Core：申請狀態規則、封存條件、14 碼單號、網站與 API 的資料格式\n- Api：API 金鑰＋來源 IP 檢查；/auth、/requests 端點只有路由（回 501）\n- Web：Razor Pages 首頁，顯示調閱 API 連線狀態\n- Archiver：每日封存入口（預設試跑；--apply 尚未實作，回失敗）\n- Tests：39 個單元測試\n- README 補專案結構與本機執行方式；db/README 建表腳本規矩\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e1bf101a",
+          "time": "08:55",
+          "message": "docs: 建 repo，搬入調閱系統設計文件",
+          "body": "- README：系統組成、與 lisweb 的分工、開工前要確認的事\n- docs/：設計稿、流程設計、頁面規劃、A4 流程說明（自 lisweb Documents/Projects/超過兩年報告封存與調閱核准/ 搬來，系統設計以本 repo 為正本）\n- 評估與容量實測仍在 lisweb README（MR!1722）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 10
+    },
+    {
+      "name": "Cerberus",
+      "commits": [
+        {
+          "hash": "826964c1",
+          "time": "07:33",
+          "message": "合併 MR !88: 補 11-27 佈署紀錄：一次略過多顆頭",
+          "body": "補 11-27 佈署紀錄：一次略過多顆頭\n\nSee merge request ucl/ops/cerberus!88",
+          "category": "合併MR"
+        },
+        {
+          "hash": "d756fe45",
+          "time": "07:32",
+          "message": "補 11-27 佈署紀錄：一次略過多顆頭（MR !87、Argus MR !105/!106）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "bc0dcaa3",
+          "time": "07:30",
+          "message": "合併 MR !86: 新增文管轉檔三顆頭（台北兩顆啟用，聯合生技灰磚）",
+          "body": "新增文管轉檔三顆頭（台北兩顆啟用，聯合生技灰磚）\n\nSee merge request ucl/ops/cerberus!86",
+          "category": "合併MR"
+        },
+        {
+          "hash": "38a2eaf6",
+          "time": "07:30",
+          "message": "feat(文管轉檔): 台北兩顆頭啟用（新版轉檔程式已部署、排程改全天每 1 分鐘）",
+          "body": "- 文管轉檔積壓@台北、文管轉檔排程@台北 改 Enabled:true\n- 文管轉檔排程@聯合生技 維持灰磚：聯合生技仍是舊版轉檔程式，log 沒有「本輪結束」心跳\n- 靜默窗 20:00-08:30 保留\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "76bffb41",
+          "time": "17:49",
+          "message": "新增文管轉檔三顆頭（灰磚，等新版轉檔程式部署後啟用）",
+          "body": "- 文管轉檔積壓@台北（FolderBacklog，大安聯合＋聯合生技兩個轉檔區，20 分）：轉失敗＝檔一直留在轉檔區\n- 文管轉檔排程@台北／@聯合生技（LogFreshness，心跳「本輪結束」，10 分；聯合生技設次要）：排程沒在跑\n- 靜默窗 20:00-08:30 配合排程時段；lis-web-docs 用文管帳號密文連線；不設 Bite（InteractiveToken 排程，跨機 DCOM 無權限）\n\n起因：2026-11-21~26 56.229 Word COM 起不來，文管轉檔全掛 6 天沒人知道。\n本機 dotnet Cerberus.dll --check 三顆都讀得到：積壓 2 檔（10/16 兩份）、心跳頭「找不到本輪結束」（舊版程式還沒有這行，符合預期）。\n本機注意：已有到 56.229 的其他帳號 SMB session 時，連線回 1219 要 20 秒以上，會讓檢查逾時；56.231 SYSTEM 無此問題。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "c17c95c6",
+          "time": "07:26",
+          "message": "合併 MR !87: feat(ack): 一張略過單可以一次略過好幾顆頭",
+          "body": "feat(ack): 一張略過單可以一次略過好幾顆頭\n\nSee merge request ucl/ops/cerberus!87",
+          "category": "合併MR"
+        },
+        {
+          "hash": "97c5bbd8",
+          "time": "07:26",
+          "message": "feat(ack): 一張略過單可以一次略過好幾顆頭（Heads 清單、結尾 * 比對前綴）",
+          "body": "2026-11-27 展望資料庫滿，六站報告回傳同時紅，牆上一次只能略過一塊、\nack-pending.json 一輪也只吃一張，六站要排隊 12 分鐘。\n\n- AckCommand 加選填 Heads；只帶 Head 的舊單子行為不變\n- 結尾 * 的項目＝前綴比對（Name 或 WallName），只展開成正在告警的頭；\n  單獨一個 * 拒絕，一張最多 20 塊\n- 逐顆套用：有任一顆成功就算成功，沒套到的列在回報文字裡\n- --ack 的名字可用逗號隔開或寫 報告回傳@*\n- 告警回應手冊、監控牆回報同步\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "name": "lisweb",
+      "commits": [
+        {
+          "hash": "f13be037",
+          "time": "12:25",
+          "message": "feat(BT101): 客戶資料表不另設權限，能進 BT101 的人都可用",
+          "body": "只是匯出功能，拿掉「資訊室或 BT101 上半部修改權限」的門檻（按鈕與後端 403）。\n健保/自費折數兩欄仍只給有帳務權限的人，與畫面一致。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "e0bab663",
+          "time": "10:02",
+          "message": "feat(BT101): 新增客戶資料表 Excel、新增客戶自動帶註冊日期",
+          "body": "新竹需求：\n1. 客戶資料表（對應舊系統 bls101）：BT101 下方新增按鈕，依負責業務、\n   註冊日期區間匯出客戶完整設定（上半部 + 下半部送檢單位），供行政\n   留存、比對客戶需求的變動。\n   - 權限：資訊室或具 BT101 上半部修改權限（USER_CTL_FLAG1 第 10 碼）\n   - 折數兩欄只給有帳務相關權限的人，與畫面一致\n   - 欄位防禦式讀取，分部缺欄位時留空白\n2. 註冊日期：輸入不存在的客戶編號時先帶當天；清空後儲存，新增時後端\n   仍補當天。既有客戶不補。\n\n順手修：連續快速切換客戶編號時，較晚回來的前一次查詢會把舊客戶資料\n填進新畫面，存檔會把舊客戶的送檢單位改掛到新客戶。改成只認最後一次查詢。\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b3226e75",
+          "time": "08:53",
+          "message": "合併 MR !1693: Fix/修正楊大簽收sql在彙整時的機制",
+          "body": "Fix/修正楊大簽收sql在彙整時的機制\n\nSee merge request ucl/lis/lisweb!1693",
+          "category": "合併MR"
+        },
+        {
+          "hash": "94a4de03",
+          "time": "08:51",
+          "message": "docs(報告封存): 調閱改為先申請、核准後才看得到報告；急件移後續規劃",
+          "body": "- 院所核准前看不到任何報告資訊（原設計先列清單再申請，等於核准前就看到檢查項目）\n- 申請 = 指定病人（身分證／病歷號+生日／姓名+生日／檢體標示）+ 範圍，送出時系統找出報告供核准人審\n- 頁面規劃院所端改 7 頁；設計稿流程圖、規則表、demo 同步\n- 新增 A4 調閱系統流程說明\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "dbLIS",
+      "commits": [
+        {
+          "hash": "d02bd66f",
+          "time": "15:38",
+          "message": "docs(部署手冊): 補 VNC 首次簽章實績、驗證輸出與權杖密碼位置",
+          "body": "- 權杖登入視窗（權杖名稱 UCL）、密碼記在大章魚、發佈規則.txt 明碼待刪\n- signtool verify 的憑證鏈與時間戳樣貌、Get-AuthenticodeSignature 驗法\n- certutil -scinfo 的 localhost 憑證錯誤可忽略\n- 範本腳本位置\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "e14d3238",
+          "time": "14:35",
+          "message": "docs(部署手冊): 修正簽章 token 位置，要用 VNC 連發佈機簽",
+          "body": "token 插在發佈機本機；RDP 工作階段看不到本機智慧卡，\n要用 TightVNC 連主控台簽。改掉先前「持有人用 RDP 帶進來」的錯誤推論，\n並連到資訊室 SOP 的《開發環境程式碼簽章操作手冊》。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "b4ec124a",
+          "time": "11:59",
+          "message": "docs(部署手冊): 補程式碼簽章憑證現況（指紋、token 位置、單支 exe 簽法、換證）",
+          "body": "- 現行憑證指紋 2B715E26…（到期 2027-05-14）；舊的 20C600C5… 已於 2026-04-13 過期\n- 發佈機＝192.168.56.210（ittest）；token 不插在發佈機，由持有人用遠端桌面智慧卡重新導向帶入\n- 單支 exe／dll 的 signtool 簽章與驗證指令、後置建置事件做法\n- 時間戳兩種都可用；換證流程與換證後要改的地方\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "OfficialWebsites\\uclcloud-app",
+      "commits": [
+        {
+          "hash": "32fb5245",
+          "time": "14:07",
+          "message": "合併 MR !82: docs: 記錄 11-24 已發 LINE 通知各分部",
+          "body": "docs: 記錄 11-24 已發 LINE 通知各分部\n\nSee merge request ucl/officialwebsites/uclcloud-app!82",
+          "category": "合併MR"
+        },
+        {
+          "hash": "01dd2261",
+          "time": "14:07",
+          "message": "docs: 記錄 11-24 已發 LINE 通知各分部，更正使用狀況的宣傳前基準",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "bd6a47b4",
+          "time": "14:05",
+          "message": "docs: App 使用狀況加 11-27 數字",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "name": "LIS\\Schedule\\wordtopdf_filemanagement",
+      "commits": [
+        {
+          "hash": "f819bd75",
+          "time": "09:26",
+          "message": "feat(wordtopdf): 併入文件發行（MoveFileConsole），一支排程處理兩個單位的轉檔與每日發行",
+          "body": "- 一輪依 units 逐一轉檔（大安聯合、聯合生技），單位各自的 needMail\n- 每天 publishTime 之後發行一次（log\\publish-last.txt 記日期，主機當時沒開機會補跑）\n- 參數 convert／publish／publish --dry-run（試跑只列不做）\n- 發行程式碼自 movefileconsole 搬入（Publisher.cs、FilePublication.cs、Tests）：\n  入口改 Publisher.Run、XR 轉黑套用單檔逾時、寫死的 SMTP 密碼移出程式\n- BBS 連線字串／SMTP 帳密：環境變數優先，否則讀部署端 config；版本庫 App.config 不放帳密\n- 移除 tools/Set-WordToPdfEnv.ps1（連線字串可放部署端 config，不再需要）\n- 56.229 隔離資料夾實測五項通過；發行回歸測試 13 項通過\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "3546ae6b",
+          "time": "07:36",
+          "message": "docs(wordtopdf): 正式部署紀錄＋聯合生技切換步驟；新增環境變數設定腳本",
+          "body": "- README 補 56.229 兩個單位的部署狀態、排程設定、Cerberus 監控與聯合生技切換步驟\n- tools/Set-WordToPdfEnv.ps1：在 Administrator 工作階段設定 WORDTOPDF_* 使用者環境變數；\n  BBS 連線字串從舊 config 讀、SMTP 密碼執行時輸入不落檔；資料庫只 SELECT 測試、SMTP 只寄給指定信箱\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "Argus",
+      "commits": [
+        {
+          "hash": "7a8e31b0",
+          "time": "07:28",
+          "message": "feat(wall): 略過表單可以一次勾同一類也在叫的磚",
+          "body": "2026-11-27 展望資料庫滿，六站「檢驗報告回傳・」同時紅，一次只能略過一塊、\n要按六次，每次還要等冷卻。\n\n- 表單底下列出同一類（名字「・」前面相同）、紅／黃、沒在略過的磚；\n  內文開頭是同一家廠商的預設打勾，不同廠商的列出來但不勾\n- POST /api/ack 多帶 heads，每一塊照單塊規矩驗，有一塊不合格整張退回\n- 交給 Cerberus 的單子帶 heads（需 Cerberus MR !87，先佈 Cerberus）\n- 送出後「先畫黃」、警報音收聲、磚上進度都涵蓋整張單的每一塊\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "HIS\\SexBioOrderApi",
+      "commits": [
+        {
+          "hash": "5e111417",
+          "time": "17:21",
+          "message": "修正簽收記錄頁缺檢清單漏列",
+          "body": "RackViewModel.GetShortageViewModels 過濾缺件時用 Contains 且條件實際為「或」：\n同批只要有任一支簽收成功的管子單號包含缺件單號（例：同單血管已簽），\n或任一支管是同檢體管種類（例：別人的尿管），缺件就被藏掉。\n\n改為只排除「同檢體編號且同檢體管種類」已在本批簽收成功的缺件。\n缺件在簽收完成（TryMakeRackShortage）時已排除同批刷過的管子，\n正式資料近 30 天 744 筆缺件中，新條件排除 0 筆；舊條件藏掉 237 筆。\n\n案例：2026-11-27 6112780606 缺尿管(004)、藍蓋糞管(006)，\nRackShortage 有存，但簽收記錄頁缺檢清單沒列出。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "name": "Management\\VoteBox",
+      "commits": [
+        {
+          "hash": "5af59a92",
+          "time": "18:45",
+          "message": "feat: VoteBox 投票系統第一版（招牌與接待櫃檯票選）",
+          "body": "- .NET 10 minimal API + SQLite + 單一 HTML 前端\n- 登入：LISWeb SSO（Home/SsoTo，依 iss 分辨分部、token 只能用一次）\n  與手動輸入分部＋LIS 帳密（直接比對該分部 Oracle，與 LISWeb 密碼雙軌相容、只讀）\n- 投票：一人一票、跨分部同名擋重複；選票不記名，Ballot 用 WITHOUT ROWID 避免寫入順序可對照\n- 結果：截止後公開，管理者可隨時看\n- 內建第一輪投票：戶外招牌七款至少選三款、接待櫃檯二選一\n- 30 個單元測試（含與 LISWeb PasswordHasher 相容性、SSO 驗證）\n- docs/design.md、docs/deploy.md、deploy/ 下的 LISWeb SSO 參數 SQL 與設定檔樣板\n\n2026-11-27 已部署到 192.168.56.229:8650（取代原外泌體比較表站）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "side_projects": [
+    {
+      "name": "ParkFee",
+      "commits": [
+        {
+          "hash": "96055a0c",
+          "time": "17:23",
+          "message": "docs(決策): Q24 記第一輪截止改 12/11 晚上 8 點",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "10a8aa9d",
+          "time": "17:23",
+          "message": "feat(繳費): 第一輪截止改 12/11（五）晚上 8 點（經理 11/27）",
+          "body": "- 分棟公告截止日印日期＋星期＋時刻，第一輪預設「晚上 8 點」（--deadline-time 可改）\n- /bylaw 說明表 PDF 重產（經理 11-4v6 只改截止句，維持一頁）\n- 第一輪回查改 12/14（一），必要時 12/11 截止後先做\n- docs/00、14、24、30、35、37、38、41、TODO 同步\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "b83884ad",
+          "time": "15:04",
+          "message": "docs(抽籤): 41 補抽籤當天不 push、下載前確認簽約期限；記 11/27 演練結果",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "4b37938b",
+          "time": "14:37",
+          "message": "docs(抽籤): 41 列印版簡化成一頁摘要",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "485827a0",
+          "time": "14:33",
+          "message": "docs(抽籤): 41 抽籤演練清單 A4 列印版；範例示範移到載入名冊之前",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "7ee9fec8",
+          "time": "14:21",
+          "message": "docs(抽籤): 新增 41 抽籤演練操作清單（健檢→下載名冊→抽籤→出帳乾跑）；D7-11 抽籤前未回覆照 E1-10 處理",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "ddaf3926",
+          "time": "12:56",
+          "message": "docs(TODO): 修正兩處與實際檔名不符的 private 檔案路徑",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "錯誤修正"
+        },
+        {
+          "hash": "eb002920",
+          "time": "12:55",
+          "message": "docs(抽籤): 手冊 §2.2½ 筆電演練步驟（抽籤＋匯出付錢清單，不發佈）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "02191ce9",
+          "time": "12:48",
+          "message": "chore: private/ 整理成 roster/、test-data/、給經理/ 子資料夾，更新腳本預設路徑與文件引用",
+          "body": "check-roster 不帶參數時原本會抓到排序在後的 roster-test-*／roster-線上-*，\n改從 private/roster/ 取最新一份。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "c882f561",
+          "time": "12:47",
+          "message": "docs(抽籤): 手冊第 8 步補筆電無 SQL Express 時的替代備份做法",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "aae19de3",
+          "time": "12:25",
+          "message": "feat(抽籤): 工作人員自行車排全體住戶之後",
+          "body": "- 使用者 11/27 定，比照機車辦法伍二（十二）：第一輪工作人員自行車一律列待第二輪；\n  第二輪（與一次跑完）住戶還有候補就全數暫緩（REASON.STAFF_PENDING），住戶都配到才撿剩位（配位方式＝工作人員）。\n- 公告版濾掉工作人員：自行車工作人員的落選列帶 工作人員 標記，result.js 一併略過。\n- 測試 +4；真實名冊模擬：第一輪該台待第二輪、住戶多配 1 格；第二輪住戶仍有候補 → 暫緩。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "50674472",
+          "time": "11:24",
+          "message": "docs(抽籤): 主持稿與手冊更新為 12/1 現行流程；「清除配位結果」改為禁用警示",
+          "body": "- docs/30 Rundown：12/1 13:00 EF 閱覽室、載入真實名冊後先「下載本次名冊」、輪次要點「第一輪」\n  （預設一次跑完）、種子預設字串要換、待第二輪／待安排／未中的說法、自行車只抽第 1 輛、\n  記下順序號供 12/15 接續、顯示戶號＋簽約期限 12/10、分棟公告指令；\n  發佈後重來改為「同一頁換種子重跑再發佈／匯入抽籤前名冊」，明列不要按清除配位結果。\n- docs/14 §2.2、§2.3 同步。\n- /dev「清除配位結果」：說明與確認視窗加重警告（會清掉 132 個線上選定的志願小位與物業指派位）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        },
+        {
+          "hash": "541540fd",
+          "time": "11:21",
+          "message": "feat(配位): 載入名冊後可「下載本次名冊」（存證＋發佈後重跑用）",
+          "body": "雲端名冊發佈後會帶著第一輪結果，重新載入再抽會得到一樣的結果；「清除配位結果」又會連\n132 個線上選定的小位一起清掉。發佈後要重來或事後驗算，都要用抽籤前這一份名冊，\n欄位同 export-roster.mjs，可在 /dev「④ 匯入真實名冊」原樣匯回（真實名冊來回驗證一致）。\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "功能開發"
+        },
+        {
+          "hash": "7f4d6fb6",
+          "time": "11:19",
+          "message": "docs: 11/28 名冊健檢提前到 11/27 跑",
+          "body": "- docs/00：340 戶，需處理 3 項（無障礙未核驗 1、工作人員不在名單 4、志願小位與車位對不上 1＝D7-11）；演練確認只有 D7-11 第 1 輛會消失\n- TODO：C5-12 已處理、D7-11 仍待住戶回覆\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "文檔"
+        }
+      ],
+      "count": 14
+    },
+    {
+      "name": "lumen-interiors",
+      "commits": [
+        {
+          "hash": "f02e56a5",
+          "time": "16:14",
+          "message": "首頁標題改成只在詞組之間換行",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "aa2a9a2f",
+          "time": "16:13",
+          "message": "案例換成實際完工照、加相簿燈箱",
+          "body": "- 8 張完工照轉 WebP（長邊 1600px＋800px 縮圖，去 EXIF）放 images/\n- 兩個案例各 4 張照片，卡片封面點開相簿，左右鍵切換\n- 首頁大圖換實拍；坪數預算仍為範例數字並在頁面註明\n- 原圖不進版控\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "cb1bcc85",
+          "time": "16:08",
+          "message": "Add designer portfolio prototype (static HTML/CSS/JS)",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01AZy3xh2tZFJwcnarheeNuU",
+          "category": "其他"
+        },
+        {
+          "hash": "edc642e1",
+          "time": "16:06",
+          "message": "Initial commit: README 與 .gitignore",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 4
+    },
+    {
+      "name": "joechiboo.github.io",
+      "commits": [
+        {
+          "hash": "734f81ca",
+          "time": "16:13",
+          "message": "作品集 Lumen Interiors 更新：原型上線，加 Demo 連結與新定位說明",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        },
+        {
+          "hash": "8fb11810",
+          "time": "16:09",
+          "message": "作品集加入 Lumen Interiors 室內裝修設計網站（籌備中）",
+          "body": "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "category": "其他"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "name": "work-progress",
+      "commits": [
+        {
+          "hash": "2372b8de",
+          "time": "07:05",
+          "message": "docs: 更新彙整資料 2026-11-27",
+          "body": "🤖 自動生成於 2026-11-27 07:05",
+          "category": "文檔"
+        },
+        {
+          "hash": "08f0860e",
+          "time": "07:05",
+          "message": "docs: 每日工作紀錄 2026-11-26 (58 commits)",
+          "body": "🤖 自動生成於 2026-11-27 07:05",
+          "category": "文檔"
+        }
+      ],
+      "count": 2
+    }
+  ],
+  "summary": {
+    "workCommits": 47,
+    "sideCommits": 22,
+    "totalCommits": 69
+  }
+}
